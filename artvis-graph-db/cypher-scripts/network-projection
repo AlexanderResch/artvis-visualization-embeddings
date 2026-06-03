@@ -1,0 +1,51 @@
+// network projection artist co-exhibitions v1
+CALL apoc.periodic.iterate(
+    "
+    MATCH (a1:Artist)-[:EXHIBITED]->(e:Exhibition)<-[:EXHIBITED]-(a2:Artist) WHERE id(a1) <> id(a2) RETURN a1,a2,e
+    ",
+    "MERGE (a1)<-[r:EXHIBITED_WITH]->(a2)
+        ON CREATE SET r.exhibitions = [apoc.convert.toJson({ exhibitionId: e.id, startdate: e.startdate, enddate: e.enddate, title: e.title })]
+        ON MATCH SET 
+                r.exhibitions = CASE WHEN apoc.convert.toJson({ exhibitionId: e.id, startdate: e.startdate, enddate: e.enddate, title: e.title }) in r.exhibitions
+                THEN r.exhibitions
+                ELSE r.exhibitions + apoc.convert.toJson({ exhibitionId: e.id, startdate: e.startdate, enddate: e.enddate, title: e.title }) END
+    ",
+    { batchSize: 100000, parallel: false }
+)
+
+
+// network projection artist co-exhibitions v2
+CALL apoc.periodic.iterate(
+    "
+    MATCH (a1:Artist)-[:EXHIBITED]->(e:Exhibition)<-[:EXHIBITED]-(a2:Artist) WHERE id(a1) <> id(a2) RETURN a1,a2,e
+    ",
+    "MERGE (a1)<-[r:EXHIBITED_WITH]->(a2)
+        ON CREATE SET r.exhibitions = [apoc.convert.toJson({ exhibitionId: e.id, startdate: e.startdate, enddate: e.enddate, title: e.title })]
+        ON MATCH SET 
+                r.exhibitions = CASE WHEN apoc.convert.toJson({ exhibitionId: e.id, startdate: e.startdate, enddate: e.enddate, title: e.title }) in r.exhibitions
+                THEN r.exhibitions
+                ELSE r.exhibitions + apoc.convert.toJson({ exhibitionId: e.id, startdate: e.startdate, enddate: e.enddate, title: e.title }) END
+    ",
+    { batchSize: 100000, parallel: false }
+)
+
+// network projection artists co-exhibitions v3 (per exhibition relationships)
+CALL apoc.periodic.iterate(
+    "MATCH (a1:Artist)-[:EXHIBITED]->(e:Exhibition)<-[:EXHIBITED]-(a2:Artist) WHERE id(a1) <> id(a2) RETURN a1,a2,e",
+    "CREATE (a1)-[r:EXHIBITED_WITH { exhibitionId: e.id, startdate: e.startdate, enddate: e.enddate, title: e.title}]->(a2)",
+    { batchSize: 100000, parallel: false }
+)
+
+// network projection artists co-exhibition v4 (per exhibition relationship no duplicates)
+CALL apoc.periodic.iterate(
+    "MATCH (a1:Artist)-[:EXHIBITED]->(e:Exhibition)<-[:EXHIBITED]-(a2:Artist) 
+    WHERE id(a1) <> id(a2) AND NOT EXISTS( (a1)-[:EXHIBITED_WITH]->(a2) ) AND NOT ( (a2)-[:EXHIBITED_WITH]->(a1) )
+    RETURN a1,a2,e",
+    "MERGE (a1)-[r:EXHIBITED_WITH]->(a2)
+    ON CREATE SET r.exhibitionId = e.id, r.startdate = e.startdate, r.enddate = e.enddate, r.title = e.title
+    ",
+    { batchSize: 10000, parallel: false }
+)
+
+
+

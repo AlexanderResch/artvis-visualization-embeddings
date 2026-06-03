@@ -1,0 +1,8381 @@
+[
+	{
+		"id" : 16,
+		"id_exhibition" : 899,
+		"id_location" : 27,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 18,
+		"id_exhibition" : 901,
+		"id_location" : 27,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 21,
+		"id_exhibition" : 902,
+		"id_location" : 27,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 31,
+		"id_exhibition" : 911,
+		"id_location" : 27,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 33,
+		"id_exhibition" : 913,
+		"id_location" : 27,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 36,
+		"id_exhibition" : 915,
+		"id_location" : 27,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 38,
+		"id_exhibition" : 920,
+		"id_location" : 27,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 47,
+		"id_exhibition" : 1011,
+		"id_location" : 190,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 55,
+		"id_exhibition" : 929,
+		"id_location" : 27,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 57,
+		"id_exhibition" : 930,
+		"id_location" : 27,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 98,
+		"id_exhibition" : 343,
+		"id_location" : 27,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 100,
+		"id_exhibition" : 932,
+		"id_location" : 27,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 112,
+		"id_exhibition" : 397,
+		"id_location" : 27,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 114,
+		"id_exhibition" : 937,
+		"id_location" : 27,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 117,
+		"id_exhibition" : 415,
+		"id_location" : 27,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 119,
+		"id_exhibition" : 938,
+		"id_location" : 27,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 139,
+		"id_exhibition" : 1026,
+		"id_location" : 27,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 148,
+		"id_exhibition" : 1004,
+		"id_location" : 27,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 150,
+		"id_exhibition" : 1029,
+		"id_location" : 272,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 189,
+		"id_exhibition" : 1034,
+		"id_location" : 278,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 326,
+		"id_exhibition" : 946,
+		"id_location" : 27,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 436,
+		"id_exhibition" : 1075,
+		"id_location" : 159,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 452,
+		"id_exhibition" : 1007,
+		"id_location" : 89,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 455,
+		"id_exhibition" : 1065,
+		"id_location" : 5,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 463,
+		"id_exhibition" : 541,
+		"id_location" : 124,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 466,
+		"id_exhibition" : 1067,
+		"id_location" : 64,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 476,
+		"id_exhibition" : 1052,
+		"id_location" : 64,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 509,
+		"id_exhibition" : 505,
+		"id_location" : 124,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 515,
+		"id_exhibition" : 10,
+		"id_location" : 273,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 523,
+		"id_exhibition" : 1043,
+		"id_location" : 64,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 535,
+		"id_exhibition" : 46,
+		"id_location" : 273,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 539,
+		"id_exhibition" : 1028,
+		"id_location" : 55,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 541,
+		"id_exhibition" : 1022,
+		"id_location" : 18,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 544,
+		"id_exhibition" : 1038,
+		"id_location" : 278,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 553,
+		"id_exhibition" : 728,
+		"id_location" : 18,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 557,
+		"id_exhibition" : 1044,
+		"id_location" : 64,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 569,
+		"id_exhibition" : 172,
+		"id_location" : 53,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 573,
+		"id_exhibition" : 147,
+		"id_location" : 49,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 576,
+		"id_exhibition" : 62,
+		"id_location" : 173,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 578,
+		"id_exhibition" : 388,
+		"id_location" : 265,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 579,
+		"id_exhibition" : 1061,
+		"id_location" : 286,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 616,
+		"id_exhibition" : 75,
+		"id_location" : 265,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 627,
+		"id_exhibition" : 115,
+		"id_location" : 277,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 628,
+		"id_exhibition" : 1054,
+		"id_location" : 278,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 629,
+		"id_exhibition" : 186,
+		"id_location" : 265,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 679,
+		"id_exhibition" : 1087,
+		"id_location" : 64,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 696,
+		"id_exhibition" : 344,
+		"id_location" : 89,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 741,
+		"id_exhibition" : 1094,
+		"id_location" : 89,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 791,
+		"id_exhibition" : 1100,
+		"id_location" : 23,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 801,
+		"id_exhibition" : 1096,
+		"id_location" : 64,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 803,
+		"id_exhibition" : 1102,
+		"id_location" : 64,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 836,
+		"id_exhibition" : 1085,
+		"id_location" : 5,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 838,
+		"id_exhibition" : 20,
+		"id_location" : 5,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 847,
+		"id_exhibition" : 31,
+		"id_location" : 5,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 854,
+		"id_exhibition" : 5,
+		"id_location" : 5,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 858,
+		"id_exhibition" : 13,
+		"id_location" : 5,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 862,
+		"id_exhibition" : 1080,
+		"id_location" : 9,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 869,
+		"id_exhibition" : 493,
+		"id_location" : 265,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 871,
+		"id_exhibition" : 514,
+		"id_location" : 107,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 876,
+		"id_exhibition" : 654,
+		"id_location" : 273,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 878,
+		"id_exhibition" : 1101,
+		"id_location" : 114,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 882,
+		"id_exhibition" : 630,
+		"id_location" : 30,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 887,
+		"id_exhibition" : 499,
+		"id_location" : 30,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 890,
+		"id_exhibition" : 696,
+		"id_location" : 171,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 894,
+		"id_exhibition" : 1076,
+		"id_location" : 164,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 896,
+		"id_exhibition" : 697,
+		"id_location" : 164,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 899,
+		"id_exhibition" : 694,
+		"id_location" : 30,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 915,
+		"id_exhibition" : 239,
+		"id_location" : 72,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 916,
+		"id_exhibition" : 627,
+		"id_location" : 124,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 919,
+		"id_exhibition" : 628,
+		"id_location" : 153,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 924,
+		"id_exhibition" : 711,
+		"id_location" : 124,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 932,
+		"id_exhibition" : 38,
+		"id_location" : 5,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 934,
+		"id_exhibition" : 76,
+		"id_location" : 5,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 954,
+		"id_exhibition" : 686,
+		"id_location" : 39,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 955,
+		"id_exhibition" : 686,
+		"id_location" : 30,
+		"role" : 0,
+		"ord" : 1
+	},
+	{
+		"id" : 959,
+		"id_exhibition" : 1091,
+		"id_location" : 241,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 967,
+		"id_exhibition" : 72,
+		"id_location" : 30,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 971,
+		"id_exhibition" : 1086,
+		"id_location" : 28,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 974,
+		"id_exhibition" : 1089,
+		"id_location" : 28,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 975,
+		"id_exhibition" : 1090,
+		"id_location" : 28,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 977,
+		"id_exhibition" : 376,
+		"id_location" : 288,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 979,
+		"id_exhibition" : 110,
+		"id_location" : 5,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 983,
+		"id_exhibition" : 85,
+		"id_location" : 5,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 985,
+		"id_exhibition" : 1098,
+		"id_location" : 5,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 991,
+		"id_exhibition" : 108,
+		"id_location" : 30,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1006,
+		"id_exhibition" : 991,
+		"id_location" : 108,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1010,
+		"id_exhibition" : 1010,
+		"id_location" : 18,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1013,
+		"id_exhibition" : 101,
+		"id_location" : 18,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1018,
+		"id_exhibition" : 1008,
+		"id_location" : 89,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1035,
+		"id_exhibition" : 8,
+		"id_location" : 7,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1036,
+		"id_exhibition" : 9,
+		"id_location" : 8,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1037,
+		"id_exhibition" : 19,
+		"id_location" : 272,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1039,
+		"id_exhibition" : 25,
+		"id_location" : 5,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1042,
+		"id_exhibition" : 32,
+		"id_location" : 19,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1043,
+		"id_exhibition" : 33,
+		"id_location" : 20,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1047,
+		"id_exhibition" : 47,
+		"id_location" : 28,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1049,
+		"id_exhibition" : 52,
+		"id_location" : 265,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1050,
+		"id_exhibition" : 60,
+		"id_location" : 30,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1051,
+		"id_exhibition" : 61,
+		"id_location" : 30,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1052,
+		"id_exhibition" : 64,
+		"id_location" : 272,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1053,
+		"id_exhibition" : 65,
+		"id_location" : 266,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1054,
+		"id_exhibition" : 69,
+		"id_location" : 30,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1055,
+		"id_exhibition" : 70,
+		"id_location" : 272,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1059,
+		"id_exhibition" : 82,
+		"id_location" : 27,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1064,
+		"id_exhibition" : 94,
+		"id_location" : 39,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1070,
+		"id_exhibition" : 105,
+		"id_location" : 19,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1073,
+		"id_exhibition" : 119,
+		"id_location" : 30,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1074,
+		"id_exhibition" : 120,
+		"id_location" : 30,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1075,
+		"id_exhibition" : 121,
+		"id_location" : 30,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1079,
+		"id_exhibition" : 130,
+		"id_location" : 46,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1081,
+		"id_exhibition" : 132,
+		"id_location" : 30,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1082,
+		"id_exhibition" : 133,
+		"id_location" : 265,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1084,
+		"id_exhibition" : 136,
+		"id_location" : 30,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1085,
+		"id_exhibition" : 142,
+		"id_location" : 30,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1086,
+		"id_exhibition" : 143,
+		"id_location" : 19,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1089,
+		"id_exhibition" : 152,
+		"id_location" : 30,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1090,
+		"id_exhibition" : 154,
+		"id_location" : 265,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1091,
+		"id_exhibition" : 160,
+		"id_location" : 30,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1099,
+		"id_exhibition" : 181,
+		"id_location" : 19,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1100,
+		"id_exhibition" : 182,
+		"id_location" : 55,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1101,
+		"id_exhibition" : 183,
+		"id_location" : 30,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1103,
+		"id_exhibition" : 185,
+		"id_location" : 30,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1104,
+		"id_exhibition" : 187,
+		"id_location" : 56,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1110,
+		"id_exhibition" : 199,
+		"id_location" : 59,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1111,
+		"id_exhibition" : 200,
+		"id_location" : 19,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1115,
+		"id_exhibition" : 205,
+		"id_location" : 30,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1116,
+		"id_exhibition" : 206,
+		"id_location" : 61,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1119,
+		"id_exhibition" : 213,
+		"id_location" : 30,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1122,
+		"id_exhibition" : 226,
+		"id_location" : 30,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1124,
+		"id_exhibition" : 232,
+		"id_location" : 68,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1130,
+		"id_exhibition" : 242,
+		"id_location" : 30,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1131,
+		"id_exhibition" : 243,
+		"id_location" : 19,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1134,
+		"id_exhibition" : 247,
+		"id_location" : 19,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1135,
+		"id_exhibition" : 261,
+		"id_location" : 78,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1137,
+		"id_exhibition" : 264,
+		"id_location" : 30,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1138,
+		"id_exhibition" : 265,
+		"id_location" : 19,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1141,
+		"id_exhibition" : 275,
+		"id_location" : 30,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1142,
+		"id_exhibition" : 278,
+		"id_location" : 81,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1148,
+		"id_exhibition" : 294,
+		"id_location" : 30,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1149,
+		"id_exhibition" : 295,
+		"id_location" : 19,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1151,
+		"id_exhibition" : 300,
+		"id_location" : 19,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1153,
+		"id_exhibition" : 303,
+		"id_location" : 19,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1156,
+		"id_exhibition" : 307,
+		"id_location" : 30,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1161,
+		"id_exhibition" : 319,
+		"id_location" : 30,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1163,
+		"id_exhibition" : 323,
+		"id_location" : 19,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1164,
+		"id_exhibition" : 324,
+		"id_location" : 87,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1165,
+		"id_exhibition" : 328,
+		"id_location" : 19,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1166,
+		"id_exhibition" : 329,
+		"id_location" : 30,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1168,
+		"id_exhibition" : 337,
+		"id_location" : 30,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1172,
+		"id_exhibition" : 349,
+		"id_location" : 265,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1177,
+		"id_exhibition" : 365,
+		"id_location" : 30,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1180,
+		"id_exhibition" : 375,
+		"id_location" : 30,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1184,
+		"id_exhibition" : 385,
+		"id_location" : 30,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1185,
+		"id_exhibition" : 386,
+		"id_location" : 27,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1190,
+		"id_exhibition" : 402,
+		"id_location" : 30,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1195,
+		"id_exhibition" : 420,
+		"id_location" : 19,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1198,
+		"id_exhibition" : 425,
+		"id_location" : 19,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1203,
+		"id_exhibition" : 438,
+		"id_location" : 265,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1204,
+		"id_exhibition" : 442,
+		"id_location" : 27,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1211,
+		"id_exhibition" : 455,
+		"id_location" : 19,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1212,
+		"id_exhibition" : 457,
+		"id_location" : 27,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1217,
+		"id_exhibition" : 466,
+		"id_location" : 221,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1222,
+		"id_exhibition" : 479,
+		"id_location" : 85,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1231,
+		"id_exhibition" : 498,
+		"id_location" : 19,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1232,
+		"id_exhibition" : 500,
+		"id_location" : 19,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1233,
+		"id_exhibition" : 501,
+		"id_location" : 123,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1235,
+		"id_exhibition" : 510,
+		"id_location" : 85,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1237,
+		"id_exhibition" : 513,
+		"id_location" : 27,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1242,
+		"id_exhibition" : 525,
+		"id_location" : 27,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1243,
+		"id_exhibition" : 527,
+		"id_location" : 30,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1245,
+		"id_exhibition" : 529,
+		"id_location" : 107,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1247,
+		"id_exhibition" : 533,
+		"id_location" : 19,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1251,
+		"id_exhibition" : 545,
+		"id_location" : 27,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1252,
+		"id_exhibition" : 546,
+		"id_location" : 273,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1268,
+		"id_exhibition" : 579,
+		"id_location" : 27,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1272,
+		"id_exhibition" : 590,
+		"id_location" : 141,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1275,
+		"id_exhibition" : 594,
+		"id_location" : 107,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1276,
+		"id_exhibition" : 595,
+		"id_location" : 143,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1278,
+		"id_exhibition" : 598,
+		"id_location" : 86,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1279,
+		"id_exhibition" : 599,
+		"id_location" : 168,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1283,
+		"id_exhibition" : 603,
+		"id_location" : 107,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1284,
+		"id_exhibition" : 604,
+		"id_location" : 27,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1296,
+		"id_exhibition" : 646,
+		"id_location" : 157,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1297,
+		"id_exhibition" : 647,
+		"id_location" : 19,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1298,
+		"id_exhibition" : 648,
+		"id_location" : 19,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1301,
+		"id_exhibition" : 658,
+		"id_location" : 19,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1302,
+		"id_exhibition" : 659,
+		"id_location" : 161,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1303,
+		"id_exhibition" : 660,
+		"id_location" : 162,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1308,
+		"id_exhibition" : 668,
+		"id_location" : 107,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1310,
+		"id_exhibition" : 670,
+		"id_location" : 19,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1311,
+		"id_exhibition" : 674,
+		"id_location" : 27,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1318,
+		"id_exhibition" : 698,
+		"id_location" : 27,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1319,
+		"id_exhibition" : 699,
+		"id_location" : 103,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1320,
+		"id_exhibition" : 700,
+		"id_location" : 161,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1322,
+		"id_exhibition" : 702,
+		"id_location" : 164,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1324,
+		"id_exhibition" : 705,
+		"id_location" : 157,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1328,
+		"id_exhibition" : 724,
+		"id_location" : 176,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1330,
+		"id_exhibition" : 731,
+		"id_location" : 157,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1348,
+		"id_exhibition" : 795,
+		"id_location" : 87,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1355,
+		"id_exhibition" : 811,
+		"id_location" : 19,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1356,
+		"id_exhibition" : 812,
+		"id_location" : 19,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1359,
+		"id_exhibition" : 837,
+		"id_location" : 219,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1360,
+		"id_exhibition" : 863,
+		"id_location" : 46,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1361,
+		"id_exhibition" : 864,
+		"id_location" : 28,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1363,
+		"id_exhibition" : 866,
+		"id_location" : 46,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1364,
+		"id_exhibition" : 868,
+		"id_location" : 241,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1365,
+		"id_exhibition" : 882,
+		"id_location" : 27,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1366,
+		"id_exhibition" : 883,
+		"id_location" : 27,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1367,
+		"id_exhibition" : 884,
+		"id_location" : 27,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1368,
+		"id_exhibition" : 885,
+		"id_location" : 27,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1370,
+		"id_exhibition" : 891,
+		"id_location" : 27,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1371,
+		"id_exhibition" : 892,
+		"id_location" : 27,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1373,
+		"id_exhibition" : 895,
+		"id_location" : 27,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1374,
+		"id_exhibition" : 896,
+		"id_location" : 27,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1376,
+		"id_exhibition" : 903,
+		"id_location" : 27,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1377,
+		"id_exhibition" : 906,
+		"id_location" : 27,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1378,
+		"id_exhibition" : 907,
+		"id_location" : 27,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1379,
+		"id_exhibition" : 908,
+		"id_location" : 27,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1380,
+		"id_exhibition" : 919,
+		"id_location" : 27,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1384,
+		"id_exhibition" : 927,
+		"id_location" : 27,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1385,
+		"id_exhibition" : 928,
+		"id_location" : 27,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1387,
+		"id_exhibition" : 941,
+		"id_location" : 27,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1388,
+		"id_exhibition" : 942,
+		"id_location" : 27,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1389,
+		"id_exhibition" : 943,
+		"id_location" : 27,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1390,
+		"id_exhibition" : 944,
+		"id_location" : 27,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1391,
+		"id_exhibition" : 945,
+		"id_location" : 27,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1392,
+		"id_exhibition" : 947,
+		"id_location" : 27,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1395,
+		"id_exhibition" : 952,
+		"id_location" : 27,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1396,
+		"id_exhibition" : 953,
+		"id_location" : 27,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1398,
+		"id_exhibition" : 955,
+		"id_location" : 27,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1400,
+		"id_exhibition" : 962,
+		"id_location" : 27,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1401,
+		"id_exhibition" : 963,
+		"id_location" : 27,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1402,
+		"id_exhibition" : 964,
+		"id_location" : 27,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1404,
+		"id_exhibition" : 966,
+		"id_location" : 27,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1407,
+		"id_exhibition" : 971,
+		"id_location" : 27,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1408,
+		"id_exhibition" : 973,
+		"id_location" : 27,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1409,
+		"id_exhibition" : 974,
+		"id_location" : 27,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1411,
+		"id_exhibition" : 977,
+		"id_location" : 27,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1412,
+		"id_exhibition" : 981,
+		"id_location" : 27,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1415,
+		"id_exhibition" : 989,
+		"id_location" : 23,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1418,
+		"id_exhibition" : 1001,
+		"id_location" : 27,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1430,
+		"id_exhibition" : 1049,
+		"id_location" : 67,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1431,
+		"id_exhibition" : 1049,
+		"id_location" : 272,
+		"role" : 0,
+		"ord" : 1
+	},
+	{
+		"id" : 1456,
+		"id_exhibition" : 368,
+		"id_location" : 64,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1457,
+		"id_exhibition" : 398,
+		"id_location" : 64,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1460,
+		"id_exhibition" : 387,
+		"id_location" : 89,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1466,
+		"id_exhibition" : 1092,
+		"id_location" : 89,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1471,
+		"id_exhibition" : 1110,
+		"id_location" : 272,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1539,
+		"id_exhibition" : 1121,
+		"id_location" : 88,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1562,
+		"id_exhibition" : 109,
+		"id_location" : 318,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1865,
+		"id_exhibition" : 1145,
+		"id_location" : 19,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1866,
+		"id_exhibition" : 1146,
+		"id_location" : 19,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 1971,
+		"id_exhibition" : 1155,
+		"id_location" : 321,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 2010,
+		"id_exhibition" : 1159,
+		"id_location" : 324,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 2025,
+		"id_exhibition" : 829,
+		"id_location" : 46,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 2028,
+		"id_exhibition" : 1165,
+		"id_location" : 324,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 2082,
+		"id_exhibition" : 602,
+		"id_location" : 147,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 2085,
+		"id_exhibition" : 1172,
+		"id_location" : 324,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 2100,
+		"id_exhibition" : 1184,
+		"id_location" : 324,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 2110,
+		"id_exhibition" : 556,
+		"id_location" : 132,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 2113,
+		"id_exhibition" : 960,
+		"id_location" : 278,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 2193,
+		"id_exhibition" : 81,
+		"id_location" : 328,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 2196,
+		"id_exhibition" : 55,
+		"id_location" : 31,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 2197,
+		"id_exhibition" : 128,
+		"id_location" : 324,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 2200,
+		"id_exhibition" : 1152,
+		"id_location" : 324,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 2202,
+		"id_exhibition" : 217,
+		"id_location" : 324,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 2203,
+		"id_exhibition" : 335,
+		"id_location" : 324,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 2204,
+		"id_exhibition" : 1167,
+		"id_location" : 324,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 2207,
+		"id_exhibition" : 638,
+		"id_location" : 329,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 2211,
+		"id_exhibition" : 677,
+		"id_location" : 324,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 2212,
+		"id_exhibition" : 164,
+		"id_location" : 324,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 2214,
+		"id_exhibition" : 431,
+		"id_location" : 324,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 2215,
+		"id_exhibition" : 1143,
+		"id_location" : 324,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 2217,
+		"id_exhibition" : 291,
+		"id_location" : 324,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 2240,
+		"id_exhibition" : 726,
+		"id_location" : 265,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 2295,
+		"id_exhibition" : 1230,
+		"id_location" : 278,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 2365,
+		"id_exhibition" : 558,
+		"id_location" : 324,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 2367,
+		"id_exhibition" : 1222,
+		"id_location" : 330,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 2369,
+		"id_exhibition" : 1228,
+		"id_location" : 330,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 2372,
+		"id_exhibition" : 416,
+		"id_location" : 329,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 2373,
+		"id_exhibition" : 416,
+		"id_location" : 324,
+		"role" : 0,
+		"ord" : 1
+	},
+	{
+		"id" : 2374,
+		"id_exhibition" : 416,
+		"id_location" : 335,
+		"role" : 0,
+		"ord" : 2
+	},
+	{
+		"id" : 2375,
+		"id_exhibition" : 1224,
+		"id_location" : 330,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 2379,
+		"id_exhibition" : 1236,
+		"id_location" : 337,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 2387,
+		"id_exhibition" : 1237,
+		"id_location" : 337,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 2474,
+		"id_exhibition" : 484,
+		"id_location" : 339,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 2527,
+		"id_exhibition" : 126,
+		"id_location" : 319,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 2559,
+		"id_exhibition" : 712,
+		"id_location" : 147,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 2600,
+		"id_exhibition" : 1248,
+		"id_location" : 342,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 2621,
+		"id_exhibition" : 512,
+		"id_location" : 347,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 2629,
+		"id_exhibition" : 137,
+		"id_location" : 189,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 2676,
+		"id_exhibition" : 1257,
+		"id_location" : 328,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 2721,
+		"id_exhibition" : 1093,
+		"id_location" : 315,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 2738,
+		"id_exhibition" : 1254,
+		"id_location" : 347,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 2739,
+		"id_exhibition" : 1254,
+		"id_location" : 342,
+		"role" : 0,
+		"ord" : 1
+	},
+	{
+		"id" : 2743,
+		"id_exhibition" : 1258,
+		"id_location" : 269,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 2744,
+		"id_exhibition" : 1258,
+		"id_location" : 330,
+		"role" : 0,
+		"ord" : 1
+	},
+	{
+		"id" : 2749,
+		"id_exhibition" : 1246,
+		"id_location" : 330,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 2775,
+		"id_exhibition" : 1243,
+		"id_location" : 330,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 2785,
+		"id_exhibition" : 271,
+		"id_location" : 19,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 2791,
+		"id_exhibition" : 1153,
+		"id_location" : 324,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 2795,
+		"id_exhibition" : 1151,
+		"id_location" : 324,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 2804,
+		"id_exhibition" : 262,
+		"id_location" : 188,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 2810,
+		"id_exhibition" : 925,
+		"id_location" : 190,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 2814,
+		"id_exhibition" : 986,
+		"id_location" : 190,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 2835,
+		"id_exhibition" : 1012,
+		"id_location" : 190,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 2840,
+		"id_exhibition" : 390,
+		"id_location" : 350,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 2841,
+		"id_exhibition" : 390,
+		"id_location" : 349,
+		"role" : 0,
+		"ord" : 1
+	},
+	{
+		"id" : 2867,
+		"id_exhibition" : 1084,
+		"id_location" : 188,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 2870,
+		"id_exhibition" : 1124,
+		"id_location" : 188,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 2872,
+		"id_exhibition" : 138,
+		"id_location" : 189,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 2873,
+		"id_exhibition" : 173,
+		"id_location" : 188,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 2908,
+		"id_exhibition" : 993,
+		"id_location" : 190,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 2911,
+		"id_exhibition" : 1269,
+		"id_location" : 39,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 2921,
+		"id_exhibition" : 994,
+		"id_location" : 190,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 2933,
+		"id_exhibition" : 1025,
+		"id_location" : 190,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 2956,
+		"id_exhibition" : 1018,
+		"id_location" : 190,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 2991,
+		"id_exhibition" : 373,
+		"id_location" : 190,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3007,
+		"id_exhibition" : 412,
+		"id_location" : 190,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3009,
+		"id_exhibition" : 1031,
+		"id_location" : 190,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3011,
+		"id_exhibition" : 1019,
+		"id_location" : 190,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3051,
+		"id_exhibition" : 1106,
+		"id_location" : 190,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3067,
+		"id_exhibition" : 16,
+		"id_location" : 30,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3072,
+		"id_exhibition" : 1095,
+		"id_location" : 39,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3077,
+		"id_exhibition" : 1035,
+		"id_location" : 190,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3107,
+		"id_exhibition" : 92,
+		"id_location" : 320,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3112,
+		"id_exhibition" : 1128,
+		"id_location" : 30,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3118,
+		"id_exhibition" : 1231,
+		"id_location" : 334,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3147,
+		"id_exhibition" : 494,
+		"id_location" : 188,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3174,
+		"id_exhibition" : 1056,
+		"id_location" : 125,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3176,
+		"id_exhibition" : 1058,
+		"id_location" : 125,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3184,
+		"id_exhibition" : 515,
+		"id_location" : 125,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3196,
+		"id_exhibition" : 522,
+		"id_location" : 286,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3198,
+		"id_exhibition" : 1131,
+		"id_location" : 39,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3203,
+		"id_exhibition" : 189,
+		"id_location" : 30,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3230,
+		"id_exhibition" : 1060,
+		"id_location" : 125,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3231,
+		"id_exhibition" : 1240,
+		"id_location" : 28,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3244,
+		"id_exhibition" : 1266,
+		"id_location" : 39,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3245,
+		"id_exhibition" : 1266,
+		"id_location" : 30,
+		"role" : 0,
+		"ord" : 1
+	},
+	{
+		"id" : 3249,
+		"id_exhibition" : 1123,
+		"id_location" : 30,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3252,
+		"id_exhibition" : 1115,
+		"id_location" : 317,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3253,
+		"id_exhibition" : 1115,
+		"id_location" : 30,
+		"role" : 0,
+		"ord" : 1
+	},
+	{
+		"id" : 3255,
+		"id_exhibition" : 537,
+		"id_location" : 190,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3257,
+		"id_exhibition" : 961,
+		"id_location" : 355,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3259,
+		"id_exhibition" : 1048,
+		"id_location" : 309,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3262,
+		"id_exhibition" : 151,
+		"id_location" : 273,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3271,
+		"id_exhibition" : 1168,
+		"id_location" : 321,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3280,
+		"id_exhibition" : 1249,
+		"id_location" : 39,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3282,
+		"id_exhibition" : 1251,
+		"id_location" : 39,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3287,
+		"id_exhibition" : 1154,
+		"id_location" : 321,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3297,
+		"id_exhibition" : 1147,
+		"id_location" : 19,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3301,
+		"id_exhibition" : 209,
+		"id_location" : 19,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3312,
+		"id_exhibition" : 234,
+		"id_location" : 39,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3313,
+		"id_exhibition" : 234,
+		"id_location" : 30,
+		"role" : 0,
+		"ord" : 1
+	},
+	{
+		"id" : 3322,
+		"id_exhibition" : 1162,
+		"id_location" : 46,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3327,
+		"id_exhibition" : 301,
+		"id_location" : 30,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3379,
+		"id_exhibition" : 305,
+		"id_location" : 30,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3383,
+		"id_exhibition" : 1156,
+		"id_location" : 30,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3391,
+		"id_exhibition" : 1221,
+		"id_location" : 334,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3396,
+		"id_exhibition" : 1256,
+		"id_location" : 39,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3400,
+		"id_exhibition" : 1062,
+		"id_location" : 125,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3402,
+		"id_exhibition" : 1063,
+		"id_location" : 125,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3410,
+		"id_exhibition" : 589,
+		"id_location" : 190,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3452,
+		"id_exhibition" : 1006,
+		"id_location" : 190,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3460,
+		"id_exhibition" : 277,
+		"id_location" : 273,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3466,
+		"id_exhibition" : 491,
+		"id_location" : 121,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3467,
+		"id_exhibition" : 1293,
+		"id_location" : 176,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3469,
+		"id_exhibition" : 1239,
+		"id_location" : 28,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3472,
+		"id_exhibition" : 1104,
+		"id_location" : 314,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3485,
+		"id_exhibition" : 637,
+		"id_location" : 324,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3546,
+		"id_exhibition" : 1136,
+		"id_location" : 321,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3548,
+		"id_exhibition" : 524,
+		"id_location" : 5,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3549,
+		"id_exhibition" : 566,
+		"id_location" : 19,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3553,
+		"id_exhibition" : 561,
+		"id_location" : 30,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3554,
+		"id_exhibition" : 575,
+		"id_location" : 30,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3559,
+		"id_exhibition" : 1083,
+		"id_location" : 121,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3560,
+		"id_exhibition" : 1083,
+		"id_location" : 323,
+		"role" : 0,
+		"ord" : 1
+	},
+	{
+		"id" : 3562,
+		"id_exhibition" : 611,
+		"id_location" : 19,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3563,
+		"id_exhibition" : 1114,
+		"id_location" : 19,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3568,
+		"id_exhibition" : 1002,
+		"id_location" : 188,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3572,
+		"id_exhibition" : 1068,
+		"id_location" : 125,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3577,
+		"id_exhibition" : 636,
+		"id_location" : 190,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3578,
+		"id_exhibition" : 597,
+		"id_location" : 53,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3582,
+		"id_exhibition" : 450,
+		"id_location" : 19,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3586,
+		"id_exhibition" : 467,
+		"id_location" : 30,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3587,
+		"id_exhibition" : 449,
+		"id_location" : 30,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3603,
+		"id_exhibition" : 1126,
+		"id_location" : 319,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3609,
+		"id_exhibition" : 409,
+		"id_location" : 99,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3611,
+		"id_exhibition" : 1039,
+		"id_location" : 190,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3620,
+		"id_exhibition" : 433,
+		"id_location" : 273,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3622,
+		"id_exhibition" : 395,
+		"id_location" : 19,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3625,
+		"id_exhibition" : 1070,
+		"id_location" : 125,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3628,
+		"id_exhibition" : 359,
+		"id_location" : 19,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3630,
+		"id_exhibition" : 1253,
+		"id_location" : 321,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3633,
+		"id_exhibition" : 347,
+		"id_location" : 19,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3640,
+		"id_exhibition" : 371,
+		"id_location" : 53,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3644,
+		"id_exhibition" : 392,
+		"id_location" : 19,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3645,
+		"id_exhibition" : 352,
+		"id_location" : 30,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3648,
+		"id_exhibition" : 341,
+		"id_location" : 30,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3649,
+		"id_exhibition" : 370,
+		"id_location" : 30,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3650,
+		"id_exhibition" : 403,
+		"id_location" : 19,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3652,
+		"id_exhibition" : 709,
+		"id_location" : 272,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3664,
+		"id_exhibition" : 1071,
+		"id_location" : 125,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3667,
+		"id_exhibition" : 1077,
+		"id_location" : 188,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3668,
+		"id_exhibition" : 1078,
+		"id_location" : 188,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3673,
+		"id_exhibition" : 1081,
+		"id_location" : 188,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3674,
+		"id_exhibition" : 1079,
+		"id_location" : 188,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3675,
+		"id_exhibition" : 1125,
+		"id_location" : 188,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3698,
+		"id_exhibition" : 90,
+		"id_location" : 188,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3699,
+		"id_exhibition" : 77,
+		"id_location" : 319,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3700,
+		"id_exhibition" : 53,
+		"id_location" : 319,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3702,
+		"id_exhibition" : 17,
+		"id_location" : 319,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3707,
+		"id_exhibition" : 97,
+		"id_location" : 319,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3708,
+		"id_exhibition" : 111,
+		"id_location" : 188,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3709,
+		"id_exhibition" : 134,
+		"id_location" : 188,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3713,
+		"id_exhibition" : 204,
+		"id_location" : 188,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3714,
+		"id_exhibition" : 198,
+		"id_location" : 319,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3715,
+		"id_exhibition" : 1108,
+		"id_location" : 188,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3716,
+		"id_exhibition" : 1055,
+		"id_location" : 190,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3717,
+		"id_exhibition" : 283,
+		"id_location" : 190,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3737,
+		"id_exhibition" : 74,
+		"id_location" : 37,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3741,
+		"id_exhibition" : 1072,
+		"id_location" : 166,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3745,
+		"id_exhibition" : 96,
+		"id_location" : 265,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3753,
+		"id_exhibition" : 193,
+		"id_location" : 319,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3754,
+		"id_exhibition" : 356,
+		"id_location" : 188,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3755,
+		"id_exhibition" : 1021,
+		"id_location" : 190,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3756,
+		"id_exhibition" : 1027,
+		"id_location" : 190,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3757,
+		"id_exhibition" : 389,
+		"id_location" : 190,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3758,
+		"id_exhibition" : 292,
+		"id_location" : 188,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3759,
+		"id_exhibition" : 1016,
+		"id_location" : 190,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3760,
+		"id_exhibition" : 1032,
+		"id_location" : 190,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3761,
+		"id_exhibition" : 1033,
+		"id_location" : 190,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3766,
+		"id_exhibition" : 996,
+		"id_location" : 190,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3767,
+		"id_exhibition" : 1042,
+		"id_location" : 125,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3777,
+		"id_exhibition" : 1009,
+		"id_location" : 190,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3790,
+		"id_exhibition" : 102,
+		"id_location" : 181,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3791,
+		"id_exhibition" : 103,
+		"id_location" : 336,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3792,
+		"id_exhibition" : 122,
+		"id_location" : 44,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3794,
+		"id_exhibition" : 165,
+		"id_location" : 336,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3796,
+		"id_exhibition" : 176,
+		"id_location" : 44,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3797,
+		"id_exhibition" : 1064,
+		"id_location" : 125,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3798,
+		"id_exhibition" : 220,
+		"id_location" : 336,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3799,
+		"id_exhibition" : 592,
+		"id_location" : 125,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3803,
+		"id_exhibition" : 1259,
+		"id_location" : 17,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3807,
+		"id_exhibition" : 1303,
+		"id_location" : 278,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3813,
+		"id_exhibition" : 379,
+		"id_location" : 30,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3816,
+		"id_exhibition" : 959,
+		"id_location" : 39,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3821,
+		"id_exhibition" : 838,
+		"id_location" : 19,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3823,
+		"id_exhibition" : 378,
+		"id_location" : 334,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3827,
+		"id_exhibition" : 1241,
+		"id_location" : 321,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3832,
+		"id_exhibition" : 1271,
+		"id_location" : 39,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3833,
+		"id_exhibition" : 1271,
+		"id_location" : 30,
+		"role" : 0,
+		"ord" : 1
+	},
+	{
+		"id" : 3876,
+		"id_exhibition" : 1244,
+		"id_location" : 344,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3877,
+		"id_exhibition" : 1244,
+		"id_location" : 343,
+		"role" : 0,
+		"ord" : 1
+	},
+	{
+		"id" : 3880,
+		"id_exhibition" : 429,
+		"id_location" : 104,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3886,
+		"id_exhibition" : 1238,
+		"id_location" : 272,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3892,
+		"id_exhibition" : 230,
+		"id_location" : 67,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3893,
+		"id_exhibition" : 216,
+		"id_location" : 64,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3947,
+		"id_exhibition" : 1305,
+		"id_location" : 269,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3952,
+		"id_exhibition" : 914,
+		"id_location" : 269,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3977,
+		"id_exhibition" : 601,
+		"id_location" : 30,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3979,
+		"id_exhibition" : 1284,
+		"id_location" : 64,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3981,
+		"id_exhibition" : 1283,
+		"id_location" : 64,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3983,
+		"id_exhibition" : 1290,
+		"id_location" : 64,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3985,
+		"id_exhibition" : 578,
+		"id_location" : 121,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3995,
+		"id_exhibition" : 1286,
+		"id_location" : 64,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 3996,
+		"id_exhibition" : 1291,
+		"id_location" : 108,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4000,
+		"id_exhibition" : 1287,
+		"id_location" : 64,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4002,
+		"id_exhibition" : 1288,
+		"id_location" : 64,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4004,
+		"id_exhibition" : 1289,
+		"id_location" : 64,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4009,
+		"id_exhibition" : 503,
+		"id_location" : 64,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4038,
+		"id_exhibition" : 413,
+		"id_location" : 18,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4049,
+		"id_exhibition" : 1297,
+		"id_location" : 64,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4050,
+		"id_exhibition" : 1298,
+		"id_location" : 64,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4052,
+		"id_exhibition" : 1299,
+		"id_location" : 64,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4054,
+		"id_exhibition" : 701,
+		"id_location" : 172,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4055,
+		"id_exhibition" : 1296,
+		"id_location" : 108,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4057,
+		"id_exhibition" : 1295,
+		"id_location" : 108,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4080,
+		"id_exhibition" : 168,
+		"id_location" : 278,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4093,
+		"id_exhibition" : 162,
+		"id_location" : 286,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4126,
+		"id_exhibition" : 1307,
+		"id_location" : 278,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4159,
+		"id_exhibition" : 1037,
+		"id_location" : 278,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4173,
+		"id_exhibition" : 1331,
+		"id_location" : 286,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4190,
+		"id_exhibition" : 1130,
+		"id_location" : 269,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4211,
+		"id_exhibition" : 547,
+		"id_location" : 278,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4226,
+		"id_exhibition" : 1119,
+		"id_location" : 269,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4234,
+		"id_exhibition" : 1069,
+		"id_location" : 18,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4237,
+		"id_exhibition" : 1336,
+		"id_location" : 269,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4238,
+		"id_exhibition" : 1336,
+		"id_location" : 359,
+		"role" : 0,
+		"ord" : 1
+	},
+	{
+		"id" : 4242,
+		"id_exhibition" : 4,
+		"id_location" : 286,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4252,
+		"id_exhibition" : 1040,
+		"id_location" : 140,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4253,
+		"id_exhibition" : 593,
+		"id_location" : 140,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4259,
+		"id_exhibition" : 691,
+		"id_location" : 140,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4272,
+		"id_exhibition" : 1158,
+		"id_location" : 269,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4273,
+		"id_exhibition" : 1120,
+		"id_location" : 269,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4274,
+		"id_exhibition" : 1122,
+		"id_location" : 269,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4290,
+		"id_exhibition" : 557,
+		"id_location" : 190,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4294,
+		"id_exhibition" : 535,
+		"id_location" : 140,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4323,
+		"id_exhibition" : 657,
+		"id_location" : 107,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4327,
+		"id_exhibition" : 810,
+		"id_location" : 140,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4330,
+		"id_exhibition" : 733,
+		"id_location" : 363,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4332,
+		"id_exhibition" : 384,
+		"id_location" : 364,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4338,
+		"id_exhibition" : 322,
+		"id_location" : 265,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4344,
+		"id_exhibition" : 999,
+		"id_location" : 27,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4345,
+		"id_exhibition" : 1000,
+		"id_location" : 27,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4356,
+		"id_exhibition" : 606,
+		"id_location" : 290,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4358,
+		"id_exhibition" : 1268,
+		"id_location" : 19,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4362,
+		"id_exhibition" : 37,
+		"id_location" : 23,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4366,
+		"id_exhibition" : 41,
+		"id_location" : 23,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4367,
+		"id_exhibition" : 1111,
+		"id_location" : 23,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4377,
+		"id_exhibition" : 990,
+		"id_location" : 23,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4378,
+		"id_exhibition" : 1112,
+		"id_location" : 23,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4380,
+		"id_exhibition" : 91,
+		"id_location" : 23,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4383,
+		"id_exhibition" : 1017,
+		"id_location" : 23,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4387,
+		"id_exhibition" : 1161,
+		"id_location" : 23,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4389,
+		"id_exhibition" : 1113,
+		"id_location" : 23,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4390,
+		"id_exhibition" : 1117,
+		"id_location" : 23,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4391,
+		"id_exhibition" : 988,
+		"id_location" : 23,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4395,
+		"id_exhibition" : 1164,
+		"id_location" : 23,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4397,
+		"id_exhibition" : 1118,
+		"id_location" : 23,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4399,
+		"id_exhibition" : 1163,
+		"id_location" : 23,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4402,
+		"id_exhibition" : 240,
+		"id_location" : 23,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4405,
+		"id_exhibition" : 1099,
+		"id_location" : 23,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4407,
+		"id_exhibition" : 1173,
+		"id_location" : 23,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4408,
+		"id_exhibition" : 1166,
+		"id_location" : 23,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4410,
+		"id_exhibition" : 1169,
+		"id_location" : 23,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4414,
+		"id_exhibition" : 1171,
+		"id_location" : 23,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4417,
+		"id_exhibition" : 1178,
+		"id_location" : 23,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4419,
+		"id_exhibition" : 1174,
+		"id_location" : 23,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4420,
+		"id_exhibition" : 1177,
+		"id_location" : 23,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4421,
+		"id_exhibition" : 1176,
+		"id_location" : 23,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4426,
+		"id_exhibition" : 1175,
+		"id_location" : 23,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4429,
+		"id_exhibition" : 417,
+		"id_location" : 23,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4430,
+		"id_exhibition" : 444,
+		"id_location" : 23,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4439,
+		"id_exhibition" : 1179,
+		"id_location" : 23,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4440,
+		"id_exhibition" : 521,
+		"id_location" : 23,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4446,
+		"id_exhibition" : 532,
+		"id_location" : 23,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4449,
+		"id_exhibition" : 538,
+		"id_location" : 23,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4459,
+		"id_exhibition" : 616,
+		"id_location" : 23,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4462,
+		"id_exhibition" : 1227,
+		"id_location" : 23,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4463,
+		"id_exhibition" : 640,
+		"id_location" : 23,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4465,
+		"id_exhibition" : 1226,
+		"id_location" : 23,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4468,
+		"id_exhibition" : 661,
+		"id_location" : 140,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4475,
+		"id_exhibition" : 87,
+		"id_location" : 8,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4477,
+		"id_exhibition" : 865,
+		"id_location" : 30,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4478,
+		"id_exhibition" : 34,
+		"id_location" : 286,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4486,
+		"id_exhibition" : 1127,
+		"id_location" : 269,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4493,
+		"id_exhibition" : 1262,
+		"id_location" : 352,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4494,
+		"id_exhibition" : 1262,
+		"id_location" : 286,
+		"role" : 0,
+		"ord" : 1
+	},
+	{
+		"id" : 4515,
+		"id_exhibition" : 1292,
+		"id_location" : 89,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4521,
+		"id_exhibition" : 1135,
+		"id_location" : 269,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4523,
+		"id_exhibition" : 1053,
+		"id_location" : 272,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4524,
+		"id_exhibition" : 1046,
+		"id_location" : 67,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4525,
+		"id_exhibition" : 1046,
+		"id_location" : 272,
+		"role" : 0,
+		"ord" : 1
+	},
+	{
+		"id" : 4526,
+		"id_exhibition" : 797,
+		"id_location" : 269,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4527,
+		"id_exhibition" : 767,
+		"id_location" : 269,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4528,
+		"id_exhibition" : 693,
+		"id_location" : 272,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4530,
+		"id_exhibition" : 581,
+		"id_location" : 272,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4531,
+		"id_exhibition" : 1137,
+		"id_location" : 269,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4532,
+		"id_exhibition" : 619,
+		"id_location" : 272,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4534,
+		"id_exhibition" : 489,
+		"id_location" : 87,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4535,
+		"id_exhibition" : 452,
+		"id_location" : 89,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4536,
+		"id_exhibition" : 405,
+		"id_location" : 272,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4538,
+		"id_exhibition" : 1343,
+		"id_location" : 365,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4540,
+		"id_exhibition" : 308,
+		"id_location" : 272,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4542,
+		"id_exhibition" : 235,
+		"id_location" : 288,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4543,
+		"id_exhibition" : 1245,
+		"id_location" : 324,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4544,
+		"id_exhibition" : 127,
+		"id_location" : 272,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4546,
+		"id_exhibition" : 29,
+		"id_location" : 272,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4548,
+		"id_exhibition" : 1337,
+		"id_location" : 117,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4549,
+		"id_exhibition" : 1330,
+		"id_location" : 278,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4550,
+		"id_exhibition" : 1235,
+		"id_location" : 330,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4551,
+		"id_exhibition" : 1232,
+		"id_location" : 330,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4558,
+		"id_exhibition" : 1139,
+		"id_location" : 324,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4559,
+		"id_exhibition" : 1116,
+		"id_location" : 23,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4560,
+		"id_exhibition" : 1059,
+		"id_location" : 278,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4561,
+		"id_exhibition" : 487,
+		"id_location" : 27,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4562,
+		"id_exhibition" : 348,
+		"id_location" : 273,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4566,
+		"id_exhibition" : 1301,
+		"id_location" : 341,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4573,
+		"id_exhibition" : 1041,
+		"id_location" : 264,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4579,
+		"id_exhibition" : 954,
+		"id_location" : 27,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4584,
+		"id_exhibition" : 281,
+		"id_location" : 47,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4586,
+		"id_exhibition" : 1322,
+		"id_location" : 64,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4587,
+		"id_exhibition" : 1342,
+		"id_location" : 365,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4613,
+		"id_exhibition" : 1260,
+		"id_location" : 286,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4614,
+		"id_exhibition" : 1229,
+		"id_location" : 278,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4627,
+		"id_exhibition" : 163,
+		"id_location" : 368,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4629,
+		"id_exhibition" : 553,
+		"id_location" : 265,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4630,
+		"id_exhibition" : 586,
+		"id_location" : 369,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4635,
+		"id_exhibition" : 495,
+		"id_location" : 140,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4638,
+		"id_exhibition" : 441,
+		"id_location" : 107,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4639,
+		"id_exhibition" : 623,
+		"id_location" : 107,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4641,
+		"id_exhibition" : 89,
+		"id_location" : 19,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4644,
+		"id_exhibition" : 835,
+		"id_location" : 19,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4645,
+		"id_exhibition" : 562,
+		"id_location" : 19,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4647,
+		"id_exhibition" : 312,
+		"id_location" : 86,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4648,
+		"id_exhibition" : 113,
+		"id_location" : 272,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4654,
+		"id_exhibition" : 321,
+		"id_location" : 286,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4655,
+		"id_exhibition" : 321,
+		"id_location" : 359,
+		"role" : 0,
+		"ord" : 1
+	},
+	{
+		"id" : 4661,
+		"id_exhibition" : 967,
+		"id_location" : 278,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4662,
+		"id_exhibition" : 967,
+		"id_location" : 282,
+		"role" : 0,
+		"ord" : 1
+	},
+	{
+		"id" : 4670,
+		"id_exhibition" : 1148,
+		"id_location" : 269,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4679,
+		"id_exhibition" : 1129,
+		"id_location" : 269,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4681,
+		"id_exhibition" : 1144,
+		"id_location" : 269,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4683,
+		"id_exhibition" : 715,
+		"id_location" : 157,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4686,
+		"id_exhibition" : 27,
+		"id_location" : 17,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4687,
+		"id_exhibition" : 28,
+		"id_location" : 351,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4708,
+		"id_exhibition" : 1149,
+		"id_location" : 269,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4713,
+		"id_exhibition" : 1263,
+		"id_location" : 286,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4725,
+		"id_exhibition" : 588,
+		"id_location" : 140,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4726,
+		"id_exhibition" : 577,
+		"id_location" : 140,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4728,
+		"id_exhibition" : 1270,
+		"id_location" : 286,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4739,
+		"id_exhibition" : 808,
+		"id_location" : 140,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4744,
+		"id_exhibition" : 809,
+		"id_location" : 140,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4748,
+		"id_exhibition" : 245,
+		"id_location" : 265,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4754,
+		"id_exhibition" : 1264,
+		"id_location" : 286,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4826,
+		"id_exhibition" : 519,
+		"id_location" : 188,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4827,
+		"id_exhibition" : 519,
+		"id_location" : 140,
+		"role" : 0,
+		"ord" : 1
+	},
+	{
+		"id" : 4836,
+		"id_exhibition" : 481,
+		"id_location" : 140,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4871,
+		"id_exhibition" : 443,
+		"id_location" : 108,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4874,
+		"id_exhibition" : 803,
+		"id_location" : 140,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4876,
+		"id_exhibition" : 798,
+		"id_location" : 140,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4884,
+		"id_exhibition" : 1036,
+		"id_location" : 140,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4885,
+		"id_exhibition" : 580,
+		"id_location" : 302,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4887,
+		"id_exhibition" : 1097,
+		"id_location" : 19,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4889,
+		"id_exhibition" : 1073,
+		"id_location" : 289,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4892,
+		"id_exhibition" : 1057,
+		"id_location" : 86,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4893,
+		"id_exhibition" : 1057,
+		"id_location" : 283,
+		"role" : 0,
+		"ord" : 1
+	},
+	{
+		"id" : 4894,
+		"id_exhibition" : 302,
+		"id_location" : 278,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4902,
+		"id_exhibition" : 98,
+		"id_location" : 30,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4906,
+		"id_exhibition" : 893,
+		"id_location" : 27,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4916,
+		"id_exhibition" : 897,
+		"id_location" : 27,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4917,
+		"id_exhibition" : 910,
+		"id_location" : 27,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4919,
+		"id_exhibition" : 924,
+		"id_location" : 27,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4923,
+		"id_exhibition" : 1252,
+		"id_location" : 342,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4924,
+		"id_exhibition" : 1252,
+		"id_location" : 347,
+		"role" : 0,
+		"ord" : 1
+	},
+	{
+		"id" : 4928,
+		"id_exhibition" : 1132,
+		"id_location" : 324,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4930,
+		"id_exhibition" : 1133,
+		"id_location" : 324,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4931,
+		"id_exhibition" : 1134,
+		"id_location" : 324,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4933,
+		"id_exhibition" : 1157,
+		"id_location" : 324,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4934,
+		"id_exhibition" : 320,
+		"id_location" : 27,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4935,
+		"id_exhibition" : 334,
+		"id_location" : 27,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4936,
+		"id_exhibition" : 933,
+		"id_location" : 27,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4945,
+		"id_exhibition" : 939,
+		"id_location" : 27,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4946,
+		"id_exhibition" : 518,
+		"id_location" : 27,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4947,
+		"id_exhibition" : 203,
+		"id_location" : 60,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4949,
+		"id_exhibition" : 1247,
+		"id_location" : 341,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4950,
+		"id_exhibition" : 926,
+		"id_location" : 27,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4953,
+		"id_exhibition" : 310,
+		"id_location" : 53,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4960,
+		"id_exhibition" : 474,
+		"id_location" : 140,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4961,
+		"id_exhibition" : 474,
+		"id_location" : 371,
+		"role" : 0,
+		"ord" : 1
+	},
+	{
+		"id" : 4962,
+		"id_exhibition" : 474,
+		"id_location" : 118,
+		"role" : 0,
+		"ord" : 2
+	},
+	{
+		"id" : 4963,
+		"id_exhibition" : 682,
+		"id_location" : 311,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4966,
+		"id_exhibition" : 1140,
+		"id_location" : 269,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4967,
+		"id_exhibition" : 1140,
+		"id_location" : 322,
+		"role" : 0,
+		"ord" : 1
+	},
+	{
+		"id" : 4972,
+		"id_exhibition" : 1160,
+		"id_location" : 324,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4988,
+		"id_exhibition" : 766,
+		"id_location" : 269,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4990,
+		"id_exhibition" : 39,
+		"id_location" : 24,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4991,
+		"id_exhibition" : 1272,
+		"id_location" : 286,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 4999,
+		"id_exhibition" : 1045,
+		"id_location" : 269,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5007,
+		"id_exhibition" : 1304,
+		"id_location" : 278,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5012,
+		"id_exhibition" : 1333,
+		"id_location" : 269,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5014,
+		"id_exhibition" : 1188,
+		"id_location" : 23,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5015,
+		"id_exhibition" : 948,
+		"id_location" : 27,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5016,
+		"id_exhibition" : 949,
+		"id_location" : 27,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5017,
+		"id_exhibition" : 1189,
+		"id_location" : 23,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5018,
+		"id_exhibition" : 1340,
+		"id_location" : 23,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5019,
+		"id_exhibition" : 1191,
+		"id_location" : 23,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5020,
+		"id_exhibition" : 1190,
+		"id_location" : 23,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5021,
+		"id_exhibition" : 1192,
+		"id_location" : 23,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5022,
+		"id_exhibition" : 1193,
+		"id_location" : 23,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5023,
+		"id_exhibition" : 1194,
+		"id_location" : 23,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5024,
+		"id_exhibition" : 1195,
+		"id_location" : 23,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5025,
+		"id_exhibition" : 1196,
+		"id_location" : 23,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5026,
+		"id_exhibition" : 965,
+		"id_location" : 27,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5027,
+		"id_exhibition" : 1197,
+		"id_location" : 23,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5029,
+		"id_exhibition" : 1198,
+		"id_location" : 23,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5030,
+		"id_exhibition" : 1199,
+		"id_location" : 23,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5031,
+		"id_exhibition" : 1200,
+		"id_location" : 23,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5032,
+		"id_exhibition" : 1201,
+		"id_location" : 23,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5033,
+		"id_exhibition" : 923,
+		"id_location" : 27,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5034,
+		"id_exhibition" : 1206,
+		"id_location" : 23,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5035,
+		"id_exhibition" : 1203,
+		"id_location" : 23,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5036,
+		"id_exhibition" : 1204,
+		"id_location" : 23,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5037,
+		"id_exhibition" : 1205,
+		"id_location" : 23,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5038,
+		"id_exhibition" : 1207,
+		"id_location" : 23,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5039,
+		"id_exhibition" : 1208,
+		"id_location" : 23,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5040,
+		"id_exhibition" : 935,
+		"id_location" : 27,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5041,
+		"id_exhibition" : 1209,
+		"id_location" : 23,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5042,
+		"id_exhibition" : 1344,
+		"id_location" : 140,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5043,
+		"id_exhibition" : 1202,
+		"id_location" : 23,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5044,
+		"id_exhibition" : 1210,
+		"id_location" : 23,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5045,
+		"id_exhibition" : 1345,
+		"id_location" : 140,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5047,
+		"id_exhibition" : 1215,
+		"id_location" : 23,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5048,
+		"id_exhibition" : 1217,
+		"id_location" : 23,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5049,
+		"id_exhibition" : 1218,
+		"id_location" : 23,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5050,
+		"id_exhibition" : 1220,
+		"id_location" : 23,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5051,
+		"id_exhibition" : 1219,
+		"id_location" : 23,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5052,
+		"id_exhibition" : 1358,
+		"id_location" : 140,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5053,
+		"id_exhibition" : 1214,
+		"id_location" : 23,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5054,
+		"id_exhibition" : 1213,
+		"id_location" : 23,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5055,
+		"id_exhibition" : 1212,
+		"id_location" : 23,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5056,
+		"id_exhibition" : 1211,
+		"id_location" : 23,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5057,
+		"id_exhibition" : 1356,
+		"id_location" : 140,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5058,
+		"id_exhibition" : 1356,
+		"id_location" : 102,
+		"role" : 0,
+		"ord" : 1
+	},
+	{
+		"id" : 5059,
+		"id_exhibition" : 1355,
+		"id_location" : 201,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5060,
+		"id_exhibition" : 1355,
+		"id_location" : 140,
+		"role" : 0,
+		"ord" : 1
+	},
+	{
+		"id" : 5061,
+		"id_exhibition" : 1216,
+		"id_location" : 23,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5072,
+		"id_exhibition" : 1150,
+		"id_location" : 269,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5074,
+		"id_exhibition" : 968,
+		"id_location" : 266,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5086,
+		"id_exhibition" : 1329,
+		"id_location" : 278,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5090,
+		"id_exhibition" : 517,
+		"id_location" : 64,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5092,
+		"id_exhibition" : 1363,
+		"id_location" : 64,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5101,
+		"id_exhibition" : 382,
+		"id_location" : 27,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5102,
+		"id_exhibition" : 1362,
+		"id_location" : 73,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5103,
+		"id_exhibition" : 366,
+		"id_location" : 361,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5112,
+		"id_exhibition" : 1141,
+		"id_location" : 324,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5113,
+		"id_exhibition" : 1359,
+		"id_location" : 140,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5119,
+		"id_exhibition" : 1364,
+		"id_location" : 108,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5124,
+		"id_exhibition" : 1328,
+		"id_location" : 108,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5131,
+		"id_exhibition" : 1265,
+		"id_location" : 286,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5133,
+		"id_exhibition" : 1365,
+		"id_location" : 64,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5135,
+		"id_exhibition" : 1366,
+		"id_location" : 64,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5136,
+		"id_exhibition" : 1367,
+		"id_location" : 64,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5140,
+		"id_exhibition" : 1273,
+		"id_location" : 286,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5146,
+		"id_exhibition" : 1281,
+		"id_location" : 286,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5157,
+		"id_exhibition" : 1370,
+		"id_location" : 64,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5161,
+		"id_exhibition" : 391,
+		"id_location" : 269,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5167,
+		"id_exhibition" : 1368,
+		"id_location" : 64,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5172,
+		"id_exhibition" : 1371,
+		"id_location" : 64,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5175,
+		"id_exhibition" : 1372,
+		"id_location" : 64,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5177,
+		"id_exhibition" : 528,
+		"id_location" : 140,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5178,
+		"id_exhibition" : 456,
+		"id_location" : 140,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5179,
+		"id_exhibition" : 338,
+		"id_location" : 269,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5193,
+		"id_exhibition" : 407,
+		"id_location" : 86,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5209,
+		"id_exhibition" : 339,
+		"id_location" : 84,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5212,
+		"id_exhibition" : 430,
+		"id_location" : 313,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5221,
+		"id_exhibition" : 422,
+		"id_location" : 103,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5226,
+		"id_exhibition" : 485,
+		"id_location" : 103,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5232,
+		"id_exhibition" : 1282,
+		"id_location" : 286,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5243,
+		"id_exhibition" : 363,
+		"id_location" : 278,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5245,
+		"id_exhibition" : 1327,
+		"id_location" : 278,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5246,
+		"id_exhibition" : 482,
+		"id_location" : 140,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5247,
+		"id_exhibition" : 482,
+		"id_location" : 24,
+		"role" : 0,
+		"ord" : 1
+	},
+	{
+		"id" : 5250,
+		"id_exhibition" : 1050,
+		"id_location" : 269,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5251,
+		"id_exhibition" : 1351,
+		"id_location" : 140,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5252,
+		"id_exhibition" : 1351,
+		"id_location" : 371,
+		"role" : 0,
+		"ord" : 1
+	},
+	{
+		"id" : 5261,
+		"id_exhibition" : 1180,
+		"id_location" : 23,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5263,
+		"id_exhibition" : 516,
+		"id_location" : 361,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5276,
+		"id_exhibition" : 418,
+		"id_location" : 269,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5281,
+		"id_exhibition" : 585,
+		"id_location" : 103,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5284,
+		"id_exhibition" : 1181,
+		"id_location" : 23,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5286,
+		"id_exhibition" : 1182,
+		"id_location" : 23,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5288,
+		"id_exhibition" : 1183,
+		"id_location" : 23,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5291,
+		"id_exhibition" : 635,
+		"id_location" : 107,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5293,
+		"id_exhibition" : 1223,
+		"id_location" : 286,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5296,
+		"id_exhibition" : 1234,
+		"id_location" : 286,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5301,
+		"id_exhibition" : 1280,
+		"id_location" : 286,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5302,
+		"id_exhibition" : 909,
+		"id_location" : 381,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5303,
+		"id_exhibition" : 472,
+		"id_location" : 381,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5315,
+		"id_exhibition" : 1375,
+		"id_location" : 381,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5316,
+		"id_exhibition" : 1375,
+		"id_location" : 382,
+		"role" : 0,
+		"ord" : 1
+	},
+	{
+		"id" : 5317,
+		"id_exhibition" : 550,
+		"id_location" : 140,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5330,
+		"id_exhibition" : 549,
+		"id_location" : 381,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5331,
+		"id_exhibition" : 549,
+		"id_location" : 103,
+		"role" : 0,
+		"ord" : 1
+	},
+	{
+		"id" : 5333,
+		"id_exhibition" : 473,
+		"id_location" : 117,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5348,
+		"id_exhibition" : 582,
+		"id_location" : 103,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5354,
+		"id_exhibition" : 241,
+		"id_location" : 285,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5355,
+		"id_exhibition" : 317,
+		"id_location" : 285,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5358,
+		"id_exhibition" : 610,
+		"id_location" : 285,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5359,
+		"id_exhibition" : 383,
+		"id_location" : 285,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5360,
+		"id_exhibition" : 488,
+		"id_location" : 285,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5362,
+		"id_exhibition" : 68,
+		"id_location" : 285,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5379,
+		"id_exhibition" : 570,
+		"id_location" : 380,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5387,
+		"id_exhibition" : 692,
+		"id_location" : 143,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5388,
+		"id_exhibition" : 681,
+		"id_location" : 161,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5408,
+		"id_exhibition" : 393,
+		"id_location" : 313,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5411,
+		"id_exhibition" : 148,
+		"id_location" : 26,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5412,
+		"id_exhibition" : 148,
+		"id_location" : 383,
+		"role" : 0,
+		"ord" : 1
+	},
+	{
+		"id" : 5416,
+		"id_exhibition" : 464,
+		"id_location" : 361,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5425,
+		"id_exhibition" : 381,
+		"id_location" : 361,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5433,
+		"id_exhibition" : 1187,
+		"id_location" : 23,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5435,
+		"id_exhibition" : 1341,
+		"id_location" : 23,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5441,
+		"id_exhibition" : 476,
+		"id_location" : 140,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5442,
+		"id_exhibition" : 476,
+		"id_location" : 226,
+		"role" : 0,
+		"ord" : 1
+	},
+	{
+		"id" : 5443,
+		"id_exhibition" : 476,
+		"id_location" : 371,
+		"role" : 0,
+		"ord" : 2
+	},
+	{
+		"id" : 5450,
+		"id_exhibition" : 1352,
+		"id_location" : 373,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5451,
+		"id_exhibition" : 1352,
+		"id_location" : 140,
+		"role" : 0,
+		"ord" : 1
+	},
+	{
+		"id" : 5452,
+		"id_exhibition" : 1352,
+		"id_location" : 371,
+		"role" : 0,
+		"ord" : 2
+	},
+	{
+		"id" : 5456,
+		"id_exhibition" : 475,
+		"id_location" : 140,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5457,
+		"id_exhibition" : 475,
+		"id_location" : 371,
+		"role" : 0,
+		"ord" : 1
+	},
+	{
+		"id" : 5458,
+		"id_exhibition" : 475,
+		"id_location" : 24,
+		"role" : 0,
+		"ord" : 2
+	},
+	{
+		"id" : 5459,
+		"id_exhibition" : 1353,
+		"id_location" : 374,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5460,
+		"id_exhibition" : 1353,
+		"id_location" : 140,
+		"role" : 0,
+		"ord" : 1
+	},
+	{
+		"id" : 5461,
+		"id_exhibition" : 1353,
+		"id_location" : 371,
+		"role" : 0,
+		"ord" : 2
+	},
+	{
+		"id" : 5466,
+		"id_exhibition" : 822,
+		"id_location" : 140,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5467,
+		"id_exhibition" : 822,
+		"id_location" : 227,
+		"role" : 0,
+		"ord" : 1
+	},
+	{
+		"id" : 5468,
+		"id_exhibition" : 480,
+		"id_location" : 73,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5469,
+		"id_exhibition" : 480,
+		"id_location" : 140,
+		"role" : 0,
+		"ord" : 1
+	},
+	{
+		"id" : 5472,
+		"id_exhibition" : 820,
+		"id_location" : 168,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5474,
+		"id_exhibition" : 790,
+		"id_location" : 219,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5479,
+		"id_exhibition" : 1377,
+		"id_location" : 18,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5481,
+		"id_exhibition" : 649,
+		"id_location" : 361,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5483,
+		"id_exhibition" : 155,
+		"id_location" : 272,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5484,
+		"id_exhibition" : 596,
+		"id_location" : 361,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5485,
+		"id_exhibition" : 313,
+		"id_location" : 78,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5486,
+		"id_exhibition" : 372,
+		"id_location" : 95,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5489,
+		"id_exhibition" : 207,
+		"id_location" : 265,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5491,
+		"id_exhibition" : 3,
+		"id_location" : 266,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5492,
+		"id_exhibition" : 211,
+		"id_location" : 265,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5493,
+		"id_exhibition" : 280,
+		"id_location" : 265,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5494,
+		"id_exhibition" : 290,
+		"id_location" : 84,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5496,
+		"id_exhibition" : 645,
+		"id_location" : 26,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5503,
+		"id_exhibition" : 1379,
+		"id_location" : 108,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5504,
+		"id_exhibition" : 1378,
+		"id_location" : 108,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5506,
+		"id_exhibition" : 992,
+		"id_location" : 282,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5507,
+		"id_exhibition" : 992,
+		"id_location" : 278,
+		"role" : 0,
+		"ord" : 1
+	},
+	{
+		"id" : 5521,
+		"id_exhibition" : 30,
+		"id_location" : 285,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5529,
+		"id_exhibition" : 1354,
+		"id_location" : 290,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5530,
+		"id_exhibition" : 1354,
+		"id_location" : 140,
+		"role" : 0,
+		"ord" : 1
+	},
+	{
+		"id" : 5531,
+		"id_exhibition" : 1354,
+		"id_location" : 371,
+		"role" : 0,
+		"ord" : 2
+	},
+	{
+		"id" : 5548,
+		"id_exhibition" : 88,
+		"id_location" : 323,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5555,
+		"id_exhibition" : 270,
+		"id_location" : 30,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5562,
+		"id_exhibition" : 315,
+		"id_location" : 173,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5563,
+		"id_exhibition" : 178,
+		"id_location" : 265,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5564,
+		"id_exhibition" : 184,
+		"id_location" : 19,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5571,
+		"id_exhibition" : 434,
+		"id_location" : 30,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5577,
+		"id_exhibition" : 492,
+		"id_location" : 30,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5583,
+		"id_exhibition" : 1387,
+		"id_location" : 108,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5592,
+		"id_exhibition" : 617,
+		"id_location" : 30,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5599,
+		"id_exhibition" : 361,
+		"id_location" : 336,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5610,
+		"id_exhibition" : 678,
+		"id_location" : 336,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5616,
+		"id_exhibition" : 497,
+		"id_location" : 336,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5621,
+		"id_exhibition" : 998,
+		"id_location" : 89,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5634,
+		"id_exhibition" : 58,
+		"id_location" : 388,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5635,
+		"id_exhibition" : 58,
+		"id_location" : 387,
+		"role" : 0,
+		"ord" : 1
+	},
+	{
+		"id" : 5636,
+		"id_exhibition" : 618,
+		"id_location" : 264,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5639,
+		"id_exhibition" : 1185,
+		"id_location" : 327,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5653,
+		"id_exhibition" : 369,
+		"id_location" : 376,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5654,
+		"id_exhibition" : 369,
+		"id_location" : 390,
+		"role" : 0,
+		"ord" : 1
+	},
+	{
+		"id" : 5659,
+		"id_exhibition" : 236,
+		"id_location" : 356,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5666,
+		"id_exhibition" : 424,
+		"id_location" : 266,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5672,
+		"id_exhibition" : 451,
+		"id_location" : 110,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5675,
+		"id_exhibition" : 490,
+		"id_location" : 364,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5682,
+		"id_exhibition" : 609,
+		"id_location" : 364,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5694,
+		"id_exhibition" : 710,
+		"id_location" : 392,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5712,
+		"id_exhibition" : 26,
+		"id_location" : 393,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5715,
+		"id_exhibition" : 426,
+		"id_location" : 30,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5717,
+		"id_exhibition" : 446,
+		"id_location" : 140,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5718,
+		"id_exhibition" : 461,
+		"id_location" : 114,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5723,
+		"id_exhibition" : 73,
+		"id_location" : 36,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5726,
+		"id_exhibition" : 299,
+		"id_location" : 85,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5729,
+		"id_exhibition" : 1024,
+		"id_location" : 27,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5730,
+		"id_exhibition" : 976,
+		"id_location" : 27,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5731,
+		"id_exhibition" : 982,
+		"id_location" : 27,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5736,
+		"id_exhibition" : 539,
+		"id_location" : 129,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5737,
+		"id_exhibition" : 574,
+		"id_location" : 173,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5740,
+		"id_exhibition" : 680,
+		"id_location" : 165,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5742,
+		"id_exhibition" : 665,
+		"id_location" : 163,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5749,
+		"id_exhibition" : 306,
+		"id_location" : 173,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5750,
+		"id_exhibition" : 706,
+		"id_location" : 336,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5751,
+		"id_exhibition" : 669,
+		"id_location" : 108,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5753,
+		"id_exhibition" : 374,
+		"id_location" : 272,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5754,
+		"id_exhibition" : 468,
+		"id_location" : 272,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5755,
+		"id_exhibition" : 507,
+		"id_location" : 272,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5773,
+		"id_exhibition" : 129,
+		"id_location" : 285,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5782,
+		"id_exhibition" : 179,
+		"id_location" : 285,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5787,
+		"id_exhibition" : 238,
+		"id_location" : 181,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5793,
+		"id_exhibition" : 367,
+		"id_location" : 60,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5862,
+		"id_exhibition" : 421,
+		"id_location" : 73,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5863,
+		"id_exhibition" : 421,
+		"id_location" : 102,
+		"role" : 0,
+		"ord" : 1
+	},
+	{
+		"id" : 5874,
+		"id_exhibition" : 764,
+		"id_location" : 71,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5875,
+		"id_exhibition" : 764,
+		"id_location" : 140,
+		"role" : 0,
+		"ord" : 1
+	},
+	{
+		"id" : 5891,
+		"id_exhibition" : 760,
+		"id_location" : 270,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5892,
+		"id_exhibition" : 760,
+		"id_location" : 201,
+		"role" : 0,
+		"ord" : 1
+	},
+	{
+		"id" : 5901,
+		"id_exhibition" : 761,
+		"id_location" : 270,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5902,
+		"id_exhibition" : 761,
+		"id_location" : 86,
+		"role" : 0,
+		"ord" : 1
+	},
+	{
+		"id" : 5905,
+		"id_exhibition" : 1418,
+		"id_location" : 270,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5906,
+		"id_exhibition" : 1418,
+		"id_location" : 415,
+		"role" : 0,
+		"ord" : 1
+	},
+	{
+		"id" : 5907,
+		"id_exhibition" : 1411,
+		"id_location" : 407,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5908,
+		"id_exhibition" : 1412,
+		"id_location" : 409,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5909,
+		"id_exhibition" : 1412,
+		"id_location" : 270,
+		"role" : 0,
+		"ord" : 1
+	},
+	{
+		"id" : 5910,
+		"id_exhibition" : 1413,
+		"id_location" : 270,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5911,
+		"id_exhibition" : 1413,
+		"id_location" : 411,
+		"role" : 0,
+		"ord" : 1
+	},
+	{
+		"id" : 5912,
+		"id_exhibition" : 1414,
+		"id_location" : 270,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5913,
+		"id_exhibition" : 1416,
+		"id_location" : 270,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5914,
+		"id_exhibition" : 1416,
+		"id_location" : 414,
+		"role" : 0,
+		"ord" : 1
+	},
+	{
+		"id" : 5917,
+		"id_exhibition" : 1415,
+		"id_location" : 270,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5918,
+		"id_exhibition" : 1415,
+		"id_location" : 413,
+		"role" : 0,
+		"ord" : 1
+	},
+	{
+		"id" : 5919,
+		"id_exhibition" : 1417,
+		"id_location" : 270,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5920,
+		"id_exhibition" : 1417,
+		"id_location" : 204,
+		"role" : 0,
+		"ord" : 1
+	},
+	{
+		"id" : 5925,
+		"id_exhibition" : 1420,
+		"id_location" : 270,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5926,
+		"id_exhibition" : 1420,
+		"id_location" : 71,
+		"role" : 0,
+		"ord" : 1
+	},
+	{
+		"id" : 5927,
+		"id_exhibition" : 931,
+		"id_location" : 27,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5928,
+		"id_exhibition" : 931,
+		"id_location" : 270,
+		"role" : 0,
+		"ord" : 1
+	},
+	{
+		"id" : 5933,
+		"id_exhibition" : 1421,
+		"id_location" : 270,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5934,
+		"id_exhibition" : 1421,
+		"id_location" : 36,
+		"role" : 0,
+		"ord" : 1
+	},
+	{
+		"id" : 5937,
+		"id_exhibition" : 1422,
+		"id_location" : 270,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5938,
+		"id_exhibition" : 1422,
+		"id_location" : 116,
+		"role" : 0,
+		"ord" : 1
+	},
+	{
+		"id" : 5969,
+		"id_exhibition" : 314,
+		"id_location" : 73,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5970,
+		"id_exhibition" : 314,
+		"id_location" : 270,
+		"role" : 0,
+		"ord" : 1
+	},
+	{
+		"id" : 5972,
+		"id_exhibition" : 462,
+		"id_location" : 310,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5982,
+		"id_exhibition" : 763,
+		"id_location" : 140,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5983,
+		"id_exhibition" : 763,
+		"id_location" : 204,
+		"role" : 0,
+		"ord" : 1
+	},
+	{
+		"id" : 5984,
+		"id_exhibition" : 1088,
+		"id_location" : 140,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5985,
+		"id_exhibition" : 753,
+		"id_location" : 140,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5986,
+		"id_exhibition" : 1313,
+		"id_location" : 176,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5988,
+		"id_exhibition" : 1308,
+		"id_location" : 176,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5989,
+		"id_exhibition" : 1314,
+		"id_location" : 176,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5990,
+		"id_exhibition" : 1316,
+		"id_location" : 176,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5992,
+		"id_exhibition" : 1233,
+		"id_location" : 176,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5993,
+		"id_exhibition" : 600,
+		"id_location" : 176,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5994,
+		"id_exhibition" : 662,
+		"id_location" : 176,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 5998,
+		"id_exhibition" : 801,
+		"id_location" : 140,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6002,
+		"id_exhibition" : 782,
+		"id_location" : 214,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6008,
+		"id_exhibition" : 311,
+		"id_location" : 310,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6009,
+		"id_exhibition" : 1361,
+		"id_location" : 117,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6013,
+		"id_exhibition" : 445,
+		"id_location" : 380,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6014,
+		"id_exhibition" : 1186,
+		"id_location" : 23,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6015,
+		"id_exhibition" : 14,
+		"id_location" : 286,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6017,
+		"id_exhibition" : 984,
+		"id_location" : 176,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6018,
+		"id_exhibition" : 984,
+		"id_location" : 421,
+		"role" : 0,
+		"ord" : 1
+	},
+	{
+		"id" : 6019,
+		"id_exhibition" : 1105,
+		"id_location" : 23,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6021,
+		"id_exhibition" : 950,
+		"id_location" : 27,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6022,
+		"id_exhibition" : 48,
+		"id_location" : 286,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6023,
+		"id_exhibition" : 1386,
+		"id_location" : 81,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6024,
+		"id_exhibition" : 18,
+		"id_location" : 422,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6025,
+		"id_exhibition" : 51,
+		"id_location" : 422,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6026,
+		"id_exhibition" : 95,
+		"id_location" : 422,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6027,
+		"id_exhibition" : 214,
+		"id_location" : 422,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6028,
+		"id_exhibition" : 279,
+		"id_location" : 422,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6029,
+		"id_exhibition" : 358,
+		"id_location" : 422,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6030,
+		"id_exhibition" : 437,
+		"id_location" : 422,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6031,
+		"id_exhibition" : 552,
+		"id_location" : 422,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6032,
+		"id_exhibition" : 652,
+		"id_location" : 422,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6033,
+		"id_exhibition" : 54,
+		"id_location" : 30,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6034,
+		"id_exhibition" : 23,
+		"id_location" : 423,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6035,
+		"id_exhibition" : 59,
+		"id_location" : 423,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6036,
+		"id_exhibition" : 114,
+		"id_location" : 423,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6037,
+		"id_exhibition" : 63,
+		"id_location" : 278,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6040,
+		"id_exhibition" : 71,
+		"id_location" : 286,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6041,
+		"id_exhibition" : 956,
+		"id_location" : 27,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6042,
+		"id_exhibition" : 956,
+		"id_location" : 265,
+		"role" : 0,
+		"ord" : 1
+	},
+	{
+		"id" : 6043,
+		"id_exhibition" : 80,
+		"id_location" : 424,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6044,
+		"id_exhibition" : 734,
+		"id_location" : 30,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6045,
+		"id_exhibition" : 796,
+		"id_location" : 278,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6046,
+		"id_exhibition" : 93,
+		"id_location" : 273,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6047,
+		"id_exhibition" : 881,
+		"id_location" : 243,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6048,
+		"id_exhibition" : 100,
+		"id_location" : 293,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6051,
+		"id_exhibition" : 834,
+		"id_location" : 166,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6052,
+		"id_exhibition" : 1030,
+		"id_location" : 321,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6053,
+		"id_exhibition" : 118,
+		"id_location" : 278,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6054,
+		"id_exhibition" : 815,
+		"id_location" : 46,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6055,
+		"id_exhibition" : 125,
+		"id_location" : 425,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6058,
+		"id_exhibition" : 785,
+		"id_location" : 124,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6059,
+		"id_exhibition" : 785,
+		"id_location" : 426,
+		"role" : 0,
+		"ord" : 1
+	},
+	{
+		"id" : 6060,
+		"id_exhibition" : 141,
+		"id_location" : 47,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6061,
+		"id_exhibition" : 978,
+		"id_location" : 27,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6062,
+		"id_exhibition" : 831,
+		"id_location" : 19,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6063,
+		"id_exhibition" : 150,
+		"id_location" : 50,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6064,
+		"id_exhibition" : 979,
+		"id_location" : 27,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6065,
+		"id_exhibition" : 153,
+		"id_location" : 422,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6066,
+		"id_exhibition" : 980,
+		"id_location" : 27,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6067,
+		"id_exhibition" : 830,
+		"id_location" : 30,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6068,
+		"id_exhibition" : 735,
+		"id_location" : 181,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6069,
+		"id_exhibition" : 157,
+		"id_location" : 47,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6070,
+		"id_exhibition" : 272,
+		"id_location" : 47,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6071,
+		"id_exhibition" : 342,
+		"id_location" : 47,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6072,
+		"id_exhibition" : 436,
+		"id_location" : 47,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6073,
+		"id_exhibition" : 158,
+		"id_location" : 427,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6074,
+		"id_exhibition" : 787,
+		"id_location" : 219,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6075,
+		"id_exhibition" : 1142,
+		"id_location" : 269,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6076,
+		"id_exhibition" : 197,
+		"id_location" : 428,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6077,
+		"id_exhibition" : 736,
+		"id_location" : 17,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6078,
+		"id_exhibition" : 858,
+		"id_location" : 19,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6080,
+		"id_exhibition" : 208,
+		"id_location" : 205,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6081,
+		"id_exhibition" : 208,
+		"id_location" : 429,
+		"role" : 0,
+		"ord" : 1
+	},
+	{
+		"id" : 6084,
+		"id_exhibition" : 282,
+		"id_location" : 429,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6085,
+		"id_exhibition" : 282,
+		"id_location" : 205,
+		"role" : 0,
+		"ord" : 1
+	},
+	{
+		"id" : 6086,
+		"id_exhibition" : 355,
+		"id_location" : 205,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6087,
+		"id_exhibition" : 355,
+		"id_location" : 429,
+		"role" : 0,
+		"ord" : 1
+	},
+	{
+		"id" : 6088,
+		"id_exhibition" : 958,
+		"id_location" : 278,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6089,
+		"id_exhibition" : 210,
+		"id_location" : 273,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6090,
+		"id_exhibition" : 789,
+		"id_location" : 39,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6091,
+		"id_exhibition" : 1242,
+		"id_location" : 18,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6093,
+		"id_exhibition" : 215,
+		"id_location" : 47,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6094,
+		"id_exhibition" : 737,
+		"id_location" : 430,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6095,
+		"id_exhibition" : 221,
+		"id_location" : 427,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6096,
+		"id_exhibition" : 898,
+		"id_location" : 27,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6097,
+		"id_exhibition" : 225,
+		"id_location" : 368,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6098,
+		"id_exhibition" : 1405,
+		"id_location" : 265,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6099,
+		"id_exhibition" : 1407,
+		"id_location" : 27,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6101,
+		"id_exhibition" : 1410,
+		"id_location" : 286,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6102,
+		"id_exhibition" : 1109,
+		"id_location" : 108,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6103,
+		"id_exhibition" : 1409,
+		"id_location" : 27,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6104,
+		"id_exhibition" : 749,
+		"id_location" : 192,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6106,
+		"id_exhibition" : 969,
+		"id_location" : 265,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6133,
+		"id_exhibition" : 477,
+		"id_location" : 140,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6134,
+		"id_exhibition" : 477,
+		"id_location" : 371,
+		"role" : 0,
+		"ord" : 1
+	},
+	{
+		"id" : 6135,
+		"id_exhibition" : 477,
+		"id_location" : 73,
+		"role" : 0,
+		"ord" : 2
+	},
+	{
+		"id" : 6137,
+		"id_exhibition" : 459,
+		"id_location" : 338,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6139,
+		"id_exhibition" : 551,
+		"id_location" : 47,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6189,
+		"id_exhibition" : 1392,
+		"id_location" : 397,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6197,
+		"id_exhibition" : 1389,
+		"id_location" : 402,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6201,
+		"id_exhibition" : 1403,
+		"id_location" : 85,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6202,
+		"id_exhibition" : 1403,
+		"id_location" : 433,
+		"role" : 0,
+		"ord" : 1
+	},
+	{
+		"id" : 6205,
+		"id_exhibition" : 1391,
+		"id_location" : 71,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6206,
+		"id_exhibition" : 1391,
+		"id_location" : 85,
+		"role" : 0,
+		"ord" : 1
+	},
+	{
+		"id" : 6221,
+		"id_exhibition" : 534,
+		"id_location" : 267,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6222,
+		"id_exhibition" : 554,
+		"id_location" : 267,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6223,
+		"id_exhibition" : 1332,
+		"id_location" : 269,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6224,
+		"id_exhibition" : 1334,
+		"id_location" : 269,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6225,
+		"id_exhibition" : 1335,
+		"id_location" : 269,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6229,
+		"id_exhibition" : 1433,
+		"id_location" : 286,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6274,
+		"id_exhibition" : 1457,
+		"id_location" : 73,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6284,
+		"id_exhibition" : 663,
+		"id_location" : 156,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6291,
+		"id_exhibition" : 873,
+		"id_location" : 323,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6294,
+		"id_exhibition" : 1346,
+		"id_location" : 140,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6295,
+		"id_exhibition" : 1347,
+		"id_location" : 140,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6296,
+		"id_exhibition" : 49,
+		"id_location" : 354,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6298,
+		"id_exhibition" : 123,
+		"id_location" : 45,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6299,
+		"id_exhibition" : 394,
+		"id_location" : 96,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6300,
+		"id_exhibition" : 394,
+		"id_location" : 221,
+		"role" : 0,
+		"ord" : 1
+	},
+	{
+		"id" : 6303,
+		"id_exhibition" : 997,
+		"id_location" : 179,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6308,
+		"id_exhibition" : 432,
+		"id_location" : 105,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6312,
+		"id_exhibition" : 729,
+		"id_location" : 108,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6318,
+		"id_exhibition" : 7,
+		"id_location" : 324,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6319,
+		"id_exhibition" : 650,
+		"id_location" : 108,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6320,
+		"id_exhibition" : 1250,
+		"id_location" : 345,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6321,
+		"id_exhibition" : 1138,
+		"id_location" : 324,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6322,
+		"id_exhibition" : 267,
+		"id_location" : 324,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6323,
+		"id_exhibition" : 483,
+		"id_location" : 329,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6324,
+		"id_exhibition" : 569,
+		"id_location" : 329,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6330,
+		"id_exhibition" : 684,
+		"id_location" : 167,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6338,
+		"id_exhibition" : 625,
+		"id_location" : 86,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6349,
+		"id_exhibition" : 1461,
+		"id_location" : 264,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6351,
+		"id_exhibition" : 1458,
+		"id_location" : 73,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6352,
+		"id_exhibition" : 169,
+		"id_location" : 30,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6363,
+		"id_exhibition" : 24,
+		"id_location" : 16,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6374,
+		"id_exhibition" : 67,
+		"id_location" : 292,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6379,
+		"id_exhibition" : 50,
+		"id_location" : 19,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6394,
+		"id_exhibition" : 1462,
+		"id_location" : 53,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6403,
+		"id_exhibition" : 1451,
+		"id_location" : 73,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6404,
+		"id_exhibition" : 1459,
+		"id_location" : 73,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6405,
+		"id_exhibition" : 1452,
+		"id_location" : 73,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6406,
+		"id_exhibition" : 720,
+		"id_location" : 108,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6408,
+		"id_exhibition" : 1456,
+		"id_location" : 73,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6411,
+		"id_exhibition" : 104,
+		"id_location" : 30,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6414,
+		"id_exhibition" : 84,
+		"id_location" : 30,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6419,
+		"id_exhibition" : 86,
+		"id_location" : 30,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6431,
+		"id_exhibition" : 1464,
+		"id_location" : 437,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6432,
+		"id_exhibition" : 135,
+		"id_location" : 46,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6436,
+		"id_exhibition" : 531,
+		"id_location" : 128,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6445,
+		"id_exhibition" : 131,
+		"id_location" : 19,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6446,
+		"id_exhibition" : 180,
+		"id_location" : 30,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6453,
+		"id_exhibition" : 149,
+		"id_location" : 30,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6506,
+		"id_exhibition" : 1465,
+		"id_location" : 116,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6507,
+		"id_exhibition" : 1338,
+		"id_location" : 116,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6514,
+		"id_exhibition" : 1360,
+		"id_location" : 116,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6515,
+		"id_exhibition" : 1360,
+		"id_location" : 378,
+		"role" : 0,
+		"ord" : 1
+	},
+	{
+		"id" : 6530,
+		"id_exhibition" : 190,
+		"id_location" : 57,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6535,
+		"id_exhibition" : 620,
+		"id_location" : 152,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6540,
+		"id_exhibition" : 555,
+		"id_location" : 19,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6561,
+		"id_exhibition" : 511,
+		"id_location" : 85,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6571,
+		"id_exhibition" : 1467,
+		"id_location" : 341,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6580,
+		"id_exhibition" : 1396,
+		"id_location" : 85,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6581,
+		"id_exhibition" : 1395,
+		"id_location" : 37,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6582,
+		"id_exhibition" : 1395,
+		"id_location" : 85,
+		"role" : 0,
+		"ord" : 1
+	},
+	{
+		"id" : 6583,
+		"id_exhibition" : 1394,
+		"id_location" : 400,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6584,
+		"id_exhibition" : 1393,
+		"id_location" : 399,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6585,
+		"id_exhibition" : 1402,
+		"id_location" : 361,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6586,
+		"id_exhibition" : 1404,
+		"id_location" : 85,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6587,
+		"id_exhibition" : 1404,
+		"id_location" : 403,
+		"role" : 0,
+		"ord" : 1
+	},
+	{
+		"id" : 6604,
+		"id_exhibition" : 354,
+		"id_location" : 80,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6606,
+		"id_exhibition" : 273,
+		"id_location" : 80,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6610,
+		"id_exhibition" : 284,
+		"id_location" : 19,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6621,
+		"id_exhibition" : 222,
+		"id_location" : 66,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6625,
+		"id_exhibition" : 244,
+		"id_location" : 46,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6649,
+		"id_exhibition" : 613,
+		"id_location" : 140,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6658,
+		"id_exhibition" : 563,
+		"id_location" : 103,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6664,
+		"id_exhibition" : 614,
+		"id_location" : 143,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6666,
+		"id_exhibition" : 463,
+		"id_location" : 30,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6672,
+		"id_exhibition" : 458,
+		"id_location" : 104,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6674,
+		"id_exhibition" : 1453,
+		"id_location" : 124,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6680,
+		"id_exhibition" : 233,
+		"id_location" : 53,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6682,
+		"id_exhibition" : 465,
+		"id_location" : 53,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6691,
+		"id_exhibition" : 196,
+		"id_location" : 168,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6705,
+		"id_exhibition" : 688,
+		"id_location" : 168,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6708,
+		"id_exhibition" : 401,
+		"id_location" : 97,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6744,
+		"id_exhibition" : 1478,
+		"id_location" : 26,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6789,
+		"id_exhibition" : 747,
+		"id_location" : 192,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6790,
+		"id_exhibition" : 747,
+		"id_location" : 198,
+		"role" : 0,
+		"ord" : 1
+	},
+	{
+		"id" : 6791,
+		"id_exhibition" : 747,
+		"id_location" : 199,
+		"role" : 0,
+		"ord" : 2
+	},
+	{
+		"id" : 6792,
+		"id_exhibition" : 747,
+		"id_location" : 200,
+		"role" : 0,
+		"ord" : 3
+	},
+	{
+		"id" : 6793,
+		"id_exhibition" : 758,
+		"id_location" : 192,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6794,
+		"id_exhibition" : 758,
+		"id_location" : 198,
+		"role" : 0,
+		"ord" : 1
+	},
+	{
+		"id" : 6795,
+		"id_exhibition" : 758,
+		"id_location" : 199,
+		"role" : 0,
+		"ord" : 2
+	},
+	{
+		"id" : 6796,
+		"id_exhibition" : 758,
+		"id_location" : 200,
+		"role" : 0,
+		"ord" : 3
+	},
+	{
+		"id" : 6801,
+		"id_exhibition" : 757,
+		"id_location" : 192,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6802,
+		"id_exhibition" : 757,
+		"id_location" : 198,
+		"role" : 0,
+		"ord" : 1
+	},
+	{
+		"id" : 6803,
+		"id_exhibition" : 757,
+		"id_location" : 199,
+		"role" : 0,
+		"ord" : 2
+	},
+	{
+		"id" : 6804,
+		"id_exhibition" : 757,
+		"id_location" : 200,
+		"role" : 0,
+		"ord" : 3
+	},
+	{
+		"id" : 6808,
+		"id_exhibition" : 380,
+		"id_location" : 80,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6810,
+		"id_exhibition" : 318,
+		"id_location" : 84,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6811,
+		"id_exhibition" : 287,
+		"id_location" : 318,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6813,
+		"id_exhibition" : 223,
+		"id_location" : 318,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6814,
+		"id_exhibition" : 22,
+		"id_location" : 318,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6821,
+		"id_exhibition" : 288,
+		"id_location" : 336,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6825,
+		"id_exhibition" : 1429,
+		"id_location" : 73,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6829,
+		"id_exhibition" : 1428,
+		"id_location" : 192,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6834,
+		"id_exhibition" : 759,
+		"id_location" : 192,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6835,
+		"id_exhibition" : 759,
+		"id_location" : 198,
+		"role" : 0,
+		"ord" : 1
+	},
+	{
+		"id" : 6836,
+		"id_exhibition" : 759,
+		"id_location" : 199,
+		"role" : 0,
+		"ord" : 2
+	},
+	{
+		"id" : 6837,
+		"id_exhibition" : 759,
+		"id_location" : 200,
+		"role" : 0,
+		"ord" : 3
+	},
+	{
+		"id" : 6841,
+		"id_exhibition" : 1466,
+		"id_location" : 73,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6845,
+		"id_exhibition" : 576,
+		"id_location" : 139,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6850,
+		"id_exhibition" : 1483,
+		"id_location" : 116,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6853,
+		"id_exhibition" : 35,
+		"id_location" : 21,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6854,
+		"id_exhibition" : 1477,
+		"id_location" : 285,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6861,
+		"id_exhibition" : 1398,
+		"id_location" : 85,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6862,
+		"id_exhibition" : 1398,
+		"id_location" : 401,
+		"role" : 0,
+		"ord" : 1
+	},
+	{
+		"id" : 6866,
+		"id_exhibition" : 1399,
+		"id_location" : 85,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6879,
+		"id_exhibition" : 1430,
+		"id_location" : 286,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6882,
+		"id_exhibition" : 1485,
+		"id_location" : 174,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6883,
+		"id_exhibition" : 1485,
+		"id_location" : 442,
+		"role" : 0,
+		"ord" : 1
+	},
+	{
+		"id" : 6887,
+		"id_exhibition" : 656,
+		"id_location" : 140,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6906,
+		"id_exhibition" : 1486,
+		"id_location" : 443,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6907,
+		"id_exhibition" : 1486,
+		"id_location" : 445,
+		"role" : 0,
+		"ord" : 1
+	},
+	{
+		"id" : 6908,
+		"id_exhibition" : 1486,
+		"id_location" : 444,
+		"role" : 0,
+		"ord" : 2
+	},
+	{
+		"id" : 6910,
+		"id_exhibition" : 675,
+		"id_location" : 197,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6915,
+		"id_exhibition" : 174,
+		"id_location" : 288,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6916,
+		"id_exhibition" : 228,
+		"id_location" : 391,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6921,
+		"id_exhibition" : 1380,
+		"id_location" : 26,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6924,
+		"id_exhibition" : 1381,
+		"id_location" : 417,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6925,
+		"id_exhibition" : 1488,
+		"id_location" : 440,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6928,
+		"id_exhibition" : 1487,
+		"id_location" : 440,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6931,
+		"id_exhibition" : 117,
+		"id_location" : 43,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6934,
+		"id_exhibition" : 453,
+		"id_location" : 318,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6935,
+		"id_exhibition" : 1047,
+		"id_location" : 279,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6936,
+		"id_exhibition" : 1047,
+		"id_location" : 280,
+		"role" : 0,
+		"ord" : 1
+	},
+	{
+		"id" : 6939,
+		"id_exhibition" : 1294,
+		"id_location" : 89,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6942,
+		"id_exhibition" : 672,
+		"id_location" : 318,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6946,
+		"id_exhibition" : 565,
+		"id_location" : 21,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6952,
+		"id_exhibition" : 454,
+		"id_location" : 21,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6954,
+		"id_exhibition" : 889,
+		"id_location" : 27,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6955,
+		"id_exhibition" : 1432,
+		"id_location" : 192,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6956,
+		"id_exhibition" : 399,
+		"id_location" : 73,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6957,
+		"id_exhibition" : 399,
+		"id_location" : 270,
+		"role" : 0,
+		"ord" : 1
+	},
+	{
+		"id" : 6958,
+		"id_exhibition" : 1376,
+		"id_location" : 107,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6959,
+		"id_exhibition" : 246,
+		"id_location" : 73,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6960,
+		"id_exhibition" : 246,
+		"id_location" : 270,
+		"role" : 0,
+		"ord" : 1
+	},
+	{
+		"id" : 6961,
+		"id_exhibition" : 400,
+		"id_location" : 73,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6962,
+		"id_exhibition" : 794,
+		"id_location" : 221,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6963,
+		"id_exhibition" : 1400,
+		"id_location" : 293,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6965,
+		"id_exhibition" : 12,
+		"id_location" : 9,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6971,
+		"id_exhibition" : 447,
+		"id_location" : 17,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6972,
+		"id_exhibition" : 673,
+		"id_location" : 21,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6974,
+		"id_exhibition" : 360,
+		"id_location" : 21,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6979,
+		"id_exhibition" : 1397,
+		"id_location" : 181,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6983,
+		"id_exhibition" : 296,
+		"id_location" : 21,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6984,
+		"id_exhibition" : 1003,
+		"id_location" : 27,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6985,
+		"id_exhibition" : 1005,
+		"id_location" : 27,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6986,
+		"id_exhibition" : 983,
+		"id_location" : 27,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6987,
+		"id_exhibition" : 970,
+		"id_location" : 27,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6990,
+		"id_exhibition" : 591,
+		"id_location" : 140,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6991,
+		"id_exhibition" : 1454,
+		"id_location" : 73,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6994,
+		"id_exhibition" : 607,
+		"id_location" : 150,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6997,
+		"id_exhibition" : 777,
+		"id_location" : 386,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6998,
+		"id_exhibition" : 639,
+		"id_location" : 156,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 6999,
+		"id_exhibition" : 1489,
+		"id_location" : 131,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 7000,
+		"id_exhibition" : 1489,
+		"id_location" : 280,
+		"role" : 0,
+		"ord" : 1
+	},
+	{
+		"id" : 7001,
+		"id_exhibition" : 1419,
+		"id_location" : 270,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 7002,
+		"id_exhibition" : 1419,
+		"id_location" : 417,
+		"role" : 0,
+		"ord" : 1
+	},
+	{
+		"id" : 7007,
+		"id_exhibition" : 540,
+		"id_location" : 122,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 7008,
+		"id_exhibition" : 540,
+		"id_location" : 140,
+		"role" : 0,
+		"ord" : 1
+	},
+	{
+		"id" : 7011,
+		"id_exhibition" : 765,
+		"id_location" : 269,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 7012,
+		"id_exhibition" : 921,
+		"id_location" : 27,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 7013,
+		"id_exhibition" : 325,
+		"id_location" : 47,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 7014,
+		"id_exhibition" : 44,
+		"id_location" : 7,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 7015,
+		"id_exhibition" : 704,
+		"id_location" : 140,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 7016,
+		"id_exhibition" : 144,
+		"id_location" : 5,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 7017,
+		"id_exhibition" : 1274,
+		"id_location" : 5,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 7018,
+		"id_exhibition" : 1275,
+		"id_location" : 5,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 7019,
+		"id_exhibition" : 171,
+		"id_location" : 5,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 7020,
+		"id_exhibition" : 188,
+		"id_location" : 5,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 7021,
+		"id_exhibition" : 191,
+		"id_location" : 19,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 7022,
+		"id_exhibition" : 201,
+		"id_location" : 5,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 7023,
+		"id_exhibition" : 231,
+		"id_location" : 5,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 7024,
+		"id_exhibition" : 1277,
+		"id_location" : 5,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 7025,
+		"id_exhibition" : 1276,
+		"id_location" : 19,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 7026,
+		"id_exhibition" : 1279,
+		"id_location" : 5,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 7027,
+		"id_exhibition" : 289,
+		"id_location" : 5,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 7028,
+		"id_exhibition" : 1278,
+		"id_location" : 19,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 7029,
+		"id_exhibition" : 1267,
+		"id_location" : 19,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 7031,
+		"id_exhibition" : 79,
+		"id_location" : 173,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 7032,
+		"id_exhibition" : 936,
+		"id_location" : 27,
+		"role" : 0,
+		"ord" : 0
+	},
+	{
+		"id" : 7033,
+		"id_exhibition" : 940,
+		"id_location" : 27,
+		"role" : 0,
+		"ord" : 0
+	}
+]

@@ -1,0 +1,4 @@
+sql_dump/*.sql
+package-lock.json
+certificates/https/
+certificates/bolt/

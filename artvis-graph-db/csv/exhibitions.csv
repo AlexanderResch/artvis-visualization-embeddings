@@ -1,0 +1,1493 @@
+id;type;startdate;enddate;title;organizer
+1;group;1912-05-25 00:00:00;1912-09-30 00:00:00;TEST Entrag (1912 Cologne Sonderbund) - löschen;Sonderbund westdeutscher Kunstfreunde und Künstler
+2;group;1905-00-00 00:00:00;\N;Zweite Ausstellung des Deutschen Künstlerbundes;\N
+3;group;1905-05-02 00:00:00;1905-10-06 00:00:00;2. Deutsche Künstlerbund Ausstellung;\N
+4;group;1905-01-00 00:00:00;1905-02-00 00:00:00;XXII. Ausstellung der Vereinigung bildend. Künstler Österreichs Secession. Plastik-Ausstellung;\N
+5;group;1905-01-16 00:00:00;1905-02-15 00:00:00;Exposition de Peintures et Dessins;\N
+6;group;1905-01-16 00:00:00;\N;Выставка картин "Союз Русских Художников";Sojuz Russkih Hudozhnikov
+7;solo;1905-02-05 00:00:00;1905-03-12 00:00:00;Edvard Munch. XV. výstava Spolku výtvarn. umělců »Manes« v Praze;\N
+8;group;1905-02-10 00:00:00;1905-02-25 00:00:00;Première exposition d'Ensemble d'Intimistes (Peintres d'Intérieurs);\N
+9;solo;1905-02-10 00:00:00;1905-02-25 00:00:00;Exposition d'Oeuvres de Picabia;\N
+10;group;1905-02-21 00:00:00;1905-03-23 00:00:00;La Libre Esthétique. La douzième Exposition;\N
+11;group;1905-02-22 00:00:00;\N;Выставка картин "Союз Русских Художников";Союз Русских Художников [Union of Russian Artists]
+12;group;1905-02-25 00:00:00;1905-03-06 00:00:00;Exposition d'Œuvres des Peintres Trachsel, Gérardin, Picasso;\N
+13;group;1905-02-25 00:00:00;1905-03-25 00:00:00;Exposition de Dessins, Aquarelles & Peintures;\N
+14;group;1905-03-00 00:00:00;1905-05-00 00:00:00;XXIII. Ausstellung der Vereinigung Bildend. Künstler Österreichs Secession;\N
+15;group;1905-03-03 00:00:00;\N;XII-я Выставка Картин Московскаго Т-ва Художников в Москве 1905 г.;Московское Товарищество Художников [Moscow Association of Artists]
+16;solo;1905-03-10 00:00:00;1905-03-25 00:00:00;Exposition Seyssaud;Galeries Bernheim-Jeune & Fils
+17;group;1905-03-08 00:00:00;1905-05-21 00:00:00;Tavaszi nemzetközi kiállítás;„Országos Magyar Képzőművészeti Társulat"
+18;group;1905-03-24 00:00:00;1905-04-30 00:00:00;21e Exposition de la Société des Artistes Indépendants;\N
+19;group;1905-04-00 00:00:00;1905-05-00 00:00:00;Thirty-Fourth Exhibition of Modern Pictures. New English Art Club;\N
+20;group;1905-04-06 00:00:00;1905-04-29 00:00:00;Exposition de Peintures, Pastels & Sculptures;\N
+21;group;1905-03-15 00:00:00;1905-06-30 00:00:00;XVe Exposition;Société Nationale des Beaux-Arts
+22;group;1905-04-22 00:00:00;1905-10-31 00:00:00;VI. Esposizione d'Arte della Città di Venezia;Città di Venezia
+23;group;1905-05-01 00:00:00;\N;123e Exposition. Société des Artistes Francais/Exposition Annuelle des Beaux-Arts;\N
+24;group;1905-05-02 00:00:00;1905-05-23 00:00:00;Exposition des Œuvres de M. Le Fauconnier et de M. Le Meilleur;\N
+25;group;1905-05-12 00:00:00;1905-06-10 00:00:00;Exposition de Peintures, Pastels par MM. Bouche (Georges),;\N
+26;group;1905-05-14 00:00:00;1905-07-01 00:00:00;15e Jaarlijksche Tentoonstelling van Kunstwerken;\N
+27;solo;1905-07-00 00:00:00;1905-08-00 00:00:00;Tentoonstelling van Schilderijen en Teekeningen door Vincent Van Gogh;\N
+28;solo;1905-09-00 00:00:00;\N;Tentoonstelling van Schilderijen door Vincent Van Gogh;Vereeniging "Voor de Kunst"
+29;group;1905-10-00 00:00:00;1905-11-00 00:00:00;Thirty-fifth Exhibition of Modern Pictures. New English Art Club;\N
+30;group;1905-10-18 00:00:00;1905-11-25 00:00:00;Salon d'Automne. 3e Exposition;\N
+31;group;1905-10-21 00:00:00;1905-11-20 00:00:00;Exposition de Peintures;\N
+32;solo;1905-10-23 00:00:00;1905-11-11 00:00:00;Kees van Dongen;\N
+33;group;1905-10-28 00:00:00;1905-11-11 00:00:00;Exposition de Tableaux par R. Seyssaud;\N
+34;group;1905-11-00 00:00:00;1905-12-00 00:00:00;XXIV. Ausstellung der Vereinigung Bildender Künstler Österreichs Secession;\N
+35;group;1905-11-02 00:00:00;1906-01-01 00:00:00;Tenth Annual Exhibition;\N
+36;group;1906-00-00 00:00:00;\N;XIII-я Выставка Картин Московского Товарищества Художников;Московское Товарищество Художников [Moscow Association of Artists]
+37;solo;1906-01-00 00:00:00;1906-01-30 00:00:00;Vincent Van Gogh. Kollektiv-Ausstellung;\N
+38;group;1906-01-12 00:00:00;1906-02-10 00:00:00;Peintures & Aquarelles;\N
+39;solo;1906-01-26 00:00:00;1906-02-28 00:00:00;Tentoonstelling van Schilderijen en Teekeningen door Vincent Van Gogh;\N
+40;group;1906-01-27 00:00:00;\N;Выставка акварели, пастели, tempera, рисунков;\N
+41;group;1906-02-00 00:00:00;\N;Kollektiv-Ausstellungen Eugen Spiro und Alfred Kubin;\N
+42;group;1906-02-00 00:00:00;\N;Художественная выставка „Мир Искусства“;Мир Искусства [World of Art]
+43;group;1906-02-17 00:00:00;1906-04-15 00:00:00;Internationale Kunstausstellung Bremen;Kunstverein in Bremen
+44;group;1906-02-14 00:00:00;1906-03-03 00:00:00;Deuxième Exposition d'Ensembles des "Intimistes";\N
+45;group;1906-02-20 00:00:00;1906-03-14 00:00:00;VIII. Jahrgnag / Winter 1905-1906 / V. Ausstellung;Paul Cassirer
+46;group;1906-02-22 00:00:00;1906-03-25 00:00:00;La Libre Esthétique. La treizième Exposition;\N
+47;solo;1906-02-28 00:00:00;1906-03-15 00:00:00;Exposition Odilon Redon;\N
+48;group;1906-03-00 00:00:00;1906-05-00 00:00:00;XXVI. Ausstellung der Vereinigung Bildender Künstler Österreichs Secession Wien;\N
+49;group;1906-03-14 00:00:00;1906-04-22 00:00:00;Exposition d'Art Français;\N
+50;solo;1906-03-19 00:00:00;1906-04-07 00:00:00;Exposition Henri-Matisse;\N
+51;group;1906-03-20 00:00:00;1906-04-30 00:00:00;Société des Artistes Indépendants, 22e Exposition;\N
+52;group;1906-00-00 00:00:00;1906-00-00 00:00:00;Elfte Ausstellung der Berliner Secession;\N
+53;group;1906-04-01 00:00:00;1906-05-15 00:00:00;Tavaszi kiállítás;\N
+54;solo;1906-03-26 00:00:00;1906-04-04 00:00:00;Exposition d'Œuvres de René Seyssaud;MM. Bernheim-Jeune et Fils
+55;solo;1906-04-15 00:00:00;1906-05-17 00:00:00;Kupkova výstava v Praze;Společ. klub "Slavia" [Social Club "Slavia"]
+56;group;1906-04-15 00:00:00;1906-06-30 00:00:00;Société Nationale des Beaux-Arts: XVIe Exposition;Société Nationale des Beaux-Arts
+57;group;1906-05-00 00:00:00;1906-10-00 00:00:00;Sächsische Kunstausstellung;Sächsischer Kunstverein
+58;group;1906-05-00 00:00:00;1906-11-00 00:00:00;Deutsche Kunstausstellung in der "Flora";\N
+59;group;1906-05-01 00:00:00;1906-05-01 00:00:00;Société des Artistes Francais: 124e Exposition / Exposition annuelle des Beaux-Arts;\N
+60;solo;1906-05-04 00:00:00;1906-05-17 00:00:00;Exposition Félix Vallotton;\N
+61;group;1907-05-19 00:00:00;1907-06-02 00:00:00;Exposition Vuillard;\N
+62;solo;1906-05-24 00:00:00;1906-06-17 00:00:00;Tentoonstelling van Schilder- en Teekenwerk van Kees van Dongen;\N
+63;group;1906-06-00 00:00:00;\N;Internationale Kunst-Ausstellung des Vereins bildender Künstler Münchens (E.V.) "Secession";\N
+64;group;1906-06-00 00:00:00;1906-07-00 00:00:00;Thirty-Sixth Exhibition of Modern Pictures. New English Art Club;\N
+65;group;1906-00-00 00:00:00;1906-00-00 00:00:00;Dritte Ausstellung des Deutschen Künstlerbundes;\N
+66;group;1906-07-01 00:00:00;\N;Mostra Nazionale di Belle Arti;\N
+67;group;1906-10-00 00:00:00;1906-11-00 00:00:00;Kunstausstellung Wertheim;\N
+68;group;1906-10-06 00:00:00;1906-11-15 00:00:00;Salon d'Automne. 4e Exposition;\N
+69;group;1906-10-25 00:00:00;1906-11-08 00:00:00;Exposition K.-X. Roussel;\N
+70;group;1906-11-00 00:00:00;1906-12-00 00:00:00;Thirty-Seventh Exhibition of Modern Pictures. New English Art Club;\N
+71;group;1906-11-00 00:00:00;1906-12-00 00:00:00;XXVII. Ausstellung der Vereinigung Bildender Künstler Österreichs Secession;\N
+72;solo;1906-11-09 00:00:00;1906-11-20 00:00:00;Exposition Bonnard;\N
+73;solo;1906-11-11 00:00:00;\N;Ausstellung von Werken von Edvard Munch in Kösen;\N
+74;group;1906-11-15 00:00:00;\N;Russische Kunstausstellung 1906;\N
+75;group;1906-12-00 00:00:00;\N;Zwölfte Kunstausstellung der Berliner Secession. Zeichnende Künste;\N
+76;group;1906-12-04 00:00:00;1906-12-30 00:00:00;Exposition de Peintures;\N
+77;group;1906-11-14 00:00:00;1907-00-00 00:00:00;Téli nemzetközi kiállítás;\N
+78;group;1906-00-00 00:00:00;1907-00-00 00:00:00;Sojuz Russkih Hudozhnikov;Sojuz Russkih Hudozhnikov
+79;group;1906-12-22 00:00:00;1907-01-20 00:00:00;Tentoonstelling van Ontwerpen voor Muurschildering Voorwerpen van Kunstnijverheid;\N
+80;group;1907-00-00 00:00:00;\N;XIV Выставка Картин Московского Товарищества Художников;\N
+81;group;1907-00-00 00:00:00;\N;Výstava 8 Kunst-Ausstellung;\N
+82;group;1907-01-24 00:00:00;1907-02-18 00:00:00;IX. Jahrgang. Winter 1906/1907. V. Ausstellung. [Kollektionen Paul Baum, Lovis Corinth, Georg Kolbe, Adolphe Monticelli, Edvard Munch];\N
+83;group;1907-01-00 00:00:00;1907-02-00 00:00:00;XXVIII. Ausstellung der Vereinigung Bildender Künstler Österreichs Secession. Münchner Secession;Secession Wien
+84;solo;1907-01-10 00:00:00;1907-01-19 00:00:00;Exposition Sickert;\N
+85;group;1907-01-14 00:00:00;1907-02-10 00:00:00;Exposition de Peintures & de Sculptures;\N
+86;solo;1907-01-21 00:00:00;1907-02-02 00:00:00;Exposition Paul Signac;\N
+87;solo;1907-02-01 00:00:00;1907-02-15 00:00:00;Exposition F. Picabia;\N
+88;group;1907-02-05 00:00:00;1907-02-25 00:00:00;Société des Peintres du Paris Moderne. Quatrième Exposition;\N
+89;solo;1907-02-11 00:00:00;1907-02-23 00:00:00;Exposition Albert Marquet;\N
+90;group;1907-03-00 00:00:00;\N;A Nemzeti Szalon. Első csoportkiállítás;\N
+91;group;1907-03-15 00:00:00;1907-04-28 00:00:00;Paul Gauguin [und französische Postimpressionisten];\N
+92;group;1907-03-02 00:00:00;1907-04-02 00:00:00;L'Exposition d'Art Français Contemporain au Chateau Des Rohan;\N
+93;group;1907-03-03 00:00:00;1907-04-03 00:00:00;La Libre Esthétique. Quatorzième Exposition;\N
+94;solo;1907-03-10 00:00:00;1907-03-10 00:00:00;Tableaux, Aquarelles & Pastels composant la vente Odilon Redon;\N
+95;group;1907-03-20 00:00:00;1907-04-30 00:00:00;Société des Artistes Indépendants: 23e exposition;\N
+96;group;1907-00-00 00:00:00;\N;Dreizehnte Ausstellung der Berliner Secession;\N
+97;group;1907-04-27 00:00:00;\N;Tavaszi kiállitás;\N
+98;solo;1907-03-25 00:00:00;1907-04-06 00:00:00;Exposition René Seyssaud;\N
+99;group;1907-03-31 00:00:00;1907-05-12 00:00:00;Выставка Картин "Голубая Роза";Голубая Роза [Blue Rose]
+100;group;1907-04-00 00:00:00;\N;Collectiv-Ausstellung von Edvard Munch, Aasgaardstrand;\N
+101;group;1907-07-00 00:00:00;\N;Paintings and Drawings by Roger Fry and Hon. Neville Lytton;Alpine Club
+102;group;1907-04-00 00:00:00;1907-05-00 00:00:00;Tentoonstelling van Kunstwerken Vervaardigd door Leden der Maatschappij;Maatschappij "Arti et Amicitiae"
+103;group;1907-04-01 00:00:00;1907-05-15 00:00:00;Zeventiende Jaarlijksche Tentoonstelling van Kunstwerken vaan Leden der Vereeniging;St. Lucas
+104;solo;1907-04-08 00:00:00;1907-04-20 00:00:00;Exposition Maurice Denis;\N
+105;solo;1907-04-08 00:00:00;1907-04-20 00:00:00;Pierre Laprade: Exposition de ses peintures;\N
+106;group;1907-04-11 00:00:00;1907-06-13 00:00:00;Eleventh Annual Exhibition;\N
+107;group;1907-04-14 00:00:00;1907-06-30 00:00:00;Ouvrages de Peinture, Sculpture, Dessin, Gravure, Architecture, Art Décoratif et Arts appliqués, XVIIe Exposition;Société Nationale des Beaux-Arts
+108;solo;1907-04-22 00:00:00;1907-05-08 00:00:00;Exposition H.-E. Cross;\N
+109;group;1907-04-22 00:00:00;1907-10-31 00:00:00;VII. Esposizione Internazionale d’Arte della Città di Venezia;\N
+110;group;1907-04-30 00:00:00;1907-05-19 00:00:00;Exposition de Peintures;\N
+111;group;1907-05-00 00:00:00;\N;Tavaszi kiállitás. Gauguin, Cézanne stb. művei;\N
+112;group;1907-05-00 00:00:00;1907-10-00 00:00:00;Kölner Ausstellung 1907;Aktiengesellschaft Flora
+113;group;1907-05-00 00:00:00;1907-06-00 00:00:00;Thirty-eighth Exhibition of Modern Pictures. New English Art Club;\N
+114;group;1907-05-01 00:00:00;\N;Société des Artistes Francais / Exposition Annuelle des Beaux-Arts, 125e Exposition;\N
+115;group;1907-05-01 00:00:00;1907-05-31 00:00:00;Ausstellung französischer Kunstwerke;\N
+116;group;1907-05-01 00:00:00;1907-10-20 00:00:00;Internationale Kunstausstellung Mannheim;\N
+117;group;1907-05-11 00:00:00;1907-09-29 00:00:00;Deutsch-Nationale Kunst-Ausstellung;\N
+118;group;1907-06-01 00:00:00;1907-10-00 00:00:00;Internationale Kunst-Ausstellung des Vereins bildender Künstler Münchens (E.V.) "Secession";\N
+119;group;1907-06-03 00:00:00;1907-06-15 00:00:00;Exposition des Oeuvres (Peinture et Sculpture) de MM. Bonnard, Maurice Denis, Hermann-Paul, Lacombe, Aristide Maillol, Ranson, K-X. Roussel, Sérusier, Vallotton et Vuillard;\N
+120;group;1907-06-17 00:00:00;1907-06-29 00:00:00;Les Aquarelles de Cézanne;\N
+121;solo;1907-10-00 00:00:00;\N;Les Dessins de Rodin;\N
+122;group;1907-07-00 00:00:00;1907-08-00 00:00:00;Tentoonstelling van Aquarellen en Teekeningen Moderne Meesters en een collectie Teekeningen van Kees van Dongen;\N
+123;group;1907-07-00 00:00:00;1907-09-00 00:00:00;Salon des Beaux-Arts d'Ostende;\N
+124;group;1907-08-00 00:00:00;\N;Ausstellung von Werken von Max Beckmann in Berlin, Georg Minne in Laethem St. Martin;\N
+125;group;1907-09-01 00:00:00;1907-10-15 00:00:00;Salon des Peintres Divisionnistes Italiens organisé par la Galerie d'Art A. Grubicy, de Milan;\N
+126;solo;1907-03-12 00:00:00;\N;Meunier kiállítás a városligeti Műcsarnokban;\N
+127;group;1907-09-00 00:00:00;\N;Thirty-Ninth Exhibition of Modern Pictures by the New English Art Club;\N
+128;group;1907-10-00 00:00:00;1907-11-00 00:00:00;Třiadvacátá výstava Spolku výtvarných umělců Manes v Praze 1907. Francouzští impressionisté;\N
+129;group;1907-10-01 00:00:00;1907-10-22 00:00:00;Salon d'Automne. 5e Exposition;\N
+130;group;1907-10-24 00:00:00;1907-11-10 00:00:00;Exposition de sculptures nouvelles par Camille Claudel et de peintures par Manguin, Marquet, Puy;\N
+131;solo;1907-11-04 00:00:00;1907-11-16 00:00:00;Exposition Othon Friesz;\N
+132;group;1907-11-14 00:00:00;1907-11-30 00:00:00;Fleurs et Natures Mortes;\N
+133;group;1907-12-06 00:00:00;1908-01-05 00:00:00;Vierzehnte Ausstellung der Berliner Secession, Zeichnende Künste;\N
+134;group;1907-12-00 00:00:00;\N;Modern francia nagymesterek tárlata. Magyar müvészek karácsonyi művásárja és az Éremkedvelők Egyesületének kiállitása;\N
+135;group;1907-12-10 00:00:00;1907-12-31 00:00:00;Exposition de Cent Vingt Tableautins, Peintures, Aquarelles, Pastels et Dessins;\N
+136;group;1907-12-16 00:00:00;1908-01-04 00:00:00;Portraits d'Hommes;\N
+137;group;1908-00-00 00:00:00;\N;Max Liebermann, Louis Corinth, Walter Leistikow, Max Slevogt kiállitása;\N
+138;group;1908-00-00 00:00:00;\N;Hollósi Simon, Feiks Jenő, Feiks Alfréd, Jules Pascin, Kubin Alfréd, Kober Leo kiállitása;\N
+139;group;1908-02-00 00:00:00;1908-06-00 00:00:00;LXXVIII. Esposizione internazionale di Belle Arti della Società Amatori e Cultori di Belle Arti in Roma;Società Amatori e Cultori di Belle Arti in Roma
+140;group;1908-00-00 00:00:00;\N;XV Выставка Картин Московскаго Товарищества Художников;Московское Товарищество Художников [Moscow Association of Artists]
+141;group;1908-01-02 00:00:00;1908-01-21 00:00:00;Exhibition of Drawings by M. Auguste Rodin;\N
+142;solo;1908-01-06 00:00:00;\N;Cent Tableaux de Vincent van Gogh;\N
+143;solo;1908-01-06 00:00:00;1908-01-18 00:00:00;Quelques oeuvres de Vincent van Gogh;\N
+144;group;1908-01-06 00:00:00;1908-01-31 00:00:00;Exposition d'Aquarelles & Peintures;\N
+145;group;1908-01-08 00:00:00;1908-02-02 00:00:00;X. Jahrgang, 1907/1908 / V. Ausstellung;Paul Cassirer
+146;group;1907-12-27 00:00:00;1908-01-15 00:00:00;Выставка Картин "Стефанос";Стефанос [Stefanos]
+147;group;1908-02-03 00:00:00;1908-02-15 00:00:00;Exhibition of Paintings;\N
+148;group;1908-02-16 00:00:00;1908-04-20 00:00:00;Deutsche Kunstausstellung Bremen;\N
+149;solo;1908-02-17 00:00:00;1908-02-29 00:00:00;Exposition Vuillard;\N
+150;group;1908-03-00 00:00:00;1908-04-15 00:00:00;Van Gogh. Gauguin.;\N
+151;group;1908-03-01 00:00:00;1908-04-05 00:00:00;La Libre Esthétique, Salon Jubilaire;\N
+152;group;1908-03-02 00:00:00;1908-03-14 00:00:00;Exposition Seyssaud;\N
+153;group;1908-03-20 00:00:00;1908-05-02 00:00:00;Société des Artistes Indépendants, 24e Exposition;\N
+154;group;1908-00-00 00:00:00;\N;Fünfzehnte Ausstellung der Berliner Secession;\N
+155;group;1908-03-00 00:00:00;\N;Fortieth Exhibition of Modern Pictures. New English Art Club;\N
+156;group;1908-04-06 00:00:00;\N;Венок;Венок
+157;group;1908-04-06 00:00:00;1908-04-25 00:00:00;Exhibition of Drawings, Lithographs, Water-colors, and Etchings by M. Henri Matisse;\N
+158;group;1908-04-15 00:00:00;1908-06-30 00:00:00;Société Nationale des Beaux-Arts: XVIIIe Exposition;\N
+159;group;1908-04-18 00:00:00;1908-05-24 00:00:00;Vystavka kartin "Salon Zolotogo Runa";Zolotoe runo
+160;group;1908-04-27 00:00:00;1908-05-16 00:00:00;Exposition Van Rysselberghe;\N
+161;group;1908-04-30 00:00:00;1908-06-30 00:00:00;Twelfth Annual Exhibition;\N
+162;group;1908-11-07 00:00:00;1909-01-06 00:00:00;XXXI. Ausstellung der Vereinigung Bildender Künstler Österreichs Secession. Moderne Russische Kunst;\N
+163;group;1908-06-01 00:00:00;1908-11-16 00:00:00;Kunstschau Wien;\N
+164;group;1908-05-01 00:00:00;\N;Dvacátá šestá výstava Spolku výtvarných umělců Manes v Praze;\N
+165;group;1908-05-03 00:00:00;1908-06-15 00:00:00;18e Jaarlijksche Tentoonstelling van Kunstwerken van Leden der Vereeniging;St. Lucas
+166;group;1908-05-08 00:00:00;\N;Выставка "Современных течений в искусстве";\N
+167;group;1908-05-09 00:00:00;1908-06-26 00:00:00;XXIe Salon de l'Oeuvre des Artistes;\N
+168;group;1908-05-15 00:00:00;1908-10-00 00:00:00;Internationale Kunst-Ausstellung des Vereins bildender Künstler Münchens (E.V.) "Secession";Vereinigung Bildender Kuenstler E.V. Berlin
+169;group;1908-05-18 00:00:00;1908-05-29 00:00:00;Edvard Diriks;\N
+170;group;1907-00-00 00:00:00;1907-00-00 00:00:00;Výstava 8 Kunst Ausstellung löschen;\N
+171;group;1908-06-01 00:00:00;1908-06-20 00:00:00;Exposition de Peintures;\N
+172;group;1908-06-06 00:00:00;1908-06-28 00:00:00;Les Indépendants Cercle d'Art. Ve Salon annuel;\N
+173;group;1908-01-00 00:00:00;\N;M.I.É.N.K. [1];\N
+174;group;1908-07-00 00:00:00;1908-08-08 00:00:00;The London Salon of the Allied Artists' Association. 1st year;Allied Artists' Association
+175;group;1908-07-03 00:00:00;1908-07-20 00:00:00;Exposition de Tableaux Modernes par A. Braut, Ch. Camoin, J. L. Challie, E. Charmy, M. Dethomas, E. Diriks, G. Dufrénoy, J. Flandrin, O. Friesz, P. Girieud, Ch. Guérin, F. Jourdain, P. Laprade, H. Manguin, A. Marquet, Pankiewicz, O. Redon, K. X. Roussel, G. Rouault, Théo van Rysselberghe, Schnerb, P. Sérusier, J. Trévoux, F. Vallotton;Galerie Druet
+176;solo;1908-09-00 00:00:00;\N;Vincent van Gogh Tentoonstelling;\N
+177;group;1908-00-00 00:00:00;\N;"Street Exhibition";"Zveno"
+178;group;1908-10-01 00:00:00;1908-11-01 00:00:00;Ausstellung Belgischer Kunst;\N
+179;group;1908-10-01 00:00:00;1908-11-08 00:00:00;Salon d'Automne. 6e Exposition;\N
+180;solo;1908-10-12 00:00:00;1908-10-24 00:00:00;Toulouse-Lautrec (1864-1901);\N
+181;group;1908-11-09 00:00:00;1908-11-21 00:00:00;Peintures, Pastels, Dessins, Lithographies par Odilon Redon;\N
+182;solo;1908-11-09 00:00:00;1908-11-28 00:00:00;Exposition Georges Braque;\N
+183;group;1908-11-11 00:00:00;1908-11-24 00:00:00;Exposition Vuillard;\N
+184;solo;1908-11-23 00:00:00;1908-12-05 00:00:00;Exposition Maurice Denis;\N
+185;solo;1908-11-25 00:00:00;1908-12-08 00:00:00;Exposition Van Dongen;\N
+186;group;1908-12-00 00:00:00;\N;Sechzehnte Ausstellung der Berliner Secession. Zeichnende Künste;\N
+187;group;1908-12-11 00:00:00;\N;60 graphische Werke und 6 Gemälde von Edward Munch;\N
+188;group;1908-12-11 00:00:00;1908-12-31 00:00:00;Exposition d'Aquarelles, Dessins & Croquis;\N
+189;solo;1908-12-14 00:00:00;1909-01-09 00:00:00;Exposition Georges Seurat (1859-1891);\N
+190;group;1908-12-21 00:00:00;1909-01-15 00:00:00;Catalogue des Œuvres Exposées;\N
+191;group;1908-12-21 00:00:00;1909-01-16 00:00:00;Exposition d'Aquarelles et Dessins;\N
+192;group;1908-00-00 00:00:00;\N;XVI Выставка Картин Московского Товарищества Художников;Московское Товарищество Художников [Moscow Association of Artists]
+193;group;1908-11-00 00:00:00;1909-00-00 00:00:00;Téli nemzetközi kiállítás;\N
+194;group;1908-00-00 00:00:00;1909-00-00 00:00:00;VI выставка картин Союза Русских Художников;Союз Русских Художников [Union of Russian Artists]
+195;group;1908-00-00 00:00:00;1909-00-00 00:00:00;Салон 1909;\N
+196;group;1909-12-15 00:00:00;1910-01-08 00:00:00;Esposizione Annuale d'Arte della Famiglia Artistica;\N
+197;group;1909-00-00 00:00:00;\N;Союз Русских Художников;\N
+198;group;1909-02-09 00:00:00;1909-03-24 00:00:00;Akvarellek, pasztellek és grafikai művek nemzetközi kiállitása;\N
+199;group;1909-01-00 00:00:00;\N;Exhibition of Contemporary German Art;\N
+200;solo;1909-01-18 00:00:00;1909-01-30 00:00:00;Exposition Paul Sérusier 1891-1909;\N
+201;group;1909-01-22 00:00:00;1909-02-28 00:00:00;Exposition de Peintures, Aquarelles et Pastels;\N
+202;group;1909-01-24 00:00:00;1909-02-28 00:00:00;Vystavka kartin "Zolotoe runo";Zolotoe runo
+203;solo;1909-02-00 00:00:00;1909-03-00 00:00:00;Tentoonstelling Jan Toorop;\N
+204;group;1909-02-00 00:00:00;1909-03-00 00:00:00;M.I.É.N.K. második kiállitása;\N
+205;solo;1909-02-01 00:00:00;1909-02-20 00:00:00;Exposition Bonnard;\N
+206;group;1909-02-12 00:00:00;1909-02-24 00:00:00;Exhibition of Paintings and Drawings by Max Weber;\N
+207;solo;1909-02-28 00:00:00;1909-04-00 00:00:00;Ausstellung Hans von Marées;\N
+208;group;1909-03-00 00:00:00;\N;De Unga;\N
+209;solo;1909-03-01 00:00:00;1909-03-13 00:00:00;Pierre Laprade vous prie de visiter l'Exposition de ses Peintures;Galerie E. Druet
+210;group;1909-03-07 00:00:00;1909-04-12 00:00:00;La Libre Esthétique. Seizième Exposition;\N
+211;group;1909-04-00 00:00:00;\N;Achtzehnte Ausstellung der Berliner Secession;\N
+212;group;1909-00-00 00:00:00;\N;Vistavka kartin "Impressionisty";\N
+213;solo;1909-03-22 00:00:00;1909-04-03 00:00:00;Exposition de 32 Tableaux de G. Courbet;\N
+214;group;1909-03-25 00:00:00;1909-05-02 00:00:00;Société des Artistes Indépendants: 25e exposition;\N
+215;group;1909-03-30 00:00:00;1909-04-17 00:00:00;Exhibition of Sketches in Oil by Alfred Maurer, of Paris and New York\; and Water-colors by John Marin of Paris and New York.;\N
+216;group;1909-04-00 00:00:00;\N;Pictures and Drawings by Roger Fry;\N
+217;group;1909-04-00 00:00:00;1909-05-00 00:00:00;S. V. U. Manes. XXIX. výstava. (Členská);\N
+218;group;1909-04-07 00:00:00;1909-04-21 00:00:00;Vistavka kartin gruppy "Venok-Stefanos";\N
+219;group;1909-04-11 00:00:00;1909-05-08 00:00:00;Leihausstellung von Gemälden, Zeichnungen und Bildwerken aus bremischen Privatbesitz;\N
+220;group;1909-04-11 00:00:00;1909-05-16 00:00:00;Negentiende Jaarlijksche Tentoonstelling van Kunstwerken van Leden der Vereeniging;St. Lucas
+221;group;1909-04-15 00:00:00;1909-06-30 00:00:00;Société Nationale des Beaux-Arts: XIXe Exposition;\N
+222;solo;1909-04-22 00:00:00;1909-05-08 00:00:00;Exhibition of Paintings and Drawings by Max Weber;\N
+223;group;1909-04-22 00:00:00;1909-10-31 00:00:00;VIII. Esposizione d'Arte della Città di Venezia;Città di Venezia
+224;group;1909-04-29 00:00:00;1909-06-30 00:00:00;Thirteenth Annual Exhibition;\N
+225;group;1909-05-00 00:00:00;1909-10-00 00:00:00;Internationale Kunstschau Wien;\N
+226;group;1909-05-03 00:00:00;1909-05-15 00:00:00;Aquarelles & Pastels de Cézanne, H.-E. Cross, Degas, Jongkind, Camille Pissarro, K.-X. Roussel, Paul Signac, Vuillard;\N
+227;solo;1909-05-08 00:00:00;1909-05-18 00:00:00;Exhbition of Paintings in Oil by Mr. Marsden Hartley, of Maine;Photo-Secession Gallery
+228;group;1909-05-15 00:00:00;1909-10-03 00:00:00;Grosse Kunstausstellung [Düsseldorf];\N
+229;group;1909-05-15 00:00:00;1909-10-03 00:00:00;Ausstellung für Christliche Kunst. Ausstellung von Mitgliedern des Deutschen Werkbundes;\N
+230;group;1909-05-22 00:00:00;\N;Forty-First Exhibition of Modern Pictures. New English Art Club;Royal Society of British Artists
+231;group;1909-05-24 00:00:00;1909-06-07 00:00:00;Expositions de Peintures;\N
+232;group;1909-06-08 00:00:00;1909-06-23 00:00:00;La Misère Sociale de la Femme / Peinture - Dessins - Estampes / Au profit de l'Oeuvre des Libérées de Saint-Lazare;\N
+233;group;1909-06-12 00:00:00;1909-07-04 00:00:00;Les Indépendants Cercle d'Art / VIe Salon annuel;\N
+234;auction;1909-06-18 00:00:00;1909-06-21 00:00:00;Vente de 84 Œuvres De Walter Sickert;\N
+235;group;1909-07-00 00:00:00;\N;The London Salon of the Allied Artists' Association: 2nd year;\N
+236;group;1909-07-10 00:00:00;1909-08-01 00:00:00;Doe Stil Voort. IIIe Jaarlijksche Tentoonstelling. IIIe Exposition Annuelle;\N
+237;group;1909-08-04 00:00:00;1909-09-16 00:00:00;Sonderausstellung / Graphische Arbeiten meist / französischer Künstler / Deutsche und holländische Keramik;\N
+238;group;1909-04-00 00:00:00;1909-05-00 00:00:00;Tentoonstelling van Kunstwerken;Maatschappij "Arti et Amicitiae"
+239;solo;1909-10-07 00:00:00;1909-12-00 00:00:00;Vincent van Gogh;\N
+240;group;1909-10-19 00:00:00;1909-12-05 00:00:00;Henri de Toulouse-Lautrec (1864-1901);\N
+241;group;1909-10-01 00:00:00;1909-11-08 00:00:00;Salon d'Automne. 7e Exposition;\N
+242;solo;1909-11-02 00:00:00;1909-11-20 00:00:00;Exposition Vuillard;\N
+243;solo;1909-11-08 00:00:00;1909-11-20 00:00:00;Cinquante Tableaux de Vincent Van Gogh;\N
+244;group;1909-11-13 00:00:00;1909-12-04 00:00:00;Natures Mortes et Fleurs (Peintures);\N
+245;group;1909-11-27 00:00:00;1910-01-09 00:00:00;Neunzehnte Ausstellung der Berliner Secession. Zeichnende Künste;\N
+246;group;1909-12-01 00:00:00;1909-12-15 00:00:00;Neue Künstlervereinigung München E.V., Turnus 1909-1910;\N
+247;solo;1909-12-06 00:00:00;1909-12-18 00:00:00;Exposition Edvard Diriks;\N
+248;group;1909-12-17 00:00:00;1910-02-06 00:00:00;Internazionalnaja vystavka kartin, skulptury, gravjury i risunkov.;\N
+249;group;1910-02-25 00:00:00;1910-03-27 00:00:00;Internazionalnaja vystavka kartin, skulptury, gravjury i risunkov.;\N
+250;group;1909-12-20 00:00:00;1910-01-14 00:00:00;Exhibition of Lithographs by Henri de Toulouse-Lautrec;Photo-Secession Gallery
+251;group;1909-12-00 00:00:00;\N;New English Art Club: 42nd Exhibition;Royal Society of British Artists
+252;group;1909-00-00 00:00:00;1910-00-00 00:00:00;XVII Выставка Картин Московскаго Товарищества Художников;Московское Товарищество Художников [Moscow Association of Artists]
+253;group;1909-00-00 00:00:00;1910-00-00 00:00:00;VII Выставка Картин Союза Русских Художников;Литературно-Художественный Кружок
+254;group;1909-00-00 00:00:00;1910-00-00 00:00:00;Vistavka kartin "Impressionisty";\N
+255;group;1910-00-00 00:00:00;\N;Exposition Universelle et internationale de Bruxelles / Groupe II / Oeuvres d'Art Modernes;\N
+256;group;1910-00-00 00:00:00;\N;Hollandi mesterek kiállitása Könyves Kálmán Szalonjában;\N
+257;group;1910-00-00 00:00:00;\N;Esposizione Retrospettiva di Pittura e Scultura;Società delle Belle Arti in Firenze
+258;group;1910-00-00 00:00:00;\N;Maleriudstilling af Thorvald Erichsen, Kristen Holbø, August Jacobsen, Erik Werenskiold, O. Wold-Torne;\N
+259;group;1910-00-00 00:00:00;\N;Выставка Картин Союза Русских Художников;Союз Русских Художников
+260;group;1910-00-00 00:00:00;\N;Выставка картин "Союз Русских Художников";Sojuz Russkih Hudozhnikov
+261;group;1910-00-00 00:00:00;\N;De Norska Konstnärernas, Erik Werenskiold, Thorvals Erichsen, Kristen Holbø, August Jacobsen, O. Wold-Torne;\N
+262;group;1910-01-00 00:00:00;1910-02-00 00:00:00;M.I.É.N.K. III-ik kiállítás;\N
+263;group;1910-01-09 00:00:00;1910-02-13 00:00:00;Выставка картин "Золотое руно".;Zolotoe runo
+264;group;1910-01-10 00:00:00;1910-01-22 00:00:00;Exposition Cézanne (1837-1906);\N
+265;solo;1910-01-10 00:00:00;1910-01-22 00:00:00;Exposition de Peintures de Félix Vallotton;\N
+266;solo;1910-01-24 00:00:00;1910-02-20 00:00:00;Exposition de Peintures et de Lithographies Originales de H. de Toulouse-Lautrec. 1864-1901;Musée des Arts Décoratifs
+267;group;1910-02-00 00:00:00;1910-03-00 00:00:00;XXXI. výstava S. V. U. Manes. Les indépendants;\N
+268;group;1910-02-05 00:00:00;1910-03-03 00:00:00;Ausstellung Ungarischer Maler;\N
+269;group;1910-02-07 00:00:00;1910-02-19 00:00:00;Exhibition of Water-colors, Pastels and Etchings by John Marin;Photo-Secession Gallery
+270;solo;1910-02-14 00:00:00;1910-03-05 00:00:00;Exposition Henri-Matisse. Tableaux & Dessins;\N
+271;solo;1910-02-21 00:00:00;1910-03-05 00:00:00;Exposition de Peintures et de Céramiques de G. Rouault;\N
+272;group;1910-02-21 00:00:00;1910-03-07 00:00:00;Recent Drawings and reproductions of paintings by Henri Matisse;\N
+273;solo;1910-03-00 00:00:00;\N;Edvard Munch Udstilling;\N
+274;group;1910-03-00 00:00:00;\N;Выставка Картин О-ва Художников "Союз молодежи";Союз молодежи
+275;solo;1910-03-07 00:00:00;1910-03-26 00:00:00;Exposition Bonnard;\N
+276;group;1910-03-09 00:00:00;1910-03-21 00:00:00;The following group of the younger American painters will exhibit paintings and sketches: G. Putnm Brinley, Arthur Beecher Carles, Arthur Dove, Lawrence Fellows, Marsden Hartley, John Marin, Alfred Maurer, Eduard Steichen, Max Weber;Photo-Secession Gallery
+277;group;1910-03-12 00:00:00;1910-04-17 00:00:00;La Libre Esthétique. L'Évolution du Paysage;\N
+278;group;1910-03-15 00:00:00;1910-03-26 00:00:00;Exposition de Peintures et Faïences décoratives de Vlaminck;\N
+279;group;1910-03-18 00:00:00;1910-05-01 00:00:00;Société des Artistes Indépendants: 26e exposition;\N
+280;group;1910-04-00 00:00:00;\N;Zwanzigste Ausstellung der Berliner Secession;\N
+281;group;1910-03-31 00:00:00;1910-04-16 00:00:00;Exhibition of Drawings by Auguste Rodin;\N
+282;group;1910-04-00 00:00:00;\N;De Unga;\N
+283;group;1910-04-27 00:00:00;1910-06-19 00:00:00;Nemzetközi Impresszionista kiállítás;\N
+284;solo;1910-04-04 00:00:00;1910-04-16 00:00:00;Exposition de Peintures de Othon Friesz;\N
+285;group;1910-04-15 00:00:00;1910-06-30 00:00:00;Société Nationale des Beaux-Arts / XX. Exposition;Société Nationale des Beaux-Arts
+286;group;1910-04-20 00:00:00;1910-05-15 00:00:00;Prima Mostra italiana dell'Impressionismo, opere di Paul Cézanne, Edgar Degas, Jean-Louis Forain, Paul Gauguin, Henri Matisse, Claude Monet, Camille Pissarro, Pierre-Auguste Renoir, Medardo Rosso, Henri Toulouse-Lautrec, Vincent Van Gogh;\N
+287;group;1910-04-23 00:00:00;1910-10-31 00:00:00;IX. Esposizione d'Arte della Città di Venezia;Città di Venezia
+288;group;1910-04-24 00:00:00;1910-06-00 00:00:00;20ste Jaarlijksche Tentoonstelling van Kunstwerken der Vereeniging St. Lucas;\N
+289;group;1910-04-28 00:00:00;1910-05-28 00:00:00;Exposition de Dessins, Aquarelles & Peintures;\N
+290;group;1910-05-15 00:00:00;1910-07-15 00:00:00;Neue Secession / Ausstellung abgewiesener Künstler der Berliner Secession [I. Ausstellung];\N
+291;group;1910-05-00 00:00:00;1910-06-00 00:00:00;XXXIII. výstava Spolku výtvar. umělců :Manes:;\N
+292;group;1910-05-00 00:00:00;1910-09-00 00:00:00;Svájci művészek (Société des Peintres Sculpteurs et Architectes Suisses) kiállítása;\N
+293;group;1910-05-01 00:00:00;1910-05-14 00:00:00;Vystavka eskizov, etjudov, risunkov;Redakzija periodicheskih sbornikov iskusstva "Na Rascvete"
+294;solo;1910-05-02 00:00:00;1910-05-14 00:00:00;Exposition Seyssaud;\N
+295;solo;1910-05-02 00:00:00;1910-05-14 00:00:00;Exposition de Peintures de Albert Marquet;\N
+296;group;1910-05-02 00:00:00;1910-06-30 00:00:00;Fourteenth Annual Exhibition;\N
+297;group;1910-05-02 00:00:00;1910-06-07 00:00:00;DELETE Internazionalnaja vystavka kartin, skulptury, gravjury i grafiki;\N
+298;group;1910-06-25 00:00:00;1910-07-20 00:00:00;Internazionalnaja vystavka kartin, skulptury, gravjury i grafiki;\N
+299;group;1910-05-14 00:00:00;1910-06-30 00:00:00;III. Graphische Ausstellung des Deutschen Künstlerbundes;\N
+300;solo;1910-05-17 00:00:00;1910-05-28 00:00:00;Exposition de Peintures de George Desvallières;\N
+301;group;1910-05-17 00:00:00;1910-05-28 00:00:00;Nus;\N
+302;group;1910-05-18 00:00:00;1910-10-31 00:00:00;Internationale Kunstausstellung der Münchener Secession;\N
+303;solo;1910-05-30 00:00:00;1910-06-11 00:00:00;Exposition Manguin;\N
+304;group;1910-06-00 00:00:00;\N;Russkij Secession;Sojuz molodiozhi
+305;solo;1910-06-00 00:00:00;1910-06-00 00:00:00;Manet. Trente-cinq tableaux de la Collection Pellerin;\N
+306;solo;1910-06-11 00:00:00;1910-07-10 00:00:00;Tentoonstelling van een aantal werken van Vincent van Gogh uitsluitend uit zijn Franschen tijd;\N
+307;group;1910-06-20 00:00:00;1910-07-09 00:00:00;Les Artistes Russes, Décors et Costumes de théâtre et Tableaux;\N
+308;group;1910-00-00 00:00:00;\N;Forty-Third Exhibition of Modern Pictures. New English Art Club;Royal Society of British Artists
+309;group;1910-07-00 00:00:00;1910-08-06 00:00:00;The London Salon of Allied Artists' Association: 3rd Year;Allied Artists' Association
+310;group;1910-07-02 00:00:00;1910-07-25 00:00:00;Les Indépendants. Cercle d'Art. VIIe Salon annuel;\N
+311;group;1910-07-16 00:00:00;1910-10-09 00:00:00;Ausstellung des Sonderbundes Westdeutscher Kunstfreunde und Künstler;\N
+312;group;1910-09-00 00:00:00;\N;Ausstellung der K. G. "Brücke";\N
+313;group;1910-09-00 00:00:00;\N;Utställnig af Utländsk Modern Grafisk Konst;\N
+314;group;1910-09-01 00:00:00;1910-09-14 00:00:00;Neue Künstlervereinigung München E.V., Turnus 1910-1911. [II. Ausstellung];\N
+315;solo;1910-09-22 00:00:00;1910-10-16 00:00:00;Tentoonstelling van Werken van James Ensor;\N
+316;group;1910-10-00 00:00:00;1910-11-00 00:00:00;Ausstellung französischer Kunst des 18., 19. und 20. Jahrhunderts;Leipziger Kunstverein
+317;group;1910-10-01 00:00:00;1910-11-08 00:00:00;Salon d'Automne. 8e Exposition;\N
+318;group;1910-10-01 00:00:00;1910-12-30 00:00:00;Neue Secession Berlin I. Graphische Ausstellung;\N
+319;solo;1910-10-17 00:00:00;1910-11-05 00:00:00;Exposition Henri-Edmond Cross;\N
+320;solo;1910-10-25 00:00:00;1910-11-20 00:00:00;XIII. Jahrgang. Winter 1910/1911. III. Ausstellung. Vincent van Gogh;\N
+321;group;1910-11-00 00:00:00;1910-12-00 00:00:00;XXXVII. Ausstellung der Vereinigung Bildender Künstler Österreichs Secession;\N
+322;group;1910-11-00 00:00:00;1911-01-00 00:00:00;Einundzwanzigste Ausstellung der Berliner Secession. Zeichnende Künste;\N
+323;solo;1910-11-07 00:00:00;1910-11-19 00:00:00;Exposition de Peintures de André Lhote;\N
+324;group;1910-11-08 00:00:00;1911-01-15 00:00:00;Manet and the Post-Impressionists;\N
+325;group;1910-11-18 00:00:00;1910-12-08 00:00:00;[Manet, Cezanne, Renoir, Toulouse-Lautrec, Rodin, Rousseau];\N
+326;group;1910-00-00 00:00:00;\N;Salon 2\; International Art Exhibition;\N
+327;group;1910-12-10 00:00:00;1911-01-16 00:00:00;Бубновый Валет;\N
+328;group;1910-12-04 00:00:00;1910-12-17 00:00:00;Exposition Annuelle, 1er Groupe;\N
+329;group;1910-12-19 00:00:00;1910-12-30 00:00:00;La Faune;\N
+330;group;1910-00-00 00:00:00;\N;New English Art Club: 44th Exhibition;Royal Society of British Artists
+331;group;1911-00-00 00:00:00;\N;XVIII Выставка Картин Московскаго Т-ва Художников;Московское Товарищество Художников [Moscow Association of Artists]
+332;group;1911-00-00 00:00:00;\N;Общество Художников "Московский Салон";Московский Салон
+333;group;1911-01-00 00:00:00;\N;Мир искусства;Мир искусства
+334;group;1911-01-00 00:00:00;1911-02-00 00:00:00;XIII. Jahrgang / Winter 1910/1911 / VI. Ausstellung / Vincent van Gogh 1853-1890;\N
+335;group;1911-01-00 00:00:00;1911-02-00 00:00:00;S. V. U. Manes. XXXV. výstava. (Členská);\N
+336;group;1911-01-11 00:00:00;1911-01-31 00:00:00;Paintings and Drawings by Mr. Max Weber, of New York;Photo-Secession Gallery
+337;group;1911-01-23 00:00:00;1911-02-01 00:00:00;"Les Ponts de Paris nouvelle série d'aquarelles de Paul Signac";\N
+338;group;1911-02-00 00:00:00;\N;Hagenbund. Sonderausstellung Malerei und Plastik;\N
+339;group;1911-02-18 00:00:00;1911-04-15 00:00:00;Neue Secession / III. Ausstellung, Gemälde;\N
+340;group;1911-02-02 00:00:00;1911-02-22 00:00:00;An exhibition of recent water-colors, - the Tyrol and vicinity of New York -, by Mr. John Marin, of New York;Photo-Secession Gallery
+341;solo;1911-02-13 00:00:00;1911-02-25 00:00:00;Exposition Vuillard;\N
+342;group;1911-02-23 00:00:00;1911-03-08 00:00:00;An exhibition of drawings, and photographs of paintings by Henri Matisse;Photo-Secession Gallery
+343;group;1911-03-00 00:00:00;1911-03-00 00:00:00;XIII. Jahrgang. Winter 1910/1911. VIII. Ausstellung. [Kollektionen von Paul Cézanne, Ferdinand Hodler, Leopold von Kalckreuth, Fritz von Uhde, Maurice H. Sterne];\N
+344;solo;1911-03-00 00:00:00;\N;An exhibition of pictures by Gustave Courbet;\N
+345;group;1911-03-01 00:00:00;1911-03-25 00:00:00;An exhibition of water-colors by Cézanne;Photo-Secession Gallery
+346;group;1911-03-03 00:00:00;1911-04-20 00:00:00;Frühjahr-Ausstellung der Münchener Secession;Münchener Secession
+347;group;1911-03-13 00:00:00;1911-03-25 00:00:00;Exposition Annuelle. 2me Groupe;\N
+348;group;1911-03-18 00:00:00;1911-04-23 00:00:00;La Libre Esthétique, dix-huitième Exposition à Bruxelles;\N
+349;group;1911-00-00 00:00:00;\N;XXII. Ausstellung der Berliner Secession;\N
+350;group;1911-00-00 00:00:00;\N;Мир Искусства;Мир Искусства
+351;group;1911-00-00 00:00:00;\N;2-я Выставка картин общества художников "Союз Молодежи";Союз Молодежи
+352;solo;1911-03-27 00:00:00;1911-04-14 00:00:00;Exposition K.-X. Roussel;\N
+353;group;1911-03-28 00:00:00;1911-04-25 00:00:00;An exhibition of early and recent drawings and water-colors by Pablo Picasso, of Paris;Photo-Secession Gallery
+354;solo;1911-04-00 00:00:00;\N;Edvard Munch Udstilling;\N
+355;group;1911-04-00 00:00:00;\N;De Unga;\N
+356;group;1911-04-00 00:00:00;1911-05-00 00:00:00;"Nyolcak kiállitása";\N
+357;group;1911-04-00 00:00:00;1911-06-00 00:00:00;Société Nationale des Beaux-Arts / XXIe Exposition;Société Nationale des Beaux-Arts
+358;group;1911-04-21 00:00:00;1911-06-13 00:00:00;Société des Artistes Indépendants: 27e Exposition. Henri Rousseau.;\N
+359;group;1911-04-24 00:00:00;1911-05-06 00:00:00;Exposition Annuelle, IIIme Groupe;Galerie E. Druet
+360;group;1911-04-27 00:00:00;1911-06-30 00:00:00;Fifteenth Annual Exhibition;Carnegie Institute
+361;group;1911-04-30 00:00:00;1911-06-11 00:00:00;Vereeniging Sint-Lucas. Een en Twintigste [21.] Jaarlijksche Tentoonstelling;\N
+362;group;1911-05-10 00:00:00;1911-10-10 00:00:00;Leipziger Jahrsausstellung 1911 in Verbindung mit dem Deutschen Künstlerbund;\N
+363;group;1911-05-16 00:00:00;1911-10-31 00:00:00;Internationale Kunstausstellung der Münchener Secession;\N
+364;group;1911-05-16 00:00:00;\N;VI. Esposición Internacional de Arte;\N
+365;group;1911-05-17 00:00:00;1911-06-03 00:00:00;Exposition des oeuvres récentes (1910 & 1911) de Bonnard / Panneaux décoratifs et tableaux;\N
+366;solo;1911-05-26 00:00:00;1911-06-00 00:00:00;Kollektion Ferdinand Hodler im Kölnischen Kunstverein;\N
+367;solo;1911-06-00 00:00:00;\N;Tentoonstelling van Schilderijen, Aquarellen en Teekeningen van Vincent van Gogh;\N
+368;group;1911-06-00 00:00:00;\N;The First Exhibition of the Camden Town Group;\N
+369;group;1911-06-01 00:00:00;\N;Retrospektiva Konstutställningen 1861-1911;\N
+370;solo;1911-06-06 00:00:00;1911-06-24 00:00:00;Exposition Van Dongen;\N
+371;group;1911-06-10 00:00:00;1911-07-03 00:00:00;Les Indépendants Cercle d'Art / VIIIme Salon annuel;\N
+372;group;1911-06-13 00:00:00;1911-07-02 00:00:00;Kunstausstellung aus Essener Privatbesitz;Museum der Stadt Essen. Kunstmuseum
+373;solo;1911-03-12 00:00:00;1911-04-12 00:00:00;Rippl-Rónai József retrospektiv kiállitása 1888-1911;\N
+374;group;1911-06-00 00:00:00;\N;Forty-fifth Exhibition of Modern Pictures. New English Art Club;\N
+375;group;1911-06-26 00:00:00;1911-07-13 00:00:00;L'Eau;\N
+376;group;1911-07-00 00:00:00;1911-08-07 00:00:00;The London Salon of the Allied Artists' Association. Fourth Year;Allied Artists' Association
+377;group;1911-07-00 00:00:00;1911-08-00 00:00:00;Tentoonstelling van Schilderijn en Teekeningen van Walchersche Schilders;Domburg
+378;solo;1911-07-06 00:00:00;1911-10-15 00:00:00;Exposition des Œuvres de L. Bakst;\N
+379;group;1911-07-20 00:00:00;1911-08-05 00:00:00;La Montagne;\N
+380;group;1911-08-00 00:00:00;\N;Munchs Konkurranceutkast tic Universitetes Festsal;\N
+381;group;1911-10-00 00:00:00;\N;Kunst unserer Zeit in Cölner Privatbesitz;\N
+382;solo;1911-10-13 00:00:00;1911-11-12 00:00:00;[XIV. Jahrgang. I. Ausstellung. Ferdinand Hodler];\N
+383;group;1911-10-01 00:00:00;1911-11-08 00:00:00;Salon d'Automne. 9e exposition;\N
+384;group;1911-10-06 00:00:00;1911-11-05 00:00:00;Internationale Tentoonstelling van Moderne Kunst. Moderne Kunst Kring;\N
+385;group;1911-10-16 00:00:00;1911-10-28 00:00:00;René Seyssaud / Bretagne - Provence, Figures et Natures mortes;\N
+386;group;1911-11-00 00:00:00;\N;XIV. Jahrgang / II. Ausstellung;\N
+387;group;1911-11-23 00:00:00;\N;Exhibition of Pictures by Paul Cézanne (1839-1906) and Paul Gauguin (1848-1903);\N
+388;group;1911-11-00 00:00:00;1911-12-00 00:00:00;Dreiundzwanzigste Ausstellung der Berliner Secession. Zeichnende Künste;\N
+389;solo;1911-11-25 00:00:00;1911-12-17 00:00:00;Kernstock Károly retrospekív kiállítás;\N
+390;group;1911-11-00 00:00:00;1911-12-00 00:00:00;Exposition Internationale de l'Art Chrétien Moderne / Organisée par la Société de Saint-Jean;\N
+391;group;1911-11-00 00:00:00;1911-12-00 00:00:00;Hagenbund. Kollektivausstellung der Vereinigung Bildender Künstler Manes. Prag;\N
+392;solo;1911-11-13 00:00:00;1911-11-25 00:00:00;Pierre Laprade vous prie de visiter, E. Druet, 20, Rue Royale l'Exposition de ses Peintures et Aquarelles, Marseille, Rome, Naples, Palerme.;Galerie E. Druet
+393;group;1911-11-18 00:00:00;1912-01-31 00:00:00;Neue Secession Berlin. IV. Ausstellung. Gemälde.;\N
+394;group;1911-11-20 00:00:00;1911-12-16 00:00:00;Exposition d'Art Contemporain / Société Normande de Peinture Moderne 2me exposition;\N
+395;group;1911-11-27 00:00:00;1911-12-09 00:00:00;Exposition Annuelle, 1er Groupe;Galerie E. Druet
+396;group;1911-11-28 00:00:00;\N;Vystavka kartin "Mir iskusstva";\N
+397;group;1911-12-00 00:00:00;1912-01-00 00:00:00;XIV. Jahrgang. Winter 1911/1912. III. Ausstellung. [Kollektionen Leo Klein-Diepold, Oskar Moll, Max Pechstein, Fritz Rhein, Josef Rippl-Rónai];\N
+398;group;1911-12-00 00:00:00;\N;The Second Exhibition of the Camden Town Group;\N
+399;group;1911-12-00 00:00:00;\N;Neue Künstlervereinigung München E.V., III. Ausstellung. Turnus 1911/12;\N
+400;group;1911-12-18 00:00:00;1912-01-03 00:00:00;Der Blaue Reiter. Die Erste Ausstellung der Redaktion;\N
+401;group;1911-12-00 00:00:00;1911-12-09 00:00:00;Recent Paintings by Walt Kuhn;\N
+402;solo;1911-12-04 00:00:00;1911-12-16 00:00:00;Oeuvres Nouvelles de Van Dongen;\N
+403;solo;1911-12-11 00:00:00;1911-12-23 00:00:00;Exposition de Peintures et de Céramiques de G. Rouault;\N
+404;group;1911-12-17 00:00:00;1912-01-23 00:00:00;Союз Молодежи;\N
+405;group;1911-12-00 00:00:00;\N;Forty-Sixth Exhibition of Modern Pictures by the New English Art Club;\N
+406;solo;1911-12-08 00:00:00;\N;Однодневная Выставка Произведений М. Ф. Ларионова;Общество Свободной Эстетики
+407;solo;1912-00-00 00:00:00;\N;Ausstellung Vincent van Gogh. 1853-1890;\N
+408;group;1912-00-00 00:00:00;\N;DELETE Sovremennaja zhivopis;\N
+409;group;1912-00-00 00:00:00;\N;Exposition d'Art Moderne;\N
+410;group;1912-00-00 00:00:00;1913-00-00 00:00:00;Touring Exhibition of the Deutsches Museum für Kunst in Handel und Gewerbe/Hagen i. W. / with the co-operation of the Österreichisches Museum für Kunst und Industrie in Wien.;Newark Museum Assoc.
+411;group;1912-00-00 00:00:00;\N;Выставка сто лет французской живописи (1812-1912);Journal "Apollon" and Institut Français à St. Pètersbourg
+412;group;1912-01-06 00:00:00;1912-01-00 00:00:00;A Neukunst Wien vendégművészeinek kiállítása 1912;\N
+413;group;1912-01-00 00:00:00;\N;Painting and Drawings by Roger Fry;\N
+414;group;1912-01-23 00:00:00;1912-02-26 00:00:00;Выставка Картин Общества Художников "Бубновый Валет";Общество Художников "Бубновый Валет" [Jack of Diamonds Association]
+415;group;1912-01-00 00:00:00;1912-02-23 00:00:00;XIV. Jahrgang. Winter 1911/1912. V. Ausstellung. [Lovis Corinth, Franz von Hatvany, Heinrich Hübner, Fritz Behn];\N
+416;group;1912-01-05 00:00:00;1912-03-01 00:00:00;Umělecká výstava v Obecním domě »u Prašné věže«;\N
+417;group;1912-01-19 00:00:00;1912-02-00 00:00:00;Französische Meister;\N
+418;group;1912-01-00 00:00:00;1912-02-00 00:00:00;Hagenbund. Norwegische Künstler;\N
+419;group;1912-01-00 00:00:00;1912-02-00 00:00:00;Мир искусства;Мир искусства
+420;solo;1912-01-22 00:00:00;1912-02-03 00:00:00;Exposition de Peintures de Félix Vallotton;\N
+421;group;1912-01-23 00:00:00;1912-01-31 00:00:00;Der Blaue Reiter. Die Erste Ausstellung der Redaktion;\N
+422;group;1912-02-00 00:00:00;\N;Die zweite Ausstellung der Redaktion. Der Blaue Reiter. Schwarz-Weiss;\N
+423;group;1912-02-00 00:00:00;\N;Kollektiv-Ausstellung / Edvard Munch;Moderne Galerie (Thannhäuser)
+424;group;1912-02-01 00:00:00;1912-03-31 00:00:00;Deutscher Künstlerbund. Grosse Ausstellung;\N
+425;group;1912-02-05 00:00:00;1912-02-17 00:00:00;Exposition Annuelle, 2me Groupe;\N
+426;group;1912-02-05 00:00:00;1912-02-24 00:00:00;Les Peintres Futuristes italiens;\N
+427;group;1912-02-07 00:00:00;1912-02-26 00:00:00;An Exhibition of recent paintins and drawings by Marsden Hartley;Photo-Secession Gallery
+428;group;1912-02-27 00:00:00;1912-03-12 00:00:00;An exhibition of paintings by Arthur G. Dove;Photo-Secession Gallery
+429;group;1912-02-28 00:00:00;1912-03-13 00:00:00;Les Peintres R. Delaunay, Marie Laurencin;\N
+430;group;1912-03-09 00:00:00;\N;Neue Secession. V. Ausstellung. Zeichnende Künste, Plastik;\N
+431;group;1912-03-00 00:00:00;1912-04-00 00:00:00;XL. výstava. S. V. U. Manes. Mir iskusstva. Sdružení ruských umělců v Petrohradě;\N
+432;group;1912-03-05 00:00:00;\N;Exhibition of works by the Italian Futurist Painters;\N
+433;group;1912-03-09 00:00:00;1912-04-14 00:00:00;La Libre Esthétique. La dix-neuvième Exposition à Bruxelles;\N
+434;solo;1912-03-11 00:00:00;1912-03-23 00:00:00;Exposition des Peintures et des Dessins d'Auguste Chabaud;\N
+435;group;1912-03-12 00:00:00;1912-04-12 00:00:00;Erste Ausstellung: Der blaue Reiter, Franz Flaum, Oskar Kokoschka, Expressionisten;Der Sturm, Wochenschrift für Kultur und die Künste
+436;group;1912-03-14 00:00:00;1912-04-06 00:00:00;An exhibition of sculpture - the first in America - and recent drawings by Henri Matisse;Photo-Secession Gallery
+437;group;1912-03-20 00:00:00;1912-05-16 00:00:00;Société des Artistes Indépendants: 28e exposition;\N
+438;group;1912-00-00 00:00:00;\N;XXIV. Ausstellung der Berliner Secession;\N
+439;group;1912-00-00 00:00:00;\N;Frühjahrsausstellung / Künstlerbund Hagen;Künstlerbund Hagen
+440;group;1912-00-00 00:00:00;\N;Союз Моледежи;Союз Моледежи [Union of Youth]
+441;group;1912-04-00 00:00:00;\N;Ausstellung von Künstlergruppe Brücke;\N
+442;group;1912-04-12 00:00:00;1912-05-00 00:00:00;XIV. Jahrgang. Winter 1911/1912. VIII. Ausstellung. [Paul Cézanne, E. R. Butler, Maria Slavona, G. H. Wolff];\N
+443;solo;1912-04-00 00:00:00;1912-05-00 00:00:00;Alfred A. Wolmark;\N
+444;group;1912-04-00 00:00:00;1912-05-00 00:00:00;Maler und Bildhauer der Berliner Sezession;\N
+445;group;1912-04-07 00:00:00;1912-06-00 00:00:00;LIA Leipziger Jahresausstellung 1912. Für Aquarell, Pastell, Zeichnung und Kleinplastik;\N
+446;group;1912-04-12 00:00:00;1912-05-15 00:00:00;Der Sturm. Zweite Ausstellung. Die Futuristen;\N
+447;group;1912-04-13 00:00:00;1912-07-00 00:00:00;Stedelijke Internationale Tentoonstelling Van Kunstwerken Van Levende Meesters;\N
+448;group;1912-04-14 00:00:00;1912-06-30 00:00:00;Société Nationale des Beaux-Arts: XXIIe Exposition;Société Nationale des Beaux-Arts
+449;solo;1912-04-15 00:00:00;1912-04-27 00:00:00;Edouard Vuillard Exposition;\N
+450;group;1912-04-15 00:00:00;1912-04-27 00:00:00;Exposition de Dix Peintres;Galerie E. Druet
+451;group;1912-04-20 00:00:00;1912-05-10 00:00:00;Exposició d'Art Cubista;\N
+452;solo;1912-04-23 00:00:00;\N;Exhibition of Drawings by Pablo Picasso;\N
+453;group;1912-04-23 00:00:00;1912-10-31 00:00:00;X. Esposizione d'Arte della Città di Venezia;Città di Venezia
+454;group;1912-04-25 00:00:00;1912-06-30 00:00:00;Sixteenth Annual Exhibition;\N
+455;group;1912-04-29 00:00:00;1912-05-11 00:00:00;Exposition Annuelle, IIIe Groupe;\N
+456;group;1912-05-00 00:00:00;\N;[Der Sturm]. Dritte Ausstellung. Graphik;\N
+457;group;1912-05-00 00:00:00;1912-06-00 00:00:00;XIV. Jahrgang / Winter 1911/1912 / IX. Ausstellung / Impressionists, Max Slevogt;\N
+458;group;1912-05-01 00:00:00;1912-05-15 00:00:00;Exposition de Quelques Indépendants Anglais;\N
+459;group;1912-05-01 00:00:00;1912-05-15 00:00:00;Salon de Mai 1912, Première Exposition;\N
+460;group;1912-05-01 00:00:00;1912-10-15 00:00:00;Grosse Kunstausstellung Dresden;\N
+461;group;1912-05-20 00:00:00;1912-06-00 00:00:00;Les Peintres Futuristes Italiens / Exposition;\N
+462;group;1912-05-25 00:00:00;1912-09-30 00:00:00;Internationale Kunstausstellung des Sonderbundes Westdeutscher Kunstfreunde und Künstler zu Cöln;\N
+463;solo;1912-05-28 00:00:00;1912-06-08 00:00:00;Claude Monet "Venise" - Exposition;\N
+464;group;1912-06-01 00:00:00;\N;Porträt-Ausstellung (Werke zeitgenössischer Deutscher Maler);\N
+465;group;1912-06-01 00:00:00;1912-06-23 00:00:00;Les Indépendants Cercle d'Art / IX. Salon annuel;\N
+466;group;1912-06-15 00:00:00;1912-07-15 00:00:00;Société Normande de Peinture Moderne / Salon 1912;\N
+467;solo;1912-06-17 00:00:00;1912-07-06 00:00:00;Bonnard Œuvres récentes;\N
+468;group;1912-06-00 00:00:00;\N;Forty-seventh Exhibition of Modern Pictures. New English Art Club;\N
+469;group;1912-07-00 00:00:00;\N;The London Salon of the Allied Artists' Association / Fifth Year;Allied Artists' Association
+470;group;1912-07-28 00:00:00;1912-08-19 00:00:00;Tentoonstelling van Schilderijen;\N
+471;group;1912-07-02 00:00:00;\N;Moderne Kunst: Plastik, Malerei, Graphik;\N
+472;group;1912-07-07 00:00:00;1912-07-31 00:00:00;Moderner Bund. [II. Ausstellung];\N
+473;group;1912-07-18 00:00:00;1912-09-30 00:00:00;Die klassische Malerei Frankreichs im 19. Jahrhundert;\N
+474;group;1912-08-02 00:00:00;1912-08-15 00:00:00;Die Futuristen [Wanderausstellung Der Sturm];\N
+475;group;1912-09-24 00:00:00;1912-10-06 00:00:00;Die Futuristen [Wanderausstellung Der Sturm];\N
+476;group;1912-09-00 00:00:00;\N;Die Futuristen [Wanderausstellung Der Sturm];\N
+477;group;1912-11-00 00:00:00;1912-12-00 00:00:00;Die Futuristen [Wanderausstellung Der Sturm];\N
+478;solo;1912-08-00 00:00:00;\N;Gemälde von Max Beckmann in Berlin;\N
+479;group;1912-08-00 00:00:00;1912-09-00 00:00:00;K. G. Brücke;\N
+480;group;1914-01-00 00:00:00;\N;Kandinsky Kollektiv-Ausstellung, 1902-1912;\N
+481;solo;1912-10-02 00:00:00;1912-10-28 00:00:00;Der Sturm. Kandinsky Kollektiv-Ausstellung. 1902-1912. [Siebente Ausstellung];\N
+482;solo;1912-11-05 00:00:00;1912-11-18 00:00:00;Kandinsky. Kollektiv-Ausstellung. 1902-1912;\N
+483;group;1912-09-00 00:00:00;1912-11-00 00:00:00;II. výstava Skupiny výtvarných umělců;\N
+484;group;1912-09-22 00:00:00;1912-10-20 00:00:00;II. výstava Uměleckého sdružení »Sursum«;\N
+485;group;1912-10-00 00:00:00;\N;Neue Kunst. Erste Gesamt-Ausstellung;\N
+486;solo;1912-10-00 00:00:00;\N;Выставка картин Кульбина;\N
+487;group;1912-10-24 00:00:00;1912-12-02 00:00:00;XV. Jahrgang. 1912-13. Erste Ausstellung. [Galerie-Ausstellung];\N
+488;group;1912-10-01 00:00:00;1912-11-08 00:00:00;Salon d'Automne. 10e Exposition;\N
+489;group;1912-10-05 00:00:00;1912-12-31 00:00:00;Second Post-Impressionist Exhibition. British, French and Russian Artists;\N
+490;group;1912-10-06 00:00:00;1912-11-07 00:00:00;Moderne Kunst Kring (Cercle de l'art moderne). Ouvrages de Peinture, Sculpture, Dessin, Gravure;\N
+491;group;1912-10-10 00:00:00;1912-10-30 00:00:00;Salon de la "Section d'Or";\N
+492;solo;1912-10-28 00:00:00;1912-11-09 00:00:00;Exposition Henri Rousseau;\N
+493;group;1912-11-00 00:00:00;1912-12-00 00:00:00;Fünfundzwanzigste Ausstellung der Berliner Secession. Zeichnende Künste;\N
+494;group;1912-11-00 00:00:00;1912-12-00 00:00:00;A Nyolcak harmadik tárlata;\N
+495;group;1912-11-02 00:00:00;1912-11-15 00:00:00;Der Sturm. Achte Ausstellung. Die Pathetiker;\N
+496;group;1912-11-04 00:00:00;1912-11-30 00:00:00;Kollektiv-Ausstellung von Emil Nolde;Der Neue Kunstsalon / Dr. Paul F. Schmidt und Max Dietzel
+497;group;1912-11-10 00:00:00;1912-12-09 00:00:00;Vereeniging "Sint Lucas". Tentoonstelling van Aquarellen, Teekeningen, Grafische Kunsten en Klein Beeldhouwwerk;\N
+498;solo;1912-11-11 00:00:00;1912-11-23 00:00:00;Exposition de Peintures de Othon Friesz;\N
+499;solo;1912-11-25 00:00:00;1912-12-07 00:00:00;Exposition François de Hatvany;\N
+500;group;1912-11-25 00:00:00;1912-12-07 00:00:00;Exposition Annuelle, 1er Groupe;\N
+501;group;1912-11-26 00:00:00;1912-12-31 00:00:00;III. Juryfreie Kunstschau;\N
+502;group;1912-12-00 00:00:00;\N;Le Fauconnier / Alexander Archipenko;\N
+503;group;1912-12-00 00:00:00;\N;The Third Exhibition of the Camden Town Group;\N
+504;group;1912-12-00 00:00:00;\N;Vystavka kartin ""Mir iskusstva";\N
+505;group;1912-12-00 00:00:00;\N;Ausstellung von Werken Moderner Franzosen;\N
+506;group;1912-12-00 00:00:00;1913-01-00 00:00:00;Союз Моледежи (6);\N
+507;group;1912-12-00 00:00:00;\N;Forty-eighth Exhibition of Modern Pictures. New English Art Club;\N
+508;group;1912-00-00 00:00:00;1913-00-00 00:00:00;Vystavka kartin … "Sovremennaja zhivopis";\N
+509;solo;1913-00-00 00:00:00;\N;Edvard Munch Kunstnerforeningen;Kunstnerforeningen
+510;group;1913-00-00 00:00:00;\N;V. Graphische Ausstellung des Deutschen Künstlerbundes;\N
+511;solo;1913-00-00 00:00:00;\N;Edvard Munch. Ausstellung von Originalradierungen, Lithographien, Holzschnitten;\N
+512;group;1913-04-00 00:00:00;1913-05-00 00:00:00;73. výroční výstava Krasoumné jednoty pro Čechy;\N
+513;group;1913-01-00 00:00:00;1913-01-20 00:00:00;XV. Jahrgang. 1912-13. Dritte Ausstellung. [Sammlung Gottlieb Friedrich Reber, Barmen];\N
+514;group;1913-01-00 00:00:00;\N;1888-1913. Kunstsalon Fritz Gurlitt;\N
+515;group;1913-01-00 00:00:00;\N;Francia Impresszionisták (Manet) és Herman Lipót gyüjteményes kiállítása;Ernst-Museum
+516;group;1913-01-00 00:00:00;\N;Cölner Secession;\N
+517;group;1913-01-00 00:00:00;\N;Paintings by Spencer F. Gore and Harold Gilman;\N
+518;group;1913-01-23 00:00:00;1913-02-00 00:00:00;XV. Jahrgang. 1912-13. Vierte Ausstellung;\N
+519;group;1913-01-00 00:00:00;1913-02-00 00:00:00;A Futuristák és Expressionisták kiállitása;\N
+520;group;1913-01-00 00:00:00;1913-02-00 00:00:00;Neue Secession Berlin;Leonhard Tietz
+521;group;1913-01-09 00:00:00;1913-02-00 00:00:00;Die Neue Kunst;\N
+522;group;1913-01-00 00:00:00;1913-02-00 00:00:00;XLIII. Ausstellung der Vereinigung Bildender Künstler Österreichs Secession;Secession
+523;group;1913-01-00 00:00:00;1913-02-00 00:00:00;Мир Искусства;Мир искусства
+524;group;1913-01-17 00:00:00;1913-02-01 00:00:00;Exposition de Peintures & Dessins;\N
+525;group;1913-01-19 00:00:00;1913-02-23 00:00:00;Lovis Corinth / Ausstellung des Lebenswerkes von Lovis Corinth;\N
+526;group;1913-01-20 00:00:00;1913-02-15 00:00:00;Exhibition of Water-colors - New York, Berkshire and Adirondack Series - and Oils by John Marin, of New York;Photo-Secession Gallery
+527;solo;1913-01-27 00:00:00;1913-02-08 00:00:00;Exposition Van Dongen;\N
+528;group;1913-01-27 00:00:00;1913-02-00 00:00:00;[Der Sturm. Zwölfte Ausstellung. Robert Delaunay, Julie Baum Gedächtnisausstellung, Ardengo Soffici];\N
+529;group;1913-02-00 00:00:00;\N;Kollektiv-Ausstellung Max Pechstein;\N
+530;solo;1913-02-00 00:00:00;\N;Ausstellung Pablo Picasso;Moderne Galerie (Thannhauser)
+531;solo;1913-02-00 00:00:00;\N;Öfver Målningar och Grafisk Konst af Edvard Munch;\N
+532;group;1913-02-00 00:00:00;\N;Privatsammlung Dr. Oskar Reichel. Wien;\N
+533;group;1913-02-17 00:00:00;1913-03-01 00:00:00;Exposition Annuelle, 2me Groupe;\N
+534;group;1913-02-17 00:00:00;1913-03-15 00:00:00;International Exhibition of Modern Art [Armory Show];\N
+535;group;1913-02-21 00:00:00;1913-03-00 00:00:00;Der Sturm. Dreizehnte Ausstellung. Alfred Réth, Julie Baum Gedächtnisausstellung;\N
+536;group;1913-02-00 00:00:00;\N;Мир искусства;Мир искусства
+537;group;1913-03-08 00:00:00;1913-04-06 00:00:00;Bund Österreichischer Künstler és Gustav Klimt gyüjteményes kiállitása;\N
+538;group;1913-03-01 00:00:00;\N;Französische Impressionisten;\N
+539;group;1913-03-00 00:00:00;1913-04-00 00:00:00;Tentoonstelling van Schilderin en Teekeningen van Leo Gestel (Werk van 1906 tot 1913).;\N
+540;solo;1913-03-00 00:00:00;1913-04-00 00:00:00;Kollektiv-Ausstellung G. Münter (1904-1913);\N
+541;group;1913-03-00 00:00:00;1913-04-00 00:00:00;Kollektion Moderner Franzosen;\N
+542;group;1913-03-00 00:00:00;1913-06-00 00:00:00;Prima Esposizione Internazionale d'Arte della "Secessione";Secessione
+543;group;1913-03-02 00:00:00;1913-03-30 00:00:00;Внепартийное общество художников;Внепартийное общество художников
+544;group;1913-00-00 00:00:00;1913-00-00 00:00:00;Бубновый валет;Бубновый валет
+545;group;1913-03-04 00:00:00;1913-03-25 00:00:00;XV. Jahrgang. 1912-13. Sechste Ausstellung;\N
+546;group;1913-03-08 00:00:00;1913-04-13 00:00:00;Interprétations du Midi;\N
+547;group;1913-03-13 00:00:00;1913-05-00 00:00:00;Frühjahr-Ausstellung der Münchener Secession;\N
+548;group;1913-03-15 00:00:00;1913-03-31 00:00:00;Grafton Group Exhibition;Alpine Club
+549;group;1913-03-16 00:00:00;1913-04-04 00:00:00;V. Kollektiv-Ausstellung. Moderner Bund. Schweiz;\N
+550;group;1913-04-26 00:00:00;1913-05-31 00:00:00;Der Sturm. Fünfzehnte Ausstellung. Der Moderne Bund Schweiz;\N
+551;solo;1913-03-17 00:00:00;1913-04-05 00:00:00;Exhibition of Studies made in New York, by Francois Picabia, of Paris;\N
+552;group;1913-03-19 00:00:00;1913-05-18 00:00:00;Société des Artistes Indépendants / 29e Exposition;\N
+553;group;1913-00-00 00:00:00;\N;XXVI. Ausstellung der Berliner Secession;\N
+554;group;1913-03-24 00:00:00;1913-04-16 00:00:00;International Exhibition of Modern Art [Armory Show];\N
+555;solo;1913-03-31 00:00:00;1913-04-12 00:00:00;Exposition de Peintures d'Albert Marquet;\N
+556;solo;1913-04-00 00:00:00;\N;Gino Severini's Exhibition;\N
+557;group;1913-05-04 00:00:00;1913-06-25 00:00:00;A Művészház nemzetközi Postimpresszionista kiállitása;\N
+558;group;1913-04-00 00:00:00;1913-05-00 00:00:00;XXXXIII. výstava. S. V. U. Manes. Členská;\N
+559;group;1913-03-24 00:00:00;1913-04-07 00:00:00;Выставка Иконописных Подлинников и Лубков;\N
+560;group;1913-03-24 00:00:00;1913-04-07 00:00:00;Выставка Картин Группы Художников "Мишень";Мишень [Target]
+561;solo;1913-04-14 00:00:00;1913-04-19 00:00:00;Exposition Henri-Matisse, Tableaux du Maroc et Sculpture;\N
+562;group;1913-04-14 00:00:00;1913-04-26 00:00:00;Exposition Annuelle. 3e Groupe;\N
+563;group;1913-04-14 00:00:00;1913-04-30 00:00:00;VI. Kollektiv-Ausstellung / Amiet und Giacometti;\N
+564;group;1913-04-14 00:00:00;1913-06-30 00:00:00;Société Nationale des Beaux-Arts, XXIIIe Exposition;Société Nationale des Beaux-Arts
+565;group;1913-04-24 00:00:00;1913-06-30 00:00:00;Seventeenth Annual Exhibition;\N
+566;solo;1913-04-28 00:00:00;1913-05-10 00:00:00;Exposition Manguin;\N
+567;group;1913-04-28 00:00:00;1913-05-19 00:00:00;International Exhibition of Modern Art [Armory Show];Copley Society of Boston
+568;group;1913-04-28 00:00:00;1913-06-15 00:00:00;Ve Salon de Printemps;\N
+569;group;1913-05-00 00:00:00;1913-06-00 00:00:00;Skupina výtvarných umělců. III. výstava;\N
+570;group;1913-05-00 00:00:00;1913-10-00 00:00:00;LIA. Leipziger Jahresausstellung 1913;\N
+571;group;1913-05-00 00:00:00;1913-10-00 00:00:00;Große Kunstausstellung;\N
+572;group;1913-05-03 00:00:00;1913-10-12 00:00:00;Grosse Kunstausstellung;\N
+573;group;1913-05-04 00:00:00;1913-09-30 00:00:00;Ausstellung des Deutschen Künstlerbundes 1913;\N
+574;group;1913-05-18 00:00:00;1913-06-15 00:00:00;Les Peintres et les Sculpteurs Futuristes Italiens;\N
+575;solo;1913-05-19 00:00:00;1913-06-07 00:00:00;Bonnard, Oeuvres récentes (Deux Panneaux Décoratifs et des Tableaux);\N
+576;group;1913-05-26 00:00:00;1913-06-07 00:00:00;Exposition de quelques œuvres;\N
+577;solo;1913-06-00 00:00:00;1913-08-00 00:00:00;Der Sturm. Sechzehnte Ausstellung. Gemälde und Zeichnungen des Futuristen Gino Severini;\N
+578;solo;1913-06-20 00:00:00;1913-07-16 00:00:00;1re Exposition de Sculpture Futuriste du Peintre et Sculpteur Futuriste Boccioni;\N
+579;group;1913-07-00 00:00:00;1913-09-00 00:00:00;[XV. Jahrgang. 1912/13. Zehnte Ausstellung. Sommerausstellung];\N
+580;group;1913-00-00 00:00:00;\N;Exposition Universelle et Internationale de Gand en 1913: Groupe II. Beaux-Arts: Œuvres modernes.;\N
+581;group;1913-06-00 00:00:00;\N;Forty-ninth Exhibition of Modern Pictures. New English Art Club;\N
+582;group;1913-06-25 00:00:00;1913-07-12 00:00:00;IX. Kollektiv-Ausstellung. Egon Schiele / Wien;\N
+583;group;1913-07-00 00:00:00;\N;The London Salon of the Allied Artists' Association, Ltd. Sixth Year;Allied Artists' Association
+584;group;1913-07-00 00:00:00;1913-08-00 00:00:00;Tentoonstelling van Schilderijen;\N
+585;group;1913-08-00 00:00:00;1913-09-00 00:00:00;Neue Kunst. II.Gesamtausstellung;Neue Kunst Hans Goltz
+586;group;1913-08-23 00:00:00;1913-09-30 00:00:00;Juryfreie Kunstschau. 4. Ausstellung;Vereinigung Bildender Kuenstler E.V. Berlin
+587;group;1914-04-00 00:00:00;1914-05-03 00:00:00;DELETE Vastavka kartin Natalii Sergeevny Goncharovoj 1900-1913;\N
+588;solo;1913-09-00 00:00:00;\N;Der Sturm. Siebzehnte Ausstellung. Alexandre Archipenko;\N
+589;group;1913-09-14 00:00:00;1913-10-00 00:00:00;Zsűrimentes kiállitás a Művészházban;\N
+590;solo;1913-09-00 00:00:00;\N;Edvard Munch;\N
+591;group;1913-09-20 00:00:00;1913-12-01 00:00:00;Der Sturm. Erster Deutscher Herbstsalon;\N
+592;group;1913-09-00 00:00:00;\N;A XIX. század nagy francia mesterei;\N
+593;group;1913-10-00 00:00:00;\N;Der Sturm. Achtzehnte Ausstellung: Skupina / Prag;\N
+594;group;1913-10-00 00:00:00;\N;Kollektionen: Wilhelm Trübner, Willi Jaeckel, Oskar Moll, Max Pechstein;\N
+595;group;1913-10-00 00:00:00;1913-11-00 00:00:00;Erste Ausstellung;\N
+596;group;1913-10-00 00:00:00;1913-11-00 00:00:00;Eröffnungsausstellung. Kölnischer Kunstverein;\N
+597;group;1913-10-04 00:00:00;1913-10-27 00:00:00;Les Indépendants Cercle d'Art Xme Salon Annuel;\N
+598;group;1913-10-09 00:00:00;\N;Edvard Munch / Ausstellung der Lithographien und Original-Radierungen;\N
+599;group;1913-10-10 00:00:00;1913-12-10 00:00:00;Esposizione Retrospetiva e Contemporanea di Belle Arti della Famiglia Artistica;\N
+600;group;1913-10-12 00:00:00;1914-01-16 00:00:00;Post-Impressionist and Futurist Exhibition;The Doré Galleries
+601;group;1913-10-27 00:00:00;1913-11-08 00:00:00;Les Synchromistes: Morgan Russell et S. Macdonald-Wright;\N
+602;group;1913-10-28 00:00:00;\N;Постоянная Выставка Современнаго Искусства;\N
+603;group;1913-10-00 00:00:00;\N;Kollektionen: Henri Matisse / Franz Heckendorf / E.L. Kirchner / Georg Leschnitzer / Plastiken;\N
+604;group;1913-11-01 00:00:00;1913-12-07 00:00:00;[XVI. Jahrgang. 1913/14. Zweite Ausstellung]. Degas / Cézanne;\N
+605;group;1913-11-00 00:00:00;\N;DELETE Vystavka kartin ""Mir iskusstva";\N
+606;group;1913-11-00 00:00:00;\N;Internationale Schwarz-Weiss-Ausstellung;\N
+607;group;1913-11-00 00:00:00;1914-01-00 00:00:00;Esposizione di Pittura Futurista di "Lacerba";\N
+608;group;1913-11-05 00:00:00;\N;DELETE Vystavka graficheskih iskusstv;\N
+609;group;1913-11-07 00:00:00;1913-12-08 00:00:00;Moderne Kunst Kring (Cercle de l'Art Moderne);\N
+610;group;1913-11-15 00:00:00;1914-01-05 00:00:00;Salon d'Automne. 11e exposition;\N
+611;group;1913-11-17 00:00:00;1913-11-29 00:00:00;Exposition Annuelle, 1er Groupe;\N
+612;group;1913-11-23 00:00:00;1914-01-23 00:00:00;Sojuz Molodezhi (7);\N
+613;group;1913-12-00 00:00:00;\N;Der Sturm. Zwanzigste Ausstellung. Albert Bloch;\N
+614;group;1914-04-12 00:00:00;1914-05-12 00:00:00;Neue Secession / VI. Ausstellung;\N
+615;group;1913-12-00 00:00:00;\N;Мир Искусства;Мир Искусства [World of Art]
+616;group;1913-12-00 00:00:00;1914-01-18 00:00:00;Französische Meister;\N
+617;group;1913-12-15 00:00:00;1913-12-30 00:00:00;Vuillard. Œuvres récentes (Panneaux Décoratifs et Tableaux);\N
+618;group;1913-12-16 00:00:00;1914-01-14 00:00:00;Exhibition of the Camden Town Group and Others;\N
+619;group;1913-12-00 00:00:00;\N;Fiftieth Exhibition of Modern Pictures. New English Art Club;\N
+620;solo;1914-00-00 00:00:00;\N;Edvard Munchs Udstilling;\N
+621;group;1914-00-00 00:00:00;\N;Первая выставка картин группы художников "Кольцо";Kruzhok "Iskusstvo" pri Kievskom Politekhnicheskom Institute i hudoszniki
+622;group;1914-01-00 00:00:00;\N;Januar-Kunstausstellung;\N
+623;group;1914-01-00 00:00:00;\N;Kollektionen: Carl Caspar / Albert Lamm / Grete Moll / Otto Mueller / T. Farwick / Margarete Heymann-Hagen;\N
+624;solo;1914-01-00 00:00:00;\N;Báró Hatvany Ferenc festményeinek gyűjteményes kiállítása;Ernst-Museum
+625;group;1914-01-00 00:00:00;\N;Expressionistische Ausstellung / Die neue Malerei;\N
+626;group;1914-01-00 00:00:00;\N;The Grafton Group. Vanessa Bell, Roger Fry, Duncan Grant. Second Exhibition;\N
+627;group;1914-01-00 00:00:00;\N;Moderne Franzosen;\N
+628;group;1914-01-00 00:00:00;1914-02-00 00:00:00;Ausstellung Preis-Konkurrenz C.R. [Carl Reininghaus]. Werke der Malerei;\N
+629;group;1914-01-00 00:00:00;1914-02-00 00:00:00;Выставка Картин Общества Художников "Бубновый Валет";\N
+630;solo;1914-01-06 00:00:00;1914-01-17 00:00:00;Exposition Cézanne;\N
+631;group;1914-01-08 00:00:00;1914-02-13 00:00:00;Vtoraja Vystavka kartin "Sovremennaja zhivopis";\N
+632;group;1914-01-12 00:00:00;1914-02-05 00:00:00;An Exhibition of  Paintings by Marsden Hartley, of Berlin and New York;Photo-Secession Gallery
+633;solo;1914-01-30 00:00:00;1914-02-15 00:00:00;Kreis für Kunst Köln im Deutschen Theater, Erste Veranstaltung: Kandinsky-Ausstellung im Foyer.;Kreis für Kunst
+634;group;1914-02-00 00:00:00;\N;Kandinsky Kollektiv-Ausstellung;\N
+635;solo;1914-02-00 00:00:00;\N;Kollektiv-Ausstellung Edvard Munch;Kunst-Salon Fritz Gurlitt
+636;group;1914-02-15 00:00:00;1914-03-00 00:00:00;A Művészház nagy kiállitása;\N
+637;group;1914-02-00 00:00:00;1914-03-00 00:00:00;45. výstava S. V. U. Manes v Praze. Moderní umění;\N
+638;group;1914-02-00 00:00:00;1914-03-00 00:00:00;Skupina výtvarných umělců. IV. výstava;\N
+639;group;1914-02-00 00:00:00;1914-03-00 00:00:00;Esposizione di Pittura Futurista. Boccioni, Carrà, Russolo, Balla, Severini, Soffici;\N
+640;solo;1914-02-00 00:00:00;1914-03-00 00:00:00;Pablo Picasso;\N
+641;group;1914-02-00 00:00:00;1914-06-00 00:00:00;Seconda Esposizione Internazionale d'Arte "della Secessione".;\N
+642;group;1914-02-00 00:00:00;1914-03-00 00:00:00;Der Blaue Reiter / Gemälde-Ausstellung;\N
+643;group;1914-04-00 00:00:00;1914-05-00 00:00:00;Der Blaue Reiter / Gemälde-Ausstellung;\N
+644;group;1914-06-00 00:00:00;1914-07-00 00:00:00;Der Blaue Reiter / Gemälde-Ausstellung;\N
+645;group;1914-02-01 00:00:00;1914-03-31 00:00:00;Internationale Ausstellung in der Kunsthalle Bremen;\N
+646;group;1914-02-02 00:00:00;1914-02-23 00:00:00;Exhibition of Paintings and Drawings;\N
+647;group;1914-02-09 00:00:00;1914-02-21 00:00:00;Exposition Annuelle, 2me Groupe;\N
+648;solo;1914-02-23 00:00:00;1914-03-07 00:00:00;Exposition de Peintures de Charles Camoin;\N
+649;group;1914-03-00 00:00:00;\N;Sonderausstellung der Belgischen Kunstvereinigung L'Art Contemporain;\N
+650;group;1914-03-00 00:00:00;1914-04-00 00:00:00;The First Exhibition of Works by Members of The London Group;The London Group
+651;group;1914-03-00 00:00:00;1914-04-00 00:00:00;No. 4;\N
+652;group;1914-03-01 00:00:00;1914-04-30 00:00:00;Société des Artistes Indépendants: 30e exposition;\N
+653;group;1914-03-02 00:00:00;1914-03-17 00:00:00;Exposition Auguste Herbin;Galerie Moderne
+654;group;1914-03-07 00:00:00;1914-04-13 00:00:00;La Libre Esthétique. Hommage à Dario de Regoyos;\N
+655;group;1914-03-12 00:00:00;1914-04-01 00:00:00;An exhibition of original sculpture, in bronze, marble, and wood, by Constantine Brancusi, of Paris;Photo-Secession Gallery
+656;group;1914-03-14 00:00:00;1914-03-28 00:00:00;Woodcut Prints [Mokuhanga tenrankai mokuroku];\N
+657;group;1914-03-20 00:00:00;1914-04-10 00:00:00;[Kollektionen: Adolf Erbslöh, Erich Heckel, Otto Hettner, Alfred Helberger, F. Lindau, Richard Langer, Plastiken];\N
+658;solo;1914-03-23 00:00:00;1914-04-04 00:00:00;Pierre Laprade vous prie de visiter l'Exposition de ses Peintures;\N
+659;group;1914-03-28 00:00:00;1914-04-17 00:00:00;Edvard Munch / Ernst Barlach;\N
+660;group;1914-04-00 00:00:00;\N;Haueisen, Pechstein;\N
+661;solo;1914-04-00 00:00:00;1914-05-00 00:00:00;Der Sturm. Fünfundzwanzigste Ausstellung. Otakar Kubin;\N
+662;group;1914-04-00 00:00:00;1914-05-00 00:00:00;Exhibition of Works of the Italian Futurist Painters and Sculptors;The Doré Galleries
+663;group;1914-04-13 00:00:00;1914-05-25 00:00:00;Esposizione Libera Futurista Internazionale / Pittori e Scultori / Italiani - Russi - Inglesi - Belgi - Nordamericani;\N
+664;solo;1913-08-00 00:00:00;\N;Выставка Картин Наталии Сергеевны Гончаровой 1900-1913;\N
+665;group;1914-04-06 00:00:00;1914-05-03 00:00:00;Exposition de Sculptures de R. Duchamp-Villon;\N
+666;group;1914-04-12 00:00:00;1914-09-30 00:00:00;Erste Ausstellung der Freien Secession Berlin;Freie Secession
+667;group;1914-04-13 00:00:00;1914-06-30 00:00:00;Société Nationale des Beaux-Arts: XXIVe Exposition;Société Nationale des Beaux-Arts
+668;group;1914-04-16 00:00:00;1914-05-10 00:00:00;Kollektionen: Schmidt-Rottluff / Alexander Kanoldt / F.A. Weinzheimer / L.L. Wulf. Plastiken;\N
+669;group;1914-04-18 00:00:00;1914-05-09 00:00:00;Exhibition of Paintings by Harold Gilman and Charles Ginner;\N
+670;group;1914-04-20 00:00:00;1914-05-02 00:00:00;Exposition Annuelle, 3eme Groupe;\N
+671;group;1914-04-20 00:00:00;1914-05-03 00:00:00;Peintures, Dessins, Aquarelles de Roger de la Fresnaye;Galerie Levesque
+672;group;1914-04-23 00:00:00;1914-10-31 00:00:00;XI. Esposizione d'Arte della Città di Venezia;Città di Venezia
+673;group;1914-04-30 00:00:00;1914-06-30 00:00:00;Eighteenth Annual Exhibition;\N
+674;group;1914-05-00 00:00:00;1914-05-27 00:00:00;XVI. Jahrgang. 1913/1914. Neunte Ausstellung. [Kollektion Ferdinand Hodler];\N
+675;group;1914-05-00 00:00:00;1914-06-00 00:00:00;De 3de Internationale Jury-Vrije Tentoonstelling. Vereeniging van Beeldende Kunstnaars;\N
+676;group;1914-05-00 00:00:00;1914-06-00 00:00:00;Vincent Van Gogh / Zehnte Ausstellung;Paul Cassirer
+677;group;1914-05-00 00:00:00;1914-06-00 00:00:00;46. výstava S.V.U. Manes v Praze (členská);\N
+678;group;1914-05-03 00:00:00;1914-06-09 00:00:00;Vereeniging "Sint Lucas". Drie en Twintigste [23.] Jaarliksche Tentoonstelling;\N
+679;group;1914-05-04 00:00:00;1914-05-16 00:00:00;Exposition de Peintures de Félix Vallotton;Galerie Druet
+680;group;1914-05-08 00:00:00;1914-06-20 00:00:00;Twentieth Century Art. A Review of Modern Movements;\N
+681;group;1914-05-09 00:00:00;1914-05-27 00:00:00;Paul Baum, Walter Ophey. Rheinische Expressionisten;\N
+682;group;1914-05-09 00:00:00;1914-11-02 00:00:00;Exposition Générale des Beaux-Arts / Salon Triennale;\N
+683;group;1914-05-11 00:00:00;1914-05-23 00:00:00;Exposition Pierre Girieud;Galeries Paul Rosenberg
+684;group;1914-05-13 00:00:00;1914-05-27 00:00:00;Exposition André Lhote;\N
+685;group;1914-05-15 00:00:00;1914-10-04 00:00:00;Baltiska Utställningen / Konstavdelningen;\N
+686;auction;1914-05-14 00:00:00;1914-05-16 00:00:00;Collection de M. Herbert Kullmann (de Manchester);MM. Bernheim-Jeune & Cie\
+Hôtel Drouot
+687;group;1914-05-16 00:00:00;1914-06-07 00:00:00;Exposition d'Oeuvres de Sculpture et de Peinture du Salon des Artistes Indépendants de Paris;Galerie Georges Giroux
+688;group;1914-05-20 00:00:00;1914-06-10 00:00:00;Prima Esposizione d'Arte del Gruppo Nuove Tendenze;\N
+689;group;1914-05-23 00:00:00;1914-10-31 00:00:00;Kunstausstellung der Münchener Secession;Münchener Secession
+690;group;1914-05-30 00:00:00;1914-10-01 00:00:00;Neue Münchener Secession. Erste Ausstellung;Neue Münchener Secession
+691;group;1914-06-00 00:00:00;\N;Der Sturm. Sechsundzwanzigste Ausstellung. Marc Chagall;\N
+692;group;1914-06-00 00:00:00;\N;VII. Ausstellung. Rheinische Expressionisten;\N
+693;group;1914-06-00 00:00:00;1914-07-00 00:00:00;Fifty-first Exhibition of Modern Pictures. New English Art Club;\N
+694;group;1914-06-08 00:00:00;1914-06-16 00:00:00;Le Paysage du Midi;\N
+695;group;1914-06-12 00:00:00;1914-07-02 00:00:00;The London Salon of the Allied Artists' Association, ltd. Seventh Year;Allied Artists' Association
+696;group;1914-06-17 00:00:00;1914-06-30 00:00:00;Exposition Natalie de Gontcharowa et Michel Larionow;\N
+697;solo;1914-06-20 00:00:00;1914-06-30 00:00:00;Exposition des Œuvres de Wilhelm Lehmbruck;\N
+698;group;1914-07-00 00:00:00;1914-10-11 00:00:00;XVI. Jahrgang. 1914. Sommer-Ausstellung;\N
+699;group;1914-00-00 00:00:00;\N;Neue Kunst Sommerschau / Gemälde, Impressionisten-Expressionisten / Graphik / 19. und 20. Jahrhundert / Plastik / Kunstgewerbe - Batik;\N
+700;group;1914-06-27 00:00:00;1914-07-24 00:00:00;Der "Dôme";\N
+701;solo;1914-07-00 00:00:00;\N;Works by David Bomberg;\N
+702;group;1914-07-03 00:00:00;1914-10-01 00:00:00;Première exposition d'Art Moderne Américain / Bryson Burroughs, Ernest Lawson;\N
+703;group;1914-07-00 00:00:00;1914-08-00 00:00:00;Tentoonstelling van Schilderijen;\N
+704;group;1914-08-00 00:00:00;1914-10-00 00:00:00;Der Sturm. Die Futuristen [Achtundzwanzigste Ausstellung];\N
+705;group;1914-10-10 00:00:00;1914-10-31 00:00:00;Opening Exhibition, Season 1914-1915;\N
+706;group;1914-11-01 00:00:00;1914-11-30 00:00:00;Vereeniging "Sint Lucas". Tentoonstelling van Aquarellen, Teekeningen, Grafisch en Beeldhouwwerk;\N
+707;group;1914-12-09 00:00:00;1915-01-09 00:00:00;An exhibition of recent drawings and paintings by Picasso and by Braque, of Paris. (Simoultaneously an exhibition of archaic Mexican pottery and carvings in stone as also, an exhibition of "Kalogramas" by Torres Palomar, of Mexico);Photo-Secession Gallery
+708;group;1915-00-00 00:00:00;\N;Vystavka kartin i skulptury russkih hudozhnikov ustroennaja v polzu postradavshih ot vojny Belgijcev;Lemercier Galerie
+709;group;1914-12-00 00:00:00;\N;Fifty-second Exhibition of Modern Pictures. New English Art Club;\N
+710;group;1914-12-22 00:00:00;1915-01-12 00:00:00;Tentoonstelling van Teekeningen door Vincent van Gogh;\N
+711;solo;1914-12-31 00:00:00;1915-01-31 00:00:00;Kollektiv-Ausstellung Egon Schiele;\N
+712;group;1914-00-00 00:00:00;\N;Выставка картин в пользу лазарета деятелей искусства;\N
+713;group;1915-00-00 00:00:00;\N;Vystavka kartin Levyh Techenij;\N
+714;group;1915-01-12 00:00:00;1915-01-26 00:00:00;An exhibition of recent paintings - never before exhibited any where - by Francis Picabia, of Paris;Photo-Secession Gallery
+715;solo;1915-01-20 00:00:00;1915-02-27 00:00:00;Special Exhibition. Paintings Drawings Etchings Lithographs and Sculpture by Henri Matisse;\N
+716;group;1915-01-31 00:00:00;1915-02-28 00:00:00;Tentoonstelling Alma, Le Fauconnier en Mondrian;\N
+717;group;1915-02-00 00:00:00;1915-06-00 00:00:00;Terza esposizione Internazionale d'Arte della "Secessione";Secessione
+718;group;1915-02-01 00:00:00;1915-02-13 00:00:00;An Exhibition of Paintings and Drawings by Max Weber;Ehrich Galleries: Print Galleries
+719;group;1915-02-23 00:00:00;1915-03-15 00:00:00;AN Exhibition of Water-Colors, Oil, Etchings, Drawings, recent and old, by John Marin, of New York;Photo-Secession Gallery
+720;group;1915-03-00 00:00:00;\N;The Second Exhibition of Works by Members of the London Group;\N
+721;group;1915-03-03 00:00:00;\N;1-ая Футуристическая Выставка картин Трамвай В;\N
+722;group;1915-04-05 00:00:00;\N;Выставка Живописи;K. V. Kandaurov
+723;group;1915-06-00 00:00:00;1915-07-00 00:00:00;New English Art Club: 53rd exhibition;Royal Society of British Artists
+724;group;1915-06-10 00:00:00;\N;Vorticist Exhibition;\N
+725;group;1915-12-00 00:00:00;\N;The Department of Fine Arts / Panama-Pacific International Exposition;\N
+726;group;1915-10-00 00:00:00;1915-12-00 00:00:00;27. Ausstellung der Berliner Secession;\N
+727;group;1915-10-03 00:00:00;1915-10-25 00:00:00;Tentoonstelling der Werken van Lodewijk Schelfhout, Piet Mondriaan, Jan Sluyters, Leo Gestel, Le Fauconnier, J. C. van Epen, Architect;\N
+728;solo;1915-11-00 00:00:00;\N;Exhibition of Paintings by Roger Fry;Alpine Club
+729;group;1915-11-00 00:00:00;1915-12-00 00:00:00;Third Exhibition of Works by Members of the London Group;\N
+730;group;1915-12-00 00:00:00;1916-01-00 00:00:00;New English Art Club: 54th Exhibition;Royal Society of British Artists
+731;group;1915-12-12 00:00:00;1915-12-30 00:00:00;Contemporary Group Exhibition;\N
+732;group;1916-01-02 00:00:00;1916-02-01 00:00:00;Последняя футуристическая выставка картин 0,10 (Ноль-десять);\N
+733;group;1905-09-03 00:00:00;1905-09-25 00:00:00;Cercle Vrije Kunst. VIIe Exposition Annuelle;\N
+734;solo;1907-02-15 00:00:00;1907-02-28 00:00:00;Exposition Luce;\N
+735;group;1908-04-00 00:00:00;1908-05-00 00:00:00;Arti et Amicitiae: Kunstwerken van leden;\N
+736;group;1909-01-06 00:00:00;1909-01-31 00:00:00;Schilderijen en teekeningen door C. Spoor, Piet Mondriaan en Jan Sluyters;\N
+737;group;1909-04-11 00:00:00;1909-04-25 00:00:00;Tentoonstelling van Schilderijen uit het Genootschap Kunstliefde;\N
+738;group;1910-07-30 00:00:00;1910-08-21 00:00:00;Kunstkring / Cercle d'Art "Doe Stil Voort": IVe Salon;\N
+739;group;1911-01-27 00:00:00;1911-03-12 00:00:00;Société des Amis des Arts de Nantes: 20e Exposition;\N
+740;group;1912-07-01 00:00:00;1912-09-02 00:00:00;Keuze=Tentoonstelling van Kunstwerken van levende Hollandsche Meesters;Feestterrein Oud-Heidelberg te Nijmegen
+741;group;1913-07-16 00:00:00;1913-07-31 00:00:00;Toorop, Schelfhout und die Niederländer. Gemälde, Aquarelle, Radierungen.;\N
+742;group;1914-02-00 00:00:00;1914-03-00 00:00:00;Werke moderner Pariser Künstler;\N
+743;solo;1914-06-15 00:00:00;1914-07-31 00:00:00;16 composities van P. Mondrian, Parijs;\N
+744;group;1915-03-12 00:00:00;1915-03-25 00:00:00;Werken van P. Alma, Le Fauconnier en P. Mondriaan;\N
+745;group;1915-10-03 00:00:00;1915-10-25 00:00:00;Werken van Lodewijk Schelfhout. Piet Mondriaan + Jan Sluyters + Leo Gestel + Le Fauconnier + J.C. van Epen, Architect;\N
+746;group;1908-05-01 00:00:00;1908-10-15 00:00:00;Grosse Kunstausstellung Dresden;\N
+747;group;1910-02-26 00:00:00;1910-03-27 00:00:00;Салон. Интернациональная выстака картин, скульптуры, гравюры и рисунков;Vladimir Izdebsky
+748;group;1910-12-00 00:00:00;\N;[XI Exhibition of Paintings of the Ekaterinoslav Art and Theatre Society, Ekaterinoslav];\N
+749;group;1911-02-06 00:00:00;1911-04-03 00:00:00;Salon 2, 1910-11: International Art Exhibition;\N
+750;group;1912-06-00 00:00:00;1912-07-00 00:00:00;[Der Sturm. Vierte Ausstellung: Zurückgestellte Bilder des Sonderbundes Köln];\N
+751;group;1912-10-00 00:00:00;\N;DELETE Contemporary Painting, Ekaterinodar;\N
+752;group;1912-00-00 00:00:00;\N;[Salon Roos, Amsterdam];\N
+753;group;1913-02-00 00:00:00;\N;Der Blaue Reiter, Amsterdam;Der Sturm (Herwarth Walden)
+754;group;1914-03-00 00:00:00;\N;Spring Exhibition of Paintings;\N
+755;solo;1914-08-15 00:00:00;\N;[Kandinsky One-Man exhibition];Der Sturm (Herwarth Walden)
+756;solo;1914-09-00 00:00:00;\N;[Kandinsky watercolours, One-Man exhibition];Der Sturm (Herwarth Walden)
+757;group;1910-06-25 00:00:00;1910-07-20 00:00:00;Салон. Интернациональная выставка картин, скульптуры, гравюры и графики;Vladimir Izdebsky
+758;group;1909-12-17 00:00:00;1910-02-06 00:00:00;Салон. Интернациональная выставка картин, скульптуры, гравюры и рисунков;Vladimir Izdebsky
+759;group;1910-06-25 00:00:00;1910-07-20 00:00:00;DELETE Салон;Vladimir Izdebsky
+760;group;1910-06-00 00:00:00;1910-06-00 00:00:00;Neue Künstlervereinigung München E.V., Turnus 1909-1910;\N
+761;group;1910-04-10 00:00:00;\N;Neue Künstlervereinigung München E.V., Turnus 1910-1911. [II. Ausstellung];\N
+762;group;1912-04-00 00:00:00;\N;Der Blaue Reiter. Die Erste Ausstellung der Redaktion;Galerie Thannhauser (Munich)
+763;group;1912-09-00 00:00:00;\N;Der Blaue Reiter. Die Erste Ausstellung der Redaktion;\N
+764;group;1912-07-00 00:00:00;\N;Der Blaue Reiter. Die Erste Ausstellung der Redaktion;\N
+765;group;1908-00-00 00:00:00;\N;Kaiser-Huldigungs-Ausstellung Hagenbund-Manes-Sztuka;\N
+766;group;1910-09-00 00:00:00;\N;Schwedische Künstler;\N
+767;solo;1906-10-05 00:00:00;1906-11-00 00:00:00;Hagenbund. Zwanzigste Ausstellung. Constantin Meunier;\N
+768;group;1908-11-00 00:00:00;\N;Otto M. Miethke-Gutenegg. Architekt Hans Offner. Kollektivausstellung.;\N
+769;group;1909-02-05 00:00:00;1909-06-30 00:00:00;LXXIX. Esposizione Internazionale;Società Amatori e Cultori di Belle Arti in Roma
+770;group;1909-10-20 00:00:00;\N;Le Salon;\N
+771;group;1910-02-00 00:00:00;1910-06-00 00:00:00;LXXX. Esposizione Internazionale;Società Amatori e Cultori di Belle Arti in Roma
+772;group;1910-07-12 00:00:00;1910-11-13 00:00:00;Esposizione Internazionale di Belle Arti;\N
+773;group;1910-10-00 00:00:00;\N;Esposizione Nazionale;\N
+774;group;1911-04-00 00:00:00;1911-00-00 00:00:00;Esposizione Internazionale di Roma / Mostra di Belle Arti;\N
+775;group;1912-06-00 00:00:00;1912-10-00 00:00:00;IV. Mostra d'Arte;\N
+776;group;1912-00-00 00:00:00;1912-00-00 00:00:00;Esposizione Internazionale;\N
+777;group;1913-02-21 00:00:00;1913-03-21 00:00:00;Prima Esposizione Pittura Futurista;\N
+778;solo;1913-04-14 00:00:00;1913-04-16 00:00:00;Balla è morto, qui si vendono all'asta le sue opere;\N
+779;group;1913-06-18 00:00:00;1913-08-15 00:00:00;Les Peintres et les Sculpteurs Futuristes Italiens;\N
+780;group;1914-02-00 00:00:00;1914-06-00 00:00:00;LXXXIII Esposizione;Società Amatori e Cultori di Belle Arti in Roma
+781;group;1914-02-21 00:00:00;\N;I. Esposizione della Probitas;\N
+782;group;1914-05-14 00:00:00;1914-06-10 00:00:00;Prima Esposizione di pittura futurista;\N
+783;group;1915-03-00 00:00:00;\N;Esposizione di quadri passatisti del pittore Giacomo Balla;\N
+784;solo;1915-12-00 00:00:00;\N;Esposizione Fu Balla e Balla Futurista;\N
+785;group;1908-00-00 00:00:00;\N;Ausstellung Belgischer Kunst unter den Auspicien der Gesellschaft L'Art Contemporain d'Anvers;\N
+786;group;1908-01-25 00:00:00;1908-02-26 00:00:00;5ème Exposition annuelle des Beaux-Arts;École Française
+787;group;1908-05-16 00:00:00;1908-05-28 00:00:00;"Les Cinquantes: Exposition de gravures originales en noir (eau-forte, pointe sèche, burin, gravure sur bois)";\N
+788;group;1909-00-00 00:00:00;1909-00-00 00:00:00;VIe Exposition Annuelle des Beaux-Arts;\N
+789;solo;1909-03-07 00:00:00;1909-03-08 00:00:00;Tableaux, aquarelles, dessins, gravures, eaux-fortes par F. Picabia;\N
+790;solo;1909-03-17 00:00:00;1909-03-31 00:00:00;Exposition de tableaux par F. Picabia;\N
+791;group;1909-11-18 00:00:00;1910-01-15 00:00:00;Exposition de sculpture, peinture, art décoratif;\N
+792;group;1909-12-20 00:00:00;1910-01-20 00:00:00;Exposition de peinture moderne;\N
+793;group;1911-05-00 00:00:00;\N;Second exhibition;\N
+794;group;1912-06-15 00:00:00;1912-07-15 00:00:00;Société Normande de Peinture Moderne;\N
+795;group;1906-00-00 00:00:00;\N;Munich Fine Art Exhibition;\N
+796;group;1907-03-01 00:00:00;1907-04-00 00:00:00;Frühjahr-Ausstellung des Vereins bildender Künstler Münchens "Secession";\N
+797;group;1910-11-19 00:00:00;1911-12-10 00:00:00;Künstlerbund Hagen. Herbst-Ausstellung;\N
+798;group;1913-11-00 00:00:00;\N;Der Sturm. Neunzehnte Ausstellung. Expressionisten / Kubisten / Futuristen;\N
+799;group;1915-01-00 00:00:00;1915-02-00 00:00:00;Der Sturm. Dreissigste Ausstellung;\N
+800;group;1915-03-00 00:00:00;\N;Der Sturm. Einunddreißigste Ausstellung. Jacoba van Heemskerck;\N
+801;group;1913-00-00 00:00:00;1913-00-00 00:00:00;Der Blaue Reiter. Gemälde-Ausstellung;\N
+802;solo;1915-10-24 00:00:00;1915-11-00 00:00:00;Der Sturm. Fünfunddreißigste Ausstellung. Gabriele Münter;\N
+803;solo;1913-03-15 00:00:00;1913-04-00 00:00:00;Der Sturm. Vierzehnte Ausstellung. Franz Marc;\N
+804;solo;1915-08-00 00:00:00;1915-10-00 00:00:00;Der Sturm. Vierunddreißigste Ausstellung. Franz Marc;\N
+805;group;1915-04-25 00:00:00;1915-05-00 00:00:00;Der Sturm. Zweiunddreißigste Ausstellung. Schwedische Expressionisten;\N
+806;solo;1910-11-21 00:00:00;1910-12-03 00:00:00;Exposition de peintures de Augustin Carrera;Galerie E. Druet
+807;group;1915-00-00 00:00:00;\N;Sammlung Walden. Gemälde, Zeichnungen, Plastiken;\N
+808;group;1914-03-00 00:00:00;\N;Der Sturm. Dreiundzwanzigste Ausstellung.;\N
+809;solo;1914-04-00 00:00:00;\N;Der Sturm. Vierundzwanzigste Ausstellung. Paul Klee;\N
+810;group;1914-11-00 00:00:00;1914-12-00 00:00:00;Der Sturm. Neunundzwanzigste Ausstellung;\N
+811;solo;1914-05-04 00:00:00;1914-05-16 00:00:00;Exposition de Peintures de Felix Vallotton;\N
+812;solo;1914-06-02 00:00:00;1914-06-13 00:00:00;Exhibition de Peintures de G. L. Jaulmes;\N
+813;solo;1914-05-18 00:00:00;1914-05-30 00:00:00;Exposition de Peintures de Georges Dufrénoy;Galerie E. Druet
+814;solo;1914-03-09 00:00:00;1914-03-21 00:00:00;Exposition de Drésa;Galerie E. Druet
+815;group;1907-06-18 00:00:00;1907-07-04 00:00:00;Peintures de Paul De Castro, Francis Jourdain, Henri Morisset, Gaston Prunier, Alexandre Urbain. Dessins & eaux-fortes de Bernard Naudin. Bonshommes en bois tourné de Fernand Landolt;\N
+816;solo;1907-05-27 00:00:00;1907-06-15 00:00:00;Exposition Camille Pissarro;\N
+817;group;1908-07-00 00:00:00;\N;Concorso Mylius alla Permanente;\N
+818;group;1910-07-00 00:00:00;\N;Mostra d'estate Ca' Pesaro;\N
+819;group;1910-12-00 00:00:00;1911-01-00 00:00:00;Esposizione Annuale d'Arte della Famiglia Artistica;\N
+820;group;1911-12-00 00:00:00;\N;Esposizione intima annuale;\N
+821;solo;1913-12-00 00:00:00;\N;Esposizione di scultura futurista del pittore e scultore futurista Boccioni;\N
+822;group;1914-01-01 00:00:00;1914-02-15 00:00:00;Die Futuristen;\N
+823;group;1914-02-00 00:00:00;1914-03-00 00:00:00;Esposizione di Pittura Futurista. Boccioni - Carrà - Russolo - Balla - Severini - Soffici;\N
+824;solo;1913-12-01 00:00:00;1913-12-13 00:00:00;Exposition de Peintures de Jules Flandrin;\N
+825;solo;1913-01-27 00:00:00;1913-02-08 00:00:00;Exposition van Dongen;MM. Bernheim-Jeune & Cie
+826;solo;1912-02-19 00:00:00;1912-03-02 00:00:00;Exposition de Peintures de Madame Marval;\N
+827;solo;1911-05-08 00:00:00;1911-05-20 00:00:00;Exposition de Peintures de Harry Bloomfield;\N
+828;solo;1909-05-17 00:00:00;1909-05-29 00:00:00;Exposition Armand Guillaumin;Galerie E. Druet
+829;solo;1910-05-09 00:00:00;1910-05-21 00:00:00;Exposition Louis Charlot;\N
+830;group;1908-03-30 00:00:00;1908-04-11 00:00:00;Exposition des "Onze";\N
+831;solo;1908-02-17 00:00:00;1908-02-29 00:00:00;Œuvres de Manzana-Pissarro;\N
+832;solo;1911-01-09 00:00:00;1911-01-28 00:00:00;Exposition de Peinture de Jean Puy;\N
+833;solo;1911-12-11 00:00:00;1911-12-23 00:00:00;Exposition d'Aquarelles de Maurice Asselin;\N
+834;solo;1907-04-15 00:00:00;1907-05-06 00:00:00;Exposition de dessins, aquarelles et lithographies de H. Daumier;\N
+835;solo;1911-01-29 00:00:00;1911-02-11 00:00:00;Exposition de Peintures de Émilie Charmy;\N
+836;group;1911-06-19 00:00:00;1911-07-03 00:00:00;Exposition de peintures & d'aquarelles de Henri Edmond Cross & Paul Signac;Galerie E. Druet
+837;solo;1907-00-00 00:00:00;\N;Exposition des dessins & pastels de Pierre Prins;\N
+838;solo;1911-01-15 00:00:00;1911-01-28 00:00:00;Exposition de Peintures de Joseph Trévoux;\N
+839;group;1908-02-17 00:00:00;\N;27-aja periodiceskaja vystavka Mokovskogo obscestva ljubitelej hudozestv;\N
+840;group;1909-03-22 00:00:00;1909-03-25 00:00:00;Vystavka v hudozestvennoj skole Rerberga;\N
+841;group;1909-12-20 00:00:00;1910-01-08 00:00:00;Exposition de la Société Coloniale des Artistes Français;Société Coloniale des Artistes Français
+842;group;1909-04-20 00:00:00;1909-06-03 00:00:00;6-aja vystavka hudozestvennyh proizvedenij;\N
+843;group;1910-04-11 00:00:00;\N;Tovariscestvo Kurskih hudoznikov: vystavka kartin i etjudov;\N
+844;group;1910-12-04 00:00:00;1911-01-02 00:00:00;Moskovkoe Tovariscestvo Hudoznikov: Vystavka akvarelej i eskizov;Московское товарищество художников [Moscow Association of Artists]
+845;group;1912-03-26 00:00:00;1912-04-15 00:00:00;Vystavka kartin sovremennyh russkih hudoznikov;\N
+846;solo;1912-03-04 00:00:00;1912-03-16 00:00:00;Exposition de Peintures de Louis Valtat;\N
+847;group;1912-03-11 00:00:00;1912-04-08 00:00:00;Osliny Hvost;\N
+848;group;1912-12-26 00:00:00;1913-01-30 00:00:00;Выставка картин, скульптуры, графики, индустрии "Современная Живопись";Свободное Искусство [Free Art]
+849;group;1913-12-03 00:00:00;\N;Pobed nad solncem;\N
+850;group;1914-11-20 00:00:00;1914-12-08 00:00:00;Vojna i pecat';\N
+851;group;1914-11-30 00:00:00;1915-01-11 00:00:00;Hudozniki - tovariscam vojnam;\N
+852;group;1914-12-26 00:00:00;1915-01-26 00:00:00;Hudoznicy Moskvy-zertvam vojny;\N
+853;group;1915-11-06 00:00:00;1915-12-08 00:00:00;Vystavka Sovremennogo dekoratyvnogo iskusstva;\N
+854;group;1915-12-02 00:00:00;1915-12-16 00:00:00;Pamjatniki russkogo teatra;Dobychina Gallery
+855;solo;1913-05-26 00:00:00;1913-06-09 00:00:00;Trente Tableaux de Maurice Utrillo;\N
+856;solo;1913-10-06 00:00:00;1913-10-18 00:00:00;Exposition de Peintures de Pierre Brune;\N
+857;group;1913-10-18 00:00:00;1913-11-01 00:00:00;Opening Exhibition. Season 1913-1914;\N
+858;solo;1909-02-15 00:00:00;1909-02-27 00:00:00;Exposition de Dessins rehaussés par Gaston Hochard;\N
+859;solo;1911-02-27 00:00:00;1911-03-12 00:00:00;Exposition de Peintures de Théo van Rysselberghe;\N
+860;group;1910-04-18 00:00:00;1910-04-30 00:00:00;D'après les maîtres;\N
+861;group;1910-04-18 00:00:00;1910-04-30 00:00:00;D'après les maîtres;\N
+862;solo;1910-01-24 00:00:00;1910-02-05 00:00:00;Exposition G. Agutte;Galerie E. Druet
+863;solo;1910-03-08 00:00:00;1910-03-23 00:00:00;Exposition Louise Hervieu;\N
+864;solo;1910-11-10 00:00:00;1910-11-26 00:00:00;Tableaux, Aquarelles, Dessins de Maxime Maufra;\N
+865;solo;1910-11-07 00:00:00;1910-11-12 00:00:00;Exposition T. E. Butler;\N
+866;solo;1910-06-27 00:00:00;1910-07-10 00:00:00;Exposition de peintures de H. Ottmann;\N
+867;solo;1910-03-07 00:00:00;1910-03-19 00:00:00;Exposition de peintures de Charles Guérin;Galerie E. Druet
+868;solo;1910-06-08 00:00:00;1910-06-25 00:00:00;L'Œuvre gravée de Richard Ranft;\N
+869;solo;1910-02-07 00:00:00;1910-02-19 00:00:00;Exposition de peintures de Jules Flandrin;Galerie E. Druet
+870;solo;1910-11-07 00:00:00;1910-12-31 00:00:00;Exposition de Peintures, Aquarelles, Dessins, Gravures de Paul Renouard;Union Centrale des Arts Décoratifs
+871;solo;1910-11-07 00:00:00;1910-12-31 00:00:00;Exposition de Peintures, Aquarelles, Dessins, Gravures de Paul Renouard;Union Centrale des Arts Décoratifs
+872;solo;1910-11-07 00:00:00;1910-12-31 00:00:00;Exposition de Peintures, Aquarelles, Dessins, Gravures de Paul Renouard;Union Centrale des Arts Décoratifs
+873;group;1905-10-25 00:00:00;1905-11-10 00:00:00;Société des Peintres du Paris Moderne.Troisième Exposition;\N
+874;solo;1912-12-09 00:00:00;1912-12-21 00:00:00;Exposition Henri Farge;\N
+875;solo;1912-12-09 00:00:00;1912-12-21 00:00:00;Exposition Henri Farge;\N
+876;solo;1912-01-08 00:00:00;1912-01-20 00:00:00;Exposition de Peintures de Henry Hayden;Galerie E. Druet
+877;group;1912-03-02 00:00:00;1912-04-20 00:00:00;Frühjahr-Ausstellung der Münchener Secession;Münchener Secession
+878;solo;1914-01-12 00:00:00;1914-01-24 00:00:00;Exposition de Peintures de Charles Montag;\N
+879;solo;1914-01-12 00:00:00;1914-01-24 00:00:00;Exposition de Peintures de Charles Montag;\N
+880;solo;1914-11-12 00:00:00;1914-11-28 00:00:00;Exhibition of Pictures by Childe Hassam;\N
+881;solo;1907-04-00 00:00:00;1907-05-00 00:00:00;Exhibition of Paintings, Drawings and Coloured Reliefs by Robert Anning Bell, R.W.S.;\N
+882;group;1908-09-00 00:00:00;1908-10-13 00:00:00;XI. Jahrgang. Winter 1908/09. I. Ausstellung. [Kollektionen Ulrich Hübner, Georges Mosson, Emil Pottner];\N
+883;group;1908-10-15 00:00:00;1908-11-08 00:00:00;XI. Jahrgang. Winter 1908/09. II. Ausstellung. [Kollektion Lovis Corinth. Ausstellung "Stilleben"];\N
+884;solo;1908-11-14 00:00:00;1908-12-13 00:00:00;[XI. Jahrgang. III. Ausstellung]. Katalog der Ausstellung des Nachlasses Walter Leistikows;\N
+885;solo;1908-12-16 00:00:00;1908-12-00 00:00:00;XI. Jahrgang. Winter 1908/1909. IV. Ausstellung. [Kollektion Leopold Graf von Kalckreuth];\N
+886;group;1911-05-22 00:00:00;1911-06-03 00:00:00;Exposition des Fioretti ou Petites Fleurs de Saint François;Galerie E. Druet
+887;solo;1908-12-16 00:00:00;1908-12-00 00:00:00;XI. Jahrgang. Winter 1908/1909. IV. Ausstellung;Paul Cassirer
+888;group;1912-12-05 00:00:00;1913-01-00 00:00:00;XV. Jahrgang. 1912-13. Zweite Ausstellung;\N
+889;solo;1913-01-19 00:00:00;1913-02-23 00:00:00;Lovis Corinth;\N
+890;group;1912-12-21 00:00:00;1913-02-05 00:00:00;Winter-Ausstellung. Josef Flossmann, Leo Samberger, Ignacio Zuloaga;\N
+891;group;1913-02-16 00:00:00;1913-03-02 00:00:00;XV. Jahrgang. 1912-13. Fünfte Ausstellung;\N
+892;group;1913-03-27 00:00:00;1913-04-13 00:00:00;XV. Jahrgang. 1912-13. Siebente Ausstellung;\N
+893;group;1909-01-01 00:00:00;1909-01-20 00:00:00;[XI. Jahrgang]. V. Ausstellung. Henri Matisse;\N
+894;group;1909-01-01 00:00:00;1909-01-20 00:00:00;V. Ausstellung. Henri Matisse;\N
+895;group;1909-01-00 00:00:00;1909-02-00 00:00:00;XI. Jahrgang. Winter 1908/1909. VI. Ausstellung. [Kollektionen Claude Monet, Heinrich Hübner, Philipp Franck];\N
+896;group;1909-02-25 00:00:00;1909-03-25 00:00:00;XI. Jahrgang. Winter 1908/1909. VII. Ausstellung. [Kollektionen Max Liebermann, Theo von Brockhusen, Alfred Helberger, Georg Minne, Reinhold Nägele, Fritz Rhein];\N
+897;group;1909-03-28 00:00:00;1909-04-00 00:00:00;XI. Jahrgang. Winter 1908/1909. VIII. Ausstellung.;\N
+898;group;1909-05-00 00:00:00;1909-05-00 00:00:00;[XI. Jahrgang. IX. Ausstellung]. Werke von Paula Modersohn, Regina Mundlak, Vincent van Gogh;\N
+899;group;1909-09-00 00:00:00;1909-10-20 00:00:00;XII. Jahrgang. September/Oktober 1909. I. Ausstellung. [Kollektionen Ulrich Hübner, Jakob Nußbaum];\N
+900;solo;1909-09-00 00:00:00;1909-10-20 00:00:00;XII. Jahrgang. September/Oktober 1909. I. Ausstellung;\N
+901;group;1909-10-22 00:00:00;1909-11-11 00:00:00;XII. Jahrgang. II. Ausstellung. [Kollektionen Lovis Corinth, Franz Heckendorf, Alfred Helberger, Oskar Moll];\N
+902;solo;1909-11-17 00:00:00;1909-12-12 00:00:00;[XII. Jahrgang. III. Ausstellung. Kollektion Paul Cézanne];\N
+903;group;1909-12-16 00:00:00;1910-01-05 00:00:00;[XII. Jahrgang. IV. Ausstellung]. [Josef Block, Alfred Feiks, Eugen Feiks, Curt Herrmann, Konrad von Kardorff, Alois Metz, Fritz Rhein];\N
+904;group;1909-12-16 00:00:00;1910-01-05 00:00:00;[XII. Jahrgang. IV. Ausstellung];\N
+905;group;1909-12-16 00:00:00;1910-01-05 00:00:00;[XII. Jahrgang. IV. Ausstellung];\N
+906;group;1913-05-01 00:00:00;1913-05-15 00:00:00;XV. Jahrgang. 1912-13. Achte Ausstellung;\N
+907;group;1913-06-00 00:00:00;\N;[XV. Jahrgang. 1912-1913. Neunte Ausstellung]. Ausstellung Mohammedanischer Kunst;\N
+908;solo;1913-09-28 00:00:00;1913-10-00 00:00:00;[XVI. Jahrgang. 1913-14. Erste Ausstellung]. Carl Steffeck;\N
+909;group;1911-12-03 00:00:00;1911-12-17 00:00:00;I. Ausstellung des Modernen Bundes;\N
+910;group;1910-01-08 00:00:00;1910-02-06 00:00:00;[XII. Jahrgang, V. Ausstellung]. Die Sammlung Eduard Behrens zu Hamburg;\N
+911;group;1910-02-11 00:00:00;1010-03-01 00:00:00;[XII. Jahrgang. VI. Ausstellung]. [Kollektionen Max Beckmann, Theo von Brockhusen, Richard Dreher, Ferdinand Hodler, Heinrich Nauen, Julie Wolfthorn];\N
+912;group;1910-02-11 00:00:00;1010-03-01 00:00:00;XI. Jahrgang. Winter 1908/09. VI. Ausstellung;Paul Cassirer
+913;group;1910-03-03 00:00:00;1910-03-20 00:00:00;XII. Jahrgang. VII. Ausstellung. [Kollektionen Robert Breyer, Adolf Ed. Herstein, Leo Klein-Diepold, Heinrich E. Linde-Walther, Reinhold Nägele, Fritz Rhein, Hedwig Ruetz, Max Slevogt, Fritz Westendorp];\N
+914;group;1911-00-00 00:00:00;\N;Hagenbund;\N
+915;solo;1910-03-24 00:00:00;1910-04-24 00:00:00;XII. Jahrgang. VIII. Ausstellung. [Edouard Manet (Sammlung Pellerin)];\N
+916;solo;1910-03-24 00:00:00;1910-04-24 00:00:00;XII. Jahrgang. VIII. Ausstellung;Paul Cassirer
+917;solo;1910-03-24 00:00:00;1910-04-24 00:00:00;XII. Jahrgang. VIII. Ausstellung;Paul Cassirer
+918;group;1910-04-27 00:00:00;1910-06-00 00:00:00;XII. Jahrgang. IX. Ausstellung;Paul Cassirer
+919;group;1910-04-27 00:00:00;1910-06-00 00:00:00;XII. Jahrgang. IX. Ausstellung. [Kollektionen Ludwig v. Hofmann, Erna Frank, Ernst Stern];\N
+920;group;1910-06-21 00:00:00;1910-07-10 00:00:00;XII. Jahrgang. X. Ausstellung. [Kollektionen Oskar Kokoschka, Hans Hofmann];\N
+921;group;1910-07-12 00:00:00;1910-09-00 00:00:00;[XII. Jahrgang. Sommerausstellung];\N
+922;group;1909-05-00 00:00:00;1909-05-00 00:00:00;[Jahrgang XI. IX. Ausstellung];Paul Cassirer
+923;group;1909-07-00 00:00:00;1909-09-00 00:00:00;[Jahrgang XI. IX. Ausstellung. Sommerausstelllung];\N
+924;solo;1910-09-09 00:00:00;1910-09-25 00:00:00;[XIII. Jahrgang. I. Ausstellung]. Ausstellung von Werken Johann Sperls;\N
+925;group;1909-12-08 00:00:00;1910-01-06 00:00:00;A Művészház első csoportos kiállitása;\N
+926;group;1913-11-01 00:00:00;1913-12-07 00:00:00;[XVI. Jahrgang. 1913/14. Zweite Ausstellung]. Degas / Cézanne;\N
+927;group;1910-09-28 00:00:00;1910-10-23 00:00:00;XIII. Jahrgang. Winter 1910/1911. II. Ausstellung. [Norwegische Künstler. Karl Hofer];\N
+928;group;1913-12-00 00:00:00;1914-01-13 00:00:00;[XVI. Jahrgang. 1913/14. Dritte Ausstellung]. Hans Baluschek. Konrad von Kardorff. Wilhelm Trübner;\N
+929;group;1910-12-03 00:00:00;1911-01-00 00:00:00;XIII. Jahrgang. Winter 1910/1911. IV. Ausstellung. [Kollektionen von Pierre Bonnard, Ulrich Hübner, Leo Klein-Diepold, Hedwig Moos];\N
+930;group;1911-01-05 00:00:00;1911-01-16 00:00:00;XIII. Jahrgang. Winter 1910/11. V. Ausstellung. [Corinth "Golgatha"];\N
+931;group;1911-01-21 00:00:00;1911-02-02 00:00:00;XIII. Jahrgang. Winter 1910/11. VI. Ausstellung. Neue Künstler-Vereinigung München;\N
+932;group;1911-04-00 00:00:00;1911-04-00 00:00:00;XIII. Jahrgang. Winter 1910/1911. IX. Ausstellung. [Kollektionen Walter Bondy, Rudolf Levy, Julius Pascin, Hans Purrmann];\N
+933;group;1911-04-00 00:00:00;1911-05-14 00:00:00;XIII. Jahrgang. Winter 1910/1911. X. Ausstellung. [Sammlung Maurice Masson, Paris];\N
+934;group;1911-05-00 00:00:00;1911-06-00 00:00:00;XIII. Jahrgang. Winter 1910/1911. XI. Ausstellung. [Kollektionen von Vally Friedmann, Carl Strathmann, Ines Wetzel];\N
+935;group;1911-07-00 00:00:00;1911-09-00 00:00:00;[XIII. Jahrgang. Sommerausstellung];\N
+936;group;1911-11-00 00:00:00;1911-12-10 00:00:00;XIV. Jahrgang. Winter 1911/1912. II. Ausstellung. [Kollektionen Martin Bloch, Henryk Glicenstein, Konrad v. Kardorff];\N
+937;group;1912-01-06 00:00:00;1912-01-18 00:00:00;XIV. Jahrgang. Winter 1911/1912. IV. Ausstellung. [Kollektionen Richard Dreher, Werner Hoffmann, Max Oppenheimer];\N
+938;group;1912-02-25 00:00:00;1912-03-13 00:00:00;XIV. Jahrgang. Winter 1911/1912. VI. Ausstellung. [Auguste Renoir, Adolph Ed. Herstein, Robert Hoffmann, Georg Kolbe];\N
+939;group;1912-03-16 00:00:00;1912-04-10 00:00:00;XIV. Jahrgang. Winter 1911/1912. VII. Ausstellung. [Curt Herrmann, Ulrich Hübner, Waldemar Rösler, Albert Weisgerber];\N
+940;group;1912-05-00 00:00:00;1912-09-00 00:00:00;XIV. Jahrgang. Winter 1911/1912. IX. Ausstellung. [Sommerausstellung];\N
+941;group;1914-02-10 00:00:00;1914-02-27 00:00:00;[XVI. Jahrgang. 1913-14. Fünfte Ausstellung]. Odilon Redon, Waldemar Rösler;\N
+942;group;1905-10-01 00:00:00;1905-11-10 00:00:00;[VIII. Jahrgang. I. Ausstellung. Kollektion Claude Monet];\N
+943;group;1914-03-01 00:00:00;1014-03-29 00:00:00;[XVI. Jahrgang. 1913-14. Sechste Ausstellung]. Benno Berneis, August Gaul, Camille Pissarro;\N
+944;group;1914-04-00 00:00:00;1914-04-00 00:00:00;[Jahrhang XVI. 1913-14. Siebente Ausstellung]. Heinrich Nauen;\N
+945;group;1914-04-00 00:00:00;1914-05-08 00:00:00;XVI. Jahrgang. 1913-14. Achte Ausstellung. [Kollektion Karl Hofer];\N
+946;solo;1914-05-30 00:00:00;1914-07-05 00:00:00;[XVI. Jahrgang. 1913-14]. Zehnte Ausstellung. Vincent van Gogh;\N
+947;group;1905-11-12 00:00:00;1905-12-08 00:00:00;[VIII. Jahrgang. II. Ausstellung. Kollektion Max Liebermann];\N
+948;group;1905-12-10 00:00:00;1905-12-28 00:00:00;[VIII. Jahrgang. III. Ausstellung];\N
+949;group;1905-12-28 00:00:00;1906-01-16 00:00:00;[VIII. Jahrgang. IV. Ausstellung];\N
+950;group;1906-01-17 00:00:00;1906-02-18 00:00:00;[VIII. Jahrgang. V. Ausstellung. Kollektiv-Ausstellung Gustave Courbet ✝];\N
+951;group;1906-01-17 00:00:00;1906-02-18 00:00:00;[VIII. Jahrgang. V. Ausstellung];\N
+952;group;1906-02-20 00:00:00;1906-03-14 00:00:00;[VIII. Jahrgang. VI. Ausstellung. Kollektionen von Lovis Corinth];\N
+953;group;1906-03-16 00:00:00;1906-06-00 00:00:00;[VIII. Jahrgang. VII. Ausstellung. Französische Meister];\N
+954;group;1906-09-22 00:00:00;1906-10-28 00:00:00;[IX. Jahrgang. I. Ausstellung. Manet-Monet-Ausstellung];\N
+955;group;1906-11-01 00:00:00;1906-12-02 00:00:00;[IX. Jahrgang. II. Ausstellung. Kollektionen Max Liebermann und Walter Leistikow];\N
+956;group;1906-12-07 00:00:00;1906-12-30 00:00:00;[IX. Jahrgang. III. Ausstellung. Schwarz-Weiss Ausstellung der Berliner Secession];\N
+957;group;1910-03-01 00:00:00;1910-04-20 00:00:00;Frühjahr-Ausstellung der Münchener Secession;Münchener Secession
+958;group;1909-03-02 00:00:00;1909-05-10 00:00:00;Frühjahr-Ausstellung der Münchener Secession;\N
+959;group;1911-03-15 00:00:00;1911-03-16 00:00:00;Tableaux Modernes. Aquarelles - Pastels - Dessins;\N
+960;group;1905-03-00 00:00:00;\N;Frühjahr-Ausstellung des Vereins bildender Künstler Münchens "Sezession";\N
+961;group;1908-01-25 00:00:00;1908-02-27 00:00:00;Pour l'Art. XVIe Exposition Annuelle;\N
+962;group;1907-01-04 00:00:00;1907-01-22 00:00:00;IX. Jahrgang. Winter 1906/07. IV. Ausstellung. [Kollektionen von Max Beckmann und Georg Minne];\N
+963;group;1907-02-21 00:00:00;1907-03-20 00:00:00;IX. Jahrgang. Winter 1906/07. VI. Ausstellung. [Kollektionen von Camille Pissarro, Heinrich Linde-Walther, Ernst Oppler, Paul Baum, Fanny Remak, Frotz Rhein];\N
+964;group;1907-03-23 00:00:00;1907-04-12 00:00:00;IX. Jahrgang. Winter 1906/07. VII. Ausstellung. [Kollektion altenglischer Meister];\N
+965;group;1907-04-16 00:00:00;1907-05-07 00:00:00;[IX. Jahrgang. VIII. Ausstellung];\N
+966;solo;1907-05-10 00:00:00;1907-05-27 00:00:00;IX. Jahrgang. Winter 1906/07. IX. Ausstellung. [Kollektion Isidore Verheyden];\N
+967;group;1909-06-01 00:00:00;1909-10-00 00:00:00;X. Internationale Kunstausstellung. Königl. Glaspalast;\N
+968;group;1910-05-12 00:00:00;1910-10-16 00:00:00;Ausstellung des Deutschen Künstlerbundes Darmstadt;\N
+969;group;1905-03-00 00:00:00;1905-07-00 00:00:00;Template Exhibition. Fünfzehnte Ausstellung.;\N
+970;solo;1914-01-15 00:00:00;1914-02-08 00:00:00;XVI. Jahrgang. 1913-14. Vierte Ausstellung. [Kollektion Alessandro Magnasco];\N
+971;group;1907-05-29 00:00:00;1907-06-00 00:00:00;IX. Jahrgang. 1906/1907. X. Ausstellung. [Kollektion Leopold von Kalckreuth];\N
+972;group;1913-07-00 00:00:00;1913-09-00 00:00:00;[XV. Jahrgang. XI. Ausstellung]. Sommerausstellung;\N
+973;group;1907-09-30 00:00:00;1907-10-18 00:00:00;X. Jahrgang. 1907/1908. I. Ausstellung. [Kollektionen Paul Cézanne, Curt Herrmann, Henri Matisse, Edvard Munch];\N
+974;group;1907-10-19 00:00:00;1907-11-03 00:00:00;X. Jahrgang. 1907/1908. II. Ausstellung. [Kollektionen Philipp Franck, Ferdinand Hodler, Walter Leistikow, Karl Walser];\N
+975;group;1907-10-19 00:00:00;1907-11-03 00:00:00;X. Jahrgang. 1907/1908. II. Ausstellung;Paul Cassirer
+976;group;1907-11-04 00:00:00;1907-12-04 00:00:00;[X. Jahrgang. 1907/1908. III. Ausstellung]. Eugène Delacroix;\N
+977;group;1908-01-08 00:00:00;1908-02-02 00:00:00;X. Jahrgang. 1907/1908. V. Ausstellung. [Kollektionen Max Beckmann, Eduard R. Butler, Lovis Corinth, Georg Kolbe, Emil Nolde, Fritz Rhein, Wilhelm Schocken];\N
+978;group;1908-02-04 00:00:00;1908-02-23 00:00:00;X. Jahrgang. 1907/1908. VI. Ausstellung. [Kollektionen v. Brockhusen, Engel, Jawlensky, Liebermann, Slevogt];\N
+979;group;1908-03-05 00:00:00;1908-03-22 00:00:00;X. Jahrgang. 1907/1908. VII. Ausstellung. [Kollektion Vincent van Gogh];\N
+980;group;1908-03-27 00:00:00;1908-04-12 00:00:00;X. Jahrgang. 1907/1908. VIII. Ausstellung. [Kollektionen von Paul Baum, Erich Hancke, Ulrich Hübner, Konrad v. Kardorff, Leo Klein-Diepold, Käthe Kollwitz, Emil Pottner, Emil Rudolf Weiss];\N
+981;group;1908-04-15 00:00:00;1908-05-00 00:00:00;X. Jahrgang. 1907/1908. IX. Ausstellung. [Kollektionen Ulrich Hübner, Philipp Klein †, Emil Pottner, Emil Rudolf Weiss];\N
+982;group;1908-05-09 00:00:00;1908-06-03 00:00:00;X. Jahrgang. 1907/1908. X. Ausstellung. Francisco de Goya;\N
+983;group;1908-06-00 00:00:00;1908-09-00 00:00:00;[X. Jahrgang. 1907/1908. XI. Ausstellung]. [Sommerausstellung];\N
+984;group;1905-05-00 00:00:00;\N;The Glasgow Society of Artists. Fourth Exhibition;\N
+985;group;1913-03-15 00:00:00;1913-06-15 00:00:00;Exhibition of Work by Modern Norwegian Artists;\N
+986;group;1910-01-09 00:00:00;1910-02-10 00:00:00;A Művészház második csoportos kiállítása és a Magyar Grafikusok Egyesülete kiállítása;\N
+987;group;1906-01-10 00:00:00;1906-01-24 00:00:00;Exhibition of French Work;Photo-Secession Gallery
+988;solo;1908-02-00 00:00:00;\N;Kollektion Alfred Offner;\N
+989;group;1905-03-20 00:00:00;\N;Old and Modern Pictures;\N
+990;solo;1907-02-00 00:00:00;\N;Kollektion Max Kurzweil;\N
+991;group;1907-11-00 00:00:00;1907-12-00 00:00:00;The Society of 25 Painters. Third London Exhibition;\N
+992;group;1905-06-01 00:00:00;1905-10-00 00:00:00;IX. Internationale Kunstausstellung;Münchener Künstlergenossenschaft & Münchener Secession
+993;solo;1910-11-09 00:00:00;1910-11-00 00:00:00;Tibor Ernő gyüjteményes kiállítása;\N
+994;group;1910-09-11 00:00:00;1910-10-02 00:00:00;A Művészház zsűrimentes kiállítása;\N
+995;group;1910-09-11 00:00:00;1910-10-02 00:00:00;A Művészház zsűrimentes kiállítása;\N
+996;solo;1912-03-24 00:00:00;1912-04-21 00:00:00;Vaszary János gyüjteményes kiállítása a Művészházban;\N
+997;solo;1905-05-00 00:00:00;\N;Exposition des oeuvres de James McNeill Whistler;\N
+998;solo;1905-00-00 00:00:00;\N;Oxford. William Nicholson;\N
+999;group;1904-12-19 00:00:00;1905-01-19 00:00:00;[VII. Jahrgang. III. Ausstellung];\N
+1000;group;1905-01-20 00:00:00;1905-02-20 00:00:00;VII. Jahrgang. Winter 1904/1905. IV. Ausstellung.;\N
+1001;group;1905-02-22 00:00:00;1905-03-24 00:00:00;VII. Jahrgang. Winter 1904/1905. V. Ausstellung. [Collection Jozef Israëls];\N
+1002;group;1914-02-00 00:00:00;\N;Galimberti Sándor és G.-né Dénes Valéria kiállítása;\N
+1003;group;1905-03-26 00:00:00;1905-04-28 00:00:00;[VII. Jahrgang. VI. Ausstellung] [Collection Auguste Renoir];\N
+1004;group;1905-04-29 00:00:00;1905-06-00 00:00:00;VII. Jahrgang. Frühjahr 1905. VII. Ausstellung. [Collectionen Vincent van Gogh, Félix Vallotton];\N
+1005;group;1905-06-00 00:00:00;1905-09-00 00:00:00;[VII. Jahrgang. VIII. Ausstellung] [Sommerausstellung];\N
+1006;group;1913-12-21 00:00:00;1914-01-21 00:00:00;A Wieni Künstlerhaus kiállítása a Művészházban;\N
+1007;group;1906-04-00 00:00:00;\N;Garden, Field and Wayside. Mr. & Mrs. Harry Hine;\N
+1008;solo;1907-06-00 00:00:00;\N;Miniatures and Water Colour Drawings by Miss Bess Norriss, A.R.M.S.;\N
+1009;group;1913-01-23 00:00:00;1913-02-00 00:00:00;A Művészház palotafelavató kiállítása;\N
+1010;solo;1907-06-00 00:00:00;\N;Sholto Johnstone Douglas;\N
+1011;group;1910-02-13 00:00:00;1910-03-00 00:00:00;A Művészház harmadik csoportkiállítása;\N
+1012;group;1910-02-13 00:00:00;1910-03-00 00:00:00;A Művészház harmadik csoportos kiállitása;\N
+1013;solo;1915-01-12 00:00:00;1915-01-26 00:00:00;Picabia exhibition;\N
+1014;group;1915-10-07 00:00:00;1915-11-13 00:00:00;Paintings by Picabia, Braque, Picasso\; Photographs by Alfred Stieglitz;\N
+1015;group;1910-11-27 00:00:00;1910-12-27 00:00:00;A Művészház Téli Kiállítása (Ellenszalon);\N
+1016;group;1910-11-27 00:00:00;1910-12-27 00:00:00;A Művészház téli kiállítása [ellenszalon];\N
+1017;solo;1907-05-00 00:00:00;1907-06-00 00:00:00;Kollektiv-Ausstellung O. M. Miethke-Gutenegg;\N
+1018;group;1911-01-06 00:00:00;1911-01-29 00:00:00;A Művészház negyedik csoportos kiállitása;\N
+1019;group;1911-05-14 00:00:00;1911-06-15 00:00:00;V. Csoportos kiállitás a Művészházban;\N
+1020;group;1907-00-00 00:00:00;\N;Exhibition of Pictures, &c. by Well-Known Austrian Artists;\N
+1021;group;1911-09-03 00:00:00;1911-09-00 00:00:00;A Művészház [második] zsűrimentes kiállítása;\N
+1022;solo;1905-03-00 00:00:00;\N;Water Colour Drawings by Alfred W. Rich;\N
+1023;group;1906-00-00 00:00:00;\N;Imp. Royal Austrian Exhibition;\N
+1024;group;1907-07-00 00:00:00;1907-09-00 00:00:00;[IX. Jahrgang. Sommerausstellung];\N
+1025;solo;1911-02-05 00:00:00;1911-02-28 00:00:00;Kövér Gyula ujabb festményeinek kiállitása;\N
+1026;solo;1908-06-00 00:00:00;1908-09-00 00:00:00;[Sommerausstellung];\N
+1027;group;1912-02-02 00:00:00;1912-02-18 00:00:00;VI. csoportos kiállítás a Művészházban;\N
+1028;solo;1907-10-25 00:00:00;1907-11-14 00:00:00;Peintures de Pierre Girieud. Grès de F. Durio;\N
+1029;group;1914-00-00 00:00:00;\N;Fifty-First Exhibition of Modern Pictures;\N
+1030;group;1907-06-01 00:00:00;1907-07-31 00:00:00;2e Exposition De la Société des Artistes Méridionaux au Capitole.;\N
+1031;group;1911-09-24 00:00:00;1911-10-17 00:00:00;Italo Brass és Lándori Vilmos gyűjteményes kiállitása a Művészházban;\N
+1032;group;1911-10-22 00:00:00;1911-11-12 00:00:00;Tornyay János gyűjteményes kiállitása a Művészházban;\N
+1033;solo;1912-02-25 00:00:00;1912-03-17 00:00:00;Kőváry Szilárd gyűjteményes kiállitása a Művészházban;\N
+1034;group;1906-03-00 00:00:00;\N;Frühjahr-Ausstellung des Vereins bildender Künstler Münchens "Sezession";\N
+1035;group;1912-05-26 00:00:00;1912-06-29 00:00:00;Biró Mihály gyűjteményes kiállitása és az 1912-ik évi zsűrimentes kiállitás a Művészházban;\N
+1036;group;1914-00-00 00:00:00;\N;Der Blaue Reiter;\N
+1037;group;1913-12-02 00:00:00;1914-02-01 00:00:00;Winter-Ausstellung. Zeichnungen-Graphik-Aquarelle-Pastelle [Münchener Secession];\N
+1038;group;1906-12-28 00:00:00;1907-02-03 00:00:00;Winter-Ausstellung des Vereins bildender Künstler "Secession";\N
+1039;group;1914-03-29 00:00:00;1914-04-19 00:00:00;Teplánszky Sándor, Nagy István, Gedő Lipót gyűjteményes kiállitása a Művészházban. VIII. csoport kiállitás;\N
+1040;group;1915-11-14 00:00:00;1915-11-30 00:00:00;Der Sturm. Neue Kunst;Der Sturm (Herwarth Walden)
+1041;group;1915-04-26 00:00:00;1915-07-00 00:00:00;Exhibition of Work by Modern Belgian Artists;\N
+1042;solo;1912-05-00 00:00:00;\N;Szinyei Merse Pál gyűjteményes kiállitása;\N
+1043;solo;1915-10-00 00:00:00;\N;Paintings by Walter Bayes;\N
+1044;solo;1915-06-00 00:00:00;\N;Paintings and Drawings by F. Marchand;\N
+1045;group;1910-01-00 00:00:00;1910-02-00 00:00:00;Ausstellung der Ungarischen Künstler-Vereinigung "KÉVE";\N
+1046;group;1915-03-00 00:00:00;\N;Fifty-Third Exhibition of Modern Picture by the New English Art Club;Royal Society of British Artists
+1047;group;1905-12-03 00:00:00;1906-01-01 00:00:00;Exhibition of Paintings by Contemporary French Artists;\N
+1048;group;1908-02-08 00:00:00;1908-03-09 00:00:00;Exposition inaugurale de la Salle des Fêtes de la Ville, sous les auspices de l'Administration Communale.;Koninklijke Maatschappij van Aanmoediging der Schoone Kunsten (Antwerp)
+1049;group;1915-12-00 00:00:00;\N;Fifty-Fourth Exhibition of Modern Picture by the New English Art Club;Royal Society of British Artists
+1050;group;1912-03-23 00:00:00;1912-04-00 00:00:00;Hagenbund. Frühjahrsausstellung. [35. Ausstellung];\N
+1051;group;1910-00-00 00:00:00;\N;Katalog-Auszug eines Teiles der im Besitze der Modernen Galerie befindlichen Werke;\N
+1052;solo;1910-11-00 00:00:00;\N;Watercolours by C. Maresco Pearce;\N
+1053;group;1910-12-00 00:00:00;\N;Forty-Fourth Exhibition of Modern Pictures by the New English Art Club;\N
+1054;group;1907-12-28 00:00:00;1908-02-00 00:00:00;Winter-Ausstellung des Vereins bildender Künstler Münchens "Secession";\N
+1055;group;1910-03-16 00:00:00;1910-04-00 00:00:00;A Művészház bibliai kiállítása és Jacobey Károly művészi hagyatéka;\N
+1056;group;1912-09-00 00:00:00;1912-09-00 00:00:00;Zuloaga és Brangwyn gyűjteményes kiállitása;\N
+1057;solo;1915-11-00 00:00:00;\N;Edvard Munch. Sein graphisches Werk;\N
+1058;solo;1912-10-00 00:00:00;1912-11-00 00:00:00;Fényes Adolf ujabb festményei és rajzai gyűjteményes kiállitása;\N
+1059;group;1915-06-30 00:00:00;1915-10-31 00:00:00;Kunstausstellung der Münchener Secession;Münchener Secession
+1060;solo;1913-03-00 00:00:00;\N;Ferenczy Károly ujabb festményei és rajzai gyüjteményes kiállítása;\N
+1061;group;1910-04-00 00:00:00;1910-07-00 00:00:00;XXXVI. Ausstellung der Vereinigung bildender Künstler Österreichs Secession;\N
+1062;group;1913-02-00 00:00:00;\N;Iványi-Grünwald Béla festményeinek és magyar műgyüjtemények bemutatása. I. Dr. Sonnenfeld Zsigmond gyüjteménye;\N
+1063;group;1913-11-00 00:00:00;\N;Magyar-Mannheimer Gusztáv kiállitása;\N
+1064;group;1913-12-00 00:00:00;\N;Első csoportkiállitás;\N
+1065;solo;1913-04-10 00:00:00;1913-04-27 00:00:00;Exposition de Peintures Aquarelles Dessins de Mme Lewitzka;\N
+1066;group;1914-00-00 00:00:00;\N;Société des Artistes Méridionaux Toulouse. IXme Exposition;Société des Artistes Méridionaux
+1067;solo;1910-12-00 00:00:00;\N;Chinese Studies by Vera Waddington;\N
+1068;group;1914-02-00 00:00:00;\N;Gróf Batthyány Gyula festményeinek és Beck Ö. Fülöp szobrainak gyüjteményes kiállitása;\N
+1069;solo;1910-04-05 00:00:00;1910-04-23 00:00:00;Water Colour Paintings by Alfred W. Rich;\N
+1070;group;1915-00-00 00:00:00;1915-00-00 00:00:00;Magyar mesterek második csoportkiállitása;\N
+1071;solo;1915-00-00 00:00:00;\N;Rippl-Rónai József háborus festményeinek és rajzainak kiállitása;\N
+1072;solo;1914-05-11 00:00:00;1914-05-23 00:00:00;Exposition Pierre Girieud;\N
+1073;solo;1905-06-09 00:00:00;1905-07-09 00:00:00;Exposition Albert Besnard;\N
+1074;group;1900-00-00 00:00:00;\N;"EXAMPLE EXHIBITION";\N
+1075;solo;1914-03-02 00:00:00;1914-03-17 00:00:00;Exposition Auguste Herbin;\N
+1076;solo;1914-04-20 00:00:00;1914-05-03 00:00:00;Peintures, Dessins, Aquarelles de Roger de la Fresnaye;\N
+1077;solo;1905-01-00 00:00:00;\N;Szinyei Merse Pál műveinek gyűjteményes kiállítása;\N
+1078;solo;1905-02-00 00:00:00;\N;Olgyay Ferenc műveinek gyűjteményes kiállítása;\N
+1079;solo;1905-11-00 00:00:00;\N;Fényes Adolf gyüjteményes kiállítása;\N
+1080;solo;1905-01-15 00:00:00;1905-02-07 00:00:00;Exposition de l'œuvre du peintre Gaston Prunier;\N
+1081;solo;1906-01-00 00:00:00;\N;Magyar-Mannheimer Gusztáv gyűjteményes kiállítása;\N
+1082;group;1914-05-16 00:00:00;\N;Collection de M. Herbert Kullmann. Treize tableaux;\N
+1083;group;1913-01-22 00:00:00;1913-02-15 00:00:00;10e Exposition des Peintres du Paris Moderne;\N
+1084;solo;1906-03-00 00:00:00;\N;Vaszary János művei;\N
+1085;group;1904-12-01 00:00:00;1905-01-05 00:00:00;Exposition De Peintures, Pastels, Aquarelles, Dessins & Croquis;\N
+1086;solo;1906-03-01 00:00:00;1906-03-17 00:00:00;Exposition de 24 Tableaux et Aquarelles par MANET;\N
+1087;solo;1911-00-00 00:00:00;\N;Drawings by Walter Sickert;\N
+1088;group;1912-03-12 00:00:00;1912-04-10 00:00:00;Der Sturm. Erste Ausstellung. Der Blaue Reiter. Franz Flaum. Oskar Kokoschka. Expressionisten;\N
+1089;solo;1906-03-19 00:00:00;1906-03-31 00:00:00;Exposition de 17 Tableaux de Claude Monet;\N
+1090;solo;1906-05-17 00:00:00;1906-06-16 00:00:00;Exposition Anders Zorn;\N
+1091;solo;1906-03-17 00:00:00;1906-04-07 00:00:00;Oeuvres de M. Henri Brugnot;\N
+1092;solo;1911-06-27 00:00:00;\N;An Exhibition of Pictures by Walter Sickert;\N
+1093;group;1909-11-00 00:00:00;\N;A "KÉVE" második kiállitása;\N
+1094;solo;1911-10-13 00:00:00;\N;Exhibition of Pictures by Camille Pissarro;\N
+1095;auction;1906-05-29 00:00:00;1906-05-30 00:00:00;Vente Aux Enchères Publiques Des Tableaux, Études, Aquarelles, Pastels, Dessins, Eaux-Fortes, Gravures, Sculpture, Objets D'Art;\N
+1096;group;1911-04-00 00:00:00;\N;Contemporary Works of Art chosen by The Hon. Neville Lytton;\N
+1097;group;1908-07-03 00:00:00;1908-07-20 00:00:00;Exposition De Tableaux Modernes;Galerie E. Druet
+1098;group;1907-02-14 00:00:00;1907-03-10 00:00:00;Exposition de Peintures;\N
+1099;group;1909-12-10 00:00:00;1910-01-00 00:00:00;Ferdinand Hodler [und Olaf Gulbransson];\N
+1100;solo;1910-02-00 00:00:00;1910-03-00 00:00:00;Leopol Graf von Kalckreuth;\N
+1101;group;1914-05-16 00:00:00;1914-06-07 00:00:00;Exposition d'Œuvres de Sculpture et de Peinture du Salon des Artistes Indépendants de Paris;\N
+1102;solo;1911-02-00 00:00:00;\N;Paintings and Drawings by C. J. Holmes;\N
+1103;solo;1907-05-00 00:00:00;1907-06-00 00:00:00;Exposition de l'Œuvre De Eugène Carrière;M. Aristide Briand Ministre de l'Instruction Publique, des Cultes et Beaux-Arts\
+M. Dujardin-Beaumetz Sous-Secrétaire d'Etat des Beaux-Arts
+1104;group;1914-05-09 00:00:00;1914-05-12 00:00:00;Collection Roger Marx. Tableaux, Pastels, Dessins, Aquarelles, Sculptures;\N
+1105;group;1905-06-23 00:00:00;\N;[Sommerausstellung. Moderne Wiener Künstler];\N
+1106;group;1912-04-00 00:00:00;1912-05-00 00:00:00;VII. csoportos kiállítás a Művészházban;\N
+1107;group;1913-03-00 00:00:00;\N;A KÉVE negyedik kiállítása;\N
+1108;group;1909-09-00 00:00:00;1909-10-00 00:00:00;Körösfői Kriesch Aladár, Nagy Sándorék és a Gödöllőiek Kiállitása;\N
+1109;group;1908-10-00 00:00:00;1908-11-00 00:00:00;The Society of 25 Painters. Fourth London Exhibition;\N
+1110;solo;1908-03-03 00:00:00;1908-03-22 00:00:00;Water Colour Paintings by Alfred W. Rich;\N
+1111;solo;1906-05-00 00:00:00;1906-06-00 00:00:00;Nikolai Konstantinowitsch Roerich. Kollektivausstellung;Galerie H. O. Miethke
+1112;solo;1907-02-00 00:00:00;\N;Wilhelm Bernatzik. 1853-1906;\N
+1113;group;1907-10-12 00:00:00;1907-11-10 00:00:00;Kollektiv-Ausstellung. Josef Vaic, Vojtěch Preissig;\N
+1114;group;1913-02-03 00:00:00;1913-02-15 00:00:00;Exposition;\N
+1115;group;1908-02-03 00:00:00;1908-02-15 00:00:00;L'Algérie, La Tunisie & Les Indes;\N
+1116;group;1908-04-00 00:00:00;1908-05-00 00:00:00;Hermann Haller: Plastiken. Max Mayrshofer: Zeichnungen;\N
+1117;group;1908-01-00 00:00:00;\N;Kollektiv-Ausstellung. Maria Slavona, Richard Pollak-Karlin;\N
+1118;solo;1909-03-00 00:00:00;\N;Prof. Jacob Alberts;\N
+1119;group;1905-02-00 00:00:00;1905-03-00 00:00:00;Hagenbund. Vierzehnte Ausstellung;Hagenbund
+1120;group;1905-03-00 00:00:00;1905-06-00 00:00:00;Hagenbund. XV. Ausstellung;\N
+1121;group;1905-03-00 00:00:00;1905-06-00 00:00:00;Hagenbund. Fünfzehnte Ausstellung;\N
+1122;group;1906-03-16 00:00:00;1906-06-00 00:00:00;Hagenbund. Neunzehnte Ausstellung;\N
+1123;group;1908-00-00 00:00:00;\N;Exposition Permanente;\N
+1124;solo;1907-11-00 00:00:00;\N;Márk Lajos gyűjteményes kiállítása;\N
+1125;solo;1906-02-00 00:00:00;\N;Grünwald Iványi Béla gyüjteményes kiállítása;\N
+1126;solo;1914-02-18 00:00:00;1914-03-08 00:00:00;Csók István kiállítása;\N
+1127;group;1906-12-07 00:00:00;1907-01-20 00:00:00;Hagenbund XXI. Ausstellung;\N
+1128;group;1907-12-02 00:00:00;1907-12-14 00:00:00;L'Atelier de Sisley;\N
+1129;group;1907-10-05 00:00:00;1907-11-00 00:00:00;Hagenbund. XXIII. Ausstellung;\N
+1130;group;1907-12-00 00:00:00;\N;Hagenbund. Zügel. Wrba. Zanetti. XXIV. Ausstellung;\N
+1131;auction;1908-05-15 00:00:00;1908-05-16 00:00:00;Tableaux Modernes. Aquarelles, Dessins et Pastels;\N
+1132;group;1905-04-00 00:00:00;1905-05-00 00:00:00;XVI. výstava výtvarných umělců Manes v Praze;\N
+1133;group;1905-11-00 00:00:00;1905-12-00 00:00:00;XVII. výstava Sp. V. U. Manes v Praze. Dánské umění (Den Frie Udstilling);\N
+1134;solo;1905-12-00 00:00:00;1906-01-00 00:00:00;XVIII. výstava S. V. U. Manes v Praze. Fr. Šimon;\N
+1135;group;1907-03-00 00:00:00;\N;Hagenbund. Zweiundzwanzigste Ausstellung;\N
+1136;group;1913-00-00 00:00:00;\N;Société des Artistes Méridionaux Toulouse VIIIe Exposition;\N
+1137;group;1908-10-00 00:00:00;\N;Hagenbund. XXVI. Ausstellung. Rysselberghe, Sieck, Parin;Künstlerbund Hagen
+1138;solo;1906-01-00 00:00:00;1906-02-00 00:00:00;XIX. výstava Spolku výtvarn. umělců Manes v Praze. Nikolaj Konstantinovič Roerich;\N
+1139;group;1906-04-08 00:00:00;1906-06-17 00:00:00;Dvacátá výstava S. V. U. Manes v Praze;\N
+1140;group;1908-02-06 00:00:00;1908-03-00 00:00:00;Ausstellung der Vereinigung Polnischer Künstler "Sztuka";\N
+1141;group;1906-11-17 00:00:00;1907-01-20 00:00:00;XXI. výstava Spolku výtvarných umělců Manes v Praze;\N
+1142;group;1908-11-00 00:00:00;1909-01-00 00:00:00;Hagenbund. XXVII. Ausstellung;\N
+1143;group;1907-05-08 00:00:00;1907-06-22 00:00:00;XXII. výstava S. V. U. Manes. Henri Le Sidaner a Louis Dejean;\N
+1144;group;1909-09-04 00:00:00;1909-09-19 00:00:00;Hagenbund. Alpine Kunstausstellung;\N
+1145;solo;1909-06-14 00:00:00;1909-06-26 00:00:00;Nicolas Tarkhoff;\N
+1146;solo;1909-06-14 00:00:00;1909-06-26 00:00:00;Nicolas Tarkhoff;\N
+1147;solo;1909-06-14 00:00:00;1909-06-26 00:00:00;Nicolas Tarkhoff;\N
+1148;solo;1909-01-00 00:00:00;1909-02-00 00:00:00;28. Ausstellung des Künstlerbundes Hagen, Wien;\N
+1149;group;1909-12-00 00:00:00;1910-01-00 00:00:00;Weihnachtsausstellung. Künstlerbund Hagen [31. Ausstellung];\N
+1150;group;1910-03-00 00:00:00;1910-05-00 00:00:00;Künstlerbund Hagen. Frühjahrs-Ausstellung [32. Ausstellung];\N
+1151;group;1908-02-15 00:00:00;1908-03-15 00:00:00;XXV. výstava S. V. U. Manes v Praze 1908. Auguste Rodin, Ludvík v. Hofmann;\N
+1152;solo;1909-01-00 00:00:00;1909-02-00 00:00:00;Dvacátá sedmá výstava Spolku vytvarných umělců Manes v Praze. Malíř Emil Bernard;\N
+1153;solo;1909-02-00 00:00:00;1909-03-00 00:00:00;XXVIII. výstava Spolku výtvarných umělců Manes v Praze. Soubor děl sochaře Emila A. Bourdella;\N
+1154;group;1909-05-08 00:00:00;1909-06-30 00:00:00;4me Exposition. Société Des Artistes Méridionaux;\N
+1155;group;1909-05-08 00:00:00;1909-06-30 00:00:00;4me Exposition. Société Des Artistes Méridionaux;\N
+1156;solo;1910-11-14 00:00:00;1910-11-19 00:00:00;Exposition Luce;\N
+1157;group;1909-11-27 00:00:00;1910-01-09 00:00:00;XXX. výstava Sp. výtv. um. Manes. Výstava skizz;\N
+1158;group;1906-01-20 00:00:00;1906-02-00 00:00:00;Hagenbund. XVIII. Ausstellung sächsischer Künstler;\N
+1159;solo;1910-03-00 00:00:00;1910-04-00 00:00:00;XXXII. výstava Sp. výtv. um. "Manes". Antonín Slavíček;\N
+1160;group;1910-11-00 00:00:00;1910-12-00 00:00:00;XXXIV. výstava Spolku výtvar. umělců Manes. Švédské umění;\N
+1161;solo;1907-10-17 00:00:00;1907-11-00 00:00:00;Kollektion Gustaf G. Groeger;Galerie H. O. Miethke
+1162;solo;1910-04-11 00:00:00;1910-04-25 00:00:00;Exposition de Peinture. Paysages d'Italie et autres De Alexandre Urbain;\N
+1163;group;1909-09-00 00:00:00;1909-10-00 00:00:00;Irma von Duczyńska. Professor Max Thedy;\N
+1164;solo;1909-01-00 00:00:00;\N;Wilhelm Trübner;\N
+1165;group;1911-03-00 00:00:00;1911-04-00 00:00:00;XXXVI. výstava S. V. U. Manes. Členská;\N
+1166;solo;1910-02-23 00:00:00;1910-03-20 00:00:00;Leopold Graf von Kalckreuth;\N
+1167;solo;1912-02-00 00:00:00;1912-02-00 00:00:00;XXXIX. Výstava S. V. U. Manes. H. Böttinger. Výbor prací 1901-1911;\N
+1168;group;1910-00-00 00:00:00;\N;Société Des Artistes Méridionaux Toulouse. Vme Exposition;\N
+1169;group;1910-05-06 00:00:00;1910-06-18 00:00:00;Manet. Monet;\N
+1170;group;1910-05-00 00:00:00;\N;Manet. Monet;\N
+1171;solo;1910-10-24 00:00:00;1910-11-00 00:00:00;Kollektiv-Ausstellung Ludwig Michalek;\N
+1172;solo;1912-05-00 00:00:00;1912-06-00 00:00:00;XLI. výstava S. V. U. Manes. Posmrtná souborná výstava Miloše Jiránka;\N
+1173;group;1910-01-00 00:00:00;1910-02-00 00:00:00;Christian Rohlfs, Leon von Wyczolkowski;\N
+1174;group;1911-02-00 00:00:00;1911-03-01 00:00:00;Corot, Delacroix, Courbet;\N
+1175;solo;1911-11-00 00:00:00;1911-12-15 00:00:00;Kollektiv-Ausstellung Ludwig Hans Fischer;\N
+1176;group;1911-04-01 00:00:00;1911-04-22 00:00:00;Kollektiv-Ausstellung B. Pinell-Koller und Heinrich Schröder;\N
+1177;group;1911-03-04 00:00:00;1911-03-30 00:00:00;Kollektiv-Ausstellung Max Kurzweil und Carl Moll;\N
+1178;group;1910-12-31 00:00:00;1911-01-00 00:00:00;Kollektiv-Ausstellung Prof. Emil Orlik, Wilhelm Legler;\N
+1179;solo;1912-12-06 00:00:00;\N;Gedächtnis-Ausstellung Hans Schwaiger;\N
+1180;group;1912-10-00 00:00:00;1912-11-00 00:00:00;Sammlungen Richard Muther, Ludwig Hevesi;\N
+1181;group;1913-04-10 00:00:00;\N;Hilde Exner, Nora v. Zumbusch, Rudolf Kalvach;\N
+1182;solo;1913-10-00 00:00:00;\N;Anton Faistauer;\N
+1183;solo;1913-02-00 00:00:00;\N;Gedächtnis-Ausstellung Eugen von Kahler;\N
+1184;solo;1912-10-00 00:00:00;1912-11-00 00:00:00;XLII. výstava S. V. U. Manes. Posmrtná souborná výstava Hanuše Schwaigra;\N
+1185;group;1905-10-07 00:00:00;1905-10-29 00:00:00;Umělecká výstava S. V. U. „Manes“;\N
+1186;group;1905-01-16 00:00:00;\N;Constantin Somoff, William Degouve de Nuncques, Madame Degouve-Massin;\N
+1187;solo;1905-03-00 00:00:00;1905-04-00 00:00:00;Emil Orlik;\N
+1188;group;1905-11-00 00:00:00;1905-12-00 00:00:00;[Moderne Münchner Maler];\N
+1189;solo;1906-01-00 00:00:00;\N;[Hugo von Habermann];\N
+1190;solo;1906-10-04 00:00:00;\N;[Henri de Groux];\N
+1191;group;1906-10-00 00:00:00;1906-11-00 00:00:00;[Hermine Heller-Obersetzer u.a. Wiener Künstler];\N
+1192;solo;1906-10-31 00:00:00;1906-11-00 00:00:00;[Josef Berres de Perez];\N
+1193;solo;1906-11-25 00:00:00;1907-01-00 00:00:00;[Carl Larsson];\N
+1194;group;1906-12-00 00:00:00;\N;[Die Jungen];\N
+1195;solo;1907-01-00 00:00:00;\N;[Hans Schlesinger];\N
+1196;solo;1907-04-00 00:00:00;1907-05-00 00:00:00;[Wilhelm List];\N
+1197;group;1907-05-00 00:00:00;\N;[Hermann-Paul und Pierre Laprade];\N
+1198;solo;1907-07-02 00:00:00;1907-10-09 00:00:00;[Gustav Klimt];\N
+1199;solo;1907-09-27 00:00:00;1907-10-00 00:00:00;[Constantin Guys];\N
+1200;solo;1908-11-15 00:00:00;1908-12-00 00:00:00;[Cäsar Kunwald];\N
+1201;solo;1908-12-15 00:00:00;\N;[Helene Frauenhofer-Mühlthaler];\N
+1202;solo;1909-02-00 00:00:00;1909-03-00 00:00:00;[Otto Fikentscher];\N
+1203;group;1910-03-29 00:00:00;1910-04-24 00:00:00;[Augusto Giacometti und Carl Moser];\N
+1204;group;1910-06-00 00:00:00;1910-09-29 00:00:00;[Willi Geiger und Willi Nowak];\N
+1205;solo;1910-11-23 00:00:00;1910-12-00 00:00:00;[Gustav Klimt];\N
+1206;solo;1910-00-00 00:00:00;\N;[Zoe de Borelli-Vranska];\N
+1207;solo;1911-04-24 00:00:00;1911-05-02 00:00:00;[Egon Schiele];\N
+1208;solo;1911-06-08 00:00:00;\N;[Hede Trapp];\N
+1209;solo;1911-12-17 00:00:00;1912-01-17 00:00:00;[Eugen Spiro];\N
+1210;group;1912-09-26 00:00:00;1912-10-25 00:00:00;[Jagdbilder];\N
+1211;solo;1913-04-00 00:00:00;1913-05-00 00:00:00;[Franz von Zülow];\N
+1212;solo;1913-05-00 00:00:00;\N;[Francesco Paolo Michetti];\N
+1213;solo;1913-05-30 00:00:00;1913-06-00 00:00:00;[Ferdinand Hodler];\N
+1214;solo;1913-09-00 00:00:00;1913-10-00 00:00:00;[Graf Walecki];\N
+1215;solo;1913-11-00 00:00:00;\N;[Adolf Hölzel];\N
+1216;solo;1913-11-19 00:00:00;\N;[Otto Fikentscher];\N
+1217;solo;1913-12-09 00:00:00;\N;[Bruno Beran];\N
+1218;group;1914-01-00 00:00:00;\N;[Max Liebermann, Max Slevogt, Lovis Corinth, Gustav Gaul];\N
+1219;group;1914-04-00 00:00:00;1914-05-30 00:00:00;[Lili Schüller und Friedrich von Knapitsch];\N
+1220;solo;1914-03-00 00:00:00;\N;[Ludwig M. Fürst];\N
+1221;solo;1910-04-00 00:00:00;1910-05-00 00:00:00;Exposition des Cartons, Esquisses, Dessins pour l'Œuvre Décorative d'Albert Besnard;Musée des Arts Décoratifs. Pavillon de Marsan
+1222;group;1908-06-28 00:00:00;1908-09-01 00:00:00;V. výstava Sdružení výtvarných umělců moravských;\N
+1223;group;1912-03-00 00:00:00;1912-07-00 00:00:00;XLI. Ausstellung der Vereinigung bildender Künstler Österreichs Secession;\N
+1224;group;1907-08-25 00:00:00;1907-09-22 00:00:00;II. výstava Výtvar. umělců moravských;\N
+1225;group;1910-00-00 00:00:00;1911-00-00 00:00:00;Hagenbund. Herbstausstellung;\N
+1226;solo;1914-03-15 00:00:00;1914-04-11 00:00:00;André Derain;\N
+1227;solo;1914-05-02 00:00:00;1914-05-30 00:00:00;Kollektiv-Ausstellung Leo v. Littrow;\N
+1228;group;1913-12-10 00:00:00;1914-01-01 00:00:00;XI. výstava Sdružení výtvarných umělců moravských;\N
+1229;group;1908-02-29 00:00:00;1908-04-20 00:00:00;Frühjahr-Ausstellung des Vereins bildender Künstler Münchens "Secession";\N
+1230;group;1908-02-29 00:00:00;1908-04-20 00:00:00;Frühjahr-Ausstellung des Vereins bildender Künstler Münchens "Secession";\N
+1231;group;1907-00-00 00:00:00;\N;Collection Moreau (Tableaux, Dessins, Aquarelles et Pastels);\N
+1232;group;1909-05-23 00:00:00;1909-06-20 00:00:00;VI. výstava „Sdružení výtvarných umělců moravských“ v Hodoníně. Umění polské a moravské;\N
+1233;group;1913-06-12 00:00:00;1913-07-03 00:00:00;Exhibition of Portraits and Studies in Pastel by Mrs. Pierse Loftus (Dorothy Reynolds) And Miniatures by Margret Reynolds;The Doré Galleries
+1234;group;1913-03-00 00:00:00;1913-07-00 00:00:00;XLIV. Ausstellung der Vereinigung Bildender Künstler Österreichs Secession;\N
+1235;group;1910-05-15 00:00:00;1910-06-05 00:00:00;VII. výstava :Sdružení výtvarných umělců moravských: v Olomouci;\N
+1236;group;1908-02-00 00:00:00;1908-02-00 00:00:00;The New Association of Artists. First Exhibition;\N
+1237;group;1909-02-00 00:00:00;1909-02-00 00:00:00;The New Association of Artists. Second Exhibition;\N
+1238;group;1909-12-00 00:00:00;\N;Forty-Second Exhibition of Modern Pictures. New English Art Club;\N
+1239;auction;1907-03-02 00:00:00;1907-03-04 00:00:00;Collection de M. George Viau;\N
+1240;auction;1907-03-19 00:00:00;1907-03-22 00:00:00;Collection de M. George Viau (Deuxième Vente);\N
+1241;group;1912-00-00 00:00:00;\N;Société des Artistes Méridionaux Toulouse VIIe Exposition;\N
+1242;solo;1909-03-26 00:00:00;1909-04-09 00:00:00;Paintings by Arthur Streeton;\N
+1243;group;1908-04-12 00:00:00;1908-05-31 00:00:00;III. výstava Sdružení výtvarných umělců moravských;\N
+1244;group;1912-00-00 00:00:00;\N;Sommaire des Peintures et Sculptures de l'École Contemporaine exposées dans les Galeries du Musée National du Luxembourg;\N
+1245;group;1905-06-10 00:00:00;1905-06-30 00:00:00;Umělecká výstava v Olomouci Spolku výtv. umělců „Manes“;\N
+1246;group;1913-05-04 00:00:00;1913-07-31 00:00:00;X. výstava Sdružení výtvarných umělců moravských;\N
+1247;group;1905-07-15 00:00:00;1905-08-28 00:00:00;Gemeentelijke Tentoonstelling van Kunstwerken van Levende Meesters.;"Vereeniging tot het inrichten van Gemeentelijke Tentoonstellingen van Kunstwerken van levende Meesters, te Arnhem: 1p."
+1248;group;1914-01-00 00:00:00;1914-02-00 00:00:00;Deutschböhmischer Künstlerbund;\N
+1249;auction;1910-11-22 00:00:00;1910-11-23 00:00:00;Collection de M. Albert Bernier;\N
+1250;solo;1905-12-00 00:00:00;1905-12-00 00:00:00;Kupkova výstava v Prostějově;\N
+1251;auction;1910-05-30 00:00:00;1910-05-31 00:00:00;Collection Particulière de M. Charles Boutet de Monvel;\N
+1252;group;1910-02-00 00:00:00;1910-03-00 00:00:00;Deutschböhmischer Künstlerbund;\N
+1253;group;1911-00-00 00:00:00;\N;Société des Artistes Méridionaux Toulouse VIe Exposition;\N
+1254;group;1912-02-00 00:00:00;1912-03-00 00:00:00;Zvláštní výstava spolku Deutsch-Böhmischer Künstlerbund;\N
+1255;group;1913-10-22 00:00:00;1913-12-24 00:00:00;Výstava obrazů Ant. Hudečka a plastik Jos. Mařatky;\N
+1256;auction;1910-02-22 00:00:00;1910-02-25 00:00:00;Collection Jean Dolent. Tableaux Modernes & Anciens;\N
+1257;group;1908-06-00 00:00:00;1908-07-00 00:00:00;Výstava „Osmi“;\N
+1258;group;1914-05-17 00:00:00;1914-08-31 00:00:00;44. výstava vídeňského spolku umělců „Hagenbund“;\N
+1259;group;1907-09-07 00:00:00;\N;Stedelijke Tentoonstelling van Kunstwerken van Levende Meesters;Commissie voor de Stedelijke Tentoonstelling van Kunstwerken\
+van levende Meesters te Amsterdam
+1260;group;1907-03-00 00:00:00;1907-05-00 00:00:00;XXIX. Ausstellung der Vereinigung bildender Künstler Österreichs Secession Wien;\N
+1261;group;1912-10-10 00:00:00;1912-10-30 00:00:00;Salon de "la Section d'Or";\N
+1262;group;1906-01-00 00:00:00;1906-02-00 00:00:00;XXV. Ausstellung der Vereinigung bildender Künstler Österreichs. Secession in Wien. Künstlervereinigung „Die Scholle“ München;\N
+1263;group;1909-01-00 00:00:00;1909-02-00 00:00:00;XXXII. Ausstellung der Vereinigung bildender Künstler Österreichs Secession;\N
+1264;group;1909-00-00 00:00:00;\N;XXXV. Ausstellung der Vereinigung bildender Künstler Österreichs Secession;\N
+1265;group;1911-04-00 00:00:00;1911-07-00 00:00:00;XXXVIII. Ausstellung der Vereinigung bildender Künstler Österreichs Secession. Wien;\N
+1266;auction;1908-06-10 00:00:00;1908-06-13 00:00:00;Collection Thadée Natanson;\N
+1267;group;1911-12-26 00:00:00;1912-01-06 00:00:00;Exposition de Dessins & Aquarelles;\N
+1268;group;1911-01-02 00:00:00;1911-01-14 00:00:00;Photo - Procédés E. Druet;Galerie E. Druet
+1269;group;1911-06-07 00:00:00;1911-06-08 00:00:00;Collection Henry Bernstein;\N
+1270;group;1909-03-00 00:00:00;\N;XXXIII. Ausstellung der Vereinigung bildender Künstler Österreichs Wien Secession;\N
+1271;auction;1911-05-20 00:00:00;1911-05-22 00:00:00;Vente au bénéfice du Monument Cézanne;\N
+1272;solo;1909-10-22 00:00:00;1910-01-02 00:00:00;XXXIV. Ausstellung der Vereinigung bildender Künstler Österreichs Secession;\N
+1273;group;1911-11-00 00:00:00;1912-01-00 00:00:00;XXXIX. Ausstellung der Vereinigung bildender Künstler Österreichs Secession;\N
+1274;group;1908-02-06 00:00:00;1908-02-29 00:00:00;Exposition d'Aquarelles, Peintures & Sculptures;\N
+1275;group;1908-04-27 00:00:00;1908-05-30 00:00:00;Exposition de Peintures;\N
+1276;group;1909-12-20 00:00:00;1910-01-08 00:00:00;Exposition de Dessins et Aquarelles;\N
+1277;group;1909-11-08 00:00:00;1909-12-04 00:00:00;Exposition de Peintures;\N
+1278;group;1910-12-19 00:00:00;1910-12-31 00:00:00;Exposition de Dessins & Aquarelles;\N
+1279;group;1910-02-17 00:00:00;1910-03-01 00:00:00;Exposition de Dessins, Pastels & Peintures;\N
+1280;group;1913-11-00 00:00:00;1913-12-00 00:00:00;XLV. Ausstellung der Vereinigung bildender Künstler Österreichs Secession;\N
+1281;group;1914-03-00 00:00:00;1914-07-00 00:00:00;XLVII. Ausstellung der Vereinigung bildender Künstler Österreichs Secession;\N
+1282;group;1912-01-00 00:00:00;1912-02-00 00:00:00;XXXX. Ausstellung der Vereinigung bildender Künstler Österreichs Secession. Plakat-Ausstellung;\N
+1283;solo;1911-11-00 00:00:00;\N;Painting and Drawings by Gerard Chowne;\N
+1284;group;1911-10-00 00:00:00;\N;Watercolours by Douglas Fox Pitt and Walter Taylor;\N
+1285;solo;1912-11-00 00:00:00;\N;Paintings and Drawings by Maxwell Armfield;\N
+1286;group;1912-04-00 00:00:00;\N;Paintings. Charles M. Gere and Margaret Gere;\N
+1287;solo;1912-02-00 00:00:00;\N;Paintings and Drawings by Elliot Seabrooke;\N
+1288;solo;1912-01-00 00:00:00;\N;Paintings by Alexander Jamieson. First Exhibition;\N
+1289;group;1912-06-00 00:00:00;\N;Paintings by Ethel Sands and A. H. Hudson;\N
+1290;solo;1912-05-00 00:00:00;\N;Paintings and Drawings by Walter Sickert;\N
+1291;solo;1912-03-00 00:00:00;\N;Drawings and Studies from Life by William Orpen, A.R.A. R.H.A.;\N
+1292;group;1912-10-03 00:00:00;\N;Exhibition of Pictures by S. J. Peploe, J. D. Fergusson, Joseph Simpson, Anne E. Rice, Jessie Dismorr, Georges Banks, Ethel Wright, C. King, L. Atkinson, Fred. F. Foottet;\N
+1293;solo;1913-00-00 00:00:00;\N;Sketches in Town and Country by Patience E. Bishopp. Ashford, Kent;\N
+1294;solo;1912-04-23 00:00:00;\N;Exhibition of Drawings by Joseph Simpson;\N
+1295;solo;1914-02-00 00:00:00;\N;Oil Paintings and Watercolours by Horace Mann Livens;\N
+1296;solo;1914-01-00 00:00:00;\N;E. M. Heath;\N
+1297;solo;1914-03-00 00:00:00;\N;Paintings and Drawings by R. Ihlee;\N
+1298;solo;1914-02-00 00:00:00;\N;Paintings and Drawings by Elliott Seabrooke;\N
+1299;solo;1914-04-00 00:00:00;\N;Paintings and Drawings by Walter Sickert;\N
+1300;group;1914-00-00 00:00:00;1915-00-00 00:00:00;XII Выставка Картин Союза Русских Художников;Союз Русских Художников [Union of Russian Artists]
+1301;group;1909-07-10 00:00:00;1909-08-22 00:00:00;Gemeentelijke Tentoonstelling van Kunstwerken van Levende Meesters;"Vereeniging tot het inrichten van Gemeentelijke Tentoonstellingen van Kunstwerken van levende Meesters, te Arnhem: 1p."
+1302;group;1915-00-00 00:00:00;\N;Выставка Картин "Мир Искусства";Мир Искусства [World of Art]
+1303;group;1914-03-03 00:00:00;1914-04-19 00:00:00;Frühjahr-Ausstellung der Münchener Secession;\N
+1304;group;1910-12-15 00:00:00;1911-02-05 00:00:00;Winter-Ausstellung. Karl Haider, Heinrich von Zügel;\N
+1305;group;1911-03-00 00:00:00;1911-08-00 00:00:00;Hagenbund. Frühjahrs-Ausstellung;\N
+1306;solo;1913-00-00 00:00:00;\N;Paintings of Bird Life & Landscapes by Miss Bodé;\N
+1307;group;1909-12-25 00:00:00;1910-02-05 00:00:00;Winter-Ausstellung. Hugo Frhr. von Habermann, Hermann Hahn, Otto Reiniger ✝;\N
+1308;solo;1913-00-00 00:00:00;\N;Exhibition of Pictures by M. Arsène Chabanian;´The Doré Galleries
+1309;solo;1913-00-00 00:00:00;\N;Exhibition of 59 Water-Colour Drawings of Boats & Gardens in England, France & Italy by Miss Constance Daintrey;\N
+1310;solo;1913-00-00 00:00:00;\N;Exhibition of Water-Colour Drawings of Venice, Como, and the New Forest,  by Miss Constance Daintrey;\N
+1311;solo;1913-00-00 00:00:00;\N;Water Colour Drawings of Architecture and Other Subjects at Home and Abroad by Miss M. Dawkins;\N
+1312;solo;1913-00-00 00:00:00;\N;An Exhibition of Paintings and Decorative Panels by Katherine S. Dreier;\N
+1313;solo;1913-00-00 00:00:00;\N;Exhibition of Pastel Drawings of "Capri" and "On Lake Como" by Mrs. Earnshaw;The Doré Galleries
+1314;solo;1913-00-00 00:00:00;\N;Exhibition of Water Colours "East and West". Comprising Views of - The United Kingdom, North Africa, North Italy and Constantinople by Major Evelyn L. Engleheart;The Doré Galleries
+1315;solo;1913-00-00 00:00:00;\N;Pictures by Eve Baker;\N
+1316;solo;1913-00-00 00:00:00;\N;Pictures by John Duncan Fergusson;The Doré Galleries
+1317;solo;1913-00-00 00:00:00;\N;"The Shores of Provence. A Series of Water Colour Drawings by Sophia Beale";\N
+1318;group;1913-00-00 00:00:00;\N;Colour Wood Cuts, Water Colours. Portraits, Landscapes;\N
+1319;solo;1913-11-00 00:00:00;\N;Paintings and Drawings by Maurice Asselin;\N
+1320;solo;1913-10-00 00:00:00;\N;Paintings by Walter Bayes;\N
+1321;group;1913-03-00 00:00:00;1913-04-00 00:00:00;The "John Balli" Collection;\N
+1322;solo;1913-04-00 00:00:00;\N;Paintings and Drawings by Robert Bevan;\N
+1323;solo;1913-06-00 00:00:00;\N;Pastels by Simon Bussy;\N
+1324;solo;1913-01-00 00:00:00;\N;Geoffrey Birkbeck;\N
+1325;solo;1913-06-00 00:00:00;1913-07-00 00:00:00;Henry Bishop;\N
+1326;solo;1913-02-00 00:00:00;1913-03-00 00:00:00;J. R. K. Duff;\N
+1327;group;1912-05-15 00:00:00;1912-10-31 00:00:00;Kunstausstellung der Münchener Secession;\N
+1328;solo;1913-06-00 00:00:00;\N;Oil Paintings of H.M. The King's Collection of African and Indian Animals and Birds by Edgar H. Fischer;\N
+1329;group;1911-12-15 00:00:00;1912-02-04 00:00:00;Winter-Ausstellung. Wiener Secession und Gedächtnis-Ausstellung Hubert von Heyden ✝;\N
+1330;solo;1908-12-23 00:00:00;1909-02-10 00:00:00;Winter-Ausstellung. Hans von Marées;\N
+1331;group;1914-01-00 00:00:00;1914-02-00 00:00:00;XLVI. Ausstellung der Vereinigung bildender Künstler Österreichs Secession;\N
+1332;group;1905-01-00 00:00:00;1905-02-00 00:00:00;[2. Amateur-Kunstausstellung im Hagenbund];\N
+1333;group;1905-07-00 00:00:00;1905-08-00 00:00:00;[16. Ausstellung des Künstlerbundes Hagen];\N
+1334;group;1905-11-17 00:00:00;1906-01-07 00:00:00;17. Ausstellung des Künstlerbundes Hagen;\N
+1335;group;1909-04-03 00:00:00;1909-08-15 00:00:00;29. Ausstellung des Künstlerbundes Hagen. Frühlingsausstellung;\N
+1336;group;1911-09-15 00:00:00;1911-11-05 00:00:00;2. Ausstellung der Vereinigung bildender Künstlerinnen Österreichs;\N
+1337;solo;1908-06-14 00:00:00;1908-06-28 00:00:00;V. van Gogh-Ausstellung;\N
+1338;group;1908-07-10 00:00:00;1908-07-26 00:00:00;VI. Serie;Künstlerhaus Zürich
+1339;group;1912-09-00 00:00:00;1912-09-29 00:00:00;Der Sturm. Sechste Ausstellung. Belgische Künstler;\N
+1340;group;1906-06-00 00:00:00;\N;[Sommerausstellung. Moderne und alte Meister];\N
+1341;group;1909-06-00 00:00:00;\N;[Sommerausstellung. Alte und moderne Meister aus eigenem Bestand];\N
+1342;group;1915-08-00 00:00:00;1915-09-00 00:00:00;Kunstausstellung. Wirtschaftsverband bildend. Künstler Österreichs [2.];\N
+1343;group;1915-05-18 00:00:00;1915-08-01 00:00:00;Kunstausstellung. Wirtschaftsverband bildend. Künstler Österreichs [1.];\N
+1344;group;1912-06-16 00:00:00;1912-07-00 00:00:00;[Der Sturm. Fünfte Ausstellung. Französische Expressionisten];\N
+1345;group;1912-11-16 00:00:00;1905-12-08 00:00:00;Der Sturm. Neunte Ausstellung. Jan Gauguin, Egon Adler, Segal;\N
+1346;group;1912-12-09 00:00:00;1912-12-31 00:00:00;Der Sturm. Zehnte Ausstellung. Neue Sezession;\N
+1347;solo;1913-01-00 00:00:00;\N;Der Sturm. Elfte Ausstellung. G. Münter;\N
+1348;group;1914-01-00 00:00:00;\N;[Der Sturm. Einundzwanzigste Ausstellung. August Macke];\N
+1349;solo;1914-02-00 00:00:00;\N;[Der Sturm. Zweiundzwanzigste Ausstellung. Alexei von Jawlensky];\N
+1350;group;1914-07-00 00:00:00;\N;[Der Sturm. Siebenundzwanzigste Ausstellung];\N
+1351;group;1912-07-00 00:00:00;\N;Die Futuristen [Wanderausstellung Der Sturm];\N
+1352;group;1912-07-11 00:00:00;\N;Die Futuristen [Wanderausstellung Der Sturm];\N
+1353;group;1912-10-10 00:00:00;\N;Die Futuristen [Wanderausstellung Der Sturm];\N
+1354;group;1912-12-15 00:00:00;1913-01-07 00:00:00;Die Futuristen [Wanderausstellung Der Sturm];\N
+1355;solo;1913-02-00 00:00:00;\N;[Kandinsky];\N
+1356;solo;1913-03-00 00:00:00;\N;[Delaunay];\N
+1357;group;1912-09-21 00:00:00;1912-10-00 00:00:00;[Expressionisten sowie das graphische Werk der Vereinigung Der Blaue Reiter];\N
+1358;group;1915-06-00 00:00:00;1915-07-00 00:00:00;Der Sturm. Dreiundreissigste Ausstellung. Graphik;\N
+1359;group;1915-12-00 00:00:00;\N;Der Sturm. Sechsunddreißigste Ausstellung. Graphische Werke;\N
+1360;group;1909-09-16 00:00:00;1909-10-10 00:00:00;IX. Serie;Künstlerhaus Zürich
+1361;solo;1911-07-16 00:00:00;1911-10-01 00:00:00;Hodler-Ausstellung;\N
+1362;solo;1911-11-00 00:00:00;1911-12-00 00:00:00;Kollektiv-Ausstellung Ferdinand Hodler;\N
+1363;solo;1913-01-00 00:00:00;\N;Water Colours by E. Carter Preston;\N
+1364;solo;1913-04-18 00:00:00;1913-05-00 00:00:00;Oil Paintings and Studies by Henri Martin;\N
+1365;group;1913-02-00 00:00:00;\N;Paintings and Drawings by C. J. Holmes;\N
+1366;group;1913-05-00 00:00:00;\N;Paintings by Lucien Pissarro;\N
+1367;group;1913-05-00 00:00:00;\N;Paintings by Lucien Pissarro;\N
+1368;group;1913-05-00 00:00:00;\N;Paintings by Lucien Pissarro;\N
+1369;solo;1913-02-00 00:00:00;1913-03-00 00:00:00;Paintings and Drawings by F. H. S. Shepherd;\N
+1370;group;1913-03-00 00:00:00;\N;Studies and Etchings by Walter Sickert;\N
+1371;solo;1913-03-00 00:00:00;\N;Studies and Etchings by Walter Sickert;\N
+1372;solo;1913-03-00 00:00:00;\N;Drawings of Japanese Life by Katie Blackmore;\N
+1373;solo;1913-06-00 00:00:00;1913-07-00 00:00:00;Paintings in Tempera by George Thomson;\N
+1374;solo;1912-00-00 00:00:00;\N;Ausstellung Vincent van Gogh. 1853-1890;\N
+1375;group;1914-03-01 00:00:00;1914-03-31 00:00:00;Ausstellung des Modernen Bundes. Berlin - Paris;\N
+1376;solo;1913-06-01 00:00:00;1913-09-01 00:00:00;Max Pechstein;\N
+1377;solo;1905-03-00 00:00:00;\N;WCDAR;\N
+1378;group;1913-10-00 00:00:00;1913-12-00 00:00:00;The Goupil Gallery Salon;\N
+1379;solo;1914-01-00 00:00:00;\N;Works by Eric Gill;\N
+1380;solo;1909-02-07 00:00:00;1909-03-00 00:00:00;[Munchs Sonderausstellung 1909];\N
+1381;group;1908-09-00 00:00:00;1908-10-20 00:00:00;[Die Sonderschau Munchs 1908];\N
+1382;group;1909-04-10 00:00:00;1909-05-12 00:00:00;Esposizione riservata agli artisti lombardi e ai soci;\N
+1383;group;1909-05-00 00:00:00;1909-06-00 00:00:00;Esposizione di pittura e scultura;\N
+1384;group;1910-03-00 00:00:00;\N;Mostra annuale degli artisti lombardi;\N
+1385;group;1911-03-00 00:00:00;\N;Mostra d'Arte Libera: I manifestazione collettiva dei Futuristi;\N
+1386;solo;1906-03-15 00:00:00;1906-03-29 00:00:00;Alcide le Beau;\N
+1387;solo;1913-05-00 00:00:00;1913-06-00 00:00:00;Water Colours and Paintings by Walter W. Russell;\N
+1388;solo;1902-00-00 00:00:00;\N;Test;\N
+1389;solo;1905-05-00 00:00:00;1906-02-00 00:00:00;[Mehrmonatige Hängung des "Linde-Frises" im Berliner Atelier des Malers Leonhard Boldt 1905/06];\N
+1390;solo;1906-09-00 00:00:00;\N;[Einige Gemälde 1906 in Weimar im Hotel "Kaiserin Augusta"];\N
+1391;solo;1906-10-01 00:00:00;\N;[Munchs Sonderausstellung im Folkwang-Museum];\N
+1392;group;1907-10-30 00:00:00;\N;[Die Sonderausstellung Munchs in Hamburg im "Kunstsalon Clematis"];\N
+1393;solo;1908-10-22 00:00:00;1908-12-05 00:00:00;[Munchs Sonderausstellung 1908 in Breslau bei der Galerie "Franz Hancke"];\N
+1394;solo;1906-03-07 00:00:00;1906-03-18 00:00:00;[Munch-Gemälde in Jena 1906 im Kunstverein];\N
+1395;group;1906-05-13 00:00:00;1906-06-07 00:00:00;[Die Sonderausstellung Munchs in Berlin 1906 in der Galerie "Eduard Schulte"];\N
+1396;solo;1906-03-07 00:00:00;\N;[Die Einzelausstellung Munchs in Hamburg 1906 bei der Galerie "Commeter"];\N
+1397;group;1909-10-00 00:00:00;1909-11-00 00:00:00;Tentoonstelling van Teekeningen en Beeldhouwwerken;\N
+1398;group;1906-02-11 00:00:00;1906-02-25 00:00:00;[Munchs Sonderausstellung 1906 in Dresden in Kunstverein];\N
+1399;solo;1905-05-14 00:00:00;\N;[Sonder-Präsentation Munchs in Hamburg 1905 bei der Kunsthandlung "Commeter"];\N
+1400;solo;1907-04-06 00:00:00;1907-04-30 00:00:00;Collectiv-Ausstellung von Edvard Munch, Aasgaardstrand;\N
+1401;group;1907-05-01 00:00:00;1907-10-20 00:00:00;Internationale Kunst- und große Gartenbau-Ausstellung;\N
+1402;solo;1908-11-00 00:00:00;1908-12-00 00:00:00;[Munchs Sonderausstellung 1908 in Köln im Kunstverein];\N
+1403;group;1906-01-00 00:00:00;\N;[Die Sonderausstellung Munchs 1906 in Magdeburg];\N
+1404;group;1906-03-17 00:00:00;\N;[Sonderausstellung von Munch in Chemnitz 1906 in der "Kunsthütte"];\N
+1405;group;1902-00-00 00:00:00;\N;Fünfte Kunstausstellung der Berliner Secession;\N
+1406;group;1902-05-15 00:00:00;1902-09-22 00:00:00;Nordische Kunstausstellung im Kaiser Wilhelm-Museum zu Krefeld;\N
+1407;group;1903-01-17 00:00:00;1903-02-01 00:00:00;[V. Jahrgang. IV. Ausstellung. Collectionen Edvard Munch, Phillipp Klein, August Gaul];\N
+1408;solo;1903-02-00 00:00:00;1903-04-00 00:00:00;[Munchs Sonderausstellung 1903 in Leipzig bei der Kunsthandlung "Beyer & Sohn];\N
+1409;group;1903-11-05 00:00:00;1903-12-01 00:00:00;[VI. Jahrgang. II. Ausstellung. Collectionen Francisco de Goya\; Collectionen Ulrich Hübner und Ed. Munch];\N
+1410;group;1904-01-00 00:00:00;1904-02-00 00:00:00;XIX. Ausstellung der Vereinigung bildender Künstler Österreichs Secession Wien;\N
+1411;group;1910-01-02 00:00:00;1910-01-30 00:00:00;Neue Künstlervereinigung München E.V., Turnus 1909-1910;\N
+1412;group;1910-04-00 00:00:00;1910-04-00 00:00:00;Neue Künstlervereinigung München E.V., Turnus 1909-1910;\N
+1413;group;1910-05-00 00:00:00;1910-05-00 00:00:00;Neue Künstlervereinigung München E.V., Turnus 1909-1910;\N
+1414;group;1910-06-00 00:00:00;1910-07-00 00:00:00;Neue Künstlervereinigung München E.V., Turnus 1909-1910;\N
+1415;group;1910-07-00 00:00:00;1910-08-00 00:00:00;Neue Künstlervereinigung München E.V., Turnus 1909-1910;\N
+1416;group;1910-08-00 00:00:00;1910-09-00 00:00:00;Neue Künstlervereinigung München E.V., Turnus 1909-1910;\N
+1417;group;1910-09-16 00:00:00;1910-10-00 00:00:00;Neue Künstlervereinigung München E.V., Turnus 1909-1910;\N
+1418;group;1910-10-00 00:00:00;\N;Neue Künstlervereinigung München E.V., Turnus 1910-1911. [II. Ausstellung];\N
+1419;group;1910-11-00 00:00:00;\N;Neue Künstlervereinigung München E.V., Turnus 1910-1911. [II. Ausstellung];\N
+1420;group;1910-12-17 00:00:00;1910-12-26 00:00:00;Neue Künstlervereinigung München E.V., Turnus 1910-1911. [II. Ausstellung];\N
+1421;group;1911-08-29 00:00:00;1911-09-30 00:00:00;Neue Künstlervereinigung München E.V., Turnus 1910-1911. [II. Ausstellung];\N
+1422;group;1912-01-00 00:00:00;1912-02-00 00:00:00;Neue Künstlervereinigung München E.V., III. Ausstellung. Turnus 1911/12;\N
+1423;group;1903-04-00 00:00:00;\N;[Sonderausstellung von Gemälden 1903 bei Cassirer in Hamburg];\N
+1424;solo;1904-05-16 00:00:00;\N;[Eine Gemälde-Auswahl in Hamburg bei Cassirer 1904];\N
+1425;group;1904-05-01 00:00:00;1904-10-23 00:00:00;Internationale Kunstausstellung in Düsseldorf 1904;\N
+1426;group;1904-11-21 00:00:00;1904-12-01 00:00:00;[Ein Munch-Gemälde in Weimar 1904];\N
+1427;group;1911-04-11 00:00:00;1911-05-01 00:00:00;Salon 2, 1910-11: International Art Exhibition;\N
+1428;group;1911-00-00 00:00:00;\N;DELETE Salon 2, 1910-11: International Art Exhibition;\N
+1429;solo;1912-02-13 00:00:00;1912-03-10 00:00:00;Kollektiv-Ausstellung Edvard Munch;\N
+1430;group;1908-04-03 00:00:00;\N;XXX. Ausstellung der Vereinigung Bildender Künstler Österreichs Secession Wien;\N
+1431;group;1911-02-19 00:00:00;1911-04-16 00:00:00;DELETE Салон 2. Международная Художественная Выставка;\N
+1432;group;1911-02-19 00:00:00;1911-04-16 00:00:00;Салон 2. Международная Художественная Выставка;\N
+1433;group;1912-11-00 00:00:00;1912-12-00 00:00:00;XLII. Ausstellung der Vereinigung bildender Künstler Österreichs Secession. Rud. Von Alt Gedächtnisausstellung.;\N
+1434;solo;1905-10-01 00:00:00;1905-10-31 00:00:00;[Louis Paviot];\N
+1435;solo;1905-11-23 00:00:00;1905-12-21 00:00:00;[Charmy, Dufrenoy, Friesz, Girieud, Metzinger];\N
+1436;solo;1906-00-00 00:00:00;1906-05-10 00:00:00;[watercolor show of Jean Biette organized by Matisse];\N
+1437;solo;1906-10-09 00:00:00;1906-10-31 00:00:00;[Dufy];\N
+1438;group;1907-00-00 00:00:00;1907-04-15 00:00:00;[Matisse, Marquet, Derain, Friesz, Dufy, Vlaminck, Camoin, Vallotton];\N
+1439;group;1907-11-02 00:00:00;1907-11-30 00:00:00;[Camoin, Derain, Marquet, Matisse, Friesz, Dufy, Vlaminck];\N
+1440;solo;1908-03-00 00:00:00;1908-03-31 00:00:00;[Bela Czöbel];\N
+1441;group;1908-06-00 00:00:00;1908-06-00 00:00:00;[Camoin, Derain, Friesz, Dufy, Marquet, Matisse, Vlaminck („le fameux groupe“)];\N
+1442;solo;1908-10-00 00:00:00;1908-11-30 00:00:00;[Léon Lehmann];\N
+1443;group;1910-01-13 00:00:00;1910-02-13 00:00:00;[Pascin, Berne Klene, Van Rees, Schnerb];\N
+1444;group;1910-03-00 00:00:00;1910-04-17 00:00:00;[Burgsthal, Coppenolle, Deville, Tarkhoff];\N
+1445;group;1910-05-30 00:00:00;1910-06-18 00:00:00;[Lacoste, Plumet, Paviot, Van Rees];\N
+1446;solo;1911-02-06 00:00:00;1911-03-18 00:00:00;[Drawings and watercolors by Henry Somm.];\N
+1447;solo;1911-03-13 00:00:00;1911-03-25 00:00:00;[Grass- Mick];\N
+1448;solo;1912-02-12 00:00:00;1912-02-25 00:00:00;[Jean Berger (Catalogue written by Charles Morice)];\N
+1449;group;1913-00-00 00:00:00;1913-03-20 00:00:00;[Charmy, Marval, Lucie Cousturier, Camoin, Raoul Dufy, Girieud, Gleizes, Lacoste, Laprade, Lebasque, Léger, Lhote, Luce, Matisse, Metzinger, Picasso, Redon, Rouault, Van Dongen];\N
+1450;solo;1913-05-00 00:00:00;1913-06-00 00:00:00;[André Lhote];\N
+1451;group;1909-11-00 00:00:00;\N;Eröffnungs-Ausstellung November 1909. Moderne Galerie München;\N
+1452;solo;1912-01-15 00:00:00;1912-02-15 00:00:00;Ausstellung Auguste Renoir;\N
+1453;group;1911-10-00 00:00:00;1911-11-00 00:00:00;Französische Impressionisten;\N
+1454;group;1912-00-00 00:00:00;1912-04-23 00:00:00;I. Ausstellung der Künstlervereinigung Sema;\N
+1455;solo;1909-10-00 00:00:00;1909-11-00 00:00:00;Kollektiv Ausstellung Tina Blau;\N
+1456;group;1909-11-00 00:00:00;1909-11-00 00:00:00;Impressionisten - Ausstellung;\N
+1457;solo;1912-08-00 00:00:00;1912-08-00 00:00:00;Ausstellung Hugo von Habermann;\N
+1458;solo;1912-01-04 00:00:00;1912-01-15 00:00:00;Arbeit;\N
+1459;solo;1914-01-15 00:00:00;1914-02-15 00:00:00;Ausstellung Ferd. Hodler;Moderne Galerie (Thannhauser)
+1460;solo;1915-12-14 00:00:00;1915-12-30 00:00:00;Exhibition of Paintings and Sculpture By Max Weber;\N
+1461;group;1914-05-00 00:00:00;1914-08-00 00:00:00;Brighton Public Art Galleries - Exhibition of Modern Spanish Art;\N
+1462;group;1905-08-05 00:00:00;1905-08-29 00:00:00;Les Indépendants Cercle d'Art. Salon annuel;\N
+1463;group;1906-07-01 00:00:00;1906-11-00 00:00:00;Mostra Nazionale di Belle Arti;Comitato Esecutivo dell'Esposizione
+1464;solo;1907-00-00 00:00:00;\N;Exhibition of Pictures & Sketches by Robert Brough A.R.S.A.;\N
+1465;group;1908-10-01 00:00:00;1908-11-01 00:00:00;VIII. Serie Französische Impressionisten;Künstlerhaus Zürich
+1466;solo;1915-10-00 00:00:00;\N;Ausstellung Philipp Helmer;\N
+1467;group;1913-07-04 00:00:00;1913-08-17 00:00:00;Gemeentelijke Tentoonstelling van Kunstwerken van Levende Meesters;\N
+1468;solo;1907-00-00 00:00:00;\N;DELETE XIV Выставка Картин Московского Товарищества Художников.;\N
+1469;solo;1907-00-00 00:00:00;\N;DELETE XIV Выставка Картин Московского Товарищества Художников.;\N
+1470;group;1907-00-00 00:00:00;\N;Выставка Картин Союза Русских Художников;Sojuz Russkih Hudozhnikov
+1471;group;1909-00-00 00:00:00;\N;Выставка картин группы "Венок-Стефанос";\N
+1472;solo;1914-00-00 00:00:00;\N;Выставка картин Натальи Сергеевны Гончаровой;\N
+1473;group;1912-00-00 00:00:00;\N;Современная живопись.;\N
+1474;group;1910-06-00 00:00:00;\N;Союз Молодежи;Sojuz molodiozhi
+1475;group;1909-00-00 00:00:00;1910-00-00 00:00:00;Выставка "Импрессионистов".;\N
+1476;group;1908-00-00 00:00:00;\N;Звено;"Zveno"
+1477;group;1907-10-01 00:00:00;1907-10-22 00:00:00;Salon d'Automne. 5e Exposition;\N
+1478;group;1905-11-30 00:00:00;\N;[Sonderausstellung Munchs im Bremer Kunstverein 1905];\N
+1479;group;1910-05-02 00:00:00;1910-06-07 00:00:00;Салон. Интернациональная выставка картин, скульптуры, гравюры и графики;\N
+1480;group;1914-01-08 00:00:00;1914-02-13 00:00:00;2-я Выставка Картин "Современная Живопись" и Коллекции Гемм;\N
+1481;group;1913-11-05 00:00:00;\N;Выставка Графических Искусств;\N
+1482;group;1913-11-00 00:00:00;\N;Мир Искусства. Выставка картин;\N
+1483;group;1911-06-11 00:00:00;1911-07-30 00:00:00;Ausstellung des Verbandes der Kunstfreunde in den Ländern am Rhein;\N
+1484;solo;1912-05-15 00:00:00;1912-06-15 00:00:00;Exposition des Œuvres de Carpeaux et de Ricard;\N
+1485;solo;1915-01-06 00:00:00;1915-01-27 00:00:00;Exhibition of Paintings by Rozel Oertle Butler;\N
+1486;group;1912-12-10 00:00:00;1912-12-25 00:00:00;Exhibition of Contemporary Scandinavian Art;\N
+1487;group;1907-00-00 00:00:00;\N;Union Internationale des Beaux-Arts et des Lettres. Deuxième Congrès. Le musée du Peuple;\N
+1488;group;1907-00-00 00:00:00;\N;Union Internationale des Beaux-Arts et des Lettres. Deuxième Congrès. Le Musée du Peuple;\N
+1489;group;1905-10-19 00:00:00;1905-11-26 00:00:00;Exhibition of Paintings of Contemporary French Artists;\N

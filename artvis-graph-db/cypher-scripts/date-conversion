@@ -1,0 +1,4 @@
+// parse as date object (note: day/month is not available "0")
+
+MATCH (n:Artist) 
+SET n.birthdate = date({ day: 1, month:1, year: [item in split(n.birthdate, "-") | toInteger(item)][0]})

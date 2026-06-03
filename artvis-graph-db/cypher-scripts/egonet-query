@@ -1,0 +1,23 @@
+// Step 1: Perform the periodic iteration and store results in temporary nodes
+CALL apoc.periodic.iterate(
+    "MATCH (a:Artist {id: '277'})-[rels:EXHIBITED_WITH*2]-(b:Artist) 
+    UNWIND rels AS r 
+    RETURN a.id as aID, a.firstname AS aFirstname, a.lastname AS aLastname, b.id as bID, b.firstname AS bFirstname, b.lastname AS bLastname, r.startdate as rDate",
+    "CREATE (temp:TempResult {aID: aID, aFirstname: aFirstname, aLastname: aLastname, bID: bID, bFirstname: bFirstname, bLastname: bLastname, time: rDate})",
+    { batchSize: 10000, parallel: true }
+)
+YIELD batches, total, errorMessages
+RETURN batches, total, errorMessages;
+
+// Step 2: Retrieve the results from the temporary nodes
+MATCH (temp:TempResult)
+RETURN temp.aID, temp.aFirstname, temp.aLastname, temp.bID, temp.bFirstname, temp.bLastname, temp.time
+// LIMIT 100
+
+
+// Step 3: Clean up the temporary nodes (optional, only if needed)
+CALL apoc.periodic.iterate(
+    "MATCH (temp:TempResult) RETURN temp",
+    "DELETE temp",
+    { batchSize: 10000, parallel: true }
+);

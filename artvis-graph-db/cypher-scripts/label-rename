@@ -1,0 +1,5 @@
+MATCH (l:Location)
+WITH collect(l) AS locations
+CALL apoc.refactor.rename.label("Location", "Host", locations)
+YIELD committedOperations
+RETURN committedOperations

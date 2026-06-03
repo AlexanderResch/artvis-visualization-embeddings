@@ -1,0 +1,22 @@
+// remove duplicated relationships v1
+CALL apoc.periodic.iterate(
+    "CALL { 
+        MATCH (a1:Artist)-[r:EXHIBITED_WITH]->(a2:Artist)
+        RETURN a1, r, a2 
+    }
+    MATCH (a:Artist {id: a2.id})-[r1:EXHIBITED_WITH]->(b:Artist {id: a1.id})
+    RETURN r1",
+    "DELETE r1",
+    { batchSize: 10000, parallel: false}
+)
+
+
+// remove duplicated relationships v2
+CALL apoc.periodic.iterate(
+    "MATCH (a1:Artist)-[r:EXHIBITED_WITH]->(a2:Artist)
+MATCH (a2:Artist)-[r1:EXHIBITED_WITH]->(a1:Artist)
+WHERE id(r) <> id(r1) AND r.exhibitionId = r1.exhibitionId
+RETURN r1",
+"DELETE r1",
+{batchSize: 100000, parallel: false}
+)

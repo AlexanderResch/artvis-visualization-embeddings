@@ -1,0 +1,11 @@
+.env
+.idea/
+
+__pycache__/
+*.pyc
+
+backend/app/ml/data/
+artvis-graph-db/neo4j_dump/
+
+node_modules/
+dist/

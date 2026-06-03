@@ -1,0 +1,2 @@
+CALL gds.betweenness.stream('exhibCentrality', { nodeLabels:['Exhibition'], relationshipTypes: ['EXHIBITED_SIM'] }) YIELD nodeId, score
+MATCH (e:Exhibition) WHERE id(e) = nodeId SET e.betweennessCentrality = score

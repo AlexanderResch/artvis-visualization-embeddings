@@ -1,0 +1,447 @@
+id;name;type;place;town;country;latitude;longitude;place_tgn
+1;Ausstellungshaus am Aachener Tor;exhibition buildings;Cologne;Cologne;DE;50.933333;6.95;7004446
+2;Deutscher Künstlerbund;\N;Berlin;Berlin;DE;\N;52.516667;13.4
+3;Ausstellungshaus am Kurfürstendamm 208/9;exhibition buildings;Berlin;\N;DE;52.516667;13.4;7003712
+4;Gebäude der Secession;exhibition buildings;Vienna;\N;AT;48.2167;16.3667;7003321
+5;Galerie B. Weill;art galleries;Paris;\N;FR;48.866667;2.333333;7008038
+6;Pavillon pod Kinského zahradou löschen;unknown;Prague;Prague;CZ;50.1;14.4333;7006464
+7;Galeries Henry Graves and Co Ltd.;art galleries;Paris;\N;FR;48.866667;2.333333;7008038
+8;Galerie Haussmann;art galleries;Paris;\N;FR;48.866667;2.333333;7008038
+9;Galeries Serrurier;art galleries;Paris;\N;FR;48.866667;2.333333;7008038
+10;Galeries Bernheim-Jeune & Fils;\N;Paris;\N;FR;48.866667;2.333333;7008038
+11;Műcsarnok;exhibition buildings;Budapest;Budapest;HU;47.5;19.05;7006280
+12;Serres de la Ville de Paris (Cours-la-Reine);others;Paris;\N;FR;48.866667;2.333333;7008038
+13;Royal Institution;unknown;Liverpool;\N;GB;53.416667;-3;7010597
+14;Grand Palais des Champs Elysées;exhibition buildings;Paris;\N;FR;48.866667;2.333333;7008038
+15;Giardini Pubblici;others;Venice;\N;IT;45.438611;12.326667;7018159
+16;Galerie de L'Indépendance Artistique;art galleries;Paris;\N;FR;48.866667;2.333333;7008038
+17;Stedelijk Museum;museums;Amsterdam;\N;NL;52.35;4.916667;7006952
+18;Galleries of the Alpine Club;art galleries;London;\N;GB;51.514248;-0.093145;7011781
+19;Galerie Druet;art galleries;Paris;\N;FR;48.866667;2.333333;7008038
+20;Hotel des Architectes;unknown;Marseille;\N;FR;43.285413;5.37606;7008781
+21;Carnegie Institute;museums;Pittsburgh;\N;US;40.4333;-79.9833;7013927
+22;Исторический музей;museums;Moscow;\N;RU;55.75;37.7;7012974
+23;Galerie Miethke;art galleries;Vienna;\N;AT;48.2167;16.3667;7003321
+24;Kunstzaal Oldenzeel;art galleries;Rotterdam;\N;NL;51.916667;4.5;7006792
+25;Екатериниский зал;others;Saint Petersburg;\N;RU;59.8833;30.25;7010273
+26;Kunsthalle Bremen;museums;Bremen;Bremen;DE;53.083333;8.8;7005286
+27;Paul Cassirer;art galleries;Berlin;\N;DE;52.516667;13.4;7003712
+28;Galeries Durand-Ruel;art galleries;Paris;\N;FR;48.866667;2.333333;7008038
+29;Kunsthalle Bâle;exhibition buildings;Basel;Basel;CH;47.558395;7.573271;7007269
+30;MM. Bernheim-Jeune & Cie;art galleries;Paris;Paris;FR;48.866667;2.333333;7008038
+31;Společenský klub "Slavia";unknown;Prague;\N;CZ;50.1;14.4333;7006464
+32;Ausstellungsgebäude auf der Brühlesche Terrasse;exhibition buildings;Dresden;\N;DE;51.05;13.75;7004455
+33;Ausstellungsgelände Botanischer Garten Flora;exhibition buildings;Cologne;Köln;DE;50.933333;6.95;7004446
+34;Königliches Kunstausstellungsgebäude am Königsplatz;exhibition buildings;Munich;\N;DE;48.15;11.583333;7004333
+35;Galleries in Dering Yard;unknown;London;\N;GB;51.514248;-0.093145;7011781
+36;Großherzogliches Museum für Kunst und Kunstgewerbe;museums;Weimar;\N;DE;50.983333;11.316667;7012886
+37;Eduard Schulte, Kunsthandlung;art galleries;Berlin;\N;DE;52.516667;13.4;7003712
+38;Chateau des Rohan;others;Strasbourg;\N;FR;48.600381;7.787355;7012346
+39;Hôtel Drouot;auction houses;Paris;\N;FR;48.866667;2.333333;7008038
+40;Дом Ивана Кузнецова;private;Moscow;Mosow;RU;55.75;37.7;7012974
+41;Museum der bildenden Künste;museums;Stuttgart;\N;DE;48.766667;9.183333;7004425
+42;Kunsthalle Mannheim;exhibition buildings;Mannheim;\N;DE;49.488333;8.464722;7005179
+43;Städtischer Kunstpalast;exhibition buildings;Dusseldorf;\N;DE;51.216667;6.766667;7004443
+44;Kunsthandel C. M. Van Gogh;art galleries;Amsterdam;\N;NL;52.35;4.916667;7006952
+45;Ostende Centre d'Art;arts associations;Ostend;\N;BE;51.223392;2.911854;7007967
+46;Galerie Eug. Blot;art galleries;Paris;\N;FR;48.866667;2.333333;7008038
+47;Photo-Secession Galleries;art galleries;New York;\N;US;40.7;-74;7007567
+48;Дом Строгановскаго училища;others;Moscow;\N;RU;55.75;37.7;7012974
+49;Macbeth Galleries;art galleries;New York;\N;US;40.7;-74;7007567
+50;Kunstsalon W. Zimmermann;art galleries;Munich;\N;DE;48.15;11.583333;7004333
+51;Palais des Beaux-Arts;museums;Liège;\N;BE;50.638674;5.570228;7007945
+52;Topičův salon;art galleries;Prague;\N;CZ;50.1;14.4333;7006464
+53;Les Indépendants Cercle d'Art;artist associations;Brussels;\N;BE;50.833333;4.333333;7007868
+54;Royal Albert Hall;others;London;\N;GB;51.514248;-0.093145;7011781
+55;Galerie Kahnweiler;art galleries;Paris;\N;FR;48.866667;2.333333;7008038
+56;Moderne Kunsthandlung;art galleries;Munich;\N;DE;48.15;11.583333;7004333
+57;Galerie Notre-Dame-des-Champs;art galleries;Paris;\N;FR;48.866667;2.333333;7008038
+58;V pomeshenijah muzeja i "menshikovskih komnatah";museums;Saint Petersburg;\N;RU;59.8833;30.25;7010273
+59;Metropolitan Museum of Art;museums;New York;New York;US;40.7;-74;7007567
+60;Larensche Kunsthandel;art galleries;Amsterdam;\N;NL;52.35;4.916667;7006952
+61;Murray Hill Gallery;art galleries;New York;\N;US;40.7;-74;7007567
+62;Gebäude der Secession;exhibition buildings;Berlin;\N;DE;52.516667;13.4;7003712
+63;Jardin des Tuileries, Serres de l'Orangerie;others;Paris;\N;FR;48.866667;2.333333;7008038
+64;Carfax Gallery;art galleries;London;\N;GB;51.514248;-0.093145;7011781
+65;Nevskiy 68;unknown;Saint Petersburg;\N;RU;59.8833;30.25;7010273
+66;Haas Gallery;art galleries;New York;\N;US;40.7;-74;7007567
+67;Galleries of the Royal Society of British Artists;exhibition buildings;London;\N;GB;51.514248;-0.093145;7011781
+68;Galeries Devambez;art galleries;Paris;\N;FR;48.866667;2.333333;7008038
+69;Hôtel Drouot, Salle No. 8;\N;Paris;\N;FR;48.866667;2.333333;7008038
+70;Hedendaagsche Museum - Musée Moderne;museums;Brussels;\N;BE;50.833333;4.333333;7007868
+71;Museum Folkwang;museums;Hagen;\N;DE;51.35;7.466667;7005154
+72;Brakl[s Moderne Kunsthandlung];art galleries;Munich;\N;DE;48.15;11.583333;7004333
+73;Moderne Galerie (Heinrich Thannhauser);art galleries;Munich;\N;\N;48.15;11.583333;7004333
+74;Ministère des Sciences et des Arts;others;Brussels;\N;BE;50.833333;4.333333;7007868
+75;Via della Colonna N. 27-29;unknown;Florence;\N;IT;43.766667;11.25;7000457
+76;Городской музей;museums;Kiev;\N;UA;50.4333;30.5167;7010171
+77;Nevsky Prospekt 42;unknown;Saint Petersburg;\N;RU;59.8833;30.25;7010273
+78;Sveriges Allmänna Konstförening;arts associations;Stockholm;\N;SE;59.3333;18.0833;7009861
+79;Palais du Louvre - Pavillon de Marsan;museums;Paris;\N;FR;48.866667;2.333333;7008038
+80;Diorama;others;Christiania;\N;NO;59.9333;10.75;7009573
+81;Galerie A. Vollard;art galleries;Paris;\N;FR;48.866667;2.333333;7008038
+82;Cours-la-Reine (Pont des Invalides);unknown;Paris;\N;FR;48.866667;2.333333;7008038
+83;Lyceum Club;unknown;Florence;\N;IT;43.766667;11.25;7000457
+84;Gemälde Galerie Maximilian Macht;art galleries;Berlin;\N;DE;52.516667;13.4;7003712
+85;Galerie Commeter;art galleries;Hamburg;\N;DE;53.55;10;7005289
+86;Galerie Ernst Arnold;art galleries;Dresden;\N;DE;51.05;13.75;7004455
+87;Grafton Galleries;art galleries;London;\N;GB;51.514248;-0.093145;7011781
+88;Räume des Künstlerbundes Hagen - Zedlitzgasse;exhibition buildings;Vienna;\N;AT;48.2167;16.3667;7003321
+89;Stafford Gallery;art galleries;London;\N;GB;51.514248;-0.093145;7011781
+90;Quai d'Orsay, Pont de l'Alma;unknown;Paris;\N;FR;48.866667;2.333333;7008038
+91;Im Städtischen Kaufhause, Eingang Kupfergasse;others;Leipzig;\N;DE;51.3333;12.4167;7012329
+92;Ayuntamiento de Barcelona;others;Barcelona;\N;ES;41.398371;2.1741;7007426
+93;Wallraf-Richartz-Museum;museums;Cologne;\N;DE;50.933333;6.95;7004446
+94;Galerie Bernheim-Jeune;\N;Paris;\N;FR;48.866667;2.333333;7008038
+95;Kunstmuseum;museums;Essen;\N;DE;51.45;6.95;7004905
+96;Galerie d'Art Ancien & d'Art Contemporain;art galleries;Paris;\N;FR;48.866667;2.333333;7008038
+97;The Madison Art Gallery;art galleries;New York;\N;US;40.7;-74;7007567
+98;Nevsky 73;unknown;Saint Petersburg;\N;RU;59.8833;30.25;7010273
+99;Galerie Manzi, Joyant & Cie.;art galleries;Paris;\N;FR;48.866667;2.333333;7008038
+100;Institut Francais de St. Pétersbourg;others;Saint Petersburg;\N;RU;59.8833;30.25;7010273
+101;Obecní Dům u Prašné věže;\N;Prague;\N;CZ;50.1;14.4333;7006464
+102;Gereonshaus;exhibition buildings;Cologne;\N;DE;50.933333;6.95;7004446
+103;Hans Goltz;art galleries;Munich;\N;DE;48.15;11.583333;7004333
+104;Galerie H. Barbazanges;art galleries;Paris;\N;FR;48.866667;2.333333;7008038
+105;Sackville Gallery;art galleries;London;\N;GB;51.514248;-0.093145;7011781
+106;Gilka-Villa;unknown;Berlin;\N;DE;52.516667;13.4;7003712
+107;Fritz Gurlitt;art galleries;Berlin;\N;DE;52.516667;13.4;7003712
+108;Goupil Gallery;art galleries;London;\N;GB;51.514248;-0.093145;7011781
+109;Im Städtischen Handelshof;others;Leipzig;\N;DE;51.3333;12.4167;7012329
+110;Galeries J. Dalmau;art galleries;Barcelona;\N;ES;41.398371;2.1741;7007426
+111;Der Sturm [venues];art galleries;Berlin;\N;DE;52.516667;13.4;7003712
+112;Ateliers du Quai Rive-Neuve;others;Marseille;\N;FR;43.285413;5.37606;7008781
+113;Städtischer Ausstellungspalast;exhibition buildings;Dresden;\N;DE;51.05;13.75;7004455
+114;Galerie Georges Giroux;art galleries;Brussels;\N;BE;50.833333;4.333333;7007868
+115;Städtische Ausstellungshalle am Aachener Tor;exhibition buildings;Cologne;\N;DE;50.933333;6.95;7004446
+116;Kunsthaus Zürich;museums;Zurich;\N;CH;47.366667;8.55;7007302
+117;Frankfurter Kunstverein;arts associations;Frankfurt am Main;\N;DE;50.116667;8.683333;7005293
+118;Kunsthandel J. J. Biesing;art galleries;Hague, The;\N;NL;52.083333;4.3;7006810
+119;Obecní dům;exhibition buildings;Prague;Prague;CZ;50.1;14.4333;7006464
+120;Obecní Dům u Prašné brány;\N;Prague;\N;CZ;50.1;14.4333;7006464
+121;Galerie La Boëtie;art galleries;Paris;\N;FR;48.866667;2.333333;7008038
+122;Der Neue Kunstsalon;art galleries;Munich;\N;DE;48.15;11.583333;7004333
+123;Kunsthaus Lepke;auction houses;Berlin;\N;DE;52.516667;13.4;7003712
+124;Galerie Arnot;art galleries;Vienna;\N;AT;48.2167;16.3667;7003321
+125;Ernst Múzeum;museums;Budapest;\N;HU;47.5;19.05;7006280
+126;Kunst-Salon, II. Etage;unknown;Dusseldorf;\N;DE;51.216667;6.766667;7004443
+127;Dom Shwedskoj zerkvi;others;Saint Petersburg;\N;RU;59.8833;30.25;7010273
+128;Salong Joël;unknown;Stockholm;\N;SE;59.3333;18.0833;7009861
+129;Kunstszaal Schüller en Eisenloeffel;unknown;Hague, The;\N;NL;52.083333;4.3;7006810
+130;Dom Saltykova;private;Saint Petersburg;\N;RU;59.8833;30.25;7010273
+131;The Art Institute of Chicago;museums;Chicago;\N;US;41.85;-87.65;7013596
+132;Marlborough Gallery;art galleries;London;\N;GB;51.514248;-0.093145;7011781
+133;Художественный салон 11;art galleries;Moscow;\N;RU;55.75;37.7;7012974
+134;Copley Hall;exhibition buildings;Boston;Boston;US;42.35;-71.05;7013445
+135;Palais du Cinquantenaire;exhibition buildings;Brussels;\N;BE;50.833333;4.333333;7007868
+136;Gelände der Internationalen Baufach-Ausstellung;exhibition buildings;Leipzig;\N;DE;51.3333;12.4167;7012329
+137;Königliches Kunstgebäude;exhibition buildings;Stuttgart;\N;DE;48.766667;9.183333;7004425
+138;Städtischer Ausstellungspalast;exhibition buildings;Dusseldorf;\N;DE;51.216667;6.766667;7004443
+139;Galerie M. Marseille;art galleries;Paris;\N;FR;48.866667;2.333333;7008038
+140;Der Sturm;art galleries;Berlin;\N;DE;52.516667;13.4;7003712
+141;Konstnärshuset;exhibition buildings;Stockholm;\N;SE;59.3333;18.0833;7009861
+142;Lepke-Räume;auction houses;Berlin;\N;DE;52.516667;13.4;7003712
+143;Neue Galerie;art galleries;Berlin;\N;DE;52.516667;13.4;7003712
+144;Gemäldegalerie des Kölnischen Kunstvereins;exhibition buildings;Cologne;\N;DE;50.933333;6.95;7004446
+145;Palazzo della Permanente;exhibition buildings;Milan;\N;IT;45.466667;9.2;7005903
+146;The Doré Galleries;art galleries;London;\N;GB;51.514248;-0.093145;7011781
+147;Художественное Бюро Добычиной;art galleries;Saint Petersburg;\N;RU;59.8833;30.25;7010273
+148;Dom Obshestva Pooshrfenija hudozhestv;exhibition buildings;Saint Petersburg;\N;RU;59.8833;30.25;7010273
+149;Opernring 19;unknown;Vienna;\N;AT;48.2167;16.3667;7003321
+150;Galleria Gonnelli;others;Florence;\N;IT;43.766667;11.25;7000457
+151;County Borough of Brighton;\N;Brighton;\N;GB;50.833333;-0.15;7011483
+152;Tivoli Festivitetslokale;exhibition buildings;Christiania;\N;NO;59.9333;10.75;7009573
+153;Kunstsalon Pisko;art galleries;Vienna;\N;AT;48.2167;16.3667;7003321
+154;Дом Левиссон;private;Moscow;\N;RU;55.75;37.7;7012974
+155;Im Deutschen Theater / Im Foyer;others;Cologne;\N;DE;50.933333;6.95;7004446
+156;Galleria Futurista - Sprovieri;art galleries;Rome;\N;IT;41.9;12.483333;7000874
+157;Montross Gallery;art galleries;New York;\N;US;40.7;-74;7007567
+158;Champs de Mars (Avenue la Bourdonnais près de l'École Militaire);others;Paris;\N;FR;48.866667;2.333333;7008038
+159;Galerie Moderne;art galleries;Paris;\N;FR;48.866667;2.333333;7008038
+160;Hibiya Art Museum;museums;Tokyo;\N;JP;35.75;139.5;7004472
+161;Galerie Alfred Flechtheim;art galleries;Dusseldorf;\N;DE;51.216667;6.766667;7004443
+162;Ludwig Schames;art galleries;Frankfurt am Main;\N;DE;50.116667;8.683333;7005293
+163;Galerie André Groult;art galleries;Paris;\N;FR;48.866667;2.333333;7008038
+164;Galerie Levesque;art galleries;Paris;\N;FR;48.866667;2.333333;7008038
+165;Whitechapel Art Gallery;art galleries;London;\N;GB;51.514248;-0.093145;7011781
+166;Galeries Paul Rosenberg / L. & P. Rosenberg Fils;art galleries;Paris;\N;FR;48.866667;2.333333;7008038
+167;Galerie Vildrac;art galleries;Paris;\N;FR;48.866667;2.333333;7008038
+168;Famiglia Artistica;arts associations;Milan;\N;IT;45.466667;9.2;7005903
+169;Galerienstraße 26;unknown;Munich;\N;DE;48.15;11.583333;7004333
+170;Holland Park Hall;others;London;\N;GB;51.514248;-0.093145;7011781
+171;Galerie Paul Guillaume;art galleries;Paris;\N;FR;48.866667;2.333333;7008038
+172;Chenil Gallery;art galleries;London;\N;GB;51.514248;-0.093145;7011781
+173;Rotterdamsche Kunstkring;artist associations;Rotterdam;\N;NL;51.916667;4.5;7006792
+174;Ehrich Galleries;art galleries;New York;\N;US;40.7;-74;7007567
+175;Malyj Zal Imperatorskogo Obshestva Pooshrenija Hudozhestv;arts associations;Saint Petersburg;\N;RU;59.8833;30.25;7010273
+176;Doré Gallery;art galleries;London;\N;GB;51.514248;-0.093145;7011781
+177;Neues Secessionshaus;exhibition buildings;Berlin;\N;DE;52.516667;13.4;7003712
+178;Probelocation;art galleries;Amsterdam;\N;\N;52.35;4.916667;7006952
+179;Palais de l'Ecole des Beaux-Arts;exhibition buildings;Paris;\N;\N;48.866667;2.333333;7008038
+180;Tentoonstellingszaal;exhibition buildings;Domburg;\N;\N;51.566667;3.5;7006751
+181;Arti et Amicitiae;artist associations;Amsterdam;\N;\N;52.35;4.916667;7006952
+182;Gebouw Kunstliefde;exhibition buildings;Utrecht;\N;\N;52.083333;5.133333;7006926
+183;Salons de la Société;arts associations;Nantes;\N;\N;47.216509;-1.552379;7008482
+184;Nijverheid- en Sporttentoonstelling;unknown;Nijmegen;\N;\N;51.833333;5.866667;7031832
+185;Kunstsalon Wolfsberg;art galleries;Zurich;\N;\N;47.366667;8.55;7007302
+186;Kunsthandell W. Walrecht;art galleries;Hague, The;\N;\N;52.083333;4.3;7006810
+187;Schilderkunstig Genootschap Pictura;arts associations;Groningen;\N;\N;53.25;6.75;7003613
+188;Nemzeti Szalon;exhibition buildings;Budapest;\N;\N;47.5;19.05;7006280
+189;Könyves Kálmán Szalon;others;Budapest;\N;\N;47.5;19.05;7006280
+190;Művészház;artist associations;Budapest;\N;\N;47.5;19.05;7006280
+191;Palazzo dell'Esposizione;exhibition buildings;Rome;\N;\N;41.9;12.483333;7000874
+192;Vladimir Izdebsky;private;Odessa;Odessa;UA;46.5;30.7667;7011656
+193;Armory of the 69th Infantry;others;New York;New York;US;40.7;-74;7007567
+194;Museum of the Society of Fine arts;museums;Odessa;Odessa;UA;46.5;30.7667;7011656
+195;6, rue de Candolle;unknown;Geneva;\N;CH;46.195602;6.148113;7007279
+196;Kestner-Gesellschaff e.V.;arts associations;Hanover;Hanover;DE;52.366667;9.716667;7013260
+197;Vereenining van Beeldene Kunstenaars "De Onafhankelijken";artist associations;Amsterdam;Amsterdam;NL;52.35;4.916667;7006952
+198;Vladimir Izdebsky;art galleries;Saint Petersburg;Saint Petersburg;RU;59.8833;30.25;7010273
+199;Vladimir Izdebsky;art galleries;Kiev;Kiev;UA;50.4333;30.5167;7010171
+200;Vladimir Izdebsky;art galleries;Riga;Riga;LV;56.95;24.1;7006484
+201;Kunstsäle Louis Bock & Sohn;art galleries;Hamburg;Hamburg;DE;53.55;10;7005289
+202;Dresden (exact location unknown);unknown;Dresden;Dresden;DE;51.05;13.75;7004455
+203;Vereinigte Werkstätten für Kunst im Handwerk;unknown;Bremen;Bremen;DE;53.083333;8.8;7005286
+204;Salon Goldschmidt;art galleries;Frankfurt am Main;Frankfurt am Main;DE;50.116667;8.683333;7005293
+205;Hallins konsthandel;art galleries;Stockholm;\N;\N;59.3333;18.0833;7009861
+206;Museum der bildenden Künste;museums;Leipzig;\N;\N;51.3333;12.4167;7012329
+207;Palazzo dell'Esposizone;exhibition buildings;Rome;\N;\N;41.9;12.483333;7000874
+208;Buenos Aires (exact location unknown);unknown;Buenos Aires;\N;\N;-34.6667;-58.5;7006287
+209;Regia Accademia di Belle Arti;others;Milan;\N;\N;45.466667;9.2;7005903
+210;Terme Tamerici;others;Montecatini;\N;\N;43.383333;10.75;7053980
+211;Foyer del Teatro Costanzi;others;Rome;\N;\N;41.9;12.483333;7000874
+212;Negozio d'arte Giosi;art galleries;Rome;\N;\N;41.9;12.483333;7000874
+213;Palazzo delle Belle Arti;exhibition buildings;Rome;\N;\N;41.9;12.483333;7000874
+214;Galleria Permanente Futurista;unknown;Naples;\N;\N;40.833333;14.25;7004474
+215;Società Italiana Lampade Elettriche;others;Rome;\N;\N;41.9;12.483333;7000874
+216;Sala d'Arte A. Angelelli;unknown;Rome;\N;\N;41.9;12.483333;7000874
+217;Palace of Fine Arts;exhibition buildings;San Francisco;\N;\N;37.7667;-122.4167;7014456
+218;Salon de l'École Française;unknown;Paris;\N;\N;48.866667;2.333333;7008038
+219;Galeries Georges Petit;art galleries;Paris;\N;\N;48.866667;2.333333;7008038
+220;Galerie de l'Art Contemporain;art galleries;Paris;\N;\N;48.866667;2.333333;7008038
+221;Société Normande de Peinture Moderne;artist associations;Rouen;\N;\N;49.433333;1.083333;7008929
+222;Potsdamerstrasse 134a;art galleries;Berlin;\N;\N;52.516667;13.4;7003712
+223;Potsdamerstrasse, 18;art galleries;Berlin;\N;\N;52.516667;13.4;7003712
+224;Prague (exact location unknown);unknown;Prague;Prague;CZ;50.1;14.4333;7006464
+225;Ca' Pesaro;museums;Venice;Venice;IT;45.438611;12.326667;7018159
+226;Galerie de Roos;art galleries;Amsterdam;\N;NL;52.35;4.916667;7006952
+227;Galerie Del Vecchio;art galleries;Leipzig;\N;\N;51.3333;12.4167;7012329
+228;Gebäude der Kunstschau Wien;exhibition buildings;Vienna;Vienna;AT;48.2167;16.3667;7003321
+229;House of Countess Vasil'eva-Silovskaja;private;Moscow;\N;\N;55.75;37.7;7012974
+230;Художественная школа Ф. И. Регберга;others;Moscow;Moscow;RU;55.75;37.7;7012974
+231;Room for scientific conferences;unknown;Ekaterinoslav;Dnepropetrovsk;RU;48.45;34.9833;7011597
+232;Rooms of the Sainte Marie feminine school;others;Kursk;\N;RU;51.75;36.2333;7010341
+233;Salon of K. Mikhaïlova;unknown;Moscow;Moscow;RU;55.75;37.7;7012974
+234;Kaluga art circle;arts associations;Kaluga;\N;RU;54.5167;36.2667;7010166
+235;Luna Park Theatre;others;Saint Petersburg;\N;RU;59.8833;30.25;7010273
+236;Saint Petersburg;\N;Saint Petersburg;\N;RU;59.8833;30.25;7010273
+237;Rooms of the Delovoj dvor;unknown;Moscow;\N;RU;55.75;37.7;7012974
+238;Room of Leontievskij per. n° 12;unknown;Moscow;\N;RU;55.75;37.7;7012974
+239;Galerie Lemercié;art galleries;Moscow;\N;RU;55.75;37.7;7012974
+240;Stroganov School;others;Moscow;\N;RU;55.75;37.7;7012974
+241;Galerie des Artistes Modernes;art galleries;Paris;\N;FR;48.866667;2.333333;7008038
+242;Galerie des Artistes Modernes. Chaine & Simonnson;art galleries;Paris;\N;\N;48.866667;2.333333;7008038
+243;The Fine Art Society;art galleries;London;\N;\N;51.514248;-0.093145;7011781
+244;Pavilon v zahradě Kinských;exhibition buildings;Prague;\N;\N;50.1;14.4333;7006464
+245;Типография Художественно-Ремесленной Учебной Мастерской Печатного Дела в Киеве;others;Kiev;\N;\N;50.4333;30.5167;7010171
+246;Художественное бюро Н. Е. Добычиной;art galleries;Saint Petersburg;\N;\N;59.8833;30.25;7010273
+247;Grand Hotel du Lac;others;Luzern;\N;\N;47.083333;8.266667;7007280
+248;Räumlichkeiten der Neuen Secession;exhibition buildings;Berlin;\N;DE;52.516667;13.4;7003712
+249;Rudolfinum;exhibition buildings;Prague;Prague;CZ;50.1;14.4333;7006464
+250;Eliščina Třída 6;unknown;Prague;\N;\N;50.1;14.4333;7006464
+251;Städtisches Ausstellungsgebäude auf der Mathildenhöhe;exhibition buildings;Darmstadt;\N;\N;49.870556;8.649444;7004428
+252;Moscow (exact location unknown);unknown;Moscow;\N;\N;55.75;37.7;7012974
+253;Saint Petersburg (exact location unknown);unknown;Saint Petersburg;\N;\N;59.8833;30.25;7010273
+254;Brussels (exact location unknown);unknown;Brussels;\N;\N;50.833333;4.333333;7007868
+255;Kiev (exact location unknown);unknown;Kiev;\N;\N;50.4333;30.5167;7010171
+256;Литературно-Художественный Кружок;others;Moscow;\N;\N;55.75;37.7;7012974
+257;Большая Дмитровка 11;exhibition buildings;Moscow;\N;\N;55.75;37.7;7012974
+258;Помещение экономическаго общества офицеров;others;Moscow;Moscow;RU;55.75;37.7;7012974
+259;Дом Шведской Церкви;others;Saint Petersburg;\N;RU;59.8833;30.25;7010273
+260;Esposizione internazionale di Milano (1906);exhibition buildings;Milan;\N;\N;45.466667;9.2;7005903
+261;Königlicher Glaspalast;exhibition buildings;Munich;\N;\N;48.15;11.583333;7004333
+262;Gothenburg [exact location unknown];unknown;Gothenburg;\N;\N;57.7167;11.9667;7009954
+263;Baltiska parken;exhibition buildings;Malmö;\N;SE;55.5833;13;7009839
+264;Public Art Galleries;exhibition buildings;Brighton;\N;\N;50.833333;-0.15;7011483
+265;Berliner Secession;artist associations;Berlin;\N;\N;52.516667;13.4;7003712
+266;Deutscher Künstlerbund;artist associations;-;\N;DE;51.5;10.5;7000084
+267;Association of American Painters and Sculptors;artist associations;New York;\N;\N;40.7;-74;7007567
+268;Gebäude des Frankfurter Kunstvereins;exhibition buildings;Frankfurt am Main;\N;\N;50.116667;8.683333;7005293
+269;Künstlerbund Hagen / Hagenbund;artist associations;Vienna;\N;\N;48.2167;16.3667;7003321
+270;Neue Künstlervereinigung München (N.K.V.M.);artist associations;Munich;\N;\N;48.15;11.583333;7004333
+271;Modern Gallery;art galleries;New York;\N;\N;40.7;-74;7007567
+272;New English Art Club;artist associations;London;\N;\N;51.514248;-0.093145;7011781
+273;La Libre Esthétique;artist associations;Brussels;\N;\N;50.833333;4.333333;7007868
+274;The Gallery of Austrian Arts and Crafts;others;London;\N;\N;51.514248;-0.093145;7011781
+275;Earls Court;exhibition buildings;London;\N;\N;51.514248;-0.093145;7011781
+276;Capitole;others;Toulouse;Toulouse;FR;43.599516;1.433188;7008441
+277;Verein zur Förderung der Kunst;arts associations;Stuttgart;\N;DE;48.766667;9.183333;7004425
+278;Verein bildender Künstler Münchens "Secession";artist associations;Munich;\N;DE;48.15;11.583333;7004333
+279;Cincinnati Museum;museums;Cincinnati;\N;\N;39.15;-84.45;7013604
+280;Trustees of the Art Institute of Chicago;museums;Chicago;\N;\N;41.85;-87.65;7013596
+281;Stadtfestsaal Antwerpen;exhibition buildings;Antwerp;Antwerp;BE;51.213886;4.401514;7007856
+282;Münchener Künstlergenossenschaft;artist associations;Munich;\N;\N;48.15;11.583333;7004333
+283;Graphisches Kabinett J. B. Neumann;art galleries;Berlin;Berlin;DE;52.516667;13.4;7003712
+284;Galerie Heinemann;art galleries;Munich;München;DE;48.15;11.583333;7004333
+285;Société du Salon d'Automne;arts associations;Paris;\N;\N;48.866667;2.333333;7008038
+286;Vereinigung bildender Künstler Österreichs Secession;artist associations;Vienna;\N;\N;48.2167;16.3667;7003321
+287;34, rue Pargaminière;unknown;Toulouse;Toulouse;FR;43.599516;1.433188;7008441
+288;Allied Artists'  Association, Ltd.;artist associations;London;\N;\N;51.514248;-0.093145;7011781
+289;Galerie Georges Petit;art galleries;Paris;\N;\N;48.866667;2.333333;7008038
+290;Akademischer Verband für Literatur und Musik in Wien;arts associations;Vienna;\N;\N;48.2167;16.3667;7003321
+291;Utrecht (exact location unknown);unknown;Utrecht;\N;\N;52.083333;5.133333;7006926
+292;Galerie Wertheim;art galleries;Berlin;\N;\N;52.516667;13.4;7003712
+293;Kunstsalon Fischer;art galleries;Bielefeld;\N;\N;52.033333;8.533333;7005978
+294;Amsterdam (exact location unknown);unknown;Amsterdam;\N;\N;52.35;4.916667;7006952
+295;Dusseldorf (exact location unknown);unknown;Dusseldorf;\N;\N;51.216667;6.766667;7004443
+296;Odessa (exact location unknown);unknown;Odessa;\N;\N;46.5;30.7667;7011656
+297;Kazan' (exact location unknown);unknown;Kazan';\N;\N;55.75;49.1667;7015156
+298;Riga (exact location unknown);unknown;Riga;\N;\N;56.95;24.1;7006484
+299;Ekaterinodar (exact location unknown);unknown;Ekaterinodar;\N;\N;45.0333;39;7011598
+300;Newark (exact location unknown);unknown;Newark;\N;\N;40.7333;-74.1667;7014218
+301;Christiania Kunstforening;arts associations;Christiania;\N;\N;59.9333;10.75;7009573
+302;Exposition universelle de Gand;exhibition buildings;Ghent;\N;\N;51.05;3.716667;7007887
+303;London (exact location unknown);\N;London;\N;\N;51.514248;-0.093145;7011781
+304;Helsingfors (exact location unknown);unknown;Helsingfors;\N;\N;60.1333;25;7009880
+305;Aachen (exact location unknown);\N;Aachen;\N;\N;50.770833;6.105278;7004799
+306;Barmen (exact location unknown);unknown;Barmen;\N;\N;50.95;6.3;7208956
+307;Trondheim (exact location unknown);unknown;Trondheim;\N;\N;63.429722;10.393333;7009596
+308;Ekaterinoslav (exact location unknown);unknown;Ekaterinoslav;\N;\N;48.45;34.9833;7011597
+309;Koninklijke Maatschappij van Aanmoediging der Schoone Kunsten Antwerpen;academies;Antwerp;Antwerp;BE;51.213886;4.401514;7007856
+310;Sonderbund Westdeutscher Kunstfreunde und Künstler;artist associations;Cologne;\N;\N;50.933333;6.95;7004446
+311;Société Royale des Beaux-Arts;artist associations;Brussels;\N;BE;50.833333;4.333333;7007868
+312;Galeries Des Artistes Modernes;art galleries;Paris;\N;\N;48.866667;2.333333;7008038
+313;Neue Secession Berlin E. V.;artist associations;Berlin;\N;\N;52.516667;13.4;7003712
+314;Galerie Manzi, Joyant;art galleries;Paris;\N;FR;48.866667;2.333333;7008038
+315;KÉVE;artist associations;Budapest;\N;\N;47.5;19.05;7006280
+316;New English Art Club Galleries;exhibition buildings;London;\N;\N;51.514248;-0.093145;7011781
+317;Exposition Coloniale Nationale De Marseille (1906);private association;Marseille;\N;\N;43.285413;5.37606;7008781
+318;Città di Venezia;others;Venice;\N;\N;45.438611;12.326667;7018159
+319;Országos Magyar Képzőművészeti Társulat;arts associations;Budapest;\N;\N;47.5;19.05;7006280
+320;Société des Amis des Arts de Strasbourg;arts associations;Strasbourg;Strasbourg;FR;48.600381;7.787355;7012346
+321;Société des Artistes Méridionaux;artist's collectives;Toulouse;\N;\N;43.599516;1.433188;7008441
+322;Towarzystwo Artystów Polskich "Sztuka";artist associations;Cracow;\N;\N;50.05;19.9167;7007652
+323;Société des Peintres du Paris Moderne;artist's collectives;Paris;\N;\N;48.866667;2.333333;7008038
+324;Spolek výtvarných umělců Mánes;artist associations;Prague;\N;\N;50.1;14.4333;7006464
+325;Ancienne Caisse d'épargne;others;Toulouse;\N;\N;43.599516;1.433188;7008441
+326;Ancien Archevêché;others;Toulouse;\N;\N;43.599516;1.433188;7008441
+327;Volné sdružení přátel kulturních snah v Kladně;arts associations;Kladno;\N;\N;50.1667;14.1167;1027273
+328;Osma;artist's collectives;Prague;\N;\N;50.1;14.4333;7006464
+329;Skupina výtvarných umělců;artist associations;Prague;\N;\N;50.1;14.4333;7006464
+330;Sdružení výtvarných umělců moravských;artist associations;Hodonín;\N;\N;48.856;17.123;1027197
+331;Květná zahrada;exhibition buildings;Kroměříž;Kroměříž;CZ;49.3167;17.45;7011637
+332;C.k. české gymnasium;exhibition buildings;Valašské Meziříčí;Valašské Meziříčí;CZ;49.4833;17.95;1027618
+333;Dům umělců;art galleries;Hodonín;Hodonín;CZ;48.856;17.123;1027197
+334;Musée des Arts Décoratifs;museums;Paris;Paris;FR;48.866667;2.333333;7008038
+335;Jednota výtvarných umělců;artist associations;Prague;\N;\N;50.1;14.4333;7006464
+336;Vereeniging Sint Lucas;artist associations;Amsterdam;\N;\N;52.35;4.916667;7006952
+337;New Association of Artists;artist associations;London;\N;\N;51.514248;-0.093145;7011781
+338;Société du Salon de Mai;artist's collectives;Marseille;\N;\N;43.285413;5.37606;7008781
+339;Umělecké sdružení Sursum;arts associations;-;\N;\N;49.75;15;1001780
+340;Průmyslové muzeum pro východní Čechy;museums;Chrudim;Chrudim;CZ;49.95;15.7833;1027136
+341;Musis Sacrum;unknown;Arnhem;\N;\N;51.983333;5.916667;7006876
+342;Deutschböhmischer Künstlerbund;artist associations;Prague;\N;\N;50.1;14.4333;7006464
+343;Musée National du Luxembourg;museums;Paris;\N;FR;48.866667;2.333333;7008038
+344;Gaston Braun - Éditeur Officiel des Musées Nationaux;others;Paris;Paris;FR;48.866667;2.333333;7008038
+345;Sdružení pokrokových lidí;private association;Prostějov;\N;\N;49.4667;17.1167;1027486
+346;Dvorana Dělnického domu;exhibition buildings;Prostějov;\N;\N;49.4667;17.1167;1027486
+347;Krasoumná jednota;arts associations;Prague;\N;\N;50.1;14.4333;7006464
+348;Městské průmyslové museum;museums;Hradec Králové;Hradec Králové;CZ;50.2167;15.8333;7012051
+349;Union Centrale des Arts Décoratifs;arts associations;Paris;\N;FR;48.866667;2.333333;7008038
+350;Société de Saint-Jean;arts associations;Paris;Paris;FR;48.866667;2.333333;7008038
+351;Vereeniging "Voor de Kunst";arts associations;Utrecht;\N;NL;52.083333;5.133333;7006926
+352;Künstlervereinigung "Die Scholle";artist associations;Munich;\N;\N;48.15;11.583333;7004333
+353;Дом Фирсановой;private;Moscow;\N;\N;55.75;37.7;7012974
+354;Société des Beaux Arts de Bâle;arts associations;Basel;\N;\N;47.558395;7.573271;7007269
+355;Pour l'Art;artist associations;Brussels;\N;\N;50.833333;4.333333;7007868
+356;Doe Stil Voort;artist associations;Brussels;\N;\N;50.833333;4.333333;7007868
+357;Société Normande de Peinture Moderne;arts associations;-;\N;\N;46;2;1000070
+358;Vienna (exact location unknown);\N;Vienna;\N;\N;48.2167;16.3667;7003321
+359;Vereinigung bildender Künstlerinnen Österreichs;artist associations;Vienna;\N;\N;48.2167;16.3667;7003321
+360;Galerie Josefinum;unknown;Prague;\N;\N;50.1;14.4333;7006464
+361;Kölnischer Kunstverein;arts associations;Cologne;\N;\N;50.933333;6.95;7004446
+362;Annenstr. 30;unknown;Brandenburg an der Havel;\N;\N;52.416667;12.55;7004462
+363;Cercle Vrije Kunst;unknown;Brussels;\N;\N;50.833333;4.333333;7007868
+364;Moderne Kunst Kring;artist associations;Amsterdam;\N;\N;52.35;4.916667;7006952
+365;Wirtschaftsverband bildender Künstler Österreichs;artist associations;Vienna;\N;\N;48.2167;16.3667;7003321
+366;Olomouc (exact location unknown);unknown;Olomouc;\N;\N;49.6333;17.25;7011841
+367;Hodonín (exact location unknown);unknown;Hodonín;\N;\N;48.856;17.123;1027197
+368;Kunstschau Wien;artist associations;Vienna;\N;\N;48.2167;16.3667;7003321
+369;Verein Berliner Künstler (VBK);artist associations;Berlin;\N;\N;52.516667;13.4;7003712
+370;Berlin, Potsdamerstraße;unknown;Berlin;\N;\N;52.516667;13.4;7003712
+371;Gesellschaft zur Förderung moderner Kunst m.b.H.;art galleries;Berlin;\N;\N;52.516667;13.4;7003712
+372;Hamburg (exact location unknown);unknown;Hamburg;\N;\N;53.55;10;7005289
+373;Den Frie Udstilling;artist associations;Copenhagen;\N;\N;55.7167;12.5667;7003474
+374;Galerie Rheinischer Kunstsalon;art galleries;Cologne;\N;DE;50.933333;6.95;7004446
+375;Mädchenlyzeum Schwarzwaldschule;others;Vienna;\N;AT;48.2167;16.3667;7003321
+376;Konstförening Göteborg;arts associations;Gothenburg;\N;SE;57.7167;11.9667;7009954
+377;Zurich (exact location unknown);unknown;Zurich;\N;CH;47.366667;8.55;7007302
+378;Zürcher Kunstgesellschaft;arts associations;Zurich;\N;CH;47.366667;8.55;7007302
+379;Galerie Ernst Arnold;art galleries;Breslau;\N;PL;51.1;17;7007601
+380;Verein Leipziger Jahres-Ausstellung;arts associations;Leipzig;\N;\N;51.3333;12.4167;7012329
+381;Der Moderne Bund;artist associations;Weggis;\N;\N;47.03208;8.432192;1064517
+382;Kunstsalon Ferdinand Wyss;art galleries;Bern;\N;\N;46.916667;7.466667;7007557
+383;Vereinigung nordwestdeutscher Künstler (V. N. K.);artist associations;\N;\N;\N;\N;\N;\N
+384;Brunate (exact location unknown);unknown;Brunate;Brunate;IT;45.816667;9.1;1043656
+385;Padiglione Ricordi;unknown;Milan;\N;\N;45.466667;9.2;7005903
+386;Galleria G. Giosi;art galleries;Rome;Rome;IT;41.9;12.483333;7000874
+387;Verband der Kunstfreunde in den Ländern am Rhein;arts associations;Dusseldorf;\N;\N;51.216667;6.766667;7004443
+388;Kölner Verein zur Förderung der Ausstellung ["Flora"];private association;Cologne;\N;\N;50.933333;6.95;7004446
+389;Kladno (exact location unknown);unknown;Kladno;\N;\N;50.1667;14.1167;1027273
+390;Sällskapet Gnistan;private association;Gothenburg;\N;\N;57.7167;11.9667;7009954
+391;Verein zur Veranstaltung von Kunstausstellungen e. V.;arts associations;Dusseldorf;\N;DE;51.216667;6.766667;7004443
+392;Vereeniging Kunst aan het Volk;arts associations;Amsterdam;\N;\N;52.35;4.916667;7006952
+393;Vereeniging in het Stedelijk Museum;unknown;Amsterdam;\N;\N;52.35;4.916667;7006952
+394;Hotel "Kaiserin Augusta";others;Weimar;Weimar;DE;50.983333;11.316667;7012886
+395;Folkwang-Museum;museums;Hagen;\N;DE;51.35;7.466667;7005154
+396;Berlin (exact location unknown);private;Berlin;\N;\N;52.516667;13.4;7003712
+397;Kunstsalon Clematis;art galleries;Hamburg;\N;\N;53.55;10;7005289
+398;Vereenining van Beeldene Kunstenaars "De Onafhankelijken". Tentoonstellingsgebou;exhibition buildings;Amsterdam;\N;\N;52.35;4.916667;7006952
+399;Franz Hancke Kunstsalon;art galleries;Breslau;\N;\N;51.1;17;7007601
+400;Kunstverein;arts associations;Jena;Jena;\N;50.933333;11.583333;7005973
+401;Sächsischer Kunstverein;arts associations;Dresden;\N;\N;51.05;13.75;7004455
+402;Leonhard Boldts Atelier;private;Berlin;Berlin;DE;52.516667;13.4;7003712
+403;Kunsthütte;artist associations;Chemnitz;\N;\N;50.833333;12.916667;7005951
+404;Ausstellungshaus in der Kantstraße 12;exhibition buildings;Berlin;\N;\N;52.516667;13.4;7003712
+405;Kaiser Wilhelm Museum;museums;Krefeld;Krefeld;DE;51.333333;6.566667;7005980
+406;Kunsthalle P.H.Beyer & Sohn;art galleries;Leipzig;\N;\N;51.3333;12.4167;7012329
+407;Mährischer Kunstverein;arts associations;Brno;\N;\N;49.2167;16.6667;7011840
+408;Brno (exact location unknown);unknown;Brno;\N;\N;49.2167;16.6667;7011840
+409;Städtisches Museum Elberfeld;museums;Elberfeld;\N;\N;51.266667;7.133333;1004421
+410;Barmer Ruhmeshalle;museums;Barmen;\N;\N;50.95;6.3;7208956
+411;Kunstverein Barmen;arts associations;Barmen;\N;\N;50.95;6.3;7208956
+412;Kunsthalle Düsseldorf;exhibition buildings;Dusseldorf;\N;\N;51.216667;6.766667;7004443
+413;Kunstsalon Banger;art galleries;Wiesbaden;\N;\N;50.083333;8.25;7004432
+414;Großherzogliches Museum;museums;Schwerin;\N;\N;53.633333;11.383333;7004433
+415;Badischer Kunstverein;arts associations;Karlsruhe;\N;\N;49.004722;8.385833;7004424
+416;Gebäude des Badischen Kunstvereins;exhibition buildings;Karlsruhe;\N;\N;49.004722;8.385833;7004424
+417;Mannheimer Kunstverein;arts associations;Mannheim;\N;\N;49.488333;8.464722;7005179
+418;Mannheimer Schloss;exhibition buildings;Mannheim;\N;\N;49.488333;8.464722;7005179
+419;Kunstsalon Paul Cassirer;art galleries;Hamburg;Hamburg;DE;53.55;10;7005289
+420;Bremen (excact location unknown);unknown;Bremen;Bremen;DE;53.083333;8.8;7005286
+421;Glasgow Society of Artists;artist associations;Glasgow;\N;\N;55.833333;-4.25;7017283
+422;Société des Artistes Indépendants;artist associations;Paris;\N;\N;48.866667;2.333333;7008038
+423;Société des Artistes Français;artist associations;Paris;\N;\N;48.866667;2.333333;7008038
+424;Московское Товарищество Художников;artist associations;Moscow;\N;\N;55.75;37.7;7012974
+425;Galerie d'Art A. Grubicy;art galleries;Milan;\N;\N;45.466667;9.2;7005903
+426;Société L'Art Contemporain d'Anvers;arts associations;Antwerp;\N;\N;51.213886;4.401514;7007856
+427;Société nationale des beaux-arts;arts associations;Paris;\N;\N;48.866667;2.333333;7008038
+428;Союз Русских Художников;artist associations;\N;\N;\N;\N;\N;\N
+429;De Unga;artist associations;Stockholm;\N;\N;59.3333;18.0833;7009861
+430;Genootschap Kunstliefde;artist associations;Utrecht;\N;\N;52.083333;5.133333;7006926
+431;Nikolaev (exact location unknown);unknown;Nikolaev;\N;UA;46.9667;32;7012024
+432;Kherson (exact location unknown);unknown;Kherson;Kherson;UA;46.6333;32.5833;7017285
+433;Kunstverein Magdeburg;arts associations;Magdeburg;\N;\N;52.166667;11.666667;7004456
+434;Levinskij House;private;Moscow;\N;\N;55.75;37.7;7012974
+435;Ausstellungsgebäude des Sächsischen Kunstvereins;exhibition buildings;Dresden;\N;\N;51.05;13.75;7004455
+436;Casino Kursaal Oostende;exhibition buildings;Ostend;\N;\N;51.223392;2.911854;7007967
+437;Burlington Fine Arts Club;arts associations;London;\N;\N;51.514248;-0.093145;7011781
+438;Художественное Бюро Н. Е. Добычиной;\N;Saint Petersburg;Санкт-Петербург, Ленинградская обл.;RU;59.8833;30.25;7010273
+439;Vilnius;others;Vilnius;Vilnius;LT;54.6833;25.3167;7006521
+440;Angers, Centre d'Art;unknown;Angers;\N;\N;47.473806;-0.54774;7008480
+441;Salle du Jeu de Paume;exhibition buildings;Paris;\N;\N;48.866667;2.333333;7008038
+442;Print Gallery;art galleries;New York;\N;\N;40.7;-74;7007567
+443;American Art Galleries;arts associations;New York;\N;\N;40.7;-74;7007567
+444;The American Scandinavian Society;private association;New York;\N;\N;40.7;-74;7007567
+445;American-Scandinavian Foundation;private association;New York;\N;\N;40.7;-74;7007567
+446;Grand Skating Rouennais;exhibition buildings;Rouen;\N;\N;49.433333;1.083333;7008929

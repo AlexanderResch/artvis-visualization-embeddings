@@ -1,0 +1,11 @@
+fastapi
+uvicorn[standard]
+neo4j
+python-dotenv
+pandas
+numpy
+pykeen
+torch
+umap-learn
+scikit-learn
+plotly

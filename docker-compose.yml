@@ -1,0 +1,76 @@
+services:
+  artvis-db:
+    container_name: artvis-db
+    networks:
+      - artvis-network
+    ports:
+      - "7474:7474"
+      - "7687:7687"
+    restart: on-failure
+    volumes:
+      - ./artvis-graph-db/import.sh:/var/lib/neo4j/import.sh
+      - ./artvis-graph-db/certificates:/var/lib/neo4j/certificates
+      - ./artvis-graph-db/neo4j_dump:/var/lib/neo4j/dump
+    env_file:
+      - ./artvis-graph-db/dev.env
+    environment:
+      NEO4J_ACCEPT_LICENSE_AGREEMENT: "yes"
+      NEO4J_AUTH: ${NEO4J_AUTH}
+      NEO4J_PLUGINS: '["apoc", "apoc-extended", "graph-data-science"]'
+      NEO4J_dbms_security_procedures_unrestricted: ${NEO4J_dbms_security_procedures_unrestricted}
+      NEO4J_server_memory_pagecache_size: ${NEO4J_server_memory_pagecache_size}
+      NEO4J_server_memory_heap_initial__size: ${NEO4J_server_memory_heap_initial__size}
+      NEO4J_server_memory_heap_max__size: ${NEO4J_server_memory_heap_max__size}
+      NEO4J_dbms_ssl_policy_bolt_enabled: ${NEO4J_dbms_ssl_policy_bolt_enabled}
+      NEO4J_dbms_ssl_policy_bolt_base__directory: ${NEO4J_dbms_ssl_policy_bolt_base__directory}
+      NEO4J_dbms_ssl_policy_bolt_private__key: ${NEO4J_dbms_ssl_policy_bolt_private__key}
+      NEO4J_dbms_ssl_policy_bolt_public__certificate: ${NEO4J_dbms_ssl_policy_bolt_public__certificate}
+      NEO4J_dbms_ssl_policy_bolt_client__auth: ${NEO4J_dbms_ssl_policy_bolt_client__auth}
+      NEO4J_server_bolt_tls__level: ${NEO4J_server_bolt_tls__level}
+      NEO4J_server_https_enabled: ${NEO4J_server_https_enabled}
+      NEO4J_dbms_ssl_policy_https_enabled: ${NEO4J_dbms_ssl_policy_https_enabled}
+      NEO4J_dbms_ssl_policy_https_base__directory: ${NEO4J_dbms_ssl_policy_https_base__directory}
+      NEO4J_dbms_ssl_policy_https_private__key: ${NEO4J_dbms_ssl_policy_https_private__key}
+      NEO4J_dbms_ssl_policy_https_public__certificate: ${NEO4J_dbms_ssl_policy_https_public__certificate}
+      NEO4J_dbms_ssl_policy_https_client__auth: ${NEO4J_dbms_ssl_policy_https_client__auth}
+    build:
+      context: ./artvis-graph-db
+      dockerfile: Dockerfile
+
+  backend:
+    build:
+      context: ./backend
+    container_name: artvis-backend
+    networks:
+      - artvis-network
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app
+    environment:
+      NEO4J_URI: bolt://artvis-db:7687
+      NEO4J_USER: neo4j
+      NEO4J_PASSWORD: root1234
+    depends_on:
+      - artvis-db
+
+  frontend:
+    build:
+      context: ./frontend
+    container_name: artvis-frontend
+    networks:
+      - artvis-network
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    environment:
+      VITE_API_URL: http://localhost:8000
+    depends_on:
+      - backend
+
+networks:
+  artvis-network:
+    name: artvis-network
+    driver: bridge

@@ -1,0 +1,8 @@
+//  artists who have exhibited at least three times at any exhibition held by any host
+MATCH (a:Artist)-[:EXHIBITED]->(e:Exhibition)-[:TOOK_PLACE_IN]->(:Host)
+WITH a, COUNT(DISTINCT e.title) AS exhibition_count
+WHERE exhibition_count >= 3
+WITH COLLECT(a.id) AS artistIds
+MATCH (a1: Artist)-[:EXHIBITED_WITH]-(a2:Artist)
+WHERE a1.id IN artistIds AND a2.id IN artistIds
+RETURN a1,a2

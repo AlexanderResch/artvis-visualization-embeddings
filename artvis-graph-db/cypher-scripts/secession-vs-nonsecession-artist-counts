@@ -1,0 +1,12 @@
+//If the artist exhibited with a Secession (either of 3), counts their exhibitions with them and total
+CALL {
+    MATCH (n:Host)<-[:TOOK_PLACE_IN]-(e:Exhibition)<-[r:EXHIBITED]-(a:Artist)
+    WHERE n.id in ["278","265","285"] //secession groups
+    WITH a.id as aid, COUNT(DISTINCT e) as exc
+    ORDER BY exc DESC
+    RETURN aid, exc
+}
+WITH aid as artist_id, exc as ex_count
+MATCH (a:Artist {id: artist_id})-[:EXHIBITED]-(e:Exhibition)
+WITH a.firstname as fn, a.lastname as ln, COUNT(DISTINCT e) as total_exc, ex_count as exc
+RETURN fn, ln, exc, total_exc 

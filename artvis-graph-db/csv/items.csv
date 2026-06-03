@@ -1,0 +1,953 @@
+id;catalogueId;type;title;technique;measurements;creatordate;displaydate;style
+1;352;3;Kahnfahrt;Oil on canvas;98 x 105 cm;1910;\N;48
+2;373;3;Impression II (Moskau);Oil on canvas;120 x 140 cm;1911;\N;48
+3;396;3;Improvisation 22;Oil on canvas;120 x 140 cm;1911;\N;\N
+4;399;3;Improvisation 21A;Oil on canvas;96 x 105 cm;1911;\N;48
+5;27;3;Binz auf Rügen (Dühne);Oil on canvasboard;32.2 x 23.3 cm;1901;\N;\N
+6;30;3;Achtyrka - Park;Oil on cardboard;24 x 33 cm;1901;\N;14
+7;36;3;Helle Luft;Oil and tempera on canvas;34 x 52 cm;1902;\N;46
+8;37;3;Alte Stadt I;Oil on canvas (?);35 x 60 cm;1902;\N;46
+9;42;3;Marktplatz;Oil on canvas;85 x 115 cm;1902;\N;47
+10;43;3;Mädchen am Ufer;Oil (support unknown);83 x 115 cm;1902;\N;47
+11;44;3;Schleuse;Oil on canvas;78 x 51 cm;1902;\N;46
+12;45;3;Frühling - Umgebung von Augsburg;Oil on cardboard;24 x 33 cm;1902;\N;47
+13;82;3;Der Blaue Reiter;Oil on canvas;55 x 65 cm;1903;\N;46
+14;107;3;Spaziergang (Skizze);Oil on canvas;50.3 x 69.5 cm;1901;\N;47
+15;115;22;Spazierende Gesellschaft I;Mixed media on canvas;52 x 79 cm;1904;\N;47
+16;118;3;Sonntag (Altrussisch);Oil on canvas;45 x 95 cm;1904;\N;46
+17;145;3;Rapallo - Boote;Oil on canvasboard;24 x 33 cm;1905;\N;46
+18;174;3;Troikas;Oil on canvas;97 x 125 cm;1906;\N;\N
+19;181;3;Mit Gelber Wolke;Oil on canvas;34 x 52 cm;1907-1908;\N;\N
+20;182;3;Mit Roten Wolken;Oil on canvas (?);110 x 110 cm;1907-1908;\N;47
+21;189;3;Weisser Klang;Oil on cardboard;70 x 70 cm;1908;\N;48
+22;207;3;Murnau - Strasse mit Frauen;Oil on cardboard;71 x 97 cm;1908;\N;47
+23;220;3;Murnau - Landschaft mit Turm;Oil on cardboard;75.5 x 99.5 cm;1909;\N;48
+24;224;3;Kirche in Froschhausen;Oil on cardboard;45 x 33 cm;1908;\N;47
+25;225;3;Riegsee - Dorfkirche;Oil on cardboard;33 x 45 cm;1908;\N;47
+26;234;3;Murnau - Studie für Landschaft mit Baumstamm;Oil on cardboard;32.5 x 44.2 cm;1908;\N;47
+27;240;3;Schloss am Staffelsee;Oil (support unknown);unknown;1908;\N;\N
+28;247;3;Herbstimpression;Oil on cardboard;35 x 45 cm;1908;\N;47
+29;252;3;Murnau - Kohlgruberstrasse;Oil on cardboard;71.5 x 97.5 cm;1908;\N;48
+30;257;3;Winterstudie mit Berg;Oil on cardboard;33 x 45 cm;1908;\N;47
+31;262;3;Winterlandschaft I;Oil on cardboard;71.5 x 97.5 cm;1909;\N;47
+32;263;3;Reifröcke;Oil on canvas;95 x 128.5 cm;1909;\N;48
+33;264;3;Kuppeln;Oil on cardboard (?);85 x 116 cm;1909;\N;48
+34;265;3;Murnau - Landschaft mit Baumstamm;Oil on cardboard;71.5 x 97.5 cm;1909;\N;47
+35;266;3;Interieur (Mein Esszimmer);Oil on cardboard;50 x 65 cm;1909;\N;47
+36;267;3;Gelber Felsen;Oil on canvas (?);130 x 120 cm;1909;\N;48
+37;268;3;Bild mit Kahn;Oil on cardboard;79 x 123 cm;1909;\N;48
+38;269;3;Bild mit Häusern;Oil on canvas;97 x 131 cm;1909;\N;48
+39;270;3;Bild mit Bogenschützen;Oil on canvas;177 x 147 cm;1909;\N;48
+40;274;3;Improvisation 2 (Trauermarsch);Oil on canvas;94 x 130 cm;1908;\N;48
+41;276;3;Improvisation 3;Oil on canvas;94 x 130 cm;1909;\N;48
+42;277;3;Murnau - Landschaft mit Grünem Haus;Oil on cardboard;69 x 94 cm;1909;\N;48
+43;279;3;Murnau - Landschaft mit Kirche I;Oil on cardboard;70 x 96 cm;1909;\N;47
+44;280;3;Skizze (Reiter);Oil on canvas;67 x 100 cm;1909;\N;48
+45;282;3;Improvisation 4;Oil on canvas (?);107 x 159 cm;1909;\N;49
+46;283;3;Araber I (Friedhof);Oil on cardboard;71.5 x 98 cm;1909;\N;48
+47;284;3;Murnau - Landschaft mit Kirche II;Oil on canvas (?);70 x 50 cm;1909;\N;47
+48;287;3;Improvisation 6;Oil on canvas;107 x 99.5 cm;1909;\N;48
+49;288;3;Studie für Improvisation 8;Oil on cardboard, now mounted on canvas;98 x 70 cm;1909;\N;48
+50;289;3;Improvisation 8;Oil on canvas;125 x 73 cm;1909;\N;48
+51;323;3;Treppe zum Schloss;Oil (support unknown);Unknown;\N;\N;48
+52;324;3;Murnau - Bäume im Schnee;Oil on cardboard;32 x 44 cm;\N;\N;14
+53;325;3;Fragment zu Komposition II;Oil on cardboard;58 x 48 cm;1910;\N;48
+54;327;3;Komposition I;Oil on canvas;120 x 140 cm;1910;\N;48
+55;330;3;Improvisation 5 - Variation I;Oil on canvas;107 x 95 cm;1910;\N;\N
+56;331;3;Improvisation 5 - Variation II;Oil on canvas (?);130 x 110 cm;1910;\N;\N
+57;332;3;Studie für Improvisation 7;Oil on cardboard;69 x 48 cm;1910;\N;49
+58;333;3;Improvisation 7;Oil on canvas;131 x 97 cm;1910;\N;49
+59;334;3;Komposition II;Oil on canvas;200 x 275 cm;1910;\N;48
+60;335;3;Improvisation 9;Oil on canvas;110 x 110 cm;1910;\N;48
+61;337;3;Improvisation 10;Oil on canvas;120 x 140 cm;1910;\N;49
+62;338;3;Improvisation 11;Oil on canvas;97.5 x 106.5 cm;1910;\N;48
+63;341;3;Studie für Landschaft mit Regen;Oil on cardoard;33 x 45.5 cm;1910;\N;48
+64;342;3;Landschaft mit Bewegten Bergen;Oil on cardboard;33 x 44.7 cm;1910;\N;47
+65;343;3;Landschaft mit Fabrikschornstein;Oil on canvas;66.2 x 82 cm;1910;\N;48
+66;350;3;Herbstlandschaft mit Baum;Oil on cardboard;32.8 x 44.1 cm;1910;\N;48
+67;355;3;Improvisation 13;Oil on canvas;120 x 140 cm;1910;\N;49
+68;356;3;Improvisation 14;Oil on canvas;73 x 125 cm;1910;\N;48
+69;359;3;Komposition III;Oil on canvas;190 x 250 cm;1910;\N;\N
+70;360;3;Improvisation 16;Oil on canvas;110 x 110 cm;1910;\N;\N
+71;361;3;Das jüngste Gericht;Oil on canvas;125 x 73 cm;1910;\N;7
+72;365;3;Die Kuh;Oil on canvas;95.5 x 105 cm;1910;\N;48
+73;370;3;Glasbild mit Sonne;Hinterglasbild;30.6 x 40.3 cm;1910;\N;48
+74;374;3;Romantische Landschaft;Oil on canvas;94.3 x 129 cm;1911;\N;48
+75;375;3;Impression III (Konzert);Oil on canvas;77.5 x 100 cm;1911;\N;48
+76;376;3;Impression I (Fontäne);Oil on canvas;95 x 135 cm;1911;\N;\N
+77;377;3;Lyrisches;Oil on canvas;94 x 130 cm;1911;\N;48
+78;378;3;Bild mit Troika;Oil on cardboard;70 x 100 cm;1911;\N;48
+79;379;3;Araber II;Oil on canvas;70 x 92.5 cm;1911;\N;48
+80;380;3;Winter II;Oil on canvas (relined and waxed);67.5 x 90 cm;1911;\N;48
+81;381;3;Herbstlandschaft;Oil on canvas;71 x 99 cm;1911;\N;48
+82;382;3;St Georg II;Oil on canvas;107 x 95 cm;1911;\N;49
+83;383;3;Komposition IV;Oil on canvas;159.5 x 250.5 cm;1911;\N;48
+84;384;3;Improvisation 18 (mit Grabsteinen);Oil on canvas;141 x 120 cm;1911;\N;48
+85;387;3;Pastorale;Oil on canvas;105.8 x 156.7 cm;1911;\N;48
+86;388;3;Araber III (Mit Krug);Oil on canvas;106 x 158 cm;1911;\N;48
+87;389;3;Akt;Oil on canvas;147.3 x 99 cm;1911;\N;48
+88;391;3;St Georg III;Oil on canvas;97.5 x 107.5 cm;1911;\N;49
+89;394;3;Improvisation 20;Oil on canvas;94.5 x 108 cm;1911;\N;48
+90;395;3;Improvisation 21;Oil on canvas;108 x 108 cm;1911;\N;49
+91;397;3;Impression V (Park);Oil on canvas;105 x 157 cm;1911;\N;48
+92;398;3;Entwurf zu Komposition V;Oil on canvas;94.5 x 139 cm;1911;\N;49
+93;400;3;Komposition V;Oil on canvas;190 x 275 cm;1911;\N;49
+94;402;3;Improvisation 23 (Troika I);Oil on canvas;110 x 110 cm;1911;\N;49
+95;403;3;Studie für Landschaft mit zwei Pappeln;Oil on cardboard;33.1 x 44.7 cm;1911;\N;48
+96;405;3;Bild mit Kreis;Oil on canvas;200 x 150 cm;1911;\N;49
+97;412;3;Allerheiligen I;Hinterglasbild;34.5 x 40.5 cm;1911;\N;48
+98;423;3;Apokalyptische Reiter I;Hinterglasbild;29.5 x 20.3 cm;1911;\N;48
+99;425;3;Sintflut (zu Komposition VI);Hinterglasbild;\N;1911;\N;48
+100;426;3;Studie für Improvisation 24 (Troika II);Oil on cardboard;49 x 67.5 cm;1912;\N;49
+101;427;3;Improvisation 24 (Troika II);Oil (support unknown);\N;1912;\N;49
+102;428;3;Improvisation 25 (Garten der Liebe I);Oil on canvas;48 x 67.5 cm;1912;\N;49
+103;429;3;Improvisation 26 (Rudern);Oil on canvas;97 x 107.5 cm;1912;\N;49
+104;430;3;Improvisation 27 (Garten der Liebe II);Oil on canvas;120 x 140 cm;1912;\N;48
+105;431;3;Improvisation 28 (Erste Fassung);Oil (support unknown);\N;1912;\N;\N
+106;435;3;Schwarzer Fleck I;Oil on canvas;100 x 130 cm;1912;\N;49
+107;436;3;Bild mit schwarzem Bogen;Oil on canvas;188 x 196 cm;1912;\N;49
+108;437;3;Landschaft mit zwei Pappeln;Oil on canvas;78 x 100 cm;1912;\N;48
+109;438;3;Herbst II;Oil on canvas;60 x 82 cm;1912;\N;48
+110;441;3;Improvisation 29;Oil on canvas;95 x 107.5 cm;1912;\N;49
+111;452;3;Improvisation 30 (Kanonen);Oil on canvas;110 x 110 cm;1913;\N;48
+112;453;3;Entwurf I zu Bild mit weissem Rand (Moskau);Oil on canvas;100 x 78 cm;1913;\N;49
+113;454;3;Entwurf II zu Bild mit weissem Rand (Moskau);Oil on cardboard mounted on panel;70 x 104 cm;1913;\N;49
+114;455;3;Improvisation 31 (Seeschlacht);Oil on canvas;140 x 120 cm;1913;\N;48
+115;456;3;Entwurf zu Bild mit weisser Form;Oil on canvas;100 x 88 cm;1913;\N;48
+116;460;3;Landschaft mit roten Flecken II;Oil on canvas;114 x 135 cm;1913;\N;48
+117;464;3;Komposition VI;Oil on canvas;195 x 300 cm;1913;\N;49
+118;467;3;Landschaft (Dünaberg bei Murnau);Oil on canvas;88 x 100 cm;1913;\N;48
+119;468;3;Bild mit grüner Mitte;Oil on canvas;110 x 119.5 cm;1913;\N;49
+120;469;3;Improvisation 34 (Orient II);Oil on canvas;120 x 140 cm;1913;\N;49
+121;470;3;Bild mit weissen Linien;Oil on canvas;120 x 110 cm;1913;\N;49
+122;476;3;Komposition VII;Oil on canvas;200 x 300 cm;1913;\N;49
+123;477;3;Improvisation mit rot-blauem Ring;Oil on canvas;120 x 110 cm;1913;\N;49
+124;478;3;Träumerische Improvisation;Oil on canvas;130 x 130 cm;1913;\N;49
+125;480;3;Schwarze Striche I;Oil on canvas;129.4 x 131.1 cm;1913;\N;49
+126;484;3;Kleines Bild mit Gelb;Oil on canvas;78 x 100 cm;1914;\N;49
+127;485;3;Improvisation mit kalten Formen;Oil on canvas;120 x 140 cm;1914;\N;49
+128;486;3;Bild mit rotem Fleck;Oil on canvas;130 x 130 cm;1914;\N;49
+129;488;3;Bild mit runden Formen;Oil on canvas;120 x 110 cm;1914;\N;49
+130;527;3;Kochel - Weg nach Schlehdorf;Oil on cardboard (?);30 x 45 cm\
+or 45x30 cm;1902;\N;45
+131;543;3;Die letzten Strahlen;Oil (support unknown);95 x 45 cm\
+or 45x95 cm;1904;\N;45
+132;560;3;Bild mit blauer Wolke;Oil (support unknown);72 x 52 cm\
+or 52x72 cm;\N;\N;45
+133;570;3;Hügel mit Rosa;Oil (support unknown);70 x 70 cm;1909;\N;45
+134;572;3;Studie zu Bild mit Bogenschützen;Oil on canvas (?);106 x 97 cm;1909;\N;45
+135;573;3;Die Hügel;Oil (support unknown);78 x 100 cm;1909;\N;45
+136;574;3;Murnau - Landschaft mit Schule;Oil (support unknown);unknown;1909;\N;45
+137;578;3;Berge;Oil on cardboard;98 x 70 cm\
+or 70x98 cm;1909;\N;45
+138;583;3;Skizze zu Komposition VI;Oil (support unknown);unknown;1913;\N;45
+139;54;2;Zweikampf;Tempera (gouache?) on brown cardboard;46.5 x 77 cm;1902;\N;47
+140;67;23;Alte Zeiten;Tempera;unknown;\N;\N;45
+141;71;23;Der Schatten;Tempera;unknown;1903;\N;48
+142;74;23;Der reitende Ritter;Tempera;unknown;1903;\N;47
+143;77;23;Reitendes Paar;Tempera;75 x 99 cm;1903;\N;\N
+144;86;23;Grüner Vogel;Tempera;unknown;1903;\N;47
+145;88;2;Weisse Wolke;Gouache on dark grey cardboard;41.8 x 35.5 cm;1903;\N;47
+146;103;2;Das Junge Paar;Gouache on grey cardboard;40.5 x 56.7 cm;1904;\N;47
+147;113;2;Karneval;Gouache and crayon on brown cardboard;38.5 x 55.5 cm;1904;\N;47
+148;124;23;Im Königsgarten;Tempera;unknown;1904;\N;45
+149;140;2;Die Schiffe (Holland);Gouache on greyish brown cardboard;35 x 50 cm;1904;\N;47
+150;183;2;Arabische Reiterei;Gouache on dark-brown cardboard;28.8 x 41.5 cm;1905;\N;47
+151;188;2;Gegen Abend;Gouache on black paper laid down on cardboard;31.7 x 47 cm;1905;\N;47
+152;190;2;Die Rosen;Gouache on brown cardboard;58 x 78.5 cm;1905;\N;47
+153;196;23;Morgen;Tempera;27.5 x 41 cm;1905;\N;\N
+154;212;23;Provinz;Tempera;65 x 65 cm;1906;\N;47
+155;213;23;Venedig;Tempera;65 x 65 cm;1906;\N;47
+156;215;2;Studie für "Reitendes Paar";Gouache on grey-brown paper;17.5 x 24.5 cm;1906;\N;47
+157;216;2;Begräbnis;Gouache on black paper laid down on cardboard;29 x 48.8 cm;1907;\N;47
+158;217;2;Der Bär;Gouache on black cardboard;29.5 x 49.2 cm;1907;\N;47
+159;218;2;Szene;Gouache on black paper laid down on cardboard;29.8 x 49.7 cm;1907;\N;47
+160;219;23;Das Bunte Leben;Tempera and gouache (?) on canvas;130 x 162.5 cm;1907;\N;47
+161;221;23;Morgenstunde;Tempera (?) and gouache on canvas;96.8 x 130.3 cm;1907;\N;47
+162;223;23;Panik;Tempera;97 x 140 cm;1907;\N;47
+163;224;23;Sturmglocke;Tempera;90 x 108 cm;1907;\N;47
+164;225;2;Die Nacht;Gouache and white crayon on black cardboard;29.8 x 49.8 cm;1907;\N;47
+165;226;23;Mittag;Tempera;60 x 60 cm;1907;\N;45
+166;233;20;Farbige Zeichnung No.4 (mit Birke);Tempera;53 x 53 cm;\N;\N;45
+167;234;23;Gelbe Wolke auf Weiss;Tempera;unknown;\N;\N;45
+168;260;1;Akt;Watercolour on thin cardboard;33.1 x 33 cm;\N;\N;48
+169;291;1;Regenlandschaft;Watercolour, Indian ink and pencil on paper;25 x 31.8 cm;\N;\N;48
+170;292;1;Entwurf zu "Improvisation 23 (Troika I)";Watercolour and ink on paper;33 x 33 cm;\N;\N;49
+171;295;1;Boot;Watercolour, gouache and Indian ink on parchment mounted on cardboard;26.1 x 26.6 cm;\N;\N;49
+172;299;1;Aquarell No.3 (Liebesgarten);Watercolour, Indian ink and pencil on paper;24.8 x 31.6 cm;\N;\N;48
+173;300;1;Ohne Titel;Watercolour, Indian ink and pencil on paper;28.3 x 25.8 cm;\N;\N;\N
+174;301;1;Aquarell No.2;Watercolour on paper;31 x 47.5 cm;\N;\N;48
+175;302;1;Aquarell No.6;Watercolour on paper;27.4 x 37.8 cm;\N;\N;49
+176;303;1;Aquarell No.8 "Jüngster Tag";Watercolour, Indian ink and pencil on paper;28.7 x 42.8 cm;\N;\N;48
+177;304;1;Aquarell No.10;Watercolour;unknown;\N;\N;\N
+178;305;1;Aquarell No.12 "Mit Bogen";Watercolour, Indian ink and pencil on tan paper mounted on cardboard;33.9 x 33.6 cm;\N;\N;\N
+179;344;1;Farbstudien mit Angaben zur Maltechnik;Watercolour, gouache and pencil on paper;23.9 x 31.5 cm;1913;\N;\N
+180;F-34;3;Maison à la campagne (Le toit rouge);Oil on cardboard;50.5 x 69 cm;1906;\N;\N
+181;F-79;23;Autoportrait;Tempera on cardboard;69.3 x 70 cm;1907;\N;47
+182;F-80;23;Triomphe du ciel;Tempera on cardboard;72.5 x 70 cm;1907;\N;48
+183;F-83;2;Assomption;Gouache on paper laid down on cardboard;26.3 x 26.4 cm;\N;\N;48
+184;F-92;24;Composition symboliste;unknown;unknown;1908;\N;48
+185;F-116;2;Bourgade;Gouache and indian ink on paper mounted on cardboard;17.5 x 17 cm;1908;\N;48
+186;F-117;2;Petite ville;Gouache on cardboard;14 x 13.9 cm;1908;\N;47
+187;F-118;2;Repos. Société avec chapeaux hauts de forme;Gouache, watercolour and indian ink on cardboard;23.8 x 30.2 cm;1908;\N;47
+188;F-119;2;Jeux d'enfants;Gouache and tempera on cardboard;19 x 17.8 cm;1908;\N;47
+189;F-157;3;Sur le boulevard;Oil on canvas;61.4 x 71 cm;\N;\N;47
+190;F-158;2;Homme au chapeau pointu;Gouache and watercolour on cardboard;49 x 47 cm;1911;\N;47
+191;F-172;3;Veuve;Oil, gouache and pencil on cardboard;\N;1908;\N;47
+192;F-183;1;Autoportrait;Watercolour and gouache varnished on paper;Durchmesser: 25.1 cm;\N;\N;47
+193;F-184;1;Autoportrait;Watercolour, gouache and tempera on paper;46.6 x 41.5 cm;1910;\N;47
+194;F-187;2;Nature morte aux fruits;Gouache and watercolour on paper;52.5 x 51.8 cm;1910;\N;47
+195;F-194;2;Polka argentine;Gouache on paper;117 x 70.5 cm;1911;\N;47
+196;F-196;2;Polisseurs de parquet;Gouache on cardbaord;77.7 x 71 cm;1911;\N;47
+197;F-198;2;Lessiveuse;Gouache on paper;98 x 105 cm;1911;\N;47
+198;F-201;2;Masseur aux bains;Gouache on paper (?);80 x 90 cm\
+approximate measurements;\N;\N;\N
+199;F-203;2;Le Pédicure;Gouache on paper;77.7 x 103 cm;1911;\N;47
+200;F-204;2;Homme avec sac;Gouache on paper;88 x 71 cm;\N;\N;47
+201;F-207;2;Travail au moulin;Gouache on paper;120 x 140 cm\
+or 140x120 cm;1911;\N;47
+202;F-212;2;Travail dans les serres, jardiniers;Gouache on paper;70 x 106.5 cm;\N;\N;47
+203;F-214;2;Jardinier;Gouache on cardboard;91 x 70 cm;1911;\N;47
+204;F-215;2;Sur le boulevard;Gouache on paper;72 x 71 cm;1911;\N;48
+205;F-217;2;Province;Gouache on paper;70.5 x 70.5 cm;1911;\N;47
+206;F-218;2;Semeur;Gouache on paper;100 x 100 cm\
+approximate measurements;1911;\N;48
+207;F-219;2;Village;Gouache on paper;70 x 70 cm\
+approximate measurements;\N;\N;47
+208;F-221;1;Paysage avec trois maisons rouges;Watercolour and gouache on paper;107 x 106 cm;1910;\N;47
+209;F-227;2;Portrait d'une parente;Gouache on cardboard (?);unknown;1911;\N;47
+210;F-237;13;Moissonneuses;Oil on canvas or gouache on paper (?);100 x 130 cm\
+approximate measurements;\N;\N;47
+211;F-241;2;Moissonneuses / Récolte de seigle I;Gouache on paper (?);130 x 120 cm\
+or 120x120 cm;\N;\N;47
+212;F-247;3;Moissonneuse I;Oil on canvas;approximate measurements 130/140x130/140 cm;1912;\N;48
+213;F-250;3;Moissonneuse II;Oil on canvas;71 x 69.4 cm;1912;\N;48
+214;F-264;3;Faucheur I;Oil on canvas;113.5 x 66.5 cm;\N;\N;48
+215;F-278;13;Enterrement paysan;Oil on canvas or gouache on paper (?);120 x 220 cm\
+approximate measurements;\N;\N;47
+216;F-279;2;Visage de paysan;Gouache on paper;26.5 x 32 cm;1911;\N;47
+217;F-285;3;Paysannes à l'église / Procession paysanne I;Oil on canvas;75 x 97.5 cm;\N;\N;47
+218;F-287;2;Paysannes à l'église / Procession paysanne I;Gouache on paper;150 x 90 cm\
+approximate measurements;\N;\N;48
+219;F-288;2;Paysannes à l'église / Procession paysanne II;Oil on canvas;70 x 70 cm;1912;\N;48
+220;F-289;3;Moissonneuse / Récolte de seigle II;Oil on canvas;72 x 74.5 cm;1912;\N;48
+221;F-291;3;Vers les champs II;Oil on canvas;78 x 78 cm;1912;\N;48
+222;F-296;3;Orthodoxe I;Oil on canvas;80 x 80 cm;1912;\N;48
+223;F-302;3;Orthodoxe II / Portrait de Ivan Vassilievitch Kliounkov;Oil on canvas;80 x 80 cm\
+approximate measurements;1912;\N;48
+224;F-307;3;Port;Oil on canvas;80 x 95 cm;\N;\N;48
+225;F-311;3;Charpentier I au repos;Oil on canvas;71.2 x 113.4 cm;1912;\N;48
+226;F-314;20;Bûcheron I assis;Pencil on paper;12.2 x 11.4 cm;\N;1912;48
+227;F-316;3;Bûcheron II;Oil on canvas;94 x 71.5 cm;1912;\N;48
+228;F-320;3;Matin au village après la tempête de neige;Oil on canvas;80 x 79.5 cm;\N;Winter 1912-1913;48
+229;F-322;3;Rue de village;Oil on canvas;80 x 80 cm;\N;\N;48
+230;F-332;3;Paysanne avec sceaux II;Oil on canvas;80.3 x 80.3 cm;\N;Autumn 1912;48
+231;F-342;3;Visage de jeune fille paysanne;Oil on canvas;80 x 95 cm;\N;Spring/Summer 1913;49
+232;F-354;3;Rémouleur;Oil on canvas;79.5 x 79.5 cm;\N;Winter 1912-1913;48
+233;F-365;3;Machine a coudre;Oil on canvas;74 x 59 cm;1913;\N;49
+234;F-377;3;Samovar II;Oil on canvas;88 x 62 cm;\N;Summer 1913;49
+235;F-383;3;Pendule;Oil on canvas;106.8 x 44.5 cm;\N;Summer 1913;\N
+236;F-385;3;Laquais avec samovar;Oil on canvas;70 x 53 cm;\N;Early 1914;49
+237;F-393;3;Portrait perfectionné d'Ivan Vassilievitch Kliounkov;Oil on canvas;112 x 70 cm;\N;Spring 1913;49
+238;F-401;3;Portrait de M. V. Matiushin;Oil on canvas;106.5 x 106.7 cm;\N;Late 1913;49
+239;F-403-a;20;1er acte, 1er tableau;Pencil on paper;26.2 x 20.5 cm;\N;Summer / Autumn 1913;49
+240;F-403-b;20;1er acte, 2e tableau;Pencil on paper;22.2 x 17.2 cm;\N;Summer / Autumn 1913;49
+241;F-403-c;20;1er acte, 3e tableau;Pencil on paper;17.7 x 22.2 cm;\N;Summer / Autumn 1913;49
+242;F-403-d;20;Carré, 2e acte, 1er tableau;Pencil on paper;21 x 27 cm;\N;Summer / Autumn 1913;50
+243;F-403-f;20;Maison, 2e acte, 6e tableau;Pencil on paper;21.1 x 27.2 cm;\N;Summer / Autumn 1913;\N
+244;F-407-a;20;Plusieurs et un seul;Pencil, watercolour and indian ink on paper;27.1 x 21.2 cm;\N;1913;48
+245;F-407-b;20;Lecteur;Pencil, watercolour, gouache and indian ink on paper;27.2 x 21.4 cm;\N;1913;48
+246;F-407-d;20;Néron;Pencil on paper;27 x 21.5 cm;\N;1913;48
+247;F-407-e;20;Malintentionné;Pencil, watercolour and indian ink on paper;27.3 x 21.3 cm;\N;1913;48
+248;F-407-f;20;Grassouillet;Pencil, watercolour and indian ink on paper;27.2 x 21.2 cm;\N;1913;48
+249;F-407-g;20;Ennemi;Pencil, watercolour and indian ink on paper;27.2 x 21.3 cm;1913;\N;48
+250;F-407-h;20;Ancien;Pencil, watercolour and indian ink on paper;27 x 21 cm;\N;1913;48
+251;F-407-i;20;Trouillard;Pencil, watercolour and indian ink on paper;26.9 x 21 cm;\N;1913;48
+252;F-407-j;20;Sportif;Pencil, watercolour and indian ink on paper;27.2 x 21.2 cm;\N;1913;48
+253;F-407-k;20;Ouvrier attentif;Pencil, gouache and indian ink on paper;27.5 x 21.2 cm;\N;1913;48
+254;F-407-l;20;Choriste;Pencil and watercolour on paper;27.3 x 21.3 cm;\N;1913;48
+255;F-407-m;20;Nouveau;Pencil, watercolour and indian ink on paper;26 x 21 cm;\N;1913;48
+256;F-407-n;20;Lutteur avenirien;Pencil on paper;27 x 21 cm;\N;1913;48
+257;F-407-o;20;Voyageur;Pencil on paper;27.2 x 21.3 cm;\N;1913;48
+258;F-417;3;Lampe / Instruments de musique;Oil on canvas;83.5 x 69.5 cm;Late 1913;\N;48
+259;F-418;3;Vache et violon;Oil on panel;48.8 x 25.8 cm;\N;\N;48
+260;F-424;3;Dame dans un tramway;Oil on canvas;88 x 88 cm;\N;\N;49
+261;F-436;3;Officier de la garde;Oil on canvas;57 x 66.5 cm;\N;\N;49
+262;F-437;3;Dame au piano;Oil on canvas;66 x 44 cm;Spring 1914;\N;49
+263;F-440;3;Un Anglais à Moscou;Oil on canvas;88 x 57 cm;Autumn 1914;\N;48
+264;F-444;3;Aviateur;Oil on canvas;125 x 65 cm;Autumn 1914;\N;48
+265;F-453;3;Éclipse partielle;Oil and collages on canvas;62.5 x 49.3 cm;\N;\N;49
+266;F-455;3;Dame auprès d'une colonne d'affichage;Oil and paper on canvas;71 x 64 cm;Summer / Autumn 1914;\N;49
+267;F-463;3;Réserviste de première classe;Oil and assemblage (stamp and thermometer) on canvas;53.6 x 44.8 cm;Autumn / Winter 1914;\N;49
+268;F-464;22;Assemblage alogique avec portrait de Chliapine;Wooden spoon attached to the canvas, photo of singer Chaliapine, divers collages;measurements unknown;Early 1915;\N;45
+269;F-485-a;24;Chez nos alliés français...;Colour lithograph;40.4 x 57.8 cm;1914;\N;47
+270;F-485-b;24;Un Autrichien avancait vers Radzivil...;Colour lithograph;39.8 x 57.5 cm;1914;\N;47
+271;F-485-c;24;Il y avait du fracas...;Colour lithograph;37.8 x 55.6 cm;1914;\N;47
+272;F-485-d;24;Le charcutier s'est approché de Lodz;Colour lithograph;37.8 x 55.5 cm;1914;\N;47
+273;F-485-e;24;Le carrousel wilhelmien;Colour lithograph;38.2 x 56.2 cm;1914;\N;47
+274;F-485-f;24;Regarde, observe bien...;Colour lithograph;58 x 37.8 cm;1914;\N;47
+275;F-485-g;24;Un cosaque avacait...;Colour lithograph;58.5 x 40 cm;1914;\N;47
+276;F-487-a;24;Regarde, observe bien...;Postcard;14 x 9 cm;1914;\N;47
+277;F-487-b;24;Galic...;Postcard;14 x 9 cm;1914;\N;47
+278;F-487-e;24;Un Autrichien vancait vers Radzivil...;Postcard;14 x 9 cm;1914;\N;47
+279;F-487-f;24;Autrichien, n'avance pas avec des ruses...;Postcard;\N;1914;\N;47
+280;F-487-g;24;Lyk;Postcard;14 x 9 cm;1914;\N;47
+281;F-487-h;24;Cracovie;Postcard;14 x 9 cm;1914;\N;47
+282;F-487-i;24;Kovno;Postcard;14 x 9 cm;1914;\N;47
+283;S-14;3;Réalisme pictural d'un footballeur;Oil on canvas;70 x 44 cm;1915;\N;49
+284;S-21;3;Autoportrait en deux dimensions;Oil on canvas;80 x 62 cm;1915;\N;50
+285;S-25;3;Composition suprématiste;Oil on canvas;57 x 66.5 cm;1915;\N;50
+286;S-26;3;Composition 2 c;Oil on canvas;90 x 70 cm\
+or 90x65 cm (approximate measurements);1915;\N;50
+287;S-31;3;Composition suprématiste;Oil on canvas;54.3 x 53.7 cm\
+or 53..5x53.7 cm;1915;\N;50
+288;S-33;3;Composition suprématiste;Oil on canvas;71 x 49.2 cm;1915;\N;50
+289;S-34;3;Composition suprématiste;Oil on canvas;57.5 x 48.5 cm\
+approximate measurements;1915;\N;50
+290;S-40;3;Composition suprématiste;Oil on canvas;50 x 50 cm;1915;\N;50
+291;S-42;3;Composition suprématiste;Oil on canvas;80 x 85 cm;1915;\N;50
+292;S-45;3;Composition suprématiste;Oil on canvas;57.5 x 48.5 cm;1915;\N;50
+293;S-48;3;Avion en vol;Oil on canvas;57.3 x 48.3 cm;1915;\N;50
+294;S-52;3;Automobile et dame;Oil on canvas;48 x 57 cm\
+approximate measurements;1915;\N;50
+295;S-56;3;Suprématisme dix-huitième construction;Oil on canvas;53 x 53 cm;1915;\N;50
+296;S-58;3;Dame;Oil on canvas;87.5 x 72 cm;1915;\N;49
+297;S-60;3;Composition suprématiste;Oil on canvas;70 x 60 cm;1915;\N;50
+298;S-77;3;Composition suprématiste;Oil on canvas;or 50/55 x 50/55 cm (approximate measurements);1915;\N;50
+299;S-82;3;Composition suprématiste;Oil on canvas;101.5 x 62 cm;1915;\N;50
+300;S-104;3;Promenade en barque;Oil on canvas;measurements unknown;1915;\N;50
+301;S-116;3;Quadrilatère;Oil on canvas;79.9 x 79.5 cm;1915;\N;50
+302;S-126;3;Réalisme pictural d'une paysanne en deux dimensions;Oil on canvas;40.2 x 30.1 cm;1915;\N;50
+303;S-131;3;Masses picturales en deux dimensions en état de quiétude;Oil on canvas;30/35 x 30/35 cm (approximate measurements);1915;\N;50
+304;S-135;3;Troisième état du carré;Oil on canvas;35 x 50 cm\
+or 40x50 cm (approximate measurements);1915;\N;50
+305;S-139;3;Réalisme pictural d'un garçon avec sac à dos;Oil on canvas;71.1 x 44.4 cm;1915;\N;50
+306;S-146;3;Quadrilatère en projection dynamique;Oil on canvas;70 x 70 cm\
+approximate measurements;1915;\N;50
+307;S-153;3;Plan non objectif en projection dynamique;Oil on canvas;55/60 x 55/60 cm (approximate measurements);1915;\N;50
+308;S-156;3;Plan non objectif en projection;Oil on canvas;60 x 60 cm\
+approximate measurements;1915;\N;50
+309;S-159;3;Composition suprématiste avec plan en projection;Oil on canvas;57 x 57 cm;1915;\N;50
+310;S-172;3;Division quadripartite du plan;Oil on canvas;50 x 50 cm;1915;\N;50
+311;S-184;3;Plan en extension;Oil on canvas;80 x 80 cm;1915;\N;50
+312;S-195;3;Plan en rotation;Oil on canvas;79 x 79 cm;1915;\N;50
+313;S-206;3;Deux plans suprématistes en rapport orthogonal;Oil on canvas;80 x 80 cm;1915;\N;50
+314;S-216;3;Composition suprématiste;Oil on canvas;43.2 x 30.8 cm;1915;\N;50
+315;S-661;3;Composition suprématiste avec volume non objectif;Oil on canvas;80 x 80 cm\
+approximate measurements;1915;\N;50
+316;A145;1;Passie Bloem;Watercolour on paper;72.5 x 47.5 cm;\N;c. 1901 (later?);46
+317;A205;1;Avond aan de Weesperzijde;Crayon, watercolour and gouache on paper;55 x 66 cm;\N;\N;46
+318;A532;3;Dredge II;Oil on cardboard mounted on panel;63.5 x 75.5 cm;1907;\N;46
+319;A536;1;Amstel, Café 't Vissertje II;Watercolour on paper;66 x 115 cm;\N;\N;46
+320;A550;3;Sheepfold with Tree at Right;Oil on cardboard;63 x 75 cm;\N;c. 1907;47
+321;A561;3;Avond (Evening)\; Haystacks in a Field;Oil on canvas;82 x 193 cm;1908;\N;46
+322;A569;3;De Rode Wolk;Oil on cardboard;64 x 75 cm;\N;c. 1907;48
+323;A593;3;Bosch (Woods)\; Woods near Oele;Oil on canvas;128 x 158 cm;1908;\N;47
+324;A596;3;Dying Sunflower I;Oil on cardboard;63 x 31 cm;1908;\N;47
+325;A597;3;Dying Sunflower II;Oil on cardboard;65 x 34 cm;1908;\N;47
+326;A598;1;Dying Sunflower, Watercolor;Watercolour on paper;95.2 x 36.8 cm;1908;\N;47
+327;A599;1;Upright Sunflower;Watercolour, charcoal and pastel on cardboard;94.2 x 38.5 cm;1908;\N;47
+328;A601;3;Bloem (Flower): Dying Chrysanthemum;Oil on canvas;84.5 x 54 cm;1908;\N;47
+329;A603;2;Chrysanthemum with Red Curtain;Gouache on paper;94 x 37 cm;1908;\N;46
+330;A608;20;Three Flower Blossoms, One a Chrysanthemum;Charcoal on paper;35.5 x 24 cm;\N;c. 1909;47
+331;A618;3;Rhododendrons;Oil on canvas;measurements unknown;\N;\N;\N
+332;A619;20;Lelie (Lily): Golden-banded Lily;Charcoal, wash and crayon on paper;35 x 44 cm;1909;\N;46
+333;A620;20;Lelie (Lily): Golden-Banded Lily;Ink and watercolour on paper;39 x 44 cm;\N;\N;47
+334;A621;3;Aäronskelken;Oil on canvas;50 x 33.5 cm;\N;\N;48
+335;A623;3;Aäronskelk;Oil on canvas;46 x 32 cm;\N;\N;47
+336;A626;1;Amarilles;Watercolour on paper;39 x 49 cm;1910;\N;47
+337;A642;3;Devotie;Oil on canvas;94 x 61 cm;1908;\N;47
+338;A647;3;Evolutie;Oil on canvas;Middle panel 183 x 87.5 cm\
+Side panels 178 x 85 cm;\N;c. 1911;47
+339;A651;3;Lentezon (Spring Sun): Castle Ruin: Brederode;Oil on canvas;62.2 x 72.3 cm;\N;\N;47
+340;A654;3;Mill in Sunlight: The Winkel Mill;Oil on canvas;114 x 87 cm;1908;\N;47
+341;A655;3;Haystacks I;Oil (on cardboard ?);30.5 x 43.2 cm\
+exact measurements unknown;1908;\N;47
+342;A656;3;Haystacks II;Oil on canvas mounted on cardboard;34.5 x 43.2 cm;1908;\N;47
+343;A657;3;Haystacks III;Oil on canvas;34.2 x 44 cm;1908;\N;47
+344;A660;3;Five Tree Silhouettes along the Geim with Moon;Oil on canvas;79 x 92.5 cm;\N;\N;47
+345;A671;3;Avond (Evening): The Red Tree;Oil on canvas;70 x 99 cm;\N;\N;47
+346;A675;3;Zeeuws(ch)e Boer;Oil on canvas;69 x 53 cm;\N;\N;47
+347;A676;3;Zeeuws(ch)e Meisje;Oil on canvas;63 x 48 cm;\N;\N;47
+348;A679;3;Huisje bij Zon;Oil on canvas;52.5 x 68 cm;\N;\N;47
+349;A683;3;Lighthouse at Westkapelle in Brown;Oil on canvas;45 x 35.5 cm;1909;\N;47
+350;A684;3;Lighthouse at Westkapelle in Pink;Oil on cardboard;39 x 29.5 cm;1909;\N;47
+351;A687;3;Lighthouse at Westkapelle in Orange, Pink, Purple and Blue;Oil on canvas;135 x 75 cm;c.1910;\N;47
+352;A689;3;Zon, Kerk in Zeeland;Oil on canvas;90.7 x 62.2 cm;\N;\N;47
+353;A691;3;Zeeuws(ch)e Kerktoren;Oil on canvas;114 x 75 cm;1911;\N;47
+354;A692;3;Molen;Oil on canvas;150 x 86 cm;1911;\N;47
+355;A708;3;Zomer, Duin in Zeeland;Oil on canvas;134 x 195 cm;1910;\N;47
+356;A709;3;Duinen bij Domburg;Oil on canvas;65.5 x 96 cm;\N;c. 1910;47
+357;A710;20;Duinen bij Domburg;Charcoal on paper;45.7 x 68.5 cm;\N;\N;47
+358;UA29;24;Avond;\N;\N;1908;\N;45
+359;UA30;24;Boerderij;\N;\N;1908;\N;45
+360;UA31;24;Buiten;\N;\N;1908;\N;45
+361;UA32;24;Schets;\N;\N;1908;\N;45
+362;UA33;24;Chrysanthen in Pot;\N;\N;1909;\N;45
+363;UA34;24;Avond;\N;\N;1909;\N;45
+364;UA35;24;Chrysanth;\N;\N;1909;\N;45
+365;UA36;24;Zonnepit;\N;\N;1909;\N;45
+366;UA37;24;Zomerdag - Journée d'Été;\N;\N;1909;\N;45
+367;UA38;24;Meisjeskop;\N;\N;1910;\N;45
+368;UA39;24;Bloemen;\N;\N;1911;\N;45
+369;UA40;24;Voorjaar;\N;\N;1912;\N;45
+370;UA41;24;Kerk;\N;\N;1912;\N;45
+371;UA42;24;Teekening;\N;\N;1912;\N;45
+372;UA43;24;Bloemen;\N;\N;1912;\N;45
+373;UA44;24;Maanavond;\N;\N;1915;\N;45
+374;B1;3;Duinlandschap;Oil on canvas;141 x 239 cm;1911;\N;47
+375;U2;24;Dans le Jardin / In den Tuin;\N;\N;1912;\N;45
+376;U3;24;Dans la Forêt;\N;\N;1912;\N;45
+377;U4;24;La Fruitière;\N;\N;1912;\N;45
+378;B16;3;Paysage;Oil on canvas;63 x 78 cm;1912;\N;48
+379;B17;3;The Sea;Oil on canvas;82.5 x 92 cm;1912;\N;49
+380;U5;24;Marine (esquisse);\N;\N;1912;\N;45
+381;U6;24;Sur les dunes (esquisse);\N;\N;1912;\N;45
+382;U7;24;Arbres (esquisse);\N;\N;1912;\N;45
+383;U8;24;Arbres;\N;\N;1912;\N;45
+384;B18;3;Still Life with Gingerpot;Oil on canvas;91.5 x 120 cm;1912;\N;48
+385;B19;3;Bloeiende Appelboom;Oil on canvas;78.5 x 107.5 cm;1912;\N;49
+386;B20;3;Bloeiende Bomen;Oil on canvas;60 x 85 cm;1912;\N;49
+387;B21;3;The Trees;Oil on canvas;94 x 69.8 cm;1912;\N;49
+388;B25;3;Composition No. X;Oil on canvas;65.5 x 75.5 cm;\N;\N;49
+389;B26;3;Composition No. XVI / Compositie I;Oil on canvas;85.8 x 75 cm;\N;\N;49
+390;U9;24;Arbre;\N;\N;1913;\N;45
+391;U10;24;Arbre en fleurs;\N;\N;1913;\N;45
+392;U11;24;Femme;\N;\N;1913;\N;45
+393;B27;3;Tableau No. 4 / Composition No. VIII / Compositie 3;Oil on canvas;95 x 80 cm;1913;\N;49
+394;B28;3;Composition No. XIII / Compositie 2;Oil on canvas;79.5 x 63.5 cm;1913;\N;49
+395;B30;3;The Tree A;Oil on canvas;100.2 x 67.2 cm;1913;\N;49
+396;B31;3;Composition No. XI;Oil on canvas;76 x 57.5 cm;1913;\N;49
+397;B33;3;Tableau No. 3: Composition in Oval;Oil on canvas;94 x 78 cm;1913;\N;50
+398;B35;3;Tableau No. 2 / Composition No. VII;Oil on canvas;104.4 x 113.6 cm;1913;\N;49
+399;B36;3;Gemälde No. II / Composition No. IX / Compositie 5;Oil on canvas;85.7 x 75.5 cm;1913;\N;49
+400;B37;3;Tableau No. 1;Oil on canvas;96 x 64 cm;1913;\N;50
+401;B38;3;Gemälde No. I / Composition No. XIV;Oil on canvas;94 x 65 cm;1913;\N;49
+402;B39;3;Gemälde No. II / Composition No. XV / Compositie 4;Oil on canvas;61.5 x 76.5 cm;1913;\N;49
+403;B40;3;Gemälde No. I / Composition No. XII;Oil on canvas;64 x 94 cm;1913;\N;50
+404;B42;3;Composition No. II;Oil on canvas;88 x 115 cm;1913;\N;49
+405;B44;3;Tableau No. I / Composition No. I / Compositie 7;Oil on canvas;120.6 x 101.3 cm;1914;\N;50
+406;B45;3;Tableau No. 2 / Composition No. V;Oil on canvas;54.8 x 85.3 cm;1914;\N;50
+407;B46;3;Composition No. IV / Compositie 6;Oil on canvas;88 x 61 cm;1914;\N;50
+408;B47;3;Composition No. III / Compositie 8;Oil on canvas;94.4 x 55.5 cm;1914;\N;50
+409;B50;3;Composition No. VI / Compositie 9;Oil on canvas;95.2 x 67.6 cm;1914;\N;49
+410;B51;3;Composition with Color Planes: Façade;Oil on canvas;91.5 x 65 cm;1914;\N;49
+411;U12;3;Compositie XI (Teekening) in Zwart Wit;\N;\N;1915;\N;45
+412;B79;3;Compositie 10 in Zwart Wit;Oil on canvas;85 x 108 cm;1915;\N;50
+413;5;3;Le jardin de ma mère;Oil on canvas;46 x 38 cm;1905;\N;14
+414;17;3;Le compotier sur la table;Oil on canvas;83.8 x 98.7 cm;1909;\N;39
+415;20;3;Nus dans la forêt;Oil on canvas;120 x 170 cm;\N;\N;39
+416;21;3;Fumeurs;Oil on canvas;130 x 97 cm;1911;\N;39
+417;23;3;La Noce;Oil on canvas;257 x 206 cm;\N;\N;39
+418;24;3;Trois figures ou Étude pour trois portraits;Oil on canvas;195 x 114 cm;1911;\N;39
+419;36;3;Le passage à niveau;Oil on canvas;92 x 73 cm;1912;\N;39
+420;39;3;La femme en bleu;Oil on canvas;193 x 130 cm;1912;\N;7
+421;40;3;Modèle nu dans l'atelier;Oil on canvas;127.8 x 95.7 cm;\N;\N;7
+422;51;3;Les vieux moulins de Moret;Oil on canvas;46.3 x 55.2 cm;1902;\N;46
+423;122;3;Pêcheurs à la ligne;Oil on canvas;54 x 65 cm;1904;\N;46
+424;129;3;Effet du matin, le brouillard, Moret;Oil on canvas;60 x 73 cm;1904;\N;46
+425;130;3;Église de Moret;Oil on canvas;54 x 65 cm;1904;\N;46
+426;131;3;Église de Moret, effet de soleil matinal en décembre;Oil on canvas;measurements unknown;1904;\N;46
+427;141;3;Meules en contre-jour, Moret;Oil on canvas;60.3 x 74 cm;1904;\N;46
+428;143;3;Bords du Loing, Moret;Oil on canvas;54 x 65 cm;1904;\N;46
+429;158;3;Untitled;Oil on canvas;74 x 93 cm;1904;\N;46
+430;160;3;Rue aux Martigues, effet de soleil;Oil on canvas;measurements unknown;\N;\N;46
+431;164;20;La porte de Moret-sur-Loing;Pencil on paper;31 x 22.5 cm;1904;\N;46
+432;166;3;Les vieux saules à Moret;Oil on canvas;60 x 73 cm;1905;\N;46
+433;170;3;Bords du Loing, Moret, soleil de juillet;Oil on canvas;measurements unknown;\N;\N;46
+434;172;3;Effet d'automne au bord du Loing, Saint-Mammès;Oil on cardboard;61 x 46 cm;1905;\N;46
+435;174;3;Effet du matin en hiver, bords de l'Yonne;Oil on canvas;38.5 x 55 cm;1905;\N;46
+436;180;3;Bords de la Loire, effet de soleil;Oil on canvas;measurements unknown;\N;\N;46
+437;184;3;Effet de soleil sur les bords du Loing, Moret;Oil on canvas;33.5 x 46 cm;1905;\N;46
+438;185;3;Bords du Loing, temps gris;Oil on canvas;47 x 62 cm;1905;\N;46
+439;188;3;Les peupliers, soleil du matin, Moret;Oil on canvas;55 x 65.5 cm;1905;\N;46
+440;190;3;La laveuse, effet d'automne;Oil on canvas;measurements unknown;\N;\N;46
+441;195;3;Le pont du chemin de fer à Moret;Oil on canvas;81 x 100 cm;1905;\N;46
+442;201;3;Effet de soleil dur les bords du Loing, Moret;Oil on canvas;73 x 92 cm;1905;\N;46
+443;206;3;Lever du soleil dans la brume, Montigny;Oil on canvas;73 x 92 cm;1905;\N;46
+444;207;20;Bords du Loing à Montigny, effet de brouillard;Color mixed intaglio on paper;64.5 x 82 cm;\N;\N;46
+445;210;3;L'église de Ouistreham, effet de soleil, Calvados;Oil on canvas;64 x 91 cm;1905;\N;46
+446;212;3;Untitled;Oil on canvas;59 x 72 cm\
+(frame window);1905;\N;46
+447;213;3;Le Peuplier, effet de soleil, septembre, Montigny;Oil on canvas;92 x 73.5 cm;1905;\N;46
+448;214;3;Effet de soleil sur les bords de l'étang de Berre;Oil on canvas;73 x 92 cm;1905;\N;46
+449;215;3;Les barques aux Martigues;Oil on canvas;27.5 x 41 cm;1905;\N;46
+450;216;3;Coucher de soleil, Port-de-Bouc;Oil on canvas;65 x 92 cm;1905;\N;46
+451;218;3;Les Oliviers, effet de soleil, Martigues;Oil on canvas;73 x 92 cm;1905;\N;46
+452;220;3;Les pins, effet de soleil sur l'étang de Berre;Oil on canvas;74 x 93 cm;1905;\N;46
+453;234;3;Untitled;Oil on canvas;38 x 47 cm;\N;\N;46
+454;237;20;Untitled;Charcoal on paper;26 x 31 cm;1906;\N;46
+455;238;3;Bords du Loing, effet de brouillard le matin, Montigny;Oil on canvas;73.7 x 52.7 cm;1906;\N;46
+456;240;3;Effet de brouillard, Montigny;Oil on canvas;measurements unknown;1906;\N;46
+457;242;3;Canal de Saint-Mammès;Oil on canvas;measurements unknown;1906;\N;46
+458;244;3;Effet de soleil à Poissy;Oil on canvas;33 x 41 cm;\N;\N;46
+459;245;3;Ruines de Passy-les-Tours, effet de soleil;Oil on canvas;measurements unknown;1906;\N;46
+460;247;3;Passy-les-Tours, effet de nuit;Oil on canvas;72 x 92 cm;1906;\N;46
+461;250;3;Les châtaigniers, effet de soleil, Munot, Nièvre;Oil on canvas;81 x 100 cm;1906;\N;46
+462;253;3;Église de Villeneuve-sur-Yonne, le soir;Oil on canvas;100 x 81 cm;1906;\N;46
+463;255;3;Pont de Villeneuve-sur-Yonne, effet de soleil;Oil on canvas;73 x 92 cm;1906;\N;46
+464;258;3;Premières feuilles, effet de soleil, Villeneuve-sur-Yonne;Oil on canvas;73 x 92 cm;1906;\N;46
+465;261;3;Le peuplier, effet de soleil, Villeneuve-sur-Yonne;Oil on canvas;60 x 73 cm;1906;\N;46
+466;262;3;Les arbres en fleurs à Villeneuve-sur-Yonne;Oil on canvas;measurements unknown;1906;\N;46
+467;263;3;Effet d'automne, Villeneuve-sur-Yonne;Oil on canvas;measurements unknown;1906;\N;46
+468;267;3;La laveuse, Villeneuve-sur-Yonne;Oil on canvas;measurements unknown;1906;\N;46
+469;270;3;Les Meules, le soir, contre-jour, Villeneuve-sur-Yonne;Oil on canvas;measurements unknown;1906;\N;46
+470;272;3;Les deux peupliers, effet de soleil, bords de l'Yonne;Oil on canvas;55 x 65 cm;1906;\N;46
+471;273;3;Effet de soleil sur les bords de l'Yonne le matin;Oil on canvas;53.8 x 64.6 cm;1906;\N;46
+472;274;3;Laveuse sur les bords de l'Yonne, le matin;Oil on canvas;46.5 x 55 cm;1906;\N;46
+473;275;3;Bords de l'Yonne, effet de soleil;Oil on canvas;65 x 92 cm;1906;\N;46
+474;279;3;Soleil du matin, bords de l'Yonne;Oil on canvas;measurements unknown;1906;\N;46
+475;281;3;À l'approche de l'automne, Villeneuve-sur-Yonne;Oil on canvas;60.5 x 73 cm;1906;\N;46
+476;290;3;Oliviers, effet de soleil aux Martigues;Oil on canvas;measurements unknown;1906;\N;46
+477;298;3;Port de mer dans le Midi, effet de soleil;Oil on canvas;192 x 270 cm;1907;\N;46
+478;299;3;Les Martigues, effet du matin;Oil on canvas;25.5 x 36.5 cm;1907;\N;46
+479;301;3;Oliviers au bord de l'Étang de Berre;Oil on canvas;27 x 35 cm;1907;\N;46
+480;309;3;Les deux jumeaux à Hendaye;Oil on canvas;54.1 x 65 cm;1907;\N;46
+481;310;3;Effet de soleil dans les collines à Fuenterrabía, Espagne;Oil on canvas;54 x 65 cm;1907;\N;46
+482;312;3;Bords de la Cure, effet de soleil, le soir;Oil on canvas;65.4 x 80.7 cm;1907;\N;46
+483;316;3;Effet d'automne, Yonne;Oil on canvas;38 x 46 cm;1907;\N;46
+484;317;3;Bords de l'Yonne en automne, effet de soleil;Oil on canvas;120 x 75 cm;1907;\N;46
+485;322;33;Untitled;Etching on paper;24.7 x 16.8 cm;\N;\N;46
+486;335;3;Bords de l'Orne à Bénouville;Oil on canvas;54 x 65 cm;1908;\N;46
+487;339;3;Effet de soleil par temps d'orage (Larchant);Oil on canvas;81 x 65.1 cm;1908;\N;46
+488;341;3;Ruines, effet de soir;Oil on canvas;92 x 73.5 cm;1908;\N;46
+489;349;3;Bords du Loing à Moret, effet de soleil;Oil on canvas;81 x 100 cm;1908;\N;46
+490;351;3;Bords du Loinf à Saint-Mammès, effet d'automne;Oil on canvas;73.5 x 100 cm;1908;\N;46
+491;352;3;Soleil de novembre, effet d'automne;Oil on canvas;81 x 100 cm;1908;\N;46
+492;353;3;Effet d'automne, soleil du matin;Oil on canvas;measurements unknown;1908;\N;46
+493;354;3;Bords du Loing, Seine et Marne, effet de soleil;Oil on canvas;73 x 92 cm;1908;\N;46
+494;355;3;L'église de Montigny, effet d'automne;Oil on canvas;65 x 81 cm;1908;\N;46
+495;356;3;Soleil du matin au bord du Loing;Oil on canvas;65 x 92 cm;1908;\N;46
+496;357;3;L'église de Montigny, effet de soleil;Oil on canvas;100 x 81 cm;1908;\N;46
+497;358;3;Le canal de Moret, effet d'automne;Oil on cardboard (?);45.7 x 61 cm;1908;\N;46
+498;359;3;Bords du Loing à Montigny, effet d'automne;Oil on canvas;73 x 92 cm;1908;\N;46
+499;360;3;La femme aux mimosas, Saint-Tropez;Oil on canvas;116 x 89 cm;1908;\N;47
+500;362;3;Les pommes, nature morte;Oil on canvas;54 x 65.2 cm;1908;\N;47
+501;364;3;Untitled;Oil on canvas;90.2 x 116.2 cm;1909;\N;46
+502;367;3;Les oranges;Oil on canvas;65 x 92 cm;1909;\N;47
+503;368;3;Untitled;Oil on canvas;73 x 60 cm;1909;\N;46
+504;370;3;Untitled;Oil on canvas;65 x 54 cm;1909;\N;47
+505;371;3;Nature morte;Oil on canvas;50 x 61 cm;1909;\N;46
+506;372;3;La Pointe du port, effet de soleil, Saint-Tropez;Oil on canvas;73 x 92 cm;1909;\N;46
+507;373;3;Le port de Saint-Tropez, effet de soleil;Oil on canvas;90 x 116 cm;1909;\N;47
+508;374;3;Saint-Tropez, effet de soleil;Oil on canvas;81 x 102 cm;1909;\N;46
+509;375;3;Saint-Tropez vu de la citadelle;Oil on canvas;73 x 92 cm;1909;\N;46
+510;377;3;Le port de Saint-Tropez, temps gris;Oil on canvas;73 x 60 cm;1909;\N;\N
+511;378;3;Le port de Saint-Tropez, effet de soir;Oil on canvas;81 x 101 cm;1909;\N;47
+512;379;3;Les pins, effet de soleil, Saint-Tropez;Oil on canvas;60 x 73 cm;1909;\N;47
+513;390;3;Nature morte;Oil on canvas;73 x 92 cm;1909;\N;47
+514;396;3;Bords de la Sédelle;Oil on canvas;69 x 88.5 cm;1909;\N;47
+515;415;3;Printemps (?);Oil;Measurements unknown;1911;\N;48
+516;416;3;Adam et Ève;Oil on canvas;100 x 81 cm;1911;\N;47
+517;418;3;Untitled;Oil on canvas;81 x 100 cm;1911;\N;47
+518;419;3;Les cygnes;Oil on canvas;89 x 116 cm;1911;\N;47
+519;425;3;Les chevaux;Oil on canvas;73.3 x 92.5 cm;1911;\N;47
+520;433;3;Grimaldi après la pluie;Oil on canvas;measurements unknown;\N;\N;48
+521;434;3;Souvenirs d'Italie à Grimaldi;Oil on canvas;measurements unknown;\N;\N;\N
+522;436;3;Untitled;Oil on canvas;92.5 x 73.4 cm;1912;\N;49
+523;437;3;Paris;Oil on canvas;73 x 92 cm;1912;\N;49
+524;438;3;Tarentelle;Oil on canvas;73.6 x 92.1 cm;1912;\N;48
+525;439;3;Port de Naples;Oil on canvas;91.5 x 73.5 cm;1912;\N;49
+526;440;3;Figure triste;Oil on canvas;118 x 119.5 cm;1912;\N;48
+527;442;3;La procession, Séville;Oil on canvas;121.9 x 121.9 cm;1912;\N;49
+528;443;3;Danses à la source (I);Oil on canvas;120.6 x 120.6 cm;1912;\N;48
+529;444;20;Dessin pour un tableau (Danses à la source I);Ink or pencil on paper;measurements unknown;1912;\N;\N
+530;445;3;Danses à la source (II);Oil on canvas;251.8 x 248.9 cm;1912;\N;49
+531;446;3;Musique de procession;Oil on canvas;measurements unknown;1912;\N;49
+532;447;3;La source;Oil on canvas;249.6 x 249.3 cm;1912;\N;49
+533;450;3;Procession;Oil on canvas;measurements unknown;1912;\N;48
+534;452;20;New York;Watercolour and pencil on paper;75.6 x 55.6 cm;1913;\N;49
+535;453;20;New York;Pencil and ink on paper;17.5 x 15.4 cm;1913;\N;49
+536;454;20;New York (study for);Ink on paper;measurements unknown;1913;\N;49
+537;455;20;Study for a Study of New York (?);Ink and pencil on paper;20 x 25 cm;1913;\N;49
+538;456;20;New York;Pencil, watercolour and gouache on paper mounted on cardboard;75 x 54.5 cm;1913;\N;49
+539;457;20;New York;Watercolour, gouache, ink, and pencil on paper;55.8 x 75.9 cm;1913;\N;49
+540;458;20;New York;Pencil, ink, watercolour, and gouache on paper;55.8 x  x 76 cm;1913;\N;49
+541;459;20;New York;Watercolour, gouache, and pencil on paper;55.6 x 75.6 cm;1913;\N;49
+542;460;20;La ville de New York aperçue à travers le corps;Watercolour, gouache, ink and pencil on paper;55 x 75 cm;1913;\N;49
+543;462;20;Chanson nègre (II);Watercolour and pencil on paper;55.2 x 65.5 cm;1913;\N;49
+544;463;20;Chanson nègre (I);Watercolour and pencil on paper;66.3 x 55.9 cm;1913;\N;49
+545;464;20;Danseuse étoile et son école de danse;Watercolour and pencil on paper;55.9 x 76.2 cm;1913;\N;48
+546;465;20;Danseuse étoile sur un transatlantique;Watercolour and pencil on paper;75 x 55 cm;1913;\N;49
+547;466;2;New York;Gouache and pencil on cardboard;55.5 x 75.5 cm;1913;\N;49
+548;467;3;Udnie;Oil on canvas;290 x 300 cm;1913;\N;49
+549;470;3;Edtaonisl;Oil on canvas;300.4 x 300.7 cm;1913;\N;49
+550;471;3;Culture physique;Oil on canvas;89.9 x 116.8 cm;1913;\N;49
+551;473;20;Révérences;Pencil and watercolour on composition board;75 x 54.5 cm;1913;\N;49
+552;480;1;Force comique;Watercolour, pencil, and ink on paper;63.5 x 52.7 cm;1914;\N;49
+553;483;1;Une horrible douleur;Watercolour, ink and pencil on paper;54 x 65 cm;1914;\N;49
+554;484;2;Chose admirable à voir;Goauche, watercolour and pencil on paper;55.3 x 66 cm;\N;\N;49
+555;489;3;Je revoie en souvenir ma chère Udnie;Oil on canvas;250.2 x 198.8 cm;1914;\N;49
+556;490;3;Mariage comique;Oil on canvas;196.5 x 200 cm;1914;\N;49
+557;491;3;C'est de moi qu'il s'agit;Oil on canvas;199.8 x 199.2 cm;1914;\N;49
+558;8;3;Luci di marzo;Oil on canvas;101 x 158.8 cm;1897;\N;46
+559;19;3;Il Pertichino;Oil on canvas;90 x 130 cm\
+approximate measurements;1900;\N;46
+560;22;3;La Fiera di Parigi - Luna-park;Oil on canvas;65 x 81 cm;1900;\N;46
+561;62;3;Ritratto della Contessa Castelnuovo De Luca Cinque;Oil on canvas;measurements unknown;1902;\N;46
+562;70;3;Ritratto dello scultore Glicenstein;Oil on canvas;measurements unknown;1903;\N;46
+563;78;3;Elisa al cancello;Oil on canvas;125 x 140 cm;1903;\N;46
+564;80;3;Fallimento;Oil on canvas;116 x 160 cm;1903;\N;46
+565;82;3;Ritratto all'aperto;Oil on canvas;154.5 x 113 cm;1903;\N;46
+566;89;3;La giornata dell'operaio;Oil on paper;100 x 135 cm;1904;\N;46
+567;98;3;Il proprietario;Oil on canvas;\N;\N;\N;46
+568;99;3;Il falegname;Oil on canvas;measurements unknown;1904;\N;46
+569;116;3;Maggio;Oil on canvas;74 x 182 cm\
+tryptych:\
+central panel: 74 x 74 cm\
+side panels: 74 x 54 cm each;1906;\N;46
+570;120;4;Inverno;Pastel on paper;51 x 150 cm\
+tryptych:\
+central panel: 51 x 65 cm\
+side panels: 51 x 29 cm each;1905;\N;46
+571;122;3;La pazza;Oil on canvas;175 x 115 cm;1905;\N;46
+572;123;3;I malati;Oil on canvas;175 x 115 cm;1903;\N;46
+573;124;3;Il contadino;Oil on canvas;175 x 115 cm;1903;\N;46
+574;125;3;Il mendicante;Oil on canvas;175 x 115 cm;1902;\N;46
+575;139;3;Ritratto della Signora Pardo con la figlia;Oil on canvas;126 x 88 cm;1905;\N;46
+576;150;4;Tronchi di Villa Borghese;Pastel on paper;38.5 x 52 cm;1906;\N;47
+577;151;4;Tronchi di Villa Borghese;Pastel on paper;38.5 x 52 cm;1906;\N;46
+578;152;4;Villa Borghese;Pastel on paper;38.5 x 53 cm;1906;\N;\N
+579;153;4;Villa Borghese;Pastel on paper;38.5 x 53 cm;1906;\N;46
+580;175;3;Villa Medici;Oil on canvas;100 x 160 cm;1908;\N;46
+581;176;3;Il dubbio;Oil on canvas;67 x 50.5 cm;1908;\N;46
+582;177;3;Salutando;Oil on canvas;103.5 x 104.1 cm;1908;\N;46
+583;178;4;Compitando;Pastel on paper;60 x 70 cm;1909;\N;46
+584;185;3;Dittico di Villa Borghese;Oil on canvas;50 x 164 cm;1910;\N;\N
+585;186;3;Dittico di Villa Borghese;Oil on canvas;50 x 164 cm;1910;\N;46
+586;188;3;Villa Borghese - Parco dei daini;Oil on canvas;190 x 390 cm;1910;\N;46
+587;192;3;Ritratto di Tolstoj;Oil on canvas;\N;1910;\N;46
+588;193;3;Ritratto di Ernesto Nathan;Oil on canvas;86 x 95 cm;1910;\N;46
+589;194;3;Contadine all'ingresso di una capanna;Oil on cardboard;50 x 70 cm;1910;\N;47
+590;195;3;Contadina davanti a due capanne;Oil on cardboard;50 x 70 cm;1910;\N;\N
+591;196;3;Affetti;Oil on canvas;115 x 727 cm\
+Tryptych:\
+left panel: 115x71 cm\
+central panel: 115x127 cm\
+right panel: 115 x71 cm;1910;\N;46
+592;208;3;Lampada ad arco;Oil on canvas;174.7 x 114.7 cm;1909;\N;47
+593;241;3;Dinamismo di un cane al guinzaglio;Oil on canvas;90.8 x 110.2 cm;1912;\N;47
+594;253;3;La mano del violonista;Oil on canvas;52 x 75 cm;1912;\N;48
+595;290;3;Bambina che corre sul balcone;Oil on canvas;125 x 125 cm;1912;\N;48
+596;293;3;Velocità astratta;Oil on canvas;202 x 328 cm;1913;\N;49
+597;321;3;Velocità d'automobile;Oil on cardboard;60 x 98 cm;1913;\N;49
+598;329;3;Plasticità di luci + velocità;Oil on paper mounted on canvas;65.5 x 98.5 cm;1913;\N;49
+599;357;3;Linee andamentali + successioni dinamiche - Volo di rondini;Oil on canvas;96 x 109 cm;1913;\N;49
+600;432;3;Canto patriottico in piazza di Siena;Oil on canvas;110.5 x 169.5 cm;1915;\N;49
+601;\N;24;TEST;\N;\N;\N;\N;39
+602;51;4;Nonna;Pastel on paper;124 x 79 cm;\N;\N;46
+603;263;3;Gisella;Oil on canvas;46 x 46 cm;1907;\N;47
+604;264;4;Gisella;Pastel on paper;98 x 68 cm;1907;\N;46
+605;265;33;Gisella;Drypoint;24.7 x 33.3 cm;1907;\N;46
+606;267;4;La sorella che lavora;Pastel on paper;62 x 44 cm;1907;\N;46
+607;270;33;Uomo sdraiato su un prato;Etching and drypoint;14.5 x 23.5 cm;1907;\N;46
+608;272;33;La Signora Sacchi;Drypoint;28.2 x 18 cm;1907;\N;47
+609;275;33;La madre con l'uncinetto;Etching and drypoint;37 x 31 cm;1907;\N;47
+610;299;3;La signora Massimino;Oil on canvas;123 x 151 cm;1908;\N;46
+611;303;3;Autoritratto;Oil on canvas;70 x 100 cm;1908;\N;46
+612;309;3;Romanzo di una cucitrice;Oil on canvas;150 x 170 cm;1908;\N;46
+613;323;3;Campagna lombarda;Oil on canvas;93 x 140 cm;1908;\N;46
+614;409;3;Interno con la madre che lavora;Oil on canvas;32 x 25 cm;1909;\N;47
+615;420;3;Mattino;Oil on canvas;60 x 55 cm;1909;\N;46
+616;421;3;Crepuscolo;Oil on canvas;\N;1909;\N;46
+617;455;3;Tre donne;Oil on canvas;180 x 132 cm;\N;\N;46
+618;457;20;Controluce;Pencil and pen on paper;\N;1910;\N;46
+619;460;35;La madre davanti al tavolo con forbici;Etching;13.6 x 11.8 cm;1910;\N;46
+620;461;20;Casa in costruzione;Pencil on paper;16 x 10.5 cm;1910;\N;46
+621;464;3;Maestra di scena;Oil on canvas;100 x 80 cm;1910;\N;46
+622;657;3;Rissa in Galleria;Oil on canvas;76 x 64 cm;1910;\N;46
+623;660;3;La retata;Oil on canvas;\N;1910;\N;\N
+624;675;3;La città sale;Oil on canvas;200 x 290.5 cm;\N;\N;48
+625;701;3;La risata;Oil on canvas;110.2 x 145 cm;1911;\N;48
+626;709;3;Idolo Moderno;Oil on board;59.7 x 58.4 cm;1911;\N;47
+627;723;3;Gli addii - Stati d'animo II;Oil on canvas;71.2 x 94.2 cm;1911;\N;48
+628;724;3;Quelli che vanno - Stati d'animo II;Oil on canvas;70.3 x 96 cm;1911;\N;48
+629;725;3;Quelli che restano - Stati d'animo II;Oil on canvas;70.2 x 95.6 cm;1911;\N;48
+630;744;3;Visioni simultanee;Oil on canvas;70 x 75 cm;1911;\N;48
+631;745;3;La strada entra nella casa;Oil on canvas;100 x 100 cm;1911;\N;48
+632;747;3;Le forze di una strada;Oil on canvas;100 x 80 cm;1911;\N;48
+633;752;3;Materia;Oil on canvas;225 x 150 cm;1912;\N;48
+634;751;3;Costruzzione orizzontale;Oil on canvas;95 x 95 cm;1912;\N;48
+635;757;21;Testa + casa + luce;Plaster;\N;1912;\N;48
+636;765;21;Fusione di una testa e di una finestra;Plaster;\N;\N;\N;48
+637;774;21;Antigrazioso;Plaster;Hight: 58cm\
+Base: 50x40 cm;\N;\N;48
+638;775;21;Vuoti e pieni astratti di una testa;Plaster;\N;1912;\N;48
+639;782;21;Sviluppo di una bottiglia nello spazio;a) Plaster\; b)+c) bronze;\N;1912;\N;\N
+640;787;3;Antigrazioso;Oil on canvas;80 x 80 cm;1912;\N;48
+641;793;3;Testa + luce + ambiente;Oil on canvas;57 x 57 cm;1912;\N;48
+642;794;3;Dimensioni astratte;Oil and tempera on canvas;59.5 x 60 cm;1912;\N;48
+643;796;3;Scomposizione di figure a tavola;Oil on canvas;70 x 80 cm;1912;\N;48
+644;799;3;Elasticità;Oil on canvas;100 x 100 cm;1912;\N;48
+645;859;3;Dinamismo di un corpo umano;Oil on canvas;100 x 100 cm;1913;\N;49
+646;853;21;Forme-forze di una bottiglia;Plaster;\N;1913;\N;49
+647;854;21;Espansione spiralica di muscoli in movimento;Plaster;\N;1913;\N;48
+648;855;21;Sintesi del dinamismo umano;Plaster;\N;1913;\N;48
+649;856;21;Forme uniche della continuità nello spazio;a/b/c/d plaster\; e/f/g bronze;\N;1913;\N;48
+650;857;21;Muscoli in velocità;Plaster;\N;1913;\N;48
+651;869;23;Dinamismo muscolare;Pen and tempera on paper;29.3 x 22.9 cm;1913;\N;49
+652;878;20;Dinamismo di un corpo umano;Pen and brush on paper;\N;1913;\N;\N
+653;883;3;Dinamismo di un corpo umano;Oil on canvas;81 x 65.5 cm;1913;\N;49
+654;884;3;Dinamismo di un ciclista;Oil on canvas;70 x 90 cm;1913;\N;49
+655;895;3;Dinamismo di un Foot-baller;Oil on canvas;195 x 200 cm;1913;\N;49
+656;898;3;Forme plastiche di un cavallo;Oil on canvas;40 x 40 cm;\N;\N;49
+657;899;3;Costruzione spiralica;Oil on canvas;95 x 95 cm;\N;\N;49
+658;908;3;Cavallo + Cavaliere + Caseggiato;Oil on canvas;105 x 135 cm;\N;\N;49
+659;497;22;Ici, c'est ici Stieglitz, foi et amour (maquette);Ink, pencil, and collage on cardboard;75.9 x 50.8 cm;1915;\N;47
+660;512;33;Voilà elle;Printed illustration;48.3 x 29.5 cm;1915;\N;\N
+661;059;3;Soleil d'automne;Oil on canvas;103 x 117 cm;1906;\N;46
+662;070;3;Étude pour Rouge à lèvres;Oil on canvas;61 x 50 cm;\N;\N;47
+663;077;3;La Gamme jaune II;Oil on canvas;79 x 79 cm;\N;\N;47
+664;078;3;Gigolettes (Zusa et Villete);Oil on canvas;66 x 72 cm;1909;\N;47
+665;083;3;La Môme à Gallien, Au gôut de Gallien;Oil on canvas;108 x 100 cm;\N;\N;47
+666;086;3;Gigolette : Io, la vache;Oil on canvas;79.5 x 72 cm;1910;\N;47
+667;088;3;Portrait de famille;Oil on canvas;103 x 112 cm;1910;\N;47
+668;090;3;Plans par couleurs, Grand Nu;Oil on canvas;150.1 x 180.8 cm;\N;\N;47
+669;093;3;Le Miroir Ovale;Oil on canvas;108.3 x 88.6 cm;1910;\N;48
+670;099;3;Étude pour Amorpha, fugue à deux couleurs et pour Amorpha, chromatique chaude;Oil on canvas;84 x 128 cm;\N;\N;49
+671;102;3;Amorpha, fugue à deux couleurs;Oil on canvas;211 x 220 cm;1912;\N;49
+672;103;3;Amorpha, chromatique chaude;Oil on canvas;105 x 105 cm;\N;\N;49
+673;112;3;Portrait du musicien Follot;Oil on canvas;72.4 x 66.3 cm;1910;\N;48
+674;114;3;Plans par couleurs;Oil on canvas;109 x 99.5 cm;\N;\N;48
+675;125;3;Plans verticaux I;Oil on canvas;150 x 94 cm;\N;\N;49
+676;126;3;Plans verticaux II;Oil on canvas;104 x 68 cm;\N;\N;49
+677;127;3;Plans verticaux III;Oil on canvas;200 x 118 cm;\N;\N;49
+678;171;3;Printemps cosmique II;Oil on canvas;115 x 125 cm;1911;\N;49
+679;177;3;Localisation de mobiles graphiques I;Oil on canvas;200 x 194 cm;\N;\N;49
+680;178;3;Localisation de mobiles graphiques II;Oil on canvas;200 x 200 cm;1913;\N;49
+681;202;3;Compliment;Oil on canvas;89 x 108 cm;1912;\N;49
+682;206;3;Composition;Oil on canvas;50 x 60 cm;1912;\N;49
+683;224;3;Le Solo d'un trait brun;Oil on canvas;70 x 115 cm;\N;\N;49
+684;A523;3;Zomernacht;Oil on canvas;71 x 110.5 cm;1907;\N;46
+685;F-178;2;Cueillette de fruits / Abondance;Gouache on cardboard;52.7 x 51 cm;1909;\N;\N
+686;F-180;1;Maternité;Watercolor, pencil on paper mounted on cardboard;53 x 56.3 cm;1909;\N;\N
+687;F-186;2;Portrait de femme;Gouache on paper;27.7 x 27.7 cm;\N;\N;\N
+688;F-363;3;Composition cubofuturiste;Oil on canvas;60 x 40 cm;1913;\N;\N
+689;43;3;La Signora Virginia;Oil on canvas;140 x 115.5 cm;1905;\N;46
+690;43;3;La Signora Virginia;Oil on canvas;140 x 115.5 cm;1905;\N;46
+691;408;3;Testa di vecchio;Oil on wood;40 x 29 cm;1909;\N;\N
+692;435;4;Ritratto femminile;Pastel on paper;54 x 58.1 cm;1909;\N;47
+693;908;3;Cavallo + cavaliere + caseggiato;Oil on canvas;105 x 135 cm;\N;1913;49
+694;650;3;Il lutto;Oil on canvas;105 x 134.6 cm;1910;\N;\N
+695;\N;13;scream;\N;\N;1902;\N;\N
+696;\N;40;Judit;\N;\N;\N;\N;\N
+697;\N;40;Judit;\N;\N;\N;\N;\N
+698;\N;13;Selbstbildnis mit Weinflasche;\N;\N;1906;\N;\N
+699;\N;40;lala;\N;\N;\N;\N;\N
+700;\N;13;Kiss;\N;\N;\N;\N;\N
+701;688;3;Selbstbildnis mit Weinflasche;Oil on Canvas;110.5 x 120.5 cm;1906;\N;52
+702;607;3;Sommer im Park (Sonnenschein);\N;91 x 172 cm;1904;\N;54
+703;609;3;Baumgruppe am Strand (Bäume am Meer);\N;91 x 167 cm;1904;\N;54
+704;613;3;Umarmung am Strand (Sommertag);\N;91 x 195 cm;1904;\N;51
+705;614;3;Tanz am Strand (Tanz am Meer);\N;91 x 195 cm;1904;\N;51
+706;611;3;Mädchen bei der Fruchternte (Mädchen bei der Ernte);\N;92 x 170 cm;1904;\N;\N
+707;687;3;Selbstbildnis vor rotem Hintergrund (Selbstbildnis);\N;120 x 70 cm;1906;\N;53
+708;692;3;Elisabeth Förster-Nietzsche;\N;\N;1906;\N;53
+709;693;3;Elisabeth Förster-Nietzsche;\N;115 x 80 cm;1906;\N;53
+710;741;3;Mord (Marats Tod);\N;69.5 x 100 cm;1906;\N;52
+711;615;13;Sonnenblume;\N;\N;\N;\N;\N
+712;616;13;Stockrose;\N;\N;1904;\N;\N
+713;610;3;Kussende Paare im Park (Liebespaare im Park);\N;91 x 170.5 cm;1904;\N;\N
+714;610;3;Kussende Paare im Park (Liebespaare im Park);\N;91 x 170.5 cm;1904;\N;51
+715;608;3;Jugend am Strand (Jugend am Meer);\N;90 x 174 cm;1904;\N;\N
+716;579;3;Der Deutsche. Hermann Schlittgen;\N;200 x 119.5 cm;\N;\N;53
+717;578;3;Der Franzose. Marcel Archinard;\N;185 x 70 cm;\N;\N;53
+718;776;3;Weinende Frau;\N;121 x 119 cm;\N;\N;52
+719;748;3;Lübecker Hafen;\N;81.5 x 122 cm;\N;\N;54
+720;749;3;Die Küste bei Lübeck;\N;87 x 102 cm;1907;\N;54
+721;750;3;Lübeck mit dem Holsentor;\N;84 x 130 cm;\N;\N;54
+722;745;3;Walter Rathenau;\N;220 x 110 cm;\N;\N;53
+723;538;3;Kiøsterudgården;\N;100 x 95 cm;\N;\N;54
+724;565;3;Vier Mädchen in Åsgårdstrand;\N;87 x 111 cm;\N;\N;53
+725;531;3;Landschaft mit rotem Haus;\N;80 x 65.5 cm;\N;\N;54
+726;530;3;Der Apfelbaum;\N;75.5 x 87.5 cm;\N;\N;54
+727;485;3;Die Familie Book;\N;197 x 122 cm;\N;\N;53
+728;492;3;Kinder im Wald;\N;90 x 100 cm;\N;\N;54
+729;526;3;Fischer vor gelbem Hintergrund;\N;73 x 95 cm;\N;\N;53
+730;564;3;Vier Mädchen in Åsgårdstrand;\N;106 x 145 cm;\N;\N;53
+731;691;3;Friedrich Nietzsche;Oil and Tempera on Canvas;201 x 130 cm;\N;\N;\N
+732;651;3;Esches Kinder;\N;148 x 162.5 cm;1905;\N;\N
+733;651;3;Esches Kinder;\N;148 x 162.5 cm;1905;\N;53
+734;684;3;Park in Kösen;\N;70 x 80 cm;\N;\N;54
+735;680;3;Die Eiche (Sonnenschein);\N;87 x 100 cm;\N;\N;54
+736;678;3;Mutter mit Kindern, Thüringen (Aus Thüringen);\N;200 x 105.5 cm;\N;\N;53
+737;676;3;Neuschnee in der Allee (Frischer Schnee);\N;80 x 100 cm;\N;\N;54
+738;677;3;Kinder in der Allee;\N;75 x 90 cm;\N;\N;54
+739;686;3;Felix Auerbach;\N;83.8 x 76.2 cm;1906;\N;53
+740;742;3;Die Mörderin;\N;110 x 120 cm;1906;\N;52
+741;575;3;Weihnachten im Bordell;\N;60.5 x 88 cm;\N;\N;52
+742;650;3;Selbstbildnis mit breitkrempigen Hut (Selbstbildnis mit Panamahut);\N;79 x 64 cm;\N;\N;53
+743;499;3;Albert Kollmann;\N;\N;\N;\N;53
+744;664;3;Kartenspieler in Elgersburg;\N;85 x 100 cm;\N;\N;52
+745;661;3;Elgersburg;\N;70.5 x 90 cm;\N;\N;54
+746;696;3;Hary Graf Kessler;\N;200 x 84 cm;1906;\N;53
+747;683;3;Park in Kösen;\N;65 x 79.5 cm;\N;\N;54
+748;681;3;Kastanien;\N;101 x 80 cm;1906;\N;54
+749;682;3;Park;\N;85 x 110 cm;\N;\N;54
+750;724;13;Menschengruppe am Strand;\N;\N;\N;\N;\N
+751;656;3;Hanni Esche;\N;81.7 x 70.6 cm;1905;\N;53
+752;641;3;Der Hafen von Taarbek;\N;50 x 80 cm;\N;\N;54
+753;631;3;Blühende Kirschbäume;\N;50.1 x 70.2 cm;1905;\N;54
+754;626;3;Vorfrühling in Åsgårdstrand;\N;69.5 x 85 cm;\N;\N;54
+755;622;3;Ellen Warburg;\N;180 x 100 cm;1905;\N;53
+756;567;3;Die Damen auf der Brücke;\N;203 x 230 cm;1903;\N;\N
+757;557;3;Landschaft bei Travemünde;\N;91 x 100 cm;\N;\N;54
+758;674;3;Dorfstrasse im Schnee;\N;70.5 x 90.5 cm;\N;\N;\N
+759;671;3;Schneelandschaft, Thüringen;\N;71 x 91 cm;1906;\N;54
+760;621;3;Selbstbildnis mit Pinseln;\N;197 x 91 cm;\N;\N;53
+761;576;3;Harry Graf Kessler;\N;86 x 75 cm;1904;\N;53
+762;618;3;Max Linde;\N;226.5 x 101.5 cm;1904;\N;53
+763;617;3;Junges Mädchen in blauem Kleid;\N;140 x 72 cm;\N;\N;53
+764;562;3;Lothar Linde in roter Jacke;\N;50 x 40 cm;1903;\N;53
+765;542;3;Aase Nørregaard;\N;195.5 x 105 cm;\N;\N;53
+766;498;3;Konsul Christen Sandberg;\N;215 x 147 cm\
+A size of painting before 1909 was not 215 x 147 cm.;\N;\N;53
+767;501;4;Männerbildnis, Herr von R.;Colour crayon on cardboard;102 x 67 cm;\N;\N;53
+768;619;3;Max Linde im Segleranzug;\N;133 x 81 cm;1904;\N;53
+769;612;3;Mädchen beim Blumengiessen;\N;99.5 x 80 cm;\N;\N;53
+770;635;3;Ludvig Karsten;\N;194 x 91 cm;1905;\N;53
+771;598;3;Landschaft;\N;75.5 x 95.5 cm;\N;\N;54
+772;603;3;Begräbnis;\N;80 x 60 cm;\N;\N;51
+773;623;3;Frühling in Åsgårdstrand;\N;80 x 60 cm;1905;\N;54
+774;568;3;Ingse Vibe;\N;160 x 70 cm;\N;\N;53
+775;524;3;Fischer auf grüner Wiese;\N;80 x 61 cm;\N;\N;53
+776;537;3;Bäume und Gartenmauer in Åsgårdstrand;\N;99 x 103.5 cm;\N;\N;54
+777;541;3;Damen auf der Brücke;\N;184 x 205 cm;\N;\N;53
+778;543;3;Vier Lebesalter;\N;130.4 x 100.4 cm;1902;\N;53
+779;582;3;Rote Felsen in Åsgårdstrand;\N;70.5 x 100.5 cm;1904;\N;54
+780;602;3;Zwei Mädchen mit blauen Schürzen;\N;115.5 x 93 cm;\N;\N;53
+781;601;3;Garten im Sonnenschein;\N;72 x 81 cm;\N;\N;54
+782;638;3;Drei Mädchen in Åsgårdstrand;\N;131 x 111 cm;1905;\N;53
+783;649;1;Selbstbildnis mit Schnurrbart und hohem Kragen;Watercolor, pastel and gouache on cardboard / Mixed Media;44 x 41.5 cm;1905;\N;53
+784;416;22;Frauenbildnis;Mixed media on canvas;105.5 x 107.8 cm;\N;\N;53
+785;417;23;Schwarzhaariger Mann und rothaarige Frau;\N;48 x 72 cm;\N;\N;53
+786;418;23;Holger Drachmann;Tempera on unprimed cardboard;72 x 55 cm;\N;\N;53
+787;419;3;Henrik Ibsen im Grand Café;\N;70 x 96 cm;\N;\N;53
+788;435;13;Strand;Watercolour and oil on unprimed cardboard;52.6 x 77 cm;1898;\N;54
+789;257;3;Kuss am Fenster;\N;72 x 64.5 cm;\N;\N;52
+790;529;3;Wäscheleine in Aasgaardstrand;\N;68 x 73 cm;1902;\N;54
+791;388;3;Sitzender Akt vor rotem Hintergrund;\N;80 x 60 cm;\N;\N;53
+792;389;3;Sitzender Rückenakt vor rotem Hintergrund;\N;64.5 x 48.5 cm;\N;\N;53
+793;229;3;Junge Frau in blau;\N;76.5 x 56.5 cm;\N;\N;53
+794;347;3;Pubertät;\N;151.5 x 110 cm;\N;\N;52
+795;250;3;Inger in weisser Bluse;\N;81.5 x 66.5 cm;1891;\N;53
+796;242;3;Blaugekleidete Dame vor blauem Wasser;\N;99 x 65 cm;1891;\N;53
+797;301;3;August Strindberg;\N;120 x 90 cm;\N;\N;53
+798;360;3;Melancholie (Abend);\N;81 x 100.5 cm;\N;\N;51
+799;290;3;Abend auf Karl Johan;\N;84.5 x 121 cm;\N;\N;51
+800;349;3;Vampir;\N;100 x 110 cm;1894;\N;\N
+801;463;3;Rot und weiss;\N;93.5 x 129.5 cm;\N;\N;51
+802;348;3;Der Tag danach;\N;115 x 152 cm;\N;\N;52
+803;378;3;Asche;\N;120.5 x 141 cm;\N;\N;51
+804;467;3;Melancholie (Laura);\N;110 x 126 cm;\N;\N;52
+805;444;3;Winter;\N;65 x 79.5 cm;\N;\N;54
+806;624;3;Haus in Aasgaardstrand;\N;100.5 x 130.5 cm;1905;\N;54
+807;298;3;Ludvig Mayer;\N;214.5 x 103.5 cm;1892;\N;53
+808;376;3;Am Totenbett;Oil and temepera on unprimed canvas;90 x 120.5 cm;\N;\N;52
+809;690;3;Friedrich Nietzsche;\N;201 x 160 cm;\N;\N;\N
+810;457;3;Aase Nørregaard;\N;131 x 109 cm;\N;\N;53
+811;525;3;Alter Fischer und seine Tochter;\N;48.5 x 66.5 cm;\N;\N;53
+812;318;3;Sommernacht. Meerjungfrau;\N;93 x 117 cm;\N;\N;\N
+813;491;3;Spielende Kinder auf der Strasse in Aasgaardstrand;\N;74.6 x 89.2 cm;\N;\N;\N
+814;652;3;Erdmute Esche mit Puppe;\N;74 x 68 cm;\N;\N;53
+815;678;3;Mutter mit Kindern, Thüringen;\N;200 x 105.5 cm;\N;\N;\N
+816;746;3;Ernest Thiel;\N;191 x 101 cm;\N;\N;53
+817;455;3;Dunkler Tannenwald;\N;84.5 x 72.5 cm;\N;\N;54
+818;512;3;Blondes und dunkelhaariges Aktmodell;\N;60.3 x 70.5 cm;\N;\N;53
+819;509;3;Akt im Interieur;\N;81.5 x 65.5 cm;\N;\N;53
+820;571;3;From Travemünde;\N;65 x 70 cm;\N;\N;54
+821;468;3;Zugrauch;\N;84.5 x 109 cm;\N;\N;54
+822;383;22;Stanislaw Przbyszewski;\N;62.5 x 55.5 cm;1895;\N;53
+823;517;3;Sitzender Halbakt;\N;94.5 x 63.5 cm;\N;\N;53
+824;503;3;Akt mit langem roten Haar;\N;120 x 50 cm;\N;\N;53
+825;545;3;Mädchen mit rotkariertem Kleid und rotem Hut;\N;58 x 46.4 cm;\N;\N;53
+826;502;4;Marta Sandal;\N;63.5 x 31.5 cm;\N;\N;53
+827;496;3;Wald auf dem Weg nach Borre;\N;60 x 60 cm;\N;\N;54
+828;379;3;Eifersucht;\N;66.8 x 100 cm;1895;\N;51
+829;362;3;Die Frau;\N;164.5 x 251 cm;1894;\N;51
+830;627;3;Frühlingslandschaft;\N;78 x 98 cm;\N;\N;54
+831;374;22;Leichengeruch;Tempera and Oil on unprimed canvas;100 x 110 cm;\N;\N;52
+832;393;3;Loslösung;\N;96.5 x 127 cm;\N;\N;51
+833;394;3;Sommernacht. Die Stimme;\N;90 x 119.5 cm;\N;\N;51
+834;428;3;Stoffwechsel. Leben und Tod;\N;172.5 x 142 cm;\N;\N;51
+835;440;3;Roter Wilder Wein;\N;119.5 x 121 cm;\N;\N;51
+836;446;3;Das Kind und der Tod;\N;104 x 179.5 cm;1899;\N;52
+837;447;3;Das Kind und der Tod;\N;100 x 90 cm;\N;\N;52
+838;459;3;Sommernacht in Studenterlunden;\N;101 x 91 cm;\N;\N;51
+839;460;3;Tanz am Strand;\N;99 x 96 cm;\N;\N;51
+840;461;3;Auge in Auge;\N;136 x 110 cm;\N;\N;51
+841;462;3;Fruchtbarkeit;\N;120 x 140 cm;\N;\N;51
+842;464;3;Der Tanz des Lebens;\N;125 x 191 cm;\N;\N;\N
+843;464;3;Der Tanz des Lebens;\N;125 x 191 cm;\N;\N;51
+844;401;3;Der Kuß;\N;99 x 81 cm;\N;\N;52
+845;329;22;Der Tod im Krankenzimmer;Tempera and crayon on canvas;152.5 x 169.5 cm;\N;\N;52
+846;323;3;Haus im Mondschein;\N;70 x 95.8 cm;\N;\N;51
+847;489;3;Johannisnacht (Mittsommernacht);\N;81 x 74 cm;\N;\N;\N
+848;488;3;Strasse in Aasgaardstrand mit Frau in rotem Kleid;\N;59.7 x 75.5 cm;\N;\N;\N
+849;580;3;Sommernacht in Studenterlunden;\N;60 x 90 cm;\N;\N;54
+850;570;3;Kirche in Travemünde;\N;65 x 70 cm;\N;\N;54
+851;563;3;Lindes Söhne;\N;144 x 199.5 cm;1903;\N;53
+852;560;3;Garten in Lübeck;\N;72.3 x 66.8 cm;\N;\N;54
+853;556;3;Selbstbildnis in der Hölle;\N;82 x 66 cm;\N;\N;53
+854;547;3;Im Garten;\N;75 x 82 cm;1902;\N;54
+855;544;3;Vier Mädchen in Åsgårdstrand;\N;89.5 x 125.5 cm;\N;\N;53
+856;536;3;Sommernacht am Strand;\N;103 x 120 cm;\N;\N;54
+857;534;3;Gewitterlandschaft;\N;74 x 95 cm;\N;\N;54
+858;522;13;Besuch im Tuberkulosesanatorium;Casein (?) on canvas;70 x 85 cm;\N;\N;52
+859;521;13;Pflegemütter vor dem Schwurgericht;\N;111 x 170 cm;\N;\N;52
+860;514;3;Doppelakt;\N;110 x 161 cm;\N;\N;53
+861;399;3;Paul Herrmann und Paul Contard;\N;54 x 73 cm;1897;\N;53
+862;333;22;Der Schrei;Tempera and crayon on unprimed cardboard;91 x 73.5 cm;1893;\N;51
+863;321;3;Sternenacht;\N;108.5 x 120.5 cm;\N;\N;54
+864;657;13;Herbert Esche;Oil and pastel on canvas;120 x 70 cm;1905;\N;53
+865;663;3;Aus dem Thüringer Wald;\N;76 x 109 cm;\N;\N;54
+866;474;3;Neuschnee;\N;72 x 82 cm;\N;\N;54
+867;475;3;Winternacht;\N;81 x 121 cm;\N;\N;54
+868;779;3;Olga und Rosa Meissner;\N;80.4 x 97.5 cm;\N;\N;53
+869;479;3;Winterwald;\N;60.5 x 90 cm;\N;\N;54
+870;510;3;Sitzender Akt auf dem Bett (Mädchenakt auf dem Bett sitzend);\N;81 x 65 cm;\N;\N;53
+871;523;3;Jonas Lie mit Familie;\N;169.5 x 103 cm;\N;\N;53
+872;483;3;Mädchen auf der Brücke;\N;136 x 125 cm;\N;\N;\N
+873;486;3;Strasse in Aasgaardstrand;\N;88.5 x 114 cm;\N;\N;\N
+874;365;3;Madonna;\N;90 x 68.5 cm;\N;\N;53
+875;363;3;Angst;\N;94 x 74 cm;\N;\N;51
+876;620;3;Selbstbildnis vor zweiteiligem Hintergrund;\N;69.5 x 44 cm;\N;\N;53
+877;366;3;Madonna;\N;90.5 x 70.5 cm;\N;\N;53
+878;370;3;Berliner Modell;\N;76 x 57 cm;1895;\N;53
+879;371;23;Kabarett;\N;60 x 88 cm;\N;\N;\N
+880;465;3;Golgotha;\N;80 x 120 cm;1900;\N;51
+881;549;3;Auf der Veranda;\N;86.5 x 111.5 cm;\N;\N;54
+882;670;3;Schneelandschaft, Thüringen;\N;68 x 107 cm;\N;\N;54
+883;589;3;Badende Jünglinge;\N;194 x 290 cm;\N;\N;\N
+884;791;3;Das kranke Kind;\N;118.7 x 121 cm;\N;\N;\N
+885;755;3;Alter Mann in Warnemünde;\N;110 x 85 cm;\N;\N;\N
+886;757;3;Strasse in Warnemünde;\N;99 x 79 cm;1907;\N;\N
+887;778;3;Rosa Meissner;\N;51 x 45.2 cm;1907;\N;\N
+888;753;3;Frauenbildnis;\N;50.6 x 46 cm;\N;\N;\N
+889;754;3;Bildnis eines alten Mannes;\N;51 x 45.5 cm;\N;\N;\N
+890;758;3;Frauen und Kinder in Warnemünde (Aus Warnemünde?);\N;100 x 79 cm;\N;\N;\N
+891;782;3;Die Überraschung;\N;85 x 110.5 cm;\N;\N;\N
+892;786;3;Die Mörderin;\N;89 x 63 cm;\N;\N;\N
+893;764;3;Badende Männer;\N;100 x 120 cm;\N;\N;\N
+894;511;3;Zwei Akte vor der Kommode;\N;85.5 x 69.5 cm;\N;\N;\N
+895;367;3;Madonna;\N;90 x 71 cm;\N;\N;\N
+896;781;3;Zum Süssen Mädl;\N;83 x 130.5 cm;1907;\N;\N
+897;790;3;Das kranke Kind;\N;118 x 120 cm;\N;\N;\N
+898;801;3;Kanal bei Sonnenuntergang, Warnemünde;\N;80 x 65 cm;\N;\N;\N
+899;805;3;Meerbild, Warnemünde;\N;80 x 71 cm;\N;\N;\N
+900;822;3;Daniel Jacobson;\N;204 x 111.5 cm;\N;\N;\N
+901;824;3;Helge Rode;\N;198 x 96 cm;1908;\N;\N
+902;826;3;Krankenschwestern mit Laken;\N;110 x 94 cm;1909;\N;\N
+903;830;3;Frühling in Kragerö;\N;80 x 65 cm;\N;\N;\N
+904;832;3;Jappe Nilssen;\N;193 x 94.5 cm;1908;\N;\N
+905;833;3;Jappe Nilssen;\N;94 x 103 cm;\N;\N;\N
+906;834;3;Torvald Stang;\N;200 x 96.5 cm;\N;\N;\N
+907;836;3;Christian Gierloff;\N;207 x 105.5 cm;\N;\N;\N
+908;841;3;Adam und Eva;\N;130.5 x 202 cm;\N;\N;\N
+909;849;3;Schiffswerft;\N;99.5 x 110.5 cm;\N;\N;\N
+910;874;3;Arbeiter im Schnee;\N;224 x 162 cm;1910;\N;\N
+911;887;3;Winterlandschaft, Kragero;\N;94 x 96 cm;\N;\N;\N
+912;891;3;Frühlingsarbeit in den Schären;\N;92 x 116 cm;\N;\N;\N
+913;410;3;Badende Knaben;\N;\N;\N;\N;\N
+914;766;3;Badende Männer;\N;\N;\N;\N;\N
+915;639;3;Die Mädchen auf der Brücke;\N;\N;1905;\N;\N
