@@ -25,7 +25,12 @@ export function EmbeddingPlot3D({ data, rotation = 0 }: Props) {
             x: filtered.map((d) => d.x),
             y: filtered.map((d) => d.y),
             z: filtered.map((d) => d.z),
-            text: filtered.map((d) => d.entity),
+            customdata: filtered.map((d) => [
+                d.display_name,
+                d.type,
+                d.id,
+                d.entity,
+            ]),
             mode: "markers",
             type: "scatter3d",
             name: type,
@@ -34,7 +39,13 @@ export function EmbeddingPlot3D({ data, rotation = 0 }: Props) {
                 opacity: 0.7,
             },
             hovertemplate:
-                "<b>%{text}</b><br>x=%{x}<br>y=%{y}<br>z=%{z}<extra></extra>",
+                "<b>%{customdata[0]}</b><br>" +
+                "Type: %{customdata[1]}<br>" +
+                "ID: %{customdata[2]}<br>" +
+                //"Entity: %{customdata[3]}<br>" +
+                "x: %{x:.3f}<br>" +
+                "y: %{y:.3f}<br>" +
+                "z: %{z:.3f}<extra></extra>",
         };
     });
 

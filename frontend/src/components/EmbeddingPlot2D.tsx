@@ -22,7 +22,12 @@ export function EmbeddingPlot2D({ data }: Props) {
         return {
             x: filtered.map((d) => d.x),
             y: filtered.map((d) => d.y),
-            text: filtered.map((d) => d.entity),
+            customdata: filtered.map((d) => [
+                d.display_name,
+                d.type,
+                d.id,
+                d.entity,
+            ]),
             mode: "markers",
             type: "scattergl",
             name: type,
@@ -31,7 +36,12 @@ export function EmbeddingPlot2D({ data }: Props) {
                 opacity: 0.7,
             },
             hovertemplate:
-                "<b>%{text}</b><br>x=%{x}<br>y=%{y}<extra></extra>",
+                "<b>%{customdata[0]}</b><br>" +
+                "Type: %{customdata[1]}<br>" +
+                "ID: %{customdata[2]}<br>" +
+                //"Entity: %{customdata[3]}<br>" +
+                "x: %{x:.3f}<br>" +
+                "y: %{y:.3f}<extra></extra>",
         };
     });
 
