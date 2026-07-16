@@ -9,3 +9,5 @@ artvis-graph-db/neo4j_dump/
 
 node_modules/
 dist/
+
+backend/app/ml/data_backup_*/
