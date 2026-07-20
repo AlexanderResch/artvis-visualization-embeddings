@@ -21,6 +21,10 @@ from app.routers.clusters import (
     router as clusters_router
 )
 
+from app.routers.dashboard import (
+    router as dashboard_router
+)
+
 from app.routers.embeddings import (
     router as embeddings_router
 )
@@ -73,6 +77,10 @@ app.include_router(
 
 app.include_router(
     evaluation_router
+)
+
+app.include_router(
+    dashboard_router
 )
 
 
@@ -132,7 +140,7 @@ def graph_stats():
                     record["labels"]
                 ),
 
-                "count": (
+                "count": int(
                     record["count"]
                 ),
             }
@@ -147,7 +155,7 @@ def graph_stats():
                     record["type"]
                 ),
 
-                "count": (
+                "count": int(
                     record["count"]
                 ),
             }
