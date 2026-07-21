@@ -29,7 +29,109 @@ MAP_COLUMNS = [
 ]
 
 
+def clean_display_names(
+        artists: pd.DataFrame,
+) -> pd.DataFrame:
+    result = artists.copy()
+
+    result["id"] = (
+        result["id"]
+        .fillna("")
+        .astype(str)
+        .str.strip()
+    )
+
+    result["entity"] = (
+        result["entity"]
+        .fillna("")
+        .astype(str)
+        .str.strip()
+    )
+
+    empty_entity_mask = (
+        result["entity"]
+        .eq("")
+    )
+
+    result.loc[
+        empty_entity_mask,
+        "entity",
+    ] = (
+            "Artist:"
+            + result.loc[
+                empty_entity_mask,
+                "id",
+            ]
+    )
+
+    if (
+            "display_name"
+            not in result.columns
+    ):
+        result["display_name"] = (
+            result["entity"]
+        )
+
+        return result
+
+    display_names = (
+        result["display_name"]
+        .astype("string")
+        .str.strip()
+    )
+
+    normalized_names = (
+        display_names
+        .fillna("")
+        .str.lower()
+    )
+
+    invalid_name_mask = (
+            display_names.isna()
+            | normalized_names.isin({
+        "",
+        "null",
+        "none",
+        "nan",
+        "undefined",
+    })
+    )
+
+    display_names = (
+        display_names.mask(
+            invalid_name_mask,
+            result["entity"],
+        )
+    )
+
+    result["display_name"] = (
+        display_names
+        .fillna(result["entity"])
+        .astype(str)
+    )
+
+    return result
+
+
 def run() -> None:
+    if not ARTIST_CLUSTERS_PATH.exists():
+        raise FileNotFoundError(
+            "Missing Artist cluster file: "
+            f"{ARTIST_CLUSTERS_PATH}"
+        )
+
+    if not UMAP_2D_COORDS_PATH.exists():
+        raise FileNotFoundError(
+            "Missing 2D UMAP coordinates: "
+            f"{UMAP_2D_COORDS_PATH}"
+        )
+
+    if not UMAP_3D_COORDS_PATH.exists():
+        raise FileNotFoundError(
+            "Missing 3D UMAP coordinates: "
+            f"{UMAP_3D_COORDS_PATH}"
+        )
+
     artists = (
         pd.read_csv(
             ARTIST_CLUSTERS_PATH,
@@ -47,6 +149,10 @@ def run() -> None:
         )
     )
 
+    artists = clean_display_names(
+        artists
+    )
+
     coordinates_2d = np.load(
         UMAP_2D_COORDS_PATH
     )
@@ -58,20 +164,45 @@ def run() -> None:
     if (
             len(artists)
             != len(coordinates_2d)
-            or len(artists)
+    ):
+        raise ValueError(
+            "Artist clusters and "
+            "2D UMAP coordinates "
+            "are not aligned"
+        )
+
+    if (
+            len(artists)
             != len(coordinates_3d)
     ):
         raise ValueError(
             "Artist clusters and "
-            "UMAP coordinates are "
-            "not aligned"
+            "3D UMAP coordinates "
+            "are not aligned"
+        )
+
+    if (
+            coordinates_2d.ndim != 2
+            or coordinates_2d.shape[1] != 2
+    ):
+        raise ValueError(
+            "The 2D coordinate array "
+            "must have shape (n, 2)"
+        )
+
+    if (
+            coordinates_3d.ndim != 2
+            or coordinates_3d.shape[1] != 3
+    ):
+        raise ValueError(
+            "The 3D coordinate array "
+            "must have shape (n, 3)"
         )
 
     available_columns = [
         column
         for column in MAP_COLUMNS
-        if column
-           in artists.columns
+        if column in artists.columns
     ]
 
     map_2d = artists[
@@ -124,6 +255,18 @@ def run() -> None:
         index=False,
     )
 
+    missing_2d_names = int(
+        map_2d[
+            "display_name"
+        ].isna().sum()
+    )
+
+    missing_3d_names = int(
+        map_3d[
+            "display_name"
+        ].isna().sum()
+    )
+
     print(
         f"Saved 2D map to "
         f"{ARTIST_MAP_2D_PATH}"
@@ -132,6 +275,18 @@ def run() -> None:
     print(
         f"Saved 3D map to "
         f"{ARTIST_MAP_3D_PATH}"
+    )
+
+    print(
+        "Missing display names "
+        f"in 2D map: "
+        f"{missing_2d_names}"
+    )
+
+    print(
+        "Missing display names "
+        f"in 3D map: "
+        f"{missing_3d_names}"
     )
 
 

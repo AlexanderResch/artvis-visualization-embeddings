@@ -1,23 +1,138 @@
-import type { Embedding2D, Embedding3D } from "../types/embedding";
+import { getJson } from "./http";
 
-const API_URL = import.meta.env.VITE_API_URL ?? "http://localhost:8000";
+import type {
+    ArtistEmbedding2D,
+    ArtistEmbedding3D,
+} from "../types/embedding";
 
-export async function fetchEmbeddings2D(): Promise<Embedding2D[]> {
-    const response = await fetch(`${API_URL}/embeddings/2d`);
 
-    if (!response.ok) {
-        throw new Error("Failed to fetch 2D embeddings");
+type RawArtistEmbedding2D =
+    Omit<
+        ArtistEmbedding2D,
+        "display_name"
+    > & {
+    display_name?:
+        string | null;
+};
+
+
+type RawArtistEmbedding3D =
+    Omit<
+        ArtistEmbedding3D,
+        "display_name"
+    > & {
+    display_name?:
+        string | null;
+};
+
+
+function resolveDisplayName(
+    displayName:
+        string | null | undefined,
+
+    entity:
+        string | null | undefined,
+
+    id:
+    string,
+): string {
+    const normalizedName =
+        typeof displayName === "string"
+            ? displayName.trim()
+            : "";
+
+    const invalidNames =
+        new Set([
+            "",
+            "null",
+            "none",
+            "nan",
+            "undefined",
+        ]);
+
+    if (
+        normalizedName
+        && !invalidNames.has(
+            normalizedName.toLowerCase()
+        )
+    ) {
+        return normalizedName;
     }
 
-    return response.json();
+    const normalizedEntity =
+        typeof entity === "string"
+            ? entity.trim()
+            : "";
+
+    if (normalizedEntity) {
+        return normalizedEntity;
+    }
+
+    return `Artist ${id}`;
 }
 
-export async function fetchEmbeddings3D(): Promise<Embedding3D[]> {
-    const response = await fetch(`${API_URL}/embeddings/3d`);
 
-    if (!response.ok) {
-        throw new Error("Failed to fetch 3D embeddings");
-    }
+function normalizeArtist2D(
+    artist: RawArtistEmbedding2D,
+): ArtistEmbedding2D {
+    return {
+        ...artist,
 
-    return response.json();
+        display_name:
+            resolveDisplayName(
+                artist.display_name,
+                artist.entity,
+                artist.id,
+            ),
+    };
+}
+
+
+function normalizeArtist3D(
+    artist: RawArtistEmbedding3D,
+): ArtistEmbedding3D {
+    return {
+        ...artist,
+
+        display_name:
+            resolveDisplayName(
+                artist.display_name,
+                artist.entity,
+                artist.id,
+            ),
+    };
+}
+
+
+export async function fetchEmbeddings2D(
+    signal?: AbortSignal,
+): Promise<ArtistEmbedding2D[]> {
+    const artists =
+        await getJson<
+            RawArtistEmbedding2D[]
+        >(
+            "/embeddings/2d",
+            signal,
+        );
+
+    return artists.map(
+        normalizeArtist2D
+    );
+}
+
+
+export async function fetchEmbeddings3D(
+    signal?: AbortSignal,
+): Promise<ArtistEmbedding3D[]> {
+    const artists =
+        await getJson<
+            RawArtistEmbedding3D[]
+        >(
+            "/embeddings/3d",
+            signal,
+        );
+
+    return artists.map(
+        normalizeArtist3D
+    );
 }
