@@ -4,7 +4,7 @@ import {
 } from "@mui/material";
 
 import {
-    extent,
+    polygonHull,
     pointer,
     quadtree,
     scaleLinear,
@@ -13,6 +13,7 @@ import {
     zoomIdentity,
     type D3ZoomEvent,
     type Quadtree,
+    type ScaleLinear,
     type ZoomBehavior,
     type ZoomTransform,
 } from "d3";
@@ -36,6 +37,7 @@ import type {
 
 import {
     clusterColor,
+    clusterPointOutlineColor,
 } from "../../visualization/colors";
 
 import {
@@ -68,16 +70,23 @@ const PADDING = {
 function safeDomain(
     values: number[],
 ): [number, number] {
-    const [
-        minimum,
-        maximum,
-    ] = extent(values);
-
-    if (
-        minimum === undefined
-        || maximum === undefined
-    ) {
+    if (!values.length) {
         return [0, 1];
+    }
+
+    let minimum = values[0];
+    let maximum = values[0];
+
+    for (const value of values) {
+        minimum = Math.min(
+            minimum,
+            value,
+        );
+
+        maximum = Math.max(
+            maximum,
+            value,
+        );
     }
 
     if (minimum === maximum) {
@@ -121,20 +130,13 @@ function prepareCanvas(
         );
 
     if (
-        canvas.width
-        !== pixelWidth
-        || canvas.height
-        !== pixelHeight
+        canvas.width !== pixelWidth
+        || canvas.height !== pixelHeight
     ) {
-        canvas.width =
-            pixelWidth;
-
-        canvas.height =
-            pixelHeight;
-
+        canvas.width = pixelWidth;
+        canvas.height = pixelHeight;
         canvas.style.width =
             `${size.width}px`;
-
         canvas.style.height =
             `${size.height}px`;
     }
@@ -164,23 +166,339 @@ function prepareCanvas(
 }
 
 
+function drawAxes(
+    context: CanvasRenderingContext2D,
+    size: CanvasSize,
+    xScale: ScaleLinear<number, number>,
+    yScale: ScaleLinear<number, number>,
+) {
+    context.save();
+
+    context.strokeStyle =
+        "#e7eaee";
+
+    context.lineWidth = 1;
+    context.fillStyle =
+        "#6b7280";
+
+    context.font =
+        "11px Inter, Segoe UI, Arial";
+
+    xScale.ticks(7).forEach(
+        (tick) => {
+            const x = xScale(tick);
+
+            if (
+                x < PADDING.left
+                || x
+                > size.width
+                - PADDING.right
+            ) {
+                return;
+            }
+
+            context.beginPath();
+            context.moveTo(
+                x,
+                PADDING.top,
+            );
+            context.lineTo(
+                x,
+                size.height
+                - PADDING.bottom,
+            );
+            context.stroke();
+
+            context.textAlign =
+                "center";
+            context.textBaseline =
+                "top";
+
+            context.fillText(
+                xScale.tickFormat(7)(
+                    tick,
+                ),
+                x,
+                size.height
+                - PADDING.bottom
+                + 7,
+            );
+        },
+    );
+
+    yScale.ticks(6).forEach(
+        (tick) => {
+            const y = yScale(tick);
+
+            if (
+                y < PADDING.top
+                || y
+                > size.height
+                - PADDING.bottom
+            ) {
+                return;
+            }
+
+            context.beginPath();
+            context.moveTo(
+                PADDING.left,
+                y,
+            );
+            context.lineTo(
+                size.width
+                - PADDING.right,
+                y,
+            );
+            context.stroke();
+
+            context.textAlign =
+                "right";
+            context.textBaseline =
+                "middle";
+
+            context.fillText(
+                yScale.tickFormat(6)(
+                    tick,
+                ),
+                PADDING.left - 7,
+                y,
+            );
+        },
+    );
+
+    context.restore();
+}
+
+
+function expandHull(
+    hull: [number, number][],
+    factor = 1.06,
+): [number, number][] {
+    const centroidX =
+        hull.reduce(
+            (sum, point) =>
+                sum + point[0],
+            0,
+        ) / hull.length;
+
+    const centroidY =
+        hull.reduce(
+            (sum, point) =>
+                sum + point[1],
+            0,
+        ) / hull.length;
+
+    return hull.map(
+        (point) => [
+            centroidX
+            + (
+                point[0]
+                - centroidX
+            )
+            * factor,
+
+            centroidY
+            + (
+                point[1]
+                - centroidY
+            )
+            * factor,
+        ],
+    );
+}
+
+
+function drawClusterBoundary(
+    context: CanvasRenderingContext2D,
+    hull: [number, number][] | null,
+    clusterId: number,
+    size: CanvasSize,
+    baseXScale: ScaleLinear<number, number>,
+    baseYScale: ScaleLinear<number, number>,
+    transform: ZoomTransform,
+) {
+    if (!hull || hull.length < 3) {
+        return;
+    }
+
+    const screenHull =
+        hull.map(
+            ([x, y]) => [
+                transform.applyX(
+                    baseXScale(x),
+                ),
+
+                transform.applyY(
+                    baseYScale(y),
+                ),
+            ] as [number, number],
+        );
+
+    const color =
+        clusterColor(clusterId);
+
+    context.save();
+
+    context.beginPath();
+    context.rect(
+        PADDING.left,
+        PADDING.top,
+        size.width
+        - PADDING.left
+        - PADDING.right,
+        size.height
+        - PADDING.top
+        - PADDING.bottom,
+    );
+    context.clip();
+
+    context.beginPath();
+
+    screenHull.forEach(
+        (point, index) => {
+            if (index === 0) {
+                context.moveTo(
+                    point[0],
+                    point[1],
+                );
+
+                return;
+            }
+
+            context.lineTo(
+                point[0],
+                point[1],
+            );
+        },
+    );
+
+    context.closePath();
+
+    context.fillStyle = color;
+    context.globalAlpha = 0.07;
+    context.fill();
+
+    context.globalAlpha = 0.95;
+    context.strokeStyle = color;
+    context.lineWidth = 2.5;
+    context.lineJoin = "round";
+    context.lineCap = "round";
+    context.setLineDash([
+        8,
+        6,
+    ]);
+    context.stroke();
+
+    context.restore();
+
+    const minimumX = Math.min(
+        ...screenHull.map(
+            (point) => point[0],
+        ),
+    );
+
+    const maximumX = Math.max(
+        ...screenHull.map(
+            (point) => point[0],
+        ),
+    );
+
+    const minimumY = Math.min(
+        ...screenHull.map(
+            (point) => point[1],
+        ),
+    );
+
+    const label =
+        `Cluster ${clusterId}`;
+
+    context.save();
+    context.font =
+        "600 12px Inter, Segoe UI, Arial";
+
+    const labelWidth =
+        context.measureText(label).width;
+
+    const labelX =
+        Math.max(
+            PADDING.left + 6,
+            Math.min(
+                size.width
+                - PADDING.right
+                - labelWidth
+                - 14,
+                (minimumX + maximumX) / 2
+                - labelWidth / 2
+                - 7,
+            ),
+        );
+
+    const labelY =
+        Math.max(
+            PADDING.top + 6,
+            minimumY - 30,
+        );
+
+    context.fillStyle =
+        "rgba(255,255,255,0.95)";
+    context.strokeStyle = color;
+    context.lineWidth = 1.5;
+    context.setLineDash([]);
+
+    context.beginPath();
+    context.roundRect(
+        labelX,
+        labelY,
+        labelWidth + 14,
+        24,
+        8,
+    );
+    context.fill();
+    context.stroke();
+
+    context.fillStyle = color;
+    context.textAlign = "left";
+    context.textBaseline =
+        "middle";
+
+    context.fillText(
+        label,
+        labelX + 7,
+        labelY + 12,
+    );
+
+    context.restore();
+}
+
+
 export function EmbeddingCanvas2D({
                                       data,
+                                      highlightClusterId = null,
+                                      highlightBoundaryData,
+                                      dimNonHighlighted = false,
+                                      onArtistClick,
                                   }: {
     data: ArtistEmbedding2D[];
+    highlightBoundaryData?:
+        ArtistEmbedding2D[];
+    highlightClusterId?:
+        number | null;
+    dimNonHighlighted?: boolean;
+    onArtistClick?:
+        (artist: ArtistEmbedding2D) => void;
 }) {
     const explorer =
         useExplorer();
 
     const containerRef =
-        useRef<
-            HTMLDivElement | null
-        >(null);
+        useRef<HTMLDivElement | null>(
+            null,
+        );
 
     const canvasRef =
-        useRef<
-            HTMLCanvasElement | null
-        >(null);
+        useRef<HTMLCanvasElement | null>(
+            null,
+        );
 
     const sizeRef =
         useRef<CanvasSize>({
@@ -209,16 +527,15 @@ export function EmbeddingCanvas2D({
         >(null);
 
     const animationFrameRef =
-        useRef<
-            number | null
-        >(null);
+        useRef<number | null>(
+            null,
+        );
 
     const [
         tooltip,
         setTooltip,
     ] = useState<
-        CanvasTooltipState
-        | null
+        CanvasTooltipState | null
     >(null);
 
     const [
@@ -229,301 +546,406 @@ export function EmbeddingCanvas2D({
         height: 0,
     });
 
-
-    const xScale =
+    const scaleData =
         useMemo(
-            () =>
-                scaleLinear()
-                    .domain(
-                        safeDomain(
-                            data.map(
-                                (point) =>
-                                    point.x,
-                            ),
-                        ),
-                    )
-                    .nice(),
-
-            [data],
-        );
-
-
-    const yScale =
-        useMemo(
-            () =>
-                scaleLinear()
-                    .domain(
-                        safeDomain(
-                            data.map(
-                                (point) =>
-                                    point.y,
-                            ),
-                        ),
-                    )
-                    .nice(),
-
-            [data],
-        );
-
-
-    const draw =
-        useCallback(
             () => {
-                const canvas =
-                    canvasRef.current;
-
-                const currentSize =
-                    sizeRef.current;
-
                 if (
-                    !canvas
-                    || currentSize.width <= 0
-                    || currentSize.height <= 0
+                    !highlightBoundaryData
+                    || highlightBoundaryData.length === 0
                 ) {
-                    return;
+                    return data;
                 }
 
-                const context =
-                    prepareCanvas(
-                        canvas,
-                        currentSize,
-                    );
-
-                if (!context) {
-                    return;
-                }
-
-                const transform =
-                    transformRef.current;
-
-                const baseXScale =
-                    xScale
-                        .copy()
-                        .range([
-                            PADDING.left,
-
-                            currentSize.width
-                            - PADDING.right,
-                        ]);
-
-                const baseYScale =
-                    yScale
-                        .copy()
-                        .range([
-                            currentSize.height
-                            - PADDING.bottom,
-
-                            PADDING.top,
-                        ]);
-
-                const visibleXScale =
-                    transform.rescaleX(
-                        baseXScale,
-                    );
-
-                const visibleYScale =
-                    transform.rescaleY(
-                        baseYScale,
-                    );
-
-                context.clearRect(
-                    0,
-                    0,
-                    currentSize.width,
-                    currentSize.height,
-                );
-
-                context.fillStyle =
-                    "#ffffff";
-
-                context.fillRect(
-                    0,
-                    0,
-                    currentSize.width,
-                    currentSize.height,
-                );
-
-
-                drawAxes(
-                    context,
-                    currentSize,
-                    visibleXScale,
-                    visibleYScale,
-                );
-
-
-                const screenPoints:
-                    ScreenPoint[] = [];
-
-
-                for (
-                    const artist
-                    of data
-                    ) {
-                    const screenX =
-                        transform.applyX(
-                            baseXScale(
-                                artist.x,
-                            ),
-                        );
-
-                    const screenY =
-                        transform.applyY(
-                            baseYScale(
-                                artist.y,
-                            ),
-                        );
-
-                    const outsideCanvas =
-                        screenX
-                        < PADDING.left - 8
-                        || screenX
-                        > currentSize.width
-                        - PADDING.right
-                        + 8
-                        || screenY
-                        < PADDING.top - 8
-                        || screenY
-                        > currentSize.height
-                        - PADDING.bottom
-                        + 8;
-
-                    if (outsideCanvas) {
-                        continue;
-                    }
-
-                    screenPoints.push({
-                        artist,
-                        screenX,
-                        screenY,
-                    });
-                }
-
-
-                screenPoints.sort(
-                    (
-                        firstPoint,
-                        secondPoint,
-                    ) => {
-                        if (
-                            firstPoint.artist.is_noise
-                            !== secondPoint.artist.is_noise
-                        ) {
-                            return firstPoint
-                                .artist
-                                .is_noise
-                                ? -1
-                                : 1;
-                        }
-
-                        return (
-                            firstPoint.artist.cluster
-                            - secondPoint.artist.cluster
-                        );
-                    },
-                );
-
-
-                for (
-                    const point
-                    of screenPoints
-                    ) {
-                    const isSelected =
-                        point.artist.id
-                        === explorer
-                            .selectedArtistId;
-
-                    const radius =
-                        isSelected
-                            ? 6.5
-                            : point.artist.is_noise
-                                ? 1.5
-                                : 2.5;
-
-                    context.beginPath();
-
-                    context.arc(
-                        point.screenX,
-                        point.screenY,
-                        radius,
-                        0,
-                        Math.PI * 2,
-                    );
-
-                    context.fillStyle =
-                        clusterColor(
-                            point.artist.cluster,
-                        );
-
-                    context.globalAlpha =
-                        isSelected
-                            ? 1
-                            : point.artist.is_noise
-                                ? 0.18
-                                : 0.72;
-
-                    context.fill();
-
-
-                    if (isSelected) {
-                        context.globalAlpha =
-                            1;
-
-                        context.lineWidth =
-                            2;
-
-                        context.strokeStyle =
-                            "#111827";
-
-                        context.stroke();
-
-                        context.beginPath();
-
-                        context.arc(
-                            point.screenX,
-                            point.screenY,
-                            radius + 3,
-                            0,
-                            Math.PI * 2,
-                        );
-
-                        context.strokeStyle =
-                            "#ffffff";
-
-                        context.lineWidth =
-                            2;
-
-                        context.stroke();
-                    }
-                }
-
-                context.globalAlpha =
-                    1;
-
-
-                quadtreeRef.current =
-                    quadtree<ScreenPoint>()
-                        .x(
-                            (point) =>
-                                point.screenX,
-                        )
-                        .y(
-                            (point) =>
-                                point.screenY,
-                        )
-                        .addAll(
-                            screenPoints,
-                        );
+                return [
+                    ...data,
+                    ...highlightBoundaryData,
+                ];
             },
-
             [
                 data,
-                explorer.selectedArtistId,
-                xScale,
-                yScale,
+                highlightBoundaryData,
             ],
         );
 
+
+    const clusterHull =
+        useMemo(
+            () => {
+                if (highlightClusterId === null) {
+                    return null;
+                }
+
+                const boundarySource =
+                    highlightBoundaryData
+                    ?? data;
+
+                const coordinates =
+                    boundarySource
+                        .filter(
+                            (artist) =>
+                                artist.cluster
+                                === highlightClusterId,
+                        )
+                        .map(
+                            (artist) => [
+                                artist.x,
+                                artist.y,
+                            ] as [number, number],
+                        );
+
+                const hull =
+                    polygonHull(coordinates);
+
+                if (!hull) {
+                    return null;
+                }
+
+                return expandHull(
+                    hull,
+                );
+            },
+            [
+                data,
+                highlightBoundaryData,
+                highlightClusterId,
+            ],
+        );
+
+
+    const xScale = useMemo(
+        () =>
+            scaleLinear()
+                .domain(
+                    safeDomain(
+                        scaleData.map(
+                            (point) =>
+                                point.x,
+                        ),
+                    ),
+                )
+                .nice(),
+
+        [scaleData],
+    );
+
+    const yScale = useMemo(
+        () =>
+            scaleLinear()
+                .domain(
+                    safeDomain(
+                        scaleData.map(
+                            (point) =>
+                                point.y,
+                        ),
+                    ),
+                )
+                .nice(),
+
+        [scaleData],
+    );
+
+    const draw = useCallback(
+        () => {
+            const canvas =
+                canvasRef.current;
+
+            const currentSize =
+                sizeRef.current;
+
+            if (
+                !canvas
+                || currentSize.width <= 0
+                || currentSize.height <= 0
+            ) {
+                return;
+            }
+
+            const context =
+                prepareCanvas(
+                    canvas,
+                    currentSize,
+                );
+
+            if (!context) {
+                return;
+            }
+
+            const transform =
+                transformRef.current;
+
+            const baseXScale =
+                xScale.copy().range([
+                    PADDING.left,
+                    currentSize.width
+                    - PADDING.right,
+                ]);
+
+            const baseYScale =
+                yScale.copy().range([
+                    currentSize.height
+                    - PADDING.bottom,
+                    PADDING.top,
+                ]);
+
+            const visibleXScale =
+                transform.rescaleX(
+                    baseXScale,
+                );
+
+            const visibleYScale =
+                transform.rescaleY(
+                    baseYScale,
+                );
+
+            context.clearRect(
+                0,
+                0,
+                currentSize.width,
+                currentSize.height,
+            );
+
+            context.fillStyle =
+                "#ffffff";
+
+            context.fillRect(
+                0,
+                0,
+                currentSize.width,
+                currentSize.height,
+            );
+
+            drawAxes(
+                context,
+                currentSize,
+                visibleXScale,
+                visibleYScale,
+            );
+
+            const screenPoints:
+                ScreenPoint[] = [];
+
+            for (const artist of data) {
+                const screenX =
+                    transform.applyX(
+                        baseXScale(
+                            artist.x,
+                        ),
+                    );
+
+                const screenY =
+                    transform.applyY(
+                        baseYScale(
+                            artist.y,
+                        ),
+                    );
+
+                const outsideCanvas =
+                    screenX
+                    < PADDING.left - 8
+                    || screenX
+                    > currentSize.width
+                    - PADDING.right
+                    + 8
+                    || screenY
+                    < PADDING.top - 8
+                    || screenY
+                    > currentSize.height
+                    - PADDING.bottom
+                    + 8;
+
+                if (outsideCanvas) {
+                    continue;
+                }
+
+                screenPoints.push({
+                    artist,
+                    screenX,
+                    screenY,
+                });
+            }
+
+            if (
+                highlightClusterId !== null
+            ) {
+                drawClusterBoundary(
+                    context,
+                    clusterHull,
+                    highlightClusterId,
+                    currentSize,
+                    baseXScale,
+                    baseYScale,
+                    transform,
+                );
+            }
+
+            screenPoints.sort(
+                (
+                    firstPoint,
+                    secondPoint,
+                ) => {
+                    const firstHighlighted =
+                        highlightClusterId !== null
+                        && firstPoint.artist.cluster
+                        === highlightClusterId;
+
+                    const secondHighlighted =
+                        highlightClusterId !== null
+                        && secondPoint.artist.cluster
+                        === highlightClusterId;
+
+                    if (
+                        firstHighlighted
+                        !== secondHighlighted
+                    ) {
+                        return firstHighlighted
+                            ? 1
+                            : -1;
+                    }
+
+                    if (
+                        firstPoint.artist.is_noise
+                        !== secondPoint.artist.is_noise
+                    ) {
+                        return firstPoint.artist.is_noise
+                            ? -1
+                            : 1;
+                    }
+
+                    return (
+                        firstPoint.artist.cluster
+                        - secondPoint.artist.cluster
+                    );
+                },
+            );
+
+            for (const point of screenPoints) {
+                const selected =
+                    point.artist.id
+                    === explorer.selectedArtistId;
+
+                const highlighted =
+                    highlightClusterId !== null
+                    && point.artist.cluster
+                    === highlightClusterId;
+
+                const dimmed =
+                    dimNonHighlighted
+                    && highlightClusterId !== null
+                    && !highlighted;
+
+                const radius =
+                    selected
+                        ? 6.5
+                        : highlighted
+                            ? 3.2
+                            : dimmed
+                                ? point.artist.is_noise
+                                    ? 1.4
+                                    : 2.1
+                                : point.artist.is_noise
+                                    ? 1.5
+                                    : 2.3;
+
+                context.beginPath();
+                context.arc(
+                    point.screenX,
+                    point.screenY,
+                    radius,
+                    0,
+                    Math.PI * 2,
+                );
+
+                context.fillStyle =
+                    clusterColor(
+                        point.artist.cluster,
+                    );
+
+                context.globalAlpha =
+                    selected
+                        ? 1
+                        : highlighted
+                            ? 0.95
+                            : dimmed
+                                ? point.artist.is_noise
+                                    ? 0.1
+                                    : 0.42
+                                : point.artist.is_noise
+                                    ? 0.2
+                                    : 0.72;
+
+                context.fill();
+
+                if (
+                    !point.artist.is_noise
+                ) {
+                    context.globalAlpha =
+                        selected
+                            ? 1
+                            : highlighted
+                                ? 0.88
+                                : dimmed
+                                    ? 0.55
+                                    : 0.72;
+
+                    context.strokeStyle =
+                        clusterPointOutlineColor(
+                            point.artist.cluster,
+                        );
+
+                    context.lineWidth =
+                        highlighted
+                            ? 0.9
+                            : 0.55;
+
+                    context.stroke();
+                }
+
+                if (selected) {
+                    context.globalAlpha = 1;
+                    context.lineWidth = 2;
+                    context.strokeStyle =
+                        "#111827";
+                    context.stroke();
+
+                    context.beginPath();
+                    context.arc(
+                        point.screenX,
+                        point.screenY,
+                        radius + 3,
+                        0,
+                        Math.PI * 2,
+                    );
+                    context.strokeStyle =
+                        "#ffffff";
+                    context.lineWidth = 2;
+                    context.stroke();
+                }
+            }
+
+            context.globalAlpha = 1;
+
+            quadtreeRef.current =
+                quadtree<ScreenPoint>()
+                    .x(
+                        (point) =>
+                            point.screenX,
+                    )
+                    .y(
+                        (point) =>
+                            point.screenY,
+                    )
+                    .addAll(screenPoints);
+        },
+        [
+            clusterHull,
+            data,
+            dimNonHighlighted,
+            explorer.selectedArtistId,
+            highlightClusterId,
+            xScale,
+            yScale,
+        ],
+    );
 
     const scheduleDraw =
         useCallback(
@@ -542,43 +964,35 @@ export function EmbeddingCanvas2D({
                         () => {
                             animationFrameRef.current =
                                 null;
-
                             draw();
                         },
                     );
             },
-
             [draw],
         );
 
-
     useEffect(
         () => {
-            sizeRef.current =
-                size;
-
+            sizeRef.current = size;
             scheduleDraw();
         },
-
         [
             scheduleDraw,
             size,
         ],
     );
 
-
     useEffect(
         () => {
             scheduleDraw();
         },
-
         [
             data,
             explorer.selectedArtistId,
+            highlightClusterId,
             scheduleDraw,
         ],
     );
-
 
     useEffect(
         () => {
@@ -592,45 +1006,32 @@ export function EmbeddingCanvas2D({
             const observer =
                 new ResizeObserver(
                     (entries) => {
-                        const entry =
-                            entries[0];
+                        const entry = entries[0];
 
                         if (!entry) {
                             return;
                         }
 
                         setSize({
-                            width:
-                                Math.max(
-                                    1,
-                                    entry
-                                        .contentRect
-                                        .width,
-                                ),
-
-                            height:
-                                Math.max(
-                                    1,
-                                    entry
-                                        .contentRect
-                                        .height,
-                                ),
+                            width: Math.max(
+                                1,
+                                entry.contentRect.width,
+                            ),
+                            height: Math.max(
+                                1,
+                                entry.contentRect.height,
+                            ),
                         });
                     },
                 );
 
-            observer.observe(
-                container,
-            );
+            observer.observe(container);
 
-            return () => {
+            return () =>
                 observer.disconnect();
-            };
         },
-
         [],
     );
-
 
     useEffect(
         () => {
@@ -652,7 +1053,6 @@ export function EmbeddingCanvas2D({
                     ])
                     .on(
                         "zoom",
-
                         (
                             event:
                             D3ZoomEvent<
@@ -662,11 +1062,7 @@ export function EmbeddingCanvas2D({
                         ) => {
                             transformRef.current =
                                 event.transform;
-
-                            setTooltip(
-                                null,
-                            );
-
+                            setTooltip(null);
                             scheduleDraw();
                         },
                     );
@@ -674,18 +1070,15 @@ export function EmbeddingCanvas2D({
             zoomBehaviorRef.current =
                 zoomBehavior;
 
-            select(canvas)
-                .call(
-                    zoomBehavior,
-                );
-
+            select(canvas).call(
+                zoomBehavior,
+            );
 
             return () => {
-                select(canvas)
-                    .on(
-                        ".zoom",
-                        null,
-                    );
+                select(canvas).on(
+                    ".zoom",
+                    null,
+                );
 
                 if (
                     zoomBehaviorRef.current
@@ -696,28 +1089,22 @@ export function EmbeddingCanvas2D({
                 }
             };
         },
-
         [scheduleDraw],
     );
 
-
     useEffect(
-        () => {
-            return () => {
-                if (
-                    animationFrameRef.current
-                    !== null
-                ) {
-                    cancelAnimationFrame(
-                        animationFrameRef.current,
-                    );
-                }
-            };
+        () => () => {
+            if (
+                animationFrameRef.current
+                !== null
+            ) {
+                cancelAnimationFrame(
+                    animationFrameRef.current,
+                );
+            }
         },
-
         [],
     );
-
 
     function findPoint(
         event:
@@ -740,15 +1127,13 @@ export function EmbeddingCanvas2D({
             canvas,
         );
 
-        return quadtreeRef
-            .current
+        return quadtreeRef.current
             ?.find(
                 pointerX,
                 pointerY,
                 10,
             );
     }
-
 
     function handlePointerMove(
         event:
@@ -757,20 +1142,13 @@ export function EmbeddingCanvas2D({
         >,
     ) {
         const foundPoint =
-            findPoint(
-                event,
-            );
+            findPoint(event);
 
         const canvas =
             canvasRef.current;
 
-        if (
-            !foundPoint
-            || !canvas
-        ) {
-            setTooltip(
-                null,
-            );
+        if (!foundPoint || !canvas) {
+            setTooltip(null);
 
             if (canvas) {
                 canvas.style.cursor =
@@ -780,9 +1158,8 @@ export function EmbeddingCanvas2D({
             return;
         }
 
-        const canvasRectangle =
-            canvas
-                .getBoundingClientRect();
+        const rectangle =
+            canvas.getBoundingClientRect();
 
         canvas.style.cursor =
             "pointer";
@@ -790,17 +1167,13 @@ export function EmbeddingCanvas2D({
         setTooltip({
             left:
                 event.clientX
-                - canvasRectangle.left,
-
+                - rectangle.left,
             top:
                 event.clientY
-                - canvasRectangle.top,
-
-            artist:
-            foundPoint.artist,
+                - rectangle.top,
+            artist: foundPoint.artist,
         });
     }
-
 
     function handleClick(
         event:
@@ -809,27 +1182,29 @@ export function EmbeddingCanvas2D({
         >,
     ) {
         const foundPoint =
-            findPoint(
-                event,
-            );
+            findPoint(event);
 
         if (!foundPoint) {
             return;
         }
 
-        explorer
-            .setSelectedArtistId(
-                String(
-                    foundPoint.artist.id,
-                ),
+        if (onArtistClick) {
+            onArtistClick(
+                foundPoint.artist,
             );
+            return;
+        }
 
-        explorer
-            .setSelectedClusterId(
-                foundPoint.artist.cluster,
-            );
+        explorer.setSelectedArtistId(
+            String(
+                foundPoint.artist.id,
+            ),
+        );
+
+        explorer.setSelectedClusterId(
+            foundPoint.artist.cluster,
+        );
     }
-
 
     function resetView() {
         const canvas =
@@ -838,43 +1213,24 @@ export function EmbeddingCanvas2D({
         const zoomBehavior =
             zoomBehaviorRef.current;
 
-        setTooltip(
-            null,
-        );
+        setTooltip(null);
 
-        if (
-            !canvas
-            || !zoomBehavior
-        ) {
+        if (!canvas || !zoomBehavior) {
             transformRef.current =
                 zoomIdentity;
-
             scheduleDraw();
-
             return;
         }
 
-        /*
-         * Wichtig:
-         * Hier wird dieselbe Zoom-Instanz verwendet,
-         * die auch am Canvas registriert wurde.
-         * Dadurch wird der Zoom-Listener ausgelöst,
-         * transformRef aktualisiert und neu gezeichnet.
-         */
-        select(canvas)
-            .call(
-                zoomBehavior.transform,
-                zoomIdentity,
-            );
+        select(canvas).call(
+            zoomBehavior.transform,
+            zoomIdentity,
+        );
     }
-
 
     return (
         <Box
-            ref={
-                containerRef
-            }
-
+            ref={containerRef}
             sx={{
                 position: "relative",
                 width: "100%",
@@ -884,30 +1240,16 @@ export function EmbeddingCanvas2D({
             }}
         >
             <canvas
-                ref={
-                    canvasRef
-                }
-
-                aria-label={
-                    "Interactive 2D Artist "
-                    + "embedding map"
-                }
-
+                ref={canvasRef}
+                aria-label="Interactive 2D Artist embedding map"
                 onPointerMove={
                     handlePointerMove
                 }
-
                 onPointerLeave={
                     () =>
-                        setTooltip(
-                            null,
-                        )
+                        setTooltip(null)
                 }
-
-                onClick={
-                    handleClick
-                }
-
+                onClick={handleClick}
                 style={{
                     display: "block",
                     cursor: "grab",
@@ -915,27 +1257,18 @@ export function EmbeddingCanvas2D({
                 }}
             />
 
-
             <Button
                 type="button"
-
                 size="small"
-
                 variant="outlined"
-
-                onClick={
-                    resetView
-                }
-
+                onClick={resetView}
                 sx={{
                     position: "absolute",
                     right: 10,
                     bottom: 10,
                     zIndex: 3,
-
                     backgroundColor:
                         "rgba(255,255,255,0.94)",
-
                     "&:hover": {
                         backgroundColor:
                             "#ffffff",
@@ -945,154 +1278,9 @@ export function EmbeddingCanvas2D({
                 Reset view
             </Button>
 
-
             <CanvasTooltip
-                tooltip={
-                    tooltip
-                }
+                tooltip={tooltip}
             />
         </Box>
     );
-}
-
-
-function drawAxes(
-    context:
-    CanvasRenderingContext2D,
-
-    size:
-    CanvasSize,
-
-    visibleXScale:
-    ReturnType<
-        typeof scaleLinear
-    >,
-
-    visibleYScale:
-    ReturnType<
-        typeof scaleLinear
-    >,
-) {
-    context.save();
-
-    context.strokeStyle =
-        "#e7eaee";
-
-    context.lineWidth =
-        1;
-
-    context.fillStyle =
-        "#6b7280";
-
-    context.font =
-        "11px Inter, Segoe UI, Arial";
-
-
-    visibleXScale
-        .ticks(7)
-        .forEach(
-            (tick) => {
-                const x =
-                    visibleXScale(
-                        tick,
-                    );
-
-                if (
-                    x < PADDING.left
-                    || x
-                    > size.width
-                    - PADDING.right
-                ) {
-                    return;
-                }
-
-                context.beginPath();
-
-                context.moveTo(
-                    x,
-                    PADDING.top,
-                );
-
-                context.lineTo(
-                    x,
-                    size.height
-                    - PADDING.bottom,
-                );
-
-                context.stroke();
-
-                context.textAlign =
-                    "center";
-
-                context.textBaseline =
-                    "top";
-
-                context.fillText(
-                    visibleXScale
-                        .tickFormat(7)(
-                            tick,
-                        ),
-
-                    x,
-
-                    size.height
-                    - PADDING.bottom
-                    + 7,
-                );
-            },
-        );
-
-
-    visibleYScale
-        .ticks(6)
-        .forEach(
-            (tick) => {
-                const y =
-                    visibleYScale(
-                        tick,
-                    );
-
-                if (
-                    y < PADDING.top
-                    || y
-                    > size.height
-                    - PADDING.bottom
-                ) {
-                    return;
-                }
-
-                context.beginPath();
-
-                context.moveTo(
-                    PADDING.left,
-                    y,
-                );
-
-                context.lineTo(
-                    size.width
-                    - PADDING.right,
-                    y,
-                );
-
-                context.stroke();
-
-                context.textAlign =
-                    "right";
-
-                context.textBaseline =
-                    "middle";
-
-                context.fillText(
-                    visibleYScale
-                        .tickFormat(6)(
-                            tick,
-                        ),
-
-                    PADDING.left - 7,
-                    y,
-                );
-            },
-        );
-
-    context.restore();
 }

@@ -1,7 +1,11 @@
 import {
+    Accordion,
+    AccordionDetails,
+    AccordionSummary,
     Autocomplete,
     Box,
     Button,
+    Chip,
     Divider,
     FormControlLabel,
     Slider,
@@ -30,7 +34,7 @@ import type {
 } from "../../types/dashboard";
 
 import {
-    CLUSTER_COLORS,
+    clusterColor,
 } from "../../visualization/colors";
 
 import {
@@ -175,6 +179,123 @@ function toggle<T>(
             value,
         ];
 }
+
+
+function FilterAccordionHeader({
+                                   title,
+                                   optionCount,
+                                   selectedCount,
+                               }: {
+    title: string;
+    optionCount: number;
+    selectedCount: number;
+}) {
+    return (
+        <Box
+            sx={{
+                width: "100%",
+
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+
+                gap: 1,
+                pr: 0.5,
+            }}
+        >
+            <Typography
+                variant="subtitle2"
+
+                sx={{
+                    fontWeight: 700,
+                    minWidth: 0,
+                }}
+            >
+                {title}
+            </Typography>
+
+            <Box
+                sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: 0.5,
+                    flexShrink: 0,
+                }}
+            >
+                {selectedCount > 0 && (
+                    <Chip
+                        size="small"
+                        color="primary"
+                        label={`${selectedCount} selected`}
+                    />
+                )}
+
+                <Chip
+                    size="small"
+                    variant="outlined"
+                    label={optionCount}
+                />
+            </Box>
+        </Box>
+    );
+}
+
+
+function ExpandIndicator() {
+    return (
+        <Box
+            component="span"
+
+            sx={{
+                color: "text.secondary",
+                fontSize: 20,
+                lineHeight: 1,
+            }}
+        >
+            ▾
+        </Box>
+    );
+}
+
+
+const accordionStyles = {
+    border: "1px solid",
+    borderColor: "divider",
+    borderRadius: "8px !important",
+    boxShadow: "none",
+    backgroundColor: "background.paper",
+
+    "&::before": {
+        display: "none",
+    },
+
+    "& + &": {
+        mt: 1,
+    },
+
+    "&.Mui-expanded": {
+        margin: 0,
+    },
+};
+
+
+const accordionSummaryStyles = {
+    minHeight: 48,
+    px: 1.25,
+
+    "&.Mui-expanded": {
+        minHeight: 48,
+    },
+
+    "& .MuiAccordionSummary-content": {
+        my: 1,
+        minWidth: 0,
+    },
+
+    "& .MuiAccordionSummary-content.Mui-expanded": {
+        my: 1,
+    },
+};
 
 
 export function FilterSidebar({
@@ -356,6 +477,13 @@ export function FilterSidebar({
             minimumYear,
             maximumYear,
         ];
+
+
+    const clusterOptions =
+        options.clusters.filter(
+            (item) =>
+                !item.is_noise,
+        );
 
 
     return (
@@ -592,10 +720,7 @@ export function FilterSidebar({
 
                             sx={{
                                 display: "flex",
-
-                                alignItems:
-                                    "flex-start",
-
+                                alignItems: "flex-start",
                                 gap: 1,
                                 py: 1,
                             }}
@@ -774,278 +899,470 @@ export function FilterSidebar({
             />
 
 
-            <Typography
-                variant="subtitle2"
-
-                sx={{
-                    fontWeight: 700,
-                }}
-
-                gutterBottom
+            <Accordion
+                disableGutters
+                sx={accordionStyles}
             >
-                Locations
-            </Typography>
+                <AccordionSummary
+                    expandIcon={
+                        <ExpandIndicator />
+                    }
 
-
-            <ScentedList
-                items={
-                    options.locations.map(
-                        (item) => ({
-                            id: item.id,
-
-                            label:
-                            item.name,
-
-                            count:
-                            item.artist_count,
-                        }),
-                    )
-                }
-
-                selectedIds={
-                    explorer
-                        .selectedLocationIds
-                }
-
-                onToggle={
-                    (id) =>
-                        explorer
-                            .setSelectedLocationIds(
-                                (current) =>
-                                    toggle(
-                                        current,
-                                        id,
-                                    ),
-                            )
-                }
-            />
-
-
-            <Divider
-                sx={{
-                    my: 2,
-                }}
-            />
-
-
-            <Box
-                sx={{
-                    display: "flex",
-
-                    alignItems:
-                        "center",
-
-                    justifyContent:
-                        "space-between",
-                }}
-            >
-                <Typography
-                    variant="subtitle2"
-
-                    sx={{
-                        fontWeight: 700,
-                    }}
-                >
-                    Computed clusters
-                </Typography>
-
-
-                <Button
-                    size="small"
-
-                    onClick={() =>
-                        explorer
-                            .setSelectedClusters(
-                                [],
-                            )
+                    sx={
+                        accordionSummaryStyles
                     }
                 >
-                    All
-                </Button>
-            </Box>
+                    <FilterAccordionHeader
+                        title="Locations"
 
-
-            <ScentedList
-                items={
-                    options.clusters
-                        .filter(
-                            (item) =>
-                                !item.is_noise,
-                        )
-                        .map(
-                            (item) => ({
-                                id: String(
-                                    item.cluster,
-                                ),
-
-                                label:
-                                    `Cluster ${
-                                        item.cluster
-                                    }`,
-
-                                count:
-                                item.artist_count,
-
-                                color:
-                                    CLUSTER_COLORS[
-                                    item.cluster
-                                    % CLUSTER_COLORS
-                                        .length
-                                        ],
-                            }),
-                        )
-                }
-
-                selectedIds={
-                    explorer
-                        .selectedClusters
-                        .map(String)
-                }
-
-                onToggle={
-                    (id) =>
-                        explorer
-                            .setSelectedClusters(
-                                (current) =>
-                                    toggle(
-                                        current,
-                                        Number(id),
-                                    ),
-                            )
-                }
-            />
-
-
-            <FormControlLabel
-                control={
-                    <Switch
-                        size="small"
-
-                        checked={
-                            explorer.showNoise
+                        optionCount={
+                            options
+                                .locations
+                                .length
                         }
 
-                        onChange={
-                            (event) =>
-                                explorer
-                                    .setShowNoise(
-                                        event
-                                            .target
-                                            .checked,
-                                    )
+                        selectedCount={
+                            explorer
+                                .selectedLocationIds
+                                .length
                         }
                     />
-                }
+                </AccordionSummary>
 
-                label={
-                    `Show noise (${
-                        options
-                            .overview
-                            .noise_count
-                            .toLocaleString()
-                    })`
-                }
-            />
+                <AccordionDetails
+                    sx={{
+                        px: 1.25,
+                        pt: 0,
+                        pb: 1.25,
+                    }}
+                >
+                    <Typography
+                        variant="caption"
 
+                        color="text.secondary"
 
-            <Typography
-                variant="caption"
+                        sx={{
+                            display: "block",
+                            mb: 1,
+                        }}
+                    >
+                        Bar lengths indicate
+                        how many Artists are
+                        connected to each
+                        location.
+                    </Typography>
 
-                color="text.secondary"
+                    <ScentedList
+                        items={
+                            options.locations.map(
+                                (item) => ({
+                                    id: item.id,
 
-                sx={{
-                    display: "block",
-                    mt: 1,
-                }}
-            >
-                Minimum membership:
-                {" "}
-                {
-                    explorer
-                        .minimumMembership
-                        .toFixed(2)
-                }
-            </Typography>
+                                    label:
+                                    item.name,
 
-
-            <Slider
-                size="small"
-
-                min={0}
-
-                max={1}
-
-                step={0.05}
-
-                value={
-                    explorer
-                        .minimumMembership
-                }
-
-                onChange={(
-                    _,
-                    value,
-                ) =>
-                    explorer
-                        .setMinimumMembership(
-                            value as number,
-                        )
-                }
-            />
-
-
-            <Divider
-                sx={{
-                    my: 2,
-                }}
-            />
-
-
-            <Typography
-                variant="subtitle2"
-
-                sx={{
-                    fontWeight: 700,
-                }}
-
-                gutterBottom
-            >
-                Connected ArtVis groups
-            </Typography>
-
-
-            <ScentedList
-                items={
-                    options.groups.map(
-                        (item) => ({
-                            id: item.id,
-
-                            label:
-                            item.name,
-
-                            count:
-                            item.artist_count,
-                        }),
-                    )
-                }
-
-                selectedIds={
-                    explorer
-                        .selectedGroupIds
-                }
-
-                onToggle={
-                    (id) =>
-                        explorer
-                            .setSelectedGroupIds(
-                                (current) =>
-                                    toggle(
-                                        current,
-                                        id,
-                                    ),
+                                    count:
+                                    item.artist_count,
+                                }),
                             )
-                }
-            />
+                        }
+
+                        selectedIds={
+                            explorer
+                                .selectedLocationIds
+                        }
+
+                        onToggle={
+                            (id) =>
+                                explorer
+                                    .setSelectedLocationIds(
+                                        (current) =>
+                                            toggle(
+                                                current,
+                                                id,
+                                            ),
+                                    )
+                        }
+
+                        maxVisibleHeight={
+                            260
+                        }
+                    />
+
+                    {
+                        explorer
+                            .selectedLocationIds
+                            .length > 0
+                        && (
+                            <Button
+                                size="small"
+
+                                sx={{
+                                    mt: 1,
+                                }}
+
+                                onClick={() =>
+                                    explorer
+                                        .setSelectedLocationIds(
+                                            [],
+                                        )
+                                }
+                            >
+                                Clear locations
+                            </Button>
+                        )
+                    }
+                </AccordionDetails>
+            </Accordion>
+
+
+            <Accordion
+                disableGutters
+                sx={accordionStyles}
+            >
+                <AccordionSummary
+                    expandIcon={
+                        <ExpandIndicator />
+                    }
+
+                    sx={
+                        accordionSummaryStyles
+                    }
+                >
+                    <FilterAccordionHeader
+                        title="Computed clusters"
+
+                        optionCount={
+                            clusterOptions.length
+                        }
+
+                        selectedCount={
+                            explorer
+                                .selectedClusters
+                                .length
+                        }
+                    />
+                </AccordionSummary>
+
+                <AccordionDetails
+                    sx={{
+                        px: 1.25,
+                        pt: 0,
+                        pb: 1.25,
+                    }}
+                >
+                    <Typography
+                        variant="caption"
+
+                        color="text.secondary"
+
+                        sx={{
+                            display: "block",
+                            mb: 1,
+                        }}
+                    >
+                        Bar lengths indicate
+                        the number of Artists
+                        assigned to each
+                        computed cluster.
+                    </Typography>
+
+                    <ScentedList
+                        items={
+                            clusterOptions.map(
+                                (item) => ({
+                                    id: String(
+                                        item.cluster,
+                                    ),
+
+                                    label:
+                                        `Cluster ${
+                                            item.cluster
+                                        }`,
+
+                                    count:
+                                    item.artist_count,
+
+                                    color:
+                                        clusterColor(
+                                            item.cluster,
+                                        ),
+                                }),
+                            )
+                        }
+
+                        selectedIds={
+                            explorer
+                                .selectedClusters
+                                .map(String)
+                        }
+
+                        onToggle={
+                            (id) =>
+                                explorer
+                                    .setSelectedClusters(
+                                        (current) =>
+                                            toggle(
+                                                current,
+                                                Number(id),
+                                            ),
+                                    )
+                        }
+
+                        maxVisibleHeight={
+                            260
+                        }
+                    />
+
+
+                    <FormControlLabel
+                        sx={{
+                            mt: 0.5,
+                        }}
+
+                        control={
+                            <Switch
+                                size="small"
+
+                                checked={
+                                    explorer.showNoise
+                                }
+
+                                onChange={
+                                    (event) =>
+                                        explorer
+                                            .setShowNoise(
+                                                event
+                                                    .target
+                                                    .checked,
+                                            )
+                                }
+                            />
+                        }
+
+                        label={
+                            `Show noise (${
+                                options
+                                    .overview
+                                    .noise_count
+                                    .toLocaleString()
+                            })`
+                        }
+                    />
+
+
+                    <Typography
+                        variant="caption"
+
+                        color="text.secondary"
+
+                        sx={{
+                            display: "block",
+                            mt: 1,
+                        }}
+                    >
+                        Minimum membership:
+                        {" "}
+                        {
+                            explorer
+                                .minimumMembership
+                                .toFixed(2)
+                        }
+                    </Typography>
+
+
+                    <Slider
+                        size="small"
+
+                        min={0}
+
+                        max={1}
+
+                        step={0.05}
+
+                        value={
+                            explorer
+                                .minimumMembership
+                        }
+
+                        onChange={(
+                            _,
+                            value,
+                        ) =>
+                            explorer
+                                .setMinimumMembership(
+                                    value as number,
+                                )
+                        }
+                    />
+
+
+                    <Box
+                        sx={{
+                            display: "flex",
+                            gap: 1,
+                            flexWrap: "wrap",
+                        }}
+                    >
+                        {
+                            explorer
+                                .selectedClusters
+                                .length > 0
+                            && (
+                                <Button
+                                    size="small"
+
+                                    onClick={() =>
+                                        explorer
+                                            .setSelectedClusters(
+                                                [],
+                                            )
+                                    }
+                                >
+                                    Clear clusters
+                                </Button>
+                            )
+                        }
+
+                        {
+                            explorer
+                                .minimumMembership
+                            > 0
+                            && (
+                                <Button
+                                    size="small"
+
+                                    onClick={() =>
+                                        explorer
+                                            .setMinimumMembership(
+                                                0,
+                                            )
+                                    }
+                                >
+                                    Reset membership
+                                </Button>
+                            )
+                        }
+                    </Box>
+                </AccordionDetails>
+            </Accordion>
+
+
+            <Accordion
+                disableGutters
+                sx={accordionStyles}
+            >
+                <AccordionSummary
+                    expandIcon={
+                        <ExpandIndicator />
+                    }
+
+                    sx={
+                        accordionSummaryStyles
+                    }
+                >
+                    <FilterAccordionHeader
+                        title={
+                            "Connected ArtVis groups"
+                        }
+
+                        optionCount={
+                            options.groups.length
+                        }
+
+                        selectedCount={
+                            explorer
+                                .selectedGroupIds
+                                .length
+                        }
+                    />
+                </AccordionSummary>
+
+                <AccordionDetails
+                    sx={{
+                        px: 1.25,
+                        pt: 0,
+                        pb: 1.25,
+                    }}
+                >
+                    <Typography
+                        variant="caption"
+
+                        color="text.secondary"
+
+                        sx={{
+                            display: "block",
+                            mb: 1,
+                        }}
+                    >
+                        Bar lengths indicate
+                        how many Artists are
+                        connected to each
+                        ArtVis Group.
+                    </Typography>
+
+                    <ScentedList
+                        items={
+                            options.groups.map(
+                                (item) => ({
+                                    id: item.id,
+
+                                    label:
+                                    item.name,
+
+                                    count:
+                                    item.artist_count,
+                                }),
+                            )
+                        }
+
+                        selectedIds={
+                            explorer
+                                .selectedGroupIds
+                        }
+
+                        onToggle={
+                            (id) =>
+                                explorer
+                                    .setSelectedGroupIds(
+                                        (current) =>
+                                            toggle(
+                                                current,
+                                                id,
+                                            ),
+                                    )
+                        }
+
+                        maxVisibleHeight={
+                            260
+                        }
+                    />
+
+                    {
+                        explorer
+                            .selectedGroupIds
+                            .length > 0
+                        && (
+                            <Button
+                                size="small"
+
+                                sx={{
+                                    mt: 1,
+                                }}
+
+                                onClick={() =>
+                                    explorer
+                                        .setSelectedGroupIds(
+                                            [],
+                                        )
+                                }
+                            >
+                                Clear groups
+                            </Button>
+                        )
+                    }
+                </AccordionDetails>
+            </Accordion>
 
 
             <Button
@@ -1061,7 +1378,7 @@ export function FilterSidebar({
                     explorer.resetFilters
                 }
             >
-                Reset filters
+                Reset all filters
             </Button>
         </Box>
     );

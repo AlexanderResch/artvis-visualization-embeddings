@@ -1,79 +1,97 @@
-.dashboard-page {
+.explorer-page {
   min-height: 100vh;
   padding: 16px;
 }
 
-.dashboard-header {
+.explorer-header {
   max-width: 1900px;
   margin: 0 auto 12px;
-  padding: 4px 4px 8px;
 }
 
-.dashboard-grid {
+.explorer-grid {
   max-width: 1900px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 292px minmax(0, 1fr) 304px;
-  grid-template-rows: minmax(590px, calc(100vh - 170px)) auto;
+  grid-template-columns:
+    292px
+    minmax(0, 1fr)
+    360px;
+  grid-template-rows:
+    minmax(
+      590px,
+      calc(100vh - 195px)
+    )
+    auto;
   grid-template-areas:
-    "filters map overview"
-    "filters similar overview";
+    "explorerFilters explorerMap explorerDetails"
+    "explorerFilters explorerResults explorerDetails";
   gap: 12px;
   align-items: stretch;
 }
 
-.filters-panel {
-  grid-area: filters;
+.explorer-filters-panel {
+  grid-area: explorerFilters;
   overflow: hidden;
 }
 
-.filters-panel > div {
+.explorer-filters-panel > div {
   height: 100%;
   overflow-y: auto;
 }
 
-.map-panel {
-  grid-area: map;
+.explorer-map-panel {
+  grid-area: explorerMap;
   overflow: hidden;
 }
 
-.overview-panel {
-  grid-area: overview;
+.explorer-details-panel {
+  grid-area: explorerDetails;
   overflow-y: auto;
 }
 
-.similar-panel {
-  grid-area: similar;
+.explorer-results-panel {
+  grid-area: explorerResults;
   overflow: hidden;
 }
 
-@media (max-width: 1280px) {
-  .dashboard-grid {
-    grid-template-columns: 260px minmax(0, 1fr);
-    grid-template-rows: minmax(560px, 68vh) auto auto;
+.explorer-loading {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
+@media (max-width: 1400px) {
+  .explorer-grid {
+    grid-template-columns:
+      270px
+      minmax(0, 1fr);
+    grid-template-rows:
+      minmax(560px, 68vh)
+      auto
+      auto;
     grid-template-areas:
-      "filters map"
-      "filters similar"
-      "overview overview";
+      "explorerFilters explorerMap"
+      "explorerFilters explorerResults"
+      "explorerDetails explorerDetails";
   }
 }
 
-@media (max-width: 840px) {
-  .dashboard-page {
+@media (max-width: 900px) {
+  .explorer-page {
     padding: 8px;
   }
 
-  .dashboard-grid {
+  .explorer-grid {
     display: flex;
     flex-direction: column;
   }
 
-  .map-panel {
+  .explorer-map-panel {
     min-height: 560px;
   }
 
-  .filters-panel,
-  .overview-panel {
+  .explorer-filters-panel,
+  .explorer-details-panel {
     max-height: none;
   }
 }
