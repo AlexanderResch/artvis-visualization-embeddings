@@ -34,6 +34,7 @@ import type {
 
 import {
     clusterColor,
+    clusterPointOutlineColor,
 } from "../../visualization/colors";
 
 import {
@@ -807,6 +808,31 @@ export default function EmbeddingCanvas3D({
                                         : 0.68;
 
                     context.fill();
+
+                    if (
+                        !point.artist.is_noise
+                    ) {
+                        context.globalAlpha =
+                            selected
+                                ? 1
+                                : highlighted
+                                    ? 0.86
+                                    : dimmed
+                                        ? 0.50
+                                        : 0.68;
+
+                        context.strokeStyle =
+                            clusterPointOutlineColor(
+                                point.artist.cluster,
+                            );
+
+                        context.lineWidth =
+                            highlighted
+                                ? 0.9
+                                : 0.5;
+
+                        context.stroke();
+                    }
 
                     if (selected) {
                         context.globalAlpha = 1;

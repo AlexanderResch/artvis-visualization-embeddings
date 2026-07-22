@@ -1,6 +1,5 @@
 import {
     Box,
-    Button,
     Chip,
     CircularProgress,
     Table,
@@ -19,9 +18,6 @@ import {
     useState,
 } from "react";
 
-import {
-    useNavigate,
-} from "react-router";
 
 import {
     fetchSimilarArtists,
@@ -98,8 +94,6 @@ export function SimilarArtistsTable({
     const explorer =
         useExplorer();
 
-    const navigate =
-        useNavigate();
 
     const [
         rows,
@@ -442,11 +436,6 @@ export function SimilarArtistsTable({
                                 Shared locations
                             </TableCell>
 
-                            <TableCell
-                                align="right"
-                            >
-                                Action
-                            </TableCell>
                         </TableRow>
                     </TableHead>
 
@@ -617,30 +606,6 @@ export function SimilarArtistsTable({
                                             </TableCell>
 
 
-                                            <TableCell
-                                                align="right"
-                                            >
-                                                <Button
-                                                    size="small"
-
-                                                    onClick={
-                                                        (
-                                                            event,
-                                                        ) => {
-                                                            event
-                                                                .stopPropagation();
-
-                                                            navigate(
-                                                                `/artists/${
-                                                                    artist.id
-                                                                }`,
-                                                            );
-                                                        }
-                                                    }
-                                                >
-                                                    Details
-                                                </Button>
-                                            </TableCell>
                                         </TableRow>
                                     );
                                 },
@@ -653,7 +618,7 @@ export function SimilarArtistsTable({
                             && (
                                 <TableRow>
                                     <TableCell
-                                        colSpan={7}
+                                        colSpan={6}
 
                                         align="center"
                                     >

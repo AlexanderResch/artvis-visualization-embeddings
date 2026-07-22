@@ -34,7 +34,7 @@ import type {
 } from "../../types/dashboard";
 
 import {
-    CLUSTER_COLORS,
+    clusterColor,
 } from "../../visualization/colors";
 
 import {
@@ -1084,11 +1084,9 @@ export function FilterSidebar({
                                     item.artist_count,
 
                                     color:
-                                        CLUSTER_COLORS[
-                                        item.cluster
-                                        % CLUSTER_COLORS
-                                            .length
-                                            ],
+                                        clusterColor(
+                                            item.cluster,
+                                        ),
                                 }),
                             )
                         }

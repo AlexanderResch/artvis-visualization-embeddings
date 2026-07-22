@@ -3,25 +3,25 @@ import {
     Button,
     ButtonGroup,
     CircularProgress,
-    Typography
+    Typography,
 } from "@mui/material";
 
 import {
     lazy,
-    Suspense
+    Suspense,
 } from "react";
 
 import {
-    useExplorer
+    useExplorer,
 } from "../../context/ExplorerContext";
 
 import type {
     ArtistEmbedding2D,
-    ArtistEmbedding3D
+    ArtistEmbedding3D,
 } from "../../types/embedding";
 
 import {
-    EmbeddingCanvas2D
+    EmbeddingCanvas2D,
 } from "./EmbeddingCanvas2D";
 
 
@@ -30,7 +30,7 @@ const EmbeddingCanvas3D =
         () =>
             import(
                 "./EmbeddingCanvas3D"
-                )
+                ),
     );
 
 
@@ -38,20 +38,32 @@ export function EmbeddingMap({
                                  data2D,
                                  data3D,
                                  loading3D,
-                                 onRequest3D
+                                 error3D = null,
+                                 onRequest3D,
+                                 highlightClusterId = null,
+                                 highlightBoundaryData2D,
+                                 highlightBoundaryData3D,
+                                 dimNonHighlighted = false,
+                                 onArtistClick,
+                                 title = "Embedding cluster map",
+                                 description,
                              }: {
-    data2D:
-        ArtistEmbedding2D[];
-
-    data3D:
-        ArtistEmbedding3D[]
-        | null;
-
-    loading3D:
-        boolean;
-
-    onRequest3D:
-        () => void;
+    data2D: ArtistEmbedding2D[];
+    data3D: ArtistEmbedding3D[] | null;
+    loading3D: boolean;
+    error3D?: string | null;
+    onRequest3D: () => void;
+    highlightClusterId?: number | null;
+    highlightBoundaryData2D?: ArtistEmbedding2D[];
+    highlightBoundaryData3D?: ArtistEmbedding3D[];
+    dimNonHighlighted?: boolean;
+    onArtistClick?: (
+        artist:
+            ArtistEmbedding2D
+            | ArtistEmbedding3D,
+    ) => void;
+    title?: string;
+    description?: string;
 }) {
     const explorer =
         useExplorer();
@@ -61,64 +73,65 @@ export function EmbeddingMap({
             ? data2D.length
             : data3D?.length ?? 0;
 
+    const defaultDescription =
+        highlightClusterId !== null
+            ? explorer.viewMode === "2d"
+                ? "The selected cluster is outlined in the stable 2D UMAP projection."
+                : "The selected cluster is outlined by its current projected 3D silhouette."
+            : "Click an Artist point to inspect it. Use the cluster selector above to inspect a complete cluster.";
+
     return (
         <Box
             sx={{
                 height: "100%",
                 minHeight: 480,
-
                 display: "flex",
-                flexDirection: "column"
+                flexDirection: "column",
             }}
         >
             <Box
                 sx={{
                     px: 1.5,
                     py: 1,
-
                     display: "flex",
                     alignItems: "center",
                     justifyContent:
                         "space-between",
-
                     gap: 1,
-
                     borderBottom:
                         "1px solid",
-
                     borderColor:
-                        "divider"
+                        "divider",
                 }}
             >
-                <Box>
+                <Box
+                    sx={{
+                        minWidth: 0,
+                    }}
+                >
                     <Typography
                         variant="subtitle1"
-
                         sx={{
-                            fontWeight: 700
+                            fontWeight: 700,
                         }}
                     >
-                        Embedding cluster map
+                        {title}
                     </Typography>
 
                     <Typography
                         variant="caption"
-
                         color="text.secondary"
                     >
-                        {
-                            visibleCount
-                                .toLocaleString()
-                        }
-                        {" "}
-                        visible artists
-                        {" · "}
-                        Click a point to inspect it
+                        {visibleCount.toLocaleString()}
+                        {" visible Artists · "}
+                        {description
+                            ?? defaultDescription}
                     </Typography>
                 </Box>
 
                 <ButtonGroup
                     size="small"
+                    aria-label="Embedding map dimension"
                 >
                     <Button
                         variant={
@@ -127,11 +140,10 @@ export function EmbeddingMap({
                                 ? "contained"
                                 : "outlined"
                         }
-
                         onClick={() =>
                             explorer
                                 .setViewMode(
-                                    "2d"
+                                    "2d",
                                 )
                         }
                     >
@@ -145,13 +157,12 @@ export function EmbeddingMap({
                                 ? "contained"
                                 : "outlined"
                         }
-
                         onClick={() => {
                             onRequest3D();
 
                             explorer
                                 .setViewMode(
-                                    "3d"
+                                    "3d",
                                 );
                         }}
                     >
@@ -164,48 +175,98 @@ export function EmbeddingMap({
                 sx={{
                     flex: 1,
                     minHeight: 0,
-                    position: "relative"
+                    position: "relative",
                 }}
             >
-                {
-                    explorer.viewMode
-                    === "2d"
-
+                {explorer.viewMode === "2d"
+                    ? (
+                        <EmbeddingCanvas2D
+                            data={data2D}
+                            highlightBoundaryData={
+                                highlightBoundaryData2D
+                            }
+                            highlightClusterId={
+                                highlightClusterId
+                            }
+                            dimNonHighlighted={
+                                dimNonHighlighted
+                            }
+                            onArtistClick={
+                                onArtistClick
+                                    ? (artist) =>
+                                        onArtistClick(
+                                            artist,
+                                        )
+                                    : undefined
+                            }
+                        />
+                    )
+                    : error3D
                         ? (
-                            <EmbeddingCanvas2D
-                                data={data2D}
-                            />
+                            <Box
+                                sx={{
+                                    p: 2,
+                                }}
+                            >
+                                <Typography
+                                    color="error"
+                                    variant="body2"
+                                >
+                                    {error3D}
+                                </Typography>
+                            </Box>
                         )
-
-                        : (
-                            loading3D
-                            || !data3D
-                        )
-
+                        : loading3D
+                        || !data3D
                             ? (
                                 <Box
                                     sx={{
                                         height: "100%",
                                         display: "grid",
-                                        placeItems: "center"
+                                        placeItems:
+                                            "center",
                                     }}
                                 >
                                     <CircularProgress />
                                 </Box>
                             )
-
                             : (
                                 <Suspense
                                     fallback={
-                                        <CircularProgress />
+                                        <Box
+                                            sx={{
+                                                height: "100%",
+                                                display: "grid",
+                                                placeItems:
+                                                    "center",
+                                            }}
+                                        >
+                                            <CircularProgress />
+                                        </Box>
                                     }
                                 >
                                     <EmbeddingCanvas3D
                                         data={data3D}
+                                        highlightBoundaryData={
+                                            highlightBoundaryData3D
+                                        }
+                                        highlightClusterId={
+                                            highlightClusterId
+                                        }
+                                        dimNonHighlighted={
+                                            dimNonHighlighted
+                                        }
+                                        onArtistClick={
+                                            onArtistClick
+                                                ? (artist) =>
+                                                    onArtistClick(
+                                                        artist,
+                                                    )
+                                                : undefined
+                                        }
                                     />
                                 </Suspense>
-                            )
-                }
+                            )}
             </Box>
         </Box>
     );

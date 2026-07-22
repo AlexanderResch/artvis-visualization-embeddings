@@ -1,6 +1,5 @@
 import {
     Box,
-    Button,
     Chip,
     LinearProgress,
     Table,
@@ -19,9 +18,6 @@ import {
     useState,
 } from "react";
 
-import {
-    useNavigate,
-} from "react-router";
 
 import {
     useExplorer,
@@ -138,8 +134,6 @@ export function ClusterArtistsTable({
     const explorer =
         useExplorer();
 
-    const navigate =
-        useNavigate();
 
     const [
         sortKey,
@@ -319,11 +313,6 @@ export function ClusterArtistsTable({
                                 )}
                             </TableCell>
 
-                            <TableCell
-                                align="right"
-                            >
-                                Action
-                            </TableCell>
                         </TableRow>
                     </TableHead>
 
@@ -339,15 +328,33 @@ export function ClusterArtistsTable({
                                         key={artist.id}
                                         hover
                                         selected={selected}
-                                        onClick={
-                                            () =>
-                                                explorer
-                                                    .setSelectedArtistId(
-                                                        artist.id,
-                                                    )
-                                        }
+                                        tabIndex={0}
+                                        role="button"
+                                        onClick={() => {
+                                            explorer.setSelectedArtistId(
+                                                artist.id,
+                                            );
+                                        }}
+                                        onKeyDown={(event) => {
+                                            if (
+                                                event.key === "Enter"
+                                                || event.key === " "
+                                            ) {
+                                                event.preventDefault();
+
+                                                explorer.setSelectedArtistId(
+                                                    artist.id,
+                                                );
+                                            }
+                                        }}
                                         sx={{
                                             cursor: "pointer",
+
+                                            "&:focus-visible": {
+                                                outline: "2px solid",
+                                                outlineColor: "primary.main",
+                                                outlineOffset: -2,
+                                            },
                                         }}
                                     >
                                         <TableCell>
@@ -443,24 +450,6 @@ export function ClusterArtistsTable({
                                                 .toLocaleString()}
                                         </TableCell>
 
-                                        <TableCell
-                                            align="right"
-                                        >
-                                            <Button
-                                                size="small"
-                                                onClick={
-                                                    (event) => {
-                                                        event.stopPropagation();
-
-                                                        navigate(
-                                                            `/artists/${artist.id}`,
-                                                        );
-                                                    }
-                                                }
-                                            >
-                                                Details
-                                            </Button>
-                                        </TableCell>
                                     </TableRow>
                                 );
                             },
@@ -469,7 +458,7 @@ export function ClusterArtistsTable({
                         {!visibleRows.length && (
                             <TableRow>
                                 <TableCell
-                                    colSpan={9}
+                                    colSpan={8}
                                     align="center"
                                 >
                                     <Typography

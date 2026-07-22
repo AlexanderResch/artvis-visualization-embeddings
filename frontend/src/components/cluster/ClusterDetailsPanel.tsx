@@ -12,16 +12,13 @@ import type {
     ReactNode,
 } from "react";
 
-import {
-    useExplorer,
-} from "../../context/ExplorerContext";
-
 import type {
     ClusterInspection,
 } from "../../types/cluster";
 
 import {
     clusterColor,
+    clusterTextColor,
 } from "../../visualization/colors";
 
 import {
@@ -117,18 +114,13 @@ function ExplanationAccordion({
             }
             sx={{
                 mb: 1,
-
                 border: "1px solid",
                 borderColor: "divider",
-
                 borderRadius:
                     "8px !important",
-
                 boxShadow: "none",
-
                 backgroundColor:
                     "background.paper",
-
                 overflow: "hidden",
 
                 "&::before": {
@@ -140,11 +132,10 @@ function ExplanationAccordion({
                     mb: 1,
                 },
 
-                "& .MuiAccordionSummary-expandIconWrapper.Mui-expanded":
-                    {
-                        transform:
-                            "rotate(180deg)",
-                    },
+                "& .MuiAccordionSummary-expandIconWrapper.Mui-expanded": {
+                    transform:
+                        "rotate(180deg)",
+                },
             }}
         >
             <AccordionSummary
@@ -154,7 +145,6 @@ function ExplanationAccordion({
                 sx={{
                     minHeight: 48,
                     px: 1.25,
-
                     backgroundColor:
                         "action.hover",
 
@@ -162,27 +152,23 @@ function ExplanationAccordion({
                         minHeight: 48,
                     },
 
-                    "& .MuiAccordionSummary-content":
-                        {
-                            my: 1,
-                            minWidth: 0,
-                        },
+                    "& .MuiAccordionSummary-content": {
+                        my: 1,
+                        minWidth: 0,
+                    },
 
-                    "& .MuiAccordionSummary-content.Mui-expanded":
-                        {
-                            my: 1,
-                        },
+                    "& .MuiAccordionSummary-content.Mui-expanded": {
+                        my: 1,
+                    },
                 }}
             >
                 <Box
                     sx={{
                         width: "100%",
-
                         display: "flex",
                         alignItems: "center",
                         justifyContent:
                             "space-between",
-
                         gap: 1,
                         pr: 0.5,
                     }}
@@ -205,7 +191,6 @@ function ExplanationAccordion({
                         }
                         sx={{
                             flexShrink: 0,
-
                             backgroundColor:
                                 "background.paper",
                         }}
@@ -227,24 +212,6 @@ function ExplanationAccordion({
 }
 
 
-function getRepresentativeArtistLabel(
-    displayName:
-        string | null | undefined,
-    artistId: string,
-): string {
-    const normalizedName =
-        typeof displayName === "string"
-            ? displayName.trim()
-            : "";
-
-    if (normalizedName) {
-        return normalizedName;
-    }
-
-    return `Artist ${artistId}`;
-}
-
-
 export function ClusterDetailsPanel({
                                         inspection,
                                         visibleArtistCount,
@@ -252,9 +219,6 @@ export function ClusterDetailsPanel({
     inspection: ClusterInspection;
     visibleArtistCount: number;
 }) {
-    const explorer =
-        useExplorer();
-
     const color =
         clusterColor(
             inspection.cluster,
@@ -299,10 +263,13 @@ export function ClusterDetailsPanel({
                     label="Selected"
                     size="small"
                     sx={{
-                        color: "white",
-
+                        color:
+                            clusterTextColor(
+                                inspection.cluster,
+                            ),
                         backgroundColor:
                         color,
+                        fontWeight: 700,
                     }}
                 />
             </Box>
@@ -358,7 +325,6 @@ export function ClusterDetailsPanel({
                     yearRange(
                         inspection.statistics
                             .birth_year.minimum,
-
                         inspection.statistics
                             .birth_year.maximum,
                     )
@@ -375,10 +341,8 @@ export function ClusterDetailsPanel({
                 <Box
                     sx={{
                         display: "flex",
-
                         justifyContent:
                             "space-between",
-
                         gap: 1,
                         mb: 0.5,
                     }}
@@ -428,18 +392,14 @@ export function ClusterDetailsPanel({
                     sx={{
                         height: 8,
                         borderRadius: 999,
-
                         backgroundColor:
                             "action.hover",
 
-                        "& .MuiLinearProgress-bar":
-                            {
-                                backgroundColor:
-                                color,
-
-                                borderRadius:
-                                    999,
-                            },
+                        "& .MuiLinearProgress-bar": {
+                            backgroundColor:
+                            color,
+                            borderRadius: 999,
+                        },
                     }}
                 />
             </Box>
@@ -480,6 +440,7 @@ export function ClusterDetailsPanel({
                         .top_artvis_groups
                         .length
                 }
+                defaultExpanded
             >
                 <Typography
                     variant="caption"
@@ -489,9 +450,16 @@ export function ClusterDetailsPanel({
                         mb: 1,
                     }}
                 >
-                    ArtVis groups with the
-                    highest number of Artists
-                    from this computed cluster.
+                    The most frequent ArtVis
+                    group memberships in this
+                    computed cluster. Each row
+                    shows the number and
+                    percentage of cluster
+                    Artists connected to the
+                    group. Artists may belong
+                    to multiple groups, so the
+                    percentages can add up to
+                    more than 100 percent.
                 </Typography>
 
                 <ScentedMetricList
@@ -587,152 +555,6 @@ export function ClusterDetailsPanel({
                         "No locations found"
                     }
                 />
-            </ExplanationAccordion>
-
-
-            <ExplanationAccordion
-                title="ArtVis group composition"
-                count={
-                    inspection
-                        .group_composition
-                        .length
-                }
-            >
-                <Typography
-                    variant="caption"
-                    color="text.secondary"
-                    sx={{
-                        display: "block",
-                        mb: 1,
-                    }}
-                >
-                    Artists may belong to
-                    multiple ArtVis groups.
-                    Percentages can therefore
-                    add up to more than
-                    100 percent.
-                </Typography>
-
-                <Box
-                    sx={{
-                        maxHeight: 360,
-                        overflowY: "auto",
-                        pr: 0.5,
-                    }}
-                >
-                    <ScentedMetricList
-                        items={
-                            inspection
-                                .group_composition
-                        }
-                        color={
-                            color
-                        }
-                        emptyText={
-                            "No group memberships recorded"
-                        }
-                    />
-                </Box>
-            </ExplanationAccordion>
-
-
-            <ExplanationAccordion
-                title="Representative Artists"
-                count={
-                    inspection.explanation
-                        .representative_artists
-                        .length
-                }
-            >
-                <Typography
-                    variant="caption"
-                    color="text.secondary"
-                    sx={{
-                        display: "block",
-                        mb: 1,
-                    }}
-                >
-                    Artists nearest to the
-                    cluster centroid in the
-                    original embedding space.
-                </Typography>
-
-                {
-                    inspection.explanation
-                        .representative_artists
-                        .length === 0
-                        ? (
-                            <Typography
-                                variant="body2"
-                                color="text.secondary"
-                            >
-                                No representative
-                                Artists available.
-                            </Typography>
-                        )
-                        : (
-                            <Box
-                                sx={{
-                                    display: "flex",
-                                    flexWrap: "wrap",
-                                    gap: 0.75,
-                                }}
-                            >
-                                {
-                                    inspection
-                                        .explanation
-                                        .representative_artists
-                                        .map(
-                                            (artist) => {
-                                                const selected =
-                                                    explorer
-                                                        .selectedArtistId
-                                                    === artist.id;
-
-                                                return (
-                                                    <Chip
-                                                        key={
-                                                            artist.id
-                                                        }
-                                                        label={
-                                                            getRepresentativeArtistLabel(
-                                                                artist
-                                                                    .display_name,
-
-                                                                artist.id,
-                                                            )
-                                                        }
-                                                        size="small"
-                                                        variant={
-                                                            selected
-                                                                ? "filled"
-                                                                : "outlined"
-                                                        }
-                                                        sx={
-                                                            selected
-                                                                ? {
-                                                                    color:
-                                                                        "white",
-
-                                                                    backgroundColor:
-                                                                    color,
-                                                                }
-                                                                : undefined
-                                                        }
-                                                        onClick={() => {
-                                                            explorer
-                                                                .setSelectedArtistId(
-                                                                    artist.id,
-                                                                );
-                                                        }}
-                                                    />
-                                                );
-                                            },
-                                        )
-                                }
-                            </Box>
-                        )
-                }
             </ExplanationAccordion>
 
 
