@@ -1,9 +1,11 @@
-.dashboard-page {
+.dashboard-page,
+.cluster-inspection-page {
   min-height: 100vh;
   padding: 16px;
 }
 
-.dashboard-header {
+.dashboard-header,
+.cluster-inspection-header {
   max-width: 1900px;
   margin: 0 auto 12px;
   padding: 4px 4px 8px;
@@ -13,8 +15,16 @@
   max-width: 1900px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 292px minmax(0, 1fr) 304px;
-  grid-template-rows: minmax(590px, calc(100vh - 170px)) auto;
+  grid-template-columns:
+    292px
+    minmax(0, 1fr)
+    304px;
+  grid-template-rows:
+    minmax(
+      590px,
+      calc(100vh - 170px)
+    )
+    auto;
   grid-template-areas:
     "filters map overview"
     "filters similar overview";
@@ -47,10 +57,77 @@
   overflow: hidden;
 }
 
+.cluster-inspection-grid {
+  max-width: 1900px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns:
+    286px
+    minmax(0, 1fr)
+    360px;
+  grid-template-rows:
+    minmax(
+      590px,
+      calc(100vh - 190px)
+    )
+    auto;
+  grid-template-areas:
+    "clusterFilters clusterMap clusterDetails"
+    "clusterFilters clusterArtists clusterDetails";
+  gap: 12px;
+  align-items: stretch;
+}
+
+.cluster-filters-panel {
+  grid-area: clusterFilters;
+  overflow: hidden;
+}
+
+.cluster-filters-panel > div {
+  height: 100%;
+  overflow-y: auto;
+}
+
+.cluster-map-panel {
+  grid-area: clusterMap;
+  overflow: hidden;
+}
+
+.cluster-details-panel {
+  grid-area: clusterDetails;
+  overflow-y: auto;
+}
+
+.cluster-artists-panel {
+  grid-area: clusterArtists;
+  overflow: hidden;
+}
+
+@media (max-width: 1400px) {
+  .cluster-inspection-grid {
+    grid-template-columns:
+      260px
+      minmax(0, 1fr);
+    grid-template-rows:
+      minmax(560px, 68vh)
+      auto
+      auto;
+    grid-template-areas:
+      "clusterFilters clusterMap"
+      "clusterFilters clusterArtists"
+      "clusterDetails clusterDetails";
+  }
+}
+
 @media (max-width: 1280px) {
   .dashboard-grid {
-    grid-template-columns: 260px minmax(0, 1fr);
-    grid-template-rows: minmax(560px, 68vh) auto auto;
+    grid-template-columns:
+      260px
+      minmax(0, 1fr);
+    grid-template-rows:
+      minmax(560px, 68vh)
+      auto
+      auto;
     grid-template-areas:
       "filters map"
       "filters similar"
@@ -59,21 +136,26 @@
 }
 
 @media (max-width: 840px) {
-  .dashboard-page {
+  .dashboard-page,
+  .cluster-inspection-page {
     padding: 8px;
   }
 
-  .dashboard-grid {
+  .dashboard-grid,
+  .cluster-inspection-grid {
     display: flex;
     flex-direction: column;
   }
 
-  .map-panel {
+  .map-panel,
+  .cluster-map-panel {
     min-height: 560px;
   }
 
   .filters-panel,
-  .overview-panel {
+  .overview-panel,
+  .cluster-filters-panel,
+  .cluster-details-panel {
     max-height: none;
   }
 }
