@@ -43,7 +43,7 @@ function artistLabel(
 
     return displayName
         || artist.entity
-        || `Artist ${artist.id}`;
+        || "Unknown Artist";
 }
 
 

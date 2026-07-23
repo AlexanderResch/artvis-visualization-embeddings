@@ -1,6 +1,7 @@
 import {
     Box,
     Button,
+    ButtonGroup,
 } from "@mui/material";
 
 import {
@@ -47,6 +48,17 @@ type CanvasSize = {
     width: number;
     height: number;
 };
+
+
+type PanOffset = {
+    x: number;
+    y: number;
+};
+
+
+type InteractionMode =
+    | "rotate"
+    | "pan";
 
 
 type NormalizedPoint = {
@@ -173,6 +185,7 @@ function projectPoint(
         y: number;
     },
     zoom: number,
+    pan: PanOffset,
 ): ProjectedPoint {
     const cosX =
         Math.cos(rotation.x);
@@ -218,12 +231,14 @@ function projectPoint(
 
         screenX:
             size.width / 2
+            + pan.x
             + rotatedX
             * baseScale
             * perspective,
 
         screenY:
             size.height / 2
+            + pan.y
             - rotatedY
             * baseScale
             * perspective,
@@ -283,70 +298,6 @@ function expandHull(
             ];
         },
     );
-}
-
-
-function roundedRectangle(
-    context: CanvasRenderingContext2D,
-    x: number,
-    y: number,
-    width: number,
-    height: number,
-    radius: number,
-) {
-    const safeRadius =
-        Math.min(
-            radius,
-            width / 2,
-            height / 2,
-        );
-
-    context.beginPath();
-    context.moveTo(
-        x + safeRadius,
-        y,
-    );
-    context.lineTo(
-        x + width - safeRadius,
-        y,
-    );
-    context.quadraticCurveTo(
-        x + width,
-        y,
-        x + width,
-        y + safeRadius,
-    );
-    context.lineTo(
-        x + width,
-        y + height - safeRadius,
-    );
-    context.quadraticCurveTo(
-        x + width,
-        y + height,
-        x + width - safeRadius,
-        y + height,
-    );
-    context.lineTo(
-        x + safeRadius,
-        y + height,
-    );
-    context.quadraticCurveTo(
-        x,
-        y + height,
-        x,
-        y + height - safeRadius,
-    );
-    context.lineTo(
-        x,
-        y + safeRadius,
-    );
-    context.quadraticCurveTo(
-        x,
-        y,
-        x + safeRadius,
-        y,
-    );
-    context.closePath();
 }
 
 
@@ -417,60 +368,6 @@ function drawClusterBoundary(
     context.stroke();
     context.setLineDash([]);
 
-    const topPoint =
-        expandedHull.reduce(
-            (currentTop, point) =>
-                point[1] < currentTop[1]
-                    ? point
-                    : currentTop,
-            expandedHull[0],
-        );
-
-    const label =
-        `Cluster ${clusterId}`;
-
-    context.font =
-        "600 12px Inter, Segoe UI, Arial";
-
-    const labelWidth =
-        context.measureText(label).width;
-
-    const labelX =
-        topPoint[0]
-        - labelWidth / 2
-        - 7;
-
-    const labelY =
-        topPoint[1]
-        - 31;
-
-    context.globalAlpha = 0.96;
-    context.fillStyle =
-        "rgba(255,255,255,0.96)";
-    context.strokeStyle = color;
-    context.lineWidth = 1.5;
-
-    roundedRectangle(
-        context,
-        labelX,
-        labelY,
-        labelWidth + 14,
-        24,
-        7,
-    );
-
-    context.fill();
-    context.stroke();
-
-    context.fillStyle = color;
-    context.textAlign = "left";
-    context.textBaseline = "middle";
-    context.fillText(
-        label,
-        labelX + 7,
-        labelY + 12,
-    );
-
     context.restore();
 }
 
@@ -482,6 +379,9 @@ export default function EmbeddingCanvas3D({
                                               dimNonHighlighted = false,
                                               comparisonArtistIds = null,
                                               dimNonCompared = false,
+                                              focusData,
+                                              fitRequestKey = 0,
+                                              pointScale = 1,
                                               onArtistClick,
                                           }: {
     data: ArtistEmbedding3D[];
@@ -493,6 +393,9 @@ export default function EmbeddingCanvas3D({
     comparisonArtistIds?:
         [string, string] | null;
     dimNonCompared?: boolean;
+    focusData?: ArtistEmbedding3D[];
+    fitRequestKey?: number;
+    pointScale?: number;
     onArtistClick?:
         (artist: ArtistEmbedding3D) => void;
 }) {
@@ -523,6 +426,12 @@ export default function EmbeddingCanvas3D({
     const zoomRef =
         useRef(1);
 
+    const panRef =
+        useRef<PanOffset>({
+            x: 0,
+            y: 0,
+        });
+
     const quadtreeRef =
         useRef<
             Quadtree<ProjectedPoint>
@@ -532,6 +441,11 @@ export default function EmbeddingCanvas3D({
     const animationFrameRef =
         useRef<number | null>(
             null,
+        );
+
+    const drawRef =
+        useRef<() => void>(
+            () => undefined,
         );
 
     const [
@@ -549,6 +463,13 @@ export default function EmbeddingCanvas3D({
         CanvasTooltipState | null
     >(null);
 
+    const [
+        interactionMode,
+        setInteractionMode,
+    ] = useState<InteractionMode>(
+        "rotate",
+    );
+
     const normalizedData =
         useMemo(
             () => {
@@ -556,13 +477,15 @@ export default function EmbeddingCanvas3D({
                     highlightBoundaryData
                     ?? [];
 
-                const scaleSource =
-                    boundarySource.length
-                        ? [
-                            ...data,
-                            ...boundarySource,
-                        ]
-                        : data;
+                const focusSource =
+                    focusData
+                    ?? [];
+
+                const scaleSource = [
+                    ...data,
+                    ...boundarySource,
+                    ...focusSource,
+                ];
 
                 const xScale =
                     scaleLinear()
@@ -624,10 +547,16 @@ export default function EmbeddingCanvas3D({
                                     === highlightClusterId,
                             )
                             .map(normalize),
+
+                    focusPoints:
+                        focusSource.map(
+                            normalize,
+                        ),
                 };
             },
             [
                 data,
+                focusData,
                 highlightBoundaryData,
                 highlightClusterId,
             ],
@@ -681,6 +610,9 @@ export default function EmbeddingCanvas3D({
                 const zoom =
                     zoomRef.current;
 
+                const pan =
+                    panRef.current;
+
                 const projected =
                     normalizedData.points.map(
                         (point) =>
@@ -689,6 +621,7 @@ export default function EmbeddingCanvas3D({
                                 currentSize,
                                 rotation,
                                 zoom,
+                                pan,
                             ),
                     );
 
@@ -701,6 +634,7 @@ export default function EmbeddingCanvas3D({
                                     currentSize,
                                     rotation,
                                     zoom,
+                                    pan,
                                 );
 
                             return {
@@ -849,21 +783,26 @@ export default function EmbeddingCanvas3D({
                         highlighted
                             ? 3.5
                             : dimmed
-                                ? point.artist.is_noise
-                                    ? 1.4
-                                    : 2.25
-                                : point.artist.is_noise
-                                    ? 1.5
-                                    : 2.5;
+                                ? 2.25
+                                : 2.5;
+
+                    const noiseScale =
+                        point.artist.is_noise
+                            ? 0.78
+                            : 1;
 
                     const radius =
-                        selected
-                            ? 7
-                            : Math.max(
-                                1.5,
-                                baseRadius
-                                * point.perspective,
-                            );
+                        (
+                            selected
+                                ? 7
+                                : Math.max(
+                                    1.5,
+                                    baseRadius
+                                    * point.perspective,
+                                )
+                        )
+                        * pointScale
+                        * noiseScale;
 
                     context.beginPath();
                     context.arc(
@@ -885,39 +824,35 @@ export default function EmbeddingCanvas3D({
                             : highlighted
                                 ? 0.95
                                 : dimmed
-                                    ? point.artist.is_noise
-                                        ? 0.08
-                                        : 0.38
+                                    ? 0.38
                                     : point.artist.is_noise
-                                        ? 0.18
+                                        ? 0.42
                                         : 0.68;
 
                     context.fill();
 
-                    if (
-                        !point.artist.is_noise
-                    ) {
-                        context.globalAlpha =
-                            selected
-                                ? 1
-                                : highlighted
-                                    ? 0.86
-                                    : dimmed
-                                        ? 0.50
+                    context.globalAlpha =
+                        selected
+                            ? 1
+                            : highlighted
+                                ? 0.86
+                                : dimmed
+                                    ? 0.50
+                                    : point.artist.is_noise
+                                        ? 0.42
                                         : 0.68;
 
-                        context.strokeStyle =
-                            clusterPointOutlineColor(
-                                point.artist.cluster,
-                            );
+                    context.strokeStyle =
+                        clusterPointOutlineColor(
+                            point.artist.cluster,
+                        );
 
-                        context.lineWidth =
-                            highlighted
-                                ? 0.9
-                                : 0.5;
+                    context.lineWidth =
+                        highlighted
+                            ? 0.9
+                            : 0.5;
 
-                        context.stroke();
-                    }
+                    context.stroke();
 
                     if (selected) {
                         context.globalAlpha = 1;
@@ -938,6 +873,7 @@ export default function EmbeddingCanvas3D({
                             "#ffffff";
                         context.lineWidth = 2;
                         context.stroke();
+
                     }
 
                     if (compared) {
@@ -992,7 +928,9 @@ export default function EmbeddingCanvas3D({
                     "11px Inter, Segoe UI, Arial, sans-serif";
 
                 context.fillText(
-                    "Drag to rotate · Wheel to zoom",
+                    interactionMode === "pan"
+                        ? "Drag to move · Wheel zooms at cursor"
+                        : "Drag to rotate · Shift + drag moves · Wheel zooms at cursor",
                     12,
                     currentSize.height - 12,
                 );
@@ -1015,7 +953,9 @@ export default function EmbeddingCanvas3D({
                 dimNonHighlighted,
                 explorer.selectedArtistId,
                 highlightClusterId,
+                interactionMode,
                 normalizedData,
+                pointScale,
             ],
         );
 
@@ -1036,12 +976,23 @@ export default function EmbeddingCanvas3D({
                         () => {
                             animationFrameRef.current =
                                 null;
-                            draw();
+                            drawRef.current();
                         },
                     );
             },
-            [draw],
+            [],
         );
+
+    useEffect(
+        () => {
+            drawRef.current = draw;
+            scheduleDraw();
+        },
+        [
+            draw,
+            scheduleDraw,
+        ],
+    );
 
     useEffect(
         () => {
@@ -1140,15 +1091,37 @@ export default function EmbeddingCanvas3D({
                                 unknown
                             >,
                         ) => {
-                            rotationRef.current = {
-                                x:
-                                    rotationRef.current.x
-                                    + event.dy * 0.008,
+                            const sourceEvent =
+                                event.sourceEvent as
+                                    PointerEvent
+                                    | MouseEvent;
 
-                                y:
-                                    rotationRef.current.y
-                                    + event.dx * 0.008,
-                            };
+                            const shouldPan =
+                                interactionMode
+                                === "pan"
+                                || sourceEvent.shiftKey;
+
+                            if (shouldPan) {
+                                panRef.current = {
+                                    x:
+                                        panRef.current.x
+                                        + event.dx,
+
+                                    y:
+                                        panRef.current.y
+                                        + event.dy,
+                                };
+                            } else {
+                                rotationRef.current = {
+                                    x:
+                                        rotationRef.current.x
+                                        + event.dy * 0.008,
+
+                                    y:
+                                        rotationRef.current.y
+                                        + event.dx * 0.008,
+                                };
+                            }
 
                             scheduleDraw();
                         },
@@ -1157,7 +1130,10 @@ export default function EmbeddingCanvas3D({
                         "end",
                         () => {
                             canvas.style.cursor =
-                                "grab";
+                                interactionMode
+                                === "pan"
+                                    ? "move"
+                                    : "grab";
                         },
                     );
 
@@ -1168,18 +1144,61 @@ export default function EmbeddingCanvas3D({
                 (event: WheelEvent) => {
                     event.preventDefault();
 
-                    zoomRef.current =
+                    const oldZoom =
+                        zoomRef.current;
+
+                    const nextZoom =
                         Math.min(
-                            4.5,
+                            6,
                             Math.max(
-                                0.45,
-                                zoomRef.current
+                                0.4,
+                                oldZoom
                                 * Math.exp(
                                     -event.deltaY
                                     * 0.0012,
                                 ),
                             ),
                         );
+
+                    const rectangle =
+                        canvas.getBoundingClientRect();
+
+                    const pointerX =
+                        event.clientX
+                        - rectangle.left;
+
+                    const pointerY =
+                        event.clientY
+                        - rectangle.top;
+
+                    const ratio =
+                        nextZoom
+                        / oldZoom;
+
+                    panRef.current = {
+                        x:
+                            pointerX
+                            - sizeRef.current.width / 2
+                            - ratio
+                            * (
+                                pointerX
+                                - sizeRef.current.width / 2
+                                - panRef.current.x
+                            ),
+
+                        y:
+                            pointerY
+                            - sizeRef.current.height / 2
+                            - ratio
+                            * (
+                                pointerY
+                                - sizeRef.current.height / 2
+                                - panRef.current.y
+                            ),
+                    };
+
+                    zoomRef.current =
+                        nextZoom;
 
                     setTooltip(null);
                     scheduleDraw();
@@ -1203,7 +1222,182 @@ export default function EmbeddingCanvas3D({
                 );
             };
         },
-        [scheduleDraw],
+        [
+            interactionMode,
+            scheduleDraw,
+        ],
+    );
+
+    useEffect(
+        () => {
+            const currentSize =
+                sizeRef.current;
+
+            const focusPoints =
+                normalizedData.focusPoints;
+
+            if (
+                focusPoints.length === 0
+                || currentSize.width <= 0
+                || currentSize.height <= 0
+            ) {
+                return;
+            }
+
+            const rotation =
+                rotationRef.current;
+
+            const projectedAtUnitZoom =
+                focusPoints.map(
+                    (point) =>
+                        projectPoint(
+                            point,
+                            currentSize,
+                            rotation,
+                            1,
+                            {
+                                x: 0,
+                                y: 0,
+                            },
+                        ),
+                );
+
+            const minimumX =
+                Math.min(
+                    ...projectedAtUnitZoom.map(
+                        (point) =>
+                            point.screenX,
+                    ),
+                );
+
+            const maximumX =
+                Math.max(
+                    ...projectedAtUnitZoom.map(
+                        (point) =>
+                            point.screenX,
+                    ),
+                );
+
+            const minimumY =
+                Math.min(
+                    ...projectedAtUnitZoom.map(
+                        (point) =>
+                            point.screenY,
+                    ),
+                );
+
+            const maximumY =
+                Math.max(
+                    ...projectedAtUnitZoom.map(
+                        (point) =>
+                            point.screenY,
+                    ),
+                );
+
+            const spanX =
+                Math.max(
+                    1,
+                    maximumX - minimumX,
+                );
+
+            const spanY =
+                Math.max(
+                    1,
+                    maximumY - minimumY,
+                );
+
+            const zoom =
+                focusPoints.length === 1
+                    ? 2.6
+                    : Math.max(
+                        0.65,
+                        Math.min(
+                            4.8,
+                            Math.min(
+                                (
+                                    currentSize.width
+                                    - 180
+                                )
+                                / spanX,
+
+                                (
+                                    currentSize.height
+                                    - 150
+                                )
+                                / spanY,
+                            ),
+                        ),
+                    );
+
+            zoomRef.current = zoom;
+
+            const projected =
+                focusPoints.map(
+                    (point) =>
+                        projectPoint(
+                            point,
+                            currentSize,
+                            rotation,
+                            zoom,
+                            {
+                                x: 0,
+                                y: 0,
+                            },
+                        ),
+                );
+
+            const centerX =
+                (
+                    Math.min(
+                        ...projected.map(
+                            (point) =>
+                                point.screenX,
+                        ),
+                    )
+                    + Math.max(
+                        ...projected.map(
+                            (point) =>
+                                point.screenX,
+                        ),
+                    )
+                ) / 2;
+
+            const centerY =
+                (
+                    Math.min(
+                        ...projected.map(
+                            (point) =>
+                                point.screenY,
+                        ),
+                    )
+                    + Math.max(
+                        ...projected.map(
+                            (point) =>
+                                point.screenY,
+                        ),
+                    )
+                ) / 2;
+
+            panRef.current = {
+                x:
+                    currentSize.width / 2
+                    - centerX,
+
+                y:
+                    currentSize.height / 2
+                    - centerY,
+            };
+
+            setTooltip(null);
+            scheduleDraw();
+        },
+        [
+            fitRequestKey,
+            normalizedData,
+            scheduleDraw,
+            size.height,
+            size.width,
+        ],
     );
 
     useEffect(
@@ -1244,7 +1438,10 @@ export default function EmbeddingCanvas3D({
             ?.find(
                 x,
                 y,
-                10,
+                Math.max(
+                    10,
+                    8 * pointScale,
+                ),
             );
     }
 
@@ -1319,6 +1516,10 @@ export default function EmbeddingCanvas3D({
         };
 
         zoomRef.current = 1;
+        panRef.current = {
+            x: 0,
+            y: 0,
+        };
         setTooltip(null);
         scheduleDraw();
     }
@@ -1347,10 +1548,61 @@ export default function EmbeddingCanvas3D({
                 onClick={handleClick}
                 style={{
                     display: "block",
-                    cursor: "grab",
+                    cursor:
+                        interactionMode
+                        === "pan"
+                            ? "move"
+                            : "grab",
                     touchAction: "none",
                 }}
             />
+
+            <ButtonGroup
+                size="small"
+                aria-label="3D interaction mode"
+                sx={{
+                    position: "absolute",
+                    left: 10,
+                    top: 10,
+                    zIndex: 3,
+                    backgroundColor:
+                        "rgba(255,255,255,0.94)",
+                }}
+            >
+                <Button
+                    type="button"
+                    variant={
+                        interactionMode
+                        === "rotate"
+                            ? "contained"
+                            : "outlined"
+                    }
+                    onClick={() =>
+                        setInteractionMode(
+                            "rotate",
+                        )
+                    }
+                >
+                    Rotate
+                </Button>
+
+                <Button
+                    type="button"
+                    variant={
+                        interactionMode
+                        === "pan"
+                            ? "contained"
+                            : "outlined"
+                    }
+                    onClick={() =>
+                        setInteractionMode(
+                            "pan",
+                        )
+                    }
+                >
+                    Move
+                </Button>
+            </ButtonGroup>
 
             <Button
                 type="button"

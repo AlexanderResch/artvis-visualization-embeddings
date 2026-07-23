@@ -43,7 +43,7 @@ function artistLabel(
 
     return name
         || artist.entity
-        || `Artist ${artist.id}`;
+        || "Unknown Artist";
 }
 
 
@@ -218,7 +218,9 @@ export function ArtistInspectionSidebar({
                         mt: 0.25,
                     }}
                 >
-                    ID: {artist.id}
+                    {artist.birth_year ?? "?"}
+                    {"–"}
+                    {artist.death_year ?? "?"}
                 </Typography>
 
                 <Chip

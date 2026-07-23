@@ -50,7 +50,7 @@ function artistLabel(
 
     return displayName
         || artist.entity
-        || `Artist ${artist.id}`;
+        || "Unknown Artist";
 }
 
 
@@ -236,7 +236,9 @@ function ArtistSelector({
                                 color="text.secondary"
                                 noWrap
                             >
-                                ID: {artist.id}
+                                {artist.birth_year ?? "?"}
+                                {"–"}
+                                {artist.death_year ?? "?"}
                                 {" · "}
                                 {artist.is_noise
                                     ? "Noise"
@@ -251,7 +253,7 @@ function ArtistSelector({
                     <TextField
                         {...params}
                         label={label}
-                        placeholder="Type a name or ID…"
+                        placeholder="Type an Artist name…"
                         autoComplete="off"
                     />
                 )

@@ -2,8 +2,10 @@ import {
     Accordion,
     AccordionDetails,
     AccordionSummary,
+    Alert,
     Box,
     Chip,
+    CircularProgress,
     Divider,
     LinearProgress,
     Typography,
@@ -16,6 +18,10 @@ import {
 import type {
     ReactNode,
 } from "react";
+
+import type {
+    ArtistCreatedItem,
+} from "../../types/artistInspection";
 
 import type {
     ClusterArtist,
@@ -96,7 +102,7 @@ function DetailAccordion({
                              defaultExpanded = false,
                          }: {
     title: string;
-    count: number;
+    count: ReactNode;
     children: ReactNode;
     defaultExpanded?: boolean;
 }) {
@@ -205,7 +211,7 @@ function displayName(
 
     return name
         || artist.entity
-        || `Artist ${artist.id}`;
+        || "Unknown Artist";
 }
 
 
@@ -226,6 +232,9 @@ type ArtistDetailsPanelProps = {
         artistId: string,
     ) => void;
     showSimilarArtists?: boolean;
+    createdItems?: ArtistCreatedItem[];
+    createdItemsLoading?: boolean;
+    createdItemsError?: string | null;
 };
 
 
@@ -237,6 +246,9 @@ export function ArtistDetailsPanel({
                                        similarityThreshold = 0.7,
                                        onSelectSimilarArtist,
                                        showSimilarArtists = true,
+                                       createdItems = [],
+                                       createdItemsLoading = false,
+                                       createdItemsError = null,
                                    }: ArtistDetailsPanelProps) {
     const hasCluster =
         artist.cluster >= 0;
@@ -289,12 +301,6 @@ export function ArtistDetailsPanel({
                         {displayName(artist)}
                     </Typography>
 
-                    <Typography
-                        variant="caption"
-                        color="text.secondary"
-                    >
-                        ID: {artist.id}
-                    </Typography>
                 </Box>
 
                 <Chip
@@ -476,6 +482,99 @@ export function ArtistDetailsPanel({
                             No recorded ArtVis group memberships.
                         </Typography>
                     )}
+            </DetailAccordion>
+
+            <DetailAccordion
+                title="Created items"
+                count={
+                    createdItemsLoading
+                        ? "…"
+                        : createdItems.length
+                }
+            >
+                {createdItemsLoading
+                    ? (
+                        <Box
+                            sx={{
+                                display: "flex",
+                                alignItems: "center",
+                                gap: 1,
+                                py: 0.5,
+                            }}
+                        >
+                            <CircularProgress
+                                size={18}
+                            />
+
+                            <Typography
+                                variant="body2"
+                                color="text.secondary"
+                            >
+                                Loading created items…
+                            </Typography>
+                        </Box>
+                    )
+                    : createdItemsError
+                        ? (
+                            <Alert
+                                severity="warning"
+                                sx={{
+                                    py: 0.25,
+                                }}
+                            >
+                                Created items could not be loaded: {createdItemsError}
+                            </Alert>
+                        )
+                        : createdItems.length > 0
+                            ? (
+                                <Box
+                                    sx={{
+                                        display: "flex",
+                                        flexWrap: "wrap",
+                                        gap: 0.75,
+                                        maxHeight: 260,
+                                        overflowY: "auto",
+                                        pr: 0.5,
+                                    }}
+                                >
+                                    {createdItems.map(
+                                        (item) => (
+                                            <Chip
+                                                key={item.id}
+                                                size="small"
+                                                variant="outlined"
+                                                label={
+                                                    item.year === null
+                                                        ? item.name
+                                                        : `${item.name} · ${item.year}`
+                                                }
+                                                title={
+                                                    item.relation
+                                                        ? `${item.type} · ${item.relation}`
+                                                        : item.type
+                                                }
+                                                sx={{
+                                                    maxWidth: "100%",
+
+                                                    "& .MuiChip-label": {
+                                                        overflow: "hidden",
+                                                        textOverflow: "ellipsis",
+                                                        whiteSpace: "nowrap",
+                                                    },
+                                                }}
+                                            />
+                                        ),
+                                    )}
+                                </Box>
+                            )
+                            : (
+                                <Typography
+                                    variant="body2"
+                                    color="text.secondary"
+                                >
+                                    No created items are recorded for this Artist.
+                                </Typography>
+                            )}
             </DetailAccordion>
 
             <DetailAccordion

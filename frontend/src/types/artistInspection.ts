@@ -45,6 +45,15 @@ export type ArtistTimelineYear = {
     activities: ArtistTimelineActivity[];
 };
 
+export type ArtistCreatedItem = {
+    id: string;
+    name: string;
+    relation: string;
+    year: number | null;
+    type: string;
+};
+
+
 export type ArtistInspectionResponse = {
     artist_id: string;
     artist: {
@@ -60,6 +69,7 @@ export type ArtistInspectionResponse = {
         node_type_counts: ArtistInspectionNodeTypeCount[];
     };
     top_connections: ArtistTopConnection[];
+    items: ArtistCreatedItem[];
     timeline: {
         years: ArtistTimelineYear[];
         undated_count: number;

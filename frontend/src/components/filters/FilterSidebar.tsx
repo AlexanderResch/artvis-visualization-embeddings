@@ -110,9 +110,7 @@ function getArtistLabel(
         return entity;
     }
 
-    return `Artist ${getArtistKey(
-        artist,
-    )}`;
+    return "Unknown Artist";
 }
 
 
@@ -762,10 +760,6 @@ export function FilterSidebar({
 
                                     {" · "}
 
-                                    ID: {artist.id}
-
-                                    {" · "}
-
                                     {
                                         artist.is_noise
                                             ? "Noise"
@@ -791,7 +785,7 @@ export function FilterSidebar({
                             }
 
                             placeholder={
-                                "Type a name or ID…"
+                                "Type an Artist name…"
                             }
 
                             autoComplete="off"
