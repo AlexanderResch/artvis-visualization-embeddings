@@ -30,6 +30,10 @@ import {
 } from "../api/clustersApi";
 
 import {
+    fetchArtistComparison,
+} from "../api/comparisonApi";
+
+import {
     fetchDashboardOptions,
     fetchFilteredArtistIds,
 } from "../api/dashboardApi";
@@ -62,6 +66,18 @@ import {
 import {
     ClusterFilterSidebar,
 } from "../components/cluster/ClusterFilterSidebar";
+
+import {
+    ComparisonDetailsPanel,
+} from "../components/comparison/ComparisonDetailsPanel";
+
+import {
+    ComparisonSidebar,
+} from "../components/comparison/ComparisonSidebar";
+
+import {
+    ComparisonWorkspace,
+} from "../components/comparison/ComparisonWorkspace";
 
 import {
     OverviewPanel,
@@ -103,6 +119,10 @@ import type {
 } from "../types/cluster";
 
 import type {
+    ArtistComparisonResponse,
+} from "../types/comparison";
+
+import type {
     DashboardOptions,
     SimilarArtist,
 } from "../types/dashboard";
@@ -130,6 +150,7 @@ function requestedMode(
         value === "overview"
         || value === "cluster"
         || value === "artist"
+        || value === "compare"
     ) {
         return value;
     }
@@ -203,6 +224,23 @@ export function ExplorerPage() {
     ] = useState<SimilarArtist[]>([]);
 
     const [
+        comparisonArtistId,
+        setComparisonArtistId,
+    ] = useState<string | null>(null);
+
+    const [
+        comparisonSelectionActive,
+        setComparisonSelectionActive,
+    ] = useState(false);
+
+    const [
+        comparison,
+        setComparison,
+    ] = useState<ArtistComparisonResponse | null>(
+        null,
+    );
+
+    const [
         loading,
         setLoading,
     ] = useState(true);
@@ -220,6 +258,11 @@ export function ExplorerPage() {
     const [
         loadingArtistInspection,
         setLoadingArtistInspection,
+    ] = useState(false);
+
+    const [
+        loadingComparison,
+        setLoadingComparison,
     ] = useState(false);
 
     const [
@@ -245,6 +288,11 @@ export function ExplorerPage() {
     const [
         similarArtistsError,
         setSimilarArtistsError,
+    ] = useState<string | null>(null);
+
+    const [
+        comparisonError,
+        setComparisonError,
     ] = useState<string | null>(null);
 
     const [
@@ -291,6 +339,16 @@ export function ExplorerPage() {
         timelineBinSize,
         setTimelineBinSize,
     ] = useState<1 | 5 | 10>(5);
+
+    const [
+        comparisonShowMapContext,
+        setComparisonShowMapContext,
+    ] = useState(true);
+
+    const [
+        comparisonShowEdgeLabels,
+        setComparisonShowEdgeLabels,
+    ] = useState(true);
 
     useEffect(
         () => {
@@ -372,6 +430,9 @@ export function ExplorerPage() {
             const requestedArtistId =
                 searchParams.get("artist");
 
+            const requestedComparisonArtistId =
+                searchParams.get("compare");
+
             const requestedClusterValue =
                 searchParams.get("cluster");
 
@@ -422,6 +483,23 @@ export function ExplorerPage() {
                 }
             }
 
+            const resolvedComparisonArtist =
+                requestedComparisonArtistId
+                && requestedComparisonArtistId
+                !== resolvedArtist?.id
+                    ? data2D.find(
+                        (artist) =>
+                            artist.id
+                            === requestedComparisonArtistId,
+                    )
+                    ?? null
+                    : null;
+
+            setComparisonArtistId(
+                resolvedComparisonArtist?.id
+                ?? null,
+            );
+
             const clusterFromUrlIsValid =
                 requestedClusterId !== null
                 && Number.isInteger(
@@ -441,7 +519,16 @@ export function ExplorerPage() {
                 );
             }
 
-            if (modeFromUrl) {
+            if (
+                modeFromUrl === "compare"
+                && resolvedArtist
+                && resolvedComparisonArtist
+            ) {
+                setMode("compare");
+            } else if (
+                modeFromUrl
+                && modeFromUrl !== "compare"
+            ) {
                 setMode(modeFromUrl);
             } else if (resolvedArtist) {
                 setMode("overview");
@@ -493,6 +580,13 @@ export function ExplorerPage() {
                 );
             }
 
+            if (comparisonArtistId) {
+                next.set(
+                    "compare",
+                    comparisonArtistId,
+                );
+            }
+
             if (
                 mode !== "overview"
                 || explorer.selectedArtistId
@@ -526,6 +620,7 @@ export function ExplorerPage() {
             }
         },
         [
+            comparisonArtistId,
             explorer.selectedArtistId,
             explorer.selectedClusterId,
             explorer.viewMode,
@@ -797,6 +892,69 @@ export function ExplorerPage() {
         ],
     );
 
+    useEffect(
+        () => {
+            const artistAId =
+                explorer.selectedArtistId;
+
+            setComparisonError(null);
+
+            if (
+                mode !== "compare"
+                || !artistAId
+                || !comparisonArtistId
+                || artistAId === comparisonArtistId
+            ) {
+                setComparison(null);
+                setLoadingComparison(false);
+                return;
+            }
+
+            const controller =
+                new AbortController();
+
+            setLoadingComparison(true);
+            setComparison(null);
+
+            fetchArtistComparison(
+                artistAId,
+                comparisonArtistId,
+                controller.signal,
+            )
+                .then(setComparison)
+                .catch(
+                    (reason: unknown) => {
+                        if (
+                            !controller.signal.aborted
+                        ) {
+                            setComparisonError(
+                                reason instanceof Error
+                                    ? reason.message
+                                    : "Failed to load Artist comparison",
+                            );
+                        }
+                    },
+                )
+                .finally(
+                    () => {
+                        if (
+                            !controller.signal.aborted
+                        ) {
+                            setLoadingComparison(false);
+                        }
+                    },
+                );
+
+            return () =>
+                controller.abort();
+        },
+        [
+            comparisonArtistId,
+            explorer.selectedArtistId,
+            mode,
+        ],
+    );
+
     const request3D =
         useCallback(
             () => {
@@ -1032,6 +1190,24 @@ export function ExplorerPage() {
                     return overviewData2D;
                 }
 
+                if (mode === "compare") {
+                    if (
+                        comparisonShowMapContext
+                        || !comparisonArtistId
+                        || !explorer.selectedArtistId
+                    ) {
+                        return data2D;
+                    }
+
+                    return data2D.filter(
+                        (artist) =>
+                            artist.id
+                            === explorer.selectedArtistId
+                            || artist.id
+                            === comparisonArtistId,
+                    );
+                }
+
                 if (mode === "artist") {
                     if (
                         selectedClusterId === null
@@ -1076,7 +1252,10 @@ export function ExplorerPage() {
             },
             [
                 clusterInspection,
+                comparisonArtistId,
+                comparisonShowMapContext,
                 data2D,
+                explorer.selectedArtistId,
                 filteredClusterArtistIds,
                 mode,
                 overviewData2D,
@@ -1094,6 +1273,24 @@ export function ExplorerPage() {
 
                 if (mode === "overview") {
                     return overviewData3D;
+                }
+
+                if (mode === "compare") {
+                    if (
+                        comparisonShowMapContext
+                        || !comparisonArtistId
+                        || !explorer.selectedArtistId
+                    ) {
+                        return data3D;
+                    }
+
+                    return data3D.filter(
+                        (artist) =>
+                            artist.id
+                            === explorer.selectedArtistId
+                            || artist.id
+                            === comparisonArtistId,
+                    );
                 }
 
                 if (mode === "artist") {
@@ -1140,7 +1337,10 @@ export function ExplorerPage() {
             },
             [
                 clusterInspection,
+                comparisonArtistId,
+                comparisonShowMapContext,
                 data3D,
+                explorer.selectedArtistId,
                 filteredClusterArtistIds,
                 mode,
                 overviewData3D,
@@ -1163,6 +1363,23 @@ export function ExplorerPage() {
             [
                 data2D,
                 explorer.selectedArtistId,
+            ],
+        );
+
+    const comparisonArtist =
+        useMemo(
+            () =>
+                comparisonArtistId
+                    ? data2D.find(
+                        (artist) =>
+                            artist.id
+                            === comparisonArtistId,
+                    )
+                    ?? null
+                    : null,
+            [
+                comparisonArtistId,
+                data2D,
             ],
         );
 
@@ -1204,22 +1421,65 @@ export function ExplorerPage() {
             ],
         );
 
+    function clearComparisonState() {
+        setComparisonArtistId(null);
+        setComparisonSelectionActive(false);
+        setComparison(null);
+        setComparisonError(null);
+    }
+
     function showOverview() {
         explorer.setSelectedArtistId(null);
         explorer.setSelectedClusterId(null);
+        clearComparisonState();
         setMode("overview");
     }
 
     function showSelectedCluster() {
         if (selectedClusterId !== null) {
+            clearComparisonState();
             setMode("cluster");
         }
     }
 
     function inspectSelectedArtist() {
         if (selectedArtist) {
+            clearComparisonState();
             setMode("artist");
         }
+    }
+
+    function inspectComparisonArtist() {
+        if (!comparisonArtist) {
+            return;
+        }
+
+        explorer.setSelectedArtistId(
+            comparisonArtist.id,
+        );
+        explorer.setSelectedClusterId(
+            comparisonArtist.cluster,
+        );
+        clearComparisonState();
+        setMode("artist");
+    }
+
+    function startComparison() {
+        if (!selectedArtist) {
+            return;
+        }
+
+        setComparisonArtistId(null);
+        setComparison(null);
+        setComparisonError(null);
+        setComparisonSelectionActive(true);
+    }
+
+    function cancelComparison() {
+        setComparisonSelectionActive(false);
+        setComparisonArtistId(null);
+        setComparison(null);
+        setComparisonError(null);
     }
 
     function selectCluster(
@@ -1229,6 +1489,7 @@ export function ExplorerPage() {
         explorer.setSelectedClusterId(
             clusterId,
         );
+        clearComparisonState();
         setMode(
             clusterId === null
                 ? "overview"
@@ -1243,6 +1504,27 @@ export function ExplorerPage() {
                     ArtistEmbedding2D
                     | ArtistEmbedding3D,
             ) => {
+                if (
+                    comparisonSelectionActive
+                    || mode === "compare"
+                ) {
+                    if (
+                        artist.id
+                        === explorer.selectedArtistId
+                    ) {
+                        return;
+                    }
+
+                    setComparisonArtistId(
+                        artist.id,
+                    );
+                    setComparisonSelectionActive(
+                        false,
+                    );
+                    setMode("compare");
+                    return;
+                }
+
                 explorer.setSelectedClusterId(
                     artist.cluster,
                 );
@@ -1250,7 +1532,11 @@ export function ExplorerPage() {
                     artist.id,
                 );
             },
-            [explorer],
+            [
+                comparisonSelectionActive,
+                explorer,
+                mode,
+            ],
         );
 
     const selectArtistById =
@@ -1273,6 +1559,7 @@ export function ExplorerPage() {
                 explorer.setSelectedArtistId(
                     artist.id,
                 );
+                clearComparisonState();
                 setMode("artist");
             },
             [
@@ -1280,6 +1567,68 @@ export function ExplorerPage() {
                 explorer,
             ],
         );
+
+    function changeComparisonArtistA(
+        artist: ArtistEmbedding2D,
+    ) {
+        explorer.setSelectedArtistId(
+            artist.id,
+        );
+        explorer.setSelectedClusterId(
+            artist.cluster,
+        );
+        setComparison(null);
+        setMode("compare");
+    }
+
+    function changeComparisonArtistB(
+        artist: ArtistEmbedding2D | null,
+    ) {
+        if (!artist) {
+            setComparisonArtistId(null);
+            setComparison(null);
+            setComparisonSelectionActive(true);
+            return;
+        }
+
+        if (
+            artist.id
+            === explorer.selectedArtistId
+        ) {
+            return;
+        }
+
+        setComparisonArtistId(artist.id);
+        setComparisonSelectionActive(false);
+        setMode("compare");
+    }
+
+    function swapComparisonArtists() {
+        if (!comparisonArtist || !selectedArtist) {
+            return;
+        }
+
+        const previousArtistA =
+            selectedArtist;
+
+        explorer.setSelectedArtistId(
+            comparisonArtist.id,
+        );
+        explorer.setSelectedClusterId(
+            comparisonArtist.cluster,
+        );
+        setComparisonArtistId(
+            previousArtistA.id,
+        );
+        setComparison(null);
+    }
+
+    function resetComparison() {
+        setComparisonArtistId(null);
+        setComparison(null);
+        setComparisonError(null);
+        setComparisonSelectionActive(true);
+    }
 
     function resetClusterFilters() {
         setClusterMinimumMembership(0);
@@ -1353,30 +1702,38 @@ export function ExplorerPage() {
         && selectedArtist !== null;
 
     const mapHighlightClusterId =
-        mode === "overview"
-        && !hasSelectedArtistPreview
+        mode === "compare"
             ? null
-            : selectedClusterId;
+            : mode === "overview"
+            && !hasSelectedArtistPreview
+                ? null
+                : selectedClusterId;
 
     const mapTitle =
-        mode === "overview"
-            ? selectedArtist
-                ? `Embedding map · ${selectedArtist.display_name ?? selectedArtist.entity}`
-                : "Embedding cluster map"
-            : mode === "artist"
-            && selectedArtist
-                ? `Embedding map · ${selectedArtist.display_name ?? selectedArtist.entity}`
-                : selectedClusterId !== null
-                    ? `Embedding map · Cluster ${selectedClusterId}`
-                    : "Embedding cluster map";
+        mode === "compare"
+        && selectedArtist
+        && comparisonArtist
+            ? `Embedding comparison · ${selectedArtist.display_name ?? selectedArtist.entity} ↔ ${comparisonArtist.display_name ?? comparisonArtist.entity}`
+            : mode === "overview"
+                ? selectedArtist
+                    ? `Embedding map · ${selectedArtist.display_name ?? selectedArtist.entity}`
+                    : "Embedding cluster map"
+                : mode === "artist"
+                && selectedArtist
+                    ? `Embedding map · ${selectedArtist.display_name ?? selectedArtist.entity}`
+                    : selectedClusterId !== null
+                        ? `Embedding map · Cluster ${selectedClusterId}`
+                        : "Embedding cluster map";
 
     const gridClass =
         mode === "artist"
             ? "explorer-grid--artist"
-            : mode === "overview"
-            && !hasSelectedArtistPreview
-                ? "explorer-grid--overview"
-                : "explorer-grid--with-results";
+            : mode === "compare"
+                ? "explorer-grid--compare"
+                : mode === "overview"
+                && !hasSelectedArtistPreview
+                    ? "explorer-grid--overview"
+                    : "explorer-grid--with-results";
 
     return (
         <Box className="explorer-page">
@@ -1389,6 +1746,12 @@ export function ExplorerPage() {
                 selectedArtist={
                     selectedArtist
                 }
+                comparisonArtist={
+                    comparisonArtist
+                }
+                comparisonSelectionActive={
+                    comparisonSelectionActive
+                }
                 onShowOverview={
                     showOverview
                 }
@@ -1397,6 +1760,15 @@ export function ExplorerPage() {
                 }
                 onInspectArtist={
                     inspectSelectedArtist
+                }
+                onInspectComparisonArtist={
+                    inspectComparisonArtist
+                }
+                onStartComparison={
+                    startComparison
+                }
+                onCancelComparison={
+                    cancelComparison
                 }
                 onSelectCluster={
                     selectCluster
@@ -1416,114 +1788,150 @@ export function ExplorerPage() {
                                 options={options}
                             />
                         )
-                        : mode === "artist"
+                        : mode === "compare"
                         && selectedArtist
                             ? (
-                                <ArtistInspectionSidebar
-                                    artist={selectedArtist}
-                                    similarityThreshold={
-                                        similarityThreshold
+                                <ComparisonSidebar
+                                    artists={data2D}
+                                    artistA={selectedArtist}
+                                    artistB={comparisonArtist}
+                                    selectingSecondArtist={
+                                        comparisonSelectionActive
                                     }
-                                    onSimilarityThresholdChange={
-                                        setSimilarityThreshold
+                                    showMapContext={
+                                        comparisonShowMapContext
                                     }
-                                    similarArtistLimit={
-                                        similarArtistLimit
+                                    showEdgeLabels={
+                                        comparisonShowEdgeLabels
                                     }
-                                    onSimilarArtistLimitChange={
-                                        setSimilarArtistLimit
+                                    onArtistAChange={
+                                        changeComparisonArtistA
                                     }
-                                    egoDepth={egoDepth}
-                                    onEgoDepthChange={
-                                        setEgoDepth
+                                    onArtistBChange={
+                                        changeComparisonArtistB
                                     }
-                                    nodeTypeCounts={
-                                        artistInspection?.ego.node_type_counts
-                                        ?? []
+                                    onShowMapContextChange={
+                                        setComparisonShowMapContext
                                     }
-                                    selectedNodeTypes={
-                                        selectedNodeTypes
+                                    onShowEdgeLabelsChange={
+                                        setComparisonShowEdgeLabels
                                     }
-                                    onSelectedNodeTypesChange={
-                                        setSelectedNodeTypes
-                                    }
-                                    timelineBinSize={
-                                        timelineBinSize
-                                    }
-                                    onTimelineBinSizeChange={
-                                        setTimelineBinSize
-                                    }
-                                    showSurroundingClusters={
-                                        showSurroundingClusters
-                                    }
-                                    onShowSurroundingClustersChange={
-                                        setShowSurroundingClusters
+                                    onSwap={
+                                        swapComparisonArtists
                                     }
                                     onReset={
-                                        resetArtistAnalysis
+                                        resetComparison
                                     }
                                 />
                             )
-                            : loadingClusterInspection
+                            : mode === "artist"
+                            && selectedArtist
                                 ? (
-                                    <Box
-                                        sx={{
-                                            height: "100%",
-                                            display: "grid",
-                                            placeItems:
-                                                "center",
-                                        }}
-                                    >
-                                        <CircularProgress />
-                                    </Box>
+                                    <ArtistInspectionSidebar
+                                        artist={selectedArtist}
+                                        similarityThreshold={
+                                            similarityThreshold
+                                        }
+                                        onSimilarityThresholdChange={
+                                            setSimilarityThreshold
+                                        }
+                                        similarArtistLimit={
+                                            similarArtistLimit
+                                        }
+                                        onSimilarArtistLimitChange={
+                                            setSimilarArtistLimit
+                                        }
+                                        egoDepth={egoDepth}
+                                        onEgoDepthChange={
+                                            setEgoDepth
+                                        }
+                                        nodeTypeCounts={
+                                            artistInspection?.ego.node_type_counts
+                                            ?? []
+                                        }
+                                        selectedNodeTypes={
+                                            selectedNodeTypes
+                                        }
+                                        onSelectedNodeTypesChange={
+                                            setSelectedNodeTypes
+                                        }
+                                        timelineBinSize={
+                                            timelineBinSize
+                                        }
+                                        onTimelineBinSizeChange={
+                                            setTimelineBinSize
+                                        }
+                                        showSurroundingClusters={
+                                            showSurroundingClusters
+                                        }
+                                        onShowSurroundingClustersChange={
+                                            setShowSurroundingClusters
+                                        }
+                                        onReset={
+                                            resetArtistAnalysis
+                                        }
+                                    />
                                 )
-                                : clusterInspection
+                                : loadingClusterInspection
                                     ? (
-                                        <ClusterFilterSidebar
-                                            key={
-                                                clusterInspection.cluster
-                                            }
-                                            inspection={
-                                                clusterInspection
-                                            }
-                                            visibleArtistCount={
-                                                filteredClusterArtists.length
-                                            }
-                                            minimumMembership={
-                                                clusterMinimumMembership
-                                            }
-                                            onMinimumMembershipChange={
-                                                setClusterMinimumMembership
-                                            }
-                                            yearRange={
-                                                clusterYearRange
-                                            }
-                                            onYearRangeChange={
-                                                setClusterYearRange
-                                            }
-                                            selectedGroupIds={
-                                                clusterGroupIds
-                                            }
-                                            onSelectedGroupIdsChange={
-                                                setClusterGroupIds
-                                            }
-                                            showSurroundingClusters={
-                                                showSurroundingClusters
-                                            }
-                                            onShowSurroundingClustersChange={
-                                                setShowSurroundingClusters
-                                            }
-                                            onReset={
-                                                resetClusterFilters
-                                            }
-                                        />
+                                        <Box
+                                            sx={{
+                                                height: "100%",
+                                                display: "grid",
+                                                placeItems:
+                                                    "center",
+                                            }}
+                                        >
+                                            <CircularProgress />
+                                        </Box>
                                     )
-                                    : (
-                                        <FilterSidebar
-                                            artists={data2D}
-                                            options={options}
-                                        />
-                                    )}
+                                    : clusterInspection
+                                        ? (
+                                            <ClusterFilterSidebar
+                                                key={
+                                                    clusterInspection.cluster
+                                                }
+                                                inspection={
+                                                    clusterInspection
+                                                }
+                                                visibleArtistCount={
+                                                    filteredClusterArtists.length
+                                                }
+                                                minimumMembership={
+                                                    clusterMinimumMembership
+                                                }
+                                                onMinimumMembershipChange={
+                                                    setClusterMinimumMembership
+                                                }
+                                                yearRange={
+                                                    clusterYearRange
+                                                }
+                                                onYearRangeChange={
+                                                    setClusterYearRange
+                                                }
+                                                selectedGroupIds={
+                                                    clusterGroupIds
+                                                }
+                                                onSelectedGroupIdsChange={
+                                                    setClusterGroupIds
+                                                }
+                                                showSurroundingClusters={
+                                                    showSurroundingClusters
+                                                }
+                                                onShowSurroundingClustersChange={
+                                                    setShowSurroundingClusters
+                                                }
+                                                onReset={
+                                                    resetClusterFilters
+                                                }
+                                            />
+                                        )
+                                        : (
+                                            <FilterSidebar
+                                                artists={data2D}
+                                                options={options}
+                                            />
+                                        )}
                 </Panel>
 
                 <Panel className="explorer-map-panel">
@@ -1548,16 +1956,34 @@ export function ExplorerPage() {
                         }
                         dimNonHighlighted={
                             mode !== "overview"
+                            && mode !== "compare"
                             && showSurroundingClusters
+                        }
+                        comparisonArtistIds={
+                            selectedArtist
+                            && comparisonArtist
+                                ? [
+                                    selectedArtist.id,
+                                    comparisonArtist.id,
+                                ]
+                                : null
+                        }
+                        dimNonCompared={
+                            mode === "compare"
+                            && comparisonShowMapContext
                         }
                         onArtistClick={
                             selectArtist
                         }
                         title={mapTitle}
                         description={
-                            mode === "artist"
-                                ? "The selected Artist is highlighted. Its computed cluster remains visible as spatial context."
-                                : undefined
+                            comparisonSelectionActive
+                                ? "Select a second Artist point to start the comparison."
+                                : mode === "compare"
+                                    ? "The compared Artists are marked as A and B and connected by a dashed line."
+                                    : mode === "artist"
+                                        ? "The selected Artist is highlighted. Its computed cluster remains visible as spatial context."
+                                        : undefined
                         }
                     />
                 </Panel>
@@ -1588,91 +2014,127 @@ export function ExplorerPage() {
                                     }
                                 />
                             )
-                        : mode === "artist"
-                        && selectedArtist
-                            ? (
-                                <Box>
-                                    {similarArtistsError && (
-                                        <Alert
-                                            severity="warning"
-                                            sx={{
-                                                m: 1.5,
-                                                mb: 0,
-                                            }}
-                                        >
-                                            {similarArtistsError}
-                                        </Alert>
-                                    )}
-
-                                    <ArtistDetailsPanel
-                                        artist={
-                                            selectedArtist
-                                        }
-                                        clusterArtist={
-                                            selectedClusterArtist
-                                        }
-                                        similarArtists={
-                                            visibleSimilarArtists
-                                        }
-                                        totalSimilarArtistCount={
-                                            similarArtists.length
-                                        }
-                                        similarityThreshold={
-                                            similarityThreshold
-                                        }
-                                        onSelectSimilarArtist={
-                                            selectArtistById
-                                        }
-                                    />
-                                </Box>
-                            )
-                            : loadingClusterInspection
+                        : mode === "compare"
+                            ? loadingComparison
                                 ? (
                                     <Box
                                         sx={{
                                             minHeight: 300,
                                             display: "grid",
-                                            placeItems:
-                                                "center",
+                                            placeItems: "center",
                                         }}
                                     >
                                         <CircularProgress />
                                     </Box>
                                 )
-                                : clusterInspectionError
+                                : comparisonError
                                     ? (
-                                        <Box
-                                            sx={{
-                                                p: 2,
-                                            }}
-                                        >
+                                        <Box sx={{ p: 2 }}>
                                             <Alert severity="error">
-                                                {clusterInspectionError}
+                                                {comparisonError}
                                             </Alert>
                                         </Box>
                                     )
-                                    : clusterInspection
+                                    : comparison
                                         ? (
-                                            <ClusterDetailsPanel
-                                                inspection={
-                                                    clusterInspection
-                                                }
-                                                visibleArtistCount={
-                                                    filteredClusterArtists.length
+                                            <ComparisonDetailsPanel
+                                                comparison={
+                                                    comparison
                                                 }
                                             />
                                         )
                                         : (
+                                            <Box sx={{ p: 2 }}>
+                                                <Alert severity="info">
+                                                    Select a second Artist to load the comparison.
+                                                </Alert>
+                                            </Box>
+                                        )
+                            : mode === "artist"
+                            && selectedArtist
+                                ? (
+                                    <Box>
+                                        {similarArtistsError && (
+                                            <Alert
+                                                severity="warning"
+                                                sx={{
+                                                    m: 1.5,
+                                                    mb: 0,
+                                                }}
+                                            >
+                                                {similarArtistsError}
+                                            </Alert>
+                                        )}
+
+                                        <ArtistDetailsPanel
+                                            artist={
+                                                selectedArtist
+                                            }
+                                            clusterArtist={
+                                                selectedClusterArtist
+                                            }
+                                            similarArtists={
+                                                visibleSimilarArtists
+                                            }
+                                            totalSimilarArtistCount={
+                                                similarArtists.length
+                                            }
+                                            similarityThreshold={
+                                                similarityThreshold
+                                            }
+                                            onSelectSimilarArtist={
+                                                selectArtistById
+                                            }
+                                        />
+                                    </Box>
+                                )
+                                : loadingClusterInspection
+                                    ? (
+                                        <Box
+                                            sx={{
+                                                minHeight: 300,
+                                                display: "grid",
+                                                placeItems:
+                                                    "center",
+                                            }}
+                                        >
+                                            <CircularProgress />
+                                        </Box>
+                                    )
+                                    : clusterInspectionError
+                                        ? (
                                             <Box
                                                 sx={{
                                                     p: 2,
                                                 }}
                                             >
-                                                <Alert severity="info">
-                                                    This Artist is not assigned to a computed cluster.
+                                                <Alert severity="error">
+                                                    {clusterInspectionError}
                                                 </Alert>
                                             </Box>
-                                        )}
+                                        )
+                                        : clusterInspection
+                                            ? (
+                                                <ClusterDetailsPanel
+                                                    inspection={
+                                                        clusterInspection
+                                                    }
+                                                    visibleArtistCount={
+                                                        filteredClusterArtists.length
+                                                    }
+                                                />
+                                            )
+                                            : (
+                                                <Box
+                                                    sx={{
+                                                        p: 2,
+                                                    }}
+                                                >
+                                                    <Alert severity="info">
+                                                        This Artist is not assigned to a computed cluster.
+                                                    </Alert>
+                                                </Box>
+                                            )}
                 </Panel>
 
                 {mode === "overview"
@@ -1730,6 +2192,25 @@ export function ExplorerPage() {
                                         }
                                     />
                                 )}
+                    </Panel>
+                )}
+
+                {mode === "compare" && (
+                    <Panel
+                        title="Shared graph context and connecting path"
+                        className="explorer-results-panel explorer-results-panel--comparison"
+                    >
+                        <ComparisonWorkspace
+                            comparison={comparison}
+                            loading={loadingComparison}
+                            error={comparisonError}
+                            showEdgeLabels={
+                                comparisonShowEdgeLabels
+                            }
+                            onSelectArtist={
+                                selectArtistById
+                            }
+                        />
                     </Panel>
                 )}
 

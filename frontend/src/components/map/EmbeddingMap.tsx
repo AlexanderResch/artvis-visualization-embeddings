@@ -44,6 +44,8 @@ export function EmbeddingMap({
                                  highlightBoundaryData2D,
                                  highlightBoundaryData3D,
                                  dimNonHighlighted = false,
+                                 comparisonArtistIds = null,
+                                 dimNonCompared = false,
                                  onArtistClick,
                                  title = "Embedding cluster map",
                                  description,
@@ -57,6 +59,9 @@ export function EmbeddingMap({
     highlightBoundaryData2D?: ArtistEmbedding2D[];
     highlightBoundaryData3D?: ArtistEmbedding3D[];
     dimNonHighlighted?: boolean;
+    comparisonArtistIds?:
+        [string, string] | null;
+    dimNonCompared?: boolean;
     onArtistClick?: (
         artist:
             ArtistEmbedding2D
@@ -191,6 +196,12 @@ export function EmbeddingMap({
                             dimNonHighlighted={
                                 dimNonHighlighted
                             }
+                            comparisonArtistIds={
+                                comparisonArtistIds
+                            }
+                            dimNonCompared={
+                                dimNonCompared
+                            }
                             onArtistClick={
                                 onArtistClick
                                     ? (artist) =>
@@ -255,6 +266,12 @@ export function EmbeddingMap({
                                         }
                                         dimNonHighlighted={
                                             dimNonHighlighted
+                                        }
+                                        comparisonArtistIds={
+                                            comparisonArtistIds
+                                        }
+                                        dimNonCompared={
+                                            dimNonCompared
                                         }
                                         onArtistClick={
                                             onArtistClick
