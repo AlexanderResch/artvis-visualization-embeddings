@@ -338,7 +338,7 @@ export function ExplorerPage() {
     const [
         timelineBinSize,
         setTimelineBinSize,
-    ] = useState<1 | 5 | 10>(5);
+    ] = useState<1 | 5 | 10>(1);
 
     const [
         comparisonShowMapContext,
@@ -759,9 +759,16 @@ export function ExplorerPage() {
 
             setArtistInspectionError(null);
 
+            const shouldLoadArtistContext =
+                Boolean(artistId)
+                && (
+                    mode === "overview"
+                    || mode === "artist"
+                );
+
             if (
-                mode !== "artist"
-                || !artistId
+                !artistId
+                || !shouldLoadArtistContext
             ) {
                 setArtistInspection(null);
                 setLoadingArtistInspection(false);
@@ -771,12 +778,23 @@ export function ExplorerPage() {
             const controller =
                 new AbortController();
 
+            const requestedDepth =
+                mode === "artist"
+                    ? egoDepth
+                    : 1;
+
+            const requestedLimit =
+                mode === "artist"
+                    ? 350
+                    : 80;
+
             setLoadingArtistInspection(true);
+            setArtistInspection(null);
 
             fetchArtistInspection(
                 artistId,
-                egoDepth,
-                350,
+                requestedDepth,
+                requestedLimit,
                 controller.signal,
             )
                 .then(
@@ -784,6 +802,10 @@ export function ExplorerPage() {
                         setArtistInspection(
                             response,
                         );
+
+                        if (mode !== "artist") {
+                            return;
+                        }
 
                         const availableTypes =
                             response.ego.node_type_counts.map(
@@ -816,7 +838,7 @@ export function ExplorerPage() {
                             setArtistInspectionError(
                                 reason instanceof Error
                                     ? reason.message
-                                    : "Failed to load Artist inspection data",
+                                    : "Failed to load Artist context",
                             );
                         }
                     },
@@ -1383,6 +1405,100 @@ export function ExplorerPage() {
             ],
         );
 
+    const comparisonFocusData2D =
+        useMemo(
+            () =>
+                selectedArtist
+                && comparisonArtist
+                    ? [
+                        selectedArtist,
+                        comparisonArtist,
+                    ]
+                    : [],
+            [
+                comparisonArtist,
+                selectedArtist,
+            ],
+        );
+
+    const comparisonFocusData3D =
+        useMemo(
+            () => {
+                if (
+                    !data3D
+                    || !selectedArtist
+                    || !comparisonArtist
+                ) {
+                    return [];
+                }
+
+                const targetIds =
+                    new Set([
+                        selectedArtist.id,
+                        comparisonArtist.id,
+                    ]);
+
+                return data3D.filter(
+                    (artist) =>
+                        targetIds.has(
+                            artist.id,
+                        ),
+                );
+            },
+            [
+                comparisonArtist,
+                data3D,
+                selectedArtist,
+            ],
+        );
+
+    const mapFocusData2D =
+        useMemo(
+            () => {
+                if (mode === "compare") {
+                    return comparisonFocusData2D;
+                }
+
+                if (
+                    mode === "artist"
+                    || mode === "cluster"
+                ) {
+                    return selectedClusterBoundary2D;
+                }
+
+                return [];
+            },
+            [
+                comparisonFocusData2D,
+                mode,
+                selectedClusterBoundary2D,
+            ],
+        );
+
+    const mapFocusData3D =
+        useMemo(
+            () => {
+                if (mode === "compare") {
+                    return comparisonFocusData3D;
+                }
+
+                if (
+                    mode === "artist"
+                    || mode === "cluster"
+                ) {
+                    return selectedClusterBoundary3D;
+                }
+
+                return [];
+            },
+            [
+                comparisonFocusData3D,
+                mode,
+                selectedClusterBoundary3D,
+            ],
+        );
+
+
     const selectedClusterArtist =
         useMemo(
             () =>
@@ -1641,7 +1757,7 @@ export function ExplorerPage() {
         setSimilarityThreshold(0.7);
         setSimilarArtistLimit(10);
         setEgoDepth(2);
-        setTimelineBinSize(5);
+        setTimelineBinSize(1);
         setShowSurroundingClusters(true);
 
         setSelectedNodeTypes(
@@ -1972,6 +2088,12 @@ export function ExplorerPage() {
                             mode === "compare"
                             && comparisonShowMapContext
                         }
+                        focusData2D={
+                            mapFocusData2D
+                        }
+                        focusData3D={
+                            mapFocusData3D
+                        }
                         onArtistClick={
                             selectArtist
                         }
@@ -2001,6 +2123,17 @@ export function ExplorerPage() {
                                     }
                                     showSimilarArtists={
                                         false
+                                    }
+                                    createdItems={
+                                        artistInspection
+                                            ?.items
+                                        ?? []
+                                    }
+                                    createdItemsLoading={
+                                        loadingArtistInspection
+                                    }
+                                    createdItemsError={
+                                        artistInspectionError
                                     }
                                 />
                             )
@@ -2084,6 +2217,17 @@ export function ExplorerPage() {
                                             }
                                             onSelectSimilarArtist={
                                                 selectArtistById
+                                            }
+                                            createdItems={
+                                                artistInspection
+                                                    ?.items
+                                                ?? []
+                                            }
+                                            createdItemsLoading={
+                                                loadingArtistInspection
+                                            }
+                                            createdItemsError={
+                                                artistInspectionError
                                             }
                                         />
                                     </Box>

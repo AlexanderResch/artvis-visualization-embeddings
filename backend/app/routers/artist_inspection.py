@@ -159,7 +159,7 @@ def _graph_node(
         label=_node_label(
             node_type,
             safe_properties,
-            f"{node_type} {entity_id}",
+            f"Unnamed {node_type}",
         ),
         depth=depth,
         properties=safe_properties,
@@ -313,8 +313,7 @@ def _fetch_timeline(
                     name: coalesce(
                         location.name,
                         location.label,
-                        toString(location.id),
-                        elementId(location)
+                        "Unknown location"
                     )
                 }
             END)
@@ -348,7 +347,7 @@ def _fetch_timeline(
         label = _node_label(
             "Exhibition",
             properties,
-            f"Exhibition {exhibition_id}",
+            "Untitled exhibition",
         )
 
         activity = {
@@ -385,6 +384,99 @@ def _fetch_timeline(
         "year_max": years[-1]["year"] if years else None,
         "activity_type": "Exhibition",
     }
+
+
+def _fetch_items(
+        artist_id: str,
+) -> list[dict[str, Any]]:
+    query = """
+    MATCH (artist:Artist)-[relationship]-(item)
+    WHERE toString(artist.id) = $artist_id
+      AND any(
+          label IN labels(item)
+          WHERE label IN [
+              "Item",
+              "Artwork",
+              "Work"
+          ]
+      )
+    WITH
+        item,
+        collect(
+            DISTINCT type(relationship)
+        ) AS relation_types
+    RETURN
+        elementId(item) AS item_key,
+        labels(item) AS item_labels,
+        properties(item) AS item_properties,
+        head(relation_types) AS relation,
+        coalesce(
+            item.title,
+            item.name,
+            item.label,
+            item.object_name,
+            item.objectName,
+            "Untitled item"
+        ) AS item_sort_name
+    ORDER BY
+        toLower(
+            toString(
+                item_sort_name
+            )
+        )
+    LIMIT 500
+    """
+
+    with get_driver().session() as session:
+        records = list(
+            session.run(
+                query,
+                artist_id=artist_id,
+            )
+        )
+
+    items: list[dict[str, Any]] = []
+
+    for record in records:
+        properties = dict(
+            record["item_properties"]
+            or {}
+        )
+
+        labels = list(
+            record["item_labels"]
+            or []
+        )
+
+        item_type = _node_type(
+            labels
+        )
+
+        item_key = str(
+            record["item_key"]
+        )
+
+        items.append({
+            "id": _entity_id(
+                item_key,
+                properties,
+            ),
+            "name": _node_label(
+                item_type,
+                properties,
+                "Untitled item",
+            ),
+            "relation": str(
+                record["relation"]
+                or ""
+            ),
+            "year": _extract_year(
+                properties
+            ),
+            "type": item_type,
+        })
+
+    return items
 
 
 def _build_ego_graph(
@@ -594,6 +686,9 @@ def get_artist_inspection(
             nodes,
             links,
             root.key,
+        ),
+        "items": _fetch_items(
+            artist_id,
         ),
         "timeline": _fetch_timeline(
             artist_id,

@@ -82,7 +82,7 @@ function getArtistLabel(
         return entity;
     }
 
-    return `Artist ${artist.id}`;
+    return "Unknown Artist";
 }
 
 
@@ -508,9 +508,7 @@ export function SimilarArtistsTable({
                                                         ?? "?"
                                                     }
 
-                                                    {" · "}
 
-                                                    ID: {artist.id}
                                                 </Typography>
                                             </TableCell>
 

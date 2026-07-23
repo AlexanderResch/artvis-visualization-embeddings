@@ -367,12 +367,6 @@ export function ClusterArtistsTable({
                                                 {artist.display_name}
                                             </Typography>
 
-                                            <Typography
-                                                variant="caption"
-                                                color="text.secondary"
-                                            >
-                                                ID: {artist.id}
-                                            </Typography>
                                         </TableCell>
 
                                         <TableCell>

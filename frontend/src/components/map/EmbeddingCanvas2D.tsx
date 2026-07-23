@@ -390,85 +390,133 @@ function drawClusterBoundary(
     context.stroke();
 
     context.restore();
+}
 
-    const minimumX = Math.min(
-        ...screenHull.map(
-            (point) => point[0],
-        ),
-    );
 
-    const maximumX = Math.max(
-        ...screenHull.map(
-            (point) => point[0],
-        ),
-    );
+function fitTransformForData(
+    targetData: ArtistEmbedding2D[],
+    size: CanvasSize,
+    xScale: ScaleLinear<number, number>,
+    yScale: ScaleLinear<number, number>,
+): ZoomTransform {
+    if (targetData.length === 0) {
+        return zoomIdentity;
+    }
 
-    const minimumY = Math.min(
-        ...screenHull.map(
-            (point) => point[1],
-        ),
-    );
+    const baseXScale =
+        xScale.copy().range([
+            PADDING.left,
+            size.width
+            - PADDING.right,
+        ]);
 
-    const label =
-        `Cluster ${clusterId}`;
+    const baseYScale =
+        yScale.copy().range([
+            size.height
+            - PADDING.bottom,
+            PADDING.top,
+        ]);
 
-    context.save();
-    context.font =
-        "600 12px Inter, Segoe UI, Arial";
+    const projected =
+        targetData.map(
+            (artist) => ({
+                x: baseXScale(artist.x),
+                y: baseYScale(artist.y),
+            }),
+        );
 
-    const labelWidth =
-        context.measureText(label).width;
-
-    const labelX =
-        Math.max(
-            PADDING.left + 6,
-            Math.min(
-                size.width
-                - PADDING.right
-                - labelWidth
-                - 14,
-                (minimumX + maximumX) / 2
-                - labelWidth / 2
-                - 7,
+    const minimumX =
+        Math.min(
+            ...projected.map(
+                (point) => point.x,
             ),
         );
 
-    const labelY =
+    const maximumX =
         Math.max(
-            PADDING.top + 6,
-            minimumY - 30,
+            ...projected.map(
+                (point) => point.x,
+            ),
         );
 
-    context.fillStyle =
-        "rgba(255,255,255,0.95)";
-    context.strokeStyle = color;
-    context.lineWidth = 1.5;
-    context.setLineDash([]);
+    const minimumY =
+        Math.min(
+            ...projected.map(
+                (point) => point.y,
+            ),
+        );
 
-    context.beginPath();
-    context.roundRect(
-        labelX,
-        labelY,
-        labelWidth + 14,
-        24,
-        8,
-    );
-    context.fill();
-    context.stroke();
+    const maximumY =
+        Math.max(
+            ...projected.map(
+                (point) => point.y,
+            ),
+        );
 
-    context.fillStyle = color;
-    context.textAlign = "left";
-    context.textBaseline =
-        "middle";
+    const centerX =
+        (minimumX + maximumX) / 2;
 
-    context.fillText(
-        label,
-        labelX + 7,
-        labelY + 12,
-    );
+    const centerY =
+        (minimumY + maximumY) / 2;
 
-    context.restore();
+    const horizontalSpan =
+        Math.max(
+            1,
+            maximumX - minimumX,
+        );
+
+    const verticalSpan =
+        Math.max(
+            1,
+            maximumY - minimumY,
+        );
+
+    const horizontalPadding = 140;
+    const verticalPadding = 120;
+
+    const availableWidth =
+        Math.max(
+            80,
+            size.width
+            - horizontalPadding,
+        );
+
+    const availableHeight =
+        Math.max(
+            80,
+            size.height
+            - verticalPadding,
+        );
+
+    const scale =
+        targetData.length === 1
+            ? 6
+            : Math.max(
+                0.45,
+                Math.min(
+                    12,
+                    Math.min(
+                        availableWidth
+                        / horizontalSpan,
+
+                        availableHeight
+                        / verticalSpan,
+                    ),
+                ),
+            );
+
+    return zoomIdentity
+        .translate(
+            size.width / 2
+            - scale * centerX,
+
+            size.height / 2
+            - scale * centerY,
+        )
+        .scale(scale);
 }
+
+
 
 
 export function EmbeddingCanvas2D({
@@ -478,6 +526,9 @@ export function EmbeddingCanvas2D({
                                       dimNonHighlighted = false,
                                       comparisonArtistIds = null,
                                       dimNonCompared = false,
+                                      focusData,
+                                      fitRequestKey = 0,
+                                      pointScale = 1,
                                       onArtistClick,
                                   }: {
     data: ArtistEmbedding2D[];
@@ -489,6 +540,9 @@ export function EmbeddingCanvas2D({
     comparisonArtistIds?:
         [string, string] | null;
     dimNonCompared?: boolean;
+    focusData?: ArtistEmbedding2D[];
+    fitRequestKey?: number;
+    pointScale?: number;
     onArtistClick?:
         (artist: ArtistEmbedding2D) => void;
 }) {
@@ -918,18 +972,41 @@ export function EmbeddingCanvas2D({
                         && !compared
                     );
 
-                const radius =
+                const zoomVisibilityScale =
+                    Math.max(
+                        0.96,
+                        Math.min(
+                            1.28,
+                            0.96
+                            + Math.sqrt(
+                                Math.max(
+                                    0.35,
+                                    transform.k,
+                                ),
+                            )
+                            * 0.075,
+                        ),
+                    );
+
+                const baseRadius =
                     selected
                         ? 6.5
                         : highlighted
                             ? 3.2
                             : dimmed
-                                ? point.artist.is_noise
-                                    ? 1.4
-                                    : 2.1
-                                : point.artist.is_noise
-                                    ? 1.5
-                                    : 2.3;
+                                ? 2.1
+                                : 2.3;
+
+                const noiseScale =
+                    point.artist.is_noise
+                        ? 0.78
+                        : 1;
+
+                const radius =
+                    baseRadius
+                    * pointScale
+                    * zoomVisibilityScale
+                    * noiseScale;
 
                 context.beginPath();
                 context.arc(
@@ -951,39 +1028,35 @@ export function EmbeddingCanvas2D({
                         : highlighted
                             ? 0.95
                             : dimmed
-                                ? point.artist.is_noise
-                                    ? 0.1
-                                    : 0.42
+                                ? 0.42
                                 : point.artist.is_noise
-                                    ? 0.2
+                                    ? 0.46
                                     : 0.72;
 
                 context.fill();
 
-                if (
-                    !point.artist.is_noise
-                ) {
-                    context.globalAlpha =
-                        selected
-                            ? 1
-                            : highlighted
-                                ? 0.88
-                                : dimmed
-                                    ? 0.55
+                context.globalAlpha =
+                    selected
+                        ? 1
+                        : highlighted
+                            ? 0.88
+                            : dimmed
+                                ? 0.55
+                                : point.artist.is_noise
+                                    ? 0.45
                                     : 0.72;
 
-                    context.strokeStyle =
-                        clusterPointOutlineColor(
-                            point.artist.cluster,
-                        );
+                context.strokeStyle =
+                    clusterPointOutlineColor(
+                        point.artist.cluster,
+                    );
 
-                    context.lineWidth =
-                        highlighted
-                            ? 0.9
-                            : 0.55;
+                context.lineWidth =
+                    highlighted
+                        ? 0.9
+                        : 0.55;
 
-                    context.stroke();
-                }
+                context.stroke();
 
                 if (selected) {
                     context.globalAlpha = 1;
@@ -1004,6 +1077,7 @@ export function EmbeddingCanvas2D({
                         "#ffffff";
                     context.lineWidth = 2;
                     context.stroke();
+
                 }
 
                 if (compared) {
@@ -1073,6 +1147,7 @@ export function EmbeddingCanvas2D({
             dimNonHighlighted,
             explorer.selectedArtistId,
             highlightClusterId,
+            pointScale,
             xScale,
             yScale,
         ],
@@ -1224,6 +1299,48 @@ export function EmbeddingCanvas2D({
     );
 
     useEffect(
+        () => {
+            const canvas =
+                canvasRef.current;
+
+            const zoomBehavior =
+                zoomBehaviorRef.current;
+
+            if (
+                !canvas
+                || !zoomBehavior
+                || !focusData
+                || focusData.length === 0
+                || size.width <= 0
+                || size.height <= 0
+            ) {
+                return;
+            }
+
+            const transform =
+                fitTransformForData(
+                    focusData,
+                    size,
+                    xScale,
+                    yScale,
+                );
+
+            select(canvas).call(
+                zoomBehavior.transform,
+                transform,
+            );
+        },
+        [
+            fitRequestKey,
+            focusData,
+            size.height,
+            size.width,
+            xScale,
+            yScale,
+        ],
+    );
+
+    useEffect(
         () => () => {
             if (
                 animationFrameRef.current
@@ -1262,7 +1379,10 @@ export function EmbeddingCanvas2D({
             ?.find(
                 pointerX,
                 pointerY,
-                10,
+                Math.max(
+                    10,
+                    8 * pointScale,
+                ),
             );
     }
 

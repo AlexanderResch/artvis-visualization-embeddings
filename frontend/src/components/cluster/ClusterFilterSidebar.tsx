@@ -60,7 +60,7 @@ function artistLabel(
 
     return name
         || artist.entity
-        || `Artist ${artist.id}`;
+        || "Unknown Artist";
 }
 
 
@@ -353,8 +353,6 @@ export function ClusterFilterSidebar({
                                     {artist.birth_year ?? "?"}
                                     {"–"}
                                     {artist.death_year ?? "?"}
-                                    {" · ID: "}
-                                    {artist.id}
                                     {" · centroid "}
                                     {artist
                                         .similarity_to_centroid
@@ -369,7 +367,7 @@ export function ClusterFilterSidebar({
                         <TextField
                             {...params}
                             label="Search in cluster"
-                            placeholder="Type a name or ID…"
+                            placeholder="Type an Artist name…"
                             autoComplete="off"
                         />
                     )
