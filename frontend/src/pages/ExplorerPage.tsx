@@ -18,6 +18,14 @@ import {
 } from "react-router";
 
 import {
+    fetchArtistInspection,
+} from "../api/artistInspectionApi";
+
+import {
+    fetchSimilarArtists,
+} from "../api/artistsApi";
+
+import {
     fetchClusterInspection,
 } from "../api/clustersApi";
 
@@ -34,6 +42,14 @@ import {
 import {
     ArtistDetailsPanel,
 } from "../components/artist/ArtistDetailsPanel";
+
+import {
+    ArtistInspectionSidebar,
+} from "../components/artist/ArtistInspectionSidebar";
+
+import {
+    ArtistInspectionWorkspace,
+} from "../components/artist/ArtistInspectionWorkspace";
 
 import {
     ClusterArtistsTable,
@@ -78,12 +94,17 @@ import {
 } from "../context/ExplorerContext";
 
 import type {
+    ArtistInspectionResponse,
+} from "../types/artistInspection";
+
+import type {
     ClusterArtist,
     ClusterInspection,
 } from "../types/cluster";
 
 import type {
     DashboardOptions,
+    SimilarArtist,
 } from "../types/dashboard";
 
 import type {
@@ -92,40 +113,28 @@ import type {
 } from "../types/embedding";
 
 
-function getExplorerMode(
-    selectedClusterId: number | null,
-    selectedArtistId: string | null,
-): ExplorerMode {
-    if (selectedArtistId !== null) {
-        return "artist";
-    }
-
-    if (
-        selectedClusterId !== null
-        && selectedClusterId >= 0
-    ) {
-        return "cluster";
-    }
-
-    return "overview";
+function validClusterId(
+    clusterId: number | null,
+): number | null {
+    return clusterId !== null
+    && clusterId >= 0
+        ? clusterId
+        : null;
 }
 
 
-function artistName(
-    artist: ArtistEmbedding2D | null,
-): string | null {
-    if (!artist) {
-        return null;
+function requestedMode(
+    value: string | null,
+): ExplorerMode | null {
+    if (
+        value === "overview"
+        || value === "cluster"
+        || value === "artist"
+    ) {
+        return value;
     }
 
-    const displayName =
-        typeof artist.display_name === "string"
-            ? artist.display_name.trim()
-            : "";
-
-    return displayName
-        || artist.entity
-        || `Artist ${artist.id}`;
+    return null;
 }
 
 
@@ -140,6 +149,13 @@ export function ExplorerPage() {
 
     const initialSelectionAppliedRef =
         useRef(false);
+
+    const [
+        mode,
+        setMode,
+    ] = useState<ExplorerMode>(
+        "overview",
+    );
 
     const [
         data2D,
@@ -168,11 +184,23 @@ export function ExplorerPage() {
     );
 
     const [
-        inspection,
-        setInspection,
+        clusterInspection,
+        setClusterInspection,
     ] = useState<ClusterInspection | null>(
         null,
     );
+
+    const [
+        artistInspection,
+        setArtistInspection,
+    ] = useState<ArtistInspectionResponse | null>(
+        null,
+    );
+
+    const [
+        similarArtists,
+        setSimilarArtists,
+    ] = useState<SimilarArtist[]>([]);
 
     const [
         loading,
@@ -185,8 +213,13 @@ export function ExplorerPage() {
     ] = useState(false);
 
     const [
-        loadingInspection,
-        setLoadingInspection,
+        loadingClusterInspection,
+        setLoadingClusterInspection,
+    ] = useState(false);
+
+    const [
+        loadingArtistInspection,
+        setLoadingArtistInspection,
     ] = useState(false);
 
     const [
@@ -200,8 +233,18 @@ export function ExplorerPage() {
     ] = useState<string | null>(null);
 
     const [
-        inspectionError,
-        setInspectionError,
+        clusterInspectionError,
+        setClusterInspectionError,
+    ] = useState<string | null>(null);
+
+    const [
+        artistInspectionError,
+        setArtistInspectionError,
+    ] = useState<string | null>(null);
+
+    const [
+        similarArtistsError,
+        setSimilarArtistsError,
     ] = useState<string | null>(null);
 
     const [
@@ -224,11 +267,30 @@ export function ExplorerPage() {
         setShowSurroundingClusters,
     ] = useState(true);
 
-    const mode =
-        getExplorerMode(
-            explorer.selectedClusterId,
-            explorer.selectedArtistId,
-        );
+    const [
+        similarityThreshold,
+        setSimilarityThreshold,
+    ] = useState(0.7);
+
+    const [
+        similarArtistLimit,
+        setSimilarArtistLimit,
+    ] = useState(10);
+
+    const [
+        egoDepth,
+        setEgoDepth,
+    ] = useState<1 | 2>(2);
+
+    const [
+        selectedNodeTypes,
+        setSelectedNodeTypes,
+    ] = useState<string[]>([]);
+
+    const [
+        timelineBinSize,
+        setTimelineBinSize,
+    ] = useState<1 | 5 | 10>(5);
 
     useEffect(
         () => {
@@ -323,6 +385,11 @@ export function ExplorerPage() {
             const requestedView =
                 searchParams.get("view");
 
+            const modeFromUrl =
+                requestedMode(
+                    searchParams.get("mode"),
+                );
+
             if (
                 requestedView === "2d"
                 || requestedView === "3d"
@@ -332,37 +399,56 @@ export function ExplorerPage() {
                 );
             }
 
+            let resolvedArtist:
+                ArtistEmbedding2D | null =
+                null;
+
             if (requestedArtistId) {
-                const requestedArtist =
+                resolvedArtist =
                     data2D.find(
                         (artist) =>
                             artist.id
                             === requestedArtistId,
-                    );
+                    )
+                    ?? null;
 
-                if (requestedArtist) {
+                if (resolvedArtist) {
                     explorer.setSelectedArtistId(
-                        requestedArtist.id,
+                        resolvedArtist.id,
                     );
-
                     explorer.setSelectedClusterId(
-                        requestedArtist.cluster,
+                        resolvedArtist.cluster,
                     );
                 }
-            } else if (
+            }
+
+            const clusterFromUrlIsValid =
                 requestedClusterId !== null
                 && Number.isInteger(
                     requestedClusterId,
                 )
-                && requestedClusterId >= 0
+                && requestedClusterId >= 0;
+
+            if (
+                !resolvedArtist
+                && clusterFromUrlIsValid
             ) {
                 explorer.setSelectedArtistId(
                     null,
                 );
-
                 explorer.setSelectedClusterId(
                     requestedClusterId,
                 );
+            }
+
+            if (modeFromUrl) {
+                setMode(modeFromUrl);
+            } else if (resolvedArtist) {
+                setMode("overview");
+            } else if (clusterFromUrlIsValid) {
+                setMode("cluster");
+            } else {
+                setMode("overview");
             }
 
             initialSelectionAppliedRef.current =
@@ -407,6 +493,19 @@ export function ExplorerPage() {
                 );
             }
 
+            if (
+                mode !== "overview"
+                || explorer.selectedArtistId
+                || validClusterId(
+                    explorer.selectedClusterId,
+                ) !== null
+            ) {
+                next.set(
+                    "mode",
+                    mode,
+                );
+            }
+
             if (explorer.viewMode === "3d") {
                 next.set(
                     "view",
@@ -430,6 +529,7 @@ export function ExplorerPage() {
             explorer.selectedArtistId,
             explorer.selectedClusterId,
             explorer.viewMode,
+            mode,
             searchParams,
             setSearchParams,
         ],
@@ -499,22 +599,22 @@ export function ExplorerPage() {
             setClusterYearRange(null);
             setClusterGroupIds([]);
             setShowSurroundingClusters(true);
-            setInspectionError(null);
+            setClusterInspectionError(null);
 
             if (
                 clusterId === null
                 || clusterId < 0
             ) {
-                setInspection(null);
-                setLoadingInspection(false);
+                setClusterInspection(null);
+                setLoadingClusterInspection(false);
                 return;
             }
 
             const controller =
                 new AbortController();
 
-            setLoadingInspection(true);
-            setInspection(null);
+            setLoadingClusterInspection(true);
+            setClusterInspection(null);
 
             fetchClusterInspection(
                 clusterId,
@@ -522,14 +622,16 @@ export function ExplorerPage() {
             )
                 .then(
                     (response) =>
-                        setInspection(response),
+                        setClusterInspection(
+                            response,
+                        ),
                 )
                 .catch(
                     (reason: unknown) => {
                         if (
                             !controller.signal.aborted
                         ) {
-                            setInspectionError(
+                            setClusterInspectionError(
                                 reason instanceof Error
                                     ? reason.message
                                     : "Failed to load cluster inspection",
@@ -542,7 +644,7 @@ export function ExplorerPage() {
                         if (
                             !controller.signal.aborted
                         ) {
-                            setLoadingInspection(
+                            setLoadingClusterInspection(
                                 false,
                             );
                         }
@@ -553,6 +655,146 @@ export function ExplorerPage() {
                 controller.abort();
         },
         [explorer.selectedClusterId],
+    );
+
+    useEffect(
+        () => {
+            const artistId =
+                explorer.selectedArtistId;
+
+            setArtistInspectionError(null);
+
+            if (
+                mode !== "artist"
+                || !artistId
+            ) {
+                setArtistInspection(null);
+                setLoadingArtistInspection(false);
+                return;
+            }
+
+            const controller =
+                new AbortController();
+
+            setLoadingArtistInspection(true);
+
+            fetchArtistInspection(
+                artistId,
+                egoDepth,
+                350,
+                controller.signal,
+            )
+                .then(
+                    (response) => {
+                        setArtistInspection(
+                            response,
+                        );
+
+                        const availableTypes =
+                            response.ego.node_type_counts.map(
+                                (item) =>
+                                    item.type,
+                            );
+
+                        setSelectedNodeTypes(
+                            (current) => {
+                                const retained =
+                                    current.filter(
+                                        (nodeType) =>
+                                            availableTypes.includes(
+                                                nodeType,
+                                            ),
+                                    );
+
+                                return retained.length > 0
+                                    ? retained
+                                    : availableTypes;
+                            },
+                        );
+                    },
+                )
+                .catch(
+                    (reason: unknown) => {
+                        if (
+                            !controller.signal.aborted
+                        ) {
+                            setArtistInspectionError(
+                                reason instanceof Error
+                                    ? reason.message
+                                    : "Failed to load Artist inspection data",
+                            );
+                        }
+                    },
+                )
+                .finally(
+                    () => {
+                        if (
+                            !controller.signal.aborted
+                        ) {
+                            setLoadingArtistInspection(
+                                false,
+                            );
+                        }
+                    },
+                );
+
+            return () =>
+                controller.abort();
+        },
+        [
+            egoDepth,
+            explorer.selectedArtistId,
+            mode,
+        ],
+    );
+
+    useEffect(
+        () => {
+            const artistId =
+                explorer.selectedArtistId;
+
+            setSimilarArtistsError(null);
+
+            if (
+                mode !== "artist"
+                || !artistId
+            ) {
+                setSimilarArtists([]);
+                return;
+            }
+
+            const controller =
+                new AbortController();
+
+            fetchSimilarArtists(
+                artistId,
+                50,
+                controller.signal,
+            )
+                .then(
+                    setSimilarArtists,
+                )
+                .catch(
+                    (reason: unknown) => {
+                        if (
+                            !controller.signal.aborted
+                        ) {
+                            setSimilarArtistsError(
+                                reason instanceof Error
+                                    ? reason.message
+                                    : "Failed to load similar Artists",
+                            );
+                        }
+                    },
+                );
+
+            return () =>
+                controller.abort();
+        },
+        [
+            explorer.selectedArtistId,
+            mode,
+        ],
     );
 
     const request3D =
@@ -722,14 +964,14 @@ export function ExplorerPage() {
     const filteredClusterArtists =
         useMemo(
             () =>
-                inspection
-                    ? inspection.artists.filter(
+                clusterInspection
+                    ? clusterInspection.artists.filter(
                         acceptsClusterArtist,
                     )
                     : [],
             [
                 acceptsClusterArtist,
-                inspection,
+                clusterInspection,
             ],
         );
 
@@ -746,10 +988,9 @@ export function ExplorerPage() {
         );
 
     const selectedClusterId =
-        explorer.selectedClusterId !== null
-        && explorer.selectedClusterId >= 0
-            ? explorer.selectedClusterId
-            : null;
+        validClusterId(
+            explorer.selectedClusterId,
+        );
 
     const selectedClusterBoundary2D =
         useMemo(
@@ -787,10 +1028,28 @@ export function ExplorerPage() {
     const focusedData2D =
         useMemo(
             () => {
+                if (mode === "overview") {
+                    return overviewData2D;
+                }
+
+                if (mode === "artist") {
+                    if (
+                        selectedClusterId === null
+                        || showSurroundingClusters
+                    ) {
+                        return data2D;
+                    }
+
+                    return data2D.filter(
+                        (artist) =>
+                            artist.cluster
+                            === selectedClusterId,
+                    );
+                }
+
                 if (
-                    mode === "overview"
-                    || selectedClusterId === null
-                    || !inspection
+                    selectedClusterId === null
+                    || !clusterInspection
                 ) {
                     return overviewData2D;
                 }
@@ -816,9 +1075,9 @@ export function ExplorerPage() {
                 );
             },
             [
+                clusterInspection,
                 data2D,
                 filteredClusterArtistIds,
-                inspection,
                 mode,
                 overviewData2D,
                 selectedClusterId,
@@ -833,10 +1092,28 @@ export function ExplorerPage() {
                     return null;
                 }
 
+                if (mode === "overview") {
+                    return overviewData3D;
+                }
+
+                if (mode === "artist") {
+                    if (
+                        selectedClusterId === null
+                        || showSurroundingClusters
+                    ) {
+                        return data3D;
+                    }
+
+                    return data3D.filter(
+                        (artist) =>
+                            artist.cluster
+                            === selectedClusterId,
+                    );
+                }
+
                 if (
-                    mode === "overview"
-                    || selectedClusterId === null
-                    || !inspection
+                    selectedClusterId === null
+                    || !clusterInspection
                 ) {
                     return overviewData3D;
                 }
@@ -862,9 +1139,9 @@ export function ExplorerPage() {
                 );
             },
             [
+                clusterInspection,
                 data3D,
                 filteredClusterArtistIds,
-                inspection,
                 mode,
                 overviewData3D,
                 selectedClusterId,
@@ -893,8 +1170,8 @@ export function ExplorerPage() {
         useMemo(
             () =>
                 explorer.selectedArtistId
-                && inspection
-                    ? inspection.artists.find(
+                && clusterInspection
+                    ? clusterInspection.artists.find(
                         (artist) =>
                             artist.id
                             === explorer.selectedArtistId,
@@ -902,18 +1179,47 @@ export function ExplorerPage() {
                     ?? null
                     : null,
             [
+                clusterInspection,
                 explorer.selectedArtistId,
-                inspection,
+            ],
+        );
+
+    const visibleSimilarArtists =
+        useMemo(
+            () =>
+                similarArtists
+                    .filter(
+                        (artist) =>
+                            artist.similarity
+                            >= similarityThreshold,
+                    )
+                    .slice(
+                        0,
+                        similarArtistLimit,
+                    ),
+            [
+                similarArtistLimit,
+                similarArtists,
+                similarityThreshold,
             ],
         );
 
     function showOverview() {
         explorer.setSelectedArtistId(null);
         explorer.setSelectedClusterId(null);
+        setMode("overview");
     }
 
     function showSelectedCluster() {
-        explorer.setSelectedArtistId(null);
+        if (selectedClusterId !== null) {
+            setMode("cluster");
+        }
+    }
+
+    function inspectSelectedArtist() {
+        if (selectedArtist) {
+            setMode("artist");
+        }
     }
 
     function selectCluster(
@@ -923,27 +1229,80 @@ export function ExplorerPage() {
         explorer.setSelectedClusterId(
             clusterId,
         );
-    }
-
-    function selectArtist(
-        artist:
-            ArtistEmbedding2D
-            | ArtistEmbedding3D,
-    ) {
-        explorer.setSelectedClusterId(
-            artist.cluster,
-        );
-
-        explorer.setSelectedArtistId(
-            artist.id,
+        setMode(
+            clusterId === null
+                ? "overview"
+                : "cluster",
         );
     }
+
+    const selectArtist =
+        useCallback(
+            (
+                artist:
+                    ArtistEmbedding2D
+                    | ArtistEmbedding3D,
+            ) => {
+                explorer.setSelectedClusterId(
+                    artist.cluster,
+                );
+                explorer.setSelectedArtistId(
+                    artist.id,
+                );
+            },
+            [explorer],
+        );
+
+    const selectArtistById =
+        useCallback(
+            (artistId: string) => {
+                const artist =
+                    data2D.find(
+                        (candidate) =>
+                            candidate.id
+                            === artistId,
+                    );
+
+                if (!artist) {
+                    return;
+                }
+
+                explorer.setSelectedClusterId(
+                    artist.cluster,
+                );
+                explorer.setSelectedArtistId(
+                    artist.id,
+                );
+                setMode("artist");
+            },
+            [
+                data2D,
+                explorer,
+            ],
+        );
 
     function resetClusterFilters() {
         setClusterMinimumMembership(0);
         setClusterYearRange(null);
         setClusterGroupIds([]);
         setShowSurroundingClusters(true);
+    }
+
+    function resetArtistAnalysis() {
+        setSimilarityThreshold(0.7);
+        setSimilarArtistLimit(10);
+        setEgoDepth(2);
+        setTimelineBinSize(5);
+        setShowSurroundingClusters(true);
+
+        setSelectedNodeTypes(
+            artistInspection
+                ? artistInspection.ego.node_type_counts.map(
+                    (item) =>
+                        item.type,
+                )
+                : [],
+        );
     }
 
     if (loading) {
@@ -989,12 +1348,35 @@ export function ExplorerPage() {
             : focusedData3D?.length
             ?? focusedData2D.length;
 
+    const hasSelectedArtistPreview =
+        mode === "overview"
+        && selectedArtist !== null;
+
+    const mapHighlightClusterId =
+        mode === "overview"
+        && !hasSelectedArtistPreview
+            ? null
+            : selectedClusterId;
+
     const mapTitle =
         mode === "overview"
-            ? "Embedding cluster map"
-            : selectedClusterId !== null
-                ? `Embedding map · Cluster ${selectedClusterId}`
-                : "Embedding cluster map";
+            ? selectedArtist
+                ? `Embedding map · ${selectedArtist.display_name ?? selectedArtist.entity}`
+                : "Embedding cluster map"
+            : mode === "artist"
+            && selectedArtist
+                ? `Embedding map · ${selectedArtist.display_name ?? selectedArtist.entity}`
+                : selectedClusterId !== null
+                    ? `Embedding map · Cluster ${selectedClusterId}`
+                    : "Embedding cluster map";
+
+    const gridClass =
+        mode === "artist"
+            ? "explorer-grid--artist"
+            : mode === "overview"
+            && !hasSelectedArtistPreview
+                ? "explorer-grid--overview"
+                : "explorer-grid--with-results";
 
     return (
         <Box className="explorer-page">
@@ -1013,12 +1395,19 @@ export function ExplorerPage() {
                 onShowCluster={
                     showSelectedCluster
                 }
+                onInspectArtist={
+                    inspectSelectedArtist
+                }
                 onSelectCluster={
                     selectCluster
                 }
             />
 
-            <Box className="explorer-grid">
+            <Box
+                className={
+                    `explorer-grid ${gridClass}`
+                }
+            >
                 <Panel className="explorer-filters-panel">
                     {mode === "overview"
                         ? (
@@ -1027,64 +1416,114 @@ export function ExplorerPage() {
                                 options={options}
                             />
                         )
-                        : loadingInspection
+                        : mode === "artist"
+                        && selectedArtist
                             ? (
-                                <Box
-                                    sx={{
-                                        height: "100%",
-                                        display: "grid",
-                                        placeItems:
-                                            "center",
-                                    }}
-                                >
-                                    <CircularProgress />
-                                </Box>
+                                <ArtistInspectionSidebar
+                                    artist={selectedArtist}
+                                    similarityThreshold={
+                                        similarityThreshold
+                                    }
+                                    onSimilarityThresholdChange={
+                                        setSimilarityThreshold
+                                    }
+                                    similarArtistLimit={
+                                        similarArtistLimit
+                                    }
+                                    onSimilarArtistLimitChange={
+                                        setSimilarArtistLimit
+                                    }
+                                    egoDepth={egoDepth}
+                                    onEgoDepthChange={
+                                        setEgoDepth
+                                    }
+                                    nodeTypeCounts={
+                                        artistInspection?.ego.node_type_counts
+                                        ?? []
+                                    }
+                                    selectedNodeTypes={
+                                        selectedNodeTypes
+                                    }
+                                    onSelectedNodeTypesChange={
+                                        setSelectedNodeTypes
+                                    }
+                                    timelineBinSize={
+                                        timelineBinSize
+                                    }
+                                    onTimelineBinSizeChange={
+                                        setTimelineBinSize
+                                    }
+                                    showSurroundingClusters={
+                                        showSurroundingClusters
+                                    }
+                                    onShowSurroundingClustersChange={
+                                        setShowSurroundingClusters
+                                    }
+                                    onReset={
+                                        resetArtistAnalysis
+                                    }
+                                />
                             )
-                            : inspection
+                            : loadingClusterInspection
                                 ? (
-                                    <ClusterFilterSidebar
-                                        key={
-                                            inspection.cluster
-                                        }
-                                        inspection={inspection}
-                                        visibleArtistCount={
-                                            filteredClusterArtists.length
-                                        }
-                                        minimumMembership={
-                                            clusterMinimumMembership
-                                        }
-                                        onMinimumMembershipChange={
-                                            setClusterMinimumMembership
-                                        }
-                                        yearRange={
-                                            clusterYearRange
-                                        }
-                                        onYearRangeChange={
-                                            setClusterYearRange
-                                        }
-                                        selectedGroupIds={
-                                            clusterGroupIds
-                                        }
-                                        onSelectedGroupIdsChange={
-                                            setClusterGroupIds
-                                        }
-                                        showSurroundingClusters={
-                                            showSurroundingClusters
-                                        }
-                                        onShowSurroundingClustersChange={
-                                            setShowSurroundingClusters
-                                        }
-                                        onReset={
-                                            resetClusterFilters
-                                        }
-                                    />
+                                    <Box
+                                        sx={{
+                                            height: "100%",
+                                            display: "grid",
+                                            placeItems:
+                                                "center",
+                                        }}
+                                    >
+                                        <CircularProgress />
+                                    </Box>
                                 )
-                                : (
-                                    <FilterSidebar
-                                        artists={data2D}
-                                        options={options}
-                                    />
-                                )}
+                                : clusterInspection
+                                    ? (
+                                        <ClusterFilterSidebar
+                                            key={
+                                                clusterInspection.cluster
+                                            }
+                                            inspection={
+                                                clusterInspection
+                                            }
+                                            visibleArtistCount={
+                                                filteredClusterArtists.length
+                                            }
+                                            minimumMembership={
+                                                clusterMinimumMembership
+                                            }
+                                            onMinimumMembershipChange={
+                                                setClusterMinimumMembership
+                                            }
+                                            yearRange={
+                                                clusterYearRange
+                                            }
+                                            onYearRangeChange={
+                                                setClusterYearRange
+                                            }
+                                            selectedGroupIds={
+                                                clusterGroupIds
+                                            }
+                                            onSelectedGroupIdsChange={
+                                                setClusterGroupIds
+                                            }
+                                            showSurroundingClusters={
+                                                showSurroundingClusters
+                                            }
+                                            onShowSurroundingClustersChange={
+                                                setShowSurroundingClusters
+                                            }
+                                            onReset={
+                                                resetClusterFilters
+                                            }
+                                        />
+                                    )
+                                    : (
+                                        <FilterSidebar
+                                            artists={data2D}
+                                            options={options}
+                                        />
+                                    )}
                 </Panel>
 
                 <Panel className="explorer-map-panel">
@@ -1095,13 +1534,17 @@ export function ExplorerPage() {
                         error3D={map3DError}
                         onRequest3D={request3D}
                         highlightClusterId={
-                            selectedClusterId
+                            mapHighlightClusterId
                         }
                         highlightBoundaryData2D={
-                            selectedClusterBoundary2D
+                            mapHighlightClusterId === null
+                                ? []
+                                : selectedClusterBoundary2D
                         }
                         highlightBoundaryData3D={
-                            selectedClusterBoundary3D
+                            mapHighlightClusterId === null
+                                ? []
+                                : selectedClusterBoundary3D
                         }
                         dimNonHighlighted={
                             mode !== "overview"
@@ -1111,23 +1554,17 @@ export function ExplorerPage() {
                             selectArtist
                         }
                         title={mapTitle}
+                        description={
+                            mode === "artist"
+                                ? "The selected Artist is highlighted. Its computed cluster remains visible as spatial context."
+                                : undefined
+                        }
                     />
                 </Panel>
 
                 <Panel className="explorer-details-panel">
                     {mode === "overview"
-                        ? (
-                            <OverviewPanel
-                                overview={
-                                    options.overview
-                                }
-                                visibleArtistCount={
-                                    visibleArtistCount
-                                }
-                            />
-                        )
-                        : mode === "artist"
-                        && selectedArtist
+                        ? selectedArtist
                             ? (
                                 <ArtistDetailsPanel
                                     artist={
@@ -1136,15 +1573,60 @@ export function ExplorerPage() {
                                     clusterArtist={
                                         selectedClusterArtist
                                     }
-                                    onShowCluster={
-                                        showSelectedCluster
-                                    }
-                                    onShowOverview={
-                                        showOverview
+                                    showSimilarArtists={
+                                        false
                                     }
                                 />
                             )
-                            : loadingInspection
+                            : (
+                                <OverviewPanel
+                                    overview={
+                                        options.overview
+                                    }
+                                    visibleArtistCount={
+                                        visibleArtistCount
+                                    }
+                                />
+                            )
+                        : mode === "artist"
+                        && selectedArtist
+                            ? (
+                                <Box>
+                                    {similarArtistsError && (
+                                        <Alert
+                                            severity="warning"
+                                            sx={{
+                                                m: 1.5,
+                                                mb: 0,
+                                            }}
+                                        >
+                                            {similarArtistsError}
+                                        </Alert>
+                                    )}
+
+                                    <ArtistDetailsPanel
+                                        artist={
+                                            selectedArtist
+                                        }
+                                        clusterArtist={
+                                            selectedClusterArtist
+                                        }
+                                        similarArtists={
+                                            visibleSimilarArtists
+                                        }
+                                        totalSimilarArtistCount={
+                                            similarArtists.length
+                                        }
+                                        similarityThreshold={
+                                            similarityThreshold
+                                        }
+                                        onSelectSimilarArtist={
+                                            selectArtistById
+                                        }
+                                    />
+                                </Box>
+                            )
+                            : loadingClusterInspection
                                 ? (
                                     <Box
                                         sx={{
@@ -1157,7 +1639,7 @@ export function ExplorerPage() {
                                         <CircularProgress />
                                     </Box>
                                 )
-                                : inspectionError
+                                : clusterInspectionError
                                     ? (
                                         <Box
                                             sx={{
@@ -1165,15 +1647,15 @@ export function ExplorerPage() {
                                             }}
                                         >
                                             <Alert severity="error">
-                                                {inspectionError}
+                                                {clusterInspectionError}
                                             </Alert>
                                         </Box>
                                     )
-                                    : inspection
+                                    : clusterInspection
                                         ? (
                                             <ClusterDetailsPanel
                                                 inspection={
-                                                    inspection
+                                                    clusterInspection
                                                 }
                                                 visibleArtistCount={
                                                     filteredClusterArtists.length
@@ -1193,19 +1675,30 @@ export function ExplorerPage() {
                                         )}
                 </Panel>
 
-                <Panel
-                    title={
-                        mode === "cluster"
-                        && selectedClusterId !== null
-                            ? `Artists in Cluster ${selectedClusterId}`
-                            : mode === "artist"
-                                ? "Most similar Artists"
-                                : "Selection results"
-                    }
-                    className="explorer-results-panel"
-                >
-                    {mode === "cluster"
-                        ? loadingInspection
+                {mode === "overview"
+                    && selectedArtist && (
+                        <Panel
+                            title="Most similar Artists"
+                            className="explorer-results-panel"
+                        >
+                            <SimilarArtistsTable
+                                selectedArtistName={
+                                    selectedArtist.display_name
+                                }
+                            />
+                        </Panel>
+                    )}
+
+                {mode === "cluster" && (
+                    <Panel
+                        title={
+                            selectedClusterId !== null
+                                ? `Artists in Cluster ${selectedClusterId}`
+                                : "Cluster Artists"
+                        }
+                        className="explorer-results-panel"
+                    >
+                        {loadingClusterInspection
                             ? (
                                 <Box
                                     sx={{
@@ -1218,7 +1711,7 @@ export function ExplorerPage() {
                                     <CircularProgress />
                                 </Box>
                             )
-                            : inspectionError
+                            : clusterInspectionError
                                 ? (
                                     <Box
                                         sx={{
@@ -1226,7 +1719,7 @@ export function ExplorerPage() {
                                         }}
                                     >
                                         <Alert severity="error">
-                                            {inspectionError}
+                                            {clusterInspectionError}
                                         </Alert>
                                     </Box>
                                 )
@@ -1236,32 +1729,41 @@ export function ExplorerPage() {
                                             filteredClusterArtists
                                         }
                                     />
-                                )
-                        : mode === "artist"
-                            ? (
-                                <SimilarArtistsTable
-                                    selectedArtistName={
-                                        artistName(
-                                            selectedArtist,
-                                        )
-                                    }
-                                />
-                            )
-                            : (
-                                <Box
-                                    sx={{
-                                        p: 3,
-                                        textAlign: "center",
-                                    }}
-                                >
-                                    <Typography
-                                        color="text.secondary"
-                                    >
-                                        Select an Artist point to inspect nearest neighbours, or select a cluster from the header to open Cluster Inspection in this same workspace.
-                                    </Typography>
-                                </Box>
-                            )}
-                </Panel>
+                                )}
+                    </Panel>
+                )}
+
+                {mode === "artist"
+                    && selectedArtist && (
+                        <Panel
+                            title="Artist graph context and activity"
+                            className="explorer-results-panel explorer-results-panel--artist"
+                        >
+                            <ArtistInspectionWorkspace
+                                artist={
+                                    selectedArtist
+                                }
+                                inspection={
+                                    artistInspection
+                                }
+                                loading={
+                                    loadingArtistInspection
+                                }
+                                error={
+                                    artistInspectionError
+                                }
+                                selectedNodeTypes={
+                                    selectedNodeTypes
+                                }
+                                timelineBinSize={
+                                    timelineBinSize
+                                }
+                                onSelectArtist={
+                                    selectArtistById
+                                }
+                            />
+                        </Panel>
+                    )}
             </Box>
         </Box>
     );

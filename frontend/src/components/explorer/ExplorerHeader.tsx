@@ -32,7 +32,7 @@ function artistLabel(
     artist: ArtistEmbedding2D | null,
 ): string {
     if (!artist) {
-        return "Selected artist";
+        return "Selected Artist";
     }
 
     const displayName =
@@ -53,6 +53,7 @@ export function ExplorerHeader({
                                    selectedArtist,
                                    onShowOverview,
                                    onShowCluster,
+                                   onInspectArtist,
                                    onSelectCluster,
                                }: {
     mode: ExplorerMode;
@@ -61,6 +62,7 @@ export function ExplorerHeader({
     selectedArtist: ArtistEmbedding2D | null;
     onShowOverview: () => void;
     onShowCluster: () => void;
+    onInspectArtist: () => void;
     onSelectCluster: (
         clusterId: number | null,
     ) => void;
@@ -70,6 +72,20 @@ export function ExplorerHeader({
         && selectedClusterId >= 0
             ? selectedClusterId
             : null;
+
+    const hasSelectedArtist =
+        selectedArtist !== null;
+
+    const description =
+        mode === "overview"
+            ? hasSelectedArtist
+                ? "An Artist is selected. Use Inspect Artist to open the detailed Artist analysis view."
+                : "Explore the complete Artist embedding space and select a cluster or Artist."
+            : mode === "cluster"
+                ? hasSelectedArtist
+                    ? "Inspect the cluster or open the selected Artist without leaving the central workspace."
+                    : "Inspect the selected cluster without leaving the central exploration workspace."
+                : "Inspect one Artist while preserving the surrounding cluster and embedding-map context.";
 
     return (
         <Box
@@ -129,37 +145,39 @@ export function ExplorerHeader({
                             Overview
                         </Button>
 
-                        {validSelectedClusterId !== null && (
-                            <Button
-                                size="small"
-                                onClick={
-                                    onShowCluster
-                                }
-                                sx={{
-                                    minWidth: 0,
-                                    px: 0,
-                                    textTransform:
-                                        "none",
-                                }}
-                            >
-                                Cluster {validSelectedClusterId}
-                            </Button>
-                        )}
+                        {mode !== "overview"
+                            && validSelectedClusterId !== null && (
+                                <Button
+                                    size="small"
+                                    onClick={
+                                        onShowCluster
+                                    }
+                                    sx={{
+                                        minWidth: 0,
+                                        px: 0,
+                                        textTransform:
+                                            "none",
+                                    }}
+                                >
+                                    Cluster {validSelectedClusterId}
+                                </Button>
+                            )}
 
-                        {mode === "artist" && (
-                            <Typography
-                                variant="body2"
-                                color="text.primary"
-                                noWrap
-                                sx={{
-                                    maxWidth: 320,
-                                }}
-                            >
-                                {artistLabel(
-                                    selectedArtist,
-                                )}
-                            </Typography>
-                        )}
+                        {mode === "artist"
+                            && selectedArtist && (
+                                <Typography
+                                    variant="body2"
+                                    color="text.primary"
+                                    noWrap
+                                    sx={{
+                                        maxWidth: 320,
+                                    }}
+                                >
+                                    {artistLabel(
+                                        selectedArtist,
+                                    )}
+                                </Typography>
+                            )}
                     </Breadcrumbs>
 
                     <Typography
@@ -169,11 +187,7 @@ export function ExplorerHeader({
                             mt: 0.25,
                         }}
                     >
-                        {mode === "overview"
-                            ? "Explore the complete Artist embedding space and select a cluster or Artist."
-                            : mode === "cluster"
-                                ? "Inspect the selected cluster without leaving the central exploration workspace."
-                                : "Inspect one Artist while preserving the surrounding cluster and map context."}
+                        {description}
                     </Typography>
                 </Box>
 
@@ -186,6 +200,23 @@ export function ExplorerHeader({
                         flexShrink: 0,
                     }}
                 >
+                    {hasSelectedArtist
+                        && mode !== "artist" && (
+                            <Chip
+                                size="small"
+                                variant="outlined"
+                                label={
+                                    artistLabel(
+                                        selectedArtist,
+                                    )
+                                }
+                                sx={{
+                                    maxWidth: 220,
+                                    fontWeight: 700,
+                                }}
+                            />
+                        )}
+
                     {validSelectedClusterId !== null && (
                         <Chip
                             size="small"
@@ -263,8 +294,9 @@ export function ExplorerHeader({
                             )}
                     </TextField>
 
-                    {mode === "artist"
-                        && validSelectedClusterId !== null && (
+                    {hasSelectedArtist
+                        && validSelectedClusterId !== null
+                        && mode !== "cluster" && (
                             <Button
                                 variant="outlined"
                                 onClick={
@@ -272,6 +304,18 @@ export function ExplorerHeader({
                                 }
                             >
                                 Inspect Cluster {validSelectedClusterId}
+                            </Button>
+                        )}
+
+                    {hasSelectedArtist
+                        && mode !== "artist" && (
+                            <Button
+                                variant="outlined"
+                                onClick={
+                                    onInspectArtist
+                                }
+                            >
+                                Inspect Artist
                             </Button>
                         )}
 
