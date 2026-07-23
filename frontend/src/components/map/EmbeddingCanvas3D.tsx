@@ -480,6 +480,8 @@ export default function EmbeddingCanvas3D({
                                               highlightBoundaryData,
                                               highlightClusterId = null,
                                               dimNonHighlighted = false,
+                                              comparisonArtistIds = null,
+                                              dimNonCompared = false,
                                               onArtistClick,
                                           }: {
     data: ArtistEmbedding3D[];
@@ -488,6 +490,9 @@ export default function EmbeddingCanvas3D({
     highlightClusterId?:
         number | null;
     dimNonHighlighted?: boolean;
+    comparisonArtistIds?:
+        [string, string] | null;
+    dimNonCompared?: boolean;
     onArtistClick?:
         (artist: ArtistEmbedding3D) => void;
 }) {
@@ -717,8 +722,71 @@ export default function EmbeddingCanvas3D({
                     );
                 }
 
+                if (comparisonArtistIds) {
+                    const firstComparisonPoint =
+                        projected.find(
+                            (point) =>
+                                point.artist.id
+                                === comparisonArtistIds[0],
+                        );
+
+                    const secondComparisonPoint =
+                        projected.find(
+                            (point) =>
+                                point.artist.id
+                                === comparisonArtistIds[1],
+                        );
+
+                    if (
+                        firstComparisonPoint
+                        && secondComparisonPoint
+                    ) {
+                        context.save();
+                        context.beginPath();
+                        context.moveTo(
+                            firstComparisonPoint.screenX,
+                            firstComparisonPoint.screenY,
+                        );
+                        context.lineTo(
+                            secondComparisonPoint.screenX,
+                            secondComparisonPoint.screenY,
+                        );
+                        context.strokeStyle =
+                            "#111827";
+                        context.globalAlpha = 0.8;
+                        context.lineWidth = 2.25;
+                        context.setLineDash([
+                            8,
+                            6,
+                        ]);
+                        context.stroke();
+                        context.restore();
+                    }
+                }
+
                 projected.sort(
                     (first, second) => {
+                        const firstCompared =
+                            comparisonArtistIds?.includes(
+                                first.artist.id,
+                            )
+                            ?? false;
+
+                        const secondCompared =
+                            comparisonArtistIds?.includes(
+                                second.artist.id,
+                            )
+                            ?? false;
+
+                        if (
+                            firstCompared
+                            !== secondCompared
+                        ) {
+                            return firstCompared
+                                ? 1
+                                : -1;
+                        }
+
                         const firstHighlighted =
                             highlightClusterId !== null
                             && first.artist.cluster
@@ -746,9 +814,19 @@ export default function EmbeddingCanvas3D({
                 );
 
                 for (const point of projected) {
+                    const comparisonIndex =
+                        comparisonArtistIds?.indexOf(
+                            point.artist.id,
+                        )
+                        ?? -1;
+
+                    const compared =
+                        comparisonIndex >= 0;
+
                     const selected =
                         point.artist.id
-                        === explorer.selectedArtistId;
+                        === explorer.selectedArtistId
+                        || compared;
 
                     const highlighted =
                         highlightClusterId !== null
@@ -756,9 +834,16 @@ export default function EmbeddingCanvas3D({
                         === highlightClusterId;
 
                     const dimmed =
-                        dimNonHighlighted
-                        && highlightClusterId !== null
-                        && !highlighted;
+                        (
+                            dimNonHighlighted
+                            && highlightClusterId !== null
+                            && !highlighted
+                        )
+                        || (
+                            dimNonCompared
+                            && comparisonArtistIds !== null
+                            && !compared
+                        );
 
                     const baseRadius =
                         highlighted
@@ -854,6 +939,50 @@ export default function EmbeddingCanvas3D({
                         context.lineWidth = 2;
                         context.stroke();
                     }
+
+                    if (compared) {
+                        const comparisonLabel =
+                            comparisonIndex === 0
+                                ? "A"
+                                : "B";
+
+                        const labelX =
+                            point.screenX
+                            + radius
+                            + 8;
+                        const labelY =
+                            point.screenY
+                            - radius
+                            - 8;
+
+                        context.save();
+                        context.beginPath();
+                        context.arc(
+                            labelX,
+                            labelY,
+                            10,
+                            0,
+                            Math.PI * 2,
+                        );
+                        context.fillStyle =
+                            "#111827";
+                        context.globalAlpha = 1;
+                        context.fill();
+                        context.fillStyle =
+                            "#ffffff";
+                        context.font =
+                            "700 11px Inter, Segoe UI, Arial";
+                        context.textAlign =
+                            "center";
+                        context.textBaseline =
+                            "middle";
+                        context.fillText(
+                            comparisonLabel,
+                            labelX,
+                            labelY,
+                        );
+                        context.restore();
+                    }
                 }
 
                 context.globalAlpha = 1;
@@ -881,6 +1010,8 @@ export default function EmbeddingCanvas3D({
                         .addAll(projected);
             },
             [
+                comparisonArtistIds,
+                dimNonCompared,
                 dimNonHighlighted,
                 explorer.selectedArtistId,
                 highlightClusterId,

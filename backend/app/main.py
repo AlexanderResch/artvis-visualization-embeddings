@@ -21,6 +21,10 @@ from app.routers.artists import (
     router as artists_router
 )
 
+from app.routers.artist_comparison import (
+    router as artist_comparison_router,
+)
+
 from app.routers.clusters import (
     router as clusters_router
 )
@@ -69,6 +73,10 @@ app.add_middleware(
 
 app.include_router(
     embeddings_router
+)
+
+app.include_router(
+    artist_comparison_router,
 )
 
 app.include_router(

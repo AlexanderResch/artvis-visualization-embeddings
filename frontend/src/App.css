@@ -172,3 +172,65 @@
     grid-column: auto;
   }
 }
+
+.explorer-grid--compare {
+  grid-template-rows:
+    minmax(
+      590px,
+      calc(100vh - 195px)
+    )
+    auto;
+  grid-template-areas:
+    "explorerFilters explorerMap explorerDetails"
+    "explorerResults explorerResults explorerResults";
+}
+
+.explorer-results-panel--comparison {
+  overflow: visible;
+}
+
+.comparison-visual-grid {
+  display: grid;
+  grid-template-columns:
+    minmax(240px, 0.8fr)
+    minmax(280px, 1fr)
+    minmax(0, 1.6fr);
+  gap: 12px;
+  padding: 12px;
+  align-items: stretch;
+}
+
+@media (max-width: 1500px) {
+  .comparison-visual-grid {
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(0, 1fr);
+  }
+
+  .comparison-visual-grid > :last-child {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 1400px) {
+  .explorer-grid--compare {
+    grid-template-rows:
+      minmax(560px, 68vh)
+      auto
+      auto;
+    grid-template-areas:
+      "explorerFilters explorerMap"
+      "explorerDetails explorerDetails"
+      "explorerResults explorerResults";
+  }
+}
+
+@media (max-width: 900px) {
+  .comparison-visual-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .comparison-visual-grid > :last-child {
+    grid-column: auto;
+  }
+}

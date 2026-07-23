@@ -476,6 +476,8 @@ export function EmbeddingCanvas2D({
                                       highlightClusterId = null,
                                       highlightBoundaryData,
                                       dimNonHighlighted = false,
+                                      comparisonArtistIds = null,
+                                      dimNonCompared = false,
                                       onArtistClick,
                                   }: {
     data: ArtistEmbedding2D[];
@@ -484,6 +486,9 @@ export function EmbeddingCanvas2D({
     highlightClusterId?:
         number | null;
     dimNonHighlighted?: boolean;
+    comparisonArtistIds?:
+        [string, string] | null;
+    dimNonCompared?: boolean;
     onArtistClick?:
         (artist: ArtistEmbedding2D) => void;
 }) {
@@ -778,11 +783,74 @@ export function EmbeddingCanvas2D({
                 );
             }
 
+            if (comparisonArtistIds) {
+                const firstComparisonPoint =
+                    screenPoints.find(
+                        (point) =>
+                            point.artist.id
+                            === comparisonArtistIds[0],
+                    );
+
+                const secondComparisonPoint =
+                    screenPoints.find(
+                        (point) =>
+                            point.artist.id
+                            === comparisonArtistIds[1],
+                    );
+
+                if (
+                    firstComparisonPoint
+                    && secondComparisonPoint
+                ) {
+                    context.save();
+                    context.beginPath();
+                    context.moveTo(
+                        firstComparisonPoint.screenX,
+                        firstComparisonPoint.screenY,
+                    );
+                    context.lineTo(
+                        secondComparisonPoint.screenX,
+                        secondComparisonPoint.screenY,
+                    );
+                    context.strokeStyle =
+                        "#111827";
+                    context.globalAlpha = 0.8;
+                    context.lineWidth = 2.25;
+                    context.setLineDash([
+                        8,
+                        6,
+                    ]);
+                    context.stroke();
+                    context.restore();
+                }
+            }
+
             screenPoints.sort(
                 (
                     firstPoint,
                     secondPoint,
                 ) => {
+                    const firstCompared =
+                        comparisonArtistIds?.includes(
+                            firstPoint.artist.id,
+                        )
+                        ?? false;
+
+                    const secondCompared =
+                        comparisonArtistIds?.includes(
+                            secondPoint.artist.id,
+                        )
+                        ?? false;
+
+                    if (
+                        firstCompared
+                        !== secondCompared
+                    ) {
+                        return firstCompared
+                            ? 1
+                            : -1;
+                    }
+
                     const firstHighlighted =
                         highlightClusterId !== null
                         && firstPoint.artist.cluster
@@ -819,9 +887,19 @@ export function EmbeddingCanvas2D({
             );
 
             for (const point of screenPoints) {
+                const comparisonIndex =
+                    comparisonArtistIds?.indexOf(
+                        point.artist.id,
+                    )
+                    ?? -1;
+
+                const compared =
+                    comparisonIndex >= 0;
+
                 const selected =
                     point.artist.id
-                    === explorer.selectedArtistId;
+                    === explorer.selectedArtistId
+                    || compared;
 
                 const highlighted =
                     highlightClusterId !== null
@@ -829,9 +907,16 @@ export function EmbeddingCanvas2D({
                     === highlightClusterId;
 
                 const dimmed =
-                    dimNonHighlighted
-                    && highlightClusterId !== null
-                    && !highlighted;
+                    (
+                        dimNonHighlighted
+                        && highlightClusterId !== null
+                        && !highlighted
+                    )
+                    || (
+                        dimNonCompared
+                        && comparisonArtistIds !== null
+                        && !compared
+                    );
 
                 const radius =
                     selected
@@ -920,6 +1005,50 @@ export function EmbeddingCanvas2D({
                     context.lineWidth = 2;
                     context.stroke();
                 }
+
+                if (compared) {
+                    const comparisonLabel =
+                        comparisonIndex === 0
+                            ? "A"
+                            : "B";
+
+                    const labelX =
+                        point.screenX
+                        + radius
+                        + 8;
+                    const labelY =
+                        point.screenY
+                        - radius
+                        - 8;
+
+                    context.save();
+                    context.beginPath();
+                    context.arc(
+                        labelX,
+                        labelY,
+                        10,
+                        0,
+                        Math.PI * 2,
+                    );
+                    context.fillStyle =
+                        "#111827";
+                    context.globalAlpha = 1;
+                    context.fill();
+                    context.fillStyle =
+                        "#ffffff";
+                    context.font =
+                        "700 11px Inter, Segoe UI, Arial";
+                    context.textAlign =
+                        "center";
+                    context.textBaseline =
+                        "middle";
+                    context.fillText(
+                        comparisonLabel,
+                        labelX,
+                        labelY,
+                    );
+                    context.restore();
+                }
             }
 
             context.globalAlpha = 1;
@@ -938,7 +1067,9 @@ export function EmbeddingCanvas2D({
         },
         [
             clusterHull,
+            comparisonArtistIds,
             data,
+            dimNonCompared,
             dimNonHighlighted,
             explorer.selectedArtistId,
             highlightClusterId,
