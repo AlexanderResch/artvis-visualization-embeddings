@@ -8,6 +8,10 @@ from fastapi.middleware.cors import (
     CORSMiddleware
 )
 
+from app.routers.artist_inspection import (
+    router as artist_inspection_router
+)
+
 from app.db import (
     close_driver,
     get_driver,
@@ -81,6 +85,10 @@ app.include_router(
 
 app.include_router(
     dashboard_router
+)
+
+app.include_router(
+    artist_inspection_router
 )
 
 

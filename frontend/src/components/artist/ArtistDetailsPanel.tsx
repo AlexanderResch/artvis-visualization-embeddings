@@ -9,6 +9,10 @@ import {
     Typography,
 } from "@mui/material";
 
+import {
+    scaleLinear,
+} from "d3";
+
 import type {
     ReactNode,
 } from "react";
@@ -16,6 +20,10 @@ import type {
 import type {
     ClusterArtist,
 } from "../../types/cluster";
+
+import type {
+    SimilarArtist,
+} from "../../types/dashboard";
 
 import type {
     ArtistEmbedding2D,
@@ -85,14 +93,19 @@ function DetailAccordion({
                              title,
                              count,
                              children,
+                             defaultExpanded = false,
                          }: {
     title: string;
     count: number;
     children: ReactNode;
+    defaultExpanded?: boolean;
 }) {
     return (
         <Accordion
             disableGutters
+            defaultExpanded={
+                defaultExpanded
+            }
             sx={{
                 mb: 1,
                 border: "1px solid",
@@ -101,9 +114,11 @@ function DetailAccordion({
                     "8px !important",
                 boxShadow: "none",
                 overflow: "hidden",
+
                 "&::before": {
                     display: "none",
                 },
+
                 "&.Mui-expanded": {
                     margin: 0,
                     mb: 1,
@@ -119,12 +134,15 @@ function DetailAccordion({
                     px: 1.25,
                     backgroundColor:
                         "action.hover",
+
                     "&.Mui-expanded": {
                         minHeight: 48,
                     },
+
                     "& .MuiAccordionSummary-content": {
                         my: 1,
                     },
+
                     "& .MuiAccordionSummary-content.Mui-expanded": {
                         my: 1,
                     },
@@ -176,7 +194,9 @@ function DetailAccordion({
 
 
 function displayName(
-    artist: ArtistEmbedding2D,
+    artist:
+        ArtistEmbedding2D
+        | SimilarArtist,
 ): string {
     const name =
         typeof artist.display_name === "string"
@@ -199,14 +219,24 @@ function lifeYears(
 type ArtistDetailsPanelProps = {
     artist: ArtistEmbedding2D;
     clusterArtist: ClusterArtist | null;
-    onShowCluster: () => void;
-    onShowOverview: () => void;
+    similarArtists?: SimilarArtist[];
+    totalSimilarArtistCount?: number;
+    similarityThreshold?: number;
+    onSelectSimilarArtist?: (
+        artistId: string,
+    ) => void;
+    showSimilarArtists?: boolean;
 };
 
 
 export function ArtistDetailsPanel({
                                        artist,
                                        clusterArtist,
+                                       similarArtists = [],
+                                       totalSimilarArtistCount = 0,
+                                       similarityThreshold = 0.7,
+                                       onSelectSimilarArtist,
+                                       showSimilarArtists = true,
                                    }: ArtistDetailsPanelProps) {
     const hasCluster =
         artist.cluster >= 0;
@@ -215,6 +245,18 @@ export function ArtistDetailsPanel({
         clusterColor(
             artist.cluster,
         );
+
+    const barScale =
+        scaleLinear()
+            .domain([
+                similarityThreshold,
+                1,
+            ])
+            .range([
+                6,
+                100,
+            ])
+            .clamp(true);
 
     return (
         <Box
@@ -371,6 +413,7 @@ export function ArtistDetailsPanel({
                     sx={{
                         height: 8,
                         borderRadius: 999,
+
                         "& .MuiLinearProgress-bar": {
                             backgroundColor:
                             color,
@@ -454,9 +497,7 @@ export function ArtistDetailsPanel({
                             {clusterArtist.locations.map(
                                 (location) => (
                                     <Box
-                                        key={
-                                            location.id
-                                        }
+                                        key={location.id}
                                         sx={{
                                             display: "flex",
                                             justifyContent:
@@ -501,16 +542,200 @@ export function ArtistDetailsPanel({
                 }
             />
 
-            <Typography
-                variant="caption"
-                color="text.secondary"
-                sx={{
-                    display: "block",
-                    mt: 1.5,
-                }}
-            >
-                Similarity and cluster membership are derived from the high-dimensional embedding. The visible 2D or 3D distance is only a projection.
-            </Typography>
+            {showSimilarArtists && (
+                <>
+                    <Divider
+                        sx={{
+                            my: 2,
+                        }}
+                    />
+
+                    <Box
+                        sx={{
+                            display: "flex",
+                            alignItems: "baseline",
+                            justifyContent:
+                                "space-between",
+                            gap: 1,
+                            mb: 1,
+                        }}
+                    >
+                        <Typography
+                            variant="subtitle1"
+                            sx={{
+                                fontWeight: 800,
+                            }}
+                        >
+                            Similar Artists
+                        </Typography>
+
+                        <Typography
+                            variant="caption"
+                            color="text.secondary"
+                        >
+                            {similarArtists.length}
+                            {" of "}
+                            {totalSimilarArtistCount}
+                        </Typography>
+                    </Box>
+
+                    <Typography
+                        variant="caption"
+                        color="text.secondary"
+                        sx={{
+                            display: "block",
+                            mb: 1,
+                        }}
+                    >
+                        Similarity is computed in the high-dimensional embedding space. Select a row to inspect another Artist.
+                    </Typography>
+
+                    {similarArtists.length === 0
+                        ? (
+                            <Typography
+                                variant="body2"
+                                color="text.secondary"
+                            >
+                                No similar Artist satisfies the current threshold.
+                            </Typography>
+                        )
+                        : (
+                            <Box
+                                sx={{
+                                    display: "grid",
+                                    gap: 0.75,
+                                }}
+                            >
+                                {similarArtists.map(
+                                    (similarArtist) => (
+                                        <Box
+                                            key={similarArtist.id}
+                                            component="button"
+                                            type="button"
+                                            onClick={() =>
+                                                onSelectSimilarArtist?.(
+                                                    similarArtist.id,
+                                                )
+                                            }
+                                            sx={{
+                                                appearance: "none",
+                                                width: "100%",
+                                                p: 0.9,
+                                                border: "1px solid",
+                                                borderColor: "divider",
+                                                borderRadius: 1.5,
+                                                backgroundColor:
+                                                    "background.paper",
+                                                textAlign: "left",
+                                                cursor: "pointer",
+
+                                                "&:hover": {
+                                                    backgroundColor:
+                                                        "action.hover",
+                                                },
+
+                                                "&:focus-visible": {
+                                                    outline:
+                                                        "2px solid",
+                                                    outlineColor:
+                                                        "primary.main",
+                                                },
+                                            }}
+                                        >
+                                            <Box
+                                                sx={{
+                                                    display: "flex",
+                                                    alignItems: "center",
+                                                    justifyContent:
+                                                        "space-between",
+                                                    gap: 1,
+                                                }}
+                                            >
+                                                <Typography
+                                                    variant="body2"
+                                                    sx={{
+                                                        fontWeight: 700,
+                                                        minWidth: 0,
+                                                    }}
+                                                    noWrap
+                                                >
+                                                    {displayName(
+                                                        similarArtist,
+                                                    )}
+                                                </Typography>
+
+                                                <Typography
+                                                    variant="body2"
+                                                    sx={{
+                                                        fontWeight: 800,
+                                                        fontVariantNumeric:
+                                                            "tabular-nums",
+                                                    }}
+                                                >
+                                                    {similarArtist.similarity.toFixed(3)}
+                                                </Typography>
+                                            </Box>
+
+                                            <Box
+                                                sx={{
+                                                    mt: 0.6,
+                                                    height: 7,
+                                                    borderRadius: 999,
+                                                    overflow: "hidden",
+                                                    backgroundColor:
+                                                        "action.hover",
+                                                }}
+                                            >
+                                                <Box
+                                                    sx={{
+                                                        width:
+                                                            `${barScale(similarArtist.similarity)}%`,
+                                                        height: "100%",
+                                                        borderRadius: 999,
+                                                        backgroundColor:
+                                                            clusterColor(
+                                                                similarArtist.cluster,
+                                                            ),
+                                                    }}
+                                                />
+                                            </Box>
+
+                                            <Typography
+                                                variant="caption"
+                                                color="text.secondary"
+                                                sx={{
+                                                    display: "block",
+                                                    mt: 0.45,
+                                                }}
+                                                noWrap
+                                            >
+                                                {similarArtist.is_noise
+                                                    ? "Noise"
+                                                    : `Cluster ${similarArtist.cluster}`}
+                                                {" · "}
+                                                {similarArtist.common_groups.length}
+                                                {" shared groups · "}
+                                                {similarArtist.common_exhibitions.length}
+                                                {" shared exhibitions"}
+                                            </Typography>
+                                        </Box>
+                                    ),
+                                )}
+                            </Box>
+                        )}
+
+                    <Typography
+                        variant="caption"
+                        color="text.secondary"
+                        sx={{
+                            display: "block",
+                            mt: 1.5,
+                        }}
+                    >
+                        The visible 2D or 3D distance is a projection and can differ from the reported embedding similarity.
+                    </Typography>
+                </>
+            )}
         </Box>
     );
 }
