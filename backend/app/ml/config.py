@@ -5,10 +5,6 @@ ML_DIR = Path(__file__).resolve().parent
 DATA_DIR = ML_DIR / "data"
 DATA_DIR.mkdir(parents=True, exist_ok=True)
 
-# ---------------------------------------------------------
-# Neo4j
-# ---------------------------------------------------------
-
 NEO4J_URI = os.getenv(
     "NEO4J_URI",
     "bolt://artvis-db:7687",
@@ -49,10 +45,6 @@ RANDOM_SEED = int(
     )
 )
 
-# ---------------------------------------------------------
-# Unterstützte Modellknoten
-# ---------------------------------------------------------
-
 MODEL_NODE_TYPES = [
     "Artist",
     "Exhibition",
@@ -75,20 +67,12 @@ DISPLAY_NAME_PROPERTIES = {
     "Venue": "name",
 }
 
-# ---------------------------------------------------------
-# Vollständiger Neo4j-Snapshot
-# ---------------------------------------------------------
-
 NODES_PATH = DATA_DIR / "nodes.parquet"
 EDGES_PATH = DATA_DIR / "edges.parquet"
 
 SNAPSHOT_SUMMARY_PATH = (
         DATA_DIR / "snapshot_summary.json"
 )
-
-# ---------------------------------------------------------
-# Vorbereitete Modelldaten
-# ---------------------------------------------------------
 
 ENTITY_METADATA_PATH = (
         DATA_DIR / "entity_metadata.parquet"
@@ -123,10 +107,6 @@ TYPE_IDS_PATH = (
 PREPARE_SUMMARY_PATH = (
         DATA_DIR / "prepare_summary.json"
 )
-
-# ---------------------------------------------------------
-# Attribut-Features
-# ---------------------------------------------------------
 
 ATTRIBUTE_DIM = int(
     os.getenv(
@@ -182,10 +162,6 @@ ATTRIBUTE_EXCLUDED_KEYS = {
     if value.strip()
 }
 
-# ---------------------------------------------------------
-# Train-/Validation-/Test-Split
-# ---------------------------------------------------------
-
 TRAIN_RATIO = float(
     os.getenv(
         "TRAIN_RATIO",
@@ -206,10 +182,6 @@ TEST_RATIO = float(
         "0.10",
     )
 )
-
-# ---------------------------------------------------------
-# Attribute-Enhanced ComplEx
-# ---------------------------------------------------------
 
 COMPLEX_DIM = int(
     os.getenv(
@@ -341,10 +313,6 @@ LINK_EVALUATION_PATH = (
         DATA_DIR / "link_evaluation.json"
 )
 
-# ---------------------------------------------------------
-# Embeddings
-# ---------------------------------------------------------
-
 ENTITY_EMBEDDINGS_PATH = (
         DATA_DIR / "entity_embeddings.npy"
 )
@@ -371,10 +339,6 @@ EMBEDDING_BATCH_SIZE = int(
         "8192",
     )
 )
-
-# ---------------------------------------------------------
-# HDBSCAN
-# ---------------------------------------------------------
 
 ARTIST_CLUSTERS_PATH = (
         DATA_DIR / "artist_clusters.csv"
@@ -450,10 +414,6 @@ SILHOUETTE_SAMPLE_SIZE = int(
     )
 )
 
-# ---------------------------------------------------------
-# UMAP
-# ---------------------------------------------------------
-
 UMAP_N_NEIGHBORS = int(
     os.getenv(
         "UMAP_N_NEIGHBORS",
@@ -492,10 +452,6 @@ UMAP_3D_COORDS_PATH = (
 PROJECTION_SUMMARY_PATH = (
         DATA_DIR / "projection_summary.json"
 )
-
-# ---------------------------------------------------------
-# Daten für API und Frontend
-# ---------------------------------------------------------
 
 ARTIST_MAP_2D_PATH = (
         DATA_DIR / "artist_map_2d.parquet"

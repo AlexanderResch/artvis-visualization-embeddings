@@ -129,9 +129,6 @@ class RelationData:
         positive_local_heads = original_local_heads
         positive_local_tails = original_local_tails
 
-        # CO_EXHIBITED is stored once as an undirected canonical pair so that
-        # the pair cannot leak across train/validation/test. During learning,
-        # both directions are shown to the model.
         if self.symmetric:
             positive_heads = np.concatenate([original_heads, original_tails])
             positive_tails = np.concatenate([original_tails, original_heads])
@@ -196,8 +193,6 @@ class RelationData:
                 size=len(tail_positions),
             )
 
-        # Filter known positives from the negative samples. The adjacency
-        # contains every known edge, not only training edges.
         for _ in range(50):
             is_positive = self.adjacency[
                 candidate_local_heads,
@@ -305,7 +300,6 @@ def _validation_loss(
         type_ids: torch.Tensor,
         device: torch.device,
 ) -> float | None:
-    # The same validation examples and negatives are used after every epoch.
     validation_rng = np.random.default_rng(RANDOM_SEED + 5000)
     model.eval()
     losses: list[float] = []
@@ -376,8 +370,6 @@ def run(mode: str = "evaluation") -> None:
     attribute_array = np.load(ATTRIBUTE_FEATURES_PATH, mmap_mode="r")
     device = _device()
 
-    # Keeping these fixed input tensors on the selected device avoids repeated
-    # CPU-to-GPU transfers for every mini-batch.
     attributes = torch.from_numpy(np.array(attribute_array, copy=True)).float().to(device)
     type_ids = torch.from_numpy(np.load(TYPE_IDS_PATH)).long().to(device)
     relations, _ = _load_relations()

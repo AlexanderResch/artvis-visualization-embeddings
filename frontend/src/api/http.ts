@@ -10,7 +10,7 @@ export async function getJson<T>(path: string, signal?: AbortSignal): Promise<T>
             const body = (await response.json()) as { detail?: string };
             detail = body.detail ?? detail;
         } catch {
-            // Keep the HTTP status if the response is not JSON.
+
         }
 
         throw new Error(detail);

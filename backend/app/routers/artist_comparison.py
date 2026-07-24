@@ -818,11 +818,6 @@ def _path_node(
         ),
     }
 
-
-# The user does not choose a hop limit in the interface.
-# Internally, the search expands in safe stages. The first path found is
-# therefore still the shortest path, while the database is protected from
-# an unbounded traversal over the dense ArtVis graph.
 SHORTEST_PATH_SEARCH_LIMITS = (
     2,
     4,
