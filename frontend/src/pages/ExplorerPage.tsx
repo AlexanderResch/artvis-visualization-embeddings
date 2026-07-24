@@ -1,6 +1,7 @@
 import {
     Alert,
     Box,
+    Button,
     CircularProgress,
     Typography,
 } from "@mui/material";
@@ -108,6 +109,10 @@ import {
     useExplorer,
     type YearRange,
 } from "../context/ExplorerContext";
+
+import {
+    useArtistContext,
+} from "../hooks/useArtistContext";
 
 import type {
     ArtistInspectionResponse,
@@ -342,6 +347,17 @@ export function ExplorerPage() {
         useRef<string[]>([]);
 
     const [
+        selectedRelationshipTypes,
+        setSelectedRelationshipTypes,
+    ] = useState<string[]>([]);
+
+    const selectedRelationshipTypesArtistRef =
+        useRef<string | null>(null);
+
+    const availableRelationshipTypesRef =
+        useRef<string[]>([]);
+
+    const [
         timelineBinSize,
         setTimelineBinSize,
     ] = useState<1 | 5 | 10>(1);
@@ -355,6 +371,16 @@ export function ExplorerPage() {
         comparisonShowEdgeLabels,
         setComparisonShowEdgeLabels,
     ] = useState(true);
+
+    const {
+        context: artistContext,
+        loading: loadingArtistContext,
+        error: artistContextError,
+    } = useArtistContext(
+        explorer.selectedArtistId,
+        mode === "overview"
+        || mode === "artist",
+    );
 
     useEffect(
         () => {
@@ -774,6 +800,9 @@ export function ExplorerPage() {
                 setSelectedNodeTypes([]);
                 selectedNodeTypesArtistRef.current = null;
                 availableNodeTypesRef.current = [];
+                setSelectedRelationshipTypes([]);
+                selectedRelationshipTypesArtistRef.current = null;
+                availableRelationshipTypesRef.current = [];
                 return;
             }
 
@@ -844,6 +873,57 @@ export function ExplorerPage() {
 
                         availableNodeTypesRef.current =
                             availableTypes;
+
+                        const availableRelationshipTypes =
+                            response.ego.relationship_type_counts.map(
+                                (item) =>
+                                    item.type,
+                            );
+
+                        const previousAvailableRelationshipTypes =
+                            availableRelationshipTypesRef.current;
+
+                        const relationshipArtistChanged =
+                            selectedRelationshipTypesArtistRef.current
+                            !== artistId;
+
+                        setSelectedRelationshipTypes(
+                            (current) => {
+                                const previouslyAllSelected =
+                                    previousAvailableRelationshipTypes.length === 0
+                                    || previousAvailableRelationshipTypes.every(
+                                        (relationshipType) =>
+                                            current.includes(
+                                                relationshipType,
+                                            ),
+                                    );
+
+                                if (
+                                    relationshipArtistChanged
+                                    || previouslyAllSelected
+                                ) {
+                                    return availableRelationshipTypes;
+                                }
+
+                                const retained =
+                                    current.filter(
+                                        (relationshipType) =>
+                                            availableRelationshipTypes.includes(
+                                                relationshipType,
+                                            ),
+                                    );
+
+                                return retained.length > 0
+                                    ? retained
+                                    : availableRelationshipTypes;
+                            },
+                        );
+
+                        selectedRelationshipTypesArtistRef.current =
+                            artistId;
+
+                        availableRelationshipTypesRef.current =
+                            availableRelationshipTypes;
                     },
                 )
                 .catch(
@@ -1475,10 +1555,17 @@ export function ExplorerPage() {
                     return comparisonFocusData2D;
                 }
 
-                if (
-                    mode === "artist"
-                    || mode === "cluster"
-                ) {
+                if (mode === "artist") {
+                    if (selectedClusterBoundary2D.length > 0) {
+                        return selectedClusterBoundary2D;
+                    }
+
+                    return selectedArtist
+                        ? [selectedArtist]
+                        : [];
+                }
+
+                if (mode === "cluster") {
                     return selectedClusterBoundary2D;
                 }
 
@@ -1487,6 +1574,7 @@ export function ExplorerPage() {
             [
                 comparisonFocusData2D,
                 mode,
+                selectedArtist,
                 selectedClusterBoundary2D,
             ],
         );
@@ -1498,10 +1586,27 @@ export function ExplorerPage() {
                     return comparisonFocusData3D;
                 }
 
-                if (
-                    mode === "artist"
-                    || mode === "cluster"
-                ) {
+                if (mode === "artist") {
+                    if (selectedClusterBoundary3D.length > 0) {
+                        return selectedClusterBoundary3D;
+                    }
+
+                    if (!selectedArtist || !data3D) {
+                        return [];
+                    }
+
+                    const selectedArtist3D =
+                        data3D.find(
+                            (artist) =>
+                                artist.id === selectedArtist.id,
+                        );
+
+                    return selectedArtist3D
+                        ? [selectedArtist3D]
+                        : [];
+                }
+
+                if (mode === "cluster") {
                     return selectedClusterBoundary3D;
                 }
 
@@ -1509,7 +1614,9 @@ export function ExplorerPage() {
             },
             [
                 comparisonFocusData3D,
+                data3D,
                 mode,
+                selectedArtist,
                 selectedClusterBoundary3D,
             ],
         );
@@ -1784,6 +1891,15 @@ export function ExplorerPage() {
                 )
                 : [],
         );
+
+        setSelectedRelationshipTypes(
+            artistInspection
+                ? artistInspection.ego.relationship_type_counts.map(
+                    (item) =>
+                        item.type,
+                )
+                : [],
+        );
     }
 
     if (loading) {
@@ -1819,6 +1935,18 @@ export function ExplorerPage() {
                     {error
                         ?? "Dashboard options are missing"}
                 </Alert>
+
+                <Button
+                    variant="outlined"
+                    onClick={() =>
+                        window.location.reload()
+                    }
+                    sx={{
+                        mt: 1.5,
+                    }}
+                >
+                    Retry
+                </Button>
             </Box>
         );
     }
@@ -1987,6 +2115,16 @@ export function ExplorerPage() {
                                         onSelectedNodeTypesChange={
                                             setSelectedNodeTypes
                                         }
+                                        relationshipTypeCounts={
+                                            artistInspection?.ego.relationship_type_counts
+                                            ?? []
+                                        }
+                                        selectedRelationshipTypes={
+                                            selectedRelationshipTypes
+                                        }
+                                        onSelectedRelationshipTypesChange={
+                                            setSelectedRelationshipTypes
+                                        }
                                         timelineBinSize={
                                             timelineBinSize
                                         }
@@ -2120,7 +2258,9 @@ export function ExplorerPage() {
                                 : mode === "compare"
                                     ? "The compared Artists are marked as A and B and connected by a dashed line."
                                     : mode === "artist"
-                                        ? "The selected Artist is highlighted. Its computed cluster remains visible as spatial context."
+                                        ? (selectedArtist?.cluster ?? -1) >= 0
+                                            ? "The selected Artist is highlighted. Its computed cluster remains visible as spatial context."
+                                            : "The selected Noise Artist is highlighted in the full embedding context."
                                         : undefined
                         }
                     />
@@ -2139,6 +2279,15 @@ export function ExplorerPage() {
                                     }
                                     showSimilarArtists={
                                         false
+                                    }
+                                    artistContext={
+                                        artistContext
+                                    }
+                                    createdItemsLoading={
+                                        loadingArtistContext
+                                    }
+                                    createdItemsError={
+                                        artistContextError
                                     }
                                 />
                             )
@@ -2223,10 +2372,24 @@ export function ExplorerPage() {
                                             onSelectSimilarArtist={
                                                 selectArtistById
                                             }
+                                            artistContext={
+                                                artistContext
+                                            }
                                             createdItems={
                                                 artistInspection
                                                     ?.items
                                                 ?? []
+                                            }
+                                            createdItemsLoading={
+                                                loadingArtistContext
+                                            }
+                                            createdItemsError={
+                                                artistContextError
+                                            }
+                                            createdItemsNote={
+                                                artistInspection
+                                                    ?.items_note
+                                                ?? null
                                             }
                                         />
                                     </Box>
@@ -2378,6 +2541,9 @@ export function ExplorerPage() {
                                 }
                                 selectedNodeTypes={
                                     selectedNodeTypes
+                                }
+                                selectedRelationshipTypes={
+                                    selectedRelationshipTypes
                                 }
                                 timelineBinSize={
                                     timelineBinSize

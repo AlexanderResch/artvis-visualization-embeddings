@@ -9,6 +9,7 @@ import pandas as pd
 from fastapi import APIRouter, HTTPException, Query
 
 from app.db import get_driver
+from app.schemas.comparison import ArtistComparisonResponse
 
 
 router = APIRouter(
@@ -828,6 +829,8 @@ SHORTEST_PATH_SEARCH_LIMITS = (
 
 def _serialize_path(
         path: Any,
+        kind: str,
+        is_fallback: bool = False,
 ) -> dict[str, Any]:
     nodes = [
         _path_node(node)
@@ -854,7 +857,96 @@ def _serialize_path(
         "hops": len(path.relationships),
         "nodes": nodes,
         "links": links,
+        "kind": kind,
+        "is_fallback": is_fallback,
     }
+
+
+def _explanatory_path(
+        session: Any,
+        artist_a_key: str,
+        artist_b_key: str,
+) -> dict[str, Any] | None:
+    path_queries = (
+        (
+            "shared_exhibition",
+            """
+            MATCH (artistA:Artist)
+            WHERE elementId(artistA) = $artist_a_key
+            MATCH (artistB:Artist)
+            WHERE elementId(artistB) = $artist_b_key
+            MATCH path =
+                (artistA)-[:EXHIBITED_AT]-(exhibition:Exhibition)
+                -[:EXHIBITED_AT]-(artistB)
+            RETURN path
+            ORDER BY coalesce(
+                exhibition.startdate,
+                exhibition.startDate,
+                exhibition.year,
+                exhibition.title,
+                exhibition.name
+            )
+            LIMIT 1
+            """,
+        ),
+        (
+            "shared_group",
+            """
+            MATCH (artistA:Artist)
+            WHERE elementId(artistA) = $artist_a_key
+            MATCH (artistB:Artist)
+            WHERE elementId(artistB) = $artist_b_key
+            MATCH path =
+                (artistA)-[:MEMBER_OF]-(group:Group)
+                -[:MEMBER_OF]-(artistB)
+            RETURN path
+            ORDER BY coalesce(
+                group.name,
+                group.title,
+                toString(group.id)
+            )
+            LIMIT 1
+            """,
+        ),
+        (
+            "shared_location",
+            """
+            MATCH (artistA:Artist)
+            WHERE elementId(artistA) = $artist_a_key
+            MATCH (artistB:Artist)
+            WHERE elementId(artistB) = $artist_b_key
+            MATCH path =
+                (artistA)-[:EXHIBITED_AT]-(exhibitionA:Exhibition)
+                -[:TOOK_PLACE_AT]-(location:Location)
+                -[:TOOK_PLACE_AT]-(exhibitionB:Exhibition)
+                -[:EXHIBITED_AT]-(artistB)
+            WHERE exhibitionA <> exhibitionB
+            RETURN path
+            ORDER BY coalesce(
+                location.name,
+                location.label,
+                toString(location.id)
+            )
+            LIMIT 1
+            """,
+        ),
+    )
+
+    for kind, query in path_queries:
+        record = session.run(
+            query,
+            artist_a_key=artist_a_key,
+            artist_b_key=artist_b_key,
+        ).single()
+
+        path = record["path"] if record else None
+        if path is not None:
+            return _serialize_path(
+                path,
+                kind,
+            )
+
+    return None
 
 
 def _shortest_path(
@@ -892,6 +984,8 @@ def _shortest_path(
         if path is not None:
             return _serialize_path(
                 path,
+                "general",
+                is_fallback=True,
             )
 
     return {
@@ -899,6 +993,8 @@ def _shortest_path(
         "hops": None,
         "nodes": [],
         "links": [],
+        "kind": "none",
+        "is_fallback": False,
     }
 
 
@@ -930,7 +1026,10 @@ def _has_co_exhibited_relationship(
     )
 
 
-@router.get("")
+@router.get(
+    "",
+    response_model=ArtistComparisonResponse,
+)
 def compare_artists(
         artist_a: str = Query(
             ...,
@@ -940,7 +1039,7 @@ def compare_artists(
             ...,
             min_length=1,
         ),
-) -> dict[str, Any]:
+) -> ArtistComparisonResponse:
     artist_a_id = artist_a.strip()
     artist_b_id = artist_b.strip()
 
@@ -1009,10 +1108,17 @@ def compare_artists(
             artist_b_key,
         )
 
-        shortest_path = _shortest_path(
+        shortest_path = (
+                _explanatory_path(
+                    session,
+                    artist_a_key,
+                    artist_b_key,
+                )
+                or _shortest_path(
             session,
             artist_a_key,
             artist_b_key,
+        )
         )
 
     artist_a_summary = _map_artist_summary(
@@ -1044,7 +1150,7 @@ def compare_artists(
         artist_b_locations,
     )
 
-    return {
+    response = {
         "artist_a": artist_a_summary,
         "artist_b": artist_b_summary,
         "embedding_similarity": embedding_similarity,
@@ -1098,9 +1204,14 @@ def compare_artists(
         "shortest_path": shortest_path,
         "note": (
             "Embedding similarity is calculated in the high-dimensional "
-            "Artist embedding. Common graph entities and the shortest path "
+            "Artist embedding. Common graph entities and the connecting path "
             "are descriptive evidence and do not prove a causal reason for "
-            "the learned similarity. A direct CO_EXHIBITED relationship can "
-            "therefore appear as a one-hop shortest path."
+            "the learned similarity. Shared exhibitions, groups, and locations "
+            "are preferred as explanatory paths. A general shortest path is "
+            "used only when no such concise path is available."
         ),
     }
+
+    return ArtistComparisonResponse.model_validate(
+        response
+    )

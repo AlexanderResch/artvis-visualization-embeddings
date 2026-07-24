@@ -9,6 +9,8 @@ from fastapi import APIRouter, HTTPException, Query
 
 from app.db import get_driver
 from app.ml.utils import json_safe
+from app.schemas.artist import ArtistInspectionResponse
+from app.services.artist_context import fetch_created_items
 
 
 router = APIRouter(
@@ -237,6 +239,7 @@ def _fetch_first_hop(
         type(relationship) AS relation
     ORDER BY
         labels(neighbor)[0],
+        type(relationship),
         coalesce(
             neighbor.sortname,
             neighbor.name,
@@ -280,6 +283,17 @@ def _fetch_second_hop(
         labels(neighbor) AS target_labels,
         properties(neighbor) AS target_properties,
         type(relationship) AS relation
+    ORDER BY
+        elementId(middle),
+        labels(neighbor)[0],
+        type(relationship),
+        coalesce(
+            neighbor.sortname,
+            neighbor.name,
+            neighbor.title,
+            toString(neighbor.id),
+            elementId(neighbor)
+        )
     LIMIT $limit
     """
 
@@ -387,96 +401,63 @@ def _fetch_timeline(
 
 
 def _fetch_items(
-        artist_id: str,
-) -> list[dict[str, Any]]:
-    query = """
-    MATCH (artist:Artist)-[relationship]-(item)
-    WHERE toString(artist.id) = $artist_id
-      AND any(
-          label IN labels(item)
-          WHERE label IN [
-              "Item",
-              "Artwork",
-              "Work"
-          ]
-      )
-    WITH
-        item,
-        collect(
-            DISTINCT type(relationship)
-        ) AS relation_types
-    RETURN
-        elementId(item) AS item_key,
-        labels(item) AS item_labels,
-        properties(item) AS item_properties,
-        head(relation_types) AS relation,
-        coalesce(
-            item.title,
-            item.name,
-            item.label,
-            item.object_name,
-            item.objectName,
-            "Untitled item"
-        ) AS item_sort_name
-    ORDER BY
-        toLower(
-            toString(
-                item_sort_name
-            )
-        )
-    LIMIT 500
-    """
-
+        artist_element_id: str,
+) -> tuple[list[dict[str, Any]], str | None]:
     with get_driver().session() as session:
-        records = list(
-            session.run(
-                query,
-                artist_id=artist_id,
-            )
+        items, _, note = fetch_created_items(
+            session,
+            artist_element_id,
         )
 
-    items: list[dict[str, Any]] = []
+    return items, note
 
-    for record in records:
-        properties = dict(
-            record["item_properties"]
-            or {}
-        )
 
+def _balanced_rows(
+        rows: list[dict[str, Any]],
+        limit: int,
+) -> list[dict[str, Any]]:
+    if limit <= 0 or not rows:
+        return []
+
+    buckets: dict[
+        tuple[str, str],
+        list[dict[str, Any]],
+    ] = defaultdict(list)
+
+    for row in rows:
         labels = list(
-            record["item_labels"]
+            row.get("target_labels")
             or []
         )
-
-        item_type = _node_type(
-            labels
+        node_type = labels[0] if labels else "Entity"
+        relation = str(
+            row.get("relation")
+            or "RELATED_TO"
         )
+        buckets[(node_type, relation)].append(row)
 
-        item_key = str(
-            record["item_key"]
-        )
+    ordered_keys = sorted(buckets)
+    selected: list[dict[str, Any]] = []
+    position = 0
 
-        items.append({
-            "id": _entity_id(
-                item_key,
-                properties,
-            ),
-            "name": _node_label(
-                item_type,
-                properties,
-                "Untitled item",
-            ),
-            "relation": str(
-                record["relation"]
-                or ""
-            ),
-            "year": _extract_year(
-                properties
-            ),
-            "type": item_type,
-        })
+    while len(selected) < limit:
+        added = False
 
-    return items
+        for key in ordered_keys:
+            bucket = buckets[key]
+            if position < len(bucket):
+                selected.append(bucket[position])
+                added = True
+
+                if len(selected) >= limit:
+                    break
+
+        if not added:
+            break
+
+        position += 1
+
+    return selected
 
 
 def _build_ego_graph(
@@ -489,8 +470,19 @@ def _build_ego_graph(
         max(20, limit // 2),
     )
 
-    first_hop_rows = _fetch_first_hop(
+    first_hop_candidates = _fetch_first_hop(
         root.key,
+        min(
+            1200,
+            max(
+                first_hop_limit,
+                first_hop_limit * 4,
+                ),
+        ),
+    )
+
+    first_hop_rows = _balanced_rows(
+        first_hop_candidates,
         first_hop_limit,
     )
 
@@ -504,14 +496,25 @@ def _build_ego_graph(
         for row in first_hop_rows
     ))
 
-    second_hop_rows = (
+    second_hop_candidates = (
         _fetch_second_hop(
             root.key,
             middle_ids,
-            second_hop_limit,
+            min(
+                1800,
+                max(
+                    second_hop_limit,
+                    second_hop_limit * 3,
+                    ),
+            ),
         )
         if depth == 2
         else []
+    )
+
+    second_hop_rows = _balanced_rows(
+        second_hop_candidates,
+        second_hop_limit,
     )
 
     nodes: dict[str, GraphNode] = {
@@ -632,7 +635,10 @@ def _top_connections(
     return candidates[:15]
 
 
-@router.get("/{artist_id}")
+@router.get(
+    "/{artist_id}",
+    response_model=ArtistInspectionResponse,
+)
 def get_artist_inspection(
         artist_id: str,
         depth: int = Query(default=2, ge=1, le=2),
@@ -652,6 +658,15 @@ def get_artist_inspection(
         str(node["type"])
         for node in nodes
         if str(node["key"]) != root.key
+    )
+
+    relationship_type_counts = Counter(
+        str(link["relation"])
+        for link in links
+    )
+
+    items, items_note = _fetch_items(
+        root.key,
     )
 
     return {
@@ -681,15 +696,27 @@ def get_artist_inspection(
                     ),
                 )
             ],
+            "relationship_type_counts": [
+                {
+                    "type": relationship_type,
+                    "count": count,
+                }
+                for relationship_type, count in sorted(
+                    relationship_type_counts.items(),
+                    key=lambda item: (
+                        -item[1],
+                        item[0],
+                    ),
+                )
+            ],
         },
         "top_connections": _top_connections(
             nodes,
             links,
             root.key,
         ),
-        "items": _fetch_items(
-            artist_id,
-        ),
+        "items": items,
+        "items_note": items_note,
         "timeline": _fetch_timeline(
             artist_id,
         ),

@@ -24,6 +24,10 @@ import type {
 } from "../../types/artistInspection";
 
 import type {
+    ArtistContextResponse,
+} from "../../types/artistContext";
+
+import type {
     ClusterArtist,
 } from "../../types/cluster";
 
@@ -232,9 +236,11 @@ type ArtistDetailsPanelProps = {
         artistId: string,
     ) => void;
     showSimilarArtists?: boolean;
+    artistContext?: ArtistContextResponse | null;
     createdItems?: ArtistCreatedItem[];
     createdItemsLoading?: boolean;
     createdItemsError?: string | null;
+    createdItemsNote?: string | null;
 };
 
 
@@ -246,9 +252,11 @@ export function ArtistDetailsPanel({
                                        similarityThreshold = 0.7,
                                        onSelectSimilarArtist,
                                        showSimilarArtists = true,
+                                       artistContext = null,
                                        createdItems = [],
                                        createdItemsLoading = false,
                                        createdItemsError = null,
+                                       createdItemsNote = null,
                                    }: ArtistDetailsPanelProps) {
     const hasCluster =
         artist.cluster >= 0;
@@ -257,6 +265,29 @@ export function ArtistDetailsPanel({
         clusterColor(
             artist.cluster,
         );
+
+    const groups =
+        artistContext?.groups
+        ?? clusterArtist?.groups
+        ?? [];
+
+    const locations =
+        artistContext?.locations
+        ?? clusterArtist?.locations
+        ?? [];
+
+    const exhibitionCount =
+        artistContext?.exhibition_count
+        ?? clusterArtist?.exhibition_count
+        ?? null;
+
+    const visibleCreatedItems =
+        artistContext?.items
+        ?? createdItems;
+
+    const visibleCreatedItemsNote =
+        artistContext?.items_note
+        ?? createdItemsNote;
 
     const barScale =
         scaleLinear()
@@ -448,12 +479,10 @@ export function ArtistDetailsPanel({
             <DetailAccordion
                 title="ArtVis groups"
                 count={
-                    clusterArtist?.groups.length
-                    ?? 0
+                    groups.length
                 }
             >
-                {clusterArtist
-                && clusterArtist.groups.length > 0
+                {groups.length > 0
                     ? (
                         <Box
                             sx={{
@@ -462,7 +491,7 @@ export function ArtistDetailsPanel({
                                 gap: 0.75,
                             }}
                         >
-                            {clusterArtist.groups.map(
+                            {groups.map(
                                 (group) => (
                                     <Chip
                                         key={group.id}
@@ -489,7 +518,7 @@ export function ArtistDetailsPanel({
                 count={
                     createdItemsLoading
                         ? "…"
-                        : createdItems.length
+                        : visibleCreatedItems.length
                 }
             >
                 {createdItemsLoading
@@ -525,7 +554,7 @@ export function ArtistDetailsPanel({
                                 Created items could not be loaded: {createdItemsError}
                             </Alert>
                         )
-                        : createdItems.length > 0
+                        : visibleCreatedItems.length > 0
                             ? (
                                 <Box
                                     sx={{
@@ -537,7 +566,7 @@ export function ArtistDetailsPanel({
                                         pr: 0.5,
                                     }}
                                 >
-                                    {createdItems.map(
+                                    {visibleCreatedItems.map(
                                         (item) => (
                                             <Chip
                                                 key={item.id}
@@ -549,8 +578,8 @@ export function ArtistDetailsPanel({
                                                         : `${item.name} · ${item.year}`
                                                 }
                                                 title={
-                                                    item.relation
-                                                        ? `${item.type} · ${item.relation}`
+                                                    item.relations.length > 0
+                                                        ? `${item.type} · ${item.relations.join(", ")}`
                                                         : item.type
                                                 }
                                                 sx={{
@@ -575,17 +604,27 @@ export function ArtistDetailsPanel({
                                     No created items are recorded for this Artist.
                                 </Typography>
                             )}
+
+                {visibleCreatedItemsNote && (
+                    <Alert
+                        severity="info"
+                        sx={{
+                            mt: 1,
+                            py: 0.25,
+                        }}
+                    >
+                        {visibleCreatedItemsNote}
+                    </Alert>
+                )}
             </DetailAccordion>
 
             <DetailAccordion
                 title="Exhibition locations"
                 count={
-                    clusterArtist?.locations.length
-                    ?? 0
+                    locations.length
                 }
             >
-                {clusterArtist
-                && clusterArtist.locations.length > 0
+                {locations.length > 0
                     ? (
                         <Box
                             sx={{
@@ -593,7 +632,7 @@ export function ArtistDetailsPanel({
                                 gap: 0.75,
                             }}
                         >
-                            {clusterArtist.locations.map(
+                            {locations.map(
                                 (location) => (
                                     <Box
                                         key={location.id}
@@ -635,9 +674,9 @@ export function ArtistDetailsPanel({
             <StatRow
                 label="Recorded exhibitions"
                 value={
-                    clusterArtist
-                        ? clusterArtist.exhibition_count.toLocaleString()
-                        : "Unknown"
+                    exhibitionCount === null
+                        ? "Unknown"
+                        : exhibitionCount.toLocaleString()
                 }
             />
 

@@ -54,6 +54,13 @@ export type ComparisonShortestPath = {
     hops: number | null;
     nodes: ComparisonPathNode[];
     links: ComparisonPathLink[];
+    kind:
+        | "shared_exhibition"
+        | "shared_group"
+        | "shared_location"
+        | "general"
+        | "none";
+    is_fallback: boolean;
 };
 
 export type ArtistComparisonResponse = {

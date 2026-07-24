@@ -120,6 +120,11 @@ type ArtistInspectionSidebarProps = {
     onSelectedNodeTypesChange: (
         nodeTypes: string[],
     ) => void;
+    relationshipTypeCounts: ArtistInspectionNodeTypeCount[];
+    selectedRelationshipTypes: string[];
+    onSelectedRelationshipTypesChange: (
+        relationshipTypes: string[],
+    ) => void;
     timelineBinSize: 1 | 5 | 10;
     onTimelineBinSizeChange: (
         binSize: 1 | 5 | 10,
@@ -143,6 +148,9 @@ export function ArtistInspectionSidebar({
                                             nodeTypeCounts,
                                             selectedNodeTypes,
                                             onSelectedNodeTypesChange,
+                                            relationshipTypeCounts,
+                                            selectedRelationshipTypes,
+                                            onSelectedRelationshipTypesChange,
                                             timelineBinSize,
                                             onTimelineBinSizeChange,
                                             showSurroundingClusters,
@@ -166,6 +174,24 @@ export function ArtistInspectionSidebar({
                 : [
                     ...selectedNodeTypes,
                     nodeType,
+                ],
+        );
+    }
+
+    function toggleRelationshipType(
+        relationshipType: string,
+    ) {
+        onSelectedRelationshipTypesChange(
+            selectedRelationshipTypes.includes(
+                relationshipType,
+            )
+                ? selectedRelationshipTypes.filter(
+                    (item) =>
+                        item !== relationshipType,
+                )
+                : [
+                    ...selectedRelationshipTypes,
+                    relationshipType,
                 ],
         );
     }
@@ -470,6 +496,86 @@ export function ArtistInspectionSidebar({
                                         >
                                             <Typography
                                                 variant="body2"
+                                            >
+                                                {item.type}
+                                            </Typography>
+
+                                            <Typography
+                                                variant="caption"
+                                                color="text.secondary"
+                                            >
+                                                {item.count.toLocaleString()}
+                                            </Typography>
+                                        </Box>
+                                    }
+                                    sx={{
+                                        m: 0,
+                                        width: "100%",
+                                        "& .MuiFormControlLabel-label": {
+                                            flex: 1,
+                                        },
+                                    }}
+                                />
+                            ),
+                        )}
+                    </Box>
+
+                    <Typography
+                        variant="caption"
+                        color="text.secondary"
+                        sx={{
+                            display: "block",
+                            mt: 1.25,
+                            mb: 0.5,
+                        }}
+                    >
+                        Visible relationship types
+                    </Typography>
+
+                    <Box
+                        sx={{
+                            display: "grid",
+                            gap: 0.25,
+                            maxHeight: 190,
+                            overflowY: "auto",
+                            pr: 0.25,
+                        }}
+                    >
+                        {relationshipTypeCounts.map(
+                            (item) => (
+                                <FormControlLabel
+                                    key={item.type}
+                                    control={
+                                        <Checkbox
+                                            size="small"
+                                            checked={
+                                                selectedRelationshipTypes.includes(
+                                                    item.type,
+                                                )
+                                            }
+                                            onChange={() =>
+                                                toggleRelationshipType(
+                                                    item.type,
+                                                )
+                                            }
+                                        />
+                                    }
+                                    label={
+                                        <Box
+                                            sx={{
+                                                display: "flex",
+                                                alignItems: "center",
+                                                justifyContent:
+                                                    "space-between",
+                                                gap: 1,
+                                                width: "100%",
+                                            }}
+                                        >
+                                            <Typography
+                                                variant="body2"
+                                                sx={{
+                                                    overflowWrap: "anywhere",
+                                                }}
                                             >
                                                 {item.type}
                                             </Typography>

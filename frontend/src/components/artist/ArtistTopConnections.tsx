@@ -37,10 +37,12 @@ type HoveredConnection = {
 export function ArtistTopConnections({
                                          items,
                                          selectedNodeTypes,
+                                         selectedRelationshipTypes,
                                          onSelectArtist,
                                      }: {
     items: ArtistTopConnection[];
     selectedNodeTypes: string[];
+    selectedRelationshipTypes: string[];
     onSelectArtist: (
         artistId: string,
     ) => void;
@@ -72,12 +74,19 @@ export function ArtistTopConnections({
                         (item) =>
                             selectedNodeTypes.includes(
                                 item.type,
+                            )
+                            && item.relations.some(
+                                (relation) =>
+                                    selectedRelationshipTypes.includes(
+                                        relation,
+                                    ),
                             ),
                     )
                     .slice(0, 10),
             [
                 items,
                 selectedNodeTypes,
+                selectedRelationshipTypes,
             ],
         );
 

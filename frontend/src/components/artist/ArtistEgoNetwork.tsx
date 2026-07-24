@@ -129,11 +129,13 @@ export function ArtistEgoNetwork({
                                      nodes,
                                      links,
                                      selectedNodeTypes,
+                                     selectedRelationshipTypes,
                                      onSelectArtist,
                                  }: {
     nodes: ArtistInspectionNode[];
     links: ArtistInspectionLink[];
     selectedNodeTypes: string[];
+    selectedRelationshipTypes: string[];
     onSelectArtist: (
         artistId: string,
     ) => void;
@@ -185,7 +187,7 @@ export function ArtistEgoNetwork({
     const filteredData =
         useMemo(
             () => {
-                const visibleNodes =
+                const candidateNodes =
                     nodes.filter(
                         (node) =>
                             node.depth === 0
@@ -194,9 +196,9 @@ export function ArtistEgoNetwork({
                             ),
                     );
 
-                const visibleKeys =
+                const candidateKeys =
                     new Set(
-                        visibleNodes.map(
+                        candidateNodes.map(
                             (node) =>
                                 node.key,
                         ),
@@ -205,11 +207,37 @@ export function ArtistEgoNetwork({
                 const visibleLinks =
                     links.filter(
                         (link) =>
-                            visibleKeys.has(
+                            candidateKeys.has(
                                 link.source,
                             )
-                            && visibleKeys.has(
+                            && candidateKeys.has(
                                 link.target,
+                            )
+                            && selectedRelationshipTypes.includes(
+                                link.relation,
+                            ),
+                    );
+
+                const connectedKeys =
+                    new Set<string>();
+
+                visibleLinks.forEach(
+                    (link) => {
+                        connectedKeys.add(
+                            link.source,
+                        );
+                        connectedKeys.add(
+                            link.target,
+                        );
+                    },
+                );
+
+                const visibleNodes =
+                    candidateNodes.filter(
+                        (node) =>
+                            node.depth === 0
+                            || connectedKeys.has(
+                                node.key,
                             ),
                     );
 
@@ -222,6 +250,7 @@ export function ArtistEgoNetwork({
                 links,
                 nodes,
                 selectedNodeTypes,
+                selectedRelationshipTypes,
             ],
         );
 

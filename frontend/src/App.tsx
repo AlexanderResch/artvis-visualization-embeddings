@@ -20,10 +20,6 @@ import {
 } from "./pages/ExplorerPage.tsx";
 
 import {
-    PlaceholderPage,
-} from "./pages/PlaceholderPage";
-
-import {
     theme,
 } from "./theme";
 
@@ -110,8 +106,9 @@ function App() {
                         <Route
                             path="/compare"
                             element={
-                                <PlaceholderPage
-                                    title="Artist comparison"
+                                <Navigate
+                                    replace
+                                    to="/"
                                 />
                             }
                         />
@@ -119,8 +116,9 @@ function App() {
                         <Route
                             path="/candidates"
                             element={
-                                <PlaceholderPage
-                                    title="Cluster expansion"
+                                <Navigate
+                                    replace
+                                    to="/"
                                 />
                             }
                         />
