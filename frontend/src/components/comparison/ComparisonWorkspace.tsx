@@ -68,6 +68,24 @@ function VisualizationSection({
 }
 
 
+function pathDescription(
+    kind: ArtistComparisonResponse["shortest_path"]["kind"],
+): string {
+    switch (kind) {
+        case "shared_exhibition":
+            return "A concise path through an Exhibition connected to both Artists.";
+        case "shared_group":
+            return "A concise path through an ArtVis Group connected to both Artists.";
+        case "shared_location":
+            return "A concise path through exhibitions at a shared Location.";
+        case "general":
+            return "No concise shared-context path was available, so the general shortest graph path is shown.";
+        default:
+            return "No connecting graph path is available.";
+    }
+}
+
+
 export function ComparisonWorkspace({
                                         comparison,
                                         loading,
@@ -147,7 +165,11 @@ export function ComparisonWorkspace({
                         ? `Shortest connecting path · ${comparison.shortest_path.hops} hops`
                         : "Shortest connecting path"
                 }
-                description="The shortest available graph path between both Artists."
+                description={
+                    pathDescription(
+                        comparison.shortest_path.kind,
+                    )
+                }
             >
                 <ComparisonShortestPath
                     path={

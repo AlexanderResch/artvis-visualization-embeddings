@@ -85,6 +85,7 @@ export function ArtistInspectionWorkspace({
                                               loading,
                                               error,
                                               selectedNodeTypes,
+                                              selectedRelationshipTypes,
                                               timelineBinSize,
                                               onSelectArtist,
                                           }: {
@@ -93,6 +94,7 @@ export function ArtistInspectionWorkspace({
     loading: boolean;
     error: string | null;
     selectedNodeTypes: string[];
+    selectedRelationshipTypes: string[];
     timelineBinSize: 1 | 5 | 10;
     onSelectArtist: (
         artistId: string,
@@ -158,6 +160,9 @@ export function ArtistInspectionWorkspace({
                     selectedNodeTypes={
                         selectedNodeTypes
                     }
+                    selectedRelationshipTypes={
+                        selectedRelationshipTypes
+                    }
                     onSelectArtist={
                         onSelectArtist
                     }
@@ -174,6 +179,9 @@ export function ArtistInspectionWorkspace({
                     }
                     selectedNodeTypes={
                         selectedNodeTypes
+                    }
+                    selectedRelationshipTypes={
+                        selectedRelationshipTypes
                     }
                     onSelectArtist={
                         onSelectArtist

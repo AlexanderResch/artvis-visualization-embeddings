@@ -2,10 +2,17 @@ from contextlib import (
     asynccontextmanager
 )
 
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException, Request
 
 from fastapi.middleware.cors import (
     CORSMiddleware
+)
+from fastapi.responses import JSONResponse
+from neo4j.exceptions import (
+    Neo4jError,
+    ServiceUnavailable,
+    SessionExpired,
+    TransientError,
 )
 
 from app.routers.artist_inspection import (
@@ -15,6 +22,13 @@ from app.routers.artist_inspection import (
 from app.db import (
     close_driver,
     get_driver,
+    verify_connectivity,
+)
+
+from app.ml.config import (
+    ARTIST_CLUSTERS_PATH,
+    ARTIST_EMBEDDINGS_PATH,
+    ARTIST_MAP_2D_PATH,
 )
 
 from app.routers.artists import (
@@ -55,6 +69,39 @@ app = FastAPI(
     title="ArtVis Backend",
     lifespan=lifespan,
 )
+
+
+@app.exception_handler(ServiceUnavailable)
+@app.exception_handler(SessionExpired)
+@app.exception_handler(TransientError)
+async def handle_neo4j_unavailable(
+        _: Request,
+        error: Exception,
+):
+    return JSONResponse(
+        status_code=503,
+        content={
+            "detail": (
+                "The ArtVis graph database is temporarily unavailable. "
+                "Please wait a moment and try again."
+            ),
+            "error_type": error.__class__.__name__,
+        },
+    )
+
+
+@app.exception_handler(Neo4jError)
+async def handle_neo4j_error(
+        _: Request,
+        error: Neo4jError,
+):
+    return JSONResponse(
+        status_code=500,
+        content={
+            "detail": "The graph query could not be completed.",
+            "error_type": error.__class__.__name__,
+        },
+    )
 
 
 app.add_middleware(
@@ -103,7 +150,38 @@ app.include_router(
 @app.get("/health")
 def health():
     return {
-        "status": "ok"
+        "status": "ok",
+        "service": "artvis-backend",
+    }
+
+
+@app.get("/ready")
+def ready():
+    missing_artifacts = [
+        path.name
+        for path in (
+            ARTIST_MAP_2D_PATH,
+            ARTIST_CLUSTERS_PATH,
+            ARTIST_EMBEDDINGS_PATH,
+        )
+        if not path.exists()
+    ]
+
+    if missing_artifacts:
+        raise HTTPException(
+            status_code=503,
+            detail={
+                "message": "Required ML artifacts are missing.",
+                "missing_artifacts": missing_artifacts,
+            },
+        )
+
+    verify_connectivity()
+
+    return {
+        "status": "ready",
+        "database": "available",
+        "ml_artifacts": "available",
     }
 
 

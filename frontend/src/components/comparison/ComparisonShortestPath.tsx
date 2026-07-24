@@ -437,7 +437,7 @@ export function ComparisonShortestPath({
         return (
             <Box sx={{ p: 2 }}>
                 <Alert severity="info">
-                    No connecting path was found within the selected maximum number of hops.
+                    No connecting path was found between the selected Artists.
                 </Alert>
             </Box>
         );

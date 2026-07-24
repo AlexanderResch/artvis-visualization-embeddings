@@ -10,6 +10,8 @@ from fastapi import (
 )
 
 from app.db import get_driver
+from app.schemas.artist import ArtistContextResponse
+from app.services.artist_context import fetch_artist_context
 
 from app.ml.config import (
     ARTIST_CLUSTERS_PATH,
@@ -773,3 +775,20 @@ def get_artist_ego(
 
         for row in rows
     ]
+
+@router.get(
+    "/{artist_id}/context",
+    response_model=ArtistContextResponse,
+)
+def get_artist_context(
+        artist_id: str,
+) -> ArtistContextResponse:
+    with get_driver().session() as session:
+        context = fetch_artist_context(
+            session,
+            artist_id.strip(),
+        )
+
+    return ArtistContextResponse.model_validate(
+        context
+    )
