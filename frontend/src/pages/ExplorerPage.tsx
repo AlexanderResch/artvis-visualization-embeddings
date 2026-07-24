@@ -335,6 +335,12 @@ export function ExplorerPage() {
         setSelectedNodeTypes,
     ] = useState<string[]>([]);
 
+    const selectedNodeTypesArtistRef =
+        useRef<string | null>(null);
+
+    const availableNodeTypesRef =
+        useRef<string[]>([]);
+
     const [
         timelineBinSize,
         setTimelineBinSize,
@@ -759,42 +765,27 @@ export function ExplorerPage() {
 
             setArtistInspectionError(null);
 
-            const shouldLoadArtistContext =
-                Boolean(artistId)
-                && (
-                    mode === "overview"
-                    || mode === "artist"
-                );
-
             if (
-                !artistId
-                || !shouldLoadArtistContext
+                mode !== "artist"
+                || !artistId
             ) {
                 setArtistInspection(null);
                 setLoadingArtistInspection(false);
+                setSelectedNodeTypes([]);
+                selectedNodeTypesArtistRef.current = null;
+                availableNodeTypesRef.current = [];
                 return;
             }
 
             const controller =
                 new AbortController();
 
-            const requestedDepth =
-                mode === "artist"
-                    ? egoDepth
-                    : 1;
-
-            const requestedLimit =
-                mode === "artist"
-                    ? 350
-                    : 80;
-
             setLoadingArtistInspection(true);
-            setArtistInspection(null);
 
             fetchArtistInspection(
                 artistId,
-                requestedDepth,
-                requestedLimit,
+                egoDepth,
+                350,
                 controller.signal,
             )
                 .then(
@@ -803,18 +794,37 @@ export function ExplorerPage() {
                             response,
                         );
 
-                        if (mode !== "artist") {
-                            return;
-                        }
-
                         const availableTypes =
                             response.ego.node_type_counts.map(
                                 (item) =>
                                     item.type,
                             );
 
+                        const previousAvailableTypes =
+                            availableNodeTypesRef.current;
+
+                        const artistChanged =
+                            selectedNodeTypesArtistRef.current
+                            !== artistId;
+
                         setSelectedNodeTypes(
                             (current) => {
+                                const previouslyAllSelected =
+                                    previousAvailableTypes.length === 0
+                                    || previousAvailableTypes.every(
+                                        (nodeType) =>
+                                            current.includes(
+                                                nodeType,
+                                            ),
+                                    );
+
+                                if (
+                                    artistChanged
+                                    || previouslyAllSelected
+                                ) {
+                                    return availableTypes;
+                                }
+
                                 const retained =
                                     current.filter(
                                         (nodeType) =>
@@ -828,6 +838,12 @@ export function ExplorerPage() {
                                     : availableTypes;
                             },
                         );
+
+                        selectedNodeTypesArtistRef.current =
+                            artistId;
+
+                        availableNodeTypesRef.current =
+                            availableTypes;
                     },
                 )
                 .catch(
@@ -838,7 +854,7 @@ export function ExplorerPage() {
                             setArtistInspectionError(
                                 reason instanceof Error
                                     ? reason.message
-                                    : "Failed to load Artist context",
+                                    : "Failed to load Artist inspection data",
                             );
                         }
                     },
@@ -2124,17 +2140,6 @@ export function ExplorerPage() {
                                     showSimilarArtists={
                                         false
                                     }
-                                    createdItems={
-                                        artistInspection
-                                            ?.items
-                                        ?? []
-                                    }
-                                    createdItemsLoading={
-                                        loadingArtistInspection
-                                    }
-                                    createdItemsError={
-                                        artistInspectionError
-                                    }
                                 />
                             )
                             : (
@@ -2222,12 +2227,6 @@ export function ExplorerPage() {
                                                 artistInspection
                                                     ?.items
                                                 ?? []
-                                            }
-                                            createdItemsLoading={
-                                                loadingArtistInspection
-                                            }
-                                            createdItemsError={
-                                                artistInspectionError
                                             }
                                         />
                                     </Box>

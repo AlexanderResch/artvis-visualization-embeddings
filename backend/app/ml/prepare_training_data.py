@@ -59,8 +59,6 @@ def _is_excluded_key(key: str) -> bool:
     if key_lower in ATTRIBUTE_EXCLUDED_KEYS:
         return True
 
-    # Technical identifiers or provenance fields are stored in the snapshot,
-    # but they are not useful semantic input for the embedding model.
     technical_fragments = (
         "url",
         "uri",
@@ -391,8 +389,6 @@ def _create_indexed_edges() -> None:
         edges_path = _sql_path(EDGES_PATH)
         output_path = _sql_path(INDEXED_EDGES_PATH)
 
-        # Every raw edge remains in edges.parquet. For model training, identical
-        # triples are deduplicated. CO_EXHIBITED is treated as one undirected pair.
         connection.execute(
             f"""
             COPY (

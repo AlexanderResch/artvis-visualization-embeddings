@@ -191,8 +191,6 @@ def _sampled_ranking_metrics(
         device,
     ).reshape(len(positive_heads), EVALUATION_RANKING_NEGATIVES)
 
-    # Pessimistic tie handling: equal negative scores are counted ahead of the
-    # positive triple.
     ranks = 1 + np.sum(negative_scores >= positive_scores[:, None], axis=1)
     reciprocal_ranks = 1.0 / ranks
 

@@ -1,20 +1,6 @@
-/**
- * Neutral colour reserved exclusively for HDBSCAN noise points.
- * It is deliberately not part of the categorical cluster palette.
- */
 export const NOISE_COLOR = "#6B7280";
 
-
-/**
- * High-contrast categorical palette.
- *
- * The first 14 colours are arranged for the current 14-cluster model.
- * They vary strongly in hue and lightness so small Canvas points remain
- * easier to distinguish. Additional unique colours support the alternative
- * model with up to 34 clusters.
- */
 export const CLUSTER_COLORS = [
-    // Primary palette for clusters 0 to 13
     "#ED1D1D",
     "#1DED1D",
     "#0F8AB3",
@@ -30,7 +16,6 @@ export const CLUSTER_COLORS = [
     "#80A022",
     "#E18C70",
 
-    // Extended palette for clusters 14 to 33
     "#2241A0",
     "#B3610F",
     "#70E1A8",
@@ -186,9 +171,6 @@ function relativeLuminance(
 }
 
 
-/**
- * Foreground colour for cluster chips and labels.
- */
 export function clusterTextColor(
     cluster: number,
 ): "#111827" | "#FFFFFF" {
@@ -208,11 +190,6 @@ export function clusterTextColor(
         : "#FFFFFF";
 }
 
-
-/**
- * Contrasting outline for small Canvas points.
- * Bright clusters receive a dark outline and dark clusters a light outline.
- */
 export function clusterPointOutlineColor(
     cluster: number,
 ): string {
