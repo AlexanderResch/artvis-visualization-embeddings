@@ -90,6 +90,221 @@ const DEFAULT_ROTATION = {
 };
 
 
+type LabelBox = {
+    left: number;
+    top: number;
+    right: number;
+    bottom: number;
+};
+
+
+function automaticPointScale(
+    pointCount: number,
+    zoom: number,
+): number {
+    const densityScale =
+        pointCount > 7000
+            ? 0.72
+            : pointCount > 3500
+                ? 0.82
+                : pointCount > 1500
+                    ? 0.92
+                    : pointCount > 600
+                        ? 1.03
+                        : 1.16;
+
+    const zoomAdjustment =
+        Math.max(
+            0.88,
+            Math.min(
+                1.42,
+                0.9
+                + Math.log2(
+                    Math.max(
+                        1,
+                        zoom,
+                    ),
+                ) * 0.18,
+            ),
+        );
+
+    return densityScale * zoomAdjustment;
+}
+
+
+function boxesOverlap(
+    first: LabelBox,
+    second: LabelBox,
+): boolean {
+    return !(
+        first.right < second.left
+        || first.left > second.right
+        || first.bottom < second.top
+        || first.top > second.bottom
+    );
+}
+
+
+function drawArtistLabels(
+    context: CanvasRenderingContext2D,
+    projected: ProjectedPoint[],
+    size: CanvasSize,
+    selectedArtistId: string | null,
+    highlightClusterId: number | null,
+    zoom: number,
+) {
+    const detailMode = zoom >= 3.2;
+
+    const candidates =
+        projected
+            .filter(
+                (point) => {
+                    const selected =
+                        point.artist.id
+                        === selectedArtistId;
+
+                    if (selected) {
+                        return true;
+                    }
+
+                    if (
+                        !detailMode
+                        || point.artist.is_noise
+                    ) {
+                        return false;
+                    }
+
+                    if (
+                        point.screenX < 0
+                        || point.screenX > size.width
+                        || point.screenY < 0
+                        || point.screenY > size.height
+                    ) {
+                        return false;
+                    }
+
+                    return highlightClusterId === null
+                        || point.artist.cluster
+                        === highlightClusterId;
+                },
+            )
+            .sort(
+                (first, second) => {
+                    const firstSelected =
+                        first.artist.id
+                        === selectedArtistId;
+
+                    const secondSelected =
+                        second.artist.id
+                        === selectedArtistId;
+
+                    if (
+                        firstSelected
+                        !== secondSelected
+                    ) {
+                        return firstSelected
+                            ? -1
+                            : 1;
+                    }
+
+                    return (
+                        second.artist
+                            .membership_probability
+                        - first.artist
+                            .membership_probability
+                    );
+                },
+            );
+
+    const maximumLabels =
+        zoom >= 4.8
+            ? 45
+            : 24;
+
+    const occupied: LabelBox[] = [];
+    let drawn = 0;
+
+    context.save();
+    context.font =
+        "500 11px Inter, Segoe UI, Arial";
+    context.textBaseline = "middle";
+
+    for (const point of candidates) {
+        if (drawn >= maximumLabels) {
+            break;
+        }
+
+        const label =
+            point.artist.display_name
+            ?? point.artist.id;
+
+        const textWidth =
+            context.measureText(label).width;
+
+        const width =
+            Math.min(
+                200,
+                textWidth + 12,
+            );
+
+        const height = 20;
+        const left = point.screenX + 7;
+        const top = point.screenY - 10;
+
+        const candidateBox = {
+            left,
+            top,
+            right: left + width,
+            bottom: top + height,
+        };
+
+        if (
+            candidateBox.left < 2
+            || candidateBox.right > size.width - 2
+            || candidateBox.top < 2
+            || candidateBox.bottom > size.height - 24
+            || occupied.some(
+                (existing) =>
+                    boxesOverlap(
+                        existing,
+                        candidateBox,
+                    ),
+            )
+        ) {
+            continue;
+        }
+
+        occupied.push(candidateBox);
+
+        context.globalAlpha = 0.88;
+        context.fillStyle =
+            "rgba(255,255,255,0.92)";
+        context.beginPath();
+        context.roundRect(
+            left,
+            top,
+            width,
+            height,
+            4,
+        );
+        context.fill();
+
+        context.globalAlpha = 1;
+        context.fillStyle = "#111827";
+        context.fillText(
+            label,
+            left + 6,
+            top + height / 2,
+            width - 10,
+        );
+
+        drawn += 1;
+    }
+
+    context.restore();
+}
+
+
 function safeDomain(
     values: number[],
 ): [number, number] {
@@ -747,6 +962,12 @@ export default function EmbeddingCanvas3D({
                     },
                 );
 
+                const automaticScale =
+                    automaticPointScale(
+                        projected.length,
+                        zoom,
+                    );
+
                 for (const point of projected) {
                     const comparisonIndex =
                         comparisonArtistIds?.indexOf(
@@ -783,12 +1004,14 @@ export default function EmbeddingCanvas3D({
                         highlighted
                             ? 3.5
                             : dimmed
-                                ? 2.25
-                                : 2.5;
+                                ? 2.1
+                                : zoom >= 3.2
+                                    ? 2.75
+                                    : 2.45;
 
                     const noiseScale =
                         point.artist.is_noise
-                            ? 0.78
+                            ? 0.58
                             : 1;
 
                     const radius =
@@ -796,12 +1019,13 @@ export default function EmbeddingCanvas3D({
                             selected
                                 ? 7
                                 : Math.max(
-                                    1.5,
+                                    1.35,
                                     baseRadius
                                     * point.perspective,
                                 )
                         )
                         * pointScale
+                        * automaticScale
                         * noiseScale;
 
                     context.beginPath();
@@ -822,12 +1046,12 @@ export default function EmbeddingCanvas3D({
                         selected
                             ? 1
                             : highlighted
-                                ? 0.95
+                                ? 0.96
                                 : dimmed
-                                    ? 0.38
+                                    ? 0.14
                                     : point.artist.is_noise
-                                        ? 0.42
-                                        : 0.68;
+                                        ? 0.14
+                                        : 0.76;
 
                     context.fill();
 
@@ -835,11 +1059,11 @@ export default function EmbeddingCanvas3D({
                         selected
                             ? 1
                             : highlighted
-                                ? 0.86
+                                ? 0.90
                                 : dimmed
-                                    ? 0.50
+                                    ? 0.12
                                     : point.artist.is_noise
-                                        ? 0.42
+                                        ? 0.11
                                         : 0.68;
 
                     context.strokeStyle =
@@ -920,6 +1144,15 @@ export default function EmbeddingCanvas3D({
                         context.restore();
                     }
                 }
+
+                drawArtistLabels(
+                    context,
+                    projected,
+                    currentSize,
+                    explorer.selectedArtistId,
+                    highlightClusterId,
+                    zoom,
+                );
 
                 context.globalAlpha = 1;
                 context.fillStyle =

@@ -7,6 +7,7 @@ from app.ml.config import (
     LINK_EVALUATION_PATH,
     PREPARE_SUMMARY_PATH,
     PROJECTION_SUMMARY_PATH,
+    POSTPROCESSING_RECOMMENDATION_PATH,
     SNAPSHOT_SUMMARY_PATH,
     TRAINING_EVALUATION_PATH,
     TRAINING_FINAL_PATH,
@@ -28,6 +29,7 @@ def get_evaluation():
         "embeddings": EMBEDDING_SUMMARY_PATH,
         "clustering": HDBSCAN_SUMMARY_PATH,
         "projection": PROJECTION_SUMMARY_PATH,
+        "postprocessing_comparison": POSTPROCESSING_RECOMMENDATION_PATH,
     }
     response = {name: read_json(path) for name, path in paths.items() if path.exists()}
     if not response:

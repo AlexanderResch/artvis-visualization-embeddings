@@ -22,6 +22,7 @@ from app.ml.config import (
     ENTITY_METADATA_PATH,
     EVALUATION_CHECKPOINT_PATH,
     FINAL_CHECKPOINT_PATH,
+    FINAL_EPOCH_STRATEGY,
     FINAL_TRAIN_EPOCHS,
     LEARNING_RATE,
     MODEL_DROPOUT,
@@ -355,7 +356,38 @@ def _save_checkpoint(
     )
 
 
-def run(mode: str = "evaluation") -> None:
+def _resolve_epoch_count(mode: str, epochs_override: int | None) -> tuple[int, str]:
+    if epochs_override is not None:
+        if epochs_override < 1:
+            raise ValueError("epochs_override must be at least 1.")
+        return int(epochs_override), "explicit_override"
+
+    if mode == "evaluation":
+        return TRAIN_EPOCHS, "evaluation_maximum_with_early_stopping"
+
+    if FINAL_EPOCH_STRATEGY == "evaluation_best":
+        if not TRAINING_EVALUATION_PATH.exists():
+            raise FileNotFoundError(
+                "training_evaluation.json is required when "
+                "FINAL_EPOCH_STRATEGY=evaluation_best. Run the "
+                "train_evaluation step first."
+            )
+        evaluation_summary = read_json(TRAINING_EVALUATION_PATH)
+        best_epoch = int(evaluation_summary.get("best_epoch", 0))
+        if best_epoch < 1:
+            raise ValueError(
+                "The evaluation training summary does not contain a valid "
+                "best_epoch."
+            )
+        return best_epoch, "best_validation_epoch"
+
+    return FINAL_TRAIN_EPOCHS, "fixed_final_epoch_count"
+
+
+def run(
+    mode: str = "evaluation",
+    epochs_override: int | None = None,
+) -> None:
     if mode not in {"evaluation", "final"}:
         raise ValueError("mode must be evaluation or final")
 
@@ -390,7 +422,7 @@ def run(mode: str = "evaluation") -> None:
         weight_decay=WEIGHT_DECAY,
     )
 
-    epochs = TRAIN_EPOCHS if mode == "evaluation" else FINAL_TRAIN_EPOCHS
+    epochs, epoch_strategy = _resolve_epoch_count(mode, epochs_override)
     split = "train" if mode == "evaluation" else "all"
     rng = np.random.default_rng(RANDOM_SEED + (0 if mode == "evaluation" else 1000))
     best_validation = math.inf
@@ -560,6 +592,8 @@ def run(mode: str = "evaluation") -> None:
         "exported_real_dimension": 2 * COMPLEX_DIM,
         "attribute_dimension": ATTRIBUTE_DIM,
         "relation_epoch_cap": RELATION_EPOCH_CAP,
+        "configured_epoch_strategy": epoch_strategy,
+        "configured_epoch_count": epochs,
         "negative_samples_per_positive": NEGATIVES_PER_POSITIVE,
         "best_epoch": best_epoch if mode == "evaluation" else len(history),
         "best_validation_loss": None if best_validation == math.inf else best_validation,
@@ -576,8 +610,9 @@ def run(mode: str = "evaluation") -> None:
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--mode", choices=["evaluation", "final"], default="evaluation")
+    parser.add_argument("--epochs", type=int, default=None)
     arguments = parser.parse_args()
-    run(arguments.mode)
+    run(arguments.mode, epochs_override=arguments.epochs)
 
 
 if __name__ == "__main__":

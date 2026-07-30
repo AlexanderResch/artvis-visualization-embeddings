@@ -499,3 +499,134 @@ ARTIST_MAP_3D_CSV_PATH = (
 CLUSTER_PROFILES_PATH = (
         DATA_DIR / "cluster_profiles.json"
 )
+# ---------------------------------------------------------------------------
+# Reproducible model-selection and post-processing comparison settings
+# ---------------------------------------------------------------------------
+
+FINAL_EPOCH_STRATEGY = os.getenv(
+    "FINAL_EPOCH_STRATEGY",
+    "evaluation_best",
+).strip().lower()
+
+if FINAL_EPOCH_STRATEGY not in {"evaluation_best", "fixed"}:
+    raise ValueError(
+        "FINAL_EPOCH_STRATEGY must be 'evaluation_best' or 'fixed'."
+    )
+
+CLUSTER_INPUT_MODE = os.getenv(
+    "CLUSTER_INPUT_MODE",
+    "pca",
+).strip().lower()
+
+if CLUSTER_INPUT_MODE not in {"normalized", "pca"}:
+    raise ValueError(
+        "CLUSTER_INPUT_MODE must be 'normalized' or 'pca'."
+    )
+
+HDBSCAN_CLUSTER_SELECTION_METHOD = os.getenv(
+    "HDBSCAN_CLUSTER_SELECTION_METHOD",
+    "eom",
+).strip().lower()
+
+if HDBSCAN_CLUSTER_SELECTION_METHOD not in {"eom", "leaf"}:
+    raise ValueError(
+        "HDBSCAN_CLUSTER_SELECTION_METHOD must be 'eom' or 'leaf'."
+    )
+
+UMAP_INPUT_MODE = os.getenv(
+    "UMAP_INPUT_MODE",
+    "pca",
+).strip().lower()
+
+if UMAP_INPUT_MODE not in {"normalized", "pca"}:
+    raise ValueError(
+        "UMAP_INPUT_MODE must be 'normalized' or 'pca'."
+    )
+
+POSTPROCESSING_EXPERIMENT_DIR = (
+    DATA_DIR / "postprocessing_experiments"
+)
+POSTPROCESSING_EXPERIMENT_DIR.mkdir(parents=True, exist_ok=True)
+
+POSTPROCESSING_CLUSTERING_RESULTS_PATH = (
+    POSTPROCESSING_EXPERIMENT_DIR / "clustering_results.csv"
+)
+POSTPROCESSING_PROJECTION_RESULTS_PATH = (
+    POSTPROCESSING_EXPERIMENT_DIR / "projection_results.csv"
+)
+POSTPROCESSING_RECOMMENDATION_PATH = (
+    POSTPROCESSING_EXPERIMENT_DIR / "recommendation.json"
+)
+POSTPROCESSING_RECOMMENDED_ENV_PATH = (
+    POSTPROCESSING_EXPERIMENT_DIR / "recommended.env"
+)
+POSTPROCESSING_EXPERIMENT_PCA_PATH = (
+    POSTPROCESSING_EXPERIMENT_DIR / "shared_pca.joblib"
+)
+
+EXPERIMENT_CLUSTER_INPUT_MODES = tuple(
+    value.strip().lower()
+    for value in os.getenv(
+        "EXPERIMENT_CLUSTER_INPUT_MODES",
+        "pca,normalized",
+    ).split(",")
+    if value.strip()
+)
+
+EXPERIMENT_HDBSCAN_METHODS = tuple(
+    value.strip().lower()
+    for value in os.getenv(
+        "EXPERIMENT_HDBSCAN_METHODS",
+        "eom",
+    ).split(",")
+    if value.strip()
+)
+
+EXPERIMENT_UMAP_VARIANTS = tuple(
+    value.strip().lower()
+    for value in os.getenv(
+        "EXPERIMENT_UMAP_VARIANTS",
+        "normalized_cosine,pca_euclidean",
+    ).split(",")
+    if value.strip()
+)
+
+EXPERIMENT_UMAP_N_NEIGHBORS = tuple(
+    sorted(
+        {
+            int(value.strip())
+            for value in os.getenv(
+                "EXPERIMENT_UMAP_N_NEIGHBORS",
+                "30,50,75,100",
+            ).split(",")
+            if value.strip()
+        }
+    )
+)
+
+EXPERIMENT_UMAP_MIN_DIST = tuple(
+    sorted(
+        {
+            float(value.strip())
+            for value in os.getenv(
+                "EXPERIMENT_UMAP_MIN_DIST",
+                "0.05,0.10,0.20",
+            ).split(",")
+            if value.strip()
+        }
+    )
+)
+
+EXPERIMENT_METRIC_SAMPLE_SIZE = int(
+    os.getenv(
+        "EXPERIMENT_METRIC_SAMPLE_SIZE",
+        "3000",
+    )
+)
+
+EXPERIMENT_NEIGHBORHOOD_K = int(
+    os.getenv(
+        "EXPERIMENT_NEIGHBORHOOD_K",
+        "15",
+    )
+)
