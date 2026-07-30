@@ -67,6 +67,455 @@ const PADDING = {
 };
 
 
+type SemanticZoomLevel =
+    | "overview"
+    | "neighborhood"
+    | "detail";
+
+
+type LabelBox = {
+    left: number;
+    top: number;
+    right: number;
+    bottom: number;
+};
+
+
+function semanticZoomLevel(
+    zoomScale: number,
+): SemanticZoomLevel {
+    if (zoomScale >= 6) {
+        return "detail";
+    }
+
+    if (zoomScale >= 2.2) {
+        return "neighborhood";
+    }
+
+    return "overview";
+}
+
+
+function automaticPointScale(
+    visiblePointCount: number,
+    zoomScale: number,
+): number {
+    const densityScale =
+        visiblePointCount > 7000
+            ? 0.72
+            : visiblePointCount > 3500
+                ? 0.82
+                : visiblePointCount > 1500
+                    ? 0.92
+                    : visiblePointCount > 600
+                        ? 1.03
+                        : visiblePointCount > 200
+                            ? 1.18
+                            : 1.35;
+
+    const zoomAdjustment =
+        Math.max(
+            0.88,
+            Math.min(
+                1.48,
+                0.9
+                + Math.log2(
+                    Math.max(
+                        1,
+                        zoomScale,
+                    ),
+                ) * 0.16,
+            ),
+        );
+
+    return densityScale * zoomAdjustment;
+}
+
+
+function boxesOverlap(
+    first: LabelBox,
+    second: LabelBox,
+): boolean {
+    return !(
+        first.right < second.left
+        || first.left > second.right
+        || first.bottom < second.top
+        || first.top > second.bottom
+    );
+}
+
+
+function placeLabel(
+    occupied: LabelBox[],
+    candidate: LabelBox,
+): boolean {
+    if (
+        occupied.some(
+            (existing) =>
+                boxesOverlap(
+                    existing,
+                    candidate,
+                ),
+        )
+    ) {
+        return false;
+    }
+
+    occupied.push(candidate);
+    return true;
+}
+
+
+function drawOverviewClusterLabels(
+    context: CanvasRenderingContext2D,
+    screenPoints: ScreenPoint[],
+    size: CanvasSize,
+) {
+    const clusters =
+        new Map<number, ScreenPoint[]>();
+
+    for (const point of screenPoints) {
+        if (point.artist.is_noise) {
+            continue;
+        }
+
+        const current =
+            clusters.get(
+                point.artist.cluster,
+            ) ?? [];
+
+        current.push(point);
+        clusters.set(
+            point.artist.cluster,
+            current,
+        );
+    }
+
+    const occupied: LabelBox[] = [];
+
+    const largestClusters =
+        [...clusters.entries()]
+            .filter(
+                ([, points]) =>
+                    points.length >= 18,
+            )
+            .sort(
+                (first, second) =>
+                    second[1].length
+                    - first[1].length,
+            )
+            .slice(0, 14);
+
+    context.save();
+    context.font =
+        "600 11px Inter, Segoe UI, Arial";
+    context.textAlign = "left";
+    context.textBaseline = "middle";
+
+    for (
+        const [
+            clusterId,
+            clusterPoints,
+        ] of largestClusters
+    ) {
+        const centroidX =
+            clusterPoints.reduce(
+                (sum, point) =>
+                    sum + point.screenX,
+                0,
+            ) / clusterPoints.length;
+
+        const centroidY =
+            clusterPoints.reduce(
+                (sum, point) =>
+                    sum + point.screenY,
+                0,
+            ) / clusterPoints.length;
+
+        const anchor =
+            clusterPoints.reduce(
+                (best, point) => {
+                    const bestDistance =
+                        (
+                            best.screenX
+                            - centroidX
+                        ) ** 2
+                        + (
+                            best.screenY
+                            - centroidY
+                        ) ** 2;
+
+                    const pointDistance =
+                        (
+                            point.screenX
+                            - centroidX
+                        ) ** 2
+                        + (
+                            point.screenY
+                            - centroidY
+                        ) ** 2;
+
+                    return pointDistance
+                    < bestDistance
+                        ? point
+                        : best;
+                },
+            );
+
+        const label =
+            `C${clusterId} · ${clusterPoints.length}`;
+
+        const textWidth =
+            context.measureText(label).width;
+
+        const width =
+            textWidth + 20;
+
+        const height = 22;
+
+        const left =
+            Math.max(
+                PADDING.left + 3,
+                Math.min(
+                    size.width
+                    - PADDING.right
+                    - width
+                    - 3,
+                    anchor.screenX
+                    - width / 2,
+                ),
+            );
+
+        const top =
+            Math.max(
+                PADDING.top + 3,
+                Math.min(
+                    size.height
+                    - PADDING.bottom
+                    - height
+                    - 3,
+                    anchor.screenY
+                    - height / 2,
+                ),
+            );
+
+        const labelBox = {
+            left,
+            top,
+            right: left + width,
+            bottom: top + height,
+        };
+
+        if (
+            !placeLabel(
+                occupied,
+                labelBox,
+            )
+        ) {
+            continue;
+        }
+
+        context.globalAlpha = 0.92;
+        context.fillStyle =
+            "rgba(255,255,255,0.94)";
+        context.strokeStyle =
+            clusterColor(clusterId);
+        context.lineWidth = 1.5;
+
+        context.beginPath();
+        context.roundRect(
+            left,
+            top,
+            width,
+            height,
+            7,
+        );
+        context.fill();
+        context.stroke();
+
+        context.fillStyle =
+            clusterColor(clusterId);
+        context.beginPath();
+        context.arc(
+            left + 8,
+            top + height / 2,
+            3.5,
+            0,
+            Math.PI * 2,
+        );
+        context.fill();
+
+        context.globalAlpha = 1;
+        context.fillStyle = "#111827";
+        context.fillText(
+            label,
+            left + 15,
+            top + height / 2,
+        );
+    }
+
+    context.restore();
+}
+
+
+function drawArtistLabels(
+    context: CanvasRenderingContext2D,
+    screenPoints: ScreenPoint[],
+    size: CanvasSize,
+    selectedArtistId: string | null,
+    highlightClusterId: number | null,
+    zoomScale: number,
+) {
+    const detailMode =
+        semanticZoomLevel(
+            zoomScale,
+        ) === "detail";
+
+    const candidates =
+        screenPoints
+            .filter(
+                (point) => {
+                    const selected =
+                        point.artist.id
+                        === selectedArtistId;
+
+                    if (selected) {
+                        return true;
+                    }
+
+                    if (!detailMode) {
+                        return false;
+                    }
+
+                    if (point.artist.is_noise) {
+                        return false;
+                    }
+
+                    return highlightClusterId === null
+                        || point.artist.cluster
+                        === highlightClusterId;
+                },
+            )
+            .sort(
+                (first, second) => {
+                    const firstSelected =
+                        first.artist.id
+                        === selectedArtistId;
+
+                    const secondSelected =
+                        second.artist.id
+                        === selectedArtistId;
+
+                    if (
+                        firstSelected
+                        !== secondSelected
+                    ) {
+                        return firstSelected
+                            ? -1
+                            : 1;
+                    }
+
+                    return (
+                        second.artist
+                            .membership_probability
+                        - first.artist
+                            .membership_probability
+                    );
+                },
+            );
+
+    const maximumLabels =
+        zoomScale >= 12
+            ? 80
+            : zoomScale >= 8
+                ? 55
+                : 32;
+
+    const occupied: LabelBox[] = [];
+    let drawn = 0;
+
+    context.save();
+    context.font =
+        "500 11px Inter, Segoe UI, Arial";
+    context.textBaseline = "middle";
+
+    for (const point of candidates) {
+        if (drawn >= maximumLabels) {
+            break;
+        }
+
+        const label =
+            point.artist.display_name
+            ?? point.artist.id;
+
+        const textWidth =
+            context.measureText(label).width;
+
+        const width =
+            Math.min(
+                210,
+                textWidth + 12,
+            );
+
+        const height = 20;
+        const left =
+            point.screenX + 7;
+        const top =
+            point.screenY - height / 2;
+
+        const labelBox = {
+            left,
+            top,
+            right: left + width,
+            bottom: top + height,
+        };
+
+        if (
+            labelBox.right
+            > size.width - PADDING.right
+            || labelBox.left
+            < PADDING.left
+            || labelBox.top
+            < PADDING.top
+            || labelBox.bottom
+            > size.height - PADDING.bottom
+            || !placeLabel(
+                occupied,
+                labelBox,
+            )
+        ) {
+            continue;
+        }
+
+        context.globalAlpha = 0.88;
+        context.fillStyle =
+            "rgba(255,255,255,0.92)";
+        context.beginPath();
+        context.roundRect(
+            left,
+            top,
+            width,
+            height,
+            4,
+        );
+        context.fill();
+
+        context.globalAlpha = 1;
+        context.fillStyle = "#111827";
+        context.fillText(
+            label,
+            left + 6,
+            top + height / 2,
+            width - 10,
+        );
+
+        drawn += 1;
+    }
+
+    context.restore();
+}
+
+
 function safeDomain(
     values: number[],
 ): [number, number] {
@@ -940,6 +1389,17 @@ export function EmbeddingCanvas2D({
                 },
             );
 
+            const automaticScale =
+                automaticPointScale(
+                    screenPoints.length,
+                    transform.k,
+                );
+
+            const zoomLevel =
+                semanticZoomLevel(
+                    transform.k,
+                );
+
             for (const point of screenPoints) {
                 const comparisonIndex =
                     comparisonArtistIds?.indexOf(
@@ -972,40 +1432,28 @@ export function EmbeddingCanvas2D({
                         && !compared
                     );
 
-                const zoomVisibilityScale =
-                    Math.max(
-                        0.96,
-                        Math.min(
-                            1.28,
-                            0.96
-                            + Math.sqrt(
-                                Math.max(
-                                    0.35,
-                                    transform.k,
-                                ),
-                            )
-                            * 0.075,
-                        ),
-                    );
-
                 const baseRadius =
                     selected
                         ? 6.5
                         : highlighted
-                            ? 3.2
+                            ? 3.25
                             : dimmed
-                                ? 2.1
-                                : 2.3;
+                                ? 2.0
+                                : zoomLevel === "overview"
+                                    ? 2.15
+                                    : zoomLevel === "neighborhood"
+                                        ? 2.35
+                                        : 2.55;
 
                 const noiseScale =
                     point.artist.is_noise
-                        ? 0.78
+                        ? 0.58
                         : 1;
 
                 const radius =
                     baseRadius
                     * pointScale
-                    * zoomVisibilityScale
+                    * automaticScale
                     * noiseScale;
 
                 context.beginPath();
@@ -1026,12 +1474,12 @@ export function EmbeddingCanvas2D({
                     selected
                         ? 1
                         : highlighted
-                            ? 0.95
+                            ? 0.96
                             : dimmed
-                                ? 0.42
+                                ? 0.14
                                 : point.artist.is_noise
-                                    ? 0.46
-                                    : 0.72;
+                                    ? 0.15
+                                    : 0.78;
 
                 context.fill();
 
@@ -1039,12 +1487,12 @@ export function EmbeddingCanvas2D({
                     selected
                         ? 1
                         : highlighted
-                            ? 0.88
+                            ? 0.90
                             : dimmed
-                                ? 0.55
+                                ? 0.12
                                 : point.artist.is_noise
-                                    ? 0.45
-                                    : 0.72;
+                                    ? 0.12
+                                    : 0.70;
 
                 context.strokeStyle =
                     clusterPointOutlineColor(
@@ -1124,6 +1572,23 @@ export function EmbeddingCanvas2D({
                     context.restore();
                 }
             }
+
+            if (zoomLevel === "overview") {
+                drawOverviewClusterLabels(
+                    context,
+                    screenPoints,
+                    currentSize,
+                );
+            }
+
+            drawArtistLabels(
+                context,
+                screenPoints,
+                currentSize,
+                explorer.selectedArtistId,
+                highlightClusterId,
+                transform.k,
+            );
 
             context.globalAlpha = 1;
 

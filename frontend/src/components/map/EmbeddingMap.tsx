@@ -209,7 +209,20 @@ export function EmbeddingMap({
                                 mb: -0.25,
                             }}
                         >
-                            Point size
+                            Point size multiplier
+                        </Typography>
+
+                        <Typography
+                            variant="caption"
+                            color="text.disabled"
+                            sx={{
+                                display: "block",
+                                fontSize: "0.64rem",
+                                lineHeight: 1.1,
+                                mb: -0.2,
+                            }}
+                        >
+                            Auto-adjusts with zoom
                         </Typography>
 
                         <Slider

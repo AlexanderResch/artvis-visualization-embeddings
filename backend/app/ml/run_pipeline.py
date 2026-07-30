@@ -8,6 +8,10 @@ from app.ml.cluster_artists import (
     run as run_clustering
 )
 
+from app.ml.compare_postprocessing import (
+    run as run_postprocessing_comparison
+)
+
 from app.ml.evaluate_attribute_complex import (
     run as run_evaluation
 )
@@ -81,6 +85,10 @@ STEPS: dict[
         run_extraction
     ),
 
+    "compare_postprocessing": (
+        run_postprocessing_comparison
+    ),
+
     "cluster": (
         run_clustering
     ),
@@ -99,9 +107,18 @@ STEPS: dict[
 }
 
 
-DEFAULT_STEPS = list(
-    STEPS
-)
+DEFAULT_STEPS = [
+    "export",
+    "prepare",
+    "train_evaluation",
+    "evaluate",
+    "train_final",
+    "extract",
+    "cluster",
+    "project",
+    "materialize",
+    "profile",
+]
 
 
 def main() -> None:
