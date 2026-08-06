@@ -790,6 +790,39 @@ def _comparison_differences(
     ]
 
 
+def _path_artist_cluster(
+        artist_id: str,
+) -> tuple[int | None, bool]:
+    try:
+        frame = _load_artist_map()
+    except FileNotFoundError:
+        return None, False
+
+    matches = frame[
+        frame["id_normalized"]
+        == artist_id
+    ]
+
+    if matches.empty:
+        return None, False
+
+    row = matches.iloc[0]
+    cluster = _row_int(
+        row,
+        "cluster",
+    )
+
+    is_noise = (
+        bool(row.get("is_noise"))
+        if pd.notna(
+            row.get("is_noise")
+        )
+        else cluster < 0
+    )
+
+    return cluster, is_noise
+
+
 def _path_node(
         node: Any,
 ) -> dict[str, Any]:
@@ -805,6 +838,16 @@ def _path_node(
         properties.get("id")
     ) or key
 
+    cluster: int | None = None
+    is_noise = False
+
+    if node_type == "Artist":
+        cluster, is_noise = (
+            _path_artist_cluster(
+                node_id,
+            )
+        )
+
     return {
         "key": key,
         "id": node_id,
@@ -814,6 +857,8 @@ def _path_node(
             node_id,
         ),
         "type": node_type,
+        "cluster": cluster,
+        "is_noise": is_noise,
         "properties": _json_value(
             properties,
         ),

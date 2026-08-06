@@ -22,8 +22,21 @@ import type {
 } from "../../types/comparison";
 
 import {
+    clusterColor,
+} from "../../visualization/colors";
+
+import {
     entityTypeColor,
 } from "../../visualization/entityColors";
+
+import {
+    entityNodeShape,
+    traceEntityNodeShape,
+} from "../../visualization/entityShapes";
+
+import {
+    EntityShapeIcon,
+} from "../ui/EntityShapeIcon";
 
 
 type CanvasSize = {
@@ -99,6 +112,38 @@ function shortLabel(
 }
 
 
+function pathNodeColor(
+    node: ComparisonPathNode,
+): string {
+    if (
+        node.type === "Artist"
+        && node.cluster !== null
+        && Number.isFinite(node.cluster)
+    ) {
+        return clusterColor(
+            node.cluster,
+        );
+    }
+
+    return entityTypeColor(
+        node.type,
+    );
+}
+
+
+function artistLegendLabel(
+    cluster: number | null,
+): string {
+    if (cluster === null) {
+        return "Artist";
+    }
+
+    return cluster < 0
+        ? "Artist · Noise"
+        : `Artist · Cluster ${cluster}`;
+}
+
+
 export function ComparisonShortestPath({
                                            path,
                                            showEdgeLabels,
@@ -128,14 +173,52 @@ export function ComparisonShortestPath({
     const [hoveredNode, setHoveredNode] =
         useState<DrawnNode | null>(null);
 
+    const artistLegendClusters =
+        useMemo(
+            () => {
+                const clusters =
+                    new Set<number | null>();
+
+                for (const node of path.nodes) {
+                    if (node.type !== "Artist") {
+                        continue;
+                    }
+
+                    clusters.add(
+                        node.cluster !== null
+                        && Number.isFinite(
+                            node.cluster,
+                        )
+                            ? node.cluster
+                            : null,
+                    );
+                }
+
+                return Array.from(clusters)
+                    .sort(
+                        (first, second) =>
+                            (first ?? -2)
+                            - (second ?? -2),
+                    );
+            },
+            [path.nodes],
+        );
+
     const legendTypes =
         useMemo(
             () =>
                 Array.from(
                     new Set(
-                        path.nodes.map(
-                            (node) => node.type,
-                        ),
+                        path.nodes
+                            .filter(
+                                (node) =>
+                                    node.type
+                                    !== "Artist",
+                            )
+                            .map(
+                                (node) =>
+                                    node.type,
+                            ),
                     ),
                 ),
             [path.nodes],
@@ -315,18 +398,20 @@ export function ComparisonShortestPath({
 
                 for (const item of drawnNodes) {
                     const color =
-                        entityTypeColor(
-                            item.node.type,
+                        pathNodeColor(
+                            item.node,
                         );
 
-                    context.beginPath();
-                    context.arc(
+                    traceEntityNodeShape(
+                        context,
                         item.x,
                         item.y,
                         item.radius,
-                        0,
-                        Math.PI * 2,
+                        entityNodeShape(
+                            item.node.type,
+                        ),
                     );
+
                     context.fillStyle = color;
                     context.fill();
                     context.strokeStyle =
@@ -518,6 +603,12 @@ export function ComparisonShortestPath({
                         color="text.secondary"
                     >
                         {hoveredNode.node.type}
+                        {hoveredNode.node.type === "Artist"
+                        && hoveredNode.node.cluster !== null
+                            ? hoveredNode.node.cluster < 0
+                                ? " · Noise"
+                                : ` · Cluster ${hoveredNode.node.cluster}`
+                            : ""}
                     </Typography>
                 </Box>
             )}
@@ -533,6 +624,41 @@ export function ComparisonShortestPath({
                     gap: 1.25,
                 }}
             >
+                {artistLegendClusters.map(
+                    (cluster) => (
+                        <Box
+                            key={`artist-${cluster ?? "unknown"}`}
+                            sx={{
+                                display: "flex",
+                                alignItems: "center",
+                                gap: 0.5,
+                            }}
+                        >
+                            <EntityShapeIcon
+                                entityType="Artist"
+                                color={
+                                    cluster === null
+                                        ? entityTypeColor(
+                                            "Artist",
+                                        )
+                                        : clusterColor(
+                                            cluster,
+                                        )
+                                }
+                            />
+
+                            <Typography
+                                variant="caption"
+                                color="text.secondary"
+                            >
+                                {artistLegendLabel(
+                                    cluster,
+                                )}
+                            </Typography>
+                        </Box>
+                    ),
+                )}
+
                 {legendTypes.map(
                     (nodeType) => (
                         <Box
@@ -543,16 +669,13 @@ export function ComparisonShortestPath({
                                 gap: 0.5,
                             }}
                         >
-                            <Box
-                                sx={{
-                                    width: 9,
-                                    height: 9,
-                                    borderRadius: "50%",
-                                    backgroundColor:
-                                        entityTypeColor(
-                                            nodeType,
-                                        ),
-                                }}
+                            <EntityShapeIcon
+                                entityType={nodeType}
+                                color={
+                                    entityTypeColor(
+                                        nodeType,
+                                    )
+                                }
                             />
 
                             <Typography

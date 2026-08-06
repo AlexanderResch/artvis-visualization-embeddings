@@ -40,6 +40,8 @@ export type ComparisonPathNode = {
     id: string;
     label: string;
     type: string;
+    cluster: number | null;
+    is_noise: boolean;
     properties: Record<string, unknown>;
 };
 

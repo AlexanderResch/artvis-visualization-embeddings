@@ -33,6 +33,10 @@ import type {
     ArtistEmbedding3D,
 } from "../../types/embedding";
 
+import type {
+    VisibleClusterSummary,
+} from "../../types/map";
+
 import {
     clusterColor,
     clusterPointOutlineColor,
@@ -597,6 +601,7 @@ export default function EmbeddingCanvas3D({
                                               focusData,
                                               fitRequestKey = 0,
                                               pointScale = 1,
+                                              onVisibleClustersChange,
                                               onArtistClick,
                                           }: {
     data: ArtistEmbedding3D[];
@@ -611,6 +616,9 @@ export default function EmbeddingCanvas3D({
     focusData?: ArtistEmbedding3D[];
     fitRequestKey?: number;
     pointScale?: number;
+    onVisibleClustersChange?: (
+        clusters: VisibleClusterSummary[],
+    ) => void;
     onArtistClick?:
         (artist: ArtistEmbedding3D) => void;
 }) {
@@ -657,6 +665,9 @@ export default function EmbeddingCanvas3D({
         useRef<number | null>(
             null,
         );
+
+    const visibleClusterSignatureRef =
+        useRef("");
 
     const drawRef =
         useRef<() => void>(
@@ -839,6 +850,66 @@ export default function EmbeddingCanvas3D({
                                 pan,
                             ),
                     );
+
+                if (onVisibleClustersChange) {
+                    const counts =
+                        new Map<number, number>();
+
+                    for (const point of projected) {
+                        if (
+                            point.screenX < 0
+                            || point.screenX > currentSize.width
+                            || point.screenY < 0
+                            || point.screenY > currentSize.height
+                        ) {
+                            continue;
+                        }
+
+                        counts.set(
+                            point.artist.cluster,
+                            (
+                                counts.get(
+                                    point.artist.cluster,
+                                )
+                                ?? 0
+                            ) + 1,
+                        );
+                    }
+
+                    const summary =
+                        [...counts.entries()]
+                            .map(
+                                ([cluster, count]) => ({
+                                    cluster,
+                                    count,
+                                    isNoise: cluster < 0,
+                                }),
+                            )
+                            .sort(
+                                (first, second) =>
+                                    second.count
+                                    - first.count
+                                    || first.cluster
+                                    - second.cluster,
+                            );
+
+                    const signature =
+                        summary
+                            .map(
+                                (item) =>
+                                    `${item.cluster}:${item.count}`,
+                            )
+                            .join("|");
+
+                    if (
+                        signature
+                        !== visibleClusterSignatureRef.current
+                    ) {
+                        visibleClusterSignatureRef.current =
+                            signature;
+                        onVisibleClustersChange(summary);
+                    }
+                }
 
                 const projectedBoundary =
                     normalizedData.boundaryPoints.map(
@@ -1188,6 +1259,7 @@ export default function EmbeddingCanvas3D({
                 highlightClusterId,
                 interactionMode,
                 normalizedData,
+                onVisibleClustersChange,
                 pointScale,
             ],
         );

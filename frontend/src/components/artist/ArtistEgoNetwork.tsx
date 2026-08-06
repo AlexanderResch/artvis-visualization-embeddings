@@ -35,8 +35,21 @@ import type {
 } from "../../types/artistInspection";
 
 import {
+    clusterColor,
+} from "../../visualization/colors";
+
+import {
     entityTypeColor,
 } from "../../visualization/entityColors";
+
+import {
+    EntityShapeIcon,
+} from "../ui/EntityShapeIcon";
+
+import {
+    entityNodeShape,
+    traceEntityNodeShape,
+} from "../../visualization/entityShapes";
 
 
 type LayoutNode =
@@ -81,6 +94,30 @@ function nodeRadius(
     }
 
     return 5;
+}
+
+
+
+
+function egoNodeColor(
+    node: ArtistInspectionNode,
+    artistClusterById:
+        ReadonlyMap<string, number>,
+): string {
+    if (node.type !== "Artist") {
+        return entityTypeColor(
+            node.type,
+        );
+    }
+
+    const cluster =
+        artistClusterById.get(
+            String(node.entity_id),
+        );
+
+    return cluster === undefined
+        ? entityTypeColor("Artist")
+        : clusterColor(cluster);
 }
 
 
@@ -130,12 +167,15 @@ export function ArtistEgoNetwork({
                                      links,
                                      selectedNodeTypes,
                                      selectedRelationshipTypes,
+                                     artistClusterById,
                                      onSelectArtist,
                                  }: {
     nodes: ArtistInspectionNode[];
     links: ArtistInspectionLink[];
     selectedNodeTypes: string[];
     selectedRelationshipTypes: string[];
+    artistClusterById:
+        ReadonlyMap<string, number>;
     onSelectArtist: (
         artistId: string,
     ) => void;
@@ -262,7 +302,8 @@ export function ArtistEgoNetwork({
                         filteredData.nodes
                             .filter(
                                 (node) =>
-                                    node.depth > 0,
+                                    node.depth > 0
+                                    && node.type !== "Artist",
                             )
                             .map(
                                 (node) =>
@@ -271,6 +312,37 @@ export function ArtistEgoNetwork({
                     ),
                 ).sort(),
             [filteredData.nodes],
+        );
+
+    const artistLegendClusters =
+        useMemo(
+            () =>
+                Array.from(
+                    new Set(
+                        filteredData.nodes
+                            .filter(
+                                (node) =>
+                                    node.type === "Artist",
+                            )
+                            .map(
+                                (node) =>
+                                    artistClusterById.get(
+                                        String(node.entity_id),
+                                    ),
+                            )
+                            .filter(
+                                (cluster): cluster is number =>
+                                    cluster !== undefined,
+                            ),
+                    ),
+                ).sort(
+                    (first, second) =>
+                        first - second,
+                ),
+            [
+                artistClusterById,
+                filteredData.nodes,
+            ],
         );
 
     useEffect(
@@ -706,18 +778,20 @@ export function ArtistEgoNetwork({
                             node.data,
                         );
 
-                    context.beginPath();
-                    context.arc(
+                    traceEntityNodeShape(
+                        context,
                         node.x,
                         node.y,
                         radius,
-                        0,
-                        Math.PI * 2,
+                        entityNodeShape(
+                            node.data.type,
+                        ),
                     );
 
                     context.fillStyle =
-                        entityTypeColor(
-                            node.data.type,
+                        egoNodeColor(
+                            node.data,
+                            artistClusterById,
                         );
 
                     context.globalAlpha =
@@ -749,15 +823,16 @@ export function ArtistEgoNetwork({
                         node.key
                         === hoveredKey
                     ) {
-                        context.beginPath();
-                        context.arc(
+                        traceEntityNodeShape(
+                            context,
                             node.x,
                             node.y,
                             radius
                             + 5
                             / transform.k,
-                            0,
-                            Math.PI * 2,
+                            entityNodeShape(
+                                node.data.type,
+                            ),
                         );
 
                         context.strokeStyle =
@@ -1115,6 +1190,7 @@ export function ArtistEgoNetwork({
             };
         },
         [
+            artistClusterById,
             filteredData.links,
             filteredData.nodes,
             onSelectArtist,
@@ -1257,6 +1333,34 @@ export function ArtistEgoNetwork({
                                 : " hops"}
                         </Typography>
 
+                        {tooltip.node.type === "Artist" && (
+                            <Typography
+                                variant="caption"
+                                color="text.secondary"
+                                sx={{
+                                    display: "block",
+                                    mt: 0.15,
+                                }}
+                            >
+                                {(() => {
+                                    const cluster =
+                                        artistClusterById.get(
+                                            String(
+                                                tooltip.node.entity_id,
+                                            ),
+                                        );
+
+                                    if (cluster === undefined) {
+                                        return "Cluster unavailable";
+                                    }
+
+                                    return cluster < 0
+                                        ? "Noise"
+                                        : `Cluster ${cluster}`;
+                                })()}
+                            </Typography>
+                        )}
+
                         {tooltip.node.type
                             === "Artist"
                             && tooltip.node.depth > 0 && (
@@ -1279,13 +1383,55 @@ export function ArtistEgoNetwork({
                 sx={{
                     display: "flex",
                     flexWrap: "wrap",
-                    gap: 1,
-                    px: 1.25,
-                    py: 0.75,
+                    gap: 0.75,
+                    px: 1,
+                    py: 0.6,
                     borderTop: "1px solid",
                     borderColor: "divider",
                 }}
             >
+                {artistLegendClusters
+                    .slice(0, 8)
+                    .map(
+                        (cluster) => (
+                            <Box
+                                key={`artist-cluster-${cluster}`}
+                                sx={{
+                                    display: "flex",
+                                    alignItems: "center",
+                                    gap: 0.5,
+                                }}
+                            >
+                                <EntityShapeIcon
+                                    entityType="Artist"
+                                    color={
+                                        clusterColor(
+                                            cluster,
+                                        )
+                                    }
+                                />
+
+                                <Typography
+                                    variant="caption"
+                                    color="text.secondary"
+                                >
+                                    Artist · {cluster < 0
+                                        ? "Noise"
+                                        : `Cluster ${cluster}`}
+                                </Typography>
+                            </Box>
+                        ),
+                    )}
+
+                {artistLegendClusters.length > 8 && (
+                    <Typography
+                        variant="caption"
+                        color="text.disabled"
+                    >
+                        +{artistLegendClusters.length - 8} Artist clusters
+                    </Typography>
+                )}
+
                 {legendTypes.map(
                     (entityType) => (
                         <Box
@@ -1296,16 +1442,13 @@ export function ArtistEgoNetwork({
                                 gap: 0.5,
                             }}
                         >
-                            <Box
-                                sx={{
-                                    width: 9,
-                                    height: 9,
-                                    borderRadius: "50%",
-                                    backgroundColor:
-                                        entityTypeColor(
-                                            entityType,
-                                        ),
-                                }}
+                            <EntityShapeIcon
+                                entityType={entityType}
+                                color={
+                                    entityTypeColor(
+                                        entityType,
+                                    )
+                                }
                             />
 
                             <Typography

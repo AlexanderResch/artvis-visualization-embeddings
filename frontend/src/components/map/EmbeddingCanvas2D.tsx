@@ -35,6 +35,10 @@ import type {
     ArtistEmbedding2D,
 } from "../../types/embedding";
 
+import type {
+    VisibleClusterSummary,
+} from "../../types/map";
+
 import {
     clusterColor,
     clusterPointOutlineColor,
@@ -60,10 +64,10 @@ type CanvasSize = {
 
 
 const PADDING = {
-    top: 18,
-    right: 18,
-    bottom: 34,
-    left: 44,
+    top: 10,
+    right: 10,
+    bottom: 10,
+    left: 10,
 };
 
 
@@ -615,110 +619,6 @@ function prepareCanvas(
 }
 
 
-function drawAxes(
-    context: CanvasRenderingContext2D,
-    size: CanvasSize,
-    xScale: ScaleLinear<number, number>,
-    yScale: ScaleLinear<number, number>,
-) {
-    context.save();
-
-    context.strokeStyle =
-        "#e7eaee";
-
-    context.lineWidth = 1;
-    context.fillStyle =
-        "#6b7280";
-
-    context.font =
-        "11px Inter, Segoe UI, Arial";
-
-    xScale.ticks(7).forEach(
-        (tick) => {
-            const x = xScale(tick);
-
-            if (
-                x < PADDING.left
-                || x
-                > size.width
-                - PADDING.right
-            ) {
-                return;
-            }
-
-            context.beginPath();
-            context.moveTo(
-                x,
-                PADDING.top,
-            );
-            context.lineTo(
-                x,
-                size.height
-                - PADDING.bottom,
-            );
-            context.stroke();
-
-            context.textAlign =
-                "center";
-            context.textBaseline =
-                "top";
-
-            context.fillText(
-                xScale.tickFormat(7)(
-                    tick,
-                ),
-                x,
-                size.height
-                - PADDING.bottom
-                + 7,
-            );
-        },
-    );
-
-    yScale.ticks(6).forEach(
-        (tick) => {
-            const y = yScale(tick);
-
-            if (
-                y < PADDING.top
-                || y
-                > size.height
-                - PADDING.bottom
-            ) {
-                return;
-            }
-
-            context.beginPath();
-            context.moveTo(
-                PADDING.left,
-                y,
-            );
-            context.lineTo(
-                size.width
-                - PADDING.right,
-                y,
-            );
-            context.stroke();
-
-            context.textAlign =
-                "right";
-            context.textBaseline =
-                "middle";
-
-            context.fillText(
-                yScale.tickFormat(6)(
-                    tick,
-                ),
-                PADDING.left - 7,
-                y,
-            );
-        },
-    );
-
-    context.restore();
-}
-
-
 function expandHull(
     hull: [number, number][],
     factor = 1.06,
@@ -978,6 +878,7 @@ export function EmbeddingCanvas2D({
                                       focusData,
                                       fitRequestKey = 0,
                                       pointScale = 1,
+                                      onVisibleClustersChange,
                                       onArtistClick,
                                   }: {
     data: ArtistEmbedding2D[];
@@ -992,6 +893,9 @@ export function EmbeddingCanvas2D({
     focusData?: ArtistEmbedding2D[];
     fitRequestKey?: number;
     pointScale?: number;
+    onVisibleClustersChange?: (
+        clusters: VisibleClusterSummary[],
+    ) => void;
     onArtistClick?:
         (artist: ArtistEmbedding2D) => void;
 }) {
@@ -1038,6 +942,9 @@ export function EmbeddingCanvas2D({
         useRef<number | null>(
             null,
         );
+
+    const visibleClusterSignatureRef =
+        useRef("");
 
     const [
         tooltip,
@@ -1195,16 +1102,6 @@ export function EmbeddingCanvas2D({
                     PADDING.top,
                 ]);
 
-            const visibleXScale =
-                transform.rescaleX(
-                    baseXScale,
-                );
-
-            const visibleYScale =
-                transform.rescaleY(
-                    baseYScale,
-                );
-
             context.clearRect(
                 0,
                 0,
@@ -1220,13 +1117,6 @@ export function EmbeddingCanvas2D({
                 0,
                 currentSize.width,
                 currentSize.height,
-            );
-
-            drawAxes(
-                context,
-                currentSize,
-                visibleXScale,
-                visibleYScale,
             );
 
             const screenPoints:
@@ -1270,6 +1160,57 @@ export function EmbeddingCanvas2D({
                     screenX,
                     screenY,
                 });
+            }
+
+            if (onVisibleClustersChange) {
+                const counts =
+                    new Map<number, number>();
+
+                for (const point of screenPoints) {
+                    counts.set(
+                        point.artist.cluster,
+                        (
+                            counts.get(
+                                point.artist.cluster,
+                            )
+                            ?? 0
+                        ) + 1,
+                    );
+                }
+
+                const summary =
+                    [...counts.entries()]
+                        .map(
+                            ([cluster, count]) => ({
+                                cluster,
+                                count,
+                                isNoise: cluster < 0,
+                            }),
+                        )
+                        .sort(
+                            (first, second) =>
+                                second.count
+                                - first.count
+                                || first.cluster
+                                - second.cluster,
+                        );
+
+                const signature =
+                    summary
+                        .map(
+                            (item) =>
+                                `${item.cluster}:${item.count}`,
+                        )
+                        .join("|");
+
+                if (
+                    signature
+                    !== visibleClusterSignatureRef.current
+                ) {
+                    visibleClusterSignatureRef.current =
+                        signature;
+                    onVisibleClustersChange(summary);
+                }
             }
 
             if (
@@ -1612,6 +1553,7 @@ export function EmbeddingCanvas2D({
             dimNonHighlighted,
             explorer.selectedArtistId,
             highlightClusterId,
+            onVisibleClustersChange,
             pointScale,
             xScale,
             yScale,
@@ -1798,8 +1740,7 @@ export function EmbeddingCanvas2D({
         [
             fitRequestKey,
             focusData,
-            size.height,
-            size.width,
+            size,
             xScale,
             yScale,
         ],

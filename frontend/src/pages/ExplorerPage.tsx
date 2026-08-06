@@ -184,6 +184,11 @@ export function ExplorerPage() {
     );
 
     const [
+        mapResetRequestKey,
+        setMapResetRequestKey,
+    ] = useState(0);
+
+    const [
         data2D,
         setData2D,
     ] = useState<ArtistEmbedding2D[]>([]);
@@ -1640,6 +1645,21 @@ export function ExplorerPage() {
             ],
         );
 
+    const artistClusterById =
+        useMemo(
+            () =>
+                new Map(
+                    data2D.map(
+                        (artist) => [
+                            String(artist.id),
+                            artist.cluster,
+                        ] as const,
+                    ),
+                ),
+            [data2D],
+        );
+
+
     const visibleSimilarArtists =
         useMemo(
             () =>
@@ -1902,6 +1922,42 @@ export function ExplorerPage() {
         );
     }
 
+    function resetAll() {
+        explorer.resetFilters();
+        explorer.setSelectedArtistId(null);
+        explorer.setSelectedClusterId(null);
+        explorer.setViewMode("2d");
+
+        clearComparisonState();
+        setMode("overview");
+        setAllowedArtistIds(null);
+
+        setClusterMinimumMembership(0);
+        setClusterYearRange(null);
+        setClusterGroupIds([]);
+        setShowSurroundingClusters(true);
+
+        setSimilarityThreshold(0.7);
+        setSimilarArtistLimit(10);
+        setEgoDepth(2);
+        setSelectedNodeTypes([]);
+        setSelectedRelationshipTypes([]);
+        setTimelineBinSize(1);
+
+        setComparisonShowMapContext(true);
+        setComparisonShowEdgeLabels(true);
+
+        setMapResetRequestKey(
+            (current) =>
+                current + 1,
+        );
+
+        setSearchParams(
+            new URLSearchParams(),
+            { replace: true },
+        );
+    }
+
     if (loading) {
         return (
             <Box className="explorer-loading">
@@ -2033,6 +2089,7 @@ export function ExplorerPage() {
                 onSelectCluster={
                     selectCluster
                 }
+                onResetAll={resetAll}
             />
 
             <Box
@@ -2206,6 +2263,7 @@ export function ExplorerPage() {
 
                 <Panel className="explorer-map-panel">
                     <EmbeddingMap
+                        key={`embedding-map-${mapResetRequestKey}`}
                         data2D={focusedData2D}
                         data3D={focusedData3D}
                         loading3D={loading3D}
@@ -2250,6 +2308,16 @@ export function ExplorerPage() {
                         }
                         onArtistClick={
                             selectArtist
+                        }
+                        legendPriorityClusterIds={
+                            [
+                                selectedArtist?.cluster,
+                                comparisonArtist?.cluster,
+                            ].filter(
+                                (cluster): cluster is number =>
+                                    cluster !== undefined
+                                    && cluster >= 0,
+                            )
                         }
                         title={mapTitle}
                         description={
@@ -2544,6 +2612,9 @@ export function ExplorerPage() {
                                 }
                                 selectedRelationshipTypes={
                                     selectedRelationshipTypes
+                                }
+                                artistClusterById={
+                                    artistClusterById
                                 }
                                 timelineBinSize={
                                     timelineBinSize

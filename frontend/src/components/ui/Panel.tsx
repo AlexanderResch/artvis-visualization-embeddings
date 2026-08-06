@@ -17,7 +17,7 @@ export function Panel({
             sx={{
                 border: "1px solid",
                 borderColor: "divider",
-                borderRadius: 2,
+                borderRadius: 1.5,
                 backgroundColor: "background.paper",
                 minWidth: 0,
                 ...boxProps.sx,
@@ -26,8 +26,8 @@ export function Panel({
             {title && (
                 <Box
                     sx={{
-                        px: 2,
-                        py: 1.25,
+                        px: 1.25,
+                        py: 0.75,
                         borderBottom: "1px solid",
                         borderColor: "divider",
                         display: "flex",

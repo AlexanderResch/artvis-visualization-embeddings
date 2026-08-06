@@ -63,6 +63,8 @@ class ComparisonPathNode(BaseModel):
     id: str
     label: str
     type: str
+    cluster: int | None = None
+    is_noise: bool = False
     properties: dict[str, Any] = Field(default_factory=dict)
 
 

@@ -8,6 +8,10 @@ import {
     Typography,
 } from "@mui/material";
 
+import {
+    useState,
+} from "react";
+
 import type {
     ClusterOption,
 } from "../../types/dashboard";
@@ -20,6 +24,10 @@ import {
     clusterColor,
     clusterTextColor,
 } from "../../visualization/colors";
+
+import {
+    ExplorerHelpDialog,
+} from "./ExplorerHelpDialog";
 
 
 export type ExplorerMode =
@@ -61,6 +69,7 @@ export function ExplorerHeader({
                                    onStartComparison,
                                    onCancelComparison,
                                    onSelectCluster,
+                                   onResetAll,
                                }: {
     mode: ExplorerMode;
     clusters: ClusterOption[];
@@ -77,7 +86,12 @@ export function ExplorerHeader({
     onSelectCluster: (
         clusterId: number | null,
     ) => void;
+    onResetAll: () => void;
 }) {
+    const [
+        helpOpen,
+        setHelpOpen,
+    ] = useState(false);
     const validSelectedClusterId =
         selectedClusterId !== null
         && selectedClusterId >= 0
@@ -120,9 +134,9 @@ export function ExplorerHeader({
                         xs: "column",
                         md: "row",
                     },
-                    gap: 1.5,
-                    px: 0.5,
-                    py: 0.5,
+                    gap: 1,
+                    px: 0.25,
+                    py: 0.25,
                 }}
             >
                 <Box sx={{ minWidth: 0 }}>
@@ -404,8 +418,28 @@ export function ExplorerHeader({
                             </Button>
                         )}
 
+                    <Button
+                        size="small"
+                        variant="outlined"
+                        onClick={() =>
+                            setHelpOpen(true)
+                        }
+                        aria-label="Open Explorer help"
+                    >
+                        HELP ?
+                    </Button>
+
+                    <Button
+                        size="small"
+                        variant="outlined"
+                        onClick={onResetAll}
+                    >
+                        Reset all
+                    </Button>
+
                     {mode !== "overview" && (
                         <Button
+                            size="small"
                             variant="outlined"
                             onClick={onShowOverview}
                         >
@@ -414,6 +448,13 @@ export function ExplorerHeader({
                     )}
                 </Box>
             </Box>
+
+            <ExplorerHelpDialog
+                open={helpOpen}
+                onClose={() =>
+                    setHelpOpen(false)
+                }
+            />
         </Box>
     );
 }

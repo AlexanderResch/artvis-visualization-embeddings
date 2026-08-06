@@ -1,11 +1,11 @@
 .explorer-page {
   min-height: 100vh;
-  padding: 16px;
+  padding: 8px;
 }
 
 .explorer-header {
   max-width: 1900px;
-  margin: 0 auto 12px;
+  margin: 0 auto 8px;
 }
 
 .explorer-grid {
@@ -19,13 +19,13 @@
   grid-template-rows:
     minmax(
       590px,
-      calc(100vh - 195px)
+      calc(100vh - 177px)
     )
     auto;
   grid-template-areas:
     "explorerFilters explorerMap explorerDetails"
     "explorerFilters explorerResults explorerDetails";
-  gap: 12px;
+  gap: 8px;
   align-items: stretch;
 }
 
@@ -33,7 +33,7 @@
   grid-template-rows:
     minmax(
       590px,
-      calc(100vh - 195px)
+      calc(100vh - 177px)
     );
   grid-template-areas:
     "explorerFilters explorerMap explorerDetails";
@@ -43,7 +43,7 @@
   grid-template-rows:
     minmax(
       590px,
-      calc(100vh - 195px)
+      calc(100vh - 177px)
     )
     auto;
   grid-template-areas:
@@ -86,8 +86,8 @@
     minmax(0, 1.15fr)
     minmax(280px, 0.8fr)
     minmax(0, 1.15fr);
-  gap: 12px;
-  padding: 12px;
+  gap: 8px;
+  padding: 8px;
   align-items: stretch;
 }
 
@@ -147,7 +147,7 @@
 
 @media (max-width: 900px) {
   .explorer-page {
-    padding: 8px;
+    padding: 6px;
   }
 
   .explorer-grid {
@@ -177,7 +177,7 @@
   grid-template-rows:
     minmax(
       590px,
-      calc(100vh - 195px)
+      calc(100vh - 177px)
     )
     auto;
   grid-template-areas:
@@ -195,8 +195,8 @@
     minmax(240px, 0.8fr)
     minmax(280px, 1fr)
     minmax(0, 1.6fr);
-  gap: 12px;
-  padding: 12px;
+  gap: 8px;
+  padding: 8px;
   align-items: stretch;
 }
 

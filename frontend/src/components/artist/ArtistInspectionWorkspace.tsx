@@ -49,8 +49,8 @@ function VisualizationSection({
         >
             <Box
                 sx={{
-                    px: 1.5,
-                    py: 1,
+                    px: 1.25,
+                    py: 0.75,
                     borderBottom:
                         "1px solid",
                     borderColor: "divider",
@@ -86,6 +86,7 @@ export function ArtistInspectionWorkspace({
                                               error,
                                               selectedNodeTypes,
                                               selectedRelationshipTypes,
+                                              artistClusterById,
                                               timelineBinSize,
                                               onSelectArtist,
                                           }: {
@@ -95,6 +96,8 @@ export function ArtistInspectionWorkspace({
     error: string | null;
     selectedNodeTypes: string[];
     selectedRelationshipTypes: string[];
+    artistClusterById:
+        ReadonlyMap<string, number>;
     timelineBinSize: 1 | 5 | 10;
     onSelectArtist: (
         artistId: string,
@@ -162,6 +165,9 @@ export function ArtistInspectionWorkspace({
                     }
                     selectedRelationshipTypes={
                         selectedRelationshipTypes
+                    }
+                    artistClusterById={
+                        artistClusterById
                     }
                     onSelectArtist={
                         onSelectArtist
