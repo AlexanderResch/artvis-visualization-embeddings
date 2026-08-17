@@ -34,7 +34,8 @@ export type ExplorerMode =
     | "overview"
     | "cluster"
     | "artist"
-    | "compare";
+    | "compare"
+    | "cluster-compare";
 
 
 function artistLabel(
@@ -61,12 +62,14 @@ export function ExplorerHeader({
                                    selectedClusterId,
                                    selectedArtist,
                                    comparisonArtist,
+                                   comparisonClusterId,
                                    comparisonSelectionActive,
                                    onShowOverview,
                                    onShowCluster,
                                    onInspectArtist,
                                    onInspectComparisonArtist,
                                    onStartComparison,
+                                   onStartClusterComparison,
                                    onCancelComparison,
                                    onSelectCluster,
                                    onResetAll,
@@ -76,12 +79,14 @@ export function ExplorerHeader({
     selectedClusterId: number | null;
     selectedArtist: ArtistEmbedding2D | null;
     comparisonArtist: ArtistEmbedding2D | null;
+    comparisonClusterId: number | null;
     comparisonSelectionActive: boolean;
     onShowOverview: () => void;
     onShowCluster: () => void;
     onInspectArtist: () => void;
     onInspectComparisonArtist: () => void;
     onStartComparison: () => void;
+    onStartClusterComparison: () => void;
     onCancelComparison: () => void;
     onSelectCluster: (
         clusterId: number | null,
@@ -114,7 +119,9 @@ export function ExplorerHeader({
                         : "Inspect the selected cluster without leaving the central exploration workspace."
                     : mode === "artist"
                         ? "Inspect one Artist while preserving the surrounding cluster and embedding-map context."
-                        : "Compare two Artists through their embedding similarity and shared graph context.";
+                        : mode === "cluster-compare"
+                            ? "Compare two computed clusters through descriptive statistics and graph context."
+                            : "Compare two Artists through their embedding similarity and shared graph context.";
 
     return (
         <Box
@@ -165,6 +172,7 @@ export function ExplorerHeader({
 
                         {mode !== "overview"
                             && mode !== "compare"
+                            && mode !== "cluster-compare"
                             && validSelectedClusterId !== null && (
                                 <Button
                                     size="small"
@@ -203,6 +211,18 @@ export function ExplorerHeader({
                                 {artistLabel(comparisonArtist)}
                             </Typography>
                         )}
+
+                        {mode === "cluster-compare" && (
+                            <Typography
+                                variant="body2"
+                                color="text.primary"
+                                noWrap
+                            >
+                                Cluster {validSelectedClusterId ?? "?"}
+                                {" ↔ "}
+                                Cluster {comparisonClusterId ?? "?"}
+                            </Typography>
+                        )}
                     </Breadcrumbs>
 
                     <Typography
@@ -225,7 +245,8 @@ export function ExplorerHeader({
                 >
                     {hasSelectedArtist
                         && mode !== "artist"
-                        && mode !== "compare" && (
+                        && mode !== "compare"
+                        && mode !== "cluster-compare" && (
                             <Chip
                                 size="small"
                                 variant="outlined"
@@ -272,7 +293,8 @@ export function ExplorerHeader({
                         )}
 
                     {validSelectedClusterId !== null
-                        && mode !== "compare" && (
+                        && mode !== "compare"
+                        && mode !== "cluster-compare" && (
                             <Chip
                                 size="small"
                                 label={
@@ -292,7 +314,33 @@ export function ExplorerHeader({
                             />
                         )}
 
-                    {mode !== "compare" && (
+                    {mode === "cluster-compare"
+                        && validSelectedClusterId !== null && (
+                            <Chip
+                                size="small"
+                                label={`A · Cluster ${validSelectedClusterId}`}
+                                sx={{
+                                    color: clusterTextColor(validSelectedClusterId),
+                                    backgroundColor: clusterColor(validSelectedClusterId),
+                                    fontWeight: 700,
+                                }}
+                            />
+                        )}
+
+                    {mode === "cluster-compare"
+                        && comparisonClusterId !== null && (
+                            <Chip
+                                size="small"
+                                label={`B · Cluster ${comparisonClusterId}`}
+                                sx={{
+                                    color: clusterTextColor(comparisonClusterId),
+                                    backgroundColor: clusterColor(comparisonClusterId),
+                                    fontWeight: 700,
+                                }}
+                            />
+                        )}
+
+                    {mode !== "compare" && mode !== "cluster-compare" && (
                         <TextField
                             select
                             size="small"
@@ -348,7 +396,8 @@ export function ExplorerHeader({
                     {hasSelectedArtist
                         && validSelectedClusterId !== null
                         && mode !== "cluster"
-                        && mode !== "compare" && (
+                        && mode !== "compare"
+                        && mode !== "cluster-compare" && (
                             <Button
                                 variant="outlined"
                                 onClick={onShowCluster}
@@ -359,7 +408,8 @@ export function ExplorerHeader({
 
                     {hasSelectedArtist
                         && mode !== "artist"
-                        && mode !== "compare" && (
+                        && mode !== "compare"
+                        && mode !== "cluster-compare" && (
                             <Button
                                 variant="outlined"
                                 onClick={onInspectArtist}
@@ -368,8 +418,20 @@ export function ExplorerHeader({
                             </Button>
                         )}
 
+                    {validSelectedClusterId !== null
+                        && mode !== "compare"
+                        && mode !== "cluster-compare" && (
+                            <Button
+                                variant="outlined"
+                                onClick={onStartClusterComparison}
+                            >
+                                Compare clusters
+                            </Button>
+                        )}
+
                     {hasSelectedArtist
                         && mode !== "compare"
+                        && mode !== "cluster-compare"
                         && !comparisonSelectionActive && (
                             <Button
                                 variant="outlined"

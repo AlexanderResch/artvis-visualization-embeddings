@@ -82,8 +82,14 @@ export function ExplorerHelpDialog({
 
                 <Divider />
 
-                <HelpSection title="Colors and cluster membership">
-                    Colored Artist points belong to HDBSCAN clusters. Gray points are classified as Noise. The legend above the map lists the selected clusters and the largest clusters currently visible in the viewport. Cluster membership probability and outlier information are available in the detail panels.
+                <HelpSection title="Colors and cluster assignment">
+                    Colored Artist points are part of computed HDBSCAN clusters. Gray points are not part of a cluster and are shown as Noise. The detail panels use cluster assignment strength, inlier score, and similarity to the cluster center to describe an Artist's position within a cluster.
+                </HelpSection>
+
+                <Divider />
+
+                <HelpSection title="How to read the cluster scores">
+                    Cluster assignment strength describes how strongly HDBSCAN assigns an Artist to the selected cluster. Inlier score is calculated as 1 minus the HDBSCAN outlier score, so higher values mean the Artist is more typical for the assigned cluster. Similarity to cluster center describes how similar the Artist embedding is to the center of its cluster. For all three values, higher values indicate a stronger or more typical cluster position.
                 </HelpSection>
 
                 <Divider />
@@ -100,8 +106,14 @@ export function ExplorerHelpDialog({
 
                 <Divider />
 
+                <HelpSection title="Cluster comparison">
+                    Use Compare clusters to select Cluster A and Cluster B. The map then shows only those two clusters. The comparison panels show cluster size, gender distribution, exhibited artworks, Artist groups, exhibition locations, exhibitions, and representative Artists.
+                </HelpSection>
+
+                <Divider />
+
                 <HelpSection title="Interpretation note">
-                    The embedding map is an exploratory overview. Use the graph-based detail panels to examine exhibitions, groups, locations, paths, and other explicit relationships before drawing domain conclusions from spatial proximity or cluster membership.
+                    The embedding map is an exploratory overview. Use the graph-based detail panels to examine exhibitions, groups, locations, paths, and other explicit relationships before drawing domain conclusions from spatial proximity or cluster assignment.
                 </HelpSection>
             </DialogContent>
 

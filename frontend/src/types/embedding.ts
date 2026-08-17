@@ -1,5 +1,15 @@
 export type ViewMode = "2d" | "3d";
 
+export type ClusterStatusFilter =
+    | "all"
+    | "clustered"
+    | "noise";
+
+export type GenderFilterValue =
+    | "F"
+    | "M"
+    | "UNKNOWN";
+
 export type ArtistEmbeddingBase = {
     artist_index: number;
     entity: string;
@@ -17,6 +27,7 @@ export type ArtistEmbeddingBase = {
 
     membership_probability: number;
     outlier_score: number;
+    exhibited_item_count: number;
 };
 
 export type ArtistEmbedding2D =

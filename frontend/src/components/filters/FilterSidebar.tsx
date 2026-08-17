@@ -7,9 +7,8 @@ import {
     Button,
     Chip,
     Divider,
-    FormControlLabel,
+    MenuItem,
     Slider,
-    Switch,
     TextField,
     Typography,
 } from "@mui/material";
@@ -27,6 +26,7 @@ import {
 
 import type {
     ArtistEmbedding2D,
+    GenderFilterValue,
 } from "../../types/embedding";
 
 import type {
@@ -483,6 +483,35 @@ export function FilterSidebar({
                 !item.is_noise,
         );
 
+    const genderCounts =
+        useMemo(
+            () => {
+                const counts: Record<GenderFilterValue, number> = {
+                    F: 0,
+                    M: 0,
+                    UNKNOWN: 0,
+                };
+
+                artists.forEach((artist) => {
+                    const normalized =
+                        (artist.gender ?? "")
+                            .trim()
+                            .toUpperCase();
+
+                    if (normalized === "F") {
+                        counts.F += 1;
+                    } else if (normalized === "M") {
+                        counts.M += 1;
+                    } else {
+                        counts.UNKNOWN += 1;
+                    }
+                });
+
+                return counts;
+            },
+            [artists],
+        );
+
 
     return (
         <Box
@@ -762,9 +791,9 @@ export function FilterSidebar({
 
                                     {
                                         artist.is_noise
-                                            ? "Noise"
+                                            ? "Not part of a cluster"
                                             : (
-                                                `Cluster ${
+                                                `Part of Cluster ${
                                                     artist.cluster
                                                 }`
                                             )
@@ -1015,6 +1044,105 @@ export function FilterSidebar({
                 sx={accordionStyles}
             >
                 <AccordionSummary
+                    expandIcon={<ExpandIndicator />}
+                    sx={accordionSummaryStyles}
+                >
+                    <FilterAccordionHeader
+                        title="Artist attributes"
+                        optionCount={3}
+                        selectedCount={
+                            explorer.selectedGenders.length
+                            + (explorer.minimumExhibitedItems > 0 ? 1 : 0)
+                        }
+                    />
+                </AccordionSummary>
+
+                <AccordionDetails
+                    sx={{ px: 1.25, pt: 0, pb: 1.25 }}
+                >
+                    <Typography
+                        variant="caption"
+                        color="text.secondary"
+                        sx={{ display: "block", mb: 0.75 }}
+                    >
+                        Gender
+                    </Typography>
+
+                    <Box
+                        sx={{
+                            display: "flex",
+                            flexWrap: "wrap",
+                            gap: 0.75,
+                            mb: 1.5,
+                        }}
+                    >
+                        {[
+                            ["F", "Female"],
+                            ["M", "Male"],
+                            ["UNKNOWN", "Unknown"],
+                        ].map(([value, label]) => (
+                            <Chip
+                                key={value}
+                                size="small"
+                                clickable
+                                color={
+                                    explorer.selectedGenders.includes(
+                                        value as GenderFilterValue,
+                                    )
+                                        ? "primary"
+                                        : "default"
+                                }
+                                variant={
+                                    explorer.selectedGenders.includes(
+                                        value as GenderFilterValue,
+                                    )
+                                        ? "filled"
+                                        : "outlined"
+                                }
+                                label={`${label} (${
+                                    genderCounts[value as GenderFilterValue]
+                                        .toLocaleString()
+                                })`}
+                                onClick={() =>
+                                    explorer.setSelectedGenders((current) =>
+                                        toggle(
+                                            current,
+                                            value as GenderFilterValue,
+                                        ),
+                                    )
+                                }
+                            />
+                        ))}
+                    </Box>
+
+                    <TextField
+                        fullWidth
+                        size="small"
+                        type="number"
+                        label="Minimum exhibited artworks"
+                        value={explorer.minimumExhibitedItems}
+                        inputProps={{ min: 0, step: 1 }}
+                        onChange={(event) =>
+                            explorer.setMinimumExhibitedItems(
+                                Math.max(
+                                    0,
+                                    Math.floor(
+                                        Number(event.target.value) || 0,
+                                    ),
+                                ),
+                            )
+                        }
+                        helperText="Counts recorded exhibition catalogue entries for each Artist."
+                    />
+                </AccordionDetails>
+            </Accordion>
+
+
+            <Accordion
+                disableGutters
+                sx={accordionStyles}
+            >
+                <AccordionSummary
                     expandIcon={
                         <ExpandIndicator />
                     }
@@ -1024,7 +1152,7 @@ export function FilterSidebar({
                     }
                 >
                     <FilterAccordionHeader
-                        title="Computed clusters"
+                        title="Cluster assignment"
 
                         optionCount={
                             clusterOptions.length
@@ -1091,17 +1219,16 @@ export function FilterSidebar({
                                 .map(String)
                         }
 
-                        onToggle={
-                            (id) =>
-                                explorer
-                                    .setSelectedClusters(
-                                        (current) =>
-                                            toggle(
-                                                current,
-                                                Number(id),
-                                            ),
-                                    )
-                        }
+                        onToggle={(id) => {
+                            explorer.setClusterStatus("clustered");
+                            explorer.setSelectedClusters(
+                                (current) =>
+                                    toggle(
+                                        current,
+                                        Number(id),
+                                    ),
+                            );
+                        }}
 
                         maxVisibleHeight={
                             260
@@ -1109,87 +1236,63 @@ export function FilterSidebar({
                     />
 
 
-                    <FormControlLabel
-                        sx={{
-                            mt: 0.5,
+                    <TextField
+                        select
+                        fullWidth
+                        size="small"
+                        label="Cluster status"
+                        value={explorer.clusterStatus}
+                        onChange={(event) => {
+                            const nextStatus =
+                                event.target.value as
+                                    | "all"
+                                    | "clustered"
+                                    | "noise";
+
+                            explorer.setClusterStatus(nextStatus);
+
+                            if (nextStatus === "noise") {
+                                explorer.setSelectedClusters([]);
+                                explorer.setMinimumMembership(0);
+                            }
                         }}
-
-                        control={
-                            <Switch
-                                size="small"
-
-                                checked={
-                                    explorer.showNoise
-                                }
-
-                                onChange={
-                                    (event) =>
-                                        explorer
-                                            .setShowNoise(
-                                                event
-                                                    .target
-                                                    .checked,
-                                            )
-                                }
-                            />
-                        }
-
-                        label={
-                            `Show noise (${
-                                options
-                                    .overview
-                                    .noise_count
-                                    .toLocaleString()
-                            })`
-                        }
-                    />
-
+                        sx={{ mt: 1 }}
+                    >
+                        <MenuItem value="all">All Artists</MenuItem>
+                        <MenuItem value="clustered">Part of a cluster</MenuItem>
+                        <MenuItem value="noise">
+                            Not part of a cluster (Noise)
+                            {" · "}
+                            {options.overview.noise_count.toLocaleString()}
+                        </MenuItem>
+                    </TextField>
 
                     <Typography
                         variant="caption"
-
                         color="text.secondary"
-
                         sx={{
                             display: "block",
                             mt: 1,
                         }}
                     >
-                        Minimum membership:
-                        {" "}
-                        {
-                            explorer
-                                .minimumMembership
-                                .toFixed(2)
+                        Minimum cluster assignment strength: {
+                            explorer.minimumMembership.toFixed(2)
                         }
                     </Typography>
 
-
                     <Slider
                         size="small"
-
                         min={0}
-
                         max={1}
-
                         step={0.05}
-
-                        value={
-                            explorer
-                                .minimumMembership
-                        }
-
-                        onChange={(
-                            _,
-                            value,
-                        ) =>
-                            explorer
-                                .setMinimumMembership(
-                                    value as number,
-                                )
+                        value={explorer.minimumMembership}
+                        disabled={explorer.clusterStatus === "noise"}
+                        onChange={(_, value) =>
+                            explorer.setMinimumMembership(
+                                value as number,
+                            )
                         }
                     />
-
 
                     <Box
                         sx={{
@@ -1198,45 +1301,27 @@ export function FilterSidebar({
                             flexWrap: "wrap",
                         }}
                     >
-                        {
-                            explorer
-                                .selectedClusters
-                                .length > 0
-                            && (
-                                <Button
-                                    size="small"
+                        {explorer.selectedClusters.length > 0 && (
+                            <Button
+                                size="small"
+                                onClick={() =>
+                                    explorer.setSelectedClusters([])
+                                }
+                            >
+                                Clear clusters
+                            </Button>
+                        )}
 
-                                    onClick={() =>
-                                        explorer
-                                            .setSelectedClusters(
-                                                [],
-                                            )
-                                    }
-                                >
-                                    Clear clusters
-                                </Button>
-                            )
-                        }
-
-                        {
-                            explorer
-                                .minimumMembership
-                            > 0
-                            && (
-                                <Button
-                                    size="small"
-
-                                    onClick={() =>
-                                        explorer
-                                            .setMinimumMembership(
-                                                0,
-                                            )
-                                    }
-                                >
-                                    Reset membership
-                                </Button>
-                            )
-                        }
+                        {explorer.minimumMembership > 0 && (
+                            <Button
+                                size="small"
+                                onClick={() =>
+                                    explorer.setMinimumMembership(0)
+                                }
+                            >
+                                Reset assignment strength
+                            </Button>
+                        )}
                     </Box>
                 </AccordionDetails>
             </Accordion>
@@ -1257,7 +1342,7 @@ export function FilterSidebar({
                 >
                     <FilterAccordionHeader
                         title={
-                            "Connected ArtVis groups"
+                            "Artist groups"
                         }
 
                         optionCount={
@@ -1291,8 +1376,8 @@ export function FilterSidebar({
                     >
                         Bar lengths indicate
                         how many Artists are
-                        connected to each
-                        ArtVis Group.
+                        member of each
+                        Artist group.
                     </Typography>
 
                     <ScentedList

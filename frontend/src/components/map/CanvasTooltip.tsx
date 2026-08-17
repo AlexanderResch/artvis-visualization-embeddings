@@ -7,6 +7,10 @@ import type {
     ArtistEmbeddingBase
 } from "../../types/embedding";
 
+import {
+    inlierScore,
+} from "../../metrics/clusterMetrics";
+
 
 export type CanvasTooltipState = {
     left: number;
@@ -77,12 +81,12 @@ export function CanvasTooltip({
                 color="text.secondary"
             >
                 {artist.is_noise
-                    ? "Noise"
-                    : `Cluster ${artist.cluster}`}
+                    ? "Not part of a cluster"
+                    : `Part of Cluster ${artist.cluster}`}
 
                 {" · "}
 
-                Membership{" "}
+                Assignment strength{" "}
                 {artist.membership_probability.toFixed(3)}
             </Typography>
 
@@ -93,8 +97,16 @@ export function CanvasTooltip({
                 }}
                 color="text.secondary"
             >
-                Outlier score{" "}
-                {artist.outlier_score.toFixed(3)}
+                Inlier score{" "}
+                {inlierScore(artist.outlier_score).toFixed(3)}
+            </Typography>
+
+            <Typography
+                variant="caption"
+                sx={{ display: "block" }}
+                color="text.secondary"
+            >
+                Exhibited artworks {artist.exhibited_item_count.toLocaleString()}
             </Typography>
         </Box>
     );

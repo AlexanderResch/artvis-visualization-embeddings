@@ -33,12 +33,14 @@ export type ClusterArtist = {
     display_name: string;
     birth_year: number | null;
     death_year: number | null;
+    gender: string | null;
     membership_probability: number;
     outlier_score: number;
     similarity_to_centroid: number;
     groups: ClusterNamedEntity[];
     locations: ClusterLocation[];
     exhibition_count: number;
+    exhibited_item_count: number;
 };
 
 export type RepresentativeClusterArtist = {
@@ -60,6 +62,17 @@ export type ClusterInspection = {
         death_year: ClusterYearSummary;
         artists_with_recorded_group: number;
         artists_without_recorded_group: number;
+        gender_counts: {
+            female: number;
+            male: number;
+            unknown: number;
+        };
+        exhibited_items: {
+            total: number;
+            median: number;
+            mean: number;
+            maximum: number;
+        };
     };
 
     birth_year_histogram:

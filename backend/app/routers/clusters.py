@@ -187,13 +187,16 @@ def _load_artist_activity_context(
 
         OPTIONAL MATCH
             (artist)
-            -[:EXHIBITED_AT]->
+            -[exhibited_at:EXHIBITED_AT]->
             (exhibition:Exhibition)
 
         RETURN
             count(
                 DISTINCT exhibition
-            ) AS exhibition_count
+            ) AS exhibition_count,
+
+            count(exhibited_at)
+                AS exhibited_item_count
     }}
 
     CALL {{
@@ -251,6 +254,7 @@ def _load_artist_activity_context(
     RETURN
         requested_id AS artist_id,
         exhibition_count,
+        exhibited_item_count,
         locations
     """
 
@@ -264,6 +268,10 @@ def _load_artist_activity_context(
             str(record["artist_id"]): {
                 "exhibition_count": int(
                     record["exhibition_count"]
+                    or 0
+                ),
+                "exhibited_item_count": int(
+                    record["exhibited_item_count"]
                     or 0
                 ),
                 "locations": json_safe(
@@ -640,6 +648,14 @@ def _build_cluster_inspection(
                     None,
                 )
             ),
+            "gender": _clean_name(
+                getattr(
+                    row,
+                    "gender",
+                    None,
+                ),
+                "Unknown",
+            ),
             "membership_probability": float(
                 row.membership_probability
             ),
@@ -660,6 +676,12 @@ def _build_cluster_inspection(
             "exhibition_count": int(
                 artist_context.get(
                     "exhibition_count",
+                    0,
+                )
+            ),
+            "exhibited_item_count": int(
+                artist_context.get(
+                    "exhibited_item_count",
                     0,
                 )
             ),
@@ -686,6 +708,16 @@ def _build_cluster_inspection(
         cluster.get("death_year"),
         errors="coerce",
     ).dropna()
+
+    gender_counts = Counter(
+        (artist.get("gender") or "Unknown").strip().upper()
+        for artist in artists
+    )
+
+    exhibited_item_counts = np.asarray(
+        [artist["exhibited_item_count"] for artist in artists],
+        dtype=np.float64,
+    )
 
     representative_artists = [
         {
@@ -768,6 +800,27 @@ def _build_cluster_inspection(
             "artists_without_recorded_group": (
                 artists_without_group
             ),
+            "gender_counts": {
+                "female": int(gender_counts.get("F", 0)),
+                "male": int(gender_counts.get("M", 0)),
+                "unknown": int(
+                    cluster_size
+                    - gender_counts.get("F", 0)
+                    - gender_counts.get("M", 0)
+                ),
+            },
+            "exhibited_items": {
+                "total": int(exhibited_item_counts.sum()),
+                "median": float(np.median(exhibited_item_counts))
+                if len(exhibited_item_counts)
+                else 0.0,
+                "mean": float(exhibited_item_counts.mean())
+                if len(exhibited_item_counts)
+                else 0.0,
+                "maximum": int(exhibited_item_counts.max())
+                if len(exhibited_item_counts)
+                else 0,
+            },
         },
         "birth_year_histogram": (
             _birth_year_histogram(

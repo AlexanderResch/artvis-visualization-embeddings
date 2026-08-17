@@ -44,6 +44,11 @@ import {
     clusterTextColor,
 } from "../../visualization/colors";
 
+import {
+    genderLabel,
+    inlierScore,
+} from "../../metrics/clusterMetrics";
+
 
 function StatRow({
                      label,
@@ -338,8 +343,8 @@ export function ArtistDetailsPanel({
                     size="small"
                     label={
                         hasCluster
-                            ? `Cluster ${artist.cluster}`
-                            : "Noise"
+                            ? `Part of Cluster ${artist.cluster}`
+                            : "Not part of a cluster"
                     }
                     sx={{
                         color:
@@ -369,14 +374,16 @@ export function ArtistDetailsPanel({
 
             <StatRow
                 label="Gender"
-                value={
-                    artist.gender
-                    ?? "Unknown"
-                }
+                value={genderLabel(artist.gender)}
             />
 
             <StatRow
-                label="Membership probability"
+                label="Recorded exhibited artworks"
+                value={artist.exhibited_item_count.toLocaleString()}
+            />
+
+            <StatRow
+                label="Cluster assignment strength"
                 value={
                     artist
                         .membership_probability
@@ -385,17 +392,16 @@ export function ArtistDetailsPanel({
             />
 
             <StatRow
-                label="Outlier score"
+                label="Inlier score"
                 value={
-                    artist
-                        .outlier_score
+                    inlierScore(artist.outlier_score)
                         .toFixed(3)
                 }
             />
 
             {clusterArtist && (
                 <StatRow
-                    label="Similarity to cluster centroid"
+                    label="Similarity to cluster center"
                     value={
                         clusterArtist
                             .similarity_to_centroid
@@ -422,7 +428,7 @@ export function ArtistDetailsPanel({
                         variant="caption"
                         color="text.secondary"
                     >
-                        Cluster membership
+                        Cluster assignment strength
                     </Typography>
 
                     <Typography
@@ -477,7 +483,7 @@ export function ArtistDetailsPanel({
             </Typography>
 
             <DetailAccordion
-                title="ArtVis groups"
+                title="Artist groups"
                 count={
                     groups.length
                 }
@@ -508,7 +514,7 @@ export function ArtistDetailsPanel({
                             variant="body2"
                             color="text.secondary"
                         >
-                            No recorded ArtVis group memberships.
+                            Not a member of a recorded Artist group.
                         </Typography>
                     )}
             </DetailAccordion>

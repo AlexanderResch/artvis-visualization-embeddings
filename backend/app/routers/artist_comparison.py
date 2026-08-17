@@ -763,7 +763,7 @@ def _comparison_differences(
             ),
         ),
         (
-            "Recorded ArtVis groups",
+            "Recorded Artist groups",
             str(len(artist_a["groups"])),
             str(len(artist_b["groups"])),
         ),

@@ -1,0 +1,122 @@
+services:
+
+  artvis-db:
+    container_name: artvis-db
+
+    build:
+      context: ./artvis-graph-db
+      dockerfile: Dockerfile
+
+    env_file:
+      - ./artvis-graph-db/dev.env
+
+    environment:
+      NEO4J_PLUGINS: '["apoc", "apoc-extended", "graph-data-science"]'
+
+    volumes:
+      - ./artvis-graph-db/import.sh:/var/lib/neo4j/import.sh
+      - ./artvis-graph-db/certificates:/var/lib/neo4j/certificates
+      - ./artvis-graph-db/neo4j_dump:/var/lib/neo4j/dump
+
+    networks:
+      - artvis-network
+
+    restart: unless-stopped
+
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - >-
+          cypher-shell -a bolt://localhost:7687
+          -u "$${NEO4J_AUTH%%/*}"
+          -p "$${NEO4J_AUTH#*/}"
+          "RETURN 1" >/dev/null 2>&1
+      interval: 10s
+      timeout: 5s
+      retries: 20
+      start_period: 30s
+
+
+  backend:
+    container_name: artvis-backend
+
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.prod
+
+    env_file:
+      - ./artvis-graph-db/dev.env
+
+    environment:
+      NEO4J_URI: bolt://artvis-db:7687
+
+      ML_RANDOM_SEED: "42"
+      TORCH_NUM_THREADS: "8"
+
+      ATTRIBUTE_DIM: "128"
+      COMPLEX_DIM: "64"
+      ATTRIBUTE_HIDDEN_DIM: "128"
+
+      TRAIN_EPOCHS: "40"
+      FINAL_TRAIN_EPOCHS: "6"
+
+      TRAIN_BATCH_SIZE: "2048"
+      NEGATIVES_PER_POSITIVE: "1"
+
+      LEARNING_RATE: "0.001"
+      WEIGHT_DECAY: "0.00001"
+
+      RELATION_EPOCH_CAP: "250000"
+      EARLY_STOPPING_PATIENCE: "5"
+
+      HDBSCAN_MIN_CLUSTER_SIZES: "50"
+      HDBSCAN_MIN_SAMPLES_VALUES: "10"
+      HDBSCAN_CLUSTER_SELECTION_METHOD: eom
+      HDBSCAN_MAX_NOISE_FRACTION: "0.80"
+      HDBSCAN_PCA_VARIANCE: "0.95"
+      HDBSCAN_PCA_MAX_COMPONENTS: "50"
+
+      UMAP_INPUT_MODE: pca
+      UMAP_N_NEIGHBORS: "30"
+      UMAP_MIN_DIST: "0.10"
+      UMAP_METRIC: euclidean
+
+    volumes:
+      - ./backend/app/ml/data:/app/app/ml/data:ro
+
+    depends_on:
+      artvis-db:
+        condition: service_healthy
+
+    networks:
+      - artvis-network
+
+    restart: unless-stopped
+
+
+  frontend:
+    container_name: artvis-frontend
+
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.prod
+      args:
+        VITE_API_URL: /api
+
+    ports:
+      - "127.0.0.1:8080:80"
+
+    depends_on:
+      backend:
+        condition: service_started
+
+    networks:
+      - artvis-network
+
+    restart: unless-stopped
+
+
+networks:
+  artvis-network:
+    name: artvis-network
+    driver: bridge

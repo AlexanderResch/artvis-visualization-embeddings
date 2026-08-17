@@ -75,7 +75,7 @@ function pathDescription(
         case "shared_exhibition":
             return "A concise path through an Exhibition connected to both Artists.";
         case "shared_group":
-            return "A concise path through an ArtVis Group connected to both Artists.";
+            return "A concise path through an Artist group connected to both Artists.";
         case "shared_location":
             return "A concise path through exhibitions at a shared Location.";
         case "general":
@@ -138,12 +138,12 @@ export function ComparisonWorkspace({
     return (
         <Box className="comparison-visual-grid">
             <VisualizationSection
-                title={`Common ArtVis groups · ${comparison.common.groups.length}`}
-                description="ArtVis Group entities connected to both Artists."
+                title={`Common Artist groups · ${comparison.common.groups.length}`}
+                description="Artist group entities connected to both Artists."
             >
                 <CommonEntityList
                     items={comparison.common.groups}
-                    emptyText="The compared Artists do not share a recorded ArtVis Group."
+                    emptyText="The compared Artists do not share a recorded Artist group."
                 />
             </VisualizationSection>
 

@@ -341,7 +341,7 @@ export function ComparisonDetailsPanel({
                 defaultExpanded
             >
                 <CountRow
-                    label="Common ArtVis groups"
+                    label="Common Artist groups"
                     value={
                         comparison.common.groups.length
                     }

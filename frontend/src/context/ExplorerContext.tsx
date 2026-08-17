@@ -7,7 +7,11 @@ import {
     type ReactNode,
     type SetStateAction,
 } from "react";
-import type { ViewMode } from "../types/embedding";
+import type {
+    ClusterStatusFilter,
+    GenderFilterValue,
+    ViewMode,
+} from "../types/embedding";
 
 export type YearRange = [number, number];
 
@@ -26,8 +30,12 @@ type ExplorerContextValue = {
     setSelectedLocationIds: Dispatch<SetStateAction<string[]>>;
     yearRange: YearRange | null;
     setYearRange: Dispatch<SetStateAction<YearRange | null>>;
-    showNoise: boolean;
-    setShowNoise: Dispatch<SetStateAction<boolean>>;
+    clusterStatus: ClusterStatusFilter;
+    setClusterStatus: Dispatch<SetStateAction<ClusterStatusFilter>>;
+    selectedGenders: GenderFilterValue[];
+    setSelectedGenders: Dispatch<SetStateAction<GenderFilterValue[]>>;
+    minimumExhibitedItems: number;
+    setMinimumExhibitedItems: Dispatch<SetStateAction<number>>;
     minimumMembership: number;
     setMinimumMembership: Dispatch<SetStateAction<number>>;
     resetFilters: () => void;
@@ -43,7 +51,9 @@ export function ExplorerProvider({ children }: { children: ReactNode }) {
     const [selectedGroupIds, setSelectedGroupIds] = useState<string[]>([]);
     const [selectedLocationIds, setSelectedLocationIds] = useState<string[]>([]);
     const [yearRange, setYearRange] = useState<YearRange | null>(null);
-    const [showNoise, setShowNoise] = useState(true);
+    const [clusterStatus, setClusterStatus] = useState<ClusterStatusFilter>("all");
+    const [selectedGenders, setSelectedGenders] = useState<GenderFilterValue[]>([]);
+    const [minimumExhibitedItems, setMinimumExhibitedItems] = useState(0);
     const [minimumMembership, setMinimumMembership] = useState(0);
 
     const value = useMemo<ExplorerContextValue>(
@@ -62,8 +72,12 @@ export function ExplorerProvider({ children }: { children: ReactNode }) {
             setSelectedLocationIds,
             yearRange,
             setYearRange,
-            showNoise,
-            setShowNoise,
+            clusterStatus,
+            setClusterStatus,
+            selectedGenders,
+            setSelectedGenders,
+            minimumExhibitedItems,
+            setMinimumExhibitedItems,
             minimumMembership,
             setMinimumMembership,
             resetFilters: () => {
@@ -71,18 +85,22 @@ export function ExplorerProvider({ children }: { children: ReactNode }) {
                 setSelectedGroupIds([]);
                 setSelectedLocationIds([]);
                 setYearRange(null);
-                setShowNoise(true);
+                setClusterStatus("all");
+                setSelectedGenders([]);
+                setMinimumExhibitedItems(0);
                 setMinimumMembership(0);
             },
         }),
         [
+            clusterStatus,
+            minimumExhibitedItems,
             minimumMembership,
             selectedArtistId,
             selectedClusterId,
             selectedClusters,
+            selectedGenders,
             selectedGroupIds,
             selectedLocationIds,
-            showNoise,
             viewMode,
             yearRange,
         ],

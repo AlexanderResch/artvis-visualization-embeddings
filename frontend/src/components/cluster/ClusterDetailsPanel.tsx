@@ -25,6 +25,10 @@ import {
     ScentedMetricList,
 } from "./ScentedMetricList";
 
+import {
+    inlierScore,
+} from "../../metrics/clusterMetrics";
+
 
 function StatRow({
                      label,
@@ -293,7 +297,7 @@ export function ClusterDetailsPanel({
             />
 
             <StatRow
-                label="Mean membership"
+                label="Mean cluster assignment strength"
                 value={
                     inspection.statistics
                         .mean_membership_probability
@@ -302,7 +306,7 @@ export function ClusterDetailsPanel({
             />
 
             <StatRow
-                label="Mean centroid similarity"
+                label="Mean similarity to cluster center"
                 value={
                     inspection.statistics
                         .mean_similarity_to_centroid
@@ -311,11 +315,11 @@ export function ClusterDetailsPanel({
             />
 
             <StatRow
-                label="Mean outlier score"
+                label="Mean inlier score"
                 value={
-                    inspection.statistics
-                        .mean_outlier_score
-                        .toFixed(3)
+                    inlierScore(
+                        inspection.statistics.mean_outlier_score,
+                    ).toFixed(3)
                 }
             />
 
@@ -329,6 +333,16 @@ export function ClusterDetailsPanel({
                             .birth_year.maximum,
                     )
                 }
+            />
+
+            <StatRow
+                label="Female Artists"
+                value={inspection.statistics.gender_counts.female.toLocaleString()}
+            />
+
+            <StatRow
+                label="Recorded exhibited artworks"
+                value={inspection.statistics.exhibited_items.total.toLocaleString()}
             />
 
 
@@ -351,8 +365,8 @@ export function ClusterDetailsPanel({
                         variant="caption"
                         color="text.secondary"
                     >
-                        Artists with recorded
-                        ArtVis group
+                        Artists who are members of a
+                        recorded Artist group
                     </Typography>
 
                     <Typography
@@ -434,7 +448,7 @@ export function ClusterDetailsPanel({
 
 
             <ExplanationAccordion
-                title="Top ArtVis groups"
+                title="Top Artist groups"
                 count={
                     inspection.explanation
                         .top_artvis_groups
@@ -450,8 +464,8 @@ export function ClusterDetailsPanel({
                         mb: 1,
                     }}
                 >
-                    The most frequent ArtVis
-                    group memberships in this
+                    The most frequent Artist
+                    group connections in this
                     computed cluster. Each row
                     shows the number and
                     percentage of cluster
@@ -474,7 +488,7 @@ export function ClusterDetailsPanel({
                         8
                     }
                     emptyText={
-                        "No group memberships recorded"
+                        "No Artist group connections recorded"
                     }
                 />
             </ExplanationAccordion>

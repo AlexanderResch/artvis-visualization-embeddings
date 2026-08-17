@@ -2,6 +2,7 @@ import {
     Autocomplete,
     Box,
     Button,
+    Chip,
     Divider,
     FormControlLabel,
     Slider,
@@ -24,6 +25,9 @@ import type {
     ClusterArtist,
     ClusterInspection,
 } from "../../types/cluster";
+import type {
+    GenderFilterValue,
+} from "../../types/embedding";
 
 import {
     ScentedList,
@@ -80,6 +84,16 @@ function toggle(
 }
 
 
+function toggleGender(
+    values: GenderFilterValue[],
+    value: GenderFilterValue,
+): GenderFilterValue[] {
+    return values.includes(value)
+        ? values.filter((item) => item !== value)
+        : [...values, value];
+}
+
+
 export function ClusterFilterSidebar({
                                          inspection,
                                          visibleArtistCount,
@@ -89,6 +103,10 @@ export function ClusterFilterSidebar({
                                          onYearRangeChange,
                                          selectedGroupIds,
                                          onSelectedGroupIdsChange,
+                                         selectedGenders,
+                                         onSelectedGendersChange,
+                                         minimumExhibitedItems,
+                                         onMinimumExhibitedItemsChange,
                                          showSurroundingClusters,
                                          onShowSurroundingClustersChange,
                                          onReset,
@@ -104,6 +122,12 @@ export function ClusterFilterSidebar({
     selectedGroupIds: string[];
     onSelectedGroupIdsChange:
         (value: string[]) => void;
+    selectedGenders: GenderFilterValue[];
+    onSelectedGendersChange:
+        (value: GenderFilterValue[]) => void;
+    minimumExhibitedItems: number;
+    onMinimumExhibitedItemsChange:
+        (value: number) => void;
     showSurroundingClusters: boolean;
     onShowSurroundingClustersChange:
         (value: boolean) => void;
@@ -353,7 +377,7 @@ export function ClusterFilterSidebar({
                                     {artist.birth_year ?? "?"}
                                     {"–"}
                                     {artist.death_year ?? "?"}
-                                    {" · centroid "}
+                                    {" · cluster center "}
                                     {artist
                                         .similarity_to_centroid
                                         .toFixed(3)}
@@ -434,11 +458,83 @@ export function ClusterFilterSidebar({
 
             <Typography
                 variant="subtitle2"
+                sx={{ fontWeight: 700, mb: 0.75 }}
+            >
+                Gender
+            </Typography>
+
+            <Box
+                sx={{
+                    display: "flex",
+                    flexWrap: "wrap",
+                    gap: 0.75,
+                    mb: 1.5,
+                }}
+            >
+                {[
+                    ["F", "Female", inspection.statistics.gender_counts.female],
+                    ["M", "Male", inspection.statistics.gender_counts.male],
+                    ["UNKNOWN", "Unknown", inspection.statistics.gender_counts.unknown],
+                ].map(([value, label, count]) => (
+                    <Chip
+                        key={String(value)}
+                        size="small"
+                        clickable
+                        label={`${label} (${Number(count).toLocaleString()})`}
+                        color={
+                            selectedGenders.includes(
+                                value as GenderFilterValue,
+                            )
+                                ? "primary"
+                                : "default"
+                        }
+                        variant={
+                            selectedGenders.includes(
+                                value as GenderFilterValue,
+                            )
+                                ? "filled"
+                                : "outlined"
+                        }
+                        onClick={() =>
+                            onSelectedGendersChange(
+                                toggleGender(
+                                    selectedGenders,
+                                    value as GenderFilterValue,
+                                ),
+                            )
+                        }
+                    />
+                ))}
+            </Box>
+
+            <TextField
+                fullWidth
+                size="small"
+                type="number"
+                label="Minimum exhibited artworks"
+                value={minimumExhibitedItems}
+                inputProps={{ min: 0, step: 1 }}
+                onChange={(event) =>
+                    onMinimumExhibitedItemsChange(
+                        Math.max(
+                            0,
+                            Math.floor(
+                                Number(event.target.value) || 0,
+                            ),
+                        ),
+                    )
+                }
+                helperText="Recorded exhibition catalogue entries per Artist."
+                sx={{ mb: 2 }}
+            />
+
+            <Typography
+                variant="subtitle2"
                 sx={{
                     fontWeight: 700,
                 }}
             >
-                Minimum membership
+                Minimum cluster assignment strength
             </Typography>
 
             <Typography
@@ -475,7 +571,7 @@ export function ClusterFilterSidebar({
                 }}
                 gutterBottom
             >
-                ArtVis groups in cluster
+                Artist groups in cluster
             </Typography>
 
             <ScentedList

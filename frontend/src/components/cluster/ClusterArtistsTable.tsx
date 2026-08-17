@@ -27,6 +27,11 @@ import type {
     ClusterArtist,
 } from "../../types/cluster";
 
+import {
+    genderLabel,
+    inlierScore,
+} from "../../metrics/clusterMetrics";
+
 
 type SortKey =
     | "display_name"
@@ -34,7 +39,8 @@ type SortKey =
     | "membership_probability"
     | "outlier_score"
     | "birth_year"
-    | "exhibition_count";
+    | "exhibition_count"
+    | "exhibited_item_count";
 
 
 type SortDirection =
@@ -56,6 +62,11 @@ function compareValues(
                     sensitivity: "base",
                 },
             );
+    }
+
+    if (key === "outlier_score") {
+        return inlierScore(first.outlier_score)
+            - inlierScore(second.outlier_score);
     }
 
     const firstValue =
@@ -266,27 +277,31 @@ export function ClusterArtistsTable({
                                 )}
                             </TableCell>
 
+                            <TableCell>
+                                Gender
+                            </TableCell>
+
                             <TableCell
                                 sx={{
                                     minWidth: 150,
                                 }}
                             >
                                 {sortLabel(
-                                    "Similarity to centroid",
+                                    "Similarity to cluster center",
                                     "similarity_to_centroid",
                                 )}
                             </TableCell>
 
                             <TableCell>
                                 {sortLabel(
-                                    "Membership",
+                                    "Assignment strength",
                                     "membership_probability",
                                 )}
                             </TableCell>
 
                             <TableCell>
                                 {sortLabel(
-                                    "Outlier score",
+                                    "Inlier score",
                                     "outlier_score",
                                 )}
                             </TableCell>
@@ -303,7 +318,14 @@ export function ClusterArtistsTable({
                             </TableCell>
 
                             <TableCell>
-                                ArtVis groups
+                                Artist groups
+                            </TableCell>
+
+                            <TableCell>
+                                {sortLabel(
+                                    "Exhibited artworks",
+                                    "exhibited_item_count",
+                                )}
                             </TableCell>
 
                             <TableCell>
@@ -370,6 +392,10 @@ export function ClusterArtistsTable({
                                         </TableCell>
 
                                         <TableCell>
+                                            {genderLabel(artist.gender)}
+                                        </TableCell>
+
+                                        <TableCell>
                                             <Box
                                                 sx={{
                                                     display: "grid",
@@ -416,9 +442,9 @@ export function ClusterArtistsTable({
                                         </TableCell>
 
                                         <TableCell>
-                                            {artist
-                                                .outlier_score
-                                                .toFixed(3)}
+                                            {inlierScore(
+                                                artist.outlier_score,
+                                            ).toFixed(3)}
                                         </TableCell>
 
                                         <TableCell>
@@ -437,6 +463,11 @@ export function ClusterArtistsTable({
                                             <CompactChipList
                                                 values={artist.groups}
                                             />
+                                        </TableCell>
+
+                                        <TableCell>
+                                            {artist.exhibited_item_count
+                                                .toLocaleString()}
                                         </TableCell>
 
                                         <TableCell>

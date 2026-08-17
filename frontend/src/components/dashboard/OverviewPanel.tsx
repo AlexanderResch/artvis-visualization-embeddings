@@ -92,7 +92,7 @@ export function OverviewPanel({
             />
 
             <Stat
-                label="ArtVis groups"
+                label="Artist groups"
                 value={
                     overview.group_count.toLocaleString()
                 }
@@ -132,7 +132,7 @@ export function OverviewPanel({
                         variant="caption"
                         color="text.secondary"
                     >
-                        Noise Artists
+                        Not part of a cluster
                     </Typography>
 
                     <Typography

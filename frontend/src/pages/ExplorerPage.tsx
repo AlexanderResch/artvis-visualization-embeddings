@@ -61,6 +61,18 @@ import {
 } from "../components/cluster/ClusterArtistsTable";
 
 import {
+    ClusterComparisonDetailsPanel,
+} from "../components/cluster/ClusterComparisonDetailsPanel";
+
+import {
+    ClusterComparisonSidebar,
+} from "../components/cluster/ClusterComparisonSidebar";
+
+import {
+    ClusterComparisonWorkspace,
+} from "../components/cluster/ClusterComparisonWorkspace";
+
+import {
     ClusterDetailsPanel,
 } from "../components/cluster/ClusterDetailsPanel";
 
@@ -135,7 +147,28 @@ import type {
 import type {
     ArtistEmbedding2D,
     ArtistEmbedding3D,
+    GenderFilterValue,
 } from "../types/embedding";
+
+
+function normalizedGender(
+    gender: string | null | undefined,
+): GenderFilterValue {
+    const normalized =
+        (gender ?? "")
+            .trim()
+            .toUpperCase();
+
+    if (normalized === "F") {
+        return "F";
+    }
+
+    if (normalized === "M") {
+        return "M";
+    }
+
+    return "UNKNOWN";
+}
 
 
 function validClusterId(
@@ -156,6 +189,7 @@ function requestedMode(
         || value === "cluster"
         || value === "artist"
         || value === "compare"
+        || value === "cluster-compare"
     ) {
         return value;
     }
@@ -239,6 +273,16 @@ export function ExplorerPage() {
     ] = useState<string | null>(null);
 
     const [
+        comparisonClusterId,
+        setComparisonClusterId,
+    ] = useState<number | null>(null);
+
+    const [
+        comparisonClusterInspection,
+        setComparisonClusterInspection,
+    ] = useState<ClusterInspection | null>(null);
+
+    const [
         comparisonSelectionActive,
         setComparisonSelectionActive,
     ] = useState(false);
@@ -276,6 +320,11 @@ export function ExplorerPage() {
     ] = useState(false);
 
     const [
+        loadingClusterComparison,
+        setLoadingClusterComparison,
+    ] = useState(false);
+
+    const [
         error,
         setError,
     ] = useState<string | null>(null);
@@ -306,6 +355,11 @@ export function ExplorerPage() {
     ] = useState<string | null>(null);
 
     const [
+        clusterComparisonError,
+        setClusterComparisonError,
+    ] = useState<string | null>(null);
+
+    const [
         clusterMinimumMembership,
         setClusterMinimumMembership,
     ] = useState(0);
@@ -319,6 +373,16 @@ export function ExplorerPage() {
         clusterGroupIds,
         setClusterGroupIds,
     ] = useState<string[]>([]);
+
+    const [
+        clusterSelectedGenders,
+        setClusterSelectedGenders,
+    ] = useState<GenderFilterValue[]>([]);
+
+    const [
+        clusterMinimumExhibitedItems,
+        setClusterMinimumExhibitedItems,
+    ] = useState(0);
 
     const [
         showSurroundingClusters,
@@ -473,6 +537,14 @@ export function ExplorerPage() {
             const requestedClusterValue =
                 searchParams.get("cluster");
 
+            const requestedComparisonClusterValue =
+                searchParams.get("cluster_b");
+
+            const requestedComparisonClusterId =
+                requestedComparisonClusterValue === null
+                    ? null
+                    : Number(requestedComparisonClusterValue);
+
             const requestedClusterId =
                 requestedClusterValue === null
                     ? null
@@ -544,6 +616,18 @@ export function ExplorerPage() {
                 )
                 && requestedClusterId >= 0;
 
+            const comparisonClusterFromUrlIsValid =
+                requestedComparisonClusterId !== null
+                && Number.isInteger(requestedComparisonClusterId)
+                && requestedComparisonClusterId >= 0
+                && requestedComparisonClusterId !== requestedClusterId;
+
+            setComparisonClusterId(
+                comparisonClusterFromUrlIsValid
+                    ? requestedComparisonClusterId
+                    : null,
+            );
+
             if (
                 !resolvedArtist
                 && clusterFromUrlIsValid
@@ -563,8 +647,14 @@ export function ExplorerPage() {
             ) {
                 setMode("compare");
             } else if (
+                modeFromUrl === "cluster-compare"
+                && clusterFromUrlIsValid
+            ) {
+                setMode("cluster-compare");
+            } else if (
                 modeFromUrl
                 && modeFromUrl !== "compare"
+                && modeFromUrl !== "cluster-compare"
             ) {
                 setMode(modeFromUrl);
             } else if (resolvedArtist) {
@@ -625,6 +715,16 @@ export function ExplorerPage() {
             }
 
             if (
+                mode === "cluster-compare"
+                && comparisonClusterId !== null
+            ) {
+                next.set(
+                    "cluster_b",
+                    String(comparisonClusterId),
+                );
+            }
+
+            if (
                 mode !== "overview"
                 || explorer.selectedArtistId
                 || validClusterId(
@@ -658,6 +758,7 @@ export function ExplorerPage() {
         },
         [
             comparisonArtistId,
+            comparisonClusterId,
             explorer.selectedArtistId,
             explorer.selectedClusterId,
             explorer.viewMode,
@@ -730,6 +831,8 @@ export function ExplorerPage() {
             setClusterMinimumMembership(0);
             setClusterYearRange(null);
             setClusterGroupIds([]);
+            setClusterSelectedGenders([]);
+            setClusterMinimumExhibitedItems(0);
             setShowSurroundingClusters(true);
             setClusterInspectionError(null);
 
@@ -787,6 +890,57 @@ export function ExplorerPage() {
                 controller.abort();
         },
         [explorer.selectedClusterId],
+    );
+
+    useEffect(
+        () => {
+            setClusterComparisonError(null);
+
+            if (
+                mode !== "cluster-compare"
+                || comparisonClusterId === null
+                || comparisonClusterId < 0
+                || comparisonClusterId === validClusterId(
+                    explorer.selectedClusterId,
+                )
+            ) {
+                setComparisonClusterInspection(null);
+                setLoadingClusterComparison(false);
+                return;
+            }
+
+            const controller = new AbortController();
+
+            setLoadingClusterComparison(true);
+            setComparisonClusterInspection(null);
+
+            fetchClusterInspection(
+                comparisonClusterId,
+                controller.signal,
+            )
+                .then(setComparisonClusterInspection)
+                .catch((reason: unknown) => {
+                    if (!controller.signal.aborted) {
+                        setClusterComparisonError(
+                            reason instanceof Error
+                                ? reason.message
+                                : "Failed to load cluster comparison",
+                        );
+                    }
+                })
+                .finally(() => {
+                    if (!controller.signal.aborted) {
+                        setLoadingClusterComparison(false);
+                    }
+                });
+
+            return () => controller.abort();
+        },
+        [
+            comparisonClusterId,
+            explorer.selectedClusterId,
+            mode,
+        ],
     );
 
     useEffect(
@@ -1120,8 +1274,15 @@ export function ExplorerPage() {
                     | ArtistEmbedding3D,
             ) => {
                 if (
-                    !explorer.showNoise
+                    explorer.clusterStatus === "clustered"
                     && artist.is_noise
+                ) {
+                    return false;
+                }
+
+                if (
+                    explorer.clusterStatus === "noise"
+                    && !artist.is_noise
                 ) {
                     return false;
                 }
@@ -1136,8 +1297,25 @@ export function ExplorerPage() {
                 }
 
                 if (
-                    artist.membership_probability
+                    !artist.is_noise
+                    && artist.membership_probability
                     < explorer.minimumMembership
+                ) {
+                    return false;
+                }
+
+                if (
+                    explorer.selectedGenders.length
+                    && !explorer.selectedGenders.includes(
+                        normalizedGender(artist.gender),
+                    )
+                ) {
+                    return false;
+                }
+
+                if (
+                    artist.exhibited_item_count
+                    < explorer.minimumExhibitedItems
                 ) {
                     return false;
                 }
@@ -1167,9 +1345,11 @@ export function ExplorerPage() {
             },
             [
                 allowedArtistIds,
+                explorer.clusterStatus,
+                explorer.minimumExhibitedItems,
                 explorer.minimumMembership,
                 explorer.selectedClusters,
-                explorer.showNoise,
+                explorer.selectedGenders,
                 explorer.yearRange,
             ],
         );
@@ -1180,6 +1360,22 @@ export function ExplorerPage() {
                 if (
                     artist.membership_probability
                     < clusterMinimumMembership
+                ) {
+                    return false;
+                }
+
+                if (
+                    clusterSelectedGenders.length
+                    && !clusterSelectedGenders.includes(
+                        normalizedGender(artist.gender),
+                    )
+                ) {
+                    return false;
+                }
+
+                if (
+                    artist.exhibited_item_count
+                    < clusterMinimumExhibitedItems
                 ) {
                     return false;
                 }
@@ -1212,7 +1408,9 @@ export function ExplorerPage() {
             },
             [
                 clusterGroupIds,
+                clusterMinimumExhibitedItems,
                 clusterMinimumMembership,
+                clusterSelectedGenders,
                 clusterYearRange,
             ],
         );
@@ -1313,6 +1511,22 @@ export function ExplorerPage() {
                     return overviewData2D;
                 }
 
+                if (mode === "cluster-compare") {
+                    const targetClusters = new Set<number>();
+
+                    if (selectedClusterId !== null) {
+                        targetClusters.add(selectedClusterId);
+                    }
+
+                    if (comparisonClusterId !== null) {
+                        targetClusters.add(comparisonClusterId);
+                    }
+
+                    return data2D.filter(
+                        (artist) => targetClusters.has(artist.cluster),
+                    );
+                }
+
                 if (mode === "compare") {
                     if (
                         comparisonShowMapContext
@@ -1324,10 +1538,8 @@ export function ExplorerPage() {
 
                     return data2D.filter(
                         (artist) =>
-                            artist.id
-                            === explorer.selectedArtistId
-                            || artist.id
-                            === comparisonArtistId,
+                            artist.id === explorer.selectedArtistId
+                            || artist.id === comparisonArtistId,
                     );
                 }
 
@@ -1341,8 +1553,7 @@ export function ExplorerPage() {
 
                     return data2D.filter(
                         (artist) =>
-                            artist.cluster
-                            === selectedClusterId,
+                            artist.cluster === selectedClusterId,
                     );
                 }
 
@@ -1356,26 +1567,21 @@ export function ExplorerPage() {
                 if (!showSurroundingClusters) {
                     return data2D.filter(
                         (artist) =>
-                            artist.cluster
-                            === selectedClusterId
-                            && filteredClusterArtistIds.has(
-                                artist.id,
-                            ),
+                            artist.cluster === selectedClusterId
+                            && filteredClusterArtistIds.has(artist.id),
                     );
                 }
 
                 return data2D.filter(
                     (artist) =>
-                        artist.cluster
-                        !== selectedClusterId
-                        || filteredClusterArtistIds.has(
-                            artist.id,
-                        ),
+                        artist.cluster !== selectedClusterId
+                        || filteredClusterArtistIds.has(artist.id),
                 );
             },
             [
                 clusterInspection,
                 comparisonArtistId,
+                comparisonClusterId,
                 comparisonShowMapContext,
                 data2D,
                 explorer.selectedArtistId,
@@ -1398,6 +1604,22 @@ export function ExplorerPage() {
                     return overviewData3D;
                 }
 
+                if (mode === "cluster-compare") {
+                    const targetClusters = new Set<number>();
+
+                    if (selectedClusterId !== null) {
+                        targetClusters.add(selectedClusterId);
+                    }
+
+                    if (comparisonClusterId !== null) {
+                        targetClusters.add(comparisonClusterId);
+                    }
+
+                    return data3D.filter(
+                        (artist) => targetClusters.has(artist.cluster),
+                    );
+                }
+
                 if (mode === "compare") {
                     if (
                         comparisonShowMapContext
@@ -1409,10 +1631,8 @@ export function ExplorerPage() {
 
                     return data3D.filter(
                         (artist) =>
-                            artist.id
-                            === explorer.selectedArtistId
-                            || artist.id
-                            === comparisonArtistId,
+                            artist.id === explorer.selectedArtistId
+                            || artist.id === comparisonArtistId,
                     );
                 }
 
@@ -1426,8 +1646,7 @@ export function ExplorerPage() {
 
                     return data3D.filter(
                         (artist) =>
-                            artist.cluster
-                            === selectedClusterId,
+                            artist.cluster === selectedClusterId,
                     );
                 }
 
@@ -1441,26 +1660,21 @@ export function ExplorerPage() {
                 if (!showSurroundingClusters) {
                     return data3D.filter(
                         (artist) =>
-                            artist.cluster
-                            === selectedClusterId
-                            && filteredClusterArtistIds.has(
-                                artist.id,
-                            ),
+                            artist.cluster === selectedClusterId
+                            && filteredClusterArtistIds.has(artist.id),
                     );
                 }
 
                 return data3D.filter(
                     (artist) =>
-                        artist.cluster
-                        !== selectedClusterId
-                        || filteredClusterArtistIds.has(
-                            artist.id,
-                        ),
+                        artist.cluster !== selectedClusterId
+                        || filteredClusterArtistIds.has(artist.id),
                 );
             },
             [
                 clusterInspection,
                 comparisonArtistId,
+                comparisonClusterId,
                 comparisonShowMapContext,
                 data3D,
                 explorer.selectedArtistId,
@@ -1556,6 +1770,10 @@ export function ExplorerPage() {
     const mapFocusData2D =
         useMemo(
             () => {
+                if (mode === "cluster-compare") {
+                    return focusedData2D;
+                }
+
                 if (mode === "compare") {
                     return comparisonFocusData2D;
                 }
@@ -1578,6 +1796,7 @@ export function ExplorerPage() {
             },
             [
                 comparisonFocusData2D,
+                focusedData2D,
                 mode,
                 selectedArtist,
                 selectedClusterBoundary2D,
@@ -1587,6 +1806,10 @@ export function ExplorerPage() {
     const mapFocusData3D =
         useMemo(
             () => {
+                if (mode === "cluster-compare") {
+                    return focusedData3D ?? [];
+                }
+
                 if (mode === "compare") {
                     return comparisonFocusData3D;
                 }
@@ -1620,6 +1843,7 @@ export function ExplorerPage() {
             [
                 comparisonFocusData3D,
                 data3D,
+                focusedData3D,
                 mode,
                 selectedArtist,
                 selectedClusterBoundary3D,
@@ -1685,6 +1909,9 @@ export function ExplorerPage() {
         setComparisonSelectionActive(false);
         setComparison(null);
         setComparisonError(null);
+        setComparisonClusterId(null);
+        setComparisonClusterInspection(null);
+        setClusterComparisonError(null);
     }
 
     function showOverview() {
@@ -1721,6 +1948,61 @@ export function ExplorerPage() {
         );
         clearComparisonState();
         setMode("artist");
+    }
+
+    function startClusterComparison() {
+        if (selectedClusterId === null) {
+            return;
+        }
+
+        setComparisonArtistId(null);
+        setComparisonSelectionActive(false);
+        setComparison(null);
+        setComparisonError(null);
+        setComparisonClusterId(null);
+        setComparisonClusterInspection(null);
+        setClusterComparisonError(null);
+        explorer.setSelectedArtistId(null);
+        setMode("cluster-compare");
+    }
+
+    function changeComparisonClusterA(clusterId: number) {
+        if (clusterId === comparisonClusterId) {
+            return;
+        }
+
+        explorer.setSelectedArtistId(null);
+        explorer.setSelectedClusterId(clusterId);
+        setMode("cluster-compare");
+    }
+
+    function changeComparisonClusterB(clusterId: number | null) {
+        if (clusterId === selectedClusterId) {
+            return;
+        }
+
+        setComparisonClusterId(clusterId);
+        setComparisonClusterInspection(null);
+        setClusterComparisonError(null);
+        setMode("cluster-compare");
+    }
+
+    function swapComparisonClusters() {
+        if (selectedClusterId === null || comparisonClusterId === null) {
+            return;
+        }
+
+        const previousA = selectedClusterId;
+        explorer.setSelectedClusterId(comparisonClusterId);
+        setComparisonClusterId(previousA);
+        setComparisonClusterInspection(null);
+        setClusterComparisonError(null);
+    }
+
+    function resetClusterComparison() {
+        setComparisonClusterId(null);
+        setComparisonClusterInspection(null);
+        setClusterComparisonError(null);
     }
 
     function startComparison() {
@@ -1763,6 +2045,10 @@ export function ExplorerPage() {
                     ArtistEmbedding2D
                     | ArtistEmbedding3D,
             ) => {
+                if (mode === "cluster-compare") {
+                    return;
+                }
+
                 if (
                     comparisonSelectionActive
                     || mode === "compare"
@@ -1893,6 +2179,8 @@ export function ExplorerPage() {
         setClusterMinimumMembership(0);
         setClusterYearRange(null);
         setClusterGroupIds([]);
+        setClusterSelectedGenders([]);
+        setClusterMinimumExhibitedItems(0);
         setShowSurroundingClusters(true);
     }
 
@@ -1935,6 +2223,8 @@ export function ExplorerPage() {
         setClusterMinimumMembership(0);
         setClusterYearRange(null);
         setClusterGroupIds([]);
+        setClusterSelectedGenders([]);
+        setClusterMinimumExhibitedItems(0);
         setShowSurroundingClusters(true);
 
         setSimilarityThreshold(0.7);
@@ -2019,6 +2309,7 @@ export function ExplorerPage() {
 
     const mapHighlightClusterId =
         mode === "compare"
+        || mode === "cluster-compare"
             ? null
             : mode === "overview"
             && !hasSelectedArtistPreview
@@ -2026,10 +2317,15 @@ export function ExplorerPage() {
                 : selectedClusterId;
 
     const mapTitle =
-        mode === "compare"
-        && selectedArtist
-        && comparisonArtist
-            ? `Embedding comparison · ${selectedArtist.display_name ?? selectedArtist.entity} ↔ ${comparisonArtist.display_name ?? comparisonArtist.entity}`
+        mode === "cluster-compare"
+        && selectedClusterId !== null
+            ? comparisonClusterId !== null
+                ? `Cluster comparison · Cluster ${selectedClusterId} ↔ Cluster ${comparisonClusterId}`
+                : `Cluster comparison · Cluster ${selectedClusterId}`
+            : mode === "compare"
+            && selectedArtist
+            && comparisonArtist
+                ? `Embedding comparison · ${selectedArtist.display_name ?? selectedArtist.entity} ↔ ${comparisonArtist.display_name ?? comparisonArtist.entity}`
             : mode === "overview"
                 ? selectedArtist
                     ? `Embedding map · ${selectedArtist.display_name ?? selectedArtist.entity}`
@@ -2045,6 +2341,7 @@ export function ExplorerPage() {
         mode === "artist"
             ? "explorer-grid--artist"
             : mode === "compare"
+            || mode === "cluster-compare"
                 ? "explorer-grid--compare"
                 : mode === "overview"
                 && !hasSelectedArtistPreview
@@ -2065,6 +2362,9 @@ export function ExplorerPage() {
                 comparisonArtist={
                     comparisonArtist
                 }
+                comparisonClusterId={
+                    comparisonClusterId
+                }
                 comparisonSelectionActive={
                     comparisonSelectionActive
                 }
@@ -2082,6 +2382,9 @@ export function ExplorerPage() {
                 }
                 onStartComparison={
                     startComparison
+                }
+                onStartClusterComparison={
+                    startClusterComparison
                 }
                 onCancelComparison={
                     cancelComparison
@@ -2105,6 +2408,18 @@ export function ExplorerPage() {
                                 options={options}
                             />
                         )
+                        : mode === "cluster-compare"
+                            ? (
+                                <ClusterComparisonSidebar
+                                    clusters={options.clusters}
+                                    clusterAId={selectedClusterId}
+                                    clusterBId={comparisonClusterId}
+                                    onClusterAChange={changeComparisonClusterA}
+                                    onClusterBChange={changeComparisonClusterB}
+                                    onSwap={swapComparisonClusters}
+                                    onReset={resetClusterComparison}
+                                />
+                            )
                         : mode === "compare"
                         && selectedArtist
                             ? (
@@ -2242,6 +2557,18 @@ export function ExplorerPage() {
                                                 onSelectedGroupIdsChange={
                                                     setClusterGroupIds
                                                 }
+                                                selectedGenders={
+                                                    clusterSelectedGenders
+                                                }
+                                                onSelectedGendersChange={
+                                                    setClusterSelectedGenders
+                                                }
+                                                minimumExhibitedItems={
+                                                    clusterMinimumExhibitedItems
+                                                }
+                                                onMinimumExhibitedItemsChange={
+                                                    setClusterMinimumExhibitedItems
+                                                }
                                                 showSurroundingClusters={
                                                     showSurroundingClusters
                                                 }
@@ -2285,6 +2612,7 @@ export function ExplorerPage() {
                         dimNonHighlighted={
                             mode !== "overview"
                             && mode !== "compare"
+                            && mode !== "cluster-compare"
                             && showSurroundingClusters
                         }
                         comparisonArtistIds={
@@ -2313,6 +2641,8 @@ export function ExplorerPage() {
                             [
                                 selectedArtist?.cluster,
                                 comparisonArtist?.cluster,
+                                selectedClusterId ?? undefined,
+                                comparisonClusterId ?? undefined,
                             ].filter(
                                 (cluster): cluster is number =>
                                     cluster !== undefined
@@ -2323,6 +2653,8 @@ export function ExplorerPage() {
                         description={
                             comparisonSelectionActive
                                 ? "Select a second Artist point to start the comparison."
+                                : mode === "cluster-compare"
+                                    ? "Only Artists from Cluster A and Cluster B are shown for direct spatial comparison."
                                 : mode === "compare"
                                     ? "The compared Artists are marked as A and B and connected by a dashed line."
                                     : mode === "artist"
@@ -2367,6 +2699,13 @@ export function ExplorerPage() {
                                     visibleArtistCount={
                                         visibleArtistCount
                                     }
+                                />
+                            )
+                        : mode === "cluster-compare"
+                            ? (
+                                <ClusterComparisonDetailsPanel
+                                    inspectionA={clusterInspection}
+                                    inspectionB={comparisonClusterInspection}
                                 />
                             )
                         : mode === "compare"
@@ -2566,6 +2905,20 @@ export function ExplorerPage() {
                                         }
                                     />
                                 )}
+                    </Panel>
+                )}
+
+                {mode === "cluster-compare" && (
+                    <Panel
+                        title="Cluster context comparison"
+                        className="explorer-results-panel explorer-results-panel--comparison"
+                    >
+                        <ClusterComparisonWorkspace
+                            inspectionA={clusterInspection}
+                            inspectionB={comparisonClusterInspection}
+                            loading={loadingClusterComparison}
+                            error={clusterComparisonError}
+                        />
                     </Panel>
                 )}
 
