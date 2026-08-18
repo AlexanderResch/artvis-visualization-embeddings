@@ -215,9 +215,11 @@ function ExplanationAccordion({
 export function ClusterDetailsPanel({
                                         inspection,
                                         visibleArtistCount,
+                                        fullArtistCount,
                                     }: {
     inspection: ClusterInspection;
     visibleArtistCount: number;
+    fullArtistCount?: number;
 }) {
     const color =
         clusterColor(
@@ -278,8 +280,7 @@ export function ClusterDetailsPanel({
             <StatRow
                 label="Artists in cluster"
                 value={
-                    inspection
-                        .artist_count
+                    (fullArtistCount ?? inspection.artist_count)
                         .toLocaleString()
                 }
             />

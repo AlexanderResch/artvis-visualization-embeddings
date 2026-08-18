@@ -302,9 +302,11 @@ const accordionSummaryStyles = {
 
 export function FilterSidebar({
                                   artists,
+                                  searchArtists,
                                   options,
                               }: {
     artists: ArtistEmbedding2D[];
+    searchArtists?: ArtistEmbedding2D[];
     options: DashboardOptions;
 }) {
     const explorer =
@@ -342,7 +344,7 @@ export function FilterSidebar({
 
                 for (
                     const artist
-                    of artists
+                    of (searchArtists ?? artists)
                     ) {
                     if (
                         !isValidSearchArtist(
@@ -406,7 +408,7 @@ export function FilterSidebar({
                 );
             },
 
-            [artists],
+            [artists, searchArtists],
         );
 
 
@@ -948,8 +950,13 @@ export function FilterSidebar({
                     maximumYear
                 }
 
-                onChange={
-                    explorer.setYearRange
+                onChange={(nextRange) =>
+                    explorer.setYearRange(
+                        nextRange[0] === minimumYear
+                        && nextRange[1] === maximumYear
+                            ? null
+                            : nextRange,
+                    )
                 }
             />
 
@@ -1172,7 +1179,7 @@ export function FilterSidebar({
                         type="number"
                         label="Minimum exhibited artworks"
                         value={explorer.minimumExhibitedItems}
-                        inputProps={{ min: 0, step: 1 }}
+                        slotProps={{ htmlInput: { min: 0, step: 1 } }}
                         onChange={(event) =>
                             explorer.setMinimumExhibitedItems(
                                 Math.max(

@@ -276,14 +276,24 @@ export function ClusterComparisonSidebar({
         .filter((cluster) => !cluster.is_noise)
         .sort((first, second) => first.cluster - second.cluster);
 
-    const minimumYear = Math.min(
+    const baseMinimumYear = Math.min(
         inspectionA?.statistics.birth_year.minimum ?? 1800,
         inspectionB?.statistics.birth_year.minimum ?? 1800,
     );
 
-    const maximumYear = Math.max(
+    const baseMaximumYear = Math.max(
         inspectionA?.statistics.birth_year.maximum ?? 2000,
         inspectionB?.statistics.birth_year.maximum ?? 2000,
+    );
+
+    const minimumYear = Math.min(
+        baseMinimumYear,
+        yearRange?.[0] ?? baseMinimumYear,
+    );
+
+    const maximumYear = Math.max(
+        baseMaximumYear,
+        yearRange?.[1] ?? baseMaximumYear,
     );
 
     const displayedYearRange: YearRange = yearRange ?? [minimumYear, maximumYear];
@@ -529,7 +539,7 @@ export function ClusterComparisonSidebar({
                 type="number"
                 label="Minimum exhibited artworks"
                 value={minimumExhibitedItems}
-                inputProps={{ min: 0, step: 1 }}
+                slotProps={{ htmlInput: { min: 0, step: 1 } }}
                 onChange={(event) => onMinimumExhibitedItemsChange(
                     Math.max(0, Math.floor(Number(event.target.value) || 0)),
                 )}

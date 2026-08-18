@@ -88,8 +88,10 @@ function getArtistLabel(
 
 export function SimilarArtistsTable({
                                         selectedArtistName,
+                                        allowedArtistIds,
                                     }: {
     selectedArtistName?: string | null;
+    allowedArtistIds?: ReadonlySet<string> | null;
 }) {
     const explorer =
         useExplorer();
@@ -199,6 +201,28 @@ export function SimilarArtistsTable({
     );
 
 
+    useEffect(
+        () => {
+            setPage(0);
+        },
+        [allowedArtistIds],
+    );
+
+    const filteredRows =
+        useMemo(
+            () =>
+                allowedArtistIds
+                    ? rows.filter(
+                        (artist) =>
+                            allowedArtistIds.has(artist.id),
+                    )
+                    : rows,
+            [
+                allowedArtistIds,
+                rows,
+            ],
+        );
+
     const visibleRows =
         useMemo(
             () => {
@@ -210,15 +234,15 @@ export function SimilarArtistsTable({
                     start
                     + rowsPerPage;
 
-                return rows.slice(
+                return filteredRows.slice(
                     start,
                     end,
                 );
             },
 
             [
+                filteredRows,
                 page,
-                rows,
                 rowsPerPage,
             ],
         );
@@ -384,12 +408,9 @@ export function SimilarArtistsTable({
                         mt: 0.5,
                     }}
                 >
-                    Showing the
-                    {" "}
-                    {MAX_SIMILAR_ARTISTS}
-                    {" "}
-                    nearest embedding
-                    neighbours.
+                    {allowedArtistIds
+                        ? `${filteredRows.length} of the ${rows.length} nearest embedding neighbours match the active Artist filters.`
+                        : `Showing the ${MAX_SIMILAR_ARTISTS} nearest embedding neighbours.`}
                 </Typography>
             </Box>
 
@@ -627,8 +648,9 @@ export function SimilarArtistsTable({
                                                 py: 2,
                                             }}
                                         >
-                                            No similar artists
-                                            were returned.
+                                            {allowedArtistIds
+                                                ? "No similar Artists match the active filters."
+                                                : "No similar Artists were returned."}
                                         </Typography>
                                     </TableCell>
                                 </TableRow>
@@ -643,7 +665,7 @@ export function SimilarArtistsTable({
                 component="div"
 
                 count={
-                    rows.length
+                    filteredRows.length
                 }
 
                 page={

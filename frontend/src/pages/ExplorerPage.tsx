@@ -257,6 +257,18 @@ export function ExplorerPage() {
     );
 
     const [
+        filteredClusterInspection,
+        setFilteredClusterInspection,
+    ] = useState<ClusterInspection | null>(
+        null,
+    );
+
+    const [
+        loadingFilteredClusterInspection,
+        setLoadingFilteredClusterInspection,
+    ] = useState(false);
+
+    const [
         artistInspection,
         setArtistInspection,
     ] = useState<ArtistInspectionResponse | null>(
@@ -538,16 +550,6 @@ export function ExplorerPage() {
                             dashboardOptions,
                         );
 
-                        if (
-                            explorer.yearRange === null
-                            && dashboardOptions.overview.birth_year_min !== null
-                            && dashboardOptions.overview.birth_year_max !== null
-                        ) {
-                            explorer.setYearRange([
-                                dashboardOptions.overview.birth_year_min,
-                                dashboardOptions.overview.birth_year_max,
-                            ]);
-                        }
                     },
                 )
                 .catch(
@@ -832,14 +834,9 @@ export function ExplorerPage() {
     useEffect(
         () => {
             if (
-                mode !== "overview"
-                || (
-                    explorer.selectedGroupIds.length
-                    === 0
-                    && explorer.selectedLocationIds.length
-                    === 0
-                    && explorer.groupMembership === "all"
-                )
+                explorer.selectedGroupIds.length === 0
+                && explorer.selectedLocationIds.length === 0
+                && explorer.groupMembership === "all"
             ) {
                 setAllowedArtistIds(null);
                 return;
@@ -883,7 +880,6 @@ export function ExplorerPage() {
             explorer.selectedGroupIds,
             explorer.selectedLocationIds,
             explorer.groupMembership,
-            mode,
         ],
     );
 
@@ -892,14 +888,15 @@ export function ExplorerPage() {
             const clusterId =
                 explorer.selectedClusterId;
 
-            setClusterMinimumMembership(0);
-            setClusterYearRange(null);
-            setClusterGroupIds([]);
-            setClusterGroupMembership("all");
-            setClusterLocationIds([]);
-            setClusterSelectedGenders([]);
-            setClusterMinimumExhibitedItems(0);
+            setClusterMinimumMembership(explorer.minimumMembership);
+            setClusterYearRange(explorer.yearRange);
+            setClusterGroupIds(explorer.selectedGroupIds);
+            setClusterGroupMembership(explorer.groupMembership);
+            setClusterLocationIds(explorer.selectedLocationIds);
+            setClusterSelectedGenders(explorer.selectedGenders);
+            setClusterMinimumExhibitedItems(explorer.minimumExhibitedItems);
             setShowSurroundingClusters(true);
+            setFilteredClusterInspection(null);
             setClusterInspectionError(null);
 
             if (
@@ -956,6 +953,83 @@ export function ExplorerPage() {
                 controller.abort();
         },
         [explorer.selectedClusterId],
+    );
+
+    useEffect(
+        () => {
+            if (mode !== "cluster" || !clusterInspection) {
+                setFilteredClusterInspection(null);
+                setLoadingFilteredClusterInspection(false);
+                return;
+            }
+
+            const hasFilters =
+                clusterSelectedGenders.length > 0
+                || clusterMinimumMembership > 0
+                || clusterMinimumExhibitedItems > 0
+                || clusterYearRange !== null
+                || clusterGroupIds.length > 0
+                || clusterGroupMembership !== "all"
+                || clusterLocationIds.length > 0;
+
+            if (!hasFilters) {
+                setFilteredClusterInspection(clusterInspection);
+                setLoadingFilteredClusterInspection(false);
+                return;
+            }
+
+            const controller = new AbortController();
+            const timer = window.setTimeout(() => {
+                setLoadingFilteredClusterInspection(true);
+                setClusterInspectionError(null);
+
+                fetchClusterInspection(
+                    clusterInspection.cluster,
+                    controller.signal,
+                    {
+                        genders: clusterSelectedGenders,
+                        minimumMembership: clusterMinimumMembership,
+                        minimumExhibitedItems: clusterMinimumExhibitedItems,
+                        birthYearMin: clusterYearRange?.[0] ?? null,
+                        birthYearMax: clusterYearRange?.[1] ?? null,
+                        groupIds: clusterGroupIds,
+                        groupMembership: clusterGroupMembership,
+                        locationIds: clusterLocationIds,
+                    },
+                )
+                    .then(setFilteredClusterInspection)
+                    .catch((reason: unknown) => {
+                        if (!controller.signal.aborted) {
+                            setClusterInspectionError(
+                                reason instanceof Error
+                                    ? reason.message
+                                    : "Failed to apply cluster filters",
+                            );
+                        }
+                    })
+                    .finally(() => {
+                        if (!controller.signal.aborted) {
+                            setLoadingFilteredClusterInspection(false);
+                        }
+                    });
+            }, 180);
+
+            return () => {
+                window.clearTimeout(timer);
+                controller.abort();
+            };
+        },
+        [
+            clusterGroupIds,
+            clusterGroupMembership,
+            clusterInspection,
+            clusterLocationIds,
+            clusterMinimumExhibitedItems,
+            clusterMinimumMembership,
+            clusterSelectedGenders,
+            clusterYearRange,
+            mode,
+        ],
     );
 
     useEffect(
@@ -1449,36 +1523,13 @@ export function ExplorerPage() {
             ],
         );
 
-    const acceptsOverviewArtist =
+    const acceptsSharedArtistFilters =
         useCallback(
             (
                 artist:
                     ArtistEmbedding2D
                     | ArtistEmbedding3D,
             ) => {
-                if (
-                    explorer.clusterStatus === "clustered"
-                    && artist.is_noise
-                ) {
-                    return false;
-                }
-
-                if (
-                    explorer.clusterStatus === "noise"
-                    && !artist.is_noise
-                ) {
-                    return false;
-                }
-
-                if (
-                    explorer.selectedClusters.length
-                    && !explorer.selectedClusters.includes(
-                        artist.cluster,
-                    )
-                ) {
-                    return false;
-                }
-
                 if (
                     !artist.is_noise
                     && artist.membership_probability
@@ -1505,9 +1556,7 @@ export function ExplorerPage() {
 
                 if (
                     allowedArtistIds
-                    && !allowedArtistIds.has(
-                        artist.id,
-                    )
+                    && !allowedArtistIds.has(artist.id)
                 ) {
                     return false;
                 }
@@ -1515,10 +1564,8 @@ export function ExplorerPage() {
                 if (explorer.yearRange) {
                     if (
                         artist.birth_year === null
-                        || artist.birth_year
-                        < explorer.yearRange[0]
-                        || artist.birth_year
-                        > explorer.yearRange[1]
+                        || artist.birth_year < explorer.yearRange[0]
+                        || artist.birth_year > explorer.yearRange[1]
                     ) {
                         return false;
                     }
@@ -1528,86 +1575,42 @@ export function ExplorerPage() {
             },
             [
                 allowedArtistIds,
-                explorer.clusterStatus,
                 explorer.minimumExhibitedItems,
                 explorer.minimumMembership,
-                explorer.selectedClusters,
                 explorer.selectedGenders,
                 explorer.yearRange,
             ],
         );
 
-    const acceptsClusterArtist =
+    const acceptsOverviewArtist =
         useCallback(
-            (artist: ClusterArtist) => {
+            (
+                artist:
+                    ArtistEmbedding2D
+                    | ArtistEmbedding3D,
+            ) => {
+                if (!acceptsSharedArtistFilters(artist)) {
+                    return false;
+                }
+
                 if (
-                    artist.membership_probability
-                    < clusterMinimumMembership
+                    explorer.clusterStatus === "clustered"
+                    && artist.is_noise
                 ) {
                     return false;
                 }
 
                 if (
-                    clusterSelectedGenders.length
-                    && !clusterSelectedGenders.includes(
-                        normalizedGender(artist.gender),
-                    )
+                    explorer.clusterStatus === "noise"
+                    && !artist.is_noise
                 ) {
                     return false;
                 }
 
                 if (
-                    artist.exhibited_item_count
-                    < clusterMinimumExhibitedItems
-                ) {
-                    return false;
-                }
-
-                if (clusterYearRange) {
-                    if (
-                        artist.birth_year === null
-                        || artist.birth_year
-                        < clusterYearRange[0]
-                        || artist.birth_year
-                        > clusterYearRange[1]
-                    ) {
-                        return false;
-                    }
-                }
-
-                if (
-                    clusterGroupMembership === "member"
-                    && artist.groups.length === 0
-                ) {
-                    return false;
-                }
-
-                if (
-                    clusterGroupMembership === "not-member"
-                    && artist.groups.length > 0
-                ) {
-                    return false;
-                }
-
-                if (
-                    clusterGroupIds.length
-                    && !artist.groups.some(
-                        (group) =>
-                            clusterGroupIds.includes(
-                                group.id,
-                            ),
-                    )
-                ) {
-                    return false;
-                }
-
-                if (
-                    clusterLocationIds.length
-                    && !artist.locations.some(
-                        (location) =>
-                            clusterLocationIds.includes(
-                                location.id,
-                            ),
+                    explorer.selectedClusters.length
+                    && !explorer.selectedClusters.includes(
+                        artist.cluster,
                     )
                 ) {
                     return false;
@@ -1616,13 +1619,34 @@ export function ExplorerPage() {
                 return true;
             },
             [
-                clusterGroupIds,
-                clusterGroupMembership,
-                clusterLocationIds,
-                clusterMinimumExhibitedItems,
-                clusterMinimumMembership,
-                clusterSelectedGenders,
-                clusterYearRange,
+                acceptsSharedArtistFilters,
+                explorer.clusterStatus,
+                explorer.selectedClusters,
+            ],
+        );
+
+    const sharedFilteredData2D =
+        useMemo(
+            () =>
+                data2D.filter(
+                    acceptsSharedArtistFilters,
+                ),
+            [
+                acceptsSharedArtistFilters,
+                data2D,
+            ],
+        );
+
+    const sharedFilteredData3D =
+        useMemo(
+            () =>
+                data3D?.filter(
+                    acceptsSharedArtistFilters,
+                )
+                ?? null,
+            [
+                acceptsSharedArtistFilters,
+                data3D,
             ],
         );
 
@@ -1651,18 +1675,37 @@ export function ExplorerPage() {
             ],
         );
 
-    const filteredClusterArtists =
+    const artistCandidateFiltersActive =
+        explorer.clusterStatus !== "all"
+        || explorer.selectedClusters.length > 0
+        || explorer.selectedGenders.length > 0
+        || explorer.minimumExhibitedItems > 0
+        || explorer.minimumMembership > 0
+        || explorer.yearRange !== null
+        || explorer.selectedGroupIds.length > 0
+        || explorer.groupMembership !== "all"
+        || explorer.selectedLocationIds.length > 0;
+
+    const overviewArtistIds =
         useMemo(
             () =>
-                clusterInspection
-                    ? clusterInspection.artists.filter(
-                        acceptsClusterArtist,
-                    )
-                    : [],
-            [
-                acceptsClusterArtist,
-                clusterInspection,
-            ],
+                new Set(
+                    overviewData2D.map(
+                        (artist) => artist.id,
+                    ),
+                ),
+            [overviewData2D],
+        );
+
+    const activeClusterInspection =
+        mode === "cluster"
+            ? (filteredClusterInspection ?? clusterInspection)
+            : clusterInspection;
+
+    const filteredClusterArtists =
+        useMemo(
+            () => activeClusterInspection?.artists ?? [],
+            [activeClusterInspection],
         );
 
     const filteredClusterArtistIds =
@@ -1676,6 +1719,39 @@ export function ExplorerPage() {
                 ),
             [filteredClusterArtists],
         );
+
+    useEffect(
+        () => {
+            const selectedArtistId = explorer.selectedArtistId;
+
+            if (!selectedArtistId) {
+                return;
+            }
+
+            if (
+                mode === "overview"
+                && !overviewArtistIds.has(selectedArtistId)
+            ) {
+                explorer.setSelectedArtistId(null);
+                return;
+            }
+
+            if (
+                mode === "cluster"
+                && clusterInspection
+                && !filteredClusterArtistIds.has(selectedArtistId)
+            ) {
+                explorer.setSelectedArtistId(null);
+            }
+        },
+        [
+            clusterInspection,
+            explorer,
+            filteredClusterArtistIds,
+            mode,
+            overviewArtistIds,
+        ],
+    );
 
     const selectedClusterId =
         validClusterId(
@@ -1737,7 +1813,7 @@ export function ExplorerPage() {
                         inspectionB?.artists.map((artist) => artist.id) ?? [],
                     );
 
-                    return data2D.filter((artist) => {
+                    return sharedFilteredData2D.filter((artist) => {
                         if (
                             selectedClusterId !== null
                             && artist.cluster === selectedClusterId
@@ -1762,10 +1838,10 @@ export function ExplorerPage() {
                         || !comparisonArtistId
                         || !explorer.selectedArtistId
                     ) {
-                        return data2D;
+                        return overviewData2D;
                     }
 
-                    return data2D.filter(
+                    return overviewData2D.filter(
                         (artist) =>
                             artist.id === explorer.selectedArtistId
                             || artist.id === comparisonArtistId,
@@ -1777,10 +1853,10 @@ export function ExplorerPage() {
                         selectedClusterId === null
                         || showSurroundingClusters
                     ) {
-                        return data2D;
+                        return overviewData2D;
                     }
 
-                    return data2D.filter(
+                    return overviewData2D.filter(
                         (artist) =>
                             artist.cluster === selectedClusterId,
                     );
@@ -1794,14 +1870,14 @@ export function ExplorerPage() {
                 }
 
                 if (!showSurroundingClusters) {
-                    return data2D.filter(
+                    return sharedFilteredData2D.filter(
                         (artist) =>
                             artist.cluster === selectedClusterId
                             && filteredClusterArtistIds.has(artist.id),
                     );
                 }
 
-                return data2D.filter(
+                return sharedFilteredData2D.filter(
                     (artist) =>
                         artist.cluster !== selectedClusterId
                         || filteredClusterArtistIds.has(artist.id),
@@ -1820,6 +1896,7 @@ export function ExplorerPage() {
                 filteredClusterArtistIds,
                 mode,
                 overviewData2D,
+                sharedFilteredData2D,
                 selectedClusterId,
                 showSurroundingClusters,
             ],
@@ -1851,7 +1928,7 @@ export function ExplorerPage() {
                         inspectionB?.artists.map((artist) => artist.id) ?? [],
                     );
 
-                    return data3D.filter((artist) => {
+                    return (sharedFilteredData3D ?? []).filter((artist) => {
                         if (
                             selectedClusterId !== null
                             && artist.cluster === selectedClusterId
@@ -1876,10 +1953,10 @@ export function ExplorerPage() {
                         || !comparisonArtistId
                         || !explorer.selectedArtistId
                     ) {
-                        return data3D;
+                        return overviewData3D;
                     }
 
-                    return data3D.filter(
+                    return (overviewData3D ?? []).filter(
                         (artist) =>
                             artist.id === explorer.selectedArtistId
                             || artist.id === comparisonArtistId,
@@ -1891,10 +1968,10 @@ export function ExplorerPage() {
                         selectedClusterId === null
                         || showSurroundingClusters
                     ) {
-                        return data3D;
+                        return overviewData3D;
                     }
 
-                    return data3D.filter(
+                    return (overviewData3D ?? []).filter(
                         (artist) =>
                             artist.cluster === selectedClusterId,
                     );
@@ -1908,14 +1985,14 @@ export function ExplorerPage() {
                 }
 
                 if (!showSurroundingClusters) {
-                    return data3D.filter(
+                    return (sharedFilteredData3D ?? []).filter(
                         (artist) =>
                             artist.cluster === selectedClusterId
                             && filteredClusterArtistIds.has(artist.id),
                     );
                 }
 
-                return data3D.filter(
+                return (sharedFilteredData3D ?? []).filter(
                     (artist) =>
                         artist.cluster !== selectedClusterId
                         || filteredClusterArtistIds.has(artist.id),
@@ -1934,6 +2011,7 @@ export function ExplorerPage() {
                 filteredClusterArtistIds,
                 mode,
                 overviewData3D,
+                sharedFilteredData3D,
                 selectedClusterId,
                 showSurroundingClusters,
             ],
@@ -2154,10 +2232,23 @@ export function ExplorerPage() {
         );
 
 
+    const filteredSimilarArtists =
+        useMemo(
+            () =>
+                similarArtists.filter(
+                    (artist) =>
+                        overviewArtistIds.has(artist.id),
+                ),
+            [
+                overviewArtistIds,
+                similarArtists,
+            ],
+        );
+
     const visibleSimilarArtists =
         useMemo(
             () =>
-                similarArtists
+                filteredSimilarArtists
                     .filter(
                         (artist) =>
                             artist.similarity
@@ -2168,8 +2259,8 @@ export function ExplorerPage() {
                         similarArtistLimit,
                     ),
             [
+                filteredSimilarArtists,
                 similarArtistLimit,
-                similarArtists,
                 similarityThreshold,
             ],
         );
@@ -2222,7 +2313,25 @@ export function ExplorerPage() {
         setMode("artist");
     }
 
+    function copySharedFiltersToComparison() {
+        setComparisonMinimumMembership(explorer.minimumMembership);
+        setComparisonYearRange(explorer.yearRange);
+        setComparisonGroupIds(explorer.selectedGroupIds);
+        setComparisonGroupMembership(explorer.groupMembership);
+        setComparisonLocationIds(explorer.selectedLocationIds);
+        setComparisonSelectedGenders(explorer.selectedGenders);
+        setComparisonMinimumExhibitedItems(explorer.minimumExhibitedItems);
+    }
+
     function resetComparisonFilters() {
+        explorer.setMinimumMembership(0);
+        explorer.setYearRange(null);
+        explorer.setSelectedGroupIds([]);
+        explorer.setGroupMembership("all");
+        explorer.setSelectedLocationIds([]);
+        explorer.setSelectedGenders([]);
+        explorer.setMinimumExhibitedItems(0);
+
         setComparisonMinimumMembership(0);
         setComparisonYearRange(null);
         setComparisonGroupIds([]);
@@ -2234,7 +2343,7 @@ export function ExplorerPage() {
 
 
     function startClusterComparison() {
-        resetComparisonFilters();
+        copySharedFiltersToComparison();
 
         if (selectedClusterId === null) {
             return;
@@ -2480,6 +2589,14 @@ export function ExplorerPage() {
     }
 
     function resetClusterFilters() {
+        explorer.setMinimumMembership(0);
+        explorer.setYearRange(null);
+        explorer.setSelectedGroupIds([]);
+        explorer.setGroupMembership("all");
+        explorer.setSelectedLocationIds([]);
+        explorer.setSelectedGenders([]);
+        explorer.setMinimumExhibitedItems(0);
+
         setClusterMinimumMembership(0);
         setClusterYearRange(null);
         setClusterGroupIds([]);
@@ -2714,6 +2831,7 @@ export function ExplorerPage() {
                         ? (
                             <FilterSidebar
                                 artists={data2D}
+                                searchArtists={overviewData2D}
                                 options={options}
                             />
                         )
@@ -2721,7 +2839,7 @@ export function ExplorerPage() {
                             ? (
                                 <ClusterComparisonSidebar
                                     clusters={options.clusters}
-                                    artists={data2D}
+                                    artists={sharedFilteredData2D}
                                     inspectionA={clusterInspection}
                                     inspectionB={comparisonClusterInspection}
                                     clusterAId={selectedClusterId}
@@ -2737,19 +2855,19 @@ export function ExplorerPage() {
                                         ?? 0
                                     }
                                     selectedGenders={comparisonSelectedGenders}
-                                    onSelectedGendersChange={setComparisonSelectedGenders}
+                                    onSelectedGendersChange={(value) => { setComparisonSelectedGenders(value); explorer.setSelectedGenders(value); }}
                                     minimumExhibitedItems={comparisonMinimumExhibitedItems}
-                                    onMinimumExhibitedItemsChange={setComparisonMinimumExhibitedItems}
+                                    onMinimumExhibitedItemsChange={(value) => { setComparisonMinimumExhibitedItems(value); explorer.setMinimumExhibitedItems(value); }}
                                     minimumMembership={comparisonMinimumMembership}
-                                    onMinimumMembershipChange={setComparisonMinimumMembership}
+                                    onMinimumMembershipChange={(value) => { setComparisonMinimumMembership(value); explorer.setMinimumMembership(value); }}
                                     yearRange={comparisonYearRange}
-                                    onYearRangeChange={setComparisonYearRange}
+                                    onYearRangeChange={(value) => { setComparisonYearRange(value); explorer.setYearRange(value); }}
                                     selectedGroupIds={comparisonGroupIds}
-                                    onSelectedGroupIdsChange={setComparisonGroupIds}
+                                    onSelectedGroupIdsChange={(value) => { setComparisonGroupIds(value); explorer.setSelectedGroupIds(value); }}
                                     groupMembership={comparisonGroupMembership}
-                                    onGroupMembershipChange={setComparisonGroupMembership}
+                                    onGroupMembershipChange={(value) => { setComparisonGroupMembership(value); explorer.setGroupMembership(value); }}
                                     selectedLocationIds={comparisonLocationIds}
-                                    onSelectedLocationIdsChange={setComparisonLocationIds}
+                                    onSelectedLocationIdsChange={(value) => { setComparisonLocationIds(value); explorer.setSelectedLocationIds(value); }}
                                     onClusterAChange={changeComparisonClusterA}
                                     onClusterBChange={changeComparisonClusterB}
                                     onSwap={swapComparisonClusters}
@@ -2761,7 +2879,7 @@ export function ExplorerPage() {
                         && selectedArtist
                             ? (
                                 <ComparisonSidebar
-                                    artists={data2D}
+                                    artists={overviewData2D}
                                     artistA={selectedArtist}
                                     artistB={comparisonArtist}
                                     selectingSecondArtist={
@@ -2846,6 +2964,9 @@ export function ExplorerPage() {
                                         onShowSurroundingClustersChange={
                                             setShowSurroundingClusters
                                         }
+                                        artistFiltersActive={
+                                            artistCandidateFiltersActive
+                                        }
                                         onReset={
                                             resetArtistAnalysis
                                         }
@@ -2873,51 +2994,61 @@ export function ExplorerPage() {
                                                 inspection={
                                                     clusterInspection
                                                 }
+                                                selectableArtists={
+                                                    filteredClusterArtists
+                                                }
                                                 visibleArtistCount={
                                                     filteredClusterArtists.length
                                                 }
                                                 minimumMembership={
                                                     clusterMinimumMembership
                                                 }
-                                                onMinimumMembershipChange={
-                                                    setClusterMinimumMembership
-                                                }
+                                                onMinimumMembershipChange={(value) => {
+                                                    setClusterMinimumMembership(value);
+                                                    explorer.setMinimumMembership(value);
+                                                }}
                                                 yearRange={
                                                     clusterYearRange
                                                 }
-                                                onYearRangeChange={
-                                                    setClusterYearRange
-                                                }
+                                                onYearRangeChange={(value) => {
+                                                    setClusterYearRange(value);
+                                                    explorer.setYearRange(value);
+                                                }}
                                                 selectedGroupIds={
                                                     clusterGroupIds
                                                 }
-                                                onSelectedGroupIdsChange={
-                                                    setClusterGroupIds
-                                                }
+                                                onSelectedGroupIdsChange={(value) => {
+                                                    setClusterGroupIds(value);
+                                                    explorer.setSelectedGroupIds(value);
+                                                }}
                                                 groupMembership={
                                                     clusterGroupMembership
                                                 }
-                                                onGroupMembershipChange={
-                                                    setClusterGroupMembership
-                                                }
+                                                onGroupMembershipChange={(value) => {
+                                                    setClusterGroupMembership(value);
+                                                    explorer.setGroupMembership(value);
+                                                }}
                                                 selectedLocationIds={
                                                     clusterLocationIds
                                                 }
-                                                onSelectedLocationIdsChange={
-                                                    setClusterLocationIds
-                                                }
+                                                onSelectedLocationIdsChange={(value) => {
+                                                    setClusterLocationIds(value);
+                                                    explorer.setSelectedLocationIds(value);
+                                                }}
                                                 selectedGenders={
                                                     clusterSelectedGenders
                                                 }
-                                                onSelectedGendersChange={
-                                                    setClusterSelectedGenders
-                                                }
+                                                onSelectedGendersChange={(value) => {
+                                                    setClusterSelectedGenders(value);
+                                                    explorer.setSelectedGenders(value);
+                                                }}
                                                 minimumExhibitedItems={
                                                     clusterMinimumExhibitedItems
                                                 }
-                                                onMinimumExhibitedItemsChange={
-                                                    setClusterMinimumExhibitedItems
-                                                }
+                                                onMinimumExhibitedItemsChange={(value) => {
+                                                    setClusterMinimumExhibitedItems(value);
+                                                    explorer.setMinimumExhibitedItems(value);
+                                                }}
                                                 showSurroundingClusters={
                                                     showSurroundingClusters
                                                 }
@@ -2932,6 +3063,7 @@ export function ExplorerPage() {
                                         : (
                                             <FilterSidebar
                                                 artists={data2D}
+                                                searchArtists={overviewData2D}
                                                 options={options}
                                             />
                                         )}
@@ -3172,7 +3304,7 @@ export function ExplorerPage() {
                                                 visibleSimilarArtists
                                             }
                                             totalSimilarArtistCount={
-                                                similarArtists.length
+                                                filteredSimilarArtists.length
                                             }
                                             similarityThreshold={
                                                 similarityThreshold
@@ -3202,7 +3334,7 @@ export function ExplorerPage() {
                                         />
                                     </Box>
                                 )
-                                : loadingClusterInspection
+                                : (loadingClusterInspection || loadingFilteredClusterInspection)
                                     ? (
                                         <Box
                                             sx={{
@@ -3231,10 +3363,14 @@ export function ExplorerPage() {
                                             ? (
                                                 <ClusterDetailsPanel
                                                     inspection={
-                                                        clusterInspection
+                                                        activeClusterInspection
+                                                        ?? clusterInspection
                                                     }
                                                     visibleArtistCount={
                                                         filteredClusterArtists.length
+                                                    }
+                                                    fullArtistCount={
+                                                        clusterInspection.artist_count
                                                     }
                                                 />
                                             )
@@ -3261,6 +3397,9 @@ export function ExplorerPage() {
                                 selectedArtistName={
                                     selectedArtist.display_name
                                 }
+                                allowedArtistIds={
+                                    overviewArtistIds
+                                }
                             />
                         </Panel>
                     )}
@@ -3274,7 +3413,7 @@ export function ExplorerPage() {
                         }
                         className="explorer-results-panel"
                     >
-                        {loadingClusterInspection
+                        {(loadingClusterInspection || loadingFilteredClusterInspection)
                             ? (
                                 <Box
                                     sx={{

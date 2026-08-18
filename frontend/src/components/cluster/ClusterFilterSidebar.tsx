@@ -102,6 +102,7 @@ function toggleGender(
 
 export function ClusterFilterSidebar({
                                          inspection,
+                                         selectableArtists,
                                          visibleArtistCount,
                                          minimumMembership,
                                          onMinimumMembershipChange,
@@ -122,6 +123,7 @@ export function ClusterFilterSidebar({
                                          onReset,
                                      }: {
     inspection: ClusterInspection;
+    selectableArtists?: ClusterArtist[];
     visibleArtistCount: number;
     minimumMembership: number;
     onMinimumMembershipChange:
@@ -175,7 +177,7 @@ export function ClusterFilterSidebar({
     const orderedArtists =
         useMemo(
             () =>
-                [...inspection.artists]
+                [...(selectableArtists ?? inspection.artists)]
                     .sort(
                         (
                             first,
@@ -191,7 +193,7 @@ export function ClusterFilterSidebar({
                                 ),
                     ),
 
-            [inspection.artists],
+            [inspection.artists, selectableArtists],
         );
 
     const selectedArtist =
@@ -213,15 +215,25 @@ export function ClusterFilterSidebar({
             ],
         );
 
-    const minimumYear =
+    const baseMinimumYear =
         inspection.statistics
             .birth_year.minimum
         ?? 1800;
 
-    const maximumYear =
+    const baseMaximumYear =
         inspection.statistics
             .birth_year.maximum
         ?? 2000;
+
+    const minimumYear = Math.min(
+        baseMinimumYear,
+        yearRange?.[0] ?? baseMinimumYear,
+    );
+
+    const maximumYear = Math.max(
+        baseMaximumYear,
+        yearRange?.[1] ?? baseMaximumYear,
+    );
 
     const displayedYearRange:
         YearRange =
@@ -572,7 +584,7 @@ export function ClusterFilterSidebar({
                 type="number"
                 label="Minimum exhibited artworks"
                 value={minimumExhibitedItems}
-                inputProps={{ min: 0, step: 1 }}
+                slotProps={{ htmlInput: { min: 0, step: 1 } }}
                 onChange={(event) =>
                     onMinimumExhibitedItemsChange(
                         Math.max(

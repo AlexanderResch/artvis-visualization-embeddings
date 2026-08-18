@@ -133,6 +133,7 @@ type ArtistInspectionSidebarProps = {
     onShowSurroundingClustersChange: (
         value: boolean,
     ) => void;
+    artistFiltersActive: boolean;
     onReset: () => void;
 };
 
@@ -155,6 +156,7 @@ export function ArtistInspectionSidebar({
                                             onTimelineBinSizeChange,
                                             showSurroundingClusters,
                                             onShowSurroundingClustersChange,
+                                            artistFiltersActive,
                                             onReset,
                                         }: ArtistInspectionSidebarProps) {
     const hasCluster =
@@ -275,11 +277,31 @@ export function ArtistInspectionSidebar({
                 variant="body2"
                 color="text.secondary"
                 sx={{
-                    mb: 1.5,
+                    mb: artistFiltersActive ? 1 : 1.5,
                 }}
             >
                 These controls adjust the Artist-specific analysis instead of filtering the Artist itself.
             </Typography>
+
+            {artistFiltersActive && (
+                <Box
+                    sx={{
+                        mb: 1.5,
+                        p: 1,
+                        borderRadius: 1.5,
+                        border: "1px solid",
+                        borderColor: "info.light",
+                        backgroundColor: "action.hover",
+                    }}
+                >
+                    <Typography
+                        variant="caption"
+                        color="text.secondary"
+                    >
+                        Active Artist filters remain applied to the embedding map and similar-Artist candidates. The ego network keeps the complete graph context so explanatory relationships are not hidden.
+                    </Typography>
+                </Box>
+            )}
 
             <Accordion
                 disableGutters
