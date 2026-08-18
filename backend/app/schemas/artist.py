@@ -22,6 +22,17 @@ class ArtistCreatedItem(BaseModel):
     type: str
 
 
+class ArtistExhibitedArtwork(BaseModel):
+    id: str
+    name: str
+    catalogue_id: str | None = None
+    type: str | None = None
+    exhibition_id: str
+    exhibition_name: str
+    exhibition_year: int | None = None
+    locations: list[NamedEntity] = Field(default_factory=list)
+
+
 class ArtistContextResponse(BaseModel):
     artist_id: str
     groups: list[NamedEntity] = Field(default_factory=list)
@@ -30,6 +41,8 @@ class ArtistContextResponse(BaseModel):
     items: list[ArtistCreatedItem] = Field(default_factory=list)
     item_relationship_types: list[str] = Field(default_factory=list)
     items_note: str | None = None
+    exhibited_artworks: list[ArtistExhibitedArtwork] = Field(default_factory=list)
+    exhibited_artworks_note: str | None = None
 
 
 class ArtistInspectionNode(BaseModel):
@@ -111,5 +124,7 @@ class ArtistInspectionResponse(BaseModel):
     top_connections: list[ArtistTopConnection] = Field(default_factory=list)
     items: list[ArtistCreatedItem] = Field(default_factory=list)
     items_note: str | None = None
+    exhibited_artworks: list[ArtistExhibitedArtwork] = Field(default_factory=list)
+    exhibited_artworks_note: str | None = None
     timeline: TimelineResponse
     note: str

@@ -3331,6 +3331,16 @@ export function ExplorerPage() {
                                                     ?.items_note
                                                 ?? null
                                             }
+                                            exhibitedArtworks={
+                                                artistInspection
+                                                    ?.exhibited_artworks
+                                                ?? []
+                                            }
+                                            exhibitedArtworksNote={
+                                                artistInspection
+                                                    ?.exhibited_artworks_note
+                                                ?? null
+                                            }
                                         />
                                     </Box>
                                 )

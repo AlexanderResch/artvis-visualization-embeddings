@@ -53,6 +53,20 @@ export type ArtistCreatedItem = {
     type: string;
 };
 
+export type ArtistExhibitedArtwork = {
+    id: string;
+    name: string;
+    catalogue_id: string | null;
+    type: string | null;
+    exhibition_id: string;
+    exhibition_name: string;
+    exhibition_year: number | null;
+    locations: Array<{
+        id: string;
+        name: string;
+    }>;
+};
+
 
 export type ArtistInspectionResponse = {
     artist_id: string;
@@ -72,6 +86,8 @@ export type ArtistInspectionResponse = {
     top_connections: ArtistTopConnection[];
     items: ArtistCreatedItem[];
     items_note: string | null;
+    exhibited_artworks: ArtistExhibitedArtwork[];
+    exhibited_artworks_note: string | null;
     timeline: {
         years: ArtistTimelineYear[];
         undated_count: number;

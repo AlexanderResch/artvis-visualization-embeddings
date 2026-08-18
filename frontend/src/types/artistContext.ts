@@ -1,5 +1,6 @@
 import type {
     ArtistCreatedItem,
+    ArtistExhibitedArtwork,
 } from "./artistInspection";
 
 export type ArtistContextNamedEntity = {
@@ -20,4 +21,6 @@ export type ArtistContextResponse = {
     items: ArtistCreatedItem[];
     item_relationship_types: string[];
     items_note: string | null;
+    exhibited_artworks: ArtistExhibitedArtwork[];
+    exhibited_artworks_note: string | null;
 };

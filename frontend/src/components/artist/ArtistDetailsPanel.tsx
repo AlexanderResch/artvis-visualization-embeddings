@@ -21,6 +21,7 @@ import type {
 
 import type {
     ArtistCreatedItem,
+    ArtistExhibitedArtwork,
 } from "../../types/artistInspection";
 
 import type {
@@ -245,6 +246,8 @@ type ArtistDetailsPanelProps = {
     createdItemsLoading?: boolean;
     createdItemsError?: string | null;
     createdItemsNote?: string | null;
+    exhibitedArtworks?: ArtistExhibitedArtwork[];
+    exhibitedArtworksNote?: string | null;
 };
 
 
@@ -261,6 +264,8 @@ export function ArtistDetailsPanel({
                                        createdItemsLoading = false,
                                        createdItemsError = null,
                                        createdItemsNote = null,
+                                       exhibitedArtworks = [],
+                                       exhibitedArtworksNote = null,
                                    }: ArtistDetailsPanelProps) {
     const hasCluster =
         artist.cluster >= 0;
@@ -304,6 +309,14 @@ export function ArtistDetailsPanel({
     const visibleCreatedItemsNote =
         artistContext?.items_note
         ?? createdItemsNote;
+
+    const visibleExhibitedArtworks =
+        artistContext?.exhibited_artworks
+        ?? exhibitedArtworks;
+
+    const visibleExhibitedArtworksNote =
+        artistContext?.exhibited_artworks_note
+        ?? exhibitedArtworksNote;
 
     const barScale =
         scaleLinear()
@@ -631,6 +644,166 @@ export function ArtistDetailsPanel({
                         }}
                     >
                         {visibleCreatedItemsNote}
+                    </Alert>
+                )}
+            </DetailAccordion>
+
+            <DetailAccordion
+                title="Exhibited artworks"
+                count={
+                    createdItemsLoading
+                        ? "…"
+                        : artist.exhibited_item_count
+                }
+            >
+                {createdItemsLoading
+                    ? (
+                        <Box
+                            sx={{
+                                display: "flex",
+                                alignItems: "center",
+                                gap: 1,
+                                py: 0.5,
+                            }}
+                        >
+                            <CircularProgress
+                                size={18}
+                            />
+
+                            <Typography
+                                variant="body2"
+                                color="text.secondary"
+                            >
+                                Loading exhibited artworks…
+                            </Typography>
+                        </Box>
+                    )
+                    : createdItemsError
+                        ? (
+                            <Alert
+                                severity="warning"
+                                sx={{
+                                    py: 0.25,
+                                }}
+                            >
+                                Exhibited artworks could not be loaded: {createdItemsError}
+                            </Alert>
+                        )
+                        : visibleExhibitedArtworks.length > 0
+                            ? (
+                                <Box
+                                    sx={{
+                                        display: "grid",
+                                        gap: 0.75,
+                                        maxHeight: 320,
+                                        overflowY: "auto",
+                                        pr: 0.5,
+                                    }}
+                                >
+                                    {visibleExhibitedArtworks.map(
+                                        (artwork) => {
+                                            const exhibitionDetails = [
+                                                artwork.exhibition_name,
+                                                artwork.exhibition_year,
+                                            ]
+                                                .filter(
+                                                    (value) =>
+                                                        value !== null
+                                                        && value !== "",
+                                                )
+                                                .join(" · ");
+
+                                            const locationNames =
+                                                artwork.locations
+                                                    .map(
+                                                        (location) =>
+                                                            location.name,
+                                                    )
+                                                    .filter(Boolean)
+                                                    .join(", ");
+
+                                            return (
+                                                <Box
+                                                    key={artwork.id}
+                                                    sx={{
+                                                        px: 1,
+                                                        py: 0.85,
+                                                        border: "1px solid",
+                                                        borderColor: "divider",
+                                                        borderRadius: 1.5,
+                                                        backgroundColor: "background.paper",
+                                                    }}
+                                                >
+                                                    <Typography
+                                                        variant="body2"
+                                                        sx={{
+                                                            fontWeight: 700,
+                                                            lineHeight: 1.25,
+                                                        }}
+                                                        title={artwork.name}
+                                                    >
+                                                        {artwork.name}
+                                                    </Typography>
+
+                                                    <Typography
+                                                        variant="caption"
+                                                        color="text.secondary"
+                                                        sx={{
+                                                            display: "block",
+                                                            mt: 0.25,
+                                                        }}
+                                                    >
+                                                        {exhibitionDetails}
+                                                    </Typography>
+
+                                                    {locationNames && (
+                                                        <Typography
+                                                            variant="caption"
+                                                            color="text.secondary"
+                                                            sx={{
+                                                                display: "block",
+                                                            }}
+                                                        >
+                                                            {locationNames}
+                                                        </Typography>
+                                                    )}
+
+                                                    {artwork.catalogue_id && (
+                                                        <Typography
+                                                            variant="caption"
+                                                            color="text.disabled"
+                                                            sx={{
+                                                                display: "block",
+                                                                mt: 0.25,
+                                                            }}
+                                                        >
+                                                            Catalogue entry {artwork.catalogue_id}
+                                                        </Typography>
+                                                    )}
+                                                </Box>
+                                            );
+                                        },
+                                    )}
+                                </Box>
+                            )
+                            : (
+                                <Typography
+                                    variant="body2"
+                                    color="text.secondary"
+                                >
+                                    No exhibited artworks are recorded for this Artist.
+                                </Typography>
+                            )}
+
+                {visibleExhibitedArtworksNote && (
+                    <Alert
+                        severity="info"
+                        sx={{
+                            mt: 1,
+                            py: 0.25,
+                        }}
+                    >
+                        {visibleExhibitedArtworksNote}
                     </Alert>
                 )}
             </DetailAccordion>

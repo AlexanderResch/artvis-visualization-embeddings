@@ -10,7 +10,10 @@ from fastapi import APIRouter, HTTPException, Query
 from app.db import get_driver
 from app.ml.utils import json_safe
 from app.schemas.artist import ArtistInspectionResponse
-from app.services.artist_context import fetch_created_items
+from app.services.artist_context import (
+    fetch_created_items,
+    fetch_exhibited_artworks,
+)
 
 
 router = APIRouter(
@@ -412,6 +415,16 @@ def _fetch_items(
     return items, note
 
 
+def _fetch_exhibited_artworks(
+        artist_element_id: str,
+) -> tuple[list[dict[str, Any]], str | None]:
+    with get_driver().session() as session:
+        return fetch_exhibited_artworks(
+            session,
+            artist_element_id,
+        )
+
+
 def _balanced_rows(
         rows: list[dict[str, Any]],
         limit: int,
@@ -669,6 +682,10 @@ def get_artist_inspection(
         root.key,
     )
 
+    exhibited_artworks, exhibited_artworks_note = _fetch_exhibited_artworks(
+        root.key,
+    )
+
     return {
         "artist_id": artist_id,
         "artist": {
@@ -717,6 +734,8 @@ def get_artist_inspection(
         ),
         "items": items,
         "items_note": items_note,
+        "exhibited_artworks": exhibited_artworks,
+        "exhibited_artworks_note": exhibited_artworks_note,
         "timeline": _fetch_timeline(
             artist_id,
         ),

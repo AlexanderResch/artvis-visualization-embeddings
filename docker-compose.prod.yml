@@ -49,6 +49,7 @@ services:
 
     environment:
       NEO4J_URI: bolt://artvis-db:7687
+      ARTVIS_CATALOGUE_ENTRIES_CSV: /app/data/catalogue_entries.csv
 
       ML_RANDOM_SEED: "42"
       TORCH_NUM_THREADS: "8"
@@ -83,6 +84,7 @@ services:
 
     volumes:
       - ./backend/app/ml/data:/app/app/ml/data:ro
+      - ./artvis-graph-db/csv/catalogue_entries.csv:/app/data/catalogue_entries.csv:ro
 
     depends_on:
       artvis-db:

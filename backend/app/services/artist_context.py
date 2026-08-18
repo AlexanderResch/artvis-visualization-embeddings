@@ -1,6 +1,9 @@
 from __future__ import annotations
 
+import csv
+from functools import lru_cache
 import os
+from pathlib import Path
 import re
 from typing import Any
 
@@ -254,6 +257,263 @@ def fetch_created_items(
     return items, relationship_types, note
 
 
+def _catalogue_entries_path() -> Path | None:
+    configured = _clean_text(
+        os.getenv("ARTVIS_CATALOGUE_ENTRIES_CSV")
+    )
+
+    candidates: list[Path] = []
+    if configured:
+        candidates.append(Path(configured))
+
+    # Local development from the repository.
+    candidates.append(
+        Path(__file__).resolve().parents[3]
+        / "artvis-graph-db"
+        / "csv"
+        / "catalogue_entries.csv"
+    )
+
+    # Docker Compose mounts the source file here.
+    candidates.append(
+        Path("/app/data/catalogue_entries.csv")
+    )
+
+    for candidate in candidates:
+        if candidate.is_file():
+            return candidate
+
+    return None
+
+
+def _normalise_csv_value(value: Any) -> str:
+    text = _clean_text(value)
+    if text == r"\N":
+        return ""
+    return text
+
+
+@lru_cache(maxsize=1)
+def _catalogue_entries_by_artist() -> dict[str, tuple[dict[str, str], ...]]:
+    path = _catalogue_entries_path()
+    if path is None:
+        return {}
+
+    grouped: dict[str, list[dict[str, str]]] = {}
+
+    with path.open(
+        "r",
+        encoding="utf-8-sig",
+        newline="",
+    ) as handle:
+        reader = csv.DictReader(
+            handle,
+            delimiter=";",
+        )
+
+        for row in reader:
+            artist_id = _normalise_csv_value(
+                row.get("id_person")
+            )
+            exhibition_id = _normalise_csv_value(
+                row.get("id_exhibition")
+            )
+
+            if not artist_id or not exhibition_id:
+                continue
+
+            grouped.setdefault(artist_id, []).append({
+                "id": _normalise_csv_value(row.get("id")),
+                "item_id": _normalise_csv_value(row.get("id_item")),
+                "artist_id": artist_id,
+                "exhibition_id": exhibition_id,
+                "catalogue_id": _normalise_csv_value(row.get("catalogueId")),
+                "type": _normalise_csv_value(row.get("type")),
+                "title": _normalise_csv_value(row.get("title")),
+                "displaycreator": _normalise_csv_value(row.get("displaycreator")),
+                "displaydate": _normalise_csv_value(row.get("displaydate")),
+                "measurements": _normalise_csv_value(row.get("measurements")),
+                "technique": _normalise_csv_value(row.get("technique")),
+                "style": _normalise_csv_value(row.get("style")),
+            })
+
+    return {
+        artist_id: tuple(entries)
+        for artist_id, entries in grouped.items()
+    }
+
+
+def _catalogue_sort_key(entry: dict[str, str]) -> tuple[Any, ...]:
+    exhibition_id = entry.get("exhibition_id", "")
+    catalogue_id = entry.get("catalogue_id", "")
+
+    def numeric_prefix(value: str) -> tuple[int, str]:
+        match = re.match(r"^(\d+)", value)
+        return (
+            int(match.group(1)) if match else 10**12,
+            value.casefold(),
+        )
+
+    return (
+        numeric_prefix(exhibition_id),
+        numeric_prefix(catalogue_id),
+        entry.get("title", "").casefold(),
+        entry.get("id", ""),
+    )
+
+
+def fetch_exhibited_artworks(
+        session: Any,
+        artist_element_id: str,
+        limit: int = 500,
+) -> tuple[list[dict[str, Any]], str | None]:
+    artist_record = session.run(
+        """
+        MATCH (artist:Artist)
+        WHERE elementId(artist) = $artist_element_id
+        RETURN toString(artist.id) AS artist_id
+        """,
+        artist_element_id=artist_element_id,
+    ).single()
+
+    if artist_record is None:
+        return [], "Artist not found while loading exhibited artworks."
+
+    artist_id = _clean_text(artist_record["artist_id"])
+    if not artist_id:
+        return [], (
+            "The Artist has no ArtVis id, so catalogue entries cannot be "
+            "matched reliably."
+        )
+
+    entries_by_artist = _catalogue_entries_by_artist()
+    if not entries_by_artist:
+        return [], (
+            "Catalogue-entry data is unavailable. Make sure "
+            "artvis-graph-db/csv/catalogue_entries.csv is present or set "
+            "ARTVIS_CATALOGUE_ENTRIES_CSV."
+        )
+
+    all_entries = sorted(
+        entries_by_artist.get(artist_id, ()),
+        key=_catalogue_sort_key,
+    )
+
+    truncated = len(all_entries) > limit
+    selected_entries = all_entries[:limit]
+
+    exhibition_ids = sorted({
+        entry["exhibition_id"]
+        for entry in selected_entries
+        if entry.get("exhibition_id")
+    })
+
+    exhibition_records = session.run(
+        """
+        MATCH (exhibition:Exhibition)
+        WHERE toString(exhibition.id) IN $exhibition_ids
+        OPTIONAL MATCH (exhibition)-[:TOOK_PLACE_AT]-(location:Location)
+        WITH
+            exhibition,
+            [
+                value IN collect(DISTINCT CASE
+                    WHEN location IS NULL THEN null
+                    ELSE {
+                        id: coalesce(toString(location.id), elementId(location)),
+                        name: coalesce(
+                            location.name,
+                            location.label,
+                            "Unknown location"
+                        )
+                    }
+                END)
+                WHERE value IS NOT NULL
+            ] AS locations
+        RETURN
+            toString(exhibition.id) AS exhibition_id,
+            elementId(exhibition) AS exhibition_key,
+            properties(exhibition) AS exhibition_properties,
+            locations
+        """,
+        exhibition_ids=exhibition_ids,
+    )
+
+    exhibition_context: dict[str, dict[str, Any]] = {}
+    for record in exhibition_records:
+        exhibition_properties = dict(
+            record["exhibition_properties"] or {}
+        )
+        exhibition_id = _clean_text(
+            record["exhibition_id"]
+        )
+        if not exhibition_id:
+            continue
+
+        exhibition_context[exhibition_id] = {
+            "id": _entity_id(
+                str(record["exhibition_key"]),
+                exhibition_properties,
+            ),
+            "name": _display_name(
+                exhibition_properties,
+                f"Exhibition {exhibition_id}",
+            ),
+            "year": _extract_year(
+                exhibition_properties
+            ),
+            "locations": json_safe(
+                record["locations"] or []
+            ),
+        }
+
+    artworks: list[dict[str, Any]] = []
+
+    for position, entry in enumerate(selected_entries):
+        exhibition_id = entry["exhibition_id"]
+        exhibition = exhibition_context.get(
+            exhibition_id,
+            {
+                "id": exhibition_id,
+                "name": f"Exhibition {exhibition_id}",
+                "year": None,
+                "locations": [],
+            },
+        )
+
+        catalogue_id = entry.get("catalogue_id") or None
+        title = entry.get("title") or ""
+        name = title or (
+            f"Catalogue item {catalogue_id}"
+            if catalogue_id
+            else "Untitled exhibited artwork"
+        )
+
+        record_id = (
+            entry.get("id")
+            or f"{artist_id}:{exhibition_id}:{catalogue_id or position}"
+        )
+
+        artworks.append({
+            "id": record_id,
+            "name": name,
+            "catalogue_id": catalogue_id,
+            "type": entry.get("type") or None,
+            "exhibition_id": exhibition["id"],
+            "exhibition_name": exhibition["name"],
+            "exhibition_year": exhibition["year"],
+            "locations": exhibition["locations"],
+        })
+
+    note = None
+    if truncated:
+        note = (
+            f"Showing the first {limit} recorded exhibited artworks. "
+            f"This Artist has {len(all_entries)} catalogue entries in total."
+        )
+
+    return artworks, note
+
+
 def fetch_artist_context(
         session: Any,
         artist_id: str,
@@ -345,6 +605,11 @@ def fetch_artist_context(
         artist_key,
     )
 
+    exhibited_artworks, exhibited_artworks_note = fetch_exhibited_artworks(
+        session,
+        artist_key,
+    )
+
     groups = json_safe(
         groups_record["groups"] if groups_record else []
     )
@@ -364,4 +629,6 @@ def fetch_artist_context(
         "items": items,
         "item_relationship_types": item_relationship_types,
         "items_note": items_note,
+        "exhibited_artworks": exhibited_artworks,
+        "exhibited_artworks_note": exhibited_artworks_note,
     }
