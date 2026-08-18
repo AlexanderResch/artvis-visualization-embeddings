@@ -31,11 +31,16 @@ import type {
 import type {
     ArtistEmbedding2D,
     GenderFilterValue,
+    GroupMembershipFilter,
 } from "../../types/embedding";
 
 import {
     ScentedList,
 } from "../filters/ScentedList";
+
+import {
+    matchesSearchTokens,
+} from "../../utils/search";
 
 
 const MAX_SEARCH_RESULTS = 100;
@@ -126,7 +131,10 @@ function ArtistClusterSearch({
                     .filter((artist) => {
                         const name = normalizeSearchText(artistLabel(artist));
                         const id = normalizeSearchText(artist.id);
-                        return name.includes(query) || id.includes(query);
+                        return matchesSearchTokens(
+                            `${name} ${id}`,
+                            query,
+                        );
                     })
                     .slice(0, MAX_SEARCH_RESULTS);
             }}
@@ -216,6 +224,10 @@ export function ClusterComparisonSidebar({
                                              onYearRangeChange,
                                              selectedGroupIds,
                                              onSelectedGroupIdsChange,
+                                             groupMembership,
+                                             onGroupMembershipChange,
+                                             selectedLocationIds,
+                                             onSelectedLocationIdsChange,
                                              onClusterAChange,
                                              onClusterBChange,
                                              onSwap,
@@ -240,12 +252,26 @@ export function ClusterComparisonSidebar({
     onYearRangeChange: (value: YearRange | null) => void;
     selectedGroupIds: string[];
     onSelectedGroupIdsChange: (value: string[]) => void;
+    groupMembership: GroupMembershipFilter;
+    onGroupMembershipChange: (value: GroupMembershipFilter) => void;
+    selectedLocationIds: string[];
+    onSelectedLocationIdsChange: (value: string[]) => void;
     onClusterAChange: (clusterId: number) => void;
     onClusterBChange: (clusterId: number | null) => void;
     onSwap: () => void;
     onResetComparison: () => void;
     onResetFilters: () => void;
 }) {
+    const [
+        groupSearchInput,
+        setGroupSearchInput,
+    ] = useState("");
+
+    const [
+        locationSearchInput,
+        setLocationSearchInput,
+    ] = useState("");
+
     const availableClusters = clusters
         .filter((cluster) => !cluster.is_noise)
         .sort((first, second) => first.cluster - second.cluster);
@@ -280,6 +306,69 @@ export function ClusterComparisonSidebar({
             second.count - first.count || first.label.localeCompare(second.label),
         );
     }, [inspectionA, inspectionB]);
+
+    const filteredGroupOptions = useMemo(
+        () =>
+            groupOptions.filter(
+                (group) =>
+                    matchesSearchTokens(
+                        `${group.label} ${group.id}`,
+                        groupSearchInput,
+                    ),
+            ),
+        [
+            groupOptions,
+            groupSearchInput,
+        ],
+    );
+
+    const locationOptions = useMemo(() => {
+        const byId = new Map<
+            string,
+            {
+                id: string;
+                label: string;
+                count: number;
+            }
+        >();
+
+        for (const inspection of [inspectionA, inspectionB]) {
+            for (const location of inspection?.location_composition ?? []) {
+                const current = byId.get(location.id);
+
+                byId.set(location.id, {
+                    id: location.id,
+                    label: location.name,
+                    count: (current?.count ?? 0) + location.artist_count,
+                });
+            }
+        }
+
+        return [...byId.values()].sort(
+            (first, second) =>
+                second.count - first.count
+                || first.label.localeCompare(
+                    second.label,
+                    undefined,
+                    { sensitivity: "base" },
+                ),
+        );
+    }, [inspectionA, inspectionB]);
+
+    const filteredLocationOptions = useMemo(
+        () =>
+            locationOptions.filter(
+                (location) =>
+                    matchesSearchTokens(
+                        `${location.label} ${location.id}`,
+                        locationSearchInput,
+                    ),
+            ),
+        [
+            locationOptions,
+            locationSearchInput,
+        ],
+    );
 
     return (
         <Box sx={{ p: 1.5 }}>
@@ -485,19 +574,100 @@ export function ClusterComparisonSidebar({
                 </Button>
             ) : null}
 
-            <Divider sx={{ my: 1.5 }} />
+            {groupOptions.length > 0 && (
+                <>
+                    <Divider sx={{ my: 1.5 }} />
 
-            <Typography variant="subtitle2" sx={{ fontWeight: 700 }} gutterBottom>
-                Artist groups
-            </Typography>
-            <ScentedList
-                items={groupOptions}
-                selectedIds={selectedGroupIds}
-                onToggle={(groupId) => onSelectedGroupIdsChange(
-                    toggle(selectedGroupIds, groupId),
-                )}
-                maxVisibleHeight={220}
-            />
+                    <Typography variant="subtitle2" sx={{ fontWeight: 700 }} gutterBottom>
+                        Artist groups
+                    </Typography>
+
+                    <TextField
+                        select
+                        fullWidth
+                        size="small"
+                        label="Artist group status"
+                        value={groupMembership}
+                        onChange={(event) => {
+                            const nextStatus = event.target.value as GroupMembershipFilter;
+                            onGroupMembershipChange(nextStatus);
+
+                            if (nextStatus === "not-member") {
+                                onSelectedGroupIdsChange([]);
+                            }
+                        }}
+                        sx={{ mb: 1 }}
+                    >
+                        <MenuItem value="all">All Artists</MenuItem>
+                        <MenuItem value="member">Member of a Group</MenuItem>
+                        <MenuItem value="not-member">Not Member of a Group</MenuItem>
+                    </TextField>
+
+                    {groupMembership !== "not-member" && (
+                        <>
+                            <TextField
+                                fullWidth
+                                size="small"
+                                label="Search Artist groups"
+                                placeholder="Type a Group name…"
+                                value={groupSearchInput}
+                                onChange={(event) =>
+                                    setGroupSearchInput(event.target.value)
+                                }
+                                sx={{ mb: 1 }}
+                            />
+
+                            <ScentedList
+                                items={filteredGroupOptions}
+                                selectedIds={selectedGroupIds}
+                                onToggle={(groupId) => {
+                                    onGroupMembershipChange("member");
+                                    onSelectedGroupIdsChange(
+                                        toggle(selectedGroupIds, groupId),
+                                    );
+                                }}
+                                maxVisibleHeight={220}
+                            />
+                        </>
+                    )}
+                </>
+            )}
+
+            {locationOptions.length > 0 && (
+                <>
+                    <Divider sx={{ my: 1.5 }} />
+
+                    <Typography variant="subtitle2" sx={{ fontWeight: 700 }} gutterBottom>
+                        Exhibition locations
+                    </Typography>
+
+                    <TextField
+                        fullWidth
+                        size="small"
+                        label="Search exhibition locations"
+                        placeholder="Type a location name…"
+                        value={locationSearchInput}
+                        onChange={(event) =>
+                            setLocationSearchInput(event.target.value)
+                        }
+                        sx={{ mb: 1 }}
+                    />
+
+                    <ScentedList
+                        items={filteredLocationOptions}
+                        selectedIds={selectedLocationIds}
+                        onToggle={(locationId) =>
+                            onSelectedLocationIdsChange(
+                                toggle(
+                                    selectedLocationIds,
+                                    locationId,
+                                ),
+                            )
+                        }
+                        maxVisibleHeight={220}
+                    />
+                </>
+            )}
 
             <Button
                 fullWidth

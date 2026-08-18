@@ -8,6 +8,7 @@ import type {
 
 import type {
     GenderFilterValue,
+    GroupMembershipFilter,
 } from "../types/embedding";
 
 export type ClusterInspectionFilters = {
@@ -17,6 +18,8 @@ export type ClusterInspectionFilters = {
     birthYearMin?: number | null;
     birthYearMax?: number | null;
     groupIds?: string[];
+    groupMembership?: GroupMembershipFilter;
+    locationIds?: string[];
 };
 
 
@@ -63,6 +66,21 @@ export function fetchClusterInspection(
 
     filters?.groupIds?.forEach(
         (groupId) => params.append("group_id", groupId),
+    );
+
+    if (
+        filters?.groupMembership
+        && filters.groupMembership !== "all"
+    ) {
+        params.set(
+            "group_membership",
+            filters.groupMembership,
+        );
+    }
+
+    filters?.locationIds?.forEach(
+        (locationId) =>
+            params.append("location_id", locationId),
     );
 
     const query = params.toString();

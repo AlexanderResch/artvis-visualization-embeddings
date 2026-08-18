@@ -29,7 +29,6 @@ import type {
 
 import {
     genderLabel,
-    inlierScore,
 } from "../../metrics/clusterMetrics";
 
 
@@ -62,11 +61,6 @@ function compareValues(
                     sensitivity: "base",
                 },
             );
-    }
-
-    if (key === "outlier_score") {
-        return inlierScore(first.outlier_score)
-            - inlierScore(second.outlier_score);
     }
 
     const firstValue =
@@ -301,7 +295,7 @@ export function ClusterArtistsTable({
 
                             <TableCell>
                                 {sortLabel(
-                                    "Inlier score",
+                                    "Outlier score",
                                     "outlier_score",
                                 )}
                             </TableCell>
@@ -442,9 +436,7 @@ export function ClusterArtistsTable({
                                         </TableCell>
 
                                         <TableCell>
-                                            {inlierScore(
-                                                artist.outlier_score,
-                                            ).toFixed(3)}
+                                            {artist.outlier_score.toFixed(3)}
                                         </TableCell>
 
                                         <TableCell>

@@ -38,6 +38,10 @@ import {
 } from "../../visualization/colors";
 
 import {
+    matchesSearchTokens,
+} from "../../utils/search";
+
+import {
     ScentedList,
 } from "./ScentedList";
 
@@ -316,6 +320,16 @@ export function FilterSidebar({
         setSearchOpen,
     ] = useState(false);
 
+    const [
+        groupSearchInput,
+        setGroupSearchInput,
+    ] = useState("");
+
+    const [
+        locationSearchInput,
+        setLocationSearchInput,
+    ] = useState("");
+
 
     const orderedArtists =
         useMemo(
@@ -512,6 +526,38 @@ export function FilterSidebar({
             [artists],
         );
 
+    const filteredGroupOptions =
+        useMemo(
+            () =>
+                options.groups.filter(
+                    (item) =>
+                        matchesSearchTokens(
+                            `${item.name} ${item.id}`,
+                            groupSearchInput,
+                        ),
+                ),
+            [
+                groupSearchInput,
+                options.groups,
+            ],
+        );
+
+
+    const filteredLocationOptions =
+        useMemo(
+            () =>
+                options.locations.filter(
+                    (item) =>
+                        matchesSearchTokens(
+                            `${item.name} ${item.id}`,
+                            locationSearchInput,
+                        ),
+                ),
+            [
+                locationSearchInput,
+                options.locations,
+            ],
+        );
 
     return (
         <Box
@@ -630,16 +676,9 @@ export function FilterSidebar({
                                         ),
                                     );
 
-                                return (
-                                    artistName.includes(
-                                        searchValue,
-                                    )
-                                    || artistId.includes(
-                                        searchValue,
-                                    )
-                                    || entity.includes(
-                                        searchValue,
-                                    )
+                                return matchesSearchTokens(
+                                    `${artistName} ${artistId} ${entity}`,
+                                    searchValue,
                                 );
                             },
                         )
@@ -936,7 +975,7 @@ export function FilterSidebar({
                     }
                 >
                     <FilterAccordionHeader
-                        title="Locations"
+                        title="Exhibition locations"
 
                         optionCount={
                             options
@@ -959,6 +998,18 @@ export function FilterSidebar({
                         pb: 1.25,
                     }}
                 >
+                    <TextField
+                        fullWidth
+                        size="small"
+                        label="Search exhibition locations"
+                        placeholder="Type a location name…"
+                        value={locationSearchInput}
+                        onChange={(event) =>
+                            setLocationSearchInput(event.target.value)
+                        }
+                        sx={{ mb: 1 }}
+                    />
+
                     <Typography
                         variant="caption"
 
@@ -977,7 +1028,7 @@ export function FilterSidebar({
 
                     <ScentedList
                         items={
-                            options.locations.map(
+                            filteredLocationOptions.map(
                                 (item) => ({
                                     id: item.id,
 
@@ -1350,9 +1401,12 @@ export function FilterSidebar({
                         }
 
                         selectedCount={
-                            explorer
-                                .selectedGroupIds
-                                .length
+                            explorer.selectedGroupIds.length
+                            + (
+                                explorer.groupMembership !== "all"
+                                    ? 1
+                                    : 0
+                            )
                         }
                     />
                 </AccordionSummary>
@@ -1364,58 +1418,78 @@ export function FilterSidebar({
                         pb: 1.25,
                     }}
                 >
-                    <Typography
-                        variant="caption"
+                    <TextField
+                        select
+                        fullWidth
+                        size="small"
+                        label="Artist group status"
+                        value={explorer.groupMembership}
+                        onChange={(event) => {
+                            const nextStatus = event.target.value as
+                                | "all"
+                                | "member"
+                                | "not-member";
 
-                        color="text.secondary"
+                            explorer.setGroupMembership(nextStatus);
 
-                        sx={{
-                            display: "block",
-                            mb: 1,
+                            if (nextStatus === "not-member") {
+                                explorer.setSelectedGroupIds([]);
+                            }
                         }}
+                        sx={{ mb: 1.25 }}
                     >
-                        Bar lengths indicate
-                        how many Artists are
-                        member of each
-                        Artist group.
-                    </Typography>
+                        <MenuItem value="all">All Artists</MenuItem>
+                        <MenuItem value="member">Member of a Group</MenuItem>
+                        <MenuItem value="not-member">Not Member of a Group</MenuItem>
+                    </TextField>
 
-                    <ScentedList
-                        items={
-                            options.groups.map(
-                                (item) => ({
-                                    id: item.id,
+                    {explorer.groupMembership !== "not-member" && (
+                        <>
+                            <TextField
+                                fullWidth
+                                size="small"
+                                label="Search Artist groups"
+                                placeholder="Type a Group name…"
+                                value={groupSearchInput}
+                                onChange={(event) =>
+                                    setGroupSearchInput(event.target.value)
+                                }
+                                sx={{ mb: 1 }}
+                            />
 
-                                    label:
-                                    item.name,
+                            <Typography
+                                variant="caption"
+                                color="text.secondary"
+                                sx={{
+                                    display: "block",
+                                    mb: 1,
+                                }}
+                            >
+                                Bar lengths indicate how many Artists are member of each Artist group.
+                            </Typography>
 
-                                    count:
-                                    item.artist_count,
-                                }),
-                            )
-                        }
-
-                        selectedIds={
-                            explorer
-                                .selectedGroupIds
-                        }
-
-                        onToggle={
-                            (id) =>
-                                explorer
-                                    .setSelectedGroupIds(
-                                        (current) =>
-                                            toggle(
-                                                current,
-                                                id,
-                                            ),
+                            <ScentedList
+                                items={
+                                    filteredGroupOptions.map(
+                                        (item) => ({
+                                            id: item.id,
+                                            label: item.name,
+                                            count: item.artist_count,
+                                        }),
                                     )
-                        }
-
-                        maxVisibleHeight={
-                            260
-                        }
-                    />
+                                }
+                                selectedIds={explorer.selectedGroupIds}
+                                onToggle={(id) => {
+                                    explorer.setGroupMembership("member");
+                                    explorer.setSelectedGroupIds(
+                                        (current) =>
+                                            toggle(current, id),
+                                    );
+                                }}
+                                maxVisibleHeight={260}
+                            />
+                        </>
+                    )}
 
                     {
                         explorer

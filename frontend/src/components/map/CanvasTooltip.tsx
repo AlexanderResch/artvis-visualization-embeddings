@@ -7,10 +7,6 @@ import type {
     ArtistEmbeddingBase
 } from "../../types/embedding";
 
-import {
-    inlierScore,
-} from "../../metrics/clusterMetrics";
-
 
 export type CanvasTooltipState = {
     left: number;
@@ -97,8 +93,8 @@ export function CanvasTooltip({
                 }}
                 color="text.secondary"
             >
-                Inlier score{" "}
-                {inlierScore(artist.outlier_score).toFixed(3)}
+                Outlier score{" "}
+                {artist.outlier_score.toFixed(3)}
             </Typography>
 
             <Typography

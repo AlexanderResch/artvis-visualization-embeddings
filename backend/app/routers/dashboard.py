@@ -480,6 +480,11 @@ def get_filtered_artist_ids(
         location: list[str] | None = Query(
             default=None
         ),
+
+        group_membership: str = Query(
+            default="all",
+            pattern="^(all|member|not-member)$",
+        ),
 ):
     selected_groups = (
             group or []
@@ -494,6 +499,22 @@ def get_filtered_artist_ids(
 
     WHERE
         artist.id IS NOT NULL
+
+        AND (
+            $group_membership = "all"
+            OR (
+                $group_membership = "member"
+                AND EXISTS {
+                    MATCH (artist)-[:MEMBER_OF]->(:Group)
+                }
+            )
+            OR (
+                $group_membership = "not-member"
+                AND NOT EXISTS {
+                    MATCH (artist)-[:MEMBER_OF]->(:Group)
+                }
+            )
+        )
 
         AND (
             size($group_ids) = 0
@@ -558,6 +579,10 @@ def get_filtered_artist_ids(
 
                 location_ids=(
                     selected_locations
+                ),
+
+                group_membership=(
+                    group_membership
                 ),
             )
         ]

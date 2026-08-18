@@ -5,6 +5,11 @@ export type ClusterStatusFilter =
     | "clustered"
     | "noise";
 
+export type GroupMembershipFilter =
+    | "all"
+    | "member"
+    | "not-member";
+
 export type GenderFilterValue =
     | "F"
     | "M"

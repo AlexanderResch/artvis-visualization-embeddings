@@ -14,6 +14,7 @@ import type {
 
 import {
     clusterColor,
+    clusterTextColor,
 } from "../../visualization/colors";
 
 
@@ -195,6 +196,7 @@ function RepresentativeList({
                     size="small"
                     label={title}
                     sx={{
+                        color: clusterTextColor(cluster),
                         backgroundColor: clusterColor(cluster),
                         fontWeight: 700,
                     }}
@@ -312,8 +314,9 @@ export function ClusterComparisonWorkspace({
             </Box>
 
             <Typography variant="caption" color="text.secondary">
-                Inlier score is shown as 1 minus the HDBSCAN outlier score.
-                Higher values mean a more typical position within the assigned cluster.
+                The HDBSCAN outlier score is shown directly. Lower values indicate
+                a more typical position within the assigned cluster, while higher
+                values indicate a more outlier-like position.
             </Typography>
         </Box>
     );

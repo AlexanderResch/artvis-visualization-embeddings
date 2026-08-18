@@ -10,6 +10,7 @@ import {
 import type {
     ClusterStatusFilter,
     GenderFilterValue,
+    GroupMembershipFilter,
     ViewMode,
 } from "../types/embedding";
 
@@ -26,6 +27,8 @@ type ExplorerContextValue = {
     setSelectedClusters: Dispatch<SetStateAction<number[]>>;
     selectedGroupIds: string[];
     setSelectedGroupIds: Dispatch<SetStateAction<string[]>>;
+    groupMembership: GroupMembershipFilter;
+    setGroupMembership: Dispatch<SetStateAction<GroupMembershipFilter>>;
     selectedLocationIds: string[];
     setSelectedLocationIds: Dispatch<SetStateAction<string[]>>;
     yearRange: YearRange | null;
@@ -49,6 +52,7 @@ export function ExplorerProvider({ children }: { children: ReactNode }) {
     const [selectedClusterId, setSelectedClusterId] = useState<number | null>(null);
     const [selectedClusters, setSelectedClusters] = useState<number[]>([]);
     const [selectedGroupIds, setSelectedGroupIds] = useState<string[]>([]);
+    const [groupMembership, setGroupMembership] = useState<GroupMembershipFilter>("all");
     const [selectedLocationIds, setSelectedLocationIds] = useState<string[]>([]);
     const [yearRange, setYearRange] = useState<YearRange | null>(null);
     const [clusterStatus, setClusterStatus] = useState<ClusterStatusFilter>("all");
@@ -68,6 +72,8 @@ export function ExplorerProvider({ children }: { children: ReactNode }) {
             setSelectedClusters,
             selectedGroupIds,
             setSelectedGroupIds,
+            groupMembership,
+            setGroupMembership,
             selectedLocationIds,
             setSelectedLocationIds,
             yearRange,
@@ -83,6 +89,7 @@ export function ExplorerProvider({ children }: { children: ReactNode }) {
             resetFilters: () => {
                 setSelectedClusters([]);
                 setSelectedGroupIds([]);
+                setGroupMembership("all");
                 setSelectedLocationIds([]);
                 setYearRange(null);
                 setClusterStatus("all");
@@ -100,6 +107,7 @@ export function ExplorerProvider({ children }: { children: ReactNode }) {
             selectedClusters,
             selectedGenders,
             selectedGroupIds,
+            groupMembership,
             selectedLocationIds,
             viewMode,
             yearRange,

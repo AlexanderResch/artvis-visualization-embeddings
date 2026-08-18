@@ -27,6 +27,10 @@ import {
     clusterTextColor,
 } from "../../visualization/colors";
 
+import {
+    matchesSearchTokens,
+} from "../../utils/search";
+
 
 const MAX_SEARCH_RESULTS = 75;
 
@@ -163,7 +167,8 @@ function ArtistSelector({
                                     `${artistLabel(artist)} ${artist.id} ${artist.entity}`,
                                 );
 
-                            return searchable.includes(
+                            return matchesSearchTokens(
+                                searchable,
                                 searchValue,
                             );
                         },

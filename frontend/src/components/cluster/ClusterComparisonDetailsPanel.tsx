@@ -10,10 +10,6 @@ import type {
 } from "../../types/cluster";
 
 import {
-    inlierScore,
-} from "../../metrics/clusterMetrics";
-
-import {
     clusterColor,
     clusterTextColor,
 } from "../../visualization/colors";
@@ -166,9 +162,9 @@ export function ClusterComparisonDetailsPanel({
                 valueB={inspectionB.artist_count > 0 ? statsB.mean_membership_probability.toFixed(3) : "N/A"}
             />
             <MetricRow
-                label="Mean inlier score"
-                valueA={inspectionA.artist_count > 0 ? inlierScore(statsA.mean_outlier_score).toFixed(3) : "N/A"}
-                valueB={inspectionB.artist_count > 0 ? inlierScore(statsB.mean_outlier_score).toFixed(3) : "N/A"}
+                label="Mean outlier score"
+                valueA={inspectionA.artist_count > 0 ? statsA.mean_outlier_score.toFixed(3) : "N/A"}
+                valueB={inspectionB.artist_count > 0 ? statsB.mean_outlier_score.toFixed(3) : "N/A"}
             />
             <MetricRow
                 label="Mean similarity to cluster center"

@@ -46,7 +46,6 @@ import {
 
 import {
     genderLabel,
-    inlierScore,
 } from "../../metrics/clusterMetrics";
 
 
@@ -281,6 +280,18 @@ export function ArtistDetailsPanel({
         ?? clusterArtist?.locations
         ?? [];
 
+    const sortedLocations =
+        [...locations].sort(
+            (first, second) =>
+                second.exhibition_count
+                - first.exhibition_count
+                || first.name.localeCompare(
+                    second.name,
+                    undefined,
+                    { sensitivity: "base" },
+                ),
+        );
+
     const exhibitionCount =
         artistContext?.exhibition_count
         ?? clusterArtist?.exhibition_count
@@ -392,9 +403,9 @@ export function ArtistDetailsPanel({
             />
 
             <StatRow
-                label="Inlier score"
+                label="Outlier score"
                 value={
-                    inlierScore(artist.outlier_score)
+                    artist.outlier_score
                         .toFixed(3)
                 }
             />
@@ -638,30 +649,63 @@ export function ArtistDetailsPanel({
                                 gap: 0.75,
                             }}
                         >
-                            {locations.map(
+                            {sortedLocations.map(
                                 (location) => (
                                     <Box
                                         key={location.id}
                                         sx={{
                                             display: "flex",
-                                            justifyContent:
-                                                "space-between",
+                                            alignItems: "center",
+                                            justifyContent: "space-between",
                                             gap: 1,
+                                            px: 1,
+                                            py: 0.85,
+                                            border: "1px solid",
+                                            borderColor: "divider",
+                                            borderRadius: 1.5,
+                                            backgroundColor: "background.paper",
                                         }}
                                     >
-                                        <Typography
-                                            variant="body2"
+                                        <Box
+                                            sx={{
+                                                minWidth: 0,
+                                            }}
                                         >
-                                            {location.name}
-                                        </Typography>
+                                            <Typography
+                                                variant="body2"
+                                                sx={{
+                                                    fontWeight: 700,
+                                                    lineHeight: 1.25,
+                                                }}
+                                                title={location.name}
+                                            >
+                                                {location.name}
+                                            </Typography>
 
-                                        <Typography
-                                            variant="caption"
-                                            color="text.secondary"
-                                        >
-                                            {location.exhibition_count.toLocaleString()}
-                                            {" exhibitions"}
-                                        </Typography>
+                                            <Typography
+                                                variant="caption"
+                                                color="text.secondary"
+                                            >
+                                                Exhibition location
+                                            </Typography>
+                                        </Box>
+
+                                        <Chip
+                                            size="small"
+                                            variant="outlined"
+                                            label={
+                                                `${location.exhibition_count.toLocaleString()} ${
+                                                    location.exhibition_count === 1
+                                                        ? "exhibition"
+                                                        : "exhibitions"
+                                                }`
+                                            }
+                                            sx={{
+                                                flexShrink: 0,
+                                                fontWeight: 700,
+                                                backgroundColor: "grey.50",
+                                            }}
+                                        />
                                     </Box>
                                 ),
                             )}

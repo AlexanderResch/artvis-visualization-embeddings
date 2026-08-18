@@ -25,10 +25,6 @@ import {
     ScentedMetricList,
 } from "./ScentedMetricList";
 
-import {
-    inlierScore,
-} from "../../metrics/clusterMetrics";
-
 
 function StatRow({
                      label,
@@ -315,11 +311,10 @@ export function ClusterDetailsPanel({
             />
 
             <StatRow
-                label="Mean inlier score"
+                label="Mean outlier score"
                 value={
-                    inlierScore(
-                        inspection.statistics.mean_outlier_score,
-                    ).toFixed(3)
+                    inspection.statistics.mean_outlier_score
+                        .toFixed(3)
                 }
             />
 

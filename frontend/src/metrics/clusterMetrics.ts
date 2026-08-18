@@ -7,14 +7,6 @@ export function clamp01(
     );
 }
 
-export function inlierScore(
-    outlierScore: number,
-): number {
-    return clamp01(
-        1 - outlierScore,
-    );
-}
-
 export function genderLabel(
     gender: string | null | undefined,
 ): string {

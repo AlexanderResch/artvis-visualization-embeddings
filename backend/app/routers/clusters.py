@@ -349,7 +349,7 @@ def _load_top_exhibitions(
         ]
 
 
-def _load_top_locations(
+def _load_location_composition(
         artist_ids: list[str],
         cluster_size: int,
 ) -> list[dict]:
@@ -373,47 +373,77 @@ def _load_top_locations(
         (location:Location)
 
     RETURN
-        toString(location.id)
-            AS id,
-
+        toString(location.id) AS id,
         coalesce(
             location.name,
             toString(location.id)
         ) AS name,
-
-        count(
-            DISTINCT artist
-        ) AS artist_count
+        count(DISTINCT artist) AS artist_count
 
     ORDER BY
         artist_count DESC,
         name
-
-    LIMIT $limit
     """
 
     with get_driver().session() as session:
         records = session.run(
             query,
             artist_ids=artist_ids,
-            limit=TOP_EXPLANATION_ITEMS,
         )
 
         return [
             {
                 "id": str(record["id"]),
                 "name": str(record["name"]),
-                "artist_count": int(
-                    record["artist_count"]
-                ),
+                "artist_count": int(record["artist_count"]),
                 "percentage": (
-                        int(record["artist_count"])
-                        / cluster_size
-                        * 100.0
+                    int(record["artist_count"])
+                    / cluster_size
+                    * 100.0
                 ),
             }
             for record in records
         ]
+
+
+def _artist_ids_matching_locations(
+        artist_ids: list[str],
+        location_ids: list[str],
+) -> set[str]:
+    if not artist_ids or not location_ids:
+        return set()
+
+    query = """
+    UNWIND $artist_ids AS requested_id
+
+    MATCH (artist:Artist)
+
+    WHERE
+        toString(artist.id) = requested_id
+
+    MATCH
+        (artist)
+        -[:EXHIBITED_AT]->
+        (:Exhibition)
+        -[:TOOK_PLACE_AT]->
+        (location:Location)
+
+    WHERE
+        toString(location.id) IN $location_ids
+
+    RETURN DISTINCT
+        requested_id AS artist_id
+    """
+
+    with get_driver().session() as session:
+        return {
+            str(record["artist_id"])
+            for record in session.run(
+                query,
+                artist_ids=artist_ids,
+                location_ids=location_ids,
+            )
+        }
 
 
 def _group_composition(
@@ -597,10 +627,12 @@ def _build_cluster_inspection(
         cluster_size,
     )
 
-    top_locations = _load_top_locations(
+    location_composition = _load_location_composition(
         artist_ids,
         cluster_size,
     )
+
+    top_locations = location_composition[:TOP_EXPLANATION_ITEMS]
 
     artists: list[dict] = []
 
@@ -828,6 +860,7 @@ def _build_cluster_inspection(
             )
         ),
         "group_composition": group_composition,
+        "location_composition": location_composition,
         "explanation": {
             "top_artvis_groups": (
                 group_composition[
@@ -931,6 +964,8 @@ def _filtered_cluster_inspection(
         birth_year_min: int | None,
         birth_year_max: int | None,
         group_ids: list[str] | None,
+        group_membership: str,
+        location_ids: list[str] | None,
 ) -> dict:
     selected_genders = {
         _normalized_gender(value)
@@ -940,6 +975,19 @@ def _filtered_cluster_inspection(
         str(value)
         for value in (group_ids or [])
     }
+    selected_location_ids = {
+        str(value)
+        for value in (location_ids or [])
+    }
+
+    matching_location_artist_ids = (
+        _artist_ids_matching_locations(
+            [artist["id"] for artist in base["artists"]],
+            sorted(selected_location_ids),
+        )
+        if selected_location_ids
+        else set()
+    )
 
     artists = []
 
@@ -970,14 +1018,28 @@ def _filtered_cluster_inspection(
         ):
             continue
 
+        artist_groups = artist.get("groups", [])
+
+        if group_membership == "member" and not artist_groups:
+            continue
+
+        if group_membership == "not-member" and artist_groups:
+            continue
+
         if selected_group_ids:
             artist_group_ids = {
                 str(group["id"])
-                for group in artist.get("groups", [])
+                for group in artist_groups
             }
 
             if not artist_group_ids.intersection(selected_group_ids):
                 continue
+
+        if (
+                selected_location_ids
+                and artist["id"] not in matching_location_artist_ids
+        ):
+            continue
 
         artists.append(artist)
 
@@ -998,12 +1060,17 @@ def _filtered_cluster_inspection(
             cluster_size,
         )
         top_exhibitions = _load_top_exhibitions(artist_ids, cluster_size)
-        top_locations = _load_top_locations(artist_ids, cluster_size)
+        location_composition = _load_location_composition(
+            artist_ids,
+            cluster_size,
+        )
+        top_locations = location_composition[:TOP_EXPLANATION_ITEMS]
     else:
         group_composition = []
         artists_with_group = 0
         artists_without_group = 0
         top_exhibitions = []
+        location_composition = []
         top_locations = []
 
     gender_counts = Counter(
@@ -1086,6 +1153,7 @@ def _filtered_cluster_inspection(
             pd.Series(birth_year_values, dtype="float64")
         ),
         "group_composition": group_composition,
+        "location_composition": location_composition,
         "explanation": {
             "top_artvis_groups": group_composition[:TOP_EXPLANATION_ITEMS],
             "top_exhibitions": top_exhibitions,
@@ -1112,6 +1180,11 @@ def get_cluster_inspection(
         birth_year_min: int | None = None,
         birth_year_max: int | None = None,
         group_id: list[str] | None = Query(default=None),
+        group_membership: str = Query(
+            default="all",
+            pattern="^(all|member|not-member)$",
+        ),
+        location_id: list[str] | None = Query(default=None),
 ):
     if not ARTIST_CLUSTERS_PATH.exists():
         raise HTTPException(
@@ -1148,6 +1221,8 @@ def get_cluster_inspection(
         or birth_year_min is not None
         or birth_year_max is not None
         or bool(group_id)
+        or group_membership != "all"
+        or bool(location_id)
     )
 
     if not has_filters:
@@ -1161,6 +1236,8 @@ def get_cluster_inspection(
         birth_year_min=birth_year_min,
         birth_year_max=birth_year_max,
         group_ids=group_id,
+        group_membership=group_membership,
+        location_ids=location_id,
     )
 
 

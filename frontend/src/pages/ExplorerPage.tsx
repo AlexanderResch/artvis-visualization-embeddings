@@ -148,6 +148,7 @@ import type {
     ArtistEmbedding2D,
     ArtistEmbedding3D,
     GenderFilterValue,
+    GroupMembershipFilter,
 } from "../types/embedding";
 
 
@@ -375,6 +376,16 @@ export function ExplorerPage() {
     ] = useState<string[]>([]);
 
     const [
+        clusterGroupMembership,
+        setClusterGroupMembership,
+    ] = useState<GroupMembershipFilter>("all");
+
+    const [
+        clusterLocationIds,
+        setClusterLocationIds,
+    ] = useState<string[]>([]);
+
+    const [
         clusterSelectedGenders,
         setClusterSelectedGenders,
     ] = useState<GenderFilterValue[]>([]);
@@ -397,6 +408,16 @@ export function ExplorerPage() {
     const [
         comparisonGroupIds,
         setComparisonGroupIds,
+    ] = useState<string[]>([]);
+
+    const [
+        comparisonGroupMembership,
+        setComparisonGroupMembership,
+    ] = useState<GroupMembershipFilter>("all");
+
+    const [
+        comparisonLocationIds,
+        setComparisonLocationIds,
     ] = useState<string[]>([]);
 
     const [
@@ -817,6 +838,7 @@ export function ExplorerPage() {
                     === 0
                     && explorer.selectedLocationIds.length
                     === 0
+                    && explorer.groupMembership === "all"
                 )
             ) {
                 setAllowedArtistIds(null);
@@ -829,6 +851,7 @@ export function ExplorerPage() {
             fetchFilteredArtistIds(
                 explorer.selectedGroupIds,
                 explorer.selectedLocationIds,
+                explorer.groupMembership,
                 controller.signal,
             )
                 .then(
@@ -859,6 +882,7 @@ export function ExplorerPage() {
         [
             explorer.selectedGroupIds,
             explorer.selectedLocationIds,
+            explorer.groupMembership,
             mode,
         ],
     );
@@ -871,6 +895,8 @@ export function ExplorerPage() {
             setClusterMinimumMembership(0);
             setClusterYearRange(null);
             setClusterGroupIds([]);
+            setClusterGroupMembership("all");
+            setClusterLocationIds([]);
             setClusterSelectedGenders([]);
             setClusterMinimumExhibitedItems(0);
             setShowSurroundingClusters(true);
@@ -1007,7 +1033,9 @@ export function ExplorerPage() {
                 || comparisonMinimumMembership > 0
                 || comparisonMinimumExhibitedItems > 0
                 || comparisonYearRange !== null
-                || comparisonGroupIds.length > 0;
+                || comparisonGroupIds.length > 0
+                || comparisonGroupMembership !== "all"
+                || comparisonLocationIds.length > 0;
 
             if (!hasFilters) {
                 setFilteredComparisonInspectionA(clusterInspection);
@@ -1028,6 +1056,8 @@ export function ExplorerPage() {
                     birthYearMin: comparisonYearRange?.[0] ?? null,
                     birthYearMax: comparisonYearRange?.[1] ?? null,
                     groupIds: comparisonGroupIds,
+                    groupMembership: comparisonGroupMembership,
+                    locationIds: comparisonLocationIds,
                 };
 
                 const requests = [
@@ -1085,6 +1115,8 @@ export function ExplorerPage() {
             comparisonClusterId,
             comparisonClusterInspection,
             comparisonGroupIds,
+            comparisonGroupMembership,
+            comparisonLocationIds,
             comparisonMinimumExhibitedItems,
             comparisonMinimumMembership,
             comparisonSelectedGenders,
@@ -1544,6 +1576,20 @@ export function ExplorerPage() {
                 }
 
                 if (
+                    clusterGroupMembership === "member"
+                    && artist.groups.length === 0
+                ) {
+                    return false;
+                }
+
+                if (
+                    clusterGroupMembership === "not-member"
+                    && artist.groups.length > 0
+                ) {
+                    return false;
+                }
+
+                if (
                     clusterGroupIds.length
                     && !artist.groups.some(
                         (group) =>
@@ -1555,10 +1601,24 @@ export function ExplorerPage() {
                     return false;
                 }
 
+                if (
+                    clusterLocationIds.length
+                    && !artist.locations.some(
+                        (location) =>
+                            clusterLocationIds.includes(
+                                location.id,
+                            ),
+                    )
+                ) {
+                    return false;
+                }
+
                 return true;
             },
             [
                 clusterGroupIds,
+                clusterGroupMembership,
+                clusterLocationIds,
                 clusterMinimumExhibitedItems,
                 clusterMinimumMembership,
                 clusterSelectedGenders,
@@ -1677,18 +1737,23 @@ export function ExplorerPage() {
                         inspectionB?.artists.map((artist) => artist.id) ?? [],
                     );
 
-                    return data2D.filter((artist) =>
-                        (
+                    return data2D.filter((artist) => {
+                        if (
                             selectedClusterId !== null
                             && artist.cluster === selectedClusterId
-                            && artistIdsA.has(artist.id)
-                        )
-                        || (
+                        ) {
+                            return artistIdsA.has(artist.id);
+                        }
+
+                        if (
                             comparisonClusterId !== null
                             && artist.cluster === comparisonClusterId
-                            && artistIdsB.has(artist.id)
-                        ),
-                    );
+                        ) {
+                            return artistIdsB.has(artist.id);
+                        }
+
+                        return true;
+                    });
                 }
 
                 if (mode === "compare") {
@@ -1786,18 +1851,23 @@ export function ExplorerPage() {
                         inspectionB?.artists.map((artist) => artist.id) ?? [],
                     );
 
-                    return data3D.filter((artist) =>
-                        (
+                    return data3D.filter((artist) => {
+                        if (
                             selectedClusterId !== null
                             && artist.cluster === selectedClusterId
-                            && artistIdsA.has(artist.id)
-                        )
-                        || (
+                        ) {
+                            return artistIdsA.has(artist.id);
+                        }
+
+                        if (
                             comparisonClusterId !== null
                             && artist.cluster === comparisonClusterId
-                            && artistIdsB.has(artist.id)
-                        ),
-                    );
+                        ) {
+                            return artistIdsB.has(artist.id);
+                        }
+
+                        return true;
+                    });
                 }
 
                 if (mode === "compare") {
@@ -1954,7 +2024,14 @@ export function ExplorerPage() {
         useMemo(
             () => {
                 if (mode === "cluster-compare") {
-                    return focusedData2D;
+                    return focusedData2D.filter(
+                        (artist) =>
+                            artist.cluster === selectedClusterId
+                            || (
+                                comparisonClusterId !== null
+                                && artist.cluster === comparisonClusterId
+                            ),
+                    );
                 }
 
                 if (mode === "compare") {
@@ -1978,11 +2055,13 @@ export function ExplorerPage() {
                 return [];
             },
             [
+                comparisonClusterId,
                 comparisonFocusData2D,
                 focusedData2D,
                 mode,
                 selectedArtist,
                 selectedClusterBoundary2D,
+                selectedClusterId,
             ],
         );
 
@@ -1990,7 +2069,14 @@ export function ExplorerPage() {
         useMemo(
             () => {
                 if (mode === "cluster-compare") {
-                    return focusedData3D ?? [];
+                    return (focusedData3D ?? []).filter(
+                        (artist) =>
+                            artist.cluster === selectedClusterId
+                            || (
+                                comparisonClusterId !== null
+                                && artist.cluster === comparisonClusterId
+                            ),
+                    );
                 }
 
                 if (mode === "compare") {
@@ -2030,6 +2116,7 @@ export function ExplorerPage() {
                 mode,
                 selectedArtist,
                 selectedClusterBoundary3D,
+                selectedClusterId,
             ],
         );
 
@@ -2139,6 +2226,8 @@ export function ExplorerPage() {
         setComparisonMinimumMembership(0);
         setComparisonYearRange(null);
         setComparisonGroupIds([]);
+        setComparisonGroupMembership("all");
+        setComparisonLocationIds([]);
         setComparisonSelectedGenders([]);
         setComparisonMinimumExhibitedItems(0);
     }
@@ -2247,6 +2336,19 @@ export function ExplorerPage() {
                     | ArtistEmbedding3D,
             ) => {
                 if (mode === "cluster-compare") {
+                    if (
+                        artist.is_noise
+                        || artist.cluster < 0
+                        || artist.cluster === selectedClusterId
+                    ) {
+                        return;
+                    }
+
+                    setComparisonClusterId(artist.cluster);
+                    setComparisonClusterInspection(null);
+                    setFilteredComparisonInspectionB(null);
+                    setClusterComparisonError(null);
+                    explorer.setSelectedArtistId(null);
                     return;
                 }
 
@@ -2282,6 +2384,7 @@ export function ExplorerPage() {
                 comparisonSelectionActive,
                 explorer,
                 mode,
+                selectedClusterId,
             ],
         );
 
@@ -2380,6 +2483,8 @@ export function ExplorerPage() {
         setClusterMinimumMembership(0);
         setClusterYearRange(null);
         setClusterGroupIds([]);
+        setClusterGroupMembership("all");
+        setClusterLocationIds([]);
         setClusterSelectedGenders([]);
         setClusterMinimumExhibitedItems(0);
         setShowSurroundingClusters(true);
@@ -2424,6 +2529,8 @@ export function ExplorerPage() {
         setClusterMinimumMembership(0);
         setClusterYearRange(null);
         setClusterGroupIds([]);
+        setClusterGroupMembership("all");
+        setClusterLocationIds([]);
         setClusterSelectedGenders([]);
         setClusterMinimumExhibitedItems(0);
         setShowSurroundingClusters(true);
@@ -2639,6 +2746,10 @@ export function ExplorerPage() {
                                     onYearRangeChange={setComparisonYearRange}
                                     selectedGroupIds={comparisonGroupIds}
                                     onSelectedGroupIdsChange={setComparisonGroupIds}
+                                    groupMembership={comparisonGroupMembership}
+                                    onGroupMembershipChange={setComparisonGroupMembership}
+                                    selectedLocationIds={comparisonLocationIds}
+                                    onSelectedLocationIdsChange={setComparisonLocationIds}
                                     onClusterAChange={changeComparisonClusterA}
                                     onClusterBChange={changeComparisonClusterB}
                                     onSwap={swapComparisonClusters}
@@ -2783,6 +2894,18 @@ export function ExplorerPage() {
                                                 onSelectedGroupIdsChange={
                                                     setClusterGroupIds
                                                 }
+                                                groupMembership={
+                                                    clusterGroupMembership
+                                                }
+                                                onGroupMembershipChange={
+                                                    setClusterGroupMembership
+                                                }
+                                                selectedLocationIds={
+                                                    clusterLocationIds
+                                                }
+                                                onSelectedLocationIdsChange={
+                                                    setClusterLocationIds
+                                                }
                                                 selectedGenders={
                                                     clusterSelectedGenders
                                                 }
@@ -2866,10 +2989,12 @@ export function ExplorerPage() {
                                 : []
                         }
                         dimNonHighlighted={
-                            mode !== "overview"
-                            && mode !== "compare"
-                            && mode !== "cluster-compare"
-                            && showSurroundingClusters
+                            mode === "cluster-compare"
+                            || (
+                                mode !== "overview"
+                                && mode !== "compare"
+                                && showSurroundingClusters
+                            )
                         }
                         comparisonArtistIds={
                             selectedArtist
@@ -2893,6 +3018,18 @@ export function ExplorerPage() {
                         onArtistClick={
                             selectArtist
                         }
+                        onClusterClick={
+                            mode === "cluster-compare"
+                                ? (clusterId) => {
+                                    if (
+                                        clusterId !== selectedClusterId
+                                        && clusterId >= 0
+                                    ) {
+                                        changeComparisonClusterB(clusterId);
+                                    }
+                                }
+                                : undefined
+                        }
                         legendPriorityClusterIds={
                             [
                                 selectedArtist?.cluster,
@@ -2910,7 +3047,7 @@ export function ExplorerPage() {
                             comparisonSelectionActive
                                 ? "Select a second Artist point to start the comparison."
                                 : mode === "cluster-compare"
-                                    ? "Only Artists from Cluster A and Cluster B are shown for direct spatial comparison."
+                                    ? "All clusters remain visible as context. Cluster A and Cluster B are outlined. Click an Artist in another cluster, or a cluster in the legend, to select Cluster B."
                                 : mode === "compare"
                                     ? "The compared Artists are marked as A and B and connected by a dashed line."
                                     : mode === "artist"

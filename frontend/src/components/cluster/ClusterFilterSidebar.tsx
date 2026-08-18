@@ -5,6 +5,7 @@ import {
     Chip,
     Divider,
     FormControlLabel,
+    MenuItem,
     Slider,
     Switch,
     TextField,
@@ -27,6 +28,7 @@ import type {
 } from "../../types/cluster";
 import type {
     GenderFilterValue,
+    GroupMembershipFilter,
 } from "../../types/embedding";
 
 import {
@@ -36,6 +38,10 @@ import {
 import {
     TimeHistogram,
 } from "../filters/TimeHistogram";
+
+import {
+    matchesSearchTokens,
+} from "../../utils/search";
 
 
 const MAX_SEARCH_RESULTS = 100;
@@ -103,6 +109,10 @@ export function ClusterFilterSidebar({
                                          onYearRangeChange,
                                          selectedGroupIds,
                                          onSelectedGroupIdsChange,
+                                         groupMembership,
+                                         onGroupMembershipChange,
+                                         selectedLocationIds,
+                                         onSelectedLocationIdsChange,
                                          selectedGenders,
                                          onSelectedGendersChange,
                                          minimumExhibitedItems,
@@ -121,6 +131,12 @@ export function ClusterFilterSidebar({
         (value: YearRange | null) => void;
     selectedGroupIds: string[];
     onSelectedGroupIdsChange:
+        (value: string[]) => void;
+    groupMembership: GroupMembershipFilter;
+    onGroupMembershipChange:
+        (value: GroupMembershipFilter) => void;
+    selectedLocationIds: string[];
+    onSelectedLocationIdsChange:
         (value: string[]) => void;
     selectedGenders: GenderFilterValue[];
     onSelectedGendersChange:
@@ -145,6 +161,16 @@ export function ClusterFilterSidebar({
         searchOpen,
         setSearchOpen,
     ] = useState(false);
+
+    const [
+        groupSearchInput,
+        setGroupSearchInput,
+    ] = useState("");
+
+    const [
+        locationSearchInput,
+        setLocationSearchInput,
+    ] = useState("");
 
     const orderedArtists =
         useMemo(
@@ -204,6 +230,39 @@ export function ClusterFilterSidebar({
             minimumYear,
             maximumYear,
         ];
+
+    const filteredGroupComposition =
+        useMemo(
+            () =>
+                inspection.group_composition.filter(
+                    (group) =>
+                        matchesSearchTokens(
+                            `${group.name} ${group.id}`,
+                            groupSearchInput,
+                        ),
+                ),
+            [
+                groupSearchInput,
+                inspection.group_composition,
+            ],
+        );
+
+    const hasLocationOptions =
+        inspection.location_composition.length > 0;
+
+    const locationOptions =
+        inspection.location_composition
+            .filter((location) =>
+                matchesSearchTokens(
+                    `${location.name} ${location.id}`,
+                    locationSearchInput,
+                ),
+            )
+            .map((location) => ({
+                id: location.id,
+                label: location.name,
+                count: location.artist_count,
+            }));
 
     return (
         <Box
@@ -286,9 +345,9 @@ export function ClusterFilterSidebar({
                                             artist.id,
                                         );
 
-                                    return (
-                                        name.includes(query)
-                                        || id.includes(query)
+                                    return matchesSearchTokens(
+                                        `${name} ${id}`,
+                                        query,
                                     );
                                 },
                             )
@@ -564,47 +623,125 @@ export function ClusterFilterSidebar({
                 }}
             />
 
-            <Typography
-                variant="subtitle2"
-                sx={{
-                    fontWeight: 700,
-                }}
-                gutterBottom
-            >
-                Artist groups in cluster
-            </Typography>
+            {inspection.group_composition.length > 0 && (
+                <>
+                    <Typography
+                        variant="subtitle2"
+                        sx={{
+                            fontWeight: 700,
+                        }}
+                        gutterBottom
+                    >
+                        Artist groups in cluster
+                    </Typography>
 
-            <ScentedList
-                items={
-                    inspection
-                        .group_composition
-                        .map(
-                            (group) => ({
-                                id: group.id,
-                                label: group.name,
-                                count:
-                                group.artist_count,
-                            }),
-                        )
-                }
-                selectedIds={selectedGroupIds}
-                onToggle={
-                    (groupId) =>
-                        onSelectedGroupIdsChange(
-                            toggle(
-                                selectedGroupIds,
-                                groupId,
-                            ),
-                        )
-                }
-                maxVisibleHeight={240}
-            />
+                    <TextField
+                        select
+                        fullWidth
+                        size="small"
+                        label="Artist group status"
+                        value={groupMembership}
+                        onChange={(event) => {
+                            const nextStatus = event.target.value as GroupMembershipFilter;
+                            onGroupMembershipChange(nextStatus);
 
-            <Divider
-                sx={{
-                    my: 2,
-                }}
-            />
+                            if (nextStatus === "not-member") {
+                                onSelectedGroupIdsChange([]);
+                            }
+                        }}
+                        sx={{ mb: 1 }}
+                    >
+                        <MenuItem value="all">All Artists</MenuItem>
+                        <MenuItem value="member">Member of a Group</MenuItem>
+                        <MenuItem value="not-member">Not Member of a Group</MenuItem>
+                    </TextField>
+
+                    {groupMembership !== "not-member" && (
+                        <>
+                            <TextField
+                                fullWidth
+                                size="small"
+                                label="Search Artist groups"
+                                placeholder="Type a Group name…"
+                                value={groupSearchInput}
+                                onChange={(event) =>
+                                    setGroupSearchInput(event.target.value)
+                                }
+                                sx={{ mb: 1 }}
+                            />
+
+                            <ScentedList
+                                items={
+                                    filteredGroupComposition.map(
+                                        (group) => ({
+                                            id: group.id,
+                                            label: group.name,
+                                            count: group.artist_count,
+                                        }),
+                                    )
+                                }
+                                selectedIds={selectedGroupIds}
+                                onToggle={(groupId) => {
+                                    onGroupMembershipChange("member");
+                                    onSelectedGroupIdsChange(
+                                        toggle(
+                                            selectedGroupIds,
+                                            groupId,
+                                        ),
+                                    );
+                                }}
+                                maxVisibleHeight={240}
+                            />
+                        </>
+                    )}
+
+                    <Divider
+                        sx={{
+                            my: 2,
+                        }}
+                    />
+                </>
+            )}
+
+            {hasLocationOptions && (
+                <>
+                    <Typography
+                        variant="subtitle2"
+                        sx={{ fontWeight: 700 }}
+                        gutterBottom
+                    >
+                        Exhibition locations in cluster
+                    </Typography>
+
+                    <TextField
+                        fullWidth
+                        size="small"
+                        label="Search exhibition locations"
+                        placeholder="Type a location name…"
+                        value={locationSearchInput}
+                        onChange={(event) =>
+                            setLocationSearchInput(event.target.value)
+                        }
+                        sx={{ mb: 1 }}
+                    />
+
+                    <ScentedList
+                        items={locationOptions}
+                        selectedIds={selectedLocationIds}
+                        onToggle={(locationId) =>
+                            onSelectedLocationIdsChange(
+                                toggle(
+                                    selectedLocationIds,
+                                    locationId,
+                                ),
+                            )
+                        }
+                        maxVisibleHeight={220}
+                    />
+
+                    <Divider sx={{ my: 2 }} />
+                </>
+            )}
 
             <FormControlLabel
                 control={

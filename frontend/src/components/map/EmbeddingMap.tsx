@@ -126,6 +126,7 @@ export function EmbeddingMap({
                                  focusData2D,
                                  focusData3D,
                                  onArtistClick,
+                                 onClusterClick,
                                  title = "Embedding cluster map",
                                  description,
                                  legendPriorityClusterIds = [],
@@ -151,6 +152,9 @@ export function EmbeddingMap({
         artist:
             ArtistEmbedding2D
             | ArtistEmbedding3D,
+    ) => void;
+    onClusterClick?: (
+        clusterId: number,
     ) => void;
     title?: string;
     description?: string;
@@ -557,6 +561,26 @@ export function EmbeddingMap({
                             return (
                                 <Box
                                     key={item.cluster}
+                                    role={onClusterClick ? "button" : undefined}
+                                    tabIndex={onClusterClick ? 0 : undefined}
+                                    onClick={
+                                        onClusterClick
+                                            ? () => onClusterClick(item.cluster)
+                                            : undefined
+                                    }
+                                    onKeyDown={
+                                        onClusterClick
+                                            ? (event) => {
+                                                if (
+                                                    event.key === "Enter"
+                                                    || event.key === " "
+                                                ) {
+                                                    event.preventDefault();
+                                                    onClusterClick(item.cluster);
+                                                }
+                                            }
+                                            : undefined
+                                    }
                                     sx={{
                                         display: "flex",
                                         alignItems: "center",
@@ -574,6 +598,9 @@ export function EmbeddingMap({
                                             ? "background.paper"
                                             : "transparent",
                                         whiteSpace: "nowrap",
+                                        cursor: onClusterClick
+                                            ? "pointer"
+                                            : "default",
                                     }}
                                 >
                                     <Box

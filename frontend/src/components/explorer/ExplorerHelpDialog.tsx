@@ -83,13 +83,13 @@ export function ExplorerHelpDialog({
                 <Divider />
 
                 <HelpSection title="Colors and cluster assignment">
-                    Colored Artist points are part of computed HDBSCAN clusters. Gray points are not part of a cluster and are shown as Noise. The detail panels use cluster assignment strength, inlier score, and similarity to the cluster center to describe an Artist's position within a cluster.
+                    Colored Artist points are part of computed HDBSCAN clusters. Gray points are not part of a cluster and are shown as Noise. The detail panels use cluster assignment strength, outlier score, and similarity to the cluster center to describe an Artist's position within a cluster.
                 </HelpSection>
 
                 <Divider />
 
                 <HelpSection title="How to read the cluster scores">
-                    Cluster assignment strength describes how strongly HDBSCAN assigns an Artist to the selected cluster. Inlier score is calculated as 1 minus the HDBSCAN outlier score, so higher values mean the Artist is more typical for the assigned cluster. Similarity to cluster center describes how similar the Artist embedding is to the center of its cluster. For all three values, higher values indicate a stronger or more typical cluster position.
+                    Cluster assignment strength describes how strongly HDBSCAN assigns an Artist to the selected cluster. Outlier score is the original HDBSCAN outlier score, where lower values indicate a more typical cluster position and higher values indicate a more outlier-like position. Similarity to cluster center describes how similar the Artist embedding is to the center of its cluster.
                 </HelpSection>
 
                 <Divider />
@@ -107,7 +107,7 @@ export function ExplorerHelpDialog({
                 <Divider />
 
                 <HelpSection title="Cluster comparison">
-                    Use Compare clusters to select Cluster A and Cluster B. The map then shows only those two clusters. The comparison panels show cluster size, gender distribution, exhibited artworks, Artist groups, exhibition locations, exhibitions, and representative Artists.
+                    Use Compare clusters to select Cluster A and Cluster B. The other clusters remain visible as spatial context, while A and B are outlined. You can select Cluster B from the sidebar, by searching for a known Artist, by clicking an Artist from another cluster on the map, or by clicking a cluster in the map legend. The comparison panels show cluster size, gender distribution, exhibited artworks, Artist groups, exhibition locations, exhibitions, and representative Artists.
                 </HelpSection>
 
                 <Divider />

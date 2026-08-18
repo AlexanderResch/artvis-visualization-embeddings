@@ -437,7 +437,7 @@ export function ExplorerHeader({
                                 variant="outlined"
                                 onClick={onStartComparison}
                             >
-                                Compare
+                                Compare Artists
                             </Button>
                         )}
 

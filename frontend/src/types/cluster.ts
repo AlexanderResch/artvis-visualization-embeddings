@@ -81,6 +81,9 @@ export type ClusterInspection = {
     group_composition:
         ClusterEvidenceItem[];
 
+    location_composition:
+        ClusterEvidenceItem[];
+
     explanation: {
         top_artvis_groups:
             ClusterEvidenceItem[];
