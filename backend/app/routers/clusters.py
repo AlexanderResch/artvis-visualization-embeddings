@@ -3,7 +3,7 @@ from functools import lru_cache
 
 import numpy as np
 import pandas as pd
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, HTTPException, Query
 
 from app.db import get_driver
 from app.ml.config import (
@@ -889,11 +889,229 @@ def get_clusters():
     return response
 
 
+def _normalized_gender(value: str | None) -> str:
+    normalized = (value or "").strip().upper()
+
+    if normalized == "F":
+        return "F"
+
+    if normalized == "M":
+        return "M"
+
+    return "UNKNOWN"
+
+
+def _year_summary(values: list[int | None]) -> dict:
+    clean = np.asarray(
+        [value for value in values if value is not None],
+        dtype=np.float64,
+    )
+
+    if len(clean) == 0:
+        return {
+            "count": 0,
+            "minimum": None,
+            "median": None,
+            "maximum": None,
+        }
+
+    return {
+        "count": int(len(clean)),
+        "minimum": int(clean.min()),
+        "median": float(np.median(clean)),
+        "maximum": int(clean.max()),
+    }
+
+
+def _filtered_cluster_inspection(
+        base: dict,
+        genders: list[str] | None,
+        minimum_membership: float,
+        minimum_exhibited_items: int,
+        birth_year_min: int | None,
+        birth_year_max: int | None,
+        group_ids: list[str] | None,
+) -> dict:
+    selected_genders = {
+        _normalized_gender(value)
+        for value in (genders or [])
+    }
+    selected_group_ids = {
+        str(value)
+        for value in (group_ids or [])
+    }
+
+    artists = []
+
+    for artist in base["artists"]:
+        if artist["membership_probability"] < minimum_membership:
+            continue
+
+        if artist["exhibited_item_count"] < minimum_exhibited_items:
+            continue
+
+        if selected_genders and (
+                _normalized_gender(artist.get("gender"))
+                not in selected_genders
+        ):
+            continue
+
+        birth_year = artist.get("birth_year")
+
+        if birth_year_min is not None and (
+                birth_year is None
+                or birth_year < birth_year_min
+        ):
+            continue
+
+        if birth_year_max is not None and (
+                birth_year is None
+                or birth_year > birth_year_max
+        ):
+            continue
+
+        if selected_group_ids:
+            artist_group_ids = {
+                str(group["id"])
+                for group in artist.get("groups", [])
+            }
+
+            if not artist_group_ids.intersection(selected_group_ids):
+                continue
+
+        artists.append(artist)
+
+    cluster_size = len(artists)
+    artist_ids = [artist["id"] for artist in artists]
+    group_memberships = {
+        artist["id"]: artist.get("groups", [])
+        for artist in artists
+    }
+
+    if cluster_size > 0:
+        (
+            group_composition,
+            artists_with_group,
+            artists_without_group,
+        ) = _group_composition(
+            group_memberships,
+            cluster_size,
+        )
+        top_exhibitions = _load_top_exhibitions(artist_ids, cluster_size)
+        top_locations = _load_top_locations(artist_ids, cluster_size)
+    else:
+        group_composition = []
+        artists_with_group = 0
+        artists_without_group = 0
+        top_exhibitions = []
+        top_locations = []
+
+    gender_counts = Counter(
+        _normalized_gender(artist.get("gender"))
+        for artist in artists
+    )
+    exhibited_item_counts = np.asarray(
+        [artist["exhibited_item_count"] for artist in artists],
+        dtype=np.float64,
+    )
+    memberships = np.asarray(
+        [artist["membership_probability"] for artist in artists],
+        dtype=np.float64,
+    )
+    outlier_scores = np.asarray(
+        [artist["outlier_score"] for artist in artists],
+        dtype=np.float64,
+    )
+    center_similarities = np.asarray(
+        [artist["similarity_to_centroid"] for artist in artists],
+        dtype=np.float64,
+    )
+
+    representative_artists = [
+        {
+            "id": artist["id"],
+            "display_name": artist["display_name"],
+            "similarity_to_centroid": artist["similarity_to_centroid"],
+            "membership_probability": artist["membership_probability"],
+        }
+        for artist in artists[:REPRESENTATIVE_ARTISTS]
+    ]
+    birth_year_values = [artist.get("birth_year") for artist in artists]
+    death_year_values = [artist.get("death_year") for artist in artists]
+
+    return {
+        "cluster": base["cluster"],
+        "artist_count": cluster_size,
+        "statistics": {
+            "mean_membership_probability": (
+                float(memberships.mean()) if len(memberships) else 0.0
+            ),
+            "mean_outlier_score": (
+                float(outlier_scores.mean()) if len(outlier_scores) else 0.0
+            ),
+            "mean_similarity_to_centroid": (
+                float(center_similarities.mean())
+                if len(center_similarities)
+                else 0.0
+            ),
+            "birth_year": _year_summary(birth_year_values),
+            "death_year": _year_summary(death_year_values),
+            "artists_with_recorded_group": artists_with_group,
+            "artists_without_recorded_group": artists_without_group,
+            "gender_counts": {
+                "female": int(gender_counts.get("F", 0)),
+                "male": int(gender_counts.get("M", 0)),
+                "unknown": int(gender_counts.get("UNKNOWN", 0)),
+            },
+            "exhibited_items": {
+                "total": int(exhibited_item_counts.sum()),
+                "median": (
+                    float(np.median(exhibited_item_counts))
+                    if len(exhibited_item_counts)
+                    else 0.0
+                ),
+                "mean": (
+                    float(exhibited_item_counts.mean())
+                    if len(exhibited_item_counts)
+                    else 0.0
+                ),
+                "maximum": (
+                    int(exhibited_item_counts.max())
+                    if len(exhibited_item_counts)
+                    else 0
+                ),
+            },
+        },
+        "birth_year_histogram": _birth_year_histogram(
+            pd.Series(birth_year_values, dtype="float64")
+        ),
+        "group_composition": group_composition,
+        "explanation": {
+            "top_artvis_groups": group_composition[:TOP_EXPLANATION_ITEMS],
+            "top_exhibitions": top_exhibitions,
+            "top_locations": top_locations,
+            "representative_artists": representative_artists,
+            "note": (
+                "These values are descriptive graph-based evidence for "
+                "the filtered cluster population. They do not constitute "
+                "a causal explanation of the embedding model."
+            ),
+        },
+        "artists": artists,
+    }
+
+
 @router.get(
     "/{cluster_id}/inspection"
 )
 def get_cluster_inspection(
         cluster_id: int,
+        gender: list[str] | None = Query(default=None),
+        minimum_membership: float = 0.0,
+        minimum_exhibited_items: int = 0,
+        birth_year_min: int | None = None,
+        birth_year_max: int | None = None,
+        group_id: list[str] | None = Query(default=None),
 ):
     if not ARTIST_CLUSTERS_PATH.exists():
         raise HTTPException(
@@ -913,7 +1131,7 @@ def get_cluster_inspection(
             ),
         )
 
-    return _build_cluster_inspection(
+    base = _build_cluster_inspection(
         cluster_id,
         ARTIST_CLUSTERS_PATH
         .stat()
@@ -921,7 +1139,29 @@ def get_cluster_inspection(
         ARTIST_EMBEDDINGS_PATH
         .stat()
         .st_mtime,
-        )
+    )
+
+    has_filters = (
+        bool(gender)
+        or minimum_membership > 0
+        or minimum_exhibited_items > 0
+        or birth_year_min is not None
+        or birth_year_max is not None
+        or bool(group_id)
+    )
+
+    if not has_filters:
+        return base
+
+    return _filtered_cluster_inspection(
+        base=base,
+        genders=gender,
+        minimum_membership=max(0.0, min(1.0, minimum_membership)),
+        minimum_exhibited_items=max(0, minimum_exhibited_items),
+        birth_year_min=birth_year_min,
+        birth_year_max=birth_year_max,
+        group_ids=group_id,
+    )
 
 
 @router.get("/{cluster_id}")

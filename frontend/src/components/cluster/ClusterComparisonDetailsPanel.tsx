@@ -73,9 +73,13 @@ function MetricRow({
 export function ClusterComparisonDetailsPanel({
                                                   inspectionA,
                                                   inspectionB,
+                                                  fullArtistCountA,
+                                                  fullArtistCountB,
                                               }: {
     inspectionA: ClusterInspection | null;
     inspectionB: ClusterInspection | null;
+    fullArtistCountA: number;
+    fullArtistCountB: number;
 }) {
     if (!inspectionA) {
         return (
@@ -144,24 +148,32 @@ export function ClusterComparisonDetailsPanel({
             </Box>
 
             <MetricRow
-                label="Artists"
-                valueA={inspectionA.artist_count.toLocaleString()}
-                valueB={inspectionB.artist_count.toLocaleString()}
+                label="Artists shown"
+                valueA={
+                    fullArtistCountA > 0
+                        ? `${inspectionA.artist_count.toLocaleString()} / ${fullArtistCountA.toLocaleString()}`
+                        : inspectionA.artist_count.toLocaleString()
+                }
+                valueB={
+                    fullArtistCountB > 0
+                        ? `${inspectionB.artist_count.toLocaleString()} / ${fullArtistCountB.toLocaleString()}`
+                        : inspectionB.artist_count.toLocaleString()
+                }
             />
             <MetricRow
                 label="Mean cluster assignment strength"
-                valueA={statsA.mean_membership_probability.toFixed(3)}
-                valueB={statsB.mean_membership_probability.toFixed(3)}
+                valueA={inspectionA.artist_count > 0 ? statsA.mean_membership_probability.toFixed(3) : "N/A"}
+                valueB={inspectionB.artist_count > 0 ? statsB.mean_membership_probability.toFixed(3) : "N/A"}
             />
             <MetricRow
                 label="Mean inlier score"
-                valueA={inlierScore(statsA.mean_outlier_score).toFixed(3)}
-                valueB={inlierScore(statsB.mean_outlier_score).toFixed(3)}
+                valueA={inspectionA.artist_count > 0 ? inlierScore(statsA.mean_outlier_score).toFixed(3) : "N/A"}
+                valueB={inspectionB.artist_count > 0 ? inlierScore(statsB.mean_outlier_score).toFixed(3) : "N/A"}
             />
             <MetricRow
                 label="Mean similarity to cluster center"
-                valueA={statsA.mean_similarity_to_centroid.toFixed(3)}
-                valueB={statsB.mean_similarity_to_centroid.toFixed(3)}
+                valueA={inspectionA.artist_count > 0 ? statsA.mean_similarity_to_centroid.toFixed(3) : "N/A"}
+                valueB={inspectionB.artist_count > 0 ? statsB.mean_similarity_to_centroid.toFixed(3) : "N/A"}
             />
             <MetricRow
                 label="Median birth year"
@@ -190,8 +202,8 @@ export function ClusterComparisonDetailsPanel({
             />
             <MetricRow
                 label="Median exhibited artworks per Artist"
-                valueA={statsA.exhibited_items.median.toFixed(1)}
-                valueB={statsB.exhibited_items.median.toFixed(1)}
+                valueA={inspectionA.artist_count > 0 ? statsA.exhibited_items.median.toFixed(1) : "N/A"}
+                valueB={inspectionB.artist_count > 0 ? statsB.exhibited_items.median.toFixed(1) : "N/A"}
             />
             <MetricRow
                 label="Artists with recorded artist group"

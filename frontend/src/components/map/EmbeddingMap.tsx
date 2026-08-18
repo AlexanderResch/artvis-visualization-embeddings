@@ -117,6 +117,9 @@ export function EmbeddingMap({
                                  highlightClusterId = null,
                                  highlightBoundaryData2D,
                                  highlightBoundaryData3D,
+                                 additionalHighlightClusterIds = [],
+                                 additionalHighlightBoundaryData2D,
+                                 additionalHighlightBoundaryData3D,
                                  dimNonHighlighted = false,
                                  comparisonArtistIds = null,
                                  dimNonCompared = false,
@@ -135,6 +138,9 @@ export function EmbeddingMap({
     highlightClusterId?: number | null;
     highlightBoundaryData2D?: ArtistEmbedding2D[];
     highlightBoundaryData3D?: ArtistEmbedding3D[];
+    additionalHighlightClusterIds?: number[];
+    additionalHighlightBoundaryData2D?: ArtistEmbedding2D[];
+    additionalHighlightBoundaryData3D?: ArtistEmbedding3D[];
     dimNonHighlighted?: boolean;
     comparisonArtistIds?:
         [string, string] | null;
@@ -661,6 +667,12 @@ export function EmbeddingMap({
                             highlightClusterId={
                                 highlightClusterId
                             }
+                            additionalHighlightClusterIds={
+                                additionalHighlightClusterIds
+                            }
+                            additionalHighlightBoundaryData={
+                                additionalHighlightBoundaryData2D
+                            }
                             dimNonHighlighted={
                                 dimNonHighlighted
                             }
@@ -731,6 +743,12 @@ export function EmbeddingMap({
                                         }
                                         highlightClusterId={
                                             highlightClusterId
+                                        }
+                                        additionalHighlightClusterIds={
+                                            additionalHighlightClusterIds
+                                        }
+                                        additionalHighlightBoundaryData={
+                                            additionalHighlightBoundaryData3D
                                         }
                                         dimNonHighlighted={
                                             dimNonHighlighted

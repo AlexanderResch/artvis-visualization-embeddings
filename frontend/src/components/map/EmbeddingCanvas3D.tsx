@@ -154,7 +154,7 @@ function drawArtistLabels(
     projected: ProjectedPoint[],
     size: CanvasSize,
     selectedArtistId: string | null,
-    highlightClusterId: number | null,
+    highlightClusterIds: number[],
     zoom: number,
 ) {
     const detailMode = zoom >= 3.2;
@@ -187,9 +187,10 @@ function drawArtistLabels(
                         return false;
                     }
 
-                    return highlightClusterId === null
-                        || point.artist.cluster
-                        === highlightClusterId;
+                    return highlightClusterIds.length === 0
+                        || highlightClusterIds.includes(
+                            point.artist.cluster,
+                        );
                 },
             )
             .sort(
@@ -595,6 +596,8 @@ export default function EmbeddingCanvas3D({
                                               data,
                                               highlightBoundaryData,
                                               highlightClusterId = null,
+                                              additionalHighlightClusterIds = [],
+                                              additionalHighlightBoundaryData,
                                               dimNonHighlighted = false,
                                               comparisonArtistIds = null,
                                               dimNonCompared = false,
@@ -609,6 +612,8 @@ export default function EmbeddingCanvas3D({
         ArtistEmbedding3D[];
     highlightClusterId?:
         number | null;
+    additionalHighlightClusterIds?: number[];
+    additionalHighlightBoundaryData?: ArtistEmbedding3D[];
     dimNonHighlighted?: boolean;
     comparisonArtistIds?:
         [string, string] | null;
@@ -696,12 +701,34 @@ export default function EmbeddingCanvas3D({
         "rotate",
     );
 
+    const highlightedClusterIds =
+        useMemo(
+            () => {
+                const result: number[] = [];
+
+                if (highlightClusterId !== null && highlightClusterId >= 0) {
+                    result.push(highlightClusterId);
+                }
+
+                for (const clusterId of additionalHighlightClusterIds) {
+                    if (clusterId >= 0 && !result.includes(clusterId)) {
+                        result.push(clusterId);
+                    }
+                }
+
+                return result;
+            },
+            [additionalHighlightClusterIds, highlightClusterId],
+        );
+
+
     const normalizedData =
         useMemo(
             () => {
-                const boundarySource =
-                    highlightBoundaryData
-                    ?? [];
+                const boundarySource = [
+                    ...(highlightBoundaryData ?? []),
+                    ...(additionalHighlightBoundaryData ?? []),
+                ];
 
                 const focusSource =
                     focusData
@@ -764,15 +791,7 @@ export default function EmbeddingCanvas3D({
                         data.map(normalize),
 
                     boundaryPoints:
-                        boundarySource
-                            .filter(
-                                (artist) =>
-                                    highlightClusterId
-                                    === null
-                                    || artist.cluster
-                                    === highlightClusterId,
-                            )
-                            .map(normalize),
+                        boundarySource.map(normalize),
 
                     focusPoints:
                         focusSource.map(
@@ -781,10 +800,10 @@ export default function EmbeddingCanvas3D({
                 };
             },
             [
+                additionalHighlightBoundaryData,
                 data,
                 focusData,
                 highlightBoundaryData,
-                highlightClusterId,
             ],
         );
 
@@ -911,11 +930,15 @@ export default function EmbeddingCanvas3D({
                     }
                 }
 
-                const projectedBoundary =
-                    normalizedData.boundaryPoints.map(
-                        (point) => {
-                            const projectedPoint =
-                                projectPoint(
+                for (const clusterId of highlightedClusterIds) {
+                    const projectedBoundary =
+                        normalizedData.boundaryPoints
+                            .filter(
+                                (point) =>
+                                    point.artist.cluster === clusterId,
+                            )
+                            .map((point) => {
+                                const projectedPoint = projectPoint(
                                     point,
                                     currentSize,
                                     rotation,
@@ -923,24 +946,19 @@ export default function EmbeddingCanvas3D({
                                     pan,
                                 );
 
-                            return {
-                                screenX:
-                                projectedPoint.screenX,
-                                screenY:
-                                projectedPoint.screenY,
-                            };
-                        },
-                    );
+                                return {
+                                    screenX: projectedPoint.screenX,
+                                    screenY: projectedPoint.screenY,
+                                };
+                            });
 
-                if (
-                    highlightClusterId !== null
-                ) {
                     drawClusterBoundary(
                         context,
                         projectedBoundary,
-                        highlightClusterId,
+                        clusterId,
                     );
                 }
+
 
                 if (comparisonArtistIds) {
                     const firstComparisonPoint =
@@ -1008,14 +1026,14 @@ export default function EmbeddingCanvas3D({
                         }
 
                         const firstHighlighted =
-                            highlightClusterId !== null
-                            && first.artist.cluster
-                            === highlightClusterId;
+                            highlightedClusterIds.includes(
+                                first.artist.cluster,
+                            );
 
                         const secondHighlighted =
-                            highlightClusterId !== null
-                            && second.artist.cluster
-                            === highlightClusterId;
+                            highlightedClusterIds.includes(
+                                second.artist.cluster,
+                            );
 
                         if (
                             firstHighlighted
@@ -1055,14 +1073,14 @@ export default function EmbeddingCanvas3D({
                         || compared;
 
                     const highlighted =
-                        highlightClusterId !== null
-                        && point.artist.cluster
-                        === highlightClusterId;
+                        highlightedClusterIds.includes(
+                            point.artist.cluster,
+                        );
 
                     const dimmed =
                         (
                             dimNonHighlighted
-                            && highlightClusterId !== null
+                            && highlightedClusterIds.length > 0
                             && !highlighted
                         )
                         || (
@@ -1221,7 +1239,7 @@ export default function EmbeddingCanvas3D({
                     projected,
                     currentSize,
                     explorer.selectedArtistId,
-                    highlightClusterId,
+                    highlightedClusterIds,
                     zoom,
                 );
 
@@ -1256,7 +1274,7 @@ export default function EmbeddingCanvas3D({
                 dimNonCompared,
                 dimNonHighlighted,
                 explorer.selectedArtistId,
-                highlightClusterId,
+                highlightedClusterIds,
                 interactionMode,
                 normalizedData,
                 onVisibleClustersChange,
@@ -1317,7 +1335,7 @@ export default function EmbeddingCanvas3D({
         [
             data,
             explorer.selectedArtistId,
-            highlightClusterId,
+            highlightedClusterIds,
             scheduleDraw,
         ],
     );

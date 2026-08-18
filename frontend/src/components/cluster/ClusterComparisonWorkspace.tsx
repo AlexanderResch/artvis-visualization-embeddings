@@ -231,11 +231,15 @@ function RepresentativeList({
 export function ClusterComparisonWorkspace({
                                                inspectionA,
                                                inspectionB,
+                                               fullArtistCountA,
+                                               fullArtistCountB,
                                                loading,
                                                error,
                                            }: {
     inspectionA: ClusterInspection | null;
     inspectionB: ClusterInspection | null;
+    fullArtistCountA: number;
+    fullArtistCountB: number;
     loading: boolean;
     error: string | null;
 }) {
@@ -254,8 +258,11 @@ export function ClusterComparisonWorkspace({
     return (
         <Box sx={{ display: "grid", gap: 1.5, p: 1.5 }}>
             <Typography variant="body2" color="text.secondary">
-                Percentages use the full Artist population of each cluster.
-                A positive difference means the category is more frequent in Cluster A.
+                Comparison based on the currently filtered Artists: Cluster A shows
+                {` ${inspectionA.artist_count.toLocaleString()} of ${(fullArtistCountA || inspectionA.artist_count).toLocaleString()} Artists`}
+                {" and Cluster B shows "}
+                {`${inspectionB.artist_count.toLocaleString()} of ${(fullArtistCountB || inspectionB.artist_count).toLocaleString()} Artists.`}
+                {" A positive difference means the category is more frequent in Cluster A."}
             </Typography>
 
             <EvidenceComparison
