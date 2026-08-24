@@ -2,7 +2,6 @@ import {
     Box,
     Breadcrumbs,
     Button,
-    Chip,
     MenuItem,
     TextField,
     Typography,
@@ -21,11 +20,6 @@ import type {
 } from "../../types/embedding";
 
 import {
-    clusterColor,
-    clusterTextColor,
-} from "../../visualization/colors";
-
-import {
     ExplorerHelpDialog,
 } from "./ExplorerHelpDialog";
 
@@ -38,31 +32,12 @@ export type ExplorerMode =
     | "cluster-compare";
 
 
-function artistLabel(
-    artist: ArtistEmbedding2D | null,
-): string {
-    if (!artist) {
-        return "Selected Artist";
-    }
-
-    const displayName =
-        typeof artist.display_name === "string"
-            ? artist.display_name.trim()
-            : "";
-
-    return displayName
-        || artist.entity
-        || "Unknown Artist";
-}
-
-
 export function ExplorerHeader({
                                    mode,
                                    clusters,
                                    selectedClusterId,
                                    selectedArtist,
                                    comparisonArtist,
-                                   comparisonClusterId,
                                    comparisonSelectionActive,
                                    onShowOverview,
                                    onShowCluster,
@@ -170,57 +145,19 @@ export function ExplorerHeader({
                             Overview
                         </Button>
 
-                        {mode !== "overview"
-                            && mode !== "compare"
-                            && mode !== "cluster-compare"
-                            && validSelectedClusterId !== null && (
-                                <Button
-                                    size="small"
-                                    onClick={onShowCluster}
-                                    sx={{
-                                        minWidth: 0,
-                                        px: 0,
-                                        textTransform: "none",
-                                    }}
-                                >
-                                    Cluster {validSelectedClusterId}
-                                </Button>
-                            )}
-
-                        {mode === "artist"
-                            && selectedArtist && (
-                                <Typography
-                                    variant="body2"
-                                    color="text.primary"
-                                    noWrap
-                                    sx={{ maxWidth: 320 }}
-                                >
-                                    {artistLabel(selectedArtist)}
-                                </Typography>
-                            )}
-
-                        {mode === "compare" && (
-                            <Typography
-                                variant="body2"
-                                color="text.primary"
-                                noWrap
-                                sx={{ maxWidth: 420 }}
-                            >
-                                {artistLabel(selectedArtist)}
-                                {" ↔ "}
-                                {artistLabel(comparisonArtist)}
-                            </Typography>
-                        )}
-
-                        {mode === "cluster-compare" && (
+                        {mode !== "overview" && (
                             <Typography
                                 variant="body2"
                                 color="text.primary"
                                 noWrap
                             >
-                                Cluster {validSelectedClusterId ?? "?"}
-                                {" ↔ "}
-                                Cluster {comparisonClusterId ?? "?"}
+                                {mode === "cluster"
+                                    ? "Cluster inspection"
+                                    : mode === "artist"
+                                        ? "Artist inspection"
+                                        : mode === "compare"
+                                            ? "Artist comparison"
+                                            : "Cluster comparison"}
                             </Typography>
                         )}
                     </Breadcrumbs>
@@ -243,103 +180,6 @@ export function ExplorerHeader({
                         flexShrink: 0,
                     }}
                 >
-                    {hasSelectedArtist
-                        && mode !== "artist"
-                        && mode !== "compare"
-                        && mode !== "cluster-compare" && (
-                            <Chip
-                                size="small"
-                                variant="outlined"
-                                label={
-                                    artistLabel(
-                                        selectedArtist,
-                                    )
-                                }
-                                sx={{
-                                    maxWidth: 220,
-                                    fontWeight: 700,
-                                }}
-                            />
-                        )}
-
-                    {mode === "compare"
-                        && selectedArtist && (
-                            <Chip
-                                size="small"
-                                variant="outlined"
-                                label={
-                                    `A · ${artistLabel(selectedArtist)}`
-                                }
-                                sx={{
-                                    maxWidth: 220,
-                                    fontWeight: 700,
-                                }}
-                            />
-                        )}
-
-                    {mode === "compare"
-                        && comparisonArtist && (
-                            <Chip
-                                size="small"
-                                variant="outlined"
-                                label={
-                                    `B · ${artistLabel(comparisonArtist)}`
-                                }
-                                sx={{
-                                    maxWidth: 220,
-                                    fontWeight: 700,
-                                }}
-                            />
-                        )}
-
-                    {validSelectedClusterId !== null
-                        && mode !== "compare"
-                        && mode !== "cluster-compare" && (
-                            <Chip
-                                size="small"
-                                label={
-                                    `Cluster ${validSelectedClusterId}`
-                                }
-                                sx={{
-                                    color:
-                                        clusterTextColor(
-                                            validSelectedClusterId,
-                                        ),
-                                    backgroundColor:
-                                        clusterColor(
-                                            validSelectedClusterId,
-                                        ),
-                                    fontWeight: 700,
-                                }}
-                            />
-                        )}
-
-                    {mode === "cluster-compare"
-                        && validSelectedClusterId !== null && (
-                            <Chip
-                                size="small"
-                                label={`A · Cluster ${validSelectedClusterId}`}
-                                sx={{
-                                    color: clusterTextColor(validSelectedClusterId),
-                                    backgroundColor: clusterColor(validSelectedClusterId),
-                                    fontWeight: 700,
-                                }}
-                            />
-                        )}
-
-                    {mode === "cluster-compare"
-                        && comparisonClusterId !== null && (
-                            <Chip
-                                size="small"
-                                label={`B · Cluster ${comparisonClusterId}`}
-                                sx={{
-                                    color: clusterTextColor(comparisonClusterId),
-                                    backgroundColor: clusterColor(comparisonClusterId),
-                                    fontWeight: 700,
-                                }}
-                            />
-                        )}
-
                     {mode !== "compare" && mode !== "cluster-compare" && (
                         <TextField
                             select
@@ -442,20 +282,12 @@ export function ExplorerHeader({
                         )}
 
                     {comparisonSelectionActive && (
-                        <>
-                            <Chip
-                                size="small"
-                                color="primary"
-                                label="Select Artist B"
-                            />
-
-                            <Button
-                                variant="outlined"
-                                onClick={onCancelComparison}
-                            >
-                                Cancel Compare
-                            </Button>
-                        </>
+                        <Button
+                            variant="outlined"
+                            onClick={onCancelComparison}
+                        >
+                            Cancel Compare
+                        </Button>
                     )}
 
                     {mode === "compare"
