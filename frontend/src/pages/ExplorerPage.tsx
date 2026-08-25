@@ -131,7 +131,6 @@ import type {
 } from "../types/artistInspection";
 
 import type {
-    ClusterArtist,
     ClusterInspection,
 } from "../types/cluster";
 
