@@ -72,7 +72,7 @@ function App() {
         <ThemeProvider theme={theme}>
             <CssBaseline />
 
-            <BrowserRouter>
+            <BrowserRouter basename="/embedding-explorer">
                 <ExplorerProvider>
                     <Routes>
                         <Route

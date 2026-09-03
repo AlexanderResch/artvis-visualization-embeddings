@@ -1,54 +1,16 @@
 services:
 
-  artvis-db:
-    container_name: artvis-db
-
-    build:
-      context: ./artvis-graph-db
-      dockerfile: Dockerfile
-
-    env_file:
-      - ./artvis-graph-db/dev.env
-
-    environment:
-      NEO4J_PLUGINS: '["apoc", "apoc-extended", "graph-data-science"]'
-
-    volumes:
-      - ./artvis-graph-db/import.sh:/var/lib/neo4j/import.sh
-      - ./artvis-graph-db/certificates:/var/lib/neo4j/certificates
-      - ./artvis-graph-db/neo4j_dump:/var/lib/neo4j/dump
-
-    networks:
-      - artvis-network
-
-    restart: unless-stopped
-
-    healthcheck:
-      test:
-        - CMD-SHELL
-        - >-
-          cypher-shell -a bolt://localhost:7687
-          -u "$${NEO4J_AUTH%%/*}"
-          -p "$${NEO4J_AUTH#*/}"
-          "RETURN 1" >/dev/null 2>&1
-      interval: 10s
-      timeout: 5s
-      retries: 20
-      start_period: 30s
-
-
   backend:
-    container_name: artvis-backend
+    container_name: artvis-embedding-backend
 
     build:
       context: ./backend
       dockerfile: Dockerfile.prod
 
     env_file:
-      - ./artvis-graph-db/dev.env
+      - .env
 
     environment:
-      NEO4J_URI: bolt://artvis-db:7687
       ARTVIS_CATALOGUE_ENTRIES_CSV: /app/data/catalogue_entries.csv
 
       ML_RANDOM_SEED: "42"
@@ -86,39 +48,34 @@ services:
       - ./backend/app/ml/data:/app/app/ml/data:ro
       - ./artvis-graph-db/csv/catalogue_entries.csv:/app/data/catalogue_entries.csv:ro
 
-    depends_on:
-      artvis-db:
-        condition: service_healthy
-
     networks:
-      - artvis-network
+      - artvis-net
 
     restart: unless-stopped
 
 
   frontend:
-    container_name: artvis-frontend
+    container_name: artvis-embedding-explorer
 
     build:
       context: ./frontend
       dockerfile: Dockerfile.prod
       args:
-        VITE_API_URL: /api
+        VITE_API_URL: /embedding-explorer/api
 
     ports:
-      - "127.0.0.1:8080:80"
+      - "127.0.0.1:3000:80"
 
     depends_on:
-      backend:
-        condition: service_started
+      - backend
 
     networks:
-      - artvis-network
+      - artvis-net
 
     restart: unless-stopped
 
 
 networks:
-  artvis-network:
+  artvis-net:
     name: artvis-network
-    driver: bridge
+    external: true
