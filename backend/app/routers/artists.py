@@ -573,6 +573,11 @@ def get_similar_artists(
                     )
                 )
             ),
+            "nationality": (
+                str(row["nationality"])
+                if pd.notna(row.get("nationality"))
+                else None
+            ),
 
             "common_groups":
                 context.get(

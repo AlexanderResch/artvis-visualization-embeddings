@@ -55,6 +55,7 @@ export type SimilarArtist = {
 
     birth_year: number | null;
     death_year: number | null;
+    nationality: string | null;
 
     common_groups: NamedEntitySummary[];
     common_exhibitions: NamedEntitySummary[];

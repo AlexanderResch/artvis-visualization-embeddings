@@ -22,6 +22,7 @@ import type {
 import type {
     ArtistCreatedItem,
     ArtistExhibitedArtwork,
+    ArtistExhibition,
 } from "../../types/artistInspection";
 
 import type {
@@ -248,6 +249,7 @@ type ArtistDetailsPanelProps = {
     createdItemsNote?: string | null;
     exhibitedArtworks?: ArtistExhibitedArtwork[];
     exhibitedArtworksNote?: string | null;
+    exhibitions?: ArtistExhibition[];
 };
 
 
@@ -266,6 +268,7 @@ export function ArtistDetailsPanel({
                                        createdItemsNote = null,
                                        exhibitedArtworks = [],
                                        exhibitedArtworksNote = null,
+                                       exhibitions = [],
                                    }: ArtistDetailsPanelProps) {
     const hasCluster =
         artist.cluster >= 0;
@@ -317,6 +320,10 @@ export function ArtistDetailsPanel({
     const visibleExhibitedArtworksNote =
         artistContext?.exhibited_artworks_note
         ?? exhibitedArtworksNote;
+
+    const visibleExhibitions =
+        artistContext?.exhibitions
+        ?? exhibitions;
 
     const barScale =
         scaleLinear()
@@ -402,7 +409,7 @@ export function ArtistDetailsPanel({
             />
 
             <StatRow
-                label="Recorded exhibited artworks"
+                label="Recorded exhibition links"
                 value={artist.exhibited_item_count.toLocaleString()}
             />
 
@@ -653,7 +660,7 @@ export function ArtistDetailsPanel({
                 count={
                     createdItemsLoading
                         ? "…"
-                        : artist.exhibited_item_count
+                        : visibleExhibitedArtworks.length
                 }
             >
                 {createdItemsLoading
@@ -805,6 +812,43 @@ export function ArtistDetailsPanel({
                     >
                         {visibleExhibitedArtworksNote}
                     </Alert>
+                )}
+            </DetailAccordion>
+
+            <DetailAccordion
+                title="Exhibitions"
+                count={createdItemsLoading ? "…" : visibleExhibitions.length}
+            >
+                {createdItemsLoading ? (
+                    <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+                        <CircularProgress size={18} />
+                        <Typography variant="body2">Loading exhibitions…</Typography>
+                    </Box>
+                ) : createdItemsError ? (
+                    <Alert severity="warning">
+                        Exhibitions could not be loaded: {createdItemsError}
+                    </Alert>
+                ) : visibleExhibitions.length ? (
+                    <Box sx={{ display: "grid", gap: 0.75, maxHeight: 320, overflowY: "auto", pr: 0.5 }}>
+                        {visibleExhibitions.map((exhibition) => (
+                            <Box
+                                key={exhibition.id}
+                                sx={{ px: 1, py: 0.85, border: "1px solid", borderColor: "divider", borderRadius: 1.5, backgroundColor: "background.paper" }}
+                            >
+                                <Typography variant="body2" sx={{ fontWeight: 700 }}>
+                                    {exhibition.name}
+                                </Typography>
+                                <Typography variant="caption" color="text.secondary" sx={{ display: "block" }}>
+                                    {[exhibition.year, ...exhibition.locations.map((location) => location.name)]
+                                        .filter(Boolean).join(" · ") || `Exhibition ${exhibition.id}`}
+                                </Typography>
+                            </Box>
+                        ))}
+                    </Box>
+                ) : (
+                    <Typography variant="body2" color="text.secondary">
+                        No exhibitions are recorded for this Artist.
+                    </Typography>
                 )}
             </DetailAccordion>
 

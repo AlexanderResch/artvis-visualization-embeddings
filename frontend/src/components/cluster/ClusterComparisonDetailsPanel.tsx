@@ -2,6 +2,7 @@ import {
     Alert,
     Box,
     Chip,
+    CircularProgress,
     Typography,
 } from "@mui/material";
 
@@ -67,16 +68,26 @@ function MetricRow({
 }
 
 export function ClusterComparisonDetailsPanel({
+                                                  loading = false,
+                                                  error = null,
                                                   inspectionA,
                                                   inspectionB,
                                                   fullArtistCountA,
                                                   fullArtistCountB,
                                               }: {
+    loading?: boolean;
+    error?: string | null;
     inspectionA: ClusterInspection | null;
     inspectionB: ClusterInspection | null;
     fullArtistCountA: number;
     fullArtistCountB: number;
 }) {
+    if (error) {
+        return <Box sx={{ p: 2 }}><Alert severity="error">{error}</Alert></Box>;
+    }
+    if (loading) {
+        return <Box sx={{ p: 3, display: "grid", placeItems: "center" }}><CircularProgress /></Box>;
+    }
     if (!inspectionA) {
         return (
             <Box sx={{ p: 2 }}>

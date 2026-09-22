@@ -869,11 +869,14 @@ function fitTransformForData(
 
 
 
+const EMPTY_CLUSTER_IDS: number[] = [];
+
+
 export function EmbeddingCanvas2D({
                                       data,
                                       highlightClusterId = null,
                                       highlightBoundaryData,
-                                      additionalHighlightClusterIds = [],
+                                      additionalHighlightClusterIds = EMPTY_CLUSTER_IDS,
                                       additionalHighlightBoundaryData,
                                       dimNonHighlighted = false,
                                       comparisonArtistIds = null,
@@ -927,6 +930,13 @@ export function EmbeddingCanvas2D({
         useRef<ZoomTransform>(
             zoomIdentity,
         );
+
+    const lastFitRef = useRef<{
+        focusData: ArtistEmbedding2D[];
+        fitRequestKey: number;
+        xScale: ScaleLinear<number, number>;
+        yScale: ScaleLinear<number, number>;
+    } | null>(null);
 
     const zoomBehaviorRef =
         useRef<
@@ -1632,16 +1642,13 @@ export function EmbeddingCanvas2D({
                             return;
                         }
 
-                        setSize({
-                            width: Math.max(
-                                1,
-                                entry.contentRect.width,
-                            ),
-                            height: Math.max(
-                                1,
-                                entry.contentRect.height,
-                            ),
-                        });
+                        const width = Math.max(1, entry.contentRect.width);
+                        const height = Math.max(1, entry.contentRect.height);
+                        setSize((current) =>
+                            current.width === width && current.height === height
+                                ? current
+                                : { width, height },
+                        );
                     },
                 );
 
@@ -1728,6 +1735,19 @@ export function EmbeddingCanvas2D({
                 || size.width <= 0
                 || size.height <= 0
             ) {
+                if (!focusData || focusData.length === 0) {
+                    lastFitRef.current = null;
+                }
+                return;
+            }
+
+            const lastFit = lastFitRef.current;
+            if (
+                lastFit?.focusData === focusData
+                && lastFit.fitRequestKey === fitRequestKey
+                && lastFit.xScale === xScale
+                && lastFit.yScale === yScale
+            ) {
                 return;
             }
 
@@ -1743,6 +1763,13 @@ export function EmbeddingCanvas2D({
                 zoomBehavior.transform,
                 transform,
             );
+
+            lastFitRef.current = {
+                focusData,
+                fitRequestKey,
+                xScale,
+                yScale,
+            };
         },
         [
             fitRequestKey,

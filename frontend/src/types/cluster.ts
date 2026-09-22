@@ -34,6 +34,7 @@ export type ClusterArtist = {
     birth_year: number | null;
     death_year: number | null;
     gender: string | null;
+    nationality: string | null;
     membership_probability: number;
     outlier_score: number;
     similarity_to_centroid: number;

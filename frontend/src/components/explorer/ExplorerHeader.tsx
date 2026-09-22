@@ -83,7 +83,7 @@ export function ExplorerHeader({
 
     const description =
         comparisonSelectionActive
-            ? "Select a second Artist on the embedding map to start the comparison."
+            ? "Select a second Artist on the map or search for Artist B in the sidebar."
             : mode === "overview"
                 ? hasSelectedArtist
                     ? "An Artist is selected. Inspect the Artist, inspect its cluster, or compare it with a second Artist."

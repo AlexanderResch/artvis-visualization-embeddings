@@ -124,7 +124,7 @@ export function ClusterFilterSidebar({
                                      }: {
     inspection: ClusterInspection;
     selectableArtists?: ClusterArtist[];
-    visibleArtistCount: number;
+    visibleArtistCount: number | null;
     minimumMembership: number;
     onMinimumMembershipChange:
         (value: number) => void;
@@ -300,10 +300,9 @@ export function ClusterFilterSidebar({
                     mb: 1.5,
                 }}
             >
-                {visibleArtistCount.toLocaleString()}
-                {" of "}
-                {inspection.artist_count.toLocaleString()}
-                {" cluster artists visible"}
+                {visibleArtistCount === null
+                    ? "Updating cluster filters…"
+                    : `${visibleArtistCount.toLocaleString()} of ${inspection.artist_count.toLocaleString()} cluster artists visible`}
             </Typography>
 
             <Autocomplete

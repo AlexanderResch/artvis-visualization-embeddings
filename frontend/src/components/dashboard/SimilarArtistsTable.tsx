@@ -1,3 +1,4 @@
+import { useAsyncResource } from "../../hooks/useAsyncResource";
 import {
     Box,
     Chip,
@@ -13,7 +14,7 @@ import {
 } from "@mui/material";
 
 import {
-    useEffect,
+    useCallback,
     useMemo,
     useState,
 } from "react";
@@ -86,6 +87,8 @@ function getArtistLabel(
 }
 
 
+const EMPTY_ROWS: SimilarArtist[] = [];
+
 export function SimilarArtistsTable({
                                         selectedArtistName,
                                         allowedArtistIds,
@@ -96,25 +99,6 @@ export function SimilarArtistsTable({
     const explorer =
         useExplorer();
 
-
-    const [
-        rows,
-        setRows,
-    ] = useState<
-        SimilarArtist[]
-    >([]);
-
-    const [
-        loading,
-        setLoading,
-    ] = useState(false);
-
-    const [
-        error,
-        setError,
-    ] = useState<
-        string | null
-    >(null);
 
     const [
         page,
@@ -129,84 +113,19 @@ export function SimilarArtistsTable({
     );
 
 
-    useEffect(
-        () => {
-            setPage(0);
-
-            if (
-                !explorer.selectedArtistId
-            ) {
-                setRows([]);
-                setError(null);
-
-                return;
-            }
-
-            const controller =
-                new AbortController();
-
-            setLoading(true);
-            setError(null);
-
-            fetchSimilarArtists(
-                explorer.selectedArtistId,
-                MAX_SIMILAR_ARTISTS,
-                controller.signal,
-            )
-                .then(
-                    (artists) => {
-                        setRows(
-                            artists,
-                        );
-                    },
-                )
-                .catch(
-                    (
-                        reason: unknown,
-                    ) => {
-                        if (
-                            controller.signal.aborted
-                        ) {
-                            return;
-                        }
-
-                        setError(
-                            reason instanceof Error
-                                ? reason.message
-                                : (
-                                    "Failed to load "
-                                    + "similar artists"
-                                ),
-                        );
-                    },
-                )
-                .finally(
-                    () => {
-                        if (
-                            !controller.signal.aborted
-                        ) {
-                            setLoading(false);
-                        }
-                    },
-                );
-
-            return () => {
-                controller.abort();
-            };
-        },
-
-        [
-            explorer.selectedArtistId,
-        ],
+    const artistId = explorer.selectedArtistId;
+    const loadRows = useCallback(
+        (signal: AbortSignal) => fetchSimilarArtists(artistId!, MAX_SIMILAR_ARTISTS, signal),
+        [artistId],
     );
+    const { data, loading, error } = useAsyncResource(artistId ? loadRows : null);
+    const rows = data ?? EMPTY_ROWS;
 
-
-    useEffect(
-        () => {
-            setPage(0);
-        },
-        [allowedArtistIds],
-    );
+    const [pageContext, setPageContext] = useState({ artistId, allowedArtistIds });
+    if (pageContext.artistId !== artistId || pageContext.allowedArtistIds !== allowedArtistIds) {
+        setPageContext({ artistId, allowedArtistIds });
+        setPage(0);
+    }
 
     const filteredRows =
         useMemo(
@@ -435,6 +354,10 @@ export function SimilarArtistsTable({
                                 Artist
                             </TableCell>
 
+                            <TableCell>
+                                Nationality
+                            </TableCell>
+
                             <TableCell
                                 align="right"
                             >
@@ -533,6 +456,10 @@ export function SimilarArtistsTable({
                                                 </Typography>
                                             </TableCell>
 
+
+                                            <TableCell>
+                                                {artist.nationality || "Unknown"}
+                                            </TableCell>
 
                                             <TableCell
                                                 align="right"
@@ -637,7 +564,7 @@ export function SimilarArtistsTable({
                             && (
                                 <TableRow>
                                     <TableCell
-                                        colSpan={6}
+                                        colSpan={7}
 
                                         align="center"
                                     >

@@ -13,7 +13,7 @@ import {
 
 import {
     ExplorerProvider,
-} from "./context/ExplorerContext";
+} from "./context/ExplorerProvider";
 
 import {
     ExplorerPage,

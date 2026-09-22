@@ -592,11 +592,14 @@ function drawClusterBoundary(
 }
 
 
+const EMPTY_CLUSTER_IDS: number[] = [];
+
+
 export default function EmbeddingCanvas3D({
                                               data,
                                               highlightBoundaryData,
                                               highlightClusterId = null,
-                                              additionalHighlightClusterIds = [],
+                                              additionalHighlightClusterIds = EMPTY_CLUSTER_IDS,
                                               additionalHighlightBoundaryData,
                                               dimNonHighlighted = false,
                                               comparisonArtistIds = null,
@@ -653,6 +656,12 @@ export default function EmbeddingCanvas3D({
 
     const zoomRef =
         useRef(1);
+
+    const lastFitRef = useRef<{
+        focusData: ArtistEmbedding3D[];
+        normalizedData: NormalizedPoint[];
+        fitRequestKey: number;
+    } | null>(null);
 
     const panRef =
         useRef<PanOffset>({
@@ -1358,19 +1367,13 @@ export default function EmbeddingCanvas3D({
                             return;
                         }
 
-                        setSize({
-                            width:
-                                Math.max(
-                                    1,
-                                    entry.contentRect.width,
-                                ),
-
-                            height:
-                                Math.max(
-                                    1,
-                                    entry.contentRect.height,
-                                ),
-                        });
+                        const width = Math.max(1, entry.contentRect.width);
+                        const height = Math.max(1, entry.contentRect.height);
+                        setSize((current) =>
+                            current.width === width && current.height === height
+                                ? current
+                                : { width, height },
+                        );
                     },
                 );
 
@@ -1472,7 +1475,7 @@ export default function EmbeddingCanvas3D({
 
                     const nextZoom =
                         Math.min(
-                            6,
+                            16,
                             Math.max(
                                 0.4,
                                 oldZoom
@@ -1563,6 +1566,19 @@ export default function EmbeddingCanvas3D({
                 focusPoints.length === 0
                 || currentSize.width <= 0
                 || currentSize.height <= 0
+            ) {
+                if (focusPoints.length === 0) {
+                    lastFitRef.current = null;
+                }
+                return;
+            }
+
+            const lastFit = lastFitRef.current;
+            if (
+                lastFit !== null
+                && lastFit.focusData === focusData
+                && lastFit.normalizedData === normalizedData.points
+                && lastFit.fitRequestKey === fitRequestKey
             ) {
                 return;
             }
@@ -1713,9 +1729,17 @@ export default function EmbeddingCanvas3D({
 
             setTooltip(null);
             scheduleDraw();
+            if (focusData) {
+                lastFitRef.current = {
+                    focusData,
+                    normalizedData: normalizedData.points,
+                    fitRequestKey,
+                };
+            }
         },
         [
             fitRequestKey,
+            focusData,
             normalizedData,
             scheduleDraw,
             size.height,

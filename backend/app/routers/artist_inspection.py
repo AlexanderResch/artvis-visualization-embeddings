@@ -11,6 +11,7 @@ from app.db import get_driver
 from app.ml.utils import json_safe
 from app.schemas.artist import ArtistInspectionResponse
 from app.services.artist_context import (
+    fetch_artist_exhibitions,
     fetch_created_items,
     fetch_exhibited_artworks,
 )
@@ -686,6 +687,9 @@ def get_artist_inspection(
         root.key,
     )
 
+    with get_driver().session() as session:
+        exhibitions = fetch_artist_exhibitions(session, root.key)
+
     return {
         "artist_id": artist_id,
         "artist": {
@@ -736,6 +740,7 @@ def get_artist_inspection(
         "items_note": items_note,
         "exhibited_artworks": exhibited_artworks,
         "exhibited_artworks_note": exhibited_artworks_note,
+        "exhibitions": exhibitions,
         "timeline": _fetch_timeline(
             artist_id,
         ),

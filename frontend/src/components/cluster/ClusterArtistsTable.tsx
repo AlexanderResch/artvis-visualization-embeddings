@@ -275,6 +275,10 @@ export function ClusterArtistsTable({
                                 Gender
                             </TableCell>
 
+                            <TableCell>
+                                Nationality
+                            </TableCell>
+
                             <TableCell
                                 sx={{
                                     minWidth: 150,
@@ -390,6 +394,10 @@ export function ClusterArtistsTable({
                                         </TableCell>
 
                                         <TableCell>
+                                            {artist.nationality || "Unknown"}
+                                        </TableCell>
+
+                                        <TableCell>
                                             <Box
                                                 sx={{
                                                     display: "grid",
@@ -475,7 +483,7 @@ export function ClusterArtistsTable({
                         {!visibleRows.length && (
                             <TableRow>
                                 <TableCell
-                                    colSpan={8}
+                                    colSpan={11}
                                     align="center"
                                 >
                                     <Typography

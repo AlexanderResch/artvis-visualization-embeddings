@@ -14,7 +14,6 @@ import {
 } from "@mui/material";
 
 import {
-    useEffect,
     useMemo,
     useState,
 } from "react";
@@ -315,7 +314,10 @@ export function FilterSidebar({
     const [
         searchInput,
         setSearchInput,
-    ] = useState("");
+    ] = useState(() => {
+        const artist = artists.find((item) => item.id === explorer.selectedArtistId);
+        return artist ? getArtistLabel(artist) : "";
+    });
 
     const [
         searchOpen,
@@ -443,32 +445,11 @@ export function FilterSidebar({
         );
 
 
-    useEffect(
-        () => {
-            if (selectedArtist) {
-                setSearchInput(
-                    getArtistLabel(
-                        selectedArtist,
-                    ),
-                );
-
-                return;
-            }
-
-            if (
-                explorer.selectedArtistId
-                === null
-            ) {
-                setSearchInput("");
-            }
-        },
-
-        [
-            explorer.selectedArtistId,
-            selectedArtist,
-        ],
-    );
-
+    const [previousSelectedArtist, setPreviousSelectedArtist] = useState(selectedArtist);
+    if (previousSelectedArtist !== selectedArtist) {
+        setPreviousSelectedArtist(selectedArtist);
+        setSearchInput(selectedArtist ? getArtistLabel(selectedArtist) : "");
+    }
 
     const minimumYear =
         options

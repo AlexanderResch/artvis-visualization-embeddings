@@ -1,3 +1,4 @@
+import { useAsyncResource } from "../hooks/useAsyncResource";
 import {
     Alert,
     Box,
@@ -119,24 +120,11 @@ import {
 
 import {
     useExplorer,
-    type YearRange,
 } from "../context/ExplorerContext";
 
 import {
     useArtistContext,
 } from "../hooks/useArtistContext";
-
-import type {
-    ArtistInspectionResponse,
-} from "../types/artistInspection";
-
-import type {
-    ClusterInspection,
-} from "../types/cluster";
-
-import type {
-    ArtistComparisonResponse,
-} from "../types/comparison";
 
 import type {
     DashboardOptions,
@@ -147,8 +135,12 @@ import type {
     ArtistEmbedding2D,
     ArtistEmbedding3D,
     GenderFilterValue,
-    GroupMembershipFilter,
 } from "../types/embedding";
+
+
+const EMPTY_ARTISTS_2D: ArtistEmbedding2D[] = [];
+const EMPTY_ARTISTS_3D: ArtistEmbedding3D[] = [];
+const EMPTY_CLUSTER_IDS: number[] = [];
 
 
 function normalizedGender(
@@ -198,6 +190,8 @@ function requestedMode(
 }
 
 
+const EMPTY_SIMILAR_ARTISTS: SimilarArtist[] = [];
+
 export function ExplorerPage() {
     const explorer =
         useExplorer();
@@ -228,56 +222,11 @@ export function ExplorerPage() {
     ] = useState<ArtistEmbedding2D[]>([]);
 
     const [
-        data3D,
-        setData3D,
-    ] = useState<ArtistEmbedding3D[] | null>(
-        null,
-    );
-
-    const [
         options,
         setOptions,
     ] = useState<DashboardOptions | null>(
         null,
     );
-
-    const [
-        allowedArtistIds,
-        setAllowedArtistIds,
-    ] = useState<Set<string> | null>(
-        null,
-    );
-
-    const [
-        clusterInspection,
-        setClusterInspection,
-    ] = useState<ClusterInspection | null>(
-        null,
-    );
-
-    const [
-        filteredClusterInspection,
-        setFilteredClusterInspection,
-    ] = useState<ClusterInspection | null>(
-        null,
-    );
-
-    const [
-        loadingFilteredClusterInspection,
-        setLoadingFilteredClusterInspection,
-    ] = useState(false);
-
-    const [
-        artistInspection,
-        setArtistInspection,
-    ] = useState<ArtistInspectionResponse | null>(
-        null,
-    );
-
-    const [
-        similarArtists,
-        setSimilarArtists,
-    ] = useState<SimilarArtist[]>([]);
 
     const [
         comparisonArtistId,
@@ -290,21 +239,9 @@ export function ExplorerPage() {
     ] = useState<number | null>(null);
 
     const [
-        comparisonClusterInspection,
-        setComparisonClusterInspection,
-    ] = useState<ClusterInspection | null>(null);
-
-    const [
         comparisonSelectionActive,
         setComparisonSelectionActive,
     ] = useState(false);
-
-    const [
-        comparison,
-        setComparison,
-    ] = useState<ArtistComparisonResponse | null>(
-        null,
-    );
 
     const [
         loading,
@@ -312,154 +249,20 @@ export function ExplorerPage() {
     ] = useState(true);
 
     const [
-        loading3D,
-        setLoading3D,
-    ] = useState(false);
-
-    const [
-        loadingClusterInspection,
-        setLoadingClusterInspection,
-    ] = useState(false);
-
-    const [
-        loadingArtistInspection,
-        setLoadingArtistInspection,
-    ] = useState(false);
-
-    const [
-        loadingComparison,
-        setLoadingComparison,
-    ] = useState(false);
-
-    const [
-        loadingClusterComparison,
-        setLoadingClusterComparison,
-    ] = useState(false);
-
-    const [
         error,
         setError,
     ] = useState<string | null>(null);
 
     const [
-        map3DError,
-        setMap3DError,
-    ] = useState<string | null>(null);
-
-    const [
-        clusterInspectionError,
-        setClusterInspectionError,
-    ] = useState<string | null>(null);
-
-    const [
-        artistInspectionError,
-        setArtistInspectionError,
-    ] = useState<string | null>(null);
-
-    const [
-        similarArtistsError,
-        setSimilarArtistsError,
-    ] = useState<string | null>(null);
-
-    const [
-        comparisonError,
-        setComparisonError,
-    ] = useState<string | null>(null);
-
-    const [
-        clusterComparisonError,
-        setClusterComparisonError,
-    ] = useState<string | null>(null);
-
-    const [
-        clusterMinimumMembership,
-        setClusterMinimumMembership,
-    ] = useState(0);
-
-    const [
-        clusterYearRange,
-        setClusterYearRange,
-    ] = useState<YearRange | null>(null);
-
-    const [
-        clusterGroupIds,
-        setClusterGroupIds,
-    ] = useState<string[]>([]);
-
-    const [
-        clusterGroupMembership,
-        setClusterGroupMembership,
-    ] = useState<GroupMembershipFilter>("all");
-
-    const [
-        clusterLocationIds,
-        setClusterLocationIds,
-    ] = useState<string[]>([]);
-
-    const [
-        clusterSelectedGenders,
-        setClusterSelectedGenders,
-    ] = useState<GenderFilterValue[]>([]);
-
-    const [
-        clusterMinimumExhibitedItems,
-        setClusterMinimumExhibitedItems,
-    ] = useState(0);
-
-    const [
-        comparisonMinimumMembership,
-        setComparisonMinimumMembership,
-    ] = useState(0);
-
-    const [
-        comparisonYearRange,
-        setComparisonYearRange,
-    ] = useState<YearRange | null>(null);
-
-    const [
-        comparisonGroupIds,
-        setComparisonGroupIds,
-    ] = useState<string[]>([]);
-
-    const [
-        comparisonGroupMembership,
-        setComparisonGroupMembership,
-    ] = useState<GroupMembershipFilter>("all");
-
-    const [
-        comparisonLocationIds,
-        setComparisonLocationIds,
-    ] = useState<string[]>([]);
-
-    const [
-        comparisonSelectedGenders,
-        setComparisonSelectedGenders,
-    ] = useState<GenderFilterValue[]>([]);
-
-    const [
-        comparisonMinimumExhibitedItems,
-        setComparisonMinimumExhibitedItems,
-    ] = useState(0);
-
-    const [
-        filteredComparisonInspectionA,
-        setFilteredComparisonInspectionA,
-    ] = useState<ClusterInspection | null>(null);
-
-    const [
-        filteredComparisonInspectionB,
-        setFilteredComparisonInspectionB,
-    ] = useState<ClusterInspection | null>(null);
-
-    const [
-        loadingFilteredClusterComparison,
-        setLoadingFilteredClusterComparison,
-    ] = useState(false);
-
-    const [
         showSurroundingClusters,
         setShowSurroundingClusters,
     ] = useState(true);
+
+    const [previousClusterId, setPreviousClusterId] = useState(explorer.selectedClusterId);
+    if (previousClusterId !== explorer.selectedClusterId) {
+        setPreviousClusterId(explorer.selectedClusterId);
+        setShowSurroundingClusters(true);
+    }
 
     const [
         similarityThreshold,
@@ -527,9 +330,6 @@ export function ExplorerPage() {
         () => {
             const controller =
                 new AbortController();
-
-            setLoading(true);
-            setError(null);
 
             Promise.all([
                 fetchEmbeddings2D(
@@ -830,697 +630,236 @@ export function ExplorerPage() {
         ],
     );
 
-    useEffect(
-        () => {
-            if (
-                explorer.selectedGroupIds.length === 0
-                && explorer.selectedLocationIds.length === 0
-                && explorer.groupMembership === "all"
-            ) {
-                setAllowedArtistIds(null);
-                return;
-            }
-
-            const controller =
-                new AbortController();
-
-            fetchFilteredArtistIds(
-                explorer.selectedGroupIds,
-                explorer.selectedLocationIds,
-                explorer.groupMembership,
-                controller.signal,
-            )
-                .then(
-                    (response) =>
-                        setAllowedArtistIds(
-                            new Set(
-                                response.artist_ids,
-                            ),
-                        ),
-                )
-                .catch(
-                    (reason: unknown) => {
-                        if (
-                            !controller.signal.aborted
-                        ) {
-                            setError(
-                                reason instanceof Error
-                                    ? reason.message
-                                    : "Failed to apply graph filters",
-                            );
-                        }
-                    },
-                );
-
-            return () =>
-                controller.abort();
-        },
-        [
-            explorer.selectedGroupIds,
-            explorer.selectedLocationIds,
-            explorer.groupMembership,
-        ],
-    );
-
-    useEffect(
-        () => {
-            const clusterId =
-                explorer.selectedClusterId;
-
-            setClusterMinimumMembership(explorer.minimumMembership);
-            setClusterYearRange(explorer.yearRange);
-            setClusterGroupIds(explorer.selectedGroupIds);
-            setClusterGroupMembership(explorer.groupMembership);
-            setClusterLocationIds(explorer.selectedLocationIds);
-            setClusterSelectedGenders(explorer.selectedGenders);
-            setClusterMinimumExhibitedItems(explorer.minimumExhibitedItems);
-            setShowSurroundingClusters(true);
-            setFilteredClusterInspection(null);
-            setClusterInspectionError(null);
-
-            if (
-                clusterId === null
-                || clusterId < 0
-            ) {
-                setClusterInspection(null);
-                setLoadingClusterInspection(false);
-                return;
-            }
-
-            const controller =
-                new AbortController();
-
-            setLoadingClusterInspection(true);
-            setClusterInspection(null);
-
-            fetchClusterInspection(
-                clusterId,
-                controller.signal,
-            )
-                .then(
-                    (response) =>
-                        setClusterInspection(
-                            response,
-                        ),
-                )
-                .catch(
-                    (reason: unknown) => {
-                        if (
-                            !controller.signal.aborted
-                        ) {
-                            setClusterInspectionError(
-                                reason instanceof Error
-                                    ? reason.message
-                                    : "Failed to load cluster inspection",
-                            );
-                        }
-                    },
-                )
-                .finally(
-                    () => {
-                        if (
-                            !controller.signal.aborted
-                        ) {
-                            setLoadingClusterInspection(
-                                false,
-                            );
-                        }
-                    },
-                );
-
-            return () =>
-                controller.abort();
-        },
-        [explorer.selectedClusterId],
-    );
-
-    useEffect(
-        () => {
-            if (mode !== "cluster" || !clusterInspection) {
-                setFilteredClusterInspection(null);
-                setLoadingFilteredClusterInspection(false);
-                return;
-            }
-
-            const hasFilters =
-                clusterSelectedGenders.length > 0
-                || clusterMinimumMembership > 0
-                || clusterMinimumExhibitedItems > 0
-                || clusterYearRange !== null
-                || clusterGroupIds.length > 0
-                || clusterGroupMembership !== "all"
-                || clusterLocationIds.length > 0;
-
-            if (!hasFilters) {
-                setFilteredClusterInspection(clusterInspection);
-                setLoadingFilteredClusterInspection(false);
-                return;
-            }
-
-            const controller = new AbortController();
-            const timer = window.setTimeout(() => {
-                setLoadingFilteredClusterInspection(true);
-                setClusterInspectionError(null);
-
-                fetchClusterInspection(
-                    clusterInspection.cluster,
-                    controller.signal,
-                    {
-                        genders: clusterSelectedGenders,
-                        minimumMembership: clusterMinimumMembership,
-                        minimumExhibitedItems: clusterMinimumExhibitedItems,
-                        birthYearMin: clusterYearRange?.[0] ?? null,
-                        birthYearMax: clusterYearRange?.[1] ?? null,
-                        groupIds: clusterGroupIds,
-                        groupMembership: clusterGroupMembership,
-                        locationIds: clusterLocationIds,
-                    },
-                )
-                    .then(setFilteredClusterInspection)
-                    .catch((reason: unknown) => {
-                        if (!controller.signal.aborted) {
-                            setClusterInspectionError(
-                                reason instanceof Error
-                                    ? reason.message
-                                    : "Failed to apply cluster filters",
-                            );
-                        }
-                    })
-                    .finally(() => {
-                        if (!controller.signal.aborted) {
-                            setLoadingFilteredClusterInspection(false);
-                        }
-                    });
-            }, 180);
-
-            return () => {
-                window.clearTimeout(timer);
-                controller.abort();
-            };
-        },
-        [
-            clusterGroupIds,
-            clusterGroupMembership,
-            clusterInspection,
-            clusterLocationIds,
-            clusterMinimumExhibitedItems,
-            clusterMinimumMembership,
-            clusterSelectedGenders,
-            clusterYearRange,
-            mode,
-        ],
-    );
-
-    useEffect(
-        () => {
-            setClusterComparisonError(null);
-
-            if (
-                mode !== "cluster-compare"
-                || comparisonClusterId === null
-                || comparisonClusterId < 0
-                || comparisonClusterId === validClusterId(
-                    explorer.selectedClusterId,
-                )
-            ) {
-                setComparisonClusterInspection(null);
-                setLoadingClusterComparison(false);
-                return;
-            }
-
-            const controller = new AbortController();
-
-            setLoadingClusterComparison(true);
-            setComparisonClusterInspection(null);
-
-            fetchClusterInspection(
-                comparisonClusterId,
-                controller.signal,
-            )
-                .then(setComparisonClusterInspection)
-                .catch((reason: unknown) => {
-                    if (!controller.signal.aborted) {
-                        setClusterComparisonError(
-                            reason instanceof Error
-                                ? reason.message
-                                : "Failed to load cluster comparison",
-                        );
-                    }
-                })
-                .finally(() => {
-                    if (!controller.signal.aborted) {
-                        setLoadingClusterComparison(false);
-                    }
-                });
-
-            return () => controller.abort();
-        },
-        [
-            comparisonClusterId,
-            explorer.selectedClusterId,
-            mode,
-        ],
-    );
-
-    useEffect(
-        () => {
-            if (mode !== "cluster-compare") {
-                setFilteredComparisonInspectionA(null);
-                setFilteredComparisonInspectionB(null);
-                setLoadingFilteredClusterComparison(false);
-                return;
-            }
-
-            const clusterAId = validClusterId(explorer.selectedClusterId);
-            const clusterBId = comparisonClusterId;
-
-            if (clusterAId === null) {
-                setFilteredComparisonInspectionA(null);
-                setFilteredComparisonInspectionB(null);
-                setLoadingFilteredClusterComparison(false);
-                return;
-            }
-
-            const hasFilters =
-                comparisonSelectedGenders.length > 0
-                || comparisonMinimumMembership > 0
-                || comparisonMinimumExhibitedItems > 0
-                || comparisonYearRange !== null
-                || comparisonGroupIds.length > 0
-                || comparisonGroupMembership !== "all"
-                || comparisonLocationIds.length > 0;
-
-            if (!hasFilters) {
-                setFilteredComparisonInspectionA(clusterInspection);
-                setFilteredComparisonInspectionB(comparisonClusterInspection);
-                setLoadingFilteredClusterComparison(false);
-                return;
-            }
-
-            const controller = new AbortController();
-            const timer = window.setTimeout(() => {
-                setLoadingFilteredClusterComparison(true);
-                setClusterComparisonError(null);
-
-                const filters = {
-                    genders: comparisonSelectedGenders,
-                    minimumMembership: comparisonMinimumMembership,
-                    minimumExhibitedItems: comparisonMinimumExhibitedItems,
-                    birthYearMin: comparisonYearRange?.[0] ?? null,
-                    birthYearMax: comparisonYearRange?.[1] ?? null,
-                    groupIds: comparisonGroupIds,
-                    groupMembership: comparisonGroupMembership,
-                    locationIds: comparisonLocationIds,
-                };
-
-                const requests = [
-                    fetchClusterInspection(
-                        clusterAId,
-                        controller.signal,
-                        filters,
-                    ).then((response) => {
-                        setFilteredComparisonInspectionA(response);
-                    }),
-                ];
-
-                if (
-                    clusterBId !== null
-                    && clusterBId >= 0
-                    && clusterBId !== clusterAId
-                ) {
-                    requests.push(
-                        fetchClusterInspection(
-                            clusterBId,
-                            controller.signal,
-                            filters,
-                        ).then((response) => {
-                            setFilteredComparisonInspectionB(response);
-                        }),
-                    );
-                } else {
-                    setFilteredComparisonInspectionB(null);
-                }
-
-                Promise.all(requests)
-                    .catch((reason: unknown) => {
-                        if (!controller.signal.aborted) {
-                            setClusterComparisonError(
-                                reason instanceof Error
-                                    ? reason.message
-                                    : "Failed to apply cluster comparison filters",
-                            );
-                        }
-                    })
-                    .finally(() => {
-                        if (!controller.signal.aborted) {
-                            setLoadingFilteredClusterComparison(false);
-                        }
-                    });
-            }, 180);
-
-            return () => {
-                window.clearTimeout(timer);
-                controller.abort();
-            };
-        },
-        [
-            clusterInspection,
-            comparisonClusterId,
-            comparisonClusterInspection,
-            comparisonGroupIds,
-            comparisonGroupMembership,
-            comparisonLocationIds,
-            comparisonMinimumExhibitedItems,
-            comparisonMinimumMembership,
-            comparisonSelectedGenders,
-            comparisonYearRange,
-            explorer.selectedClusterId,
-            mode,
-        ],
-    );
-
-    useEffect(
-        () => {
-            const artistId =
-                explorer.selectedArtistId;
-
-            setArtistInspectionError(null);
-
-            if (
-                mode !== "artist"
-                || !artistId
-            ) {
-                setArtistInspection(null);
-                setLoadingArtistInspection(false);
-                setSelectedNodeTypes([]);
-                selectedNodeTypesArtistRef.current = null;
-                availableNodeTypesRef.current = [];
-                setSelectedRelationshipTypes([]);
-                selectedRelationshipTypesArtistRef.current = null;
-                availableRelationshipTypesRef.current = [];
-                return;
-            }
-
-            const controller =
-                new AbortController();
-
-            setLoadingArtistInspection(true);
-
-            fetchArtistInspection(
-                artistId,
-                egoDepth,
-                350,
-                controller.signal,
-            )
-                .then(
-                    (response) => {
-                        setArtistInspection(
-                            response,
-                        );
-
-                        const availableTypes =
-                            response.ego.node_type_counts.map(
-                                (item) =>
-                                    item.type,
-                            );
-
-                        const previousAvailableTypes =
-                            availableNodeTypesRef.current;
-
-                        const artistChanged =
-                            selectedNodeTypesArtistRef.current
-                            !== artistId;
-
-                        setSelectedNodeTypes(
-                            (current) => {
-                                const previouslyAllSelected =
-                                    previousAvailableTypes.length === 0
-                                    || previousAvailableTypes.every(
-                                        (nodeType) =>
-                                            current.includes(
-                                                nodeType,
-                                            ),
-                                    );
-
-                                if (
-                                    artistChanged
-                                    || previouslyAllSelected
-                                ) {
-                                    return availableTypes;
-                                }
-
-                                const retained =
-                                    current.filter(
-                                        (nodeType) =>
-                                            availableTypes.includes(
-                                                nodeType,
-                                            ),
-                                    );
-
-                                return retained.length > 0
-                                    ? retained
-                                    : availableTypes;
-                            },
-                        );
-
-                        selectedNodeTypesArtistRef.current =
-                            artistId;
-
-                        availableNodeTypesRef.current =
-                            availableTypes;
-
-                        const availableRelationshipTypes =
-                            response.ego.relationship_type_counts.map(
-                                (item) =>
-                                    item.type,
-                            );
-
-                        const previousAvailableRelationshipTypes =
-                            availableRelationshipTypesRef.current;
-
-                        const relationshipArtistChanged =
-                            selectedRelationshipTypesArtistRef.current
-                            !== artistId;
-
-                        setSelectedRelationshipTypes(
-                            (current) => {
-                                const previouslyAllSelected =
-                                    previousAvailableRelationshipTypes.length === 0
-                                    || previousAvailableRelationshipTypes.every(
-                                        (relationshipType) =>
-                                            current.includes(
-                                                relationshipType,
-                                            ),
-                                    );
-
-                                if (
-                                    relationshipArtistChanged
-                                    || previouslyAllSelected
-                                ) {
-                                    return availableRelationshipTypes;
-                                }
-
-                                const retained =
-                                    current.filter(
-                                        (relationshipType) =>
-                                            availableRelationshipTypes.includes(
-                                                relationshipType,
-                                            ),
-                                    );
-
-                                return retained.length > 0
-                                    ? retained
-                                    : availableRelationshipTypes;
-                            },
-                        );
-
-                        selectedRelationshipTypesArtistRef.current =
-                            artistId;
-
-                        availableRelationshipTypesRef.current =
-                            availableRelationshipTypes;
-                    },
-                )
-                .catch(
-                    (reason: unknown) => {
-                        if (
-                            !controller.signal.aborted
-                        ) {
-                            setArtistInspectionError(
-                                reason instanceof Error
-                                    ? reason.message
-                                    : "Failed to load Artist inspection data",
-                            );
-                        }
-                    },
-                )
-                .finally(
-                    () => {
-                        if (
-                            !controller.signal.aborted
-                        ) {
-                            setLoadingArtistInspection(
-                                false,
-                            );
-                        }
-                    },
-                );
-
-            return () =>
-                controller.abort();
-        },
-        [
-            egoDepth,
-            explorer.selectedArtistId,
-            mode,
-        ],
-    );
-
-    useEffect(
-        () => {
-            const artistId =
-                explorer.selectedArtistId;
-
-            setSimilarArtistsError(null);
-
-            if (
-                mode !== "artist"
-                || !artistId
-            ) {
-                setSimilarArtists([]);
-                return;
-            }
-
-            const controller =
-                new AbortController();
-
-            fetchSimilarArtists(
-                artistId,
-                50,
-                controller.signal,
-            )
-                .then(
-                    setSimilarArtists,
-                )
-                .catch(
-                    (reason: unknown) => {
-                        if (
-                            !controller.signal.aborted
-                        ) {
-                            setSimilarArtistsError(
-                                reason instanceof Error
-                                    ? reason.message
-                                    : "Failed to load similar Artists",
-                            );
-                        }
-                    },
-                );
-
-            return () =>
-                controller.abort();
-        },
-        [
-            explorer.selectedArtistId,
-            mode,
-        ],
-    );
-
-    useEffect(
-        () => {
-            const artistAId =
-                explorer.selectedArtistId;
-
-            setComparisonError(null);
-
-            if (
-                mode !== "compare"
-                || !artistAId
-                || !comparisonArtistId
-                || artistAId === comparisonArtistId
-            ) {
-                setComparison(null);
-                setLoadingComparison(false);
-                return;
-            }
-
-            const controller =
-                new AbortController();
-
-            setLoadingComparison(true);
-            setComparison(null);
-
-            fetchArtistComparison(
-                artistAId,
-                comparisonArtistId,
-                controller.signal,
-            )
-                .then(setComparison)
-                .catch(
-                    (reason: unknown) => {
-                        if (
-                            !controller.signal.aborted
-                        ) {
-                            setComparisonError(
-                                reason instanceof Error
-                                    ? reason.message
-                                    : "Failed to load Artist comparison",
-                            );
-                        }
-                    },
-                )
-                .finally(
-                    () => {
-                        if (
-                            !controller.signal.aborted
-                        ) {
-                            setLoadingComparison(false);
-                        }
-                    },
-                );
-
-            return () =>
-                controller.abort();
-        },
-        [
-            comparisonArtistId,
-            explorer.selectedArtistId,
-            mode,
-        ],
-    );
-
-    const request3D =
-        useCallback(
-            () => {
-                if (
-                    data3D
-                    || loading3D
-                ) {
-                    return;
-                }
-
-                setLoading3D(true);
-                setMap3DError(null);
-
-                fetchEmbeddings3D()
-                    .then(setData3D)
-                    .catch(
-                        (reason: unknown) =>
-                            setMap3DError(
-                                reason instanceof Error
-                                    ? reason.message
-                                    : "Failed to load 3D map",
-                            ),
-                    )
-                    .finally(
-                        () =>
-                            setLoading3D(false),
-                    );
-            },
-            [
-                data3D,
-                loading3D,
-            ],
+    const graphFiltersActive = explorer.selectedGroupIds.length > 0
+        || explorer.selectedLocationIds.length > 0
+        || explorer.groupMembership !== "all";
+    const loadGraphFilters = useCallback(async (signal: AbortSignal) => {
+        const response = await fetchFilteredArtistIds(
+            explorer.selectedGroupIds, explorer.selectedLocationIds,
+            explorer.groupMembership, signal,
         );
+        return new Set(response.artist_ids);
+    }, [explorer.selectedGroupIds, explorer.selectedLocationIds, explorer.groupMembership]);
+    const graphFilters = useAsyncResource(graphFiltersActive ? loadGraphFilters : null);
+    const allowedArtistIds = graphFilters.data;
+
+    const clusterId = validClusterId(explorer.selectedClusterId);
+    const loadCluster = useCallback(
+        (signal: AbortSignal) => fetchClusterInspection(clusterId!, signal),
+        [clusterId],
+    );
+    const clusterResource = useAsyncResource(clusterId !== null ? loadCluster : null);
+    const clusterInspection = clusterResource.data;
+    const loadingClusterInspection = clusterResource.loading;
+
+    const clusterFilters = useMemo(() => ({
+        genders: explorer.selectedGenders,
+        minimumMembership: explorer.minimumMembership,
+        minimumExhibitedItems: explorer.minimumExhibitedItems,
+        birthYearMin: explorer.yearRange?.[0] ?? null,
+        birthYearMax: explorer.yearRange?.[1] ?? null,
+        groupIds: explorer.selectedGroupIds,
+        groupMembership: explorer.groupMembership,
+        locationIds: explorer.selectedLocationIds,
+    }), [explorer.selectedGenders, explorer.minimumMembership,
+        explorer.minimumExhibitedItems, explorer.yearRange, explorer.selectedGroupIds,
+        explorer.groupMembership, explorer.selectedLocationIds]);
+    const hasClusterFilters = graphFiltersActive || explorer.selectedGenders.length > 0
+        || explorer.minimumMembership > 0 || explorer.minimumExhibitedItems > 0
+        || explorer.yearRange !== null;
+    const loadFilteredCluster = useCallback(
+        (signal: AbortSignal) => fetchClusterInspection(clusterId!, signal, clusterFilters),
+        [clusterId, clusterFilters],
+    );
+    const filteredClusterResource = useAsyncResource(
+        mode === "cluster" && clusterId !== null && hasClusterFilters ? loadFilteredCluster : null,
+        180,
+    );
+    const filteredClusterInspection = hasClusterFilters
+        ? filteredClusterResource.data : clusterInspection;
+    const loadingFilteredClusterInspection = filteredClusterResource.loading;
+    const clusterInspectionError = clusterResource.error ?? filteredClusterResource.error;
+
+    const hasComparisonCluster = mode === "cluster-compare"
+        && comparisonClusterId !== null && comparisonClusterId >= 0
+        && comparisonClusterId !== clusterId;
+    const loadComparisonCluster = useCallback(
+        (signal: AbortSignal) => fetchClusterInspection(comparisonClusterId!, signal),
+        [comparisonClusterId],
+    );
+    const comparisonClusterResource = useAsyncResource(
+        hasComparisonCluster ? loadComparisonCluster : null,
+    );
+    const comparisonClusterInspection = comparisonClusterResource.data;
+    const loadingClusterComparison = comparisonClusterResource.loading;
+    const loadFilteredComparison = useCallback(async (signal: AbortSignal) => {
+        const [a, b] = await Promise.all([
+            fetchClusterInspection(clusterId!, signal, clusterFilters),
+            hasComparisonCluster
+                ? fetchClusterInspection(comparisonClusterId!, signal, clusterFilters)
+                : Promise.resolve(null),
+        ]);
+        return { a, b };
+    }, [clusterId, clusterFilters, hasComparisonCluster, comparisonClusterId]);
+    const filteredComparisonResource = useAsyncResource(
+        mode === "cluster-compare" && clusterId !== null && hasClusterFilters
+            ? loadFilteredComparison : null,
+        180,
+    );
+    const filteredComparisonInspectionA = hasClusterFilters
+        ? filteredComparisonResource.data?.a ?? null : clusterInspection;
+    const filteredComparisonInspectionB = hasClusterFilters
+        ? filteredComparisonResource.data?.b ?? null : comparisonClusterInspection;
+    const loadingFilteredClusterComparison = filteredComparisonResource.loading;
+    const clusterComparisonError = clusterResource.error
+        ?? comparisonClusterResource.error ?? filteredComparisonResource.error;
+
+    const artistId = explorer.selectedArtistId;
+    const loadArtistInspection = useCallback(async (signal: AbortSignal) => {
+        const response = await fetchArtistInspection(artistId!, egoDepth, 350, signal);
+        if (!signal.aborted) {
+        const availableTypes =
+            response.ego.node_type_counts.map(
+                (item) =>
+                    item.type,
+            );
+
+        const previousAvailableTypes =
+            availableNodeTypesRef.current;
+
+        const artistChanged =
+            selectedNodeTypesArtistRef.current
+            !== artistId;
+
+        setSelectedNodeTypes(
+            (current) => {
+                const previouslyAllSelected =
+                    previousAvailableTypes.length === 0
+                    || previousAvailableTypes.every(
+                        (nodeType) =>
+                            current.includes(
+                                nodeType,
+                            ),
+                    );
+
+                if (
+                    artistChanged
+                    || previouslyAllSelected
+                ) {
+                    return availableTypes;
+                }
+
+                const retained =
+                    current.filter(
+                        (nodeType) =>
+                            availableTypes.includes(
+                                nodeType,
+                            ),
+                    );
+
+                return retained.length > 0
+                    ? retained
+                    : availableTypes;
+            },
+        );
+
+        selectedNodeTypesArtistRef.current =
+            artistId;
+
+        availableNodeTypesRef.current =
+            availableTypes;
+
+        const availableRelationshipTypes =
+            response.ego.relationship_type_counts.map(
+                (item) =>
+                    item.type,
+            );
+
+        const previousAvailableRelationshipTypes =
+            availableRelationshipTypesRef.current;
+
+        const relationshipArtistChanged =
+            selectedRelationshipTypesArtistRef.current
+            !== artistId;
+
+        setSelectedRelationshipTypes(
+            (current) => {
+                const previouslyAllSelected =
+                    previousAvailableRelationshipTypes.length === 0
+                    || previousAvailableRelationshipTypes.every(
+                        (relationshipType) =>
+                            current.includes(
+                                relationshipType,
+                            ),
+                    );
+
+                if (
+                    relationshipArtistChanged
+                    || previouslyAllSelected
+                ) {
+                    return availableRelationshipTypes;
+                }
+
+                const retained =
+                    current.filter(
+                        (relationshipType) =>
+                            availableRelationshipTypes.includes(
+                                relationshipType,
+                            ),
+                    );
+
+                return retained.length > 0
+                    ? retained
+                    : availableRelationshipTypes;
+            },
+        );
+
+        selectedRelationshipTypesArtistRef.current =
+            artistId;
+
+        availableRelationshipTypesRef.current =
+            availableRelationshipTypes;
+        }
+        return response;
+    }, [artistId, egoDepth]);
+    const artistResource = useAsyncResource(
+        mode === "artist" && artistId ? loadArtistInspection : null,
+    );
+    const artistInspection = artistResource.data;
+    const loadingArtistInspection = artistResource.loading;
+    const artistInspectionError = artistResource.error;
+
+    const loadSimilarArtists = useCallback(
+        (signal: AbortSignal) => fetchSimilarArtists(artistId!, 50, signal),
+        [artistId],
+    );
+    const similarResource = useAsyncResource(
+        mode === "artist" && artistId ? loadSimilarArtists : null,
+    );
+    const similarArtists = similarResource.data ?? EMPTY_SIMILAR_ARTISTS;
+    const similarArtistsError = similarResource.error;
+
+    const loadComparison = useCallback(
+        (signal: AbortSignal) => fetchArtistComparison(artistId!, comparisonArtistId!, signal),
+        [artistId, comparisonArtistId],
+    );
+    const comparisonResource = useAsyncResource(
+        mode === "compare" && artistId && comparisonArtistId && artistId !== comparisonArtistId
+            ? loadComparison : null,
+    );
+    const comparison = comparisonResource.data;
+    const loadingComparison = comparisonResource.loading;
+    const comparisonError = comparisonResource.error;
+
+    const map3DResource = useAsyncResource(
+        explorer.viewMode === "3d" ? fetchEmbeddings3D : null,
+    );
+    const data3D = map3DResource.data;
+    const loading3D = map3DResource.loading;
+    const map3DError = map3DResource.error;
+    const request3D = () => {
+        if (map3DError) map3DResource.reload();
+    };
 
     const acceptsSharedArtistFilters =
         useCallback(
@@ -1698,7 +1037,7 @@ export function ExplorerPage() {
 
     const activeClusterInspection =
         mode === "cluster"
-            ? (filteredClusterInspection ?? clusterInspection)
+            ? filteredClusterInspection
             : clusterInspection;
 
     const filteredClusterArtists =
@@ -1729,6 +1068,7 @@ export function ExplorerPage() {
 
             if (
                 mode === "overview"
+                && !graphFilters.loading
                 && !overviewArtistIds.has(selectedArtistId)
             ) {
                 explorer.setSelectedArtistId(null);
@@ -1738,6 +1078,7 @@ export function ExplorerPage() {
             if (
                 mode === "cluster"
                 && clusterInspection
+                && !loadingFilteredClusterInspection
                 && !filteredClusterArtistIds.has(selectedArtistId)
             ) {
                 explorer.setSelectedArtistId(null);
@@ -1747,6 +1088,8 @@ export function ExplorerPage() {
             clusterInspection,
             explorer,
             filteredClusterArtistIds,
+            graphFilters.loading,
+            loadingFilteredClusterInspection,
             mode,
             overviewArtistIds,
         ],
@@ -1799,11 +1142,9 @@ export function ExplorerPage() {
 
                 if (mode === "cluster-compare") {
                     const inspectionA =
-                        filteredComparisonInspectionA
-                        ?? clusterInspection;
+                        filteredComparisonInspectionA;
                     const inspectionB =
-                        filteredComparisonInspectionB
-                        ?? comparisonClusterInspection;
+                        filteredComparisonInspectionB;
 
                     const artistIdsA = new Set(
                         inspectionA?.artists.map((artist) => artist.id) ?? [],
@@ -1886,11 +1227,9 @@ export function ExplorerPage() {
                 clusterInspection,
                 comparisonArtistId,
                 comparisonClusterId,
-                comparisonClusterInspection,
                 comparisonShowMapContext,
                 filteredComparisonInspectionA,
                 filteredComparisonInspectionB,
-                data2D,
                 explorer.selectedArtistId,
                 filteredClusterArtistIds,
                 mode,
@@ -1914,11 +1253,9 @@ export function ExplorerPage() {
 
                 if (mode === "cluster-compare") {
                     const inspectionA =
-                        filteredComparisonInspectionA
-                        ?? clusterInspection;
+                        filteredComparisonInspectionA;
                     const inspectionB =
-                        filteredComparisonInspectionB
-                        ?? comparisonClusterInspection;
+                        filteredComparisonInspectionB;
 
                     const artistIdsA = new Set(
                         inspectionA?.artists.map((artist) => artist.id) ?? [],
@@ -2001,7 +1338,6 @@ export function ExplorerPage() {
                 clusterInspection,
                 comparisonArtistId,
                 comparisonClusterId,
-                comparisonClusterInspection,
                 comparisonShowMapContext,
                 filteredComparisonInspectionA,
                 filteredComparisonInspectionB,
@@ -2187,6 +1523,7 @@ export function ExplorerPage() {
                 return [];
             },
             [
+                comparisonClusterId,
                 comparisonFocusData3D,
                 data3D,
                 focusedData3D,
@@ -2267,13 +1604,7 @@ export function ExplorerPage() {
     function clearComparisonState() {
         setComparisonArtistId(null);
         setComparisonSelectionActive(false);
-        setComparison(null);
-        setComparisonError(null);
         setComparisonClusterId(null);
-        setComparisonClusterInspection(null);
-        setFilteredComparisonInspectionA(null);
-        setFilteredComparisonInspectionB(null);
-        setClusterComparisonError(null);
     }
 
     function showOverview() {
@@ -2312,16 +1643,6 @@ export function ExplorerPage() {
         setMode("artist");
     }
 
-    function copySharedFiltersToComparison() {
-        setComparisonMinimumMembership(explorer.minimumMembership);
-        setComparisonYearRange(explorer.yearRange);
-        setComparisonGroupIds(explorer.selectedGroupIds);
-        setComparisonGroupMembership(explorer.groupMembership);
-        setComparisonLocationIds(explorer.selectedLocationIds);
-        setComparisonSelectedGenders(explorer.selectedGenders);
-        setComparisonMinimumExhibitedItems(explorer.minimumExhibitedItems);
-    }
-
     function resetComparisonFilters() {
         explorer.setMinimumMembership(0);
         explorer.setYearRange(null);
@@ -2330,31 +1651,17 @@ export function ExplorerPage() {
         explorer.setSelectedLocationIds([]);
         explorer.setSelectedGenders([]);
         explorer.setMinimumExhibitedItems(0);
-
-        setComparisonMinimumMembership(0);
-        setComparisonYearRange(null);
-        setComparisonGroupIds([]);
-        setComparisonGroupMembership("all");
-        setComparisonLocationIds([]);
-        setComparisonSelectedGenders([]);
-        setComparisonMinimumExhibitedItems(0);
     }
 
 
     function startClusterComparison() {
-        copySharedFiltersToComparison();
-
         if (selectedClusterId === null) {
             return;
         }
 
         setComparisonArtistId(null);
         setComparisonSelectionActive(false);
-        setComparison(null);
-        setComparisonError(null);
         setComparisonClusterId(null);
-        setComparisonClusterInspection(null);
-        setClusterComparisonError(null);
         explorer.setSelectedArtistId(null);
         setMode("cluster-compare");
     }
@@ -2366,7 +1673,6 @@ export function ExplorerPage() {
 
         explorer.setSelectedArtistId(null);
         explorer.setSelectedClusterId(clusterId);
-        setFilteredComparisonInspectionA(null);
         setMode("cluster-compare");
     }
 
@@ -2376,9 +1682,6 @@ export function ExplorerPage() {
         }
 
         setComparisonClusterId(clusterId);
-        setComparisonClusterInspection(null);
-        setFilteredComparisonInspectionB(null);
-        setClusterComparisonError(null);
         setMode("cluster-compare");
     }
 
@@ -2390,17 +1693,10 @@ export function ExplorerPage() {
         const previousA = selectedClusterId;
         explorer.setSelectedClusterId(comparisonClusterId);
         setComparisonClusterId(previousA);
-        setComparisonClusterInspection(null);
-        setFilteredComparisonInspectionA(null);
-        setFilteredComparisonInspectionB(null);
-        setClusterComparisonError(null);
     }
 
     function resetClusterComparison() {
         setComparisonClusterId(null);
-        setComparisonClusterInspection(null);
-        setFilteredComparisonInspectionB(null);
-        setClusterComparisonError(null);
     }
 
     function startComparison() {
@@ -2409,16 +1705,14 @@ export function ExplorerPage() {
         }
 
         setComparisonArtistId(null);
-        setComparison(null);
-        setComparisonError(null);
         setComparisonSelectionActive(true);
+        setMode("compare");
     }
 
     function cancelComparison() {
         setComparisonSelectionActive(false);
         setComparisonArtistId(null);
-        setComparison(null);
-        setComparisonError(null);
+        setMode("overview");
     }
 
     function selectCluster(
@@ -2453,9 +1747,6 @@ export function ExplorerPage() {
                     }
 
                     setComparisonClusterId(artist.cluster);
-                    setComparisonClusterInspection(null);
-                    setFilteredComparisonInspectionB(null);
-                    setClusterComparisonError(null);
                     explorer.setSelectedArtistId(null);
                     return;
                 }
@@ -2534,7 +1825,6 @@ export function ExplorerPage() {
         explorer.setSelectedClusterId(
             artist.cluster,
         );
-        setComparison(null);
         setMode("compare");
     }
 
@@ -2543,7 +1833,6 @@ export function ExplorerPage() {
     ) {
         if (!artist) {
             setComparisonArtistId(null);
-            setComparison(null);
             setComparisonSelectionActive(true);
             return;
         }
@@ -2577,13 +1866,10 @@ export function ExplorerPage() {
         setComparisonArtistId(
             previousArtistA.id,
         );
-        setComparison(null);
     }
 
     function resetComparison() {
         setComparisonArtistId(null);
-        setComparison(null);
-        setComparisonError(null);
         setComparisonSelectionActive(true);
     }
 
@@ -2596,13 +1882,7 @@ export function ExplorerPage() {
         explorer.setSelectedGenders([]);
         explorer.setMinimumExhibitedItems(0);
 
-        setClusterMinimumMembership(0);
-        setClusterYearRange(null);
-        setClusterGroupIds([]);
-        setClusterGroupMembership("all");
-        setClusterLocationIds([]);
-        setClusterSelectedGenders([]);
-        setClusterMinimumExhibitedItems(0);
+
         setShowSurroundingClusters(true);
     }
 
@@ -2640,15 +1920,8 @@ export function ExplorerPage() {
 
         clearComparisonState();
         setMode("overview");
-        setAllowedArtistIds(null);
 
-        setClusterMinimumMembership(0);
-        setClusterYearRange(null);
-        setClusterGroupIds([]);
-        setClusterGroupMembership("all");
-        setClusterLocationIds([]);
-        setClusterSelectedGenders([]);
-        setClusterMinimumExhibitedItems(0);
+
         setShowSurroundingClusters(true);
 
         setSimilarityThreshold(0.7);
@@ -2672,55 +1945,6 @@ export function ExplorerPage() {
         );
     }
 
-    if (loading) {
-        return (
-            <Box className="explorer-loading">
-                <Box
-                    sx={{
-                        textAlign: "center",
-                    }}
-                >
-                    <CircularProgress />
-
-                    <Typography
-                        sx={{
-                            mt: 2,
-                        }}
-                    >
-                        Loading ArtVis Explorer…
-                    </Typography>
-                </Box>
-            </Box>
-        );
-    }
-
-    if (error || !options) {
-        return (
-            <Box
-                sx={{
-                    p: 3,
-                }}
-            >
-                <Alert severity="error">
-                    {error
-                        ?? "Dashboard options are missing"}
-                </Alert>
-
-                <Button
-                    variant="outlined"
-                    onClick={() =>
-                        window.location.reload()
-                    }
-                    sx={{
-                        mt: 1.5,
-                    }}
-                >
-                    Retry
-                </Button>
-            </Box>
-        );
-    }
-
     const visibleArtistCount =
         explorer.viewMode === "2d"
             ? focusedData2D.length
@@ -2740,6 +1964,44 @@ export function ExplorerPage() {
             && !hasSelectedArtistPreview
                 ? null
                 : selectedClusterId;
+
+    const mapHighlightBoundary2D = useMemo(() => {
+        if (mapHighlightClusterId === null) {
+            return EMPTY_ARTISTS_2D;
+        }
+        return mode === "cluster-compare"
+            ? focusedData2D.filter((artist) => artist.cluster === selectedClusterId)
+            : selectedClusterBoundary2D;
+    }, [mapHighlightClusterId, mode, focusedData2D, selectedClusterId, selectedClusterBoundary2D]);
+
+    const mapHighlightBoundary3D = useMemo(() => {
+        if (mapHighlightClusterId === null) {
+            return EMPTY_ARTISTS_3D;
+        }
+        return mode === "cluster-compare"
+            ? (focusedData3D ?? EMPTY_ARTISTS_3D)
+                .filter((artist) => artist.cluster === selectedClusterId)
+            : selectedClusterBoundary3D;
+    }, [mapHighlightClusterId, mode, focusedData3D, selectedClusterId, selectedClusterBoundary3D]);
+
+    const additionalHighlightClusterIds = useMemo(() =>
+        mode === "cluster-compare" && comparisonClusterId !== null
+            ? [comparisonClusterId]
+            : EMPTY_CLUSTER_IDS,
+    [mode, comparisonClusterId]);
+
+    const additionalHighlightBoundary2D = useMemo(() =>
+        mode === "cluster-compare" && comparisonClusterId !== null
+            ? focusedData2D.filter((artist) => artist.cluster === comparisonClusterId)
+            : EMPTY_ARTISTS_2D,
+    [mode, comparisonClusterId, focusedData2D]);
+
+    const additionalHighlightBoundary3D = useMemo(() =>
+        mode === "cluster-compare" && comparisonClusterId !== null
+            ? (focusedData3D ?? EMPTY_ARTISTS_3D)
+                .filter((artist) => artist.cluster === comparisonClusterId)
+            : EMPTY_ARTISTS_3D,
+    [mode, comparisonClusterId, focusedData3D]);
 
     const mapTitle =
         mode === "cluster-compare"
@@ -2772,6 +2034,37 @@ export function ExplorerPage() {
                 && !hasSelectedArtistPreview
                     ? "explorer-grid--overview"
                     : "explorer-grid--with-results";
+
+    if (loading) {
+        return (
+            <Box className="explorer-loading">
+                <Box sx={{ textAlign: "center" }}>
+                    <CircularProgress />
+                    <Typography sx={{ mt: 2 }}>
+                        Loading ArtVis Explorer…
+                    </Typography>
+                </Box>
+            </Box>
+        );
+    }
+
+    if (error || graphFilters.error || !options) {
+        return (
+            <Box sx={{ p: 3 }}>
+                <Alert severity="error">
+                    {error ?? graphFilters.error
+                        ?? "Dashboard options are missing"}
+                </Alert>
+                <Button
+                    variant="outlined"
+                    onClick={() => window.location.reload()}
+                    sx={{ mt: 1.5 }}
+                >
+                    Retry
+                </Button>
+            </Box>
+        );
+    }
 
     return (
         <Box className="explorer-page">
@@ -2844,29 +2137,29 @@ export function ExplorerPage() {
                                     clusterAId={selectedClusterId}
                                     clusterBId={comparisonClusterId}
                                     visibleArtistCountA={
-                                        filteredComparisonInspectionA?.artist_count
-                                        ?? clusterInspection?.artist_count
-                                        ?? 0
+                                        loadingClusterInspection || loadingFilteredClusterComparison
+                                            ? null
+                                            : filteredComparisonInspectionA?.artist_count ?? 0
                                     }
                                     visibleArtistCountB={
-                                        filteredComparisonInspectionB?.artist_count
-                                        ?? comparisonClusterInspection?.artist_count
-                                        ?? 0
+                                        loadingClusterComparison || loadingFilteredClusterComparison
+                                            ? null
+                                            : filteredComparisonInspectionB?.artist_count ?? 0
                                     }
-                                    selectedGenders={comparisonSelectedGenders}
-                                    onSelectedGendersChange={(value) => { setComparisonSelectedGenders(value); explorer.setSelectedGenders(value); }}
-                                    minimumExhibitedItems={comparisonMinimumExhibitedItems}
-                                    onMinimumExhibitedItemsChange={(value) => { setComparisonMinimumExhibitedItems(value); explorer.setMinimumExhibitedItems(value); }}
-                                    minimumMembership={comparisonMinimumMembership}
-                                    onMinimumMembershipChange={(value) => { setComparisonMinimumMembership(value); explorer.setMinimumMembership(value); }}
-                                    yearRange={comparisonYearRange}
-                                    onYearRangeChange={(value) => { setComparisonYearRange(value); explorer.setYearRange(value); }}
-                                    selectedGroupIds={comparisonGroupIds}
-                                    onSelectedGroupIdsChange={(value) => { setComparisonGroupIds(value); explorer.setSelectedGroupIds(value); }}
-                                    groupMembership={comparisonGroupMembership}
-                                    onGroupMembershipChange={(value) => { setComparisonGroupMembership(value); explorer.setGroupMembership(value); }}
-                                    selectedLocationIds={comparisonLocationIds}
-                                    onSelectedLocationIdsChange={(value) => { setComparisonLocationIds(value); explorer.setSelectedLocationIds(value); }}
+                                    selectedGenders={explorer.selectedGenders}
+                                    onSelectedGendersChange={explorer.setSelectedGenders}
+                                    minimumExhibitedItems={explorer.minimumExhibitedItems}
+                                    onMinimumExhibitedItemsChange={explorer.setMinimumExhibitedItems}
+                                    minimumMembership={explorer.minimumMembership}
+                                    onMinimumMembershipChange={explorer.setMinimumMembership}
+                                    yearRange={explorer.yearRange}
+                                    onYearRangeChange={explorer.setYearRange}
+                                    selectedGroupIds={explorer.selectedGroupIds}
+                                    onSelectedGroupIdsChange={explorer.setSelectedGroupIds}
+                                    groupMembership={explorer.groupMembership}
+                                    onGroupMembershipChange={explorer.setGroupMembership}
+                                    selectedLocationIds={explorer.selectedLocationIds}
+                                    onSelectedLocationIdsChange={explorer.setSelectedLocationIds}
                                     onClusterAChange={changeComparisonClusterA}
                                     onClusterBChange={changeComparisonClusterB}
                                     onSwap={swapComparisonClusters}
@@ -2997,57 +2290,37 @@ export function ExplorerPage() {
                                                     filteredClusterArtists
                                                 }
                                                 visibleArtistCount={
-                                                    filteredClusterArtists.length
+                                                    loadingFilteredClusterInspection
+                                                        ? null : filteredClusterArtists.length
                                                 }
                                                 minimumMembership={
-                                                    clusterMinimumMembership
+                                                    explorer.minimumMembership
                                                 }
-                                                onMinimumMembershipChange={(value) => {
-                                                    setClusterMinimumMembership(value);
-                                                    explorer.setMinimumMembership(value);
-                                                }}
+                                                onMinimumMembershipChange={explorer.setMinimumMembership}
                                                 yearRange={
-                                                    clusterYearRange
+                                                    explorer.yearRange
                                                 }
-                                                onYearRangeChange={(value) => {
-                                                    setClusterYearRange(value);
-                                                    explorer.setYearRange(value);
-                                                }}
+                                                onYearRangeChange={explorer.setYearRange}
                                                 selectedGroupIds={
-                                                    clusterGroupIds
+                                                    explorer.selectedGroupIds
                                                 }
-                                                onSelectedGroupIdsChange={(value) => {
-                                                    setClusterGroupIds(value);
-                                                    explorer.setSelectedGroupIds(value);
-                                                }}
+                                                onSelectedGroupIdsChange={explorer.setSelectedGroupIds}
                                                 groupMembership={
-                                                    clusterGroupMembership
+                                                    explorer.groupMembership
                                                 }
-                                                onGroupMembershipChange={(value) => {
-                                                    setClusterGroupMembership(value);
-                                                    explorer.setGroupMembership(value);
-                                                }}
+                                                onGroupMembershipChange={explorer.setGroupMembership}
                                                 selectedLocationIds={
-                                                    clusterLocationIds
+                                                    explorer.selectedLocationIds
                                                 }
-                                                onSelectedLocationIdsChange={(value) => {
-                                                    setClusterLocationIds(value);
-                                                    explorer.setSelectedLocationIds(value);
-                                                }}
+                                                onSelectedLocationIdsChange={explorer.setSelectedLocationIds}
                                                 selectedGenders={
-                                                    clusterSelectedGenders
+                                                    explorer.selectedGenders
                                                 }
-                                                onSelectedGendersChange={(value) => {
-                                                    setClusterSelectedGenders(value);
-                                                    explorer.setSelectedGenders(value);
-                                                }}
+                                                onSelectedGendersChange={explorer.setSelectedGenders}
                                                 minimumExhibitedItems={
-                                                    clusterMinimumExhibitedItems
+                                                    explorer.minimumExhibitedItems
                                                 }
-                                                onMinimumExhibitedItemsChange={(value) => {
-                                                    setClusterMinimumExhibitedItems(value);
-                                                    explorer.setMinimumExhibitedItems(value);
-                                                }}
+                                                onMinimumExhibitedItemsChange={explorer.setMinimumExhibitedItems}
                                                 showSurroundingClusters={
                                                     showSurroundingClusters
                                                 }
@@ -3080,44 +2353,19 @@ export function ExplorerPage() {
                             mapHighlightClusterId
                         }
                         highlightBoundaryData2D={
-                            mapHighlightClusterId === null
-                                ? []
-                                : mode === "cluster-compare"
-                                    ? focusedData2D.filter(
-                                        (artist) => artist.cluster === selectedClusterId,
-                                    )
-                                    : selectedClusterBoundary2D
+                            mapHighlightBoundary2D
                         }
                         highlightBoundaryData3D={
-                            mapHighlightClusterId === null
-                                ? []
-                                : mode === "cluster-compare"
-                                    ? focusedData3D?.filter(
-                                        (artist) => artist.cluster === selectedClusterId,
-                                    ) ?? []
-                                    : selectedClusterBoundary3D
+                            mapHighlightBoundary3D
                         }
                         additionalHighlightClusterIds={
-                            mode === "cluster-compare"
-                            && comparisonClusterId !== null
-                                ? [comparisonClusterId]
-                                : []
+                            additionalHighlightClusterIds
                         }
                         additionalHighlightBoundaryData2D={
-                            mode === "cluster-compare"
-                            && comparisonClusterId !== null
-                                ? focusedData2D.filter(
-                                    (artist) => artist.cluster === comparisonClusterId,
-                                )
-                                : []
+                            additionalHighlightBoundary2D
                         }
                         additionalHighlightBoundaryData3D={
-                            mode === "cluster-compare"
-                            && comparisonClusterId !== null
-                                ? focusedData3D?.filter(
-                                    (artist) => artist.cluster === comparisonClusterId,
-                                ) ?? []
-                                : []
+                            additionalHighlightBoundary3D
                         }
                         dimNonHighlighted={
                             mode === "cluster-compare"
@@ -3176,7 +2424,7 @@ export function ExplorerPage() {
                         title={mapTitle}
                         description={
                             comparisonSelectionActive
-                                ? "Select a second Artist point to start the comparison."
+                                ? "Select a second Artist on the map or search for Artist B in the sidebar."
                                 : mode === "cluster-compare"
                                     ? "All clusters remain visible as context. Cluster A and Cluster B are outlined. Click an Artist in another cluster, or a cluster in the legend, to select Cluster B."
                                 : mode === "compare"
@@ -3228,13 +2476,13 @@ export function ExplorerPage() {
                         : mode === "cluster-compare"
                             ? (
                                 <ClusterComparisonDetailsPanel
+                                    loading={loadingClusterInspection || loadingClusterComparison || loadingFilteredClusterComparison}
+                                    error={clusterComparisonError}
                                     inspectionA={
                                         filteredComparisonInspectionA
-                                        ?? clusterInspection
                                     }
                                     inspectionB={
                                         filteredComparisonInspectionB
-                                        ?? comparisonClusterInspection
                                     }
                                     fullArtistCountA={clusterInspection?.artist_count ?? 0}
                                     fullArtistCountB={comparisonClusterInspection?.artist_count ?? 0}
@@ -3340,6 +2588,7 @@ export function ExplorerPage() {
                                                     ?.exhibited_artworks_note
                                                 ?? null
                                             }
+                                            exhibitions={artistInspection?.exhibitions ?? []}
                                         />
                                     </Box>
                                 )
@@ -3465,11 +2714,9 @@ export function ExplorerPage() {
                         <ClusterComparisonWorkspace
                             inspectionA={
                                 filteredComparisonInspectionA
-                                ?? clusterInspection
                             }
                             inspectionB={
                                 filteredComparisonInspectionB
-                                ?? comparisonClusterInspection
                             }
                             fullArtistCountA={clusterInspection?.artist_count ?? 0}
                             fullArtistCountB={comparisonClusterInspection?.artist_count ?? 0}
