@@ -115,6 +115,10 @@ import {
 } from "../components/map/EmbeddingMap";
 
 import {
+    MicroEntryJournal,
+} from "../components/study/MicroEntryJournal";
+
+import {
     Panel,
 } from "../components/ui/Panel";
 
@@ -192,7 +196,13 @@ function requestedMode(
 
 const EMPTY_SIMILAR_ARTISTS: SimilarArtist[] = [];
 
-export function ExplorerPage() {
+export function ExplorerPage({
+    participantId,
+    onChangeParticipant,
+}: {
+    participantId: string;
+    onChangeParticipant: () => void;
+}) {
     const explorer =
         useExplorer();
 
@@ -2024,6 +2034,60 @@ export function ExplorerPage() {
                         ? `Embedding map · Cluster ${selectedClusterId}`
                         : "Embedding cluster map";
 
+    const microEntryContext = useMemo(
+        () => ({
+            application_mode: mode,
+            mode_label: mapTitle,
+            embedding_view: explorer.viewMode,
+            selected_artist_id: selectedArtist?.id ?? null,
+            selected_artist_name:
+                selectedArtist?.display_name
+                ?? selectedArtist?.entity
+                ?? null,
+            comparison_artist_id: comparisonArtist?.id ?? null,
+            comparison_artist_name:
+                comparisonArtist?.display_name
+                ?? comparisonArtist?.entity
+                ?? null,
+            selected_cluster_id: selectedClusterId,
+            comparison_cluster_id: comparisonClusterId,
+            filters: {
+                cluster_ids: explorer.selectedClusters,
+                artist_group_ids: explorer.selectedGroupIds,
+                group_membership: explorer.groupMembership,
+                exhibition_location_ids: explorer.selectedLocationIds,
+                year_range: explorer.yearRange,
+                cluster_status: explorer.clusterStatus,
+                genders: explorer.selectedGenders,
+                minimum_exhibited_items: explorer.minimumExhibitedItems,
+                minimum_membership: explorer.minimumMembership,
+            },
+            page_url: window.location.href,
+        }),
+        [
+            comparisonArtist?.display_name,
+            comparisonArtist?.entity,
+            comparisonArtist?.id,
+            comparisonClusterId,
+            explorer.clusterStatus,
+            explorer.groupMembership,
+            explorer.minimumExhibitedItems,
+            explorer.minimumMembership,
+            explorer.selectedClusters,
+            explorer.selectedGenders,
+            explorer.selectedGroupIds,
+            explorer.selectedLocationIds,
+            explorer.viewMode,
+            explorer.yearRange,
+            mapTitle,
+            mode,
+            selectedArtist?.display_name,
+            selectedArtist?.entity,
+            selectedArtist?.id,
+            selectedClusterId,
+        ],
+    );
+
     const gridClass =
         mode === "artist"
             ? "explorer-grid--artist"
@@ -2786,6 +2850,12 @@ export function ExplorerPage() {
                         </Panel>
                     )}
             </Box>
+
+            <MicroEntryJournal
+                participantId={participantId}
+                context={microEntryContext}
+                onChangeParticipant={onChangeParticipant}
+            />
         </Box>
     );
 }

@@ -11,3 +11,6 @@ node_modules/
 dist/
 
 backend/app/ml/data_backup_*/
+
+# Generated user-study entries and screenshots
+backend/data/micro_entries/

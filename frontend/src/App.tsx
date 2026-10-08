@@ -23,7 +23,17 @@ import {
     theme,
 } from "./theme";
 
+import {
+    ParticipantGate,
+} from "./components/study/ParticipantGate";
+
+import {
+    useState,
+} from "react";
+
 import "./App.css";
+
+const PARTICIPANT_SESSION_KEY = "artvis-study-participant-id";
 
 
 function LegacyClusterRedirect() {
@@ -68,73 +78,99 @@ function LegacyArtistRedirect() {
 
 
 function App() {
+    const [participantId, setParticipantId] = useState(
+        () => sessionStorage.getItem(PARTICIPANT_SESSION_KEY) ?? "",
+    );
+
+    const startParticipantSession = (nextParticipantId: string) => {
+        sessionStorage.setItem(PARTICIPANT_SESSION_KEY, nextParticipantId);
+        setParticipantId(nextParticipantId);
+    };
+
+    const changeParticipant = () => {
+        sessionStorage.removeItem(PARTICIPANT_SESSION_KEY);
+        setParticipantId("");
+    };
+
     return (
         <ThemeProvider theme={theme}>
             <CssBaseline />
 
-            <BrowserRouter basename="/embedding-explorer">
-                <ExplorerProvider>
-                    <Routes>
-                        <Route
-                            path="/"
-                            element={
-                                <ExplorerPage />
-                            }
-                        />
-
-                        <Route
-                            path="/explore"
-                            element={
-                                <ExplorerPage />
-                            }
-                        />
-
-                        <Route
-                            path="/clusters/:clusterId"
-                            element={
-                                <LegacyClusterRedirect />
-                            }
-                        />
-
-                        <Route
-                            path="/artists/:artistId"
-                            element={
-                                <LegacyArtistRedirect />
-                            }
-                        />
-
-                        <Route
-                            path="/compare"
-                            element={
-                                <Navigate
-                                    replace
-                                    to="/"
+            {!participantId
+                ? (
+                    <ParticipantGate onStart={startParticipantSession} />
+                )
+                : (
+                    <BrowserRouter basename="/embedding-explorer">
+                        <ExplorerProvider>
+                            <Routes>
+                                <Route
+                                    path="/"
+                                    element={
+                                        <ExplorerPage
+                                            participantId={participantId}
+                                            onChangeParticipant={changeParticipant}
+                                        />
+                                    }
                                 />
-                            }
-                        />
 
-                        <Route
-                            path="/candidates"
-                            element={
-                                <Navigate
-                                    replace
-                                    to="/"
+                                <Route
+                                    path="/explore"
+                                    element={
+                                        <ExplorerPage
+                                            participantId={participantId}
+                                            onChangeParticipant={changeParticipant}
+                                        />
+                                    }
                                 />
-                            }
-                        />
 
-                        <Route
-                            path="*"
-                            element={
-                                <Navigate
-                                    replace
-                                    to="/"
+                                <Route
+                                    path="/clusters/:clusterId"
+                                    element={
+                                        <LegacyClusterRedirect />
+                                    }
                                 />
-                            }
-                        />
-                    </Routes>
-                </ExplorerProvider>
-            </BrowserRouter>
+
+                                <Route
+                                    path="/artists/:artistId"
+                                    element={
+                                        <LegacyArtistRedirect />
+                                    }
+                                />
+
+                                <Route
+                                    path="/compare"
+                                    element={
+                                        <Navigate
+                                            replace
+                                            to="/"
+                                        />
+                                    }
+                                />
+
+                                <Route
+                                    path="/candidates"
+                                    element={
+                                        <Navigate
+                                            replace
+                                            to="/"
+                                        />
+                                    }
+                                />
+
+                                <Route
+                                    path="*"
+                                    element={
+                                        <Navigate
+                                            replace
+                                            to="/"
+                                        />
+                                    }
+                                />
+                            </Routes>
+                        </ExplorerProvider>
+                    </BrowserRouter>
+                )}
         </ThemeProvider>
     );
 }
