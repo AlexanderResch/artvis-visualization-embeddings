@@ -1,0 +1,118 @@
+[
+  {
+    "page": 1,
+    "text": "ArtVis Embedding Explorer\nIntroduction\n1"
+  },
+  {
+    "page": 2,
+    "text": "Study Procedure\nShort background interview (5 min)\nTool introduction (10 min)\nFree exploration (20-30 min)\nFeedback interview (10 min)\nPost study questionnaire"
+  },
+  {
+    "page": 3,
+    "text": "Study Procedure\nShort background interview (5 min)\nTool introduction (10 min)\nFree exploration (20-30 min)\nFeedback interview (10 min)\nPost study questionnaire"
+  },
+  {
+    "page": 4,
+    "text": "Questions\n• What is your current role, and what areas or topics do you mainly work on in art\nhistory?\n• When you investigate relationships between artists, what kinds of questions are\nyou usually interested in?\n• What sources, databases, or digital tools do you normally use for this kind of\nresearch?\n• Have you worked with network visualizations, knowledge graphs, or other visual\nexploration tools before? If yes, in what context?\n• Have you used ArtVis or the ArtVis Embedding Explorer before, or have you\nbeen involved in the ArtVis project?"
+  },
+  {
+    "page": 5,
+    "text": "Study Procedure\nShort background interview (5 min)\nTool introduction (10 min)\nFree exploration (20-30 min)\nFeedback interview (10 min)\nPost study questionnaire"
+  },
+  {
+    "page": 6,
+    "text": "Study Procedure\nShort background interview (5 min)\nTool introduction (10 min)\nFree exploration (20-30 min)\nFeedback interview (10 min)\nPost study questionnaire\nAfter that here, Slide 22-24?"
+  },
+  {
+    "page": 7,
+    "text": "Study Procedure\nShort background interview (5 min)\nTool introduction (10 min)\nFree exploration (20-30 min)\nFeedback interview (10 min)\nPost study questionnaire"
+  },
+  {
+    "page": 8,
+    "text": "Study Procedure\nShort background interview (5 min)\nTool introduction (10 min)\nFree exploration (20-30 min)\nFeedback interview (10 min)\nPost study questionnaire"
+  },
+  {
+    "page": 9,
+    "text": "https://docs.google.com/forms/d/e/1FAIp\nQLSf-SqXcszQdOjuQhg4BBYvAo20Y25xlJXQ\nB_UrGSx8L7lDjLQ/viewform?usp=dialog"
+  },
+  {
+    "page": 10,
+    "text": "What is the ArtVis Embedding Explorer?\n• Interactive visual exploration of artists\nin the ArtVis knowledge graph\n• Combines artist embeddings with\ngraph-based views\n• Supports exploration of artist groups,\nsimilarities, differences, and\nrelationships\n• Different views provide complementary\ninformation\n10"
+  },
+  {
+    "page": 11,
+    "text": "How to read the Embedding Map\n• Each point represents one artist\n• Artists positioned close to each other\nhave similar embedding\nrepresentations\n• Colors represent computed clusters\n• Artists without a cluster are shown as\nunclustered / noise\n• Distances should be interpreted\ntogether with the additional graph\ninformation\n11"
+  },
+  {
+    "page": 12,
+    "text": "Computed clusters vs. ArtVis Groups\nComputed clusters ArtVis Groups\n• Automatically identified from the • Recorded artist groups in the\nartist embeddings ArtVis knowledge graph\n• Artists are grouped based on • Represent known group\npatterns in the embedding space memberships in the dataset\nA computed cluster is not the same as an ArtVis Group.\n12"
+  },
+  {
+    "page": 13,
+    "text": "Switch\nbetween\nOverview Interface\nHeader\n2D and Overview Details\n3D view\nSearch & Filter\nEmbedding Map\n13"
+  },
+  {
+    "page": 14,
+    "text": "Compare Compare\nInspect Inspect\nOverview - Selected Artist\nClusters Artists\nCluster Artist\nHelp\nReset\nArtist Details\nFilters Embedding Map\n14"
+  },
+  {
+    "page": 15,
+    "text": "Artist Inspection\nArtist Details\nEmbedding Map\nFilters and Selections\n15"
+  },
+  {
+    "page": 16,
+    "text": "Artist Inspection\nTop Connections\nTimeline of Exhibition\nin the Ego Network\nactivities\nEgo Network\n16"
+  },
+  {
+    "page": 17,
+    "text": "Artist Comparison\nArtist Comparison Details\nEmbedding Comparison\nComparison\n(Embedding Map)\nControls\n17"
+  },
+  {
+    "page": 18,
+    "text": "Artist Comparison\nCommon exibitions\nof the 2 compared Artists\nShortest Path which connect\nCommon Artist groups\nthe 2 artist in the KG\nof the 2 compared Artists\n18"
+  },
+  {
+    "page": 19,
+    "text": "Cluster Inspection Cluster Embedding View\n(Embedding Map)\nCluster Details\nCluster filters\n19"
+  },
+  {
+    "page": 20,
+    "text": "Cluster Inspection – Similarity Panel\n20"
+  },
+  {
+    "page": 21,
+    "text": "Cluster Comparison\nEmbedding Map\nCluster Comparison\nCluster Comparison Details\nSelection & FIlters\n21"
+  },
+  {
+    "page": 22,
+    "text": "Cluster Comparison\nCluster A Cluster B\n22"
+  },
+  {
+    "page": 23,
+    "text": "ArtVis Embedding Explorer\nUser Study\n23"
+  },
+  {
+    "page": 24,
+    "text": "Free Exploration\nExplore an artist, ArtVis Group, or art-historical question that\ninterests you.\n● Follow whatever you find interesting\n● Think aloud while exploring\n● Record micro-entries when you notice relevant patterns\n● You can change your direction at any time\n● If you are unsure how to continue, I can provide a backup\nexploration prompt\n24"
+  },
+  {
+    "page": 25,
+    "text": "Think Aloud\nDuring the exploration:\n• Say what you are looking for\n• Say what you notice\n• Say what you are thinking or trying to understand\n• Mention anything that is confusing or unexpected\nThere are no right or wrong answers.\n25"
+  },
+  {
+    "page": 26,
+    "text": "Micro-Entries\nWhen you notice an interesting pattern or observation, record a short micro-entry\nFor each entry:\n● What pattern do you notice?\n● How would you explain this pattern?\nAdditional notes:\n● You can create multiple entries\n● You can update an earlier entry if your explanation\nchanges\n● Entries can be short\n26"
+  },
+  {
+    "page": 27,
+    "text": "Micro-Entries\ncreating Micro-entries\n27"
+  },
+  {
+    "page": 28,
+    "text": "Micro-Entries\n28"
+  },
+  {
+    "page": 29,
+    "text": "https://artvis.cvast.tuwien.ac.at/embedding-explor\ner\n29"
+  }
+]

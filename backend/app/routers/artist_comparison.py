@@ -9,7 +9,10 @@ import pandas as pd
 from fastapi import APIRouter, HTTPException, Query
 
 from app.db import get_driver
-from app.schemas.comparison import ArtistComparisonResponse
+from app.schemas.comparison import (
+    ArtistComparisonResponse,
+    ComparisonConnectingPaths,
+)
 
 
 router = APIRouter(
@@ -871,6 +874,8 @@ SHORTEST_PATH_SEARCH_LIMITS = (
     8,
 )
 
+CONNECTING_PATH_RESULT_LIMIT_PER_LENGTH = 100
+
 
 def _serialize_path(
         path: Any,
@@ -904,6 +909,196 @@ def _serialize_path(
         "links": links,
         "kind": kind,
         "is_fallback": is_fallback,
+    }
+
+
+def _path_kind_from_parts(
+        path_nodes: list[Any],
+        relationship_types: list[str],
+) -> str:
+    node_types = [
+        (
+            sorted(node.labels)[0]
+            if node.labels
+            else "Entity"
+        )
+        for node in path_nodes
+    ]
+
+    if (
+            len(relationship_types) == 2
+            and len(node_types) == 3
+            and node_types[1] == "Exhibition"
+    ):
+        return "shared_exhibition"
+
+    if (
+            len(relationship_types) == 2
+            and len(node_types) == 3
+            and node_types[1] == "Group"
+    ):
+        return "shared_group"
+
+    if (
+            len(relationship_types) == 4
+            and node_types[1:4]
+            == [
+                "Exhibition",
+                "Location",
+                "Exhibition",
+            ]
+    ):
+        return "shared_location"
+
+    return "general"
+
+
+def _serialize_path_parts(
+        path_nodes: list[Any],
+        relationship_types: list[str],
+        kind: str,
+) -> dict[str, Any]:
+    nodes = [
+        _path_node(node)
+        for node in path_nodes
+    ]
+    links = [
+        {
+            "source": str(
+                path_nodes[index].element_id
+            ),
+            "target": str(
+                path_nodes[index + 1].element_id
+            ),
+            "type": relationship_type,
+        }
+        for index, relationship_type
+        in enumerate(relationship_types)
+    ]
+
+    return {
+        "found": True,
+        "hops": len(relationship_types),
+        "nodes": nodes,
+        "links": links,
+        "kind": kind,
+        "is_fallback": kind == "general",
+    }
+
+
+def _connecting_paths(
+        session: Any,
+        artist_a_key: str,
+        artist_b_key: str,
+        maximum_hops: int,
+        result_limit_per_length: int = CONNECTING_PATH_RESULT_LIMIT_PER_LENGTH,
+) -> dict[str, Any]:
+    paths = []
+    truncated_lengths: list[int] = []
+    seen_signatures: set[
+        tuple[
+            tuple[str, ...],
+            tuple[str, ...],
+        ]
+    ] = set()
+
+    # Search every exact length independently. A dense set of short paths
+    # must not consume the quota for longer paths selected by the user.
+    for hop_count in range(2, maximum_hops + 1):
+        query = f"""
+        MATCH (artistA:Artist)
+        WHERE elementId(artistA) = $artist_a_key
+
+        MATCH (artistB:Artist)
+        WHERE elementId(artistB) = $artist_b_key
+
+        MATCH path =
+            (artistA)-[*{hop_count}..{hop_count}]-(artistB)
+        WHERE all(
+            node IN nodes(path)
+            WHERE size([
+                candidate IN nodes(path)
+                WHERE candidate = node
+            ]) = 1
+        )
+
+        WITH
+            nodes(path) AS path_nodes,
+            [
+                relationship IN relationships(path) |
+                type(relationship)
+            ] AS relationship_types
+        RETURN DISTINCT
+            path_nodes,
+            relationship_types
+        LIMIT $query_limit
+        """
+
+        rows = list(session.run(
+            query,
+            artist_a_key=artist_a_key,
+            artist_b_key=artist_b_key,
+            query_limit=result_limit_per_length + 1,
+        ))
+
+        if len(rows) > result_limit_per_length:
+            truncated_lengths.append(hop_count)
+            rows = rows[:result_limit_per_length]
+
+        serialized_paths = []
+
+        for row in rows:
+            path_nodes = list(row["path_nodes"])
+            relationship_types = [
+                str(value)
+                for value in row["relationship_types"]
+            ]
+            signature = (
+                tuple(
+                    str(node.element_id)
+                    for node in path_nodes
+                ),
+                tuple(relationship_types),
+            )
+
+            if signature in seen_signatures:
+                continue
+
+            seen_signatures.add(signature)
+            kind = _path_kind_from_parts(
+                path_nodes,
+                relationship_types,
+            )
+            serialized_paths.append(
+                _serialize_path_parts(
+                    path_nodes,
+                    relationship_types,
+                    kind,
+                )
+            )
+
+        serialized_paths.sort(
+            key=lambda item: tuple(
+                node["key"]
+                for node in item["nodes"]
+            )
+        )
+        paths.extend(serialized_paths)
+
+    shortest_hops = (
+        paths[0]["hops"]
+        if paths
+        else None
+    )
+
+    return {
+        "max_hops": maximum_hops,
+        "shortest_hops": shortest_hops,
+        "returned_count": len(paths),
+        "truncated": bool(truncated_lengths),
+        "limit_per_length": result_limit_per_length,
+        "truncated_lengths": truncated_lengths,
+        "paths": paths,
     }
 
 
@@ -1068,6 +1263,56 @@ def _has_co_exhibited_relationship(
     return bool(
         record
         and record["connected"]
+    )
+
+
+@router.get(
+    "/paths",
+    response_model=ComparisonConnectingPaths,
+)
+def compare_artist_paths(
+        artist_a: str = Query(
+            ...,
+            min_length=1,
+        ),
+        artist_b: str = Query(
+            ...,
+            min_length=1,
+        ),
+        max_hops: int = Query(
+            2,
+            ge=2,
+            le=5,
+        ),
+) -> ComparisonConnectingPaths:
+    artist_a_id = artist_a.strip()
+    artist_b_id = artist_b.strip()
+
+    if artist_a_id == artist_b_id:
+        raise HTTPException(
+            status_code=400,
+            detail="Choose two different Artists for the path exploration",
+        )
+
+    with get_driver().session() as session:
+        artist_a_key, _ = _artist_node(
+            session,
+            artist_a_id,
+        )
+        artist_b_key, _ = _artist_node(
+            session,
+            artist_b_id,
+        )
+
+        response = _connecting_paths(
+            session,
+            artist_a_key,
+            artist_b_key,
+            max_hops,
+        )
+
+    return ComparisonConnectingPaths.model_validate(
+        response
     )
 
 
@@ -1249,11 +1494,12 @@ def compare_artists(
         "shortest_path": shortest_path,
         "note": (
             "Embedding similarity is calculated in the high-dimensional "
-            "Artist embedding. Common graph entities and the connecting path "
+            "Artist embedding. Common graph entities and connecting paths "
             "are descriptive evidence and do not prove a causal reason for "
-            "the learned similarity. Shared exhibitions, groups, and locations "
-            "are preferred as explanatory paths. A general shortest path is "
-            "used only when no such concise path is available."
+            "the learned similarity. The path explorer can inspect shortest "
+            "paths or simple paths containing between two and five "
+            "relationships. Each path length has a separate result limit so "
+            "that dense short connections do not hide longer routes."
         ),
     }
 

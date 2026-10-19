@@ -572,7 +572,7 @@ export function ComparisonShortestPath({
                         }
                     }
                 }
-                aria-label="Shortest connecting path between the compared Artists"
+                aria-label="Selected connecting path between the compared Artists"
             />
 
             {hoveredNode && (

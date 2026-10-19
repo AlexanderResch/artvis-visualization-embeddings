@@ -2795,7 +2795,7 @@ export function ExplorerPage({
 
                 {mode === "compare" && (
                     <Panel
-                        title="Shared graph context and connecting path"
+                        title="Shared graph context and connecting paths"
                         className="explorer-results-panel explorer-results-panel--comparison"
                     >
                         <ComparisonWorkspace

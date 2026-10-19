@@ -89,6 +89,16 @@ class ComparisonShortestPath(BaseModel):
     is_fallback: bool
 
 
+class ComparisonConnectingPaths(BaseModel):
+    max_hops: int
+    shortest_hops: int | None = None
+    returned_count: int
+    truncated: bool
+    limit_per_length: int
+    truncated_lengths: list[int] = Field(default_factory=list)
+    paths: list[ComparisonShortestPath] = Field(default_factory=list)
+
+
 class ArtistComparisonResponse(BaseModel):
     artist_a: ComparisonArtist
     artist_b: ComparisonArtist

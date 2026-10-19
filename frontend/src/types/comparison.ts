@@ -65,6 +65,16 @@ export type ComparisonShortestPath = {
     is_fallback: boolean;
 };
 
+export type ComparisonConnectingPaths = {
+    max_hops: number;
+    shortest_hops: number | null;
+    returned_count: number;
+    truncated: boolean;
+    limit_per_length: number;
+    truncated_lengths: number[];
+    paths: ComparisonShortestPath[];
+};
+
 export type ArtistComparisonResponse = {
     artist_a: ComparisonArtist;
     artist_b: ComparisonArtist;

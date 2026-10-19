@@ -95,7 +95,7 @@ export function ExplorerHelpDialog({
                 <Divider />
 
                 <HelpSection title="Available analytical views">
-                    Use the overview to filter and select Artists or clusters. Cluster inspection summarizes common characteristics and members. Artist inspection combines the embedding context with an ego network, top graph connections, and an activity timeline. Comparison mode contrasts two Artists and shows shared graph context and connecting paths. The 3D view provides an additional spatial perspective.
+                    Use the overview to filter and select Artists or clusters. Cluster inspection summarizes common characteristics and members. Artist inspection combines the embedding context with an ego network, top graph connections, and an activity timeline. Comparison mode contrasts two Artists and shows shared graph context. Its path explorer can display every returned shortest path or all returned simple paths with a selected maximum length from 2 to 5 relationships. The 3D view provides an additional spatial perspective.
                 </HelpSection>
 
                 <Divider />
