@@ -514,6 +514,51 @@ def fetch_exhibited_artworks(
     return artworks, note
 
 
+def fetch_artist_exhibitions(
+        session: Any,
+        artist_element_id: str,
+) -> list[dict[str, Any]]:
+    records = session.run(
+        """
+        MATCH (artist:Artist)-[:EXHIBITED_AT]->(exhibition:Exhibition)
+        WHERE elementId(artist) = $artist_element_id
+        OPTIONAL MATCH (exhibition)-[:TOOK_PLACE_AT]-(location:Location)
+        RETURN
+            elementId(exhibition) AS exhibition_key,
+            properties(exhibition) AS exhibition_properties,
+            [value IN collect(DISTINCT CASE
+                WHEN location IS NULL THEN null
+                ELSE {
+                    id: coalesce(toString(location.id), elementId(location)),
+                    name: coalesce(location.name, location.label, "Unknown location")
+                }
+            END) WHERE value IS NOT NULL] AS locations
+        """,
+        artist_element_id=artist_element_id,
+    )
+
+    exhibitions = []
+    for record in records:
+        properties = dict(record["exhibition_properties"] or {})
+        exhibition_key = str(record["exhibition_key"])
+        exhibitions.append({
+            "id": _entity_id(exhibition_key, properties),
+            "name": _display_name(properties, "Untitled exhibition"),
+            "year": _extract_year(properties),
+            "locations": json_safe(record["locations"] or []),
+        })
+
+    return sorted(
+        exhibitions,
+        key=lambda item: (
+            item["year"] is None,
+            item["year"] or 0,
+            item["name"].casefold(),
+            item["id"],
+        ),
+    )
+
+
 def fetch_artist_context(
         session: Any,
         artist_id: str,
@@ -631,4 +676,5 @@ def fetch_artist_context(
         "items_note": items_note,
         "exhibited_artworks": exhibited_artworks,
         "exhibited_artworks_note": exhibited_artworks_note,
+        "exhibitions": fetch_artist_exhibitions(session, artist_key),
     }

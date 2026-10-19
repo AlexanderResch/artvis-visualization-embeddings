@@ -23,6 +23,8 @@ import {
     ExplorerHelpDialog,
 } from "./ExplorerHelpDialog";
 
+import artvisMark from "../../assets/artvis-mark.svg";
+
 
 export type ExplorerMode =
     | "overview"
@@ -83,7 +85,7 @@ export function ExplorerHeader({
 
     const description =
         comparisonSelectionActive
-            ? "Select a second Artist on the embedding map to start the comparison."
+            ? "Select a second Artist on the map or search for Artist B in the sidebar."
             : mode === "overview"
                 ? hasSelectedArtist
                     ? "An Artist is selected. Inspect the Artist, inspect its cluster, or compare it with a second Artist."
@@ -122,12 +124,51 @@ export function ExplorerHeader({
                 }}
             >
                 <Box sx={{ minWidth: 0 }}>
-                    <Typography
-                        variant="h5"
-                        sx={{ fontWeight: 800 }}
+                    <Box
+                        sx={{
+                            display: "flex",
+                            alignItems: "center",
+                            gap: 1.15,
+                        }}
                     >
-                        ArtVis Embedding Explorer
-                    </Typography>
+                        <Box
+                            component="img"
+                            src={artvisMark}
+                            alt=""
+                            aria-hidden="true"
+                            sx={{
+                                width: 46,
+                                height: 46,
+                                flexShrink: 0,
+                            }}
+                        />
+
+                        <Box sx={{ minWidth: 0 }}>
+                            <Typography
+                                variant="h5"
+                                sx={{
+                                    fontWeight: 800,
+                                    lineHeight: 1.05,
+                                    color: "#203747",
+                                }}
+                            >
+                                ArtVis
+                            </Typography>
+
+                            <Typography
+                                variant="caption"
+                                sx={{
+                                    display: "block",
+                                    color: "text.secondary",
+                                    fontWeight: 700,
+                                    letterSpacing: "0.11em",
+                                    lineHeight: 1.15,
+                                }}
+                            >
+                                EMBEDDING EXPLORER
+                            </Typography>
+                        </Box>
+                    </Box>
 
                     <Breadcrumbs
                         aria-label="Explorer context"

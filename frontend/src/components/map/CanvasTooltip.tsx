@@ -76,6 +76,14 @@ export function CanvasTooltip({
                 }}
                 color="text.secondary"
             >
+                Nationality: {artist.nationality || "Unknown"}
+            </Typography>
+
+            <Typography
+                variant="caption"
+                sx={{ display: "block" }}
+                color="text.secondary"
+            >
                 {artist.is_noise
                     ? "Not part of a cluster"
                     : `Part of Cluster ${artist.cluster}`}

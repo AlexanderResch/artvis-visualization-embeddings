@@ -688,6 +688,10 @@ def _build_cluster_inspection(
                 ),
                 "Unknown",
             ),
+            "nationality": _clean_name(
+                getattr(row, "nationality", None),
+                "Unknown",
+            ),
             "membership_probability": float(
                 row.membership_probability
             ),

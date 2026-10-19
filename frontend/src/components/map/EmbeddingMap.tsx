@@ -48,6 +48,7 @@ const EmbeddingCanvas3D =
 
 
 const MAX_LEGEND_CLUSTERS = 8;
+const EMPTY_CLUSTER_IDS: number[] = [];
 
 
 function summarizeData(
@@ -117,7 +118,7 @@ export function EmbeddingMap({
                                  highlightClusterId = null,
                                  highlightBoundaryData2D,
                                  highlightBoundaryData3D,
-                                 additionalHighlightClusterIds = [],
+                                 additionalHighlightClusterIds = EMPTY_CLUSTER_IDS,
                                  additionalHighlightBoundaryData2D,
                                  additionalHighlightBoundaryData3D,
                                  dimNonHighlighted = false,
@@ -129,7 +130,7 @@ export function EmbeddingMap({
                                  onClusterClick,
                                  title = "Embedding cluster map",
                                  description,
-                                 legendPriorityClusterIds = [],
+                                 legendPriorityClusterIds = EMPTY_CLUSTER_IDS,
                              }: {
     data2D: ArtistEmbedding2D[];
     data3D: ArtistEmbedding3D[] | null;

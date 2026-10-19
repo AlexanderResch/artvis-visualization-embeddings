@@ -240,8 +240,8 @@ export function ClusterComparisonSidebar({
     inspectionB: ClusterInspection | null;
     clusterAId: number | null;
     clusterBId: number | null;
-    visibleArtistCountA: number;
-    visibleArtistCountB: number;
+    visibleArtistCountA: number | null;
+    visibleArtistCountB: number | null;
     selectedGenders: GenderFilterValue[];
     onSelectedGendersChange: (value: GenderFilterValue[]) => void;
     minimumExhibitedItems: number;
@@ -427,7 +427,9 @@ export function ClusterComparisonSidebar({
                 color="text.secondary"
                 sx={{ display: "block", mt: 0.75, mb: 1.5 }}
             >
-                {inspectionA
+                {visibleArtistCountA === null
+                    ? "Updating cluster filters…"
+                    : inspectionA
                     ? `${visibleArtistCountA.toLocaleString()} of ${inspectionA.artist_count.toLocaleString()} Artists match the current filters.`
                     : "Select Cluster A."}
             </Typography>
@@ -469,7 +471,9 @@ export function ClusterComparisonSidebar({
                 color="text.secondary"
                 sx={{ display: "block", mt: 0.75 }}
             >
-                {inspectionB
+                {visibleArtistCountB === null
+                    ? "Updating cluster filters…"
+                    : inspectionB
                     ? `${visibleArtistCountB.toLocaleString()} of ${inspectionB.artist_count.toLocaleString()} Artists match the current filters.`
                     : "Select Cluster B to load the comparison."}
             </Typography>
