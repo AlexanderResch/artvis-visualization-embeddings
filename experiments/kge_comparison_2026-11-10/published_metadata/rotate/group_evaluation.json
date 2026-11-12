@@ -1,0 +1,70 @@
+{
+  "model": "RotatE",
+  "seed": 43,
+  "validation": {
+    "reference_artist_count": 598,
+    "reference_group_count": 109,
+    "overlapping_reference_artists": 187,
+    "reference_missing_embeddings": 12,
+    "reference_assigned_fraction": 0.39464882943143814,
+    "pair_count": 178503,
+    "positive_pair_count": 8577,
+    "pair_tp": 1026,
+    "pair_fp": 2894,
+    "pair_fn": 7551,
+    "pair_tn": 167032,
+    "pair_precision": 0.261734693877551,
+    "pair_recall": 0.11962224554039874,
+    "pair_f1": 0.1641994078578859,
+    "single_label_artist_count": 411,
+    "ari_single_label_noise_singletons": 0.06898266471557381,
+    "ami_single_label_noise_singletons": 0.17306908183747063
+  },
+  "test": {
+    "reference_artist_count": 598,
+    "reference_group_count": 107,
+    "overlapping_reference_artists": 183,
+    "reference_missing_embeddings": 9,
+    "reference_assigned_fraction": 0.40468227424749165,
+    "pair_count": 178503,
+    "positive_pair_count": 7995,
+    "pair_tp": 1354,
+    "pair_fp": 3275,
+    "pair_fn": 6641,
+    "pair_tn": 167233,
+    "pair_precision": 0.29250378051414994,
+    "pair_recall": 0.1693558474046279,
+    "pair_f1": 0.21451204055766793,
+    "single_label_artist_count": 415,
+    "ari_single_label_noise_singletons": 0.12053198057058262,
+    "ami_single_label_noise_singletons": 0.2183764887165282
+  },
+  "reference": {
+    "source": "Neo4j Artist-MEMBER_OF-Group, verified against the raw snapshot",
+    "memberships": 1896,
+    "known_artists": 1196,
+    "groups_in_database": 113,
+    "groups_with_known_artists": 113,
+    "artists_with_multiple_groups": 370,
+    "maximum_groups_per_artist": 13,
+    "split_seed": 2026,
+    "split_unit": "Artist; all memberships of one artist stay together",
+    "splits": {
+      "test": {
+        "artists": 598,
+        "groups": 107,
+        "pairs": 178503,
+        "positive_pairs": 7995
+      },
+      "validation": {
+        "artists": 598,
+        "groups": 109,
+        "pairs": 178503,
+        "positive_pairs": 8577
+      }
+    },
+    "sha256": "eef43500989562f8b7d9b8bee1d4442ba5eb22556cfe3e4130eee09792537aaf",
+    "limitations": "Recorded memberships can be incomplete. Unlabeled artists are excluded from reference scoring. Pairwise group overlap is not necessarily a disjoint partition."
+  },
+  "note": "Held-out membership labels were evaluated after configuration selection. Training excludes MEMBER_OF. Overlapping groups use pairwise precision, recall, and F1; ARI/AMI use the singly labeled subset with noise as singletons."
+}

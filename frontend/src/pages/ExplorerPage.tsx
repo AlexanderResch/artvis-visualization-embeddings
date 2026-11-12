@@ -1,4 +1,5 @@
 import { useAsyncResource } from "../hooks/useAsyncResource";
+import { useEmbeddingModel } from "../context/EmbeddingModelContext";
 import {
     Alert,
     Box,
@@ -205,6 +206,7 @@ export function ExplorerPage({
 }) {
     const explorer =
         useExplorer();
+    const embeddingModel = useEmbeddingModel().model;
 
     const [
         searchParams,
@@ -558,7 +560,7 @@ export function ExplorerPage({
             }
 
             const next =
-                new URLSearchParams();
+                new URLSearchParams({ model: embeddingModel });
 
             if (
                 explorer.selectedClusterId !== null
@@ -634,6 +636,7 @@ export function ExplorerPage({
             explorer.selectedArtistId,
             explorer.selectedClusterId,
             explorer.viewMode,
+            embeddingModel,
             mode,
             searchParams,
             setSearchParams,
@@ -1950,7 +1953,7 @@ export function ExplorerPage({
         );
 
         setSearchParams(
-            new URLSearchParams(),
+            new URLSearchParams({ model: embeddingModel }),
             { replace: true },
         );
     }
@@ -2037,6 +2040,7 @@ export function ExplorerPage({
     const microEntryContext = useMemo(
         () => ({
             application_mode: mode,
+            embedding_model: embeddingModel,
             mode_label: mapTitle,
             embedding_view: explorer.viewMode,
             selected_artist_id: selectedArtist?.id ?? null,
@@ -2069,6 +2073,7 @@ export function ExplorerPage({
             comparisonArtist?.entity,
             comparisonArtist?.id,
             comparisonClusterId,
+            embeddingModel,
             explorer.clusterStatus,
             explorer.groupMembership,
             explorer.minimumExhibitedItems,

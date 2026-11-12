@@ -1,0 +1,139 @@
+{
+  "experiment": "Group-reference KGE refinement, 2026-11-10",
+  "input_dir": "/app/app/ml/data_supervised_2026-11-10",
+  "models": [
+    "TransE",
+    "DistMult",
+    "ComplEx",
+    "RotatE"
+  ],
+  "configurations": {
+    "TransE": [
+      {
+        "name": "native",
+        "learning_rate": 0.001,
+        "regularizer_weight": null
+      },
+      {
+        "name": "adjusted",
+        "learning_rate": 0.01,
+        "regularizer_weight": null
+      }
+    ],
+    "DistMult": [
+      {
+        "name": "native",
+        "learning_rate": 0.001,
+        "regularizer_weight": null
+      },
+      {
+        "name": "adjusted",
+        "learning_rate": 0.01,
+        "regularizer_weight": 0.001
+      }
+    ],
+    "ComplEx": [
+      {
+        "name": "native",
+        "learning_rate": 0.001,
+        "regularizer_weight": null
+      },
+      {
+        "name": "adjusted",
+        "learning_rate": 0.01,
+        "regularizer_weight": 0.001
+      }
+    ],
+    "RotatE": [
+      {
+        "name": "native",
+        "learning_rate": 0.001,
+        "regularizer_weight": null
+      },
+      {
+        "name": "adjusted",
+        "learning_rate": 0.01,
+        "regularizer_weight": null
+      }
+    ]
+  },
+  "checkpoint_epochs": [
+    2,
+    4
+  ],
+  "tuning_seed": 41,
+  "confirmation_seeds": [
+    41,
+    42,
+    43,
+    44,
+    45
+  ],
+  "real_dimension": 64,
+  "batch_size": 2048,
+  "optimizer": "Adam",
+  "adam_fused": true,
+  "negative_sampler": "pseudo_typed",
+  "negatives_per_positive": 1,
+  "device": "cpu",
+  "torch_threads_per_worker": 2,
+  "maximum_concurrent_training_workers": 4,
+  "representations": [
+    "raw",
+    "l2",
+    "l2_pca10"
+  ],
+  "hdbscan": {
+    "min_cluster_size": 50,
+    "min_samples": 5,
+    "metric": "euclidean",
+    "cluster_selection_method": "eom",
+    "approx_min_span_tree": false
+  },
+  "selection_rule": "Per model: highest validation pair-F1; ties: artist-subset Jaccard, lower noise, fewer epochs. Only validation artists are scored before configurations are frozen.",
+  "reference_definition": "Two labeled artists match if they share at least one recorded Group. Predicted match requires the same non-noise cluster. Missing embeddings and noise do not create positive pairs.",
+  "secondary_reference_scores": "ARI and AMI on artists with exactly one known Group, with noise as individual singletons.",
+  "label_split": {
+    "source": "Neo4j Artist-MEMBER_OF-Group, verified against the raw snapshot",
+    "memberships": 1896,
+    "known_artists": 1196,
+    "groups_in_database": 113,
+    "groups_with_known_artists": 113,
+    "artists_with_multiple_groups": 370,
+    "maximum_groups_per_artist": 13,
+    "split_seed": 2026,
+    "split_unit": "Artist; all memberships of one artist stay together",
+    "splits": {
+      "test": {
+        "artists": 598,
+        "groups": 107,
+        "pairs": 178503,
+        "positive_pairs": 7995
+      },
+      "validation": {
+        "artists": 598,
+        "groups": 109,
+        "pairs": 178503,
+        "positive_pairs": 8577
+      }
+    },
+    "sha256": "eef43500989562f8b7d9b8bee1d4442ba5eb22556cfe3e4130eee09792537aaf",
+    "limitations": "Recorded memberships can be incomplete. Unlabeled artists are excluded from reference scoring. Pairwise group overlap is not necessarily a disjoint partition."
+  },
+  "training_artist_count": 13244,
+  "labeled_artists_with_embeddings": 1175,
+  "input_sha256": {
+    "entity_metadata.parquet": "92206046aac1bbe71f4ab775f355cc26afa713542fb1186210bd02d0c7f453dc",
+    "triples.npy": "3d831723a32aa3f1b47a0286959c2aaa0f2fc39526f68ce3e1e350031cc1fe06",
+    "relation_mapping.json": "6c633d08812b172ca40f123a90d13182d466bf8cf3a1c134f5fb556e66b784d1",
+    "indexed_edges.parquet": "6e074dbc6467d479244be850ea371f5bdc2eed8da45933e09e73f6444120b907",
+    "group_reference.parquet": "eef43500989562f8b7d9b8bee1d4442ba5eb22556cfe3e4130eee09792537aaf"
+  },
+  "limitations": [
+    "Finite two-configuration search; no claim of exhaustive optimization or convergence.",
+    "The adjusted configurations change learning rate and, for regularized models, regularization together; this is not an isolated causal comparison of those parameters.",
+    "Transductive clustering uses the full structural graph, excluding MEMBER_OF. Held-out labels do not constitute held-out link prediction.",
+    "Group labels can overlap and be incomplete; a disjoint clustering cannot necessarily recover all pairwise group overlaps.",
+    "Subsampling holds trained embeddings fixed. Exhibition agreement uses training facts."
+  ]
+}

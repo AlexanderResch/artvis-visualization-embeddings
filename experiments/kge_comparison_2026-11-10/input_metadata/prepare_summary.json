@@ -1,0 +1,45 @@
+{
+  "model_entity_count": 225395,
+  "indexed_edge_count": 8148634,
+  "model_node_types": {
+    "Item": 209794,
+    "Artist": 13244,
+    "Exhibition": 1277,
+    "Location": 445,
+    "Venue": 304,
+    "Organizer": 219,
+    "Geoname": 112
+  },
+  "relation_counts": {
+    "CO_EXHIBITED": 7723272,
+    "EXHIBITS": 208967,
+    "CREATED": 169407,
+    "EXHIBITED_AT": 43234,
+    "TOOK_PLACE_AT": 1143,
+    "ORGANIZED": 1142,
+    "LOCATED_AT": 747,
+    "HELD": 722
+  },
+  "snapshot_relation_counts": {
+    "CO_EXHIBITED": 9509252,
+    "CREATED": 169407,
+    "EXHIBITED_AT": 43234,
+    "EXHIBITS": 208967,
+    "HELD": 722,
+    "LOCATED_AT": 747,
+    "MEMBER_OF": 1896,
+    "ORGANIZED": 1142,
+    "TOOK_PLACE_AT": 1143
+  },
+  "excluded_relations": [
+    "MEMBER_OF"
+  ],
+  "excluded_unconnected_artists": 729,
+  "properties_used_for_training": false,
+  "duplicate_triples_removed": true,
+  "training_scope": "All retained triples; no held-out link-prediction evaluation.",
+  "snapshot_sha256": {
+    "nodes": "27e23016c885bae1fbdf74ff4219ad4152c5a4003d7e9a44c51367491ff4a4b9",
+    "edges": "30cd8869e19a2256da0992d88abd4c8daae7a233943dfbbd5c17516eecf7a727"
+  }
+}

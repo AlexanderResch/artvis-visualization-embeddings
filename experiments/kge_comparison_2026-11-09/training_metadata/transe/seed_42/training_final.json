@@ -1,0 +1,52 @@
+{
+  "model": "TransE",
+  "library": "PyKEEN",
+  "pykeen_version": "1.11.1",
+  "torch_version": "2.15.0+cu132",
+  "device": "cpu",
+  "random_seed": 42,
+  "torch_num_threads": 2,
+  "entity_count": 225529,
+  "relation_count": 9,
+  "triple_count": 8150530,
+  "embedding_dimension": 64,
+  "model_embedding_dimension": 64,
+  "complex_valued": false,
+  "model_kwargs": {
+    "embedding_dim": 64,
+    "scoring_fct_norm": 1
+  },
+  "real_parameter_count": 14434432,
+  "epochs": 2,
+  "batch_size": 2048,
+  "optimizer": "Adam",
+  "adam_fused": true,
+  "learning_rate": 0.001,
+  "loss": "MarginRankingLoss(\n  (margin_activation): ReLU()\n)",
+  "negative_sampler": "PseudoTypedNegativeSampler",
+  "negative_sampler_key": "pseudo_typed",
+  "negative_samples_per_positive": 1,
+  "optimizer_updates": 7960,
+  "processed_positive_examples": 16301060,
+  "library_versions": {
+    "torch": "2.15.0",
+    "pykeen": "1.11.1",
+    "numpy": "2.5.4",
+    "scikit-learn": "1.9.1",
+    "hdbscan": "0.8.44"
+  },
+  "known_positive_filter": "PyKEEN BloomFilterer",
+  "model_defaults": "PyKEEN defaults for loss, regularization, and constraints; no custom architecture.",
+  "training_loss": [
+    0.4722840663962927,
+    0.10020194002731361
+  ],
+  "training_seconds": 1782.2736283430022,
+  "input_data_dir": "/app/app/ml/data",
+  "prepared_data_sha256": {
+    "entity_metadata.parquet": "f13f607728ece497f219989054c241ebd258160740cb889171daf259e608a5a2",
+    "relation_mapping.json": "83b312b70c71bbc753aacae5cd579e5aeb10cadaf88fda3e0a075c7576476bd3",
+    "triples.npy": "c196c7fa10516ec5363b594484c7a00770a81323e33861cea8a335c1fd3c01b0"
+  },
+  "training_scope": "All supplied triples; training loss is not held-out predictive performance."
+}

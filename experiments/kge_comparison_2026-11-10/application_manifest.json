@@ -1,0 +1,34 @@
+{
+  "default": "transe",
+  "experiment": "groups_2026-11-10",
+  "models": {
+    "transe": {
+      "input_directory": "data_supervised_2026-11-10",
+      "seed": 45,
+      "representation": "l2_pca10",
+      "embedding_sha256": "df1e44db8751a644fc7c991f8c61101eb377ef94e6fa6acd9dd91afaae1aae3b",
+      "selection_source_sha256": "cf811c78b89ddfb4c2fca152208a171460228cd75e371d0b164f86f89306939f"
+    },
+    "distmult": {
+      "input_directory": "data_supervised_2026-11-10",
+      "seed": 44,
+      "representation": "l2_pca10",
+      "embedding_sha256": "dc2e47bf8f8679af75f19985d0e7b405ff7c59a1d3e144031b5784aef77d7e07",
+      "selection_source_sha256": "0e326ddba14054552f7809993f241cdcb7e781c291da33e708110655b7b350f8"
+    },
+    "complex": {
+      "input_directory": "data_supervised_2026-11-10",
+      "seed": 41,
+      "representation": "l2_pca10",
+      "embedding_sha256": "a4097a2dd72df0a1b00fb6ad12e26996f5860565945a9617b4bcd2fc3f80684c",
+      "selection_source_sha256": "087a86c88dbd9fa9a4c82f1ef180ec67157735cde566e1699eac0d64073f0fc0"
+    },
+    "rotate": {
+      "input_directory": "data_supervised_2026-11-10",
+      "seed": 43,
+      "representation": "l2_pca10",
+      "embedding_sha256": "280836c2bb33303a76f1be7cbb9b33ad04eed0d0f4f2078d9b37b656dd642a2a",
+      "selection_source_sha256": "82344eb26e48be2dd809830f8624e45d1f88ee6e34adab2061df250ddf4ce967"
+    }
+  }
+}

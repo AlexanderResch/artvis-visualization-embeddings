@@ -1,0 +1,73 @@
+{
+  "experiment": "Full graph standard KGE comparison, 2026-11-09",
+  "status": "running",
+  "models": [
+    "TransE",
+    "DistMult",
+    "ComplEx",
+    "RotatE"
+  ],
+  "seeds": [
+    41,
+    42,
+    43
+  ],
+  "epochs": 2,
+  "real_dimension": 64,
+  "native_dimensions": {
+    "DistMult": 64,
+    "RotatE": 32,
+    "ComplEx": 32,
+    "TransE": 64
+  },
+  "batch_size": 2048,
+  "optimizer": "Adam",
+  "learning_rate": 0.001,
+  "negatives_per_positive": 1,
+  "negative_sampler": "pseudo_typed",
+  "filtered_negatives": true,
+  "include_coexhibitions": true,
+  "device": "cpu",
+  "torch_num_threads": 2,
+  "concurrent_training_processes": 2,
+  "preprocessing": [
+    "raw",
+    "l2",
+    "l2_pca10"
+  ],
+  "hdbscan": {
+    "metric": "euclidean",
+    "min_samples": 5,
+    "min_cluster_size": 50,
+    "cluster_selection_method": "eom"
+  },
+  "subsampling": {
+    "repetitions": 3,
+    "embeddings_fixed": true,
+    "fraction": 0.8,
+    "measure": "size-weighted matched cluster Jaccard, noise excluded",
+    "analysis_seed": 2026
+  },
+  "graph_checks": "Nearest-neighbor and within-cluster shared-exhibition agreement use training facts; not independent predictive evaluation.",
+  "prepared_input_sha256": {
+    "relation_mapping.json": "83b312b70c71bbc753aacae5cd579e5aeb10cadaf88fda3e0a075c7576476bd3",
+    "indexed_edges.parquet": "c9bcecc3dfc066023e888dd677fca31616627f2c50e99f92f43ef9909ee09ef0",
+    "entity_metadata.parquet": "f13f607728ece497f219989054c241ebd258160740cb889171daf259e608a5a2",
+    "triples.npy": "c196c7fa10516ec5363b594484c7a00770a81323e33861cea8a335c1fd3c01b0"
+  },
+  "supervised_evaluation": "Unavailable: external artist reference groups not supplied.",
+  "scope": "Fixed training-budget comparison with shared preprocessing sensitivity analysis; not exhaustive hyperparameter optimization and not a universal algorithm ranking.",
+  "runtime_note": "Training durations are wall times under two concurrent CPU training processes; hardware load can affect them.",
+  "adam_fused": true,
+  "resource_adjustment": "All runs use the same native PyTorch fused Adam implementation, supported by the installed CPU runtime. The original incomplete workers are archived separately.",
+  "optimizer_microbenchmark": {
+    "measured_steps": 15,
+    "unfused_seconds_per_step": 0.09127077506661105,
+    "fused_seconds_per_step": 0.013485763866871519,
+    "tensor_shape": [
+      225529,
+      64
+    ],
+    "threads": 2
+  }
+}

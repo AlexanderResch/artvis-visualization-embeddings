@@ -1,0 +1,27 @@
+{
+  "source": "Neo4j Artist-MEMBER_OF-Group, verified against the raw snapshot",
+  "memberships": 1896,
+  "known_artists": 1196,
+  "groups_in_database": 113,
+  "groups_with_known_artists": 113,
+  "artists_with_multiple_groups": 370,
+  "maximum_groups_per_artist": 13,
+  "split_seed": 2026,
+  "split_unit": "Artist; all memberships of one artist stay together",
+  "splits": {
+    "test": {
+      "artists": 598,
+      "groups": 107,
+      "pairs": 178503,
+      "positive_pairs": 7995
+    },
+    "validation": {
+      "artists": 598,
+      "groups": 109,
+      "pairs": 178503,
+      "positive_pairs": 8577
+    }
+  },
+  "sha256": "eef43500989562f8b7d9b8bee1d4442ba5eb22556cfe3e4130eee09792537aaf",
+  "limitations": "Recorded memberships can be incomplete. Unlabeled artists are excluded from reference scoring. Pairwise group overlap is not necessarily a disjoint partition."
+}

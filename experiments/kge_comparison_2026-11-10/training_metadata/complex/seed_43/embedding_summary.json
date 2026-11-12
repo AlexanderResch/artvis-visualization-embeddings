@@ -1,0 +1,10 @@
+{
+  "model": "ComplEx",
+  "artist_count": 13244,
+  "embedding_dimension": 64,
+  "model_embedding_dimension": 32,
+  "representation": "concatenated real and imaginary parts",
+  "l2_norm_minimum": 0.00013753048551734537,
+  "l2_norm_maximum": 9.238757133483887,
+  "additional_l2_normalization": false
+}

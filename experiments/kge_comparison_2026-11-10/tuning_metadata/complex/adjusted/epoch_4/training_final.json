@@ -1,0 +1,59 @@
+{
+  "model": "ComplEx",
+  "library": "PyKEEN",
+  "pykeen_version": "1.11.1",
+  "torch_version": "2.15.0+cu132",
+  "device": "cpu",
+  "random_seed": 41,
+  "torch_num_threads": 2,
+  "entity_count": 225395,
+  "relation_count": 8,
+  "triple_count": 8148634,
+  "embedding_dimension": 64,
+  "model_embedding_dimension": 32,
+  "complex_valued": true,
+  "model_kwargs": {
+    "embedding_dim": 32,
+    "regularizer_kwargs": {
+      "weight": 0.001,
+      "p": 2.0,
+      "normalize": true
+    }
+  },
+  "real_parameter_count": 14425792,
+  "batch_size": 2048,
+  "optimizer": "Adam",
+  "adam_fused": true,
+  "learning_rate": 0.01,
+  "loss": "SoftplusLoss(\n  (margin_activation): Softplus(beta=1.0, threshold=20.0)\n)",
+  "negative_sampler": "PseudoTypedNegativeSampler",
+  "negative_sampler_key": "pseudo_typed",
+  "negative_samples_per_positive": 1,
+  "known_positive_filter": "PyKEEN BloomFilterer",
+  "model_defaults": "Standard PyKEEN architecture; explicit model settings are recorded in model_kwargs.",
+  "library_versions": {
+    "torch": "2.15.0",
+    "pykeen": "1.11.1",
+    "numpy": "2.5.4",
+    "scikit-learn": "1.9.1",
+    "hdbscan": "0.8.44"
+  },
+  "input_data_dir": "/app/app/ml/data_supervised_2026-11-10",
+  "prepared_data_sha256": {
+    "entity_metadata.parquet": "92206046aac1bbe71f4ab775f355cc26afa713542fb1186210bd02d0c7f453dc",
+    "relation_mapping.json": "6c633d08812b172ca40f123a90d13182d466bf8cf3a1c134f5fb556e66b784d1",
+    "triples.npy": "3d831723a32aa3f1b47a0286959c2aaa0f2fc39526f68ce3e1e350031cc1fe06"
+  },
+  "excluded_group_memberships": true,
+  "training_scope": "All supplied structural triples; reference memberships are evaluated separately.",
+  "epochs": 4,
+  "optimizer_updates": 15916,
+  "processed_positive_examples": 32594536,
+  "training_loss": [
+    0.7707137737660049,
+    0.47131062189098816,
+    0.18861392614312075,
+    0.07878522807743928
+  ],
+  "training_seconds": 3193.5415860930007
+}

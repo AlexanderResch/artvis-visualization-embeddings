@@ -1,0 +1,20 @@
+{
+  "status": "passed",
+  "checked_at_utc": "2026-11-10T16:15:27.177855+00:00",
+  "training_jobs": 24,
+  "tuning_candidates": 48,
+  "confirmation_runs": 20,
+  "independent_reference_pair_comparisons": 40,
+  "seed_pairs": 40,
+  "published_models": 4,
+  "frozen_training_source_files": 17,
+  "checks": [
+    "Frozen inputs, sources and configuration selections",
+    "Common artist ordering and finite 64-feature vectors",
+    "Selected epochs, learning rates, regularization and label exclusion",
+    "Primary pair counts independently recomputed using set intersections for both label splits",
+    "Checkpoint and embedding hashes",
+    "Published representative runs, cluster labels and both map dimensions",
+    "Parquet application tables without duplicate CSV exports"
+  ]
+}

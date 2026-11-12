@@ -1,7 +1,8 @@
 from __future__ import annotations
+from app.model_artifacts import artifact_path
+
 
 from functools import lru_cache
-from pathlib import Path
 from typing import Any
 
 import numpy as np
@@ -21,19 +22,7 @@ router = APIRouter(
 )
 
 
-DATA_DIRECTORY = Path("app/ml/data")
-ARTIST_EMBEDDINGS_PATH = (
-        DATA_DIRECTORY
-        / "artist_embeddings.npy"
-)
-ARTIST_MAP_PARQUET_PATH = (
-        DATA_DIRECTORY
-        / "artist_map_2d.parquet"
-)
-ARTIST_MAP_CSV_PATH = (
-        DATA_DIRECTORY
-        / "artist_map_2d.csv"
-)
+
 
 
 DATE_PROPERTY_KEYS = (
@@ -222,45 +211,30 @@ def _parse_year(
     return None
 
 
-@lru_cache(maxsize=1)
-def _load_artist_map() -> pd.DataFrame:
-    if ARTIST_MAP_PARQUET_PATH.exists():
-        frame = pd.read_parquet(
-            ARTIST_MAP_PARQUET_PATH,
-        )
-    elif ARTIST_MAP_CSV_PATH.exists():
-        frame = pd.read_csv(
-            ARTIST_MAP_CSV_PATH,
-        )
-    else:
-        raise FileNotFoundError(
-            "artist_map_2d.parquet or artist_map_2d.csv is missing",
-        )
-
-    frame = frame.copy()
-    frame["id_normalized"] = frame["id"].map(
-        _normalise_id,
-    )
-
+@lru_cache(maxsize=8)
+def _read_artist_map(filename: str, modified: int) -> pd.DataFrame:
+    frame = pd.read_parquet(filename)
+    frame["id_normalized"] = frame["id"].map(_normalise_id)
     return frame
 
 
-@lru_cache(maxsize=1)
+def _load_artist_map() -> pd.DataFrame:
+    path = artifact_path("artist_map_2d.parquet")
+    if not path.exists():
+        raise HTTPException(status_code=404, detail="Artist map data are missing.")
+    return _read_artist_map(str(path), path.stat().st_mtime_ns)
+
+
+@lru_cache(maxsize=8)
+def _read_artist_embeddings(filename: str, modified: int) -> np.ndarray:
+    return np.load(filename, mmap_mode="r")
+
+
 def _load_artist_embeddings() -> np.ndarray:
-    if not ARTIST_EMBEDDINGS_PATH.exists():
-        raise FileNotFoundError(
-            "artist_embeddings.npy is missing",
-        )
-
-    embeddings = np.load(
-        ARTIST_EMBEDDINGS_PATH,
-        mmap_mode="r",
-    )
-
-    return np.asarray(
-        embeddings,
-        dtype=np.float32,
-    )
+    path = artifact_path("artist_embeddings.npy")
+    if not path.exists():
+        raise HTTPException(status_code=404, detail="Artist embeddings are missing.")
+    return _read_artist_embeddings(str(path), path.stat().st_mtime_ns)
 
 
 def _map_row(

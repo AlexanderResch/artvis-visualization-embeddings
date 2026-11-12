@@ -9,6 +9,7 @@ import {
     Route,
     Routes,
     useParams,
+    useSearchParams,
 } from "react-router";
 
 import {
@@ -32,8 +33,19 @@ import {
 } from "react";
 
 import "./App.css";
+import { EmbeddingModelProvider } from "./context/EmbeddingModelProvider";
+import { useEmbeddingModel } from "./context/EmbeddingModelContext";
 
 const PARTICIPANT_SESSION_KEY = "artvis-study-participant-id";
+
+
+function ExplorerRedirect({ selection = {} }: { selection?: Record<string, string> }) {
+    const { model } = useEmbeddingModel();
+    const [params] = useSearchParams();
+    const target = new URLSearchParams({ model, ...selection });
+    if (params.get("view") === "3d") target.set("view", "3d");
+    return <Navigate replace to={`/?${target}`} />;
+}
 
 
 function LegacyClusterRedirect() {
@@ -44,17 +56,14 @@ function LegacyClusterRedirect() {
     const parsedClusterId =
         Number(clusterId);
 
-    const target =
+    const selection =
         Number.isInteger(parsedClusterId)
         && parsedClusterId >= 0
-            ? `/?cluster=${parsedClusterId}`
-            : "/";
+            ? { cluster: String(parsedClusterId) }
+            : undefined;
 
     return (
-        <Navigate
-            replace
-            to={target}
-        />
+        <ExplorerRedirect selection={selection} />
     );
 }
 
@@ -64,15 +73,8 @@ function LegacyArtistRedirect() {
         artistId,
     } = useParams();
 
-    const target = artistId
-        ? `/?artist=${encodeURIComponent(artistId)}`
-        : "/";
-
     return (
-        <Navigate
-            replace
-            to={target}
-        />
+        <ExplorerRedirect selection={artistId ? { artist: artistId } : undefined} />
     );
 }
 
@@ -101,8 +103,8 @@ function App() {
                     <ParticipantGate onStart={startParticipantSession} />
                 )
                 : (
-                    <BrowserRouter basename="/embedding-explorer">
-                        <ExplorerProvider>
+                    <BrowserRouter basename={import.meta.env.BASE_URL}>
+                        <EmbeddingModelProvider><ExplorerProvider>
                             <Routes>
                                 <Route
                                     path="/"
@@ -141,34 +143,25 @@ function App() {
                                 <Route
                                     path="/compare"
                                     element={
-                                        <Navigate
-                                            replace
-                                            to="/"
-                                        />
+                                        <ExplorerRedirect />
                                     }
                                 />
 
                                 <Route
                                     path="/candidates"
                                     element={
-                                        <Navigate
-                                            replace
-                                            to="/"
-                                        />
+                                        <ExplorerRedirect />
                                     }
                                 />
 
                                 <Route
                                     path="*"
                                     element={
-                                        <Navigate
-                                            replace
-                                            to="/"
-                                        />
+                                        <ExplorerRedirect />
                                     }
                                 />
                             </Routes>
-                        </ExplorerProvider>
+                        </ExplorerProvider></EmbeddingModelProvider>
                     </BrowserRouter>
                 )}
         </ThemeProvider>

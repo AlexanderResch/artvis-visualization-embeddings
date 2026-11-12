@@ -266,7 +266,6 @@ def _catalogue_entries_path() -> Path | None:
     if configured:
         candidates.append(Path(configured))
 
-    # Local development from the repository.
     candidates.append(
         Path(__file__).resolve().parents[3]
         / "artvis-graph-db"
@@ -274,7 +273,6 @@ def _catalogue_entries_path() -> Path | None:
         / "catalogue_entries.csv"
     )
 
-    # Docker Compose mounts the source file here.
     candidates.append(
         Path("/app/data/catalogue_entries.csv")
     )

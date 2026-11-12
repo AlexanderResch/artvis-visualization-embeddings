@@ -1,0 +1,39 @@
+{
+  "experiment": "/app/app/ml/data_comparisons/groups_2026-11-10",
+  "run_dir": "/app/app/ml/data_comparisons/groups_2026-11-10/rotate/confirmation/seed_43",
+  "model": "RotatE",
+  "seed": 43,
+  "embedding_sha256": "280836c2bb33303a76f1be7cbb9b33ad04eed0d0f4f2078d9b37b656dd642a2a",
+  "representation": "l2_pca10",
+  "selection": {
+    "model": "RotatE",
+    "config": {
+      "name": "native",
+      "learning_rate": 0.001,
+      "regularizer_weight": null
+    },
+    "epochs": 4,
+    "representation": "l2_pca10",
+    "run_dir": "/app/app/ml/data_comparisons/groups_2026-11-10/rotate/tuning/native/seed_41",
+    "validation": {
+      "reference_artist_count": 598,
+      "reference_group_count": 109,
+      "overlapping_reference_artists": 187,
+      "reference_missing_embeddings": 12,
+      "reference_assigned_fraction": 0.3695652173913043,
+      "pair_count": 178503,
+      "positive_pair_count": 8577,
+      "pair_tp": 889,
+      "pair_fp": 2013,
+      "pair_fn": 7688,
+      "pair_tn": 167913,
+      "pair_precision": 0.30634045485871814,
+      "pair_recall": 0.10364929462516032,
+      "pair_f1": 0.15489154107500652,
+      "single_label_artist_count": 411,
+      "ari_single_label_noise_singletons": 0.0715060183845277,
+      "ami_single_label_noise_singletons": 0.16996555370711117
+    },
+    "selection_rule": "Per model: highest validation pair-F1; ties: artist-subset Jaccard, lower noise, fewer epochs. Only validation artists are scored before configurations are frozen."
+  }
+}

@@ -1,0 +1,311 @@
+{
+  "model": "DistMult",
+  "seed": 41,
+  "run_dir": "/app/app/ml/data_comparisons/full_2026-11-09/real_models/distmult/seed_41",
+  "analysis_version": 1,
+  "analysis_seed": 2026,
+  "embedding_sha256": "954576c2779e0c9baea399330033e3e82c671e163529bf0d0829888bfbfa90f3",
+  "analysis_sha256": "89d41228cd846fddfada1b84f7534ab438da596e9c243f02bc9a60e263e62866",
+  "training_seconds": 1793.4548305649987,
+  "epochs": 2,
+  "optimizer_updates": 7960,
+  "real_parameter_count": 14434432,
+  "loss": "MarginRankingLoss(\n  (margin_activation): ReLU()\n)",
+  "training_loss": [
+    1.0007558976286022,
+    1.0000156650291616
+  ],
+  "native_dimension": 64,
+  "real_dimension": 64,
+  "norm_min": 0.9999998807907104,
+  "norm_mean": 1.0,
+  "norm_max": 1.0000001192092896,
+  "representations": {
+    "raw": {
+      "model": "DistMult",
+      "seed": 41,
+      "representation": "raw",
+      "dimension": 64,
+      "retained_variance": 1.0,
+      "cluster_count": 4,
+      "assigned_count": 484,
+      "noise_fraction": 0.9635130041462495,
+      "largest_cluster_fraction": 0.016434225405201657,
+      "largest_assigned_fraction": 0.45041322314049587,
+      "silhouette_native": -0.0051138740964233875,
+      "silhouette_l2": -0.005113878753036261,
+      "silhouette_assigned_sample_count": 80,
+      "relative_validity_approx": 1.0801272473361273e-06,
+      "mean_cluster_persistence": 0.00094888211128592,
+      "subsample_jaccard": [
+        0.11706775739185504,
+        0.08438833802493899,
+        0.09899285672236628
+      ],
+      "subsample_jaccard_mean": 0.10014965071305344,
+      "per_cluster_jaccard_mean": {
+        "0": 0.1150089640998732,
+        "1": 0.10710368063309239,
+        "2": 0.06231856378915202,
+        "3": 0.09035239003271893
+      },
+      "nearest10_shared_exhibition": 0.04377685638899359,
+      "within_cluster_shared_exhibition": 0.04915,
+      "random_assigned_shared_exhibition": 0.0479,
+      "cluster_sizes": {
+        "0": 218,
+        "1": 77,
+        "2": 79,
+        "3": 110
+      },
+      "profiles": [
+        {
+          "cluster": 0,
+          "artist_count": 218,
+          "top_exhibitions": [
+            {
+              "title": "IX. Internationale Kunstausstellung",
+              "artist_count": 25
+            },
+            {
+              "title": "Mostra Nazionale di Belle Arti",
+              "artist_count": 15
+            },
+            {
+              "title": "Exposition Universelle et Internationale de Gand en 1913: Groupe II. Beaux-Arts: Œuvres modernes.",
+              "artist_count": 15
+            },
+            {
+              "title": "XI. Esposizione d'Arte della Città di Venezia",
+              "artist_count": 13
+            }
+          ]
+        },
+        {
+          "cluster": 3,
+          "artist_count": 110,
+          "top_exhibitions": [
+            {
+              "title": "IX. Internationale Kunstausstellung",
+              "artist_count": 12
+            },
+            {
+              "title": "Mostra Nazionale di Belle Arti",
+              "artist_count": 8
+            },
+            {
+              "title": "Exposition Universelle et Internationale de Gand en 1913: Groupe II. Beaux-Arts: Œuvres modernes.",
+              "artist_count": 8
+            },
+            {
+              "title": "Stedelijke Internationale Tentoonstelling Van Kunstwerken Van Levende Meesters",
+              "artist_count": 7
+            }
+          ]
+        },
+        {
+          "cluster": 2,
+          "artist_count": 79,
+          "top_exhibitions": [
+            {
+              "title": "IX. Internationale Kunstausstellung",
+              "artist_count": 14
+            },
+            {
+              "title": "Stedelijke Internationale Tentoonstelling Van Kunstwerken Van Levende Meesters",
+              "artist_count": 6
+            },
+            {
+              "title": "Mostra Nazionale di Belle Arti",
+              "artist_count": 5
+            },
+            {
+              "title": "The London Salon of the Allied Artists' Association. 1st year",
+              "artist_count": 5
+            }
+          ]
+        },
+        {
+          "cluster": 1,
+          "artist_count": 77,
+          "top_exhibitions": [
+            {
+              "title": "Exposition Universelle et Internationale de Gand en 1913: Groupe II. Beaux-Arts: Œuvres modernes.",
+              "artist_count": 8
+            },
+            {
+              "title": "IX. Internationale Kunstausstellung",
+              "artist_count": 6
+            },
+            {
+              "title": "Exposition Générale des Beaux-Arts / Salon Triennale",
+              "artist_count": 5
+            },
+            {
+              "title": "Mostra Nazionale di Belle Arti",
+              "artist_count": 4
+            }
+          ]
+        }
+      ],
+      "analysis_seconds": 42.77250685300169
+    },
+    "l2": {
+      "model": "DistMult",
+      "seed": 41,
+      "representation": "l2",
+      "dimension": 64,
+      "retained_variance": 1.0,
+      "cluster_count": 4,
+      "assigned_count": 484,
+      "noise_fraction": 0.9635130041462495,
+      "largest_cluster_fraction": 0.016434225405201657,
+      "largest_assigned_fraction": 0.45041322314049587,
+      "silhouette_native": -0.0051138740964233875,
+      "silhouette_l2": -0.005113878753036261,
+      "silhouette_assigned_sample_count": 80,
+      "relative_validity_approx": 1.0803797195181492e-06,
+      "mean_cluster_persistence": 0.000948915228144065,
+      "subsample_jaccard": [
+        0.11706775739185504,
+        0.08438833802493899,
+        0.09899285672236628
+      ],
+      "subsample_jaccard_mean": 0.10014965071305344,
+      "per_cluster_jaccard_mean": {
+        "0": 0.1150089640998732,
+        "1": 0.10710368063309239,
+        "2": 0.06231856378915202,
+        "3": 0.09035239003271893
+      },
+      "nearest10_shared_exhibition": 0.04377685638899359,
+      "within_cluster_shared_exhibition": 0.04915,
+      "random_assigned_shared_exhibition": 0.0479,
+      "cluster_sizes": {
+        "0": 218,
+        "1": 77,
+        "2": 79,
+        "3": 110
+      },
+      "profiles": [
+        {
+          "cluster": 0,
+          "artist_count": 218,
+          "top_exhibitions": [
+            {
+              "title": "IX. Internationale Kunstausstellung",
+              "artist_count": 25
+            },
+            {
+              "title": "Mostra Nazionale di Belle Arti",
+              "artist_count": 15
+            },
+            {
+              "title": "Exposition Universelle et Internationale de Gand en 1913: Groupe II. Beaux-Arts: Œuvres modernes.",
+              "artist_count": 15
+            },
+            {
+              "title": "XI. Esposizione d'Arte della Città di Venezia",
+              "artist_count": 13
+            }
+          ]
+        },
+        {
+          "cluster": 3,
+          "artist_count": 110,
+          "top_exhibitions": [
+            {
+              "title": "IX. Internationale Kunstausstellung",
+              "artist_count": 12
+            },
+            {
+              "title": "Mostra Nazionale di Belle Arti",
+              "artist_count": 8
+            },
+            {
+              "title": "Exposition Universelle et Internationale de Gand en 1913: Groupe II. Beaux-Arts: Œuvres modernes.",
+              "artist_count": 8
+            },
+            {
+              "title": "Stedelijke Internationale Tentoonstelling Van Kunstwerken Van Levende Meesters",
+              "artist_count": 7
+            }
+          ]
+        },
+        {
+          "cluster": 2,
+          "artist_count": 79,
+          "top_exhibitions": [
+            {
+              "title": "IX. Internationale Kunstausstellung",
+              "artist_count": 14
+            },
+            {
+              "title": "Stedelijke Internationale Tentoonstelling Van Kunstwerken Van Levende Meesters",
+              "artist_count": 6
+            },
+            {
+              "title": "Mostra Nazionale di Belle Arti",
+              "artist_count": 5
+            },
+            {
+              "title": "The London Salon of the Allied Artists' Association. 1st year",
+              "artist_count": 5
+            }
+          ]
+        },
+        {
+          "cluster": 1,
+          "artist_count": 77,
+          "top_exhibitions": [
+            {
+              "title": "Exposition Universelle et Internationale de Gand en 1913: Groupe II. Beaux-Arts: Œuvres modernes.",
+              "artist_count": 8
+            },
+            {
+              "title": "IX. Internationale Kunstausstellung",
+              "artist_count": 6
+            },
+            {
+              "title": "Exposition Générale des Beaux-Arts / Salon Triennale",
+              "artist_count": 5
+            },
+            {
+              "title": "Mostra Nazionale di Belle Arti",
+              "artist_count": 4
+            }
+          ]
+        }
+      ],
+      "analysis_seconds": 46.001453225999285
+    },
+    "l2_pca10": {
+      "model": "DistMult",
+      "seed": 41,
+      "representation": "l2_pca10",
+      "dimension": 10,
+      "retained_variance": 0.17283296585083008,
+      "cluster_count": 0,
+      "assigned_count": 0,
+      "noise_fraction": 1.0,
+      "largest_cluster_fraction": null,
+      "largest_assigned_fraction": null,
+      "silhouette_native": null,
+      "silhouette_l2": null,
+      "silhouette_assigned_sample_count": 0,
+      "relative_validity_approx": null,
+      "mean_cluster_persistence": null,
+      "subsample_jaccard": [],
+      "subsample_jaccard_mean": null,
+      "per_cluster_jaccard_mean": {},
+      "nearest10_shared_exhibition": 0.044575951752732754,
+      "within_cluster_shared_exhibition": null,
+      "random_assigned_shared_exhibition": null,
+      "cluster_sizes": {},
+      "profiles": [],
+      "analysis_seconds": 3.7483634349991917
+    }
+  },
+  "supervised_evaluation": null,
+  "limitations": "No reference artist labels or held-out predictive evaluation. Exhibition agreement uses training facts. Fixed embeddings during subsampling."
+}

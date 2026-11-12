@@ -1,0 +1,5304 @@
+{
+  "cluster_count": 28,
+  "clusters": [
+    {
+      "cluster": 0,
+      "artist_count": 134,
+      "mean_membership_probability": 0.9198695116391983,
+      "mean_outlier_score": 0.0801304883608019,
+      "birth_year": {
+        "count": 68,
+        "minimum": 1839,
+        "median": 1874.0,
+        "maximum": 1894
+      },
+      "death_year": {
+        "count": 58,
+        "minimum": 1915,
+        "median": 1947.5,
+        "maximum": 1989
+      },
+      "representative_artists": [
+        {
+          "id": "3532",
+          "entity": "Artist:3532",
+          "display_name": "Beindorf Wilhelm",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "3533",
+          "entity": "Artist:3533",
+          "display_name": "Below Margarete von",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "3534",
+          "entity": "Artist:3534",
+          "display_name": "Besteher Walter",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "3536",
+          "entity": "Artist:3536",
+          "display_name": "Bergmann Adelheid von",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "3540",
+          "entity": "Artist:3540",
+          "display_name": "Bormann Ferdinand",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "3542",
+          "entity": "Artist:3542",
+          "display_name": "Eisner Rose",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "3543",
+          "entity": "Artist:3543",
+          "display_name": "Eschwege Elmar von",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "3548",
+          "entity": "Artist:3548",
+          "display_name": "Frank Gertrud",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "3550",
+          "entity": "Artist:3550",
+          "display_name": "Fuchs Alfred",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "3551",
+          "entity": "Artist:3551",
+          "display_name": "Fuhrmann Ansche",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        }
+      ],
+      "top_related_entities": {
+        "CREATED:Item": [
+          {
+            "entity": "Item:193737",
+            "display_name": "Handzeichnung",
+            "count": 1
+          },
+          {
+            "entity": "Item:193738",
+            "display_name": "Handzeichnung",
+            "count": 1
+          },
+          {
+            "entity": "Item:193739",
+            "display_name": "Handzeichnung",
+            "count": 1
+          },
+          {
+            "entity": "Item:194029",
+            "display_name": "Composition",
+            "count": 1
+          },
+          {
+            "entity": "Item:194030",
+            "display_name": "Sturm",
+            "count": 1
+          },
+          {
+            "entity": "Item:35916",
+            "display_name": "Schloßpark \"Kaltwasser\"",
+            "count": 1
+          },
+          {
+            "entity": "Item:35917",
+            "display_name": "Landstraße \"Kaltwasser\"",
+            "count": 1
+          },
+          {
+            "entity": "Item:35918",
+            "display_name": "Düne auf Hiddensee",
+            "count": 1
+          },
+          {
+            "entity": "Item:35919",
+            "display_name": "[no title]",
+            "count": 1
+          },
+          {
+            "entity": "Item:35923",
+            "display_name": "Poträt",
+            "count": 1
+          }
+        ],
+        "EXHIBITED_AT:Exhibition": [
+          {
+            "entity": "Exhibition:586",
+            "display_name": "Juryfreie Kunstschau. 4. Ausstellung",
+            "count": 134
+          },
+          {
+            "entity": "Exhibition:318",
+            "display_name": "Neue Secession Berlin I. Graphische Ausstellung",
+            "count": 1
+          },
+          {
+            "entity": "Exhibition:614",
+            "display_name": "Neue Secession / VI. Ausstellung",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "cluster": 1,
+      "artist_count": 137,
+      "mean_membership_probability": 0.9092392141308085,
+      "mean_outlier_score": 0.09076078586919155,
+      "birth_year": {
+        "count": 73,
+        "minimum": 1818,
+        "median": 1869.0,
+        "maximum": 1888
+      },
+      "death_year": {
+        "count": 62,
+        "minimum": 1902,
+        "median": 1937.0,
+        "maximum": 1973
+      },
+      "representative_artists": [
+        {
+          "id": "11891",
+          "entity": "Artist:11891",
+          "display_name": "Germain Louise Denise",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "11954",
+          "entity": "Artist:11954",
+          "display_name": "Agasse-Lafont Léon",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "11975",
+          "entity": "Artist:11975",
+          "display_name": "Bruyer Georges-Léon",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "11988",
+          "entity": "Artist:11988",
+          "display_name": "Déplanté-Voyot Berthe",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "13345",
+          "entity": "Artist:13345",
+          "display_name": "Alba ",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "13347",
+          "entity": "Artist:13347",
+          "display_name": "Aubelle René",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "13350",
+          "entity": "Artist:13350",
+          "display_name": "Bernard Jeanne Claire Marguerite",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "13354",
+          "entity": "Artist:13354",
+          "display_name": "Casimacker André de",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "13363",
+          "entity": "Artist:13363",
+          "display_name": "David Ernest",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "13366",
+          "entity": "Artist:13366",
+          "display_name": "Delorme Madeleine-Blanche",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        }
+      ],
+      "top_related_entities": {
+        "CREATED:Item": [
+          {
+            "entity": "Item:109482",
+            "display_name": "Femme assise",
+            "count": 1
+          },
+          {
+            "entity": "Item:109483",
+            "display_name": "Quai de Valmy",
+            "count": 1
+          },
+          {
+            "entity": "Item:109484",
+            "display_name": "Canal St-Martin",
+            "count": 1
+          },
+          {
+            "entity": "Item:109485",
+            "display_name": "Crustacés",
+            "count": 1
+          },
+          {
+            "entity": "Item:109486",
+            "display_name": "Aquarelle",
+            "count": 1
+          },
+          {
+            "entity": "Item:13087",
+            "display_name": "Portrait de Mme. de B",
+            "count": 1
+          },
+          {
+            "entity": "Item:13089",
+            "display_name": "Portrait de l'auteur",
+            "count": 1
+          },
+          {
+            "entity": "Item:13138",
+            "display_name": "La gare Montparnasse",
+            "count": 1
+          },
+          {
+            "entity": "Item:13139",
+            "display_name": "Rayon de lune",
+            "count": 1
+          },
+          {
+            "entity": "Item:13140",
+            "display_name": "Étang de Ville-d'Avray",
+            "count": 1
+          }
+        ],
+        "EXHIBITED_AT:Exhibition": [
+          {
+            "entity": "Exhibition:1487",
+            "display_name": "Union Internationale des Beaux-Arts et des Lettres. Deuxième Congrès. Le musée du Peuple",
+            "count": 133
+          },
+          {
+            "entity": "Exhibition:18",
+            "display_name": "21e Exposition de la Société des Artistes Indépendants",
+            "count": 5
+          },
+          {
+            "entity": "Exhibition:1114",
+            "display_name": "Exposition",
+            "count": 1
+          },
+          {
+            "entity": "Exhibition:1319",
+            "display_name": "Paintings and Drawings by Maurice Asselin",
+            "count": 1
+          },
+          {
+            "entity": "Exhibition:1480",
+            "display_name": "2-я Выставка Картин \"Современная Живопись\" и Коллекции Гемм",
+            "count": 1
+          },
+          {
+            "entity": "Exhibition:244",
+            "display_name": "Natures Mortes et Fleurs (Peintures)",
+            "count": 1
+          },
+          {
+            "entity": "Exhibition:349",
+            "display_name": "XXII. Ausstellung der Berliner Secession",
+            "count": 1
+          },
+          {
+            "entity": "Exhibition:489",
+            "display_name": "Second Post-Impressionist Exhibition. British, French and Russian Artists",
+            "count": 1
+          },
+          {
+            "entity": "Exhibition:600",
+            "display_name": "Post-Impressionist and Futurist Exhibition",
+            "count": 1
+          },
+          {
+            "entity": "Exhibition:609",
+            "display_name": "Moderne Kunst Kring (Cercle de l'Art Moderne)",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "cluster": 2,
+      "artist_count": 170,
+      "mean_membership_probability": 0.9201179689201404,
+      "mean_outlier_score": 0.07988203107985953,
+      "birth_year": {
+        "count": 132,
+        "minimum": 1839,
+        "median": 1880.5,
+        "maximum": 1897
+      },
+      "death_year": {
+        "count": 126,
+        "minimum": 1909,
+        "median": 1950.0,
+        "maximum": 1983
+      },
+      "representative_artists": [
+        {
+          "id": "10736",
+          "entity": "Artist:10736",
+          "display_name": "McIntyre Raymond",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "10826",
+          "entity": "Artist:10826",
+          "display_name": "Schloss Hubert D.",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "134",
+          "entity": "Artist:134",
+          "display_name": "Gertler Mark",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "279",
+          "entity": "Artist:279",
+          "display_name": "Nash John Northcote",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "280",
+          "entity": "Artist:280",
+          "display_name": "Nash Paul",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "5387",
+          "entity": "Artist:5387",
+          "display_name": "Westray Grace",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "5394",
+          "entity": "Artist:5394",
+          "display_name": "Brown Frederick",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "5403",
+          "entity": "Artist:5403",
+          "display_name": "Tonks Henry",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "5404",
+          "entity": "Artist:5404",
+          "display_name": "Bottomley Albert Ernest",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "5414",
+          "entity": "Artist:5414",
+          "display_name": "Stabb Charles",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        }
+      ],
+      "top_related_entities": {
+        "CREATED:Item": [
+          {
+            "entity": "Item:102614",
+            "display_name": "Eyam Dale, Darbyshire",
+            "count": 1
+          },
+          {
+            "entity": "Item:102615",
+            "display_name": "Contents of an old Box",
+            "count": 1
+          },
+          {
+            "entity": "Item:102616",
+            "display_name": "Still Life and Fruit",
+            "count": 1
+          },
+          {
+            "entity": "Item:105755",
+            "display_name": "The Ambulatory, Groote Kerke, Dortrecht",
+            "count": 1
+          },
+          {
+            "entity": "Item:105757",
+            "display_name": "Groothoofdspoort, Dortrecht",
+            "count": 1
+          },
+          {
+            "entity": "Item:105758",
+            "display_name": "St. Stephen', Walbrook",
+            "count": 1
+          },
+          {
+            "entity": "Item:105759",
+            "display_name": "Interior of Church",
+            "count": 1
+          },
+          {
+            "entity": "Item:105760",
+            "display_name": "Market Square, Malines",
+            "count": 1
+          },
+          {
+            "entity": "Item:105763",
+            "display_name": "Boston, Lincolnshire",
+            "count": 1
+          },
+          {
+            "entity": "Item:105764",
+            "display_name": "Arundel Castle",
+            "count": 1
+          }
+        ],
+        "EXHIBITED_AT:Exhibition": [
+          {
+            "entity": "Exhibition:619",
+            "display_name": "Fiftieth Exhibition of Modern Pictures. New English Art Club",
+            "count": 68
+          },
+          {
+            "entity": "Exhibition:405",
+            "display_name": "Forty-Sixth Exhibition of Modern Pictures by the New English Art Club",
+            "count": 66
+          },
+          {
+            "entity": "Exhibition:1053",
+            "display_name": "Forty-Fourth Exhibition of Modern Pictures by the New English Art Club",
+            "count": 59
+          },
+          {
+            "entity": "Exhibition:693",
+            "display_name": "Fifty-first Exhibition of Modern Pictures. New English Art Club",
+            "count": 58
+          },
+          {
+            "entity": "Exhibition:581",
+            "display_name": "Forty-ninth Exhibition of Modern Pictures. New English Art Club",
+            "count": 56
+          },
+          {
+            "entity": "Exhibition:709",
+            "display_name": "Fifty-second Exhibition of Modern Pictures. New English Art Club",
+            "count": 56
+          },
+          {
+            "entity": "Exhibition:1049",
+            "display_name": "Fifty-Fourth Exhibition of Modern Picture by the New English Art Club",
+            "count": 52
+          },
+          {
+            "entity": "Exhibition:1046",
+            "display_name": "Fifty-Third Exhibition of Modern Picture by the New English Art Club",
+            "count": 50
+          },
+          {
+            "entity": "Exhibition:308",
+            "display_name": "Forty-Third Exhibition of Modern Pictures. New English Art Club",
+            "count": 44
+          },
+          {
+            "entity": "Exhibition:680",
+            "display_name": "Twentieth Century Art. A Review of Modern Movements",
+            "count": 44
+          }
+        ]
+      }
+    },
+    {
+      "cluster": 3,
+      "artist_count": 305,
+      "mean_membership_probability": 0.8456853490412721,
+      "mean_outlier_score": 0.15431465095872796,
+      "birth_year": {
+        "count": 109,
+        "minimum": 1811,
+        "median": 1866.0,
+        "maximum": 1891
+      },
+      "death_year": {
+        "count": 105,
+        "minimum": 1852,
+        "median": 1942.0,
+        "maximum": 1980
+      },
+      "representative_artists": [
+        {
+          "id": "7691",
+          "entity": "Artist:7691",
+          "display_name": "Woon Rosa E.",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "7697",
+          "entity": "Artist:7697",
+          "display_name": "Barnard Gilbert",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "7710",
+          "entity": "Artist:7710",
+          "display_name": "Fiebig Frédéric",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "7740",
+          "entity": "Artist:7740",
+          "display_name": "New J. C.",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "7751",
+          "entity": "Artist:7751",
+          "display_name": "Bewers William Herbert",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "7789",
+          "entity": "Artist:7789",
+          "display_name": "Lewis R. Archibald",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "7798",
+          "entity": "Artist:7798",
+          "display_name": "Oxenford Caroline",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "7799",
+          "entity": "Artist:7799",
+          "display_name": "Henderson Elsie Marian",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "7802",
+          "entity": "Artist:7802",
+          "display_name": "Prout E. M.",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "7808",
+          "entity": "Artist:7808",
+          "display_name": "Dickins Constance",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        }
+      ],
+      "top_related_entities": {
+        "CREATED:Item": [
+          {
+            "entity": "Item:100000",
+            "display_name": "Interior of Wells Cathedral from the Cloisters",
+            "count": 1
+          },
+          {
+            "entity": "Item:100001",
+            "display_name": "Manshead, Porthmeor Bay, St. Ives",
+            "count": 1
+          },
+          {
+            "entity": "Item:100002",
+            "display_name": "The Peak Point of Island, Porthmeor Bay, St. Ives",
+            "count": 1
+          },
+          {
+            "entity": "Item:100003",
+            "display_name": "Fishing Fleet going out, St. Ives",
+            "count": 1
+          },
+          {
+            "entity": "Item:100006",
+            "display_name": "Portrait: Mrs. Love",
+            "count": 1
+          },
+          {
+            "entity": "Item:100007",
+            "display_name": "The Mill on the Heath",
+            "count": 1
+          },
+          {
+            "entity": "Item:100008",
+            "display_name": "A Surrey Pond",
+            "count": 1
+          },
+          {
+            "entity": "Item:100009",
+            "display_name": "A Cottage Garden",
+            "count": 1
+          },
+          {
+            "entity": "Item:100016",
+            "display_name": "A Street in Old Sturry, near Canterbury",
+            "count": 1
+          },
+          {
+            "entity": "Item:100017",
+            "display_name": "Penn Common, Staffordshire",
+            "count": 1
+          }
+        ],
+        "EXHIBITED_AT:Exhibition": [
+          {
+            "entity": "Exhibition:376",
+            "display_name": "The London Salon of the Allied Artists' Association. Fourth Year",
+            "count": 227
+          },
+          {
+            "entity": "Exhibition:235",
+            "display_name": "The London Salon of the Allied Artists' Association: 2nd year",
+            "count": 130
+          },
+          {
+            "entity": "Exhibition:1010",
+            "display_name": "Sholto Johnstone Douglas",
+            "count": 1
+          },
+          {
+            "entity": "Exhibition:1053",
+            "display_name": "Forty-Fourth Exhibition of Modern Pictures by the New English Art Club",
+            "count": 1
+          },
+          {
+            "entity": "Exhibition:468",
+            "display_name": "Forty-seventh Exhibition of Modern Pictures. New English Art Club",
+            "count": 1
+          },
+          {
+            "entity": "Exhibition:650",
+            "display_name": "The First Exhibition of Works by Members of The London Group",
+            "count": 1
+          },
+          {
+            "entity": "Exhibition:680",
+            "display_name": "Twentieth Century Art. A Review of Modern Movements",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "cluster": 4,
+      "artist_count": 499,
+      "mean_membership_probability": 0.9551102052520491,
+      "mean_outlier_score": 0.16716145419003434,
+      "birth_year": {
+        "count": 309,
+        "minimum": 1815,
+        "median": 1869.0,
+        "maximum": 1898
+      },
+      "death_year": {
+        "count": 300,
+        "minimum": 1876,
+        "median": 1940.0,
+        "maximum": 1999
+      },
+      "representative_artists": [
+        {
+          "id": "10205",
+          "entity": "Artist:10205",
+          "display_name": "Gibbon James M. C.",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "10214",
+          "entity": "Artist:10214",
+          "display_name": "Henry Paul",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "10305",
+          "entity": "Artist:10305",
+          "display_name": "Breze Louis De",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "10311",
+          "entity": "Artist:10311",
+          "display_name": "Burgess Percival William",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "10335",
+          "entity": "Artist:10335",
+          "display_name": "Gardner William Biscombe",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "10341",
+          "entity": "Artist:10341",
+          "display_name": "Muntz Jessie E.",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "10353",
+          "entity": "Artist:10353",
+          "display_name": "Macdonald Frances",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "10354",
+          "entity": "Artist:10354",
+          "display_name": "Miller Philip Homan",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "10360",
+          "entity": "Artist:10360",
+          "display_name": "Frere Amy Hanbury",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "10372",
+          "entity": "Artist:10372",
+          "display_name": "Wallace James",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        }
+      ],
+      "top_related_entities": {
+        "CREATED:Item": [
+          {
+            "entity": "Item:100004",
+            "display_name": "Mary",
+            "count": 1
+          },
+          {
+            "entity": "Item:100005",
+            "display_name": "Plaisanterie",
+            "count": 1
+          },
+          {
+            "entity": "Item:100021",
+            "display_name": "The Vision of Faustus",
+            "count": 1
+          },
+          {
+            "entity": "Item:100022",
+            "display_name": "Nemesis",
+            "count": 1
+          },
+          {
+            "entity": "Item:100047",
+            "display_name": "The Mill",
+            "count": 1
+          },
+          {
+            "entity": "Item:100048",
+            "display_name": "The Cornfield",
+            "count": 1
+          },
+          {
+            "entity": "Item:100049",
+            "display_name": "Low Tide",
+            "count": 1
+          },
+          {
+            "entity": "Item:100068",
+            "display_name": "Apple Blossom",
+            "count": 1
+          },
+          {
+            "entity": "Item:100069",
+            "display_name": "Evening after Storm",
+            "count": 1
+          },
+          {
+            "entity": "Item:100070",
+            "display_name": "Cliffs, Sark",
+            "count": 1
+          }
+        ],
+        "EXHIBITED_AT:Exhibition": [
+          {
+            "entity": "Exhibition:174",
+            "display_name": "The London Salon of the Allied Artists' Association. 1st year",
+            "count": 494
+          },
+          {
+            "entity": "Exhibition:235",
+            "display_name": "The London Salon of the Allied Artists' Association: 2nd year",
+            "count": 145
+          },
+          {
+            "entity": "Exhibition:376",
+            "display_name": "The London Salon of the Allied Artists' Association. Fourth Year",
+            "count": 88
+          },
+          {
+            "entity": "Exhibition:1053",
+            "display_name": "Forty-Fourth Exhibition of Modern Pictures by the New English Art Club",
+            "count": 23
+          },
+          {
+            "entity": "Exhibition:1238",
+            "display_name": "Forty-Second Exhibition of Modern Pictures. New English Art Club",
+            "count": 19
+          },
+          {
+            "entity": "Exhibition:308",
+            "display_name": "Forty-Third Exhibition of Modern Pictures. New English Art Club",
+            "count": 18
+          },
+          {
+            "entity": "Exhibition:693",
+            "display_name": "Fifty-first Exhibition of Modern Pictures. New English Art Club",
+            "count": 18
+          },
+          {
+            "entity": "Exhibition:1378",
+            "display_name": "The Goupil Gallery Salon",
+            "count": 16
+          },
+          {
+            "entity": "Exhibition:581",
+            "display_name": "Forty-ninth Exhibition of Modern Pictures. New English Art Club",
+            "count": 15
+          },
+          {
+            "entity": "Exhibition:405",
+            "display_name": "Forty-Sixth Exhibition of Modern Pictures by the New English Art Club",
+            "count": 14
+          }
+        ]
+      }
+    },
+    {
+      "cluster": 5,
+      "artist_count": 60,
+      "mean_membership_probability": 0.995768380410275,
+      "mean_outlier_score": 0.004231619589724927,
+      "birth_year": {
+        "count": 19,
+        "minimum": 1860,
+        "median": 1875.0,
+        "maximum": 1890
+      },
+      "death_year": {
+        "count": 17,
+        "minimum": 1917,
+        "median": 1951.0,
+        "maximum": 1979
+      },
+      "representative_artists": [
+        {
+          "id": "12957",
+          "entity": "Artist:12957",
+          "display_name": "Kulbina Yulia",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "4881",
+          "entity": "Artist:4881",
+          "display_name": "Buynicki Rafail Iosifovich",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "5095",
+          "entity": "Artist:5095",
+          "display_name": "Baramzin Egor",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "5099",
+          "entity": "Artist:5099",
+          "display_name": "Buind Mikhail",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "5103",
+          "entity": "Artist:5103",
+          "display_name": "Vashhenko Evgeny",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "5105",
+          "entity": "Artist:5105",
+          "display_name": "Zhizhilenko Grigory Aleksandrovic",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "5107",
+          "entity": "Artist:5107",
+          "display_name": "Veselov Petr Lavrovich",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "5108",
+          "entity": "Artist:5108",
+          "display_name": "Voronov Pavel Fedorovich",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "5109",
+          "entity": "Artist:5109",
+          "display_name": "V. G. ",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "5112",
+          "entity": "Artist:5112",
+          "display_name": "Dmitriev Vsevolod Aleksandrovic",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        }
+      ],
+      "top_related_entities": {
+        "CREATED:Item": [
+          {
+            "entity": "Item:136712",
+            "display_name": "Květiny",
+            "count": 1
+          },
+          {
+            "entity": "Item:136935",
+            "display_name": "Podobizna",
+            "count": 1
+          },
+          {
+            "entity": "Item:136944",
+            "display_name": "Krajina",
+            "count": 1
+          },
+          {
+            "entity": "Item:194678",
+            "display_name": "Торг невольницами.",
+            "count": 1
+          },
+          {
+            "entity": "Item:194685",
+            "display_name": "Ай-Петри.",
+            "count": 1
+          },
+          {
+            "entity": "Item:194686",
+            "display_name": "Гора Монах.",
+            "count": 1
+          },
+          {
+            "entity": "Item:194719",
+            "display_name": "Новгород.",
+            "count": 1
+          },
+          {
+            "entity": "Item:196292",
+            "display_name": "Автопортрет.",
+            "count": 1
+          },
+          {
+            "entity": "Item:196294",
+            "display_name": "Невеста.",
+            "count": 1
+          },
+          {
+            "entity": "Item:196295",
+            "display_name": "Город Щигры.",
+            "count": 1
+          }
+        ],
+        "EXHIBITED_AT:Exhibition": [
+          {
+            "entity": "Exhibition:543",
+            "display_name": "Внепартийное общество художников",
+            "count": 58
+          },
+          {
+            "entity": "Exhibition:1473",
+            "display_name": "Современная живопись.",
+            "count": 3
+          },
+          {
+            "entity": "Exhibition:1257",
+            "display_name": "Výstava „Osmi“",
+            "count": 1
+          },
+          {
+            "entity": "Exhibition:1475",
+            "display_name": "Выставка \"Импрессионистов\".",
+            "count": 1
+          },
+          {
+            "entity": "Exhibition:166",
+            "display_name": "Выставка \"Современных течений в искусстве\"",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "cluster": 6,
+      "artist_count": 367,
+      "mean_membership_probability": 0.9017957261683729,
+      "mean_outlier_score": 0.09820427383162711,
+      "birth_year": {
+        "count": 237,
+        "minimum": 1735,
+        "median": 1877.0,
+        "maximum": 1894
+      },
+      "death_year": {
+        "count": 230,
+        "minimum": 1773,
+        "median": 1942.0,
+        "maximum": 1984
+      },
+      "representative_artists": [
+        {
+          "id": "1423",
+          "entity": "Artist:1423",
+          "display_name": "Nagubnikov Svyatoslav Alexandrovich",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "1862",
+          "entity": "Artist:1862",
+          "display_name": "Varapaev D.",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "1867",
+          "entity": "Artist:1867",
+          "display_name": "Denisov Vasili Ivanovich",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "1875",
+          "entity": "Artist:1875",
+          "display_name": "Kruglikova Yelizaveta",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "1894",
+          "entity": "Artist:1894",
+          "display_name": "Mironovic Petr Nikandroivč",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "1901",
+          "entity": "Artist:1901",
+          "display_name": "Rerberg Fedor Ivanovich",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "1904",
+          "entity": "Artist:1904",
+          "display_name": "Spasskiy K. V.",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "1907",
+          "entity": "Artist:1907",
+          "display_name": "Tokarev A. P.",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "1917",
+          "entity": "Artist:1917",
+          "display_name": "Jasinskij Aleksej Alekseevič",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "1918",
+          "entity": "Artist:1918",
+          "display_name": "Jasinskij Konstantin",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        }
+      ],
+      "top_related_entities": {
+        "CREATED:Item": [
+          {
+            "entity": "Item:10002",
+            "display_name": "Портрет ***",
+            "count": 1
+          },
+          {
+            "entity": "Item:10004",
+            "display_name": "Осень",
+            "count": 1
+          },
+          {
+            "entity": "Item:10030",
+            "display_name": "Среди симфонии цветов",
+            "count": 1
+          },
+          {
+            "entity": "Item:10031",
+            "display_name": "Гимн заходящему солнцу",
+            "count": 1
+          },
+          {
+            "entity": "Item:10036",
+            "display_name": "Сумрак",
+            "count": 1
+          },
+          {
+            "entity": "Item:10048",
+            "display_name": "Вечерняя мелодия",
+            "count": 1
+          },
+          {
+            "entity": "Item:10051",
+            "display_name": "Осень",
+            "count": 1
+          },
+          {
+            "entity": "Item:10063",
+            "display_name": "Абрикосовое дерево и заря",
+            "count": 1
+          },
+          {
+            "entity": "Item:10064",
+            "display_name": "Дама в желтом",
+            "count": 1
+          },
+          {
+            "entity": "Item:10065",
+            "display_name": "Виноградные листья",
+            "count": 1
+          }
+        ],
+        "EXHIBITED_AT:Exhibition": [
+          {
+            "entity": "Exhibition:747",
+            "display_name": "Салон. Интернациональная выстака картин, скульптуры, гравюры и рисунков",
+            "count": 80
+          },
+          {
+            "entity": "Exhibition:758",
+            "display_name": "Салон. Интернациональная выставка картин, скульптуры, гравюры и рисунков",
+            "count": 67
+          },
+          {
+            "entity": "Exhibition:1479",
+            "display_name": "Салон. Интернациональная выставка картин, скульптуры, гравюры и графики",
+            "count": 64
+          },
+          {
+            "entity": "Exhibition:757",
+            "display_name": "Салон. Интернациональная выставка картин, скульптуры, гравюры и графики",
+            "count": 64
+          },
+          {
+            "entity": "Exhibition:602",
+            "display_name": "Постоянная Выставка Современнаго Искусства",
+            "count": 54
+          },
+          {
+            "entity": "Exhibition:74",
+            "display_name": "Russische Kunstausstellung 1906",
+            "count": 54
+          },
+          {
+            "entity": "Exhibition:252",
+            "display_name": "XVII Выставка Картин Московскаго Товарищества Художников",
+            "count": 50
+          },
+          {
+            "entity": "Exhibition:331",
+            "display_name": "XVIII Выставка Картин Московскаго Т-ва Художников",
+            "count": 50
+          },
+          {
+            "entity": "Exhibition:80",
+            "display_name": "XIV Выставка Картин Московского Товарищества Художников",
+            "count": 49
+          },
+          {
+            "entity": "Exhibition:40",
+            "display_name": "Выставка акварели, пастели, tempera, рисунков",
+            "count": 48
+          }
+        ]
+      }
+    },
+    {
+      "cluster": 7,
+      "artist_count": 119,
+      "mean_membership_probability": 0.9396150570254647,
+      "mean_outlier_score": 0.06038494297453525,
+      "birth_year": {
+        "count": 85,
+        "minimum": 1828,
+        "median": 1863.0,
+        "maximum": 1888
+      },
+      "death_year": {
+        "count": 75,
+        "minimum": 1900,
+        "median": 1936.0,
+        "maximum": 1968
+      },
+      "representative_artists": [
+        {
+          "id": "7078",
+          "entity": "Artist:7078",
+          "display_name": "Anthonis Victor",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "7082",
+          "entity": "Artist:7082",
+          "display_name": "Biot Gustave Joseph",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "7091",
+          "entity": "Artist:7091",
+          "display_name": "Bolotine Anissa",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "7093",
+          "entity": "Artist:7093",
+          "display_name": "Boom Karel",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "7095",
+          "entity": "Artist:7095",
+          "display_name": "Boudry Alois",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "7113",
+          "entity": "Artist:7113",
+          "display_name": "Claessens Karel",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "7136",
+          "entity": "Artist:7136",
+          "display_name": "Colen Henri-A.-M.",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "7137",
+          "entity": "Artist:7137",
+          "display_name": "Collens Karel",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "7144",
+          "entity": "Artist:7144",
+          "display_name": "Jans Edouard de",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "7145",
+          "entity": "Artist:7145",
+          "display_name": "Lathouwer Auguste De",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        }
+      ],
+      "top_related_entities": {
+        "CREATED:Item": [
+          {
+            "entity": "Item:138454",
+            "display_name": "Christ en Croix",
+            "count": 1
+          },
+          {
+            "entity": "Item:138455",
+            "display_name": "Pieta",
+            "count": 1
+          },
+          {
+            "entity": "Item:140780",
+            "display_name": "Le prophète Elie, étude",
+            "count": 1
+          },
+          {
+            "entity": "Item:140781",
+            "display_name": "Saint Augustin, étdue",
+            "count": 1
+          },
+          {
+            "entity": "Item:140782",
+            "display_name": "Tête du Sauveur",
+            "count": 1
+          },
+          {
+            "entity": "Item:166161",
+            "display_name": "Satt",
+            "count": 1
+          },
+          {
+            "entity": "Item:166162",
+            "display_name": "Meine Kinder",
+            "count": 1
+          },
+          {
+            "entity": "Item:166206",
+            "display_name": "Die Mutter des Künstlers",
+            "count": 1
+          },
+          {
+            "entity": "Item:174046",
+            "display_name": "De spiegel - Le miroir",
+            "count": 1
+          },
+          {
+            "entity": "Item:174047",
+            "display_name": "Stilleven - Nature morte",
+            "count": 1
+          }
+        ],
+        "EXHIBITED_AT:Exhibition": [
+          {
+            "entity": "Exhibition:1048",
+            "display_name": "Exposition inaugurale de la Salle des Fêtes de la Ville, sous les auspices de l'Administration Communale.",
+            "count": 118
+          },
+          {
+            "entity": "Exhibition:236",
+            "display_name": "Doe Stil Voort. IIIe Jaarlijksche Tentoonstelling. IIIe Exposition Annuelle",
+            "count": 2
+          },
+          {
+            "entity": "Exhibition:390",
+            "display_name": "Exposition Internationale de l'Art Chrétien Moderne / Organisée par la Société de Saint-Jean",
+            "count": 2
+          },
+          {
+            "entity": "Exhibition:649",
+            "display_name": "Sonderausstellung der Belgischen Kunstvereinigung L'Art Contemporain",
+            "count": 2
+          },
+          {
+            "entity": "Exhibition:1041",
+            "display_name": "Exhibition of Work by Modern Belgian Artists",
+            "count": 1
+          },
+          {
+            "entity": "Exhibition:172",
+            "display_name": "Les Indépendants Cercle d'Art. Ve Salon annuel",
+            "count": 1
+          },
+          {
+            "entity": "Exhibition:178",
+            "display_name": "Ausstellung Belgischer Kunst",
+            "count": 1
+          },
+          {
+            "entity": "Exhibition:233",
+            "display_name": "Les Indépendants Cercle d'Art / VIe Salon annuel",
+            "count": 1
+          },
+          {
+            "entity": "Exhibition:733",
+            "display_name": "Cercle Vrije Kunst. VIIe Exposition Annuelle",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "cluster": 8,
+      "artist_count": 75,
+      "mean_membership_probability": 0.9937293477345124,
+      "mean_outlier_score": 0.006270652265487459,
+      "birth_year": {
+        "count": 73,
+        "minimum": 1810,
+        "median": 1860.0,
+        "maximum": 1886
+      },
+      "death_year": {
+        "count": 72,
+        "minimum": 1862,
+        "median": 1923.0,
+        "maximum": 1974
+      },
+      "representative_artists": [
+        {
+          "id": "11781",
+          "entity": "Artist:11781",
+          "display_name": "Ankarcrona Henrik August",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "11782",
+          "entity": "Artist:11782",
+          "display_name": "Arsenius Johann Georg",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "11783",
+          "entity": "Artist:11783",
+          "display_name": "Beck Julia",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "11789",
+          "entity": "Artist:11789",
+          "display_name": "Brandelius Bengt Johan Gustaf",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "11795",
+          "entity": "Artist:11795",
+          "display_name": "Fischer Per",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "11796",
+          "entity": "Artist:11796",
+          "display_name": "Flodman Carl",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "11798",
+          "entity": "Artist:11798",
+          "display_name": "Gegerfelt Wilhelm von",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "11805",
+          "entity": "Artist:11805",
+          "display_name": "Holmström Otto",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "11807",
+          "entity": "Artist:11807",
+          "display_name": "Jansson Eugène",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "11817",
+          "entity": "Artist:11817",
+          "display_name": "Küsel Ernst Niklaus",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        }
+      ],
+      "top_related_entities": {
+        "CREATED:Item": [
+          {
+            "entity": "Item:173706",
+            "display_name": "Ökenbild",
+            "count": 1
+          },
+          {
+            "entity": "Item:173707",
+            "display_name": "Ökenbild",
+            "count": 1
+          },
+          {
+            "entity": "Item:173723",
+            "display_name": "I stallet",
+            "count": 1
+          },
+          {
+            "entity": "Item:173724",
+            "display_name": "Franskt landskap",
+            "count": 1
+          },
+          {
+            "entity": "Item:173736",
+            "display_name": "Slädfart",
+            "count": 1
+          },
+          {
+            "entity": "Item:173743",
+            "display_name": "Öland",
+            "count": 1
+          },
+          {
+            "entity": "Item:173744",
+            "display_name": "Strand",
+            "count": 1
+          },
+          {
+            "entity": "Item:173745",
+            "display_name": "Utsikt från Särö",
+            "count": 1
+          },
+          {
+            "entity": "Item:173746",
+            "display_name": "Åre",
+            "count": 1
+          },
+          {
+            "entity": "Item:173747",
+            "display_name": "Solnedgång, Särö",
+            "count": 1
+          }
+        ],
+        "EXHIBITED_AT:Exhibition": [
+          {
+            "entity": "Exhibition:369",
+            "display_name": "Retrospektiva Konstutställningen 1861-1911",
+            "count": 43
+          },
+          {
+            "entity": "Exhibition:35",
+            "display_name": "Tenth Annual Exhibition",
+            "count": 32
+          },
+          {
+            "entity": "Exhibition:360",
+            "display_name": "Fifteenth Annual Exhibition",
+            "count": 1
+          },
+          {
+            "entity": "Exhibition:731",
+            "display_name": "Contemporary Group Exhibition",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "cluster": 9,
+      "artist_count": 225,
+      "mean_membership_probability": 0.8480456614251372,
+      "mean_outlier_score": 0.15195433857486282,
+      "birth_year": {
+        "count": 221,
+        "minimum": 1833,
+        "median": 1869.0,
+        "maximum": 1892
+      },
+      "death_year": {
+        "count": 219,
+        "minimum": 1911,
+        "median": 1943.0,
+        "maximum": 1986
+      },
+      "representative_artists": [
+        {
+          "id": "13149",
+          "entity": "Artist:13149",
+          "display_name": "Crane Bruce",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "13288",
+          "entity": "Artist:13288",
+          "display_name": "Hurley Edward Timothy",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "13291",
+          "entity": "Artist:13291",
+          "display_name": "Lathrop William Langson",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "13300",
+          "entity": "Artist:13300",
+          "display_name": "MacLane Jean",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "13302",
+          "entity": "Artist:13302",
+          "display_name": "Metcalf Willard LeRoy",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "13306",
+          "entity": "Artist:13306",
+          "display_name": "Mora F. Luis",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "13315",
+          "entity": "Artist:13315",
+          "display_name": "Rosen Charles",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "13318",
+          "entity": "Artist:13318",
+          "display_name": "Symons Gardner George",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "13319",
+          "entity": "Artist:13319",
+          "display_name": "Sotter George William",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "13322",
+          "entity": "Artist:13322",
+          "display_name": "Vonnoh Robert William",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        }
+      ],
+      "top_related_entities": {
+        "CREATED:Item": [
+          {
+            "entity": "Item:11456",
+            "display_name": "Portrait",
+            "count": 1
+          },
+          {
+            "entity": "Item:11510",
+            "display_name": "The bathing hour",
+            "count": 1
+          },
+          {
+            "entity": "Item:11604",
+            "display_name": "Wisdom and destiny",
+            "count": 1
+          },
+          {
+            "entity": "Item:11605",
+            "display_name": "The valley",
+            "count": 1
+          },
+          {
+            "entity": "Item:11649",
+            "display_name": "Terminal yards",
+            "count": 1
+          },
+          {
+            "entity": "Item:11662",
+            "display_name": "Weeds and willow tree",
+            "count": 1
+          },
+          {
+            "entity": "Item:11669",
+            "display_name": "The quarry",
+            "count": 1
+          },
+          {
+            "entity": "Item:11783",
+            "display_name": "Their life",
+            "count": 1
+          },
+          {
+            "entity": "Item:11785",
+            "display_name": "The glow",
+            "count": 1
+          },
+          {
+            "entity": "Item:11786",
+            "display_name": "Drawings",
+            "count": 1
+          }
+        ],
+        "EXHIBITED_AT:Exhibition": [
+          {
+            "entity": "Exhibition:565",
+            "display_name": "Seventeenth Annual Exhibition",
+            "count": 125
+          },
+          {
+            "entity": "Exhibition:360",
+            "display_name": "Fifteenth Annual Exhibition",
+            "count": 124
+          },
+          {
+            "entity": "Exhibition:673",
+            "display_name": "Eighteenth Annual Exhibition",
+            "count": 117
+          },
+          {
+            "entity": "Exhibition:454",
+            "display_name": "Sixteenth Annual Exhibition",
+            "count": 106
+          },
+          {
+            "entity": "Exhibition:296",
+            "display_name": "Fourteenth Annual Exhibition",
+            "count": 84
+          },
+          {
+            "entity": "Exhibition:35",
+            "display_name": "Tenth Annual Exhibition",
+            "count": 49
+          },
+          {
+            "entity": "Exhibition:223",
+            "display_name": "VIII. Esposizione d'Arte della Città di Venezia",
+            "count": 25
+          },
+          {
+            "entity": "Exhibition:534",
+            "display_name": "International Exhibition of Modern Art [Armory Show]",
+            "count": 18
+          },
+          {
+            "entity": "Exhibition:554",
+            "display_name": "International Exhibition of Modern Art [Armory Show]",
+            "count": 8
+          },
+          {
+            "entity": "Exhibition:857",
+            "display_name": "Opening Exhibition. Season 1913-1914",
+            "count": 4
+          }
+        ]
+      }
+    },
+    {
+      "cluster": 10,
+      "artist_count": 101,
+      "mean_membership_probability": 0.9694569647859627,
+      "mean_outlier_score": 0.03054303521403747,
+      "birth_year": {
+        "count": 68,
+        "minimum": 1578,
+        "median": 1884.0,
+        "maximum": 1897
+      },
+      "death_year": {
+        "count": 55,
+        "minimum": 1615,
+        "median": 1951.0,
+        "maximum": 1973
+      },
+      "representative_artists": [
+        {
+          "id": "3321",
+          "entity": "Artist:3321",
+          "display_name": "Lehel Mária",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "3488",
+          "entity": "Artist:3488",
+          "display_name": "Ács Ferenc",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "3489",
+          "entity": "Artist:3489",
+          "display_name": "Albert Ferenc",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "3508",
+          "entity": "Artist:3508",
+          "display_name": "Bohacsek Ede",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "3585",
+          "entity": "Artist:3585",
+          "display_name": "Csapó Jenő",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "3587",
+          "entity": "Artist:3587",
+          "display_name": "Döményi László",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "3624",
+          "entity": "Artist:3624",
+          "display_name": "Kalmár Ágnes",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "3769",
+          "entity": "Artist:3769",
+          "display_name": "Kolbay Sándor",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "3790",
+          "entity": "Artist:3790",
+          "display_name": "Kovács Gina",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "3810",
+          "entity": "Artist:3810",
+          "display_name": "Lengyel Loránd E.",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        }
+      ],
+      "top_related_entities": {
+        "CREATED:Item": [
+          {
+            "entity": "Item:106939",
+            "display_name": "Léda",
+            "count": 1
+          },
+          {
+            "entity": "Item:106940",
+            "display_name": "Birsalma csendélet",
+            "count": 1
+          },
+          {
+            "entity": "Item:106941",
+            "display_name": "Ősemberek",
+            "count": 1
+          },
+          {
+            "entity": "Item:106942",
+            "display_name": "Anyaság",
+            "count": 1
+          },
+          {
+            "entity": "Item:106943",
+            "display_name": "Az erdő",
+            "count": 1
+          },
+          {
+            "entity": "Item:106944",
+            "display_name": "Vízhordó nők",
+            "count": 1
+          },
+          {
+            "entity": "Item:106945",
+            "display_name": "A háboru",
+            "count": 1
+          },
+          {
+            "entity": "Item:106978",
+            "display_name": "Tavasz",
+            "count": 1
+          },
+          {
+            "entity": "Item:106979",
+            "display_name": "Tanulmány az „Imádás\"-hoz",
+            "count": 1
+          },
+          {
+            "entity": "Item:106980",
+            "display_name": "Kompozíció az „Imádás\"-hoz",
+            "count": 1
+          }
+        ],
+        "EXHIBITED_AT:Exhibition": [
+          {
+            "entity": "Exhibition:1021",
+            "display_name": "A Művészház [második] zsűrimentes kiállítása",
+            "count": 51
+          },
+          {
+            "entity": "Exhibition:1035",
+            "display_name": "Biró Mihály gyűjteményes kiállitása és az 1912-ik évi zsűrimentes kiállitás a Művészházban",
+            "count": 47
+          },
+          {
+            "entity": "Exhibition:589",
+            "display_name": "Zsűrimentes kiállitás a Művészházban",
+            "count": 46
+          },
+          {
+            "entity": "Exhibition:994",
+            "display_name": "A Művészház zsűrimentes kiállítása",
+            "count": 37
+          },
+          {
+            "entity": "Exhibition:1009",
+            "display_name": "A Művészház palotafelavató kiállítása",
+            "count": 34
+          },
+          {
+            "entity": "Exhibition:636",
+            "display_name": "A Művészház nagy kiállitása",
+            "count": 31
+          },
+          {
+            "entity": "Exhibition:1016",
+            "display_name": "A Művészház téli kiállítása [ellenszalon]",
+            "count": 19
+          },
+          {
+            "entity": "Exhibition:53",
+            "display_name": "Tavaszi kiállítás",
+            "count": 6
+          },
+          {
+            "entity": "Exhibition:557",
+            "display_name": "A Művészház nemzetközi Postimpresszionista kiállitása",
+            "count": 6
+          },
+          {
+            "entity": "Exhibition:1018",
+            "display_name": "A Művészház negyedik csoportos kiállitása",
+            "count": 5
+          }
+        ]
+      }
+    },
+    {
+      "cluster": 11,
+      "artist_count": 210,
+      "mean_membership_probability": 0.8682966343856862,
+      "mean_outlier_score": 0.13170336561431384,
+      "birth_year": {
+        "count": 162,
+        "minimum": 1834,
+        "median": 1878.5,
+        "maximum": 1895
+      },
+      "death_year": {
+        "count": 150,
+        "minimum": 1905,
+        "median": 1951.0,
+        "maximum": 1984
+      },
+      "representative_artists": [
+        {
+          "id": "46",
+          "entity": "Artist:46",
+          "display_name": "Brusselmans Jean",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "565",
+          "entity": "Artist:565",
+          "display_name": "Rommelaere Emile",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "7763",
+          "entity": "Artist:7763",
+          "display_name": "Bouré Jean",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "7766",
+          "entity": "Artist:7766",
+          "display_name": "Bonnard Abel",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "7767",
+          "entity": "Artist:7767",
+          "display_name": "Borgnet Henriette",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "7768",
+          "entity": "Artist:7768",
+          "display_name": "Boulez Jules",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "7772",
+          "entity": "Artist:7772",
+          "display_name": "Buisseret Louis",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "7925",
+          "entity": "Artist:7925",
+          "display_name": "Colin Jean",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "7931",
+          "entity": "Artist:7931",
+          "display_name": "Counhaye Charles",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "7946",
+          "entity": "Artist:7946",
+          "display_name": "Bie Antoine de",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        }
+      ],
+      "top_related_entities": {
+        "CREATED:Item": [
+          {
+            "entity": "Item:100112",
+            "display_name": "Sphynx",
+            "count": 1
+          },
+          {
+            "entity": "Item:100114",
+            "display_name": "Portrait du graveur Degroot",
+            "count": 1
+          },
+          {
+            "entity": "Item:100115",
+            "display_name": "Vieille église",
+            "count": 1
+          },
+          {
+            "entity": "Item:100124",
+            "display_name": "Coin des Flandres",
+            "count": 1
+          },
+          {
+            "entity": "Item:100125",
+            "display_name": "Au béguinage",
+            "count": 1
+          },
+          {
+            "entity": "Item:100169",
+            "display_name": "Le dévidoir",
+            "count": 1
+          },
+          {
+            "entity": "Item:100202",
+            "display_name": "Adam et Eve chassés du paradis",
+            "count": 1
+          },
+          {
+            "entity": "Item:100210",
+            "display_name": "Portrait du Dr Marlow",
+            "count": 1
+          },
+          {
+            "entity": "Item:100212",
+            "display_name": "Regrets",
+            "count": 1
+          },
+          {
+            "entity": "Item:100213",
+            "display_name": "Portrait de Mlle S. F.",
+            "count": 1
+          }
+        ],
+        "EXHIBITED_AT:Exhibition": [
+          {
+            "entity": "Exhibition:682",
+            "display_name": "Exposition Générale des Beaux-Arts / Salon Triennale",
+            "count": 209
+          },
+          {
+            "entity": "Exhibition:453",
+            "display_name": "X. Esposizione d'Arte della Città di Venezia",
+            "count": 15
+          },
+          {
+            "entity": "Exhibition:580",
+            "display_name": "Exposition Universelle et Internationale de Gand en 1913: Groupe II. Beaux-Arts: Œuvres modernes.",
+            "count": 15
+          },
+          {
+            "entity": "Exhibition:465",
+            "display_name": "Les Indépendants Cercle d'Art / IX. Salon annuel",
+            "count": 13
+          },
+          {
+            "entity": "Exhibition:597",
+            "display_name": "Les Indépendants Cercle d'Art Xme Salon Annuel",
+            "count": 12
+          },
+          {
+            "entity": "Exhibition:1048",
+            "display_name": "Exposition inaugurale de la Salle des Fêtes de la Ville, sous les auspices de l'Administration Communale.",
+            "count": 10
+          },
+          {
+            "entity": "Exhibition:1041",
+            "display_name": "Exhibition of Work by Modern Belgian Artists",
+            "count": 9
+          },
+          {
+            "entity": "Exhibition:961",
+            "display_name": "Pour l'Art. XVIe Exposition Annuelle",
+            "count": 9
+          },
+          {
+            "entity": "Exhibition:172",
+            "display_name": "Les Indépendants Cercle d'Art. Ve Salon annuel",
+            "count": 8
+          },
+          {
+            "entity": "Exhibition:178",
+            "display_name": "Ausstellung Belgischer Kunst",
+            "count": 8
+          }
+        ]
+      }
+    },
+    {
+      "cluster": 12,
+      "artist_count": 139,
+      "mean_membership_probability": 0.9052866234765393,
+      "mean_outlier_score": 0.0947133765234607,
+      "birth_year": {
+        "count": 126,
+        "minimum": 1816,
+        "median": 1878.0,
+        "maximum": 1895
+      },
+      "death_year": {
+        "count": 122,
+        "minimum": 1879,
+        "median": 1950.0,
+        "maximum": 1981
+      },
+      "representative_artists": [
+        {
+          "id": "1933",
+          "entity": "Artist:1933",
+          "display_name": "Kirstein Alfred",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "1955",
+          "entity": "Artist:1955",
+          "display_name": "Cesare Oscar Edward",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "1959",
+          "entity": "Artist:1959",
+          "display_name": "Cimiotti Gustave",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "2106",
+          "entity": "Artist:2106",
+          "display_name": "Davidson Jo",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "2108",
+          "entity": "Artist:2108",
+          "display_name": "Dreier Katherine Sophie",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "2112",
+          "entity": "Artist:2112",
+          "display_name": "Frazier Kenneth",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "2120",
+          "entity": "Artist:2120",
+          "display_name": "Gussow Bernard",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "2134",
+          "entity": "Artist:2134",
+          "display_name": "Kramer Edward Adam",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "2145",
+          "entity": "Artist:2145",
+          "display_name": "McEnery Kathleen",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "2146",
+          "entity": "Artist:2146",
+          "display_name": "Meltzer Charlotte",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        }
+      ],
+      "top_related_entities": {
+        "CREATED:Item": [
+          {
+            "entity": "Item:100472",
+            "display_name": "Oasis",
+            "count": 1
+          },
+          {
+            "entity": "Item:100475",
+            "display_name": "Auf dem Lande",
+            "count": 1
+          },
+          {
+            "entity": "Item:100886",
+            "display_name": "Cadagues / Landschaft",
+            "count": 1
+          },
+          {
+            "entity": "Item:100887",
+            "display_name": "Landschaft",
+            "count": 1
+          },
+          {
+            "entity": "Item:100902",
+            "display_name": "Herbstwald",
+            "count": 1
+          },
+          {
+            "entity": "Item:100903",
+            "display_name": "Frau in Kimono",
+            "count": 1
+          },
+          {
+            "entity": "Item:100988",
+            "display_name": "Straße",
+            "count": 1
+          },
+          {
+            "entity": "Item:100989",
+            "display_name": "Porträt eines Mannes",
+            "count": 1
+          },
+          {
+            "entity": "Item:100990",
+            "display_name": "Porträt einer Frau",
+            "count": 1
+          },
+          {
+            "entity": "Item:100991",
+            "display_name": "Les Andelys",
+            "count": 1
+          }
+        ],
+        "EXHIBITED_AT:Exhibition": [
+          {
+            "entity": "Exhibition:534",
+            "display_name": "International Exhibition of Modern Art [Armory Show]",
+            "count": 135
+          },
+          {
+            "entity": "Exhibition:554",
+            "display_name": "International Exhibition of Modern Art [Armory Show]",
+            "count": 71
+          },
+          {
+            "entity": "Exhibition:567",
+            "display_name": "International Exhibition of Modern Art [Armory Show]",
+            "count": 12
+          },
+          {
+            "entity": "Exhibition:30",
+            "display_name": "Salon d'Automne. 3e Exposition",
+            "count": 8
+          },
+          {
+            "entity": "Exhibition:68",
+            "display_name": "Salon d'Automne. 4e Exposition",
+            "count": 8
+          },
+          {
+            "entity": "Exhibition:311",
+            "display_name": "Ausstellung des Sonderbundes Westdeutscher Kunstfreunde und Künstler",
+            "count": 7
+          },
+          {
+            "entity": "Exhibition:394",
+            "display_name": "Exposition d'Art Contemporain / Société Normande de Peinture Moderne 2me exposition",
+            "count": 7
+          },
+          {
+            "entity": "Exhibition:462",
+            "display_name": "Internationale Kunstausstellung des Sonderbundes Westdeutscher Kunstfreunde und Künstler zu Cöln",
+            "count": 7
+          },
+          {
+            "entity": "Exhibition:585",
+            "display_name": "Neue Kunst. II.Gesamtausstellung",
+            "count": 7
+          },
+          {
+            "entity": "Exhibition:857",
+            "display_name": "Opening Exhibition. Season 1913-1914",
+            "count": 7
+          }
+        ]
+      }
+    },
+    {
+      "cluster": 13,
+      "artist_count": 120,
+      "mean_membership_probability": 0.9891112497806522,
+      "mean_outlier_score": 0.010888750219347794,
+      "birth_year": {
+        "count": 117,
+        "minimum": 1827,
+        "median": 1868.0,
+        "maximum": 1885
+      },
+      "death_year": {
+        "count": 114,
+        "minimum": 1879,
+        "median": 1935.5,
+        "maximum": 1969
+      },
+      "representative_artists": [
+        {
+          "id": "1374",
+          "entity": "Artist:1374",
+          "display_name": "Pongrácz Károly",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "1379",
+          "entity": "Artist:1379",
+          "display_name": "Darling William",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "1534",
+          "entity": "Artist:1534",
+          "display_name": "Cserna Rezső Sándor",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "1538",
+          "entity": "Artist:1538",
+          "display_name": "Hadzsy Olga",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "1546",
+          "entity": "Artist:1546",
+          "display_name": "Telkessy Valéria",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "1610",
+          "entity": "Artist:1610",
+          "display_name": "Gross Béla",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "1612",
+          "entity": "Artist:1612",
+          "display_name": "Papp Sándor",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "1614",
+          "entity": "Artist:1614",
+          "display_name": "Wolf Károly",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "1856",
+          "entity": "Artist:1856",
+          "display_name": "Konek Ida",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "1869",
+          "entity": "Artist:1869",
+          "display_name": "Pór Bertalan",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        }
+      ],
+      "top_related_entities": {
+        "CREATED:Item": [
+          {
+            "entity": "Item:107341",
+            "display_name": "Az 1567-iki tordai országgyűlés",
+            "count": 1
+          },
+          {
+            "entity": "Item:107342",
+            "display_name": "A boroszlói békekötés",
+            "count": 1
+          },
+          {
+            "entity": "Item:107350",
+            "display_name": "Vázlat a tordai országgyűléshez",
+            "count": 1
+          },
+          {
+            "entity": "Item:107351",
+            "display_name": "Női kosztüm-tanulmány",
+            "count": 1
+          },
+          {
+            "entity": "Item:107352",
+            "display_name": "Pirosruhás női arckép",
+            "count": 1
+          },
+          {
+            "entity": "Item:107353",
+            "display_name": "Zöldruhás női arckép",
+            "count": 1
+          },
+          {
+            "entity": "Item:107354",
+            "display_name": "Tanulmány Argirushoz",
+            "count": 1
+          },
+          {
+            "entity": "Item:107355",
+            "display_name": "Ócsi a skivel",
+            "count": 1
+          },
+          {
+            "entity": "Item:107356",
+            "display_name": "Dudu rajzol",
+            "count": 1
+          },
+          {
+            "entity": "Item:107357",
+            "display_name": "Téli napsütés",
+            "count": 1
+          }
+        ],
+        "EXHIBITED_AT:Exhibition": [
+          {
+            "entity": "Exhibition:77",
+            "display_name": "Téli nemzetközi kiállítás",
+            "count": 92
+          },
+          {
+            "entity": "Exhibition:193",
+            "display_name": "Téli nemzetközi kiállítás",
+            "count": 75
+          },
+          {
+            "entity": "Exhibition:53",
+            "display_name": "Tavaszi kiállítás",
+            "count": 69
+          },
+          {
+            "entity": "Exhibition:17",
+            "display_name": "Tavaszi nemzetközi kiállítás",
+            "count": 64
+          },
+          {
+            "entity": "Exhibition:97",
+            "display_name": "Tavaszi kiállitás",
+            "count": 51
+          },
+          {
+            "entity": "Exhibition:198",
+            "display_name": "Akvarellek, pasztellek és grafikai művek nemzetközi kiállitása",
+            "count": 44
+          },
+          {
+            "entity": "Exhibition:287",
+            "display_name": "IX. Esposizione d'Arte della Città di Venezia",
+            "count": 38
+          },
+          {
+            "entity": "Exhibition:223",
+            "display_name": "VIII. Esposizione d'Arte della Città di Venezia",
+            "count": 30
+          },
+          {
+            "entity": "Exhibition:992",
+            "display_name": "IX. Internationale Kunstausstellung",
+            "count": 26
+          },
+          {
+            "entity": "Exhibition:447",
+            "display_name": "Stedelijke Internationale Tentoonstelling Van Kunstwerken Van Levende Meesters",
+            "count": 22
+          }
+        ]
+      }
+    },
+    {
+      "cluster": 14,
+      "artist_count": 89,
+      "mean_membership_probability": 0.9677391295167883,
+      "mean_outlier_score": 0.03226087048321169,
+      "birth_year": {
+        "count": 82,
+        "minimum": 1601,
+        "median": 1840.0,
+        "maximum": 1885
+      },
+      "death_year": {
+        "count": 80,
+        "minimum": 1674,
+        "median": 1902.5,
+        "maximum": 1968
+      },
+      "representative_artists": [
+        {
+          "id": "5046",
+          "entity": "Artist:5046",
+          "display_name": "Barabás Miklós",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "5051",
+          "entity": "Artist:5051",
+          "display_name": "Sterio Karoly",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "5054",
+          "entity": "Artist:5054",
+          "display_name": "Canzi Gyula",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "5058",
+          "entity": "Artist:5058",
+          "display_name": "Böhm Pál",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "5059",
+          "entity": "Artist:5059",
+          "display_name": "Tahi Antal",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "5064",
+          "entity": "Artist:5064",
+          "display_name": "Szemlér Mihály",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "5065",
+          "entity": "Artist:5065",
+          "display_name": "Eisenhut Ferencz",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "5066",
+          "entity": "Artist:5066",
+          "display_name": "Greguss János",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "5067",
+          "entity": "Artist:5067",
+          "display_name": "Gundelfinger Gyula",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "5069",
+          "entity": "Artist:5069",
+          "display_name": "Jankó János",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        }
+      ],
+      "top_related_entities": {
+        "CREATED:Item": [
+          {
+            "entity": "Item:106935",
+            "display_name": "A Vágváraljai kastélyrom",
+            "count": 1
+          },
+          {
+            "entity": "Item:106936",
+            "display_name": "Szada",
+            "count": 1
+          },
+          {
+            "entity": "Item:106937",
+            "display_name": "A Hasznos-Mátra alján",
+            "count": 1
+          },
+          {
+            "entity": "Item:106938",
+            "display_name": "Pécel",
+            "count": 1
+          },
+          {
+            "entity": "Item:110631",
+            "display_name": "A gödöllői erdőből",
+            "count": 1
+          },
+          {
+            "entity": "Item:110632",
+            "display_name": "A gödöllői parkból",
+            "count": 1
+          },
+          {
+            "entity": "Item:110633",
+            "display_name": "A Musztonga partján",
+            "count": 1
+          },
+          {
+            "entity": "Item:110634",
+            "display_name": "Mátraalji falurészlet",
+            "count": 1
+          },
+          {
+            "entity": "Item:110635",
+            "display_name": "Szadai részlet",
+            "count": 1
+          },
+          {
+            "entity": "Item:110636",
+            "display_name": "Mátraalji falurészlet",
+            "count": 1
+          }
+        ],
+        "EXHIBITED_AT:Exhibition": [
+          {
+            "entity": "Exhibition:198",
+            "display_name": "Akvarellek, pasztellek és grafikai művek nemzetközi kiállitása",
+            "count": 89
+          },
+          {
+            "entity": "Exhibition:1106",
+            "display_name": "VII. csoportos kiállítás a Művészházban",
+            "count": 1
+          },
+          {
+            "entity": "Exhibition:1108",
+            "display_name": "Körösfői Kriesch Aladár, Nagy Sándorék és a Gödöllőiek Kiállitása",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "cluster": 15,
+      "artist_count": 293,
+      "mean_membership_probability": 0.7253327615014526,
+      "mean_outlier_score": 0.27466723849854735,
+      "birth_year": {
+        "count": 266,
+        "minimum": 1806,
+        "median": 1873.0,
+        "maximum": 1893
+      },
+      "death_year": {
+        "count": 259,
+        "minimum": 1889,
+        "median": 1943.0,
+        "maximum": 1983
+      },
+      "representative_artists": [
+        {
+          "id": "529",
+          "entity": "Artist:529",
+          "display_name": "Billiet Léon",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "6630",
+          "entity": "Artist:6630",
+          "display_name": "Laet Alois De",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "6662",
+          "entity": "Artist:6662",
+          "display_name": "Gevers René",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "6924",
+          "entity": "Artist:6924",
+          "display_name": "Ottevaere Henri",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "7753",
+          "entity": "Artist:7753",
+          "display_name": "Binard Henri",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "7755",
+          "entity": "Artist:7755",
+          "display_name": "Aerens Robert",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "7756",
+          "entity": "Artist:7756",
+          "display_name": "Anspach Henri",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "7759",
+          "entity": "Artist:7759",
+          "display_name": "Baltus Georges",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "7769",
+          "entity": "Artist:7769",
+          "display_name": "Bouten Norbert",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "7771",
+          "entity": "Artist:7771",
+          "display_name": "Brohée Louise",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        }
+      ],
+      "top_related_entities": {
+        "CREATED:Item": [
+          {
+            "entity": "Item:100108",
+            "display_name": "Septembre en Ardenne",
+            "count": 1
+          },
+          {
+            "entity": "Item:100109",
+            "display_name": "Le ruisseau",
+            "count": 1
+          },
+          {
+            "entity": "Item:100129",
+            "display_name": "Portrait de Mme Van G.",
+            "count": 1
+          },
+          {
+            "entity": "Item:100132",
+            "display_name": "Au poteau",
+            "count": 1
+          },
+          {
+            "entity": "Item:100133",
+            "display_name": "Au pesage",
+            "count": 1
+          },
+          {
+            "entity": "Item:100134",
+            "display_name": "A la pelouse",
+            "count": 1
+          },
+          {
+            "entity": "Item:100153",
+            "display_name": "L'oiseau rare",
+            "count": 1
+          },
+          {
+            "entity": "Item:100154",
+            "display_name": "La fin de l'étape",
+            "count": 1
+          },
+          {
+            "entity": "Item:100156",
+            "display_name": "La maison des fous",
+            "count": 1
+          },
+          {
+            "entity": "Item:100180",
+            "display_name": "Le bain matinal",
+            "count": 1
+          }
+        ],
+        "EXHIBITED_AT:Exhibition": [
+          {
+            "entity": "Exhibition:580",
+            "display_name": "Exposition Universelle et Internationale de Gand en 1913: Groupe II. Beaux-Arts: Œuvres modernes.",
+            "count": 293
+          },
+          {
+            "entity": "Exhibition:682",
+            "display_name": "Exposition Générale des Beaux-Arts / Salon Triennale",
+            "count": 87
+          },
+          {
+            "entity": "Exhibition:30",
+            "display_name": "Salon d'Automne. 3e Exposition",
+            "count": 26
+          },
+          {
+            "entity": "Exhibition:68",
+            "display_name": "Salon d'Automne. 4e Exposition",
+            "count": 25
+          },
+          {
+            "entity": "Exhibition:1048",
+            "display_name": "Exposition inaugurale de la Salle des Fêtes de la Ville, sous les auspices de l'Administration Communale.",
+            "count": 24
+          },
+          {
+            "entity": "Exhibition:1244",
+            "display_name": "Sommaire des Peintures et Sculptures de l'École Contemporaine exposées dans les Galeries du Musée National du Luxembourg",
+            "count": 22
+          },
+          {
+            "entity": "Exhibition:115",
+            "display_name": "Ausstellung französischer Kunstwerke",
+            "count": 10
+          },
+          {
+            "entity": "Exhibition:92",
+            "display_name": "L'Exposition d'Art Français Contemporain au Chateau Des Rohan",
+            "count": 10
+          },
+          {
+            "entity": "Exhibition:233",
+            "display_name": "Les Indépendants Cercle d'Art / VIe Salon annuel",
+            "count": 8
+          },
+          {
+            "entity": "Exhibition:136",
+            "display_name": "Portraits d'Hommes",
+            "count": 6
+          }
+        ]
+      }
+    },
+    {
+      "cluster": 16,
+      "artist_count": 231,
+      "mean_membership_probability": 0.847280287012961,
+      "mean_outlier_score": 0.15271971298703896,
+      "birth_year": {
+        "count": 219,
+        "minimum": 1659,
+        "median": 1834.0,
+        "maximum": 1886
+      },
+      "death_year": {
+        "count": 217,
+        "minimum": 1743,
+        "median": 1900.0,
+        "maximum": 1986
+      },
+      "representative_artists": [
+        {
+          "id": "10003",
+          "entity": "Artist:10003",
+          "display_name": "Morstadt Anna",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "10013",
+          "entity": "Artist:10013",
+          "display_name": "Mosler Henry",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "10014",
+          "entity": "Artist:10014",
+          "display_name": "Picknell William Lamb",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "10019",
+          "entity": "Artist:10019",
+          "display_name": "Wentworth Cecile Smith De",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "10035",
+          "entity": "Artist:10035",
+          "display_name": "Wyld William",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "10037",
+          "entity": "Artist:10037",
+          "display_name": "Hamman Edouard",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "10041",
+          "entity": "Artist:10041",
+          "display_name": "Mélida y Alinari Enrique",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "10044",
+          "entity": "Artist:10044",
+          "display_name": "Sousa-Pinto José Júlio de",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "10056",
+          "entity": "Artist:10056",
+          "display_name": "Romani Juana",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "10061",
+          "entity": "Artist:10061",
+          "display_name": "Baud-Bovy Auguste",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        }
+      ],
+      "top_related_entities": {
+        "CREATED:Item": [
+          {
+            "entity": "Item:100506",
+            "display_name": "Männliches Porträt",
+            "count": 1
+          },
+          {
+            "entity": "Item:100608",
+            "display_name": "Tal der Durance",
+            "count": 1
+          },
+          {
+            "entity": "Item:100609",
+            "display_name": "Feldweg",
+            "count": 1
+          },
+          {
+            "entity": "Item:100610",
+            "display_name": "Südfranzösische Landschaft",
+            "count": 1
+          },
+          {
+            "entity": "Item:100817",
+            "display_name": "Künstlerdruck",
+            "count": 1
+          },
+          {
+            "entity": "Item:100818",
+            "display_name": "Tuschzeichnung",
+            "count": 1
+          },
+          {
+            "entity": "Item:101139",
+            "display_name": "Zeichnung",
+            "count": 1
+          },
+          {
+            "entity": "Item:10191",
+            "display_name": "Ritratto d'uomo",
+            "count": 1
+          },
+          {
+            "entity": "Item:10192",
+            "display_name": "Due signore e bambina",
+            "count": 1
+          },
+          {
+            "entity": "Item:10197",
+            "display_name": "Paesaggio",
+            "count": 1
+          }
+        ],
+        "EXHIBITED_AT:Exhibition": [
+          {
+            "entity": "Exhibition:1244",
+            "display_name": "Sommaire des Peintures et Sculptures de l'École Contemporaine exposées dans les Galeries du Musée National du Luxembourg",
+            "count": 153
+          },
+          {
+            "entity": "Exhibition:411",
+            "display_name": "Выставка сто лет французской живописи (1812-1912)",
+            "count": 90
+          },
+          {
+            "entity": "Exhibition:316",
+            "display_name": "Ausstellung französischer Kunst des 18., 19. und 20. Jahrhunderts",
+            "count": 22
+          },
+          {
+            "entity": "Exhibition:1104",
+            "display_name": "Collection Roger Marx. Tableaux, Pastels, Dessins, Aquarelles, Sculptures",
+            "count": 16
+          },
+          {
+            "entity": "Exhibition:136",
+            "display_name": "Portraits d'Hommes",
+            "count": 13
+          },
+          {
+            "entity": "Exhibition:1465",
+            "display_name": "VIII. Serie Französische Impressionisten",
+            "count": 12
+          },
+          {
+            "entity": "Exhibition:473",
+            "display_name": "Die klassische Malerei Frankreichs im 19. Jahrhundert",
+            "count": 11
+          },
+          {
+            "entity": "Exhibition:534",
+            "display_name": "International Exhibition of Modern Art [Armory Show]",
+            "count": 11
+          },
+          {
+            "entity": "Exhibition:1240",
+            "display_name": "Collection de M. George Viau (Deuxième Vente)",
+            "count": 10
+          },
+          {
+            "entity": "Exhibition:135",
+            "display_name": "Exposition de Cent Vingt Tableautins, Peintures, Aquarelles, Pastels et Dessins",
+            "count": 10
+          }
+        ]
+      }
+    },
+    {
+      "cluster": 17,
+      "artist_count": 52,
+      "mean_membership_probability": 0.9998608822154657,
+      "mean_outlier_score": 0.0001391177845343445,
+      "birth_year": {
+        "count": 22,
+        "minimum": 1815,
+        "median": 1859.5,
+        "maximum": 1881
+      },
+      "death_year": {
+        "count": 21,
+        "minimum": 1890,
+        "median": 1922.0,
+        "maximum": 1952
+      },
+      "representative_artists": [
+        {
+          "id": "10621",
+          "entity": "Artist:10621",
+          "display_name": "Jacob A.",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "8274",
+          "entity": "Artist:8274",
+          "display_name": "Albertin André-Albert",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "8276",
+          "entity": "Artist:8276",
+          "display_name": "Balze Raymond",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "8283",
+          "entity": "Artist:8283",
+          "display_name": "Blackburn ",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "8775",
+          "entity": "Artist:8775",
+          "display_name": "Brunet Émile",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "8777",
+          "entity": "Artist:8777",
+          "display_name": "Cauchois Eugène Henri",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "8778",
+          "entity": "Artist:8778",
+          "display_name": "Cremieux Edouard",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "8781",
+          "entity": "Artist:8781",
+          "display_name": "Debon Edmond",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "8783",
+          "entity": "Artist:8783",
+          "display_name": "Delecluse Auguste Joseph",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "8786",
+          "entity": "Artist:8786",
+          "display_name": "Di Marzo ",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        }
+      ],
+      "top_related_entities": {
+        "CREATED:Item": [
+          {
+            "entity": "Item:103242",
+            "display_name": "Dans les marais.",
+            "count": 1
+          },
+          {
+            "entity": "Item:103248",
+            "display_name": "Le bon pasteur.",
+            "count": 1
+          },
+          {
+            "entity": "Item:103355",
+            "display_name": "Vue à Moret.",
+            "count": 1
+          },
+          {
+            "entity": "Item:103371",
+            "display_name": "Vertiges.",
+            "count": 1
+          },
+          {
+            "entity": "Item:113934",
+            "display_name": "Scène de la passion",
+            "count": 1
+          },
+          {
+            "entity": "Item:113944",
+            "display_name": "Les roses",
+            "count": 1
+          },
+          {
+            "entity": "Item:113957",
+            "display_name": "Maisons au bord de la mer, aux Lucques",
+            "count": 1
+          },
+          {
+            "entity": "Item:113961",
+            "display_name": "Coquelicots",
+            "count": 1
+          },
+          {
+            "entity": "Item:113964",
+            "display_name": "Paysage",
+            "count": 1
+          },
+          {
+            "entity": "Item:113996",
+            "display_name": "Paysage",
+            "count": 1
+          }
+        ],
+        "EXHIBITED_AT:Exhibition": [
+          {
+            "entity": "Exhibition:1095",
+            "display_name": "Vente Aux Enchères Publiques Des Tableaux, Études, Aquarelles, Pastels, Dessins, Eaux-Fortes, Gravures, Sculpture, Objets D'Art",
+            "count": 52
+          }
+        ]
+      }
+    },
+    {
+      "cluster": 18,
+      "artist_count": 392,
+      "mean_membership_probability": 0.767016792371264,
+      "mean_outlier_score": 0.232983207628736,
+      "birth_year": {
+        "count": 276,
+        "minimum": 1825,
+        "median": 1873.0,
+        "maximum": 1893
+      },
+      "death_year": {
+        "count": 262,
+        "minimum": 1902,
+        "median": 1943.0,
+        "maximum": 1978
+      },
+      "representative_artists": [
+        {
+          "id": "2385",
+          "entity": "Artist:2385",
+          "display_name": "Adour Pauline",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "2397",
+          "entity": "Artist:2397",
+          "display_name": "Albert Adolphe",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "2405",
+          "entity": "Artist:2405",
+          "display_name": "Allard André Marie Paul Jacques",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "2450",
+          "entity": "Artist:2450",
+          "display_name": "Benoît Benoni-Auran",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "4386",
+          "entity": "Artist:4386",
+          "display_name": "Champon Edmond",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "4402",
+          "entity": "Artist:4402",
+          "display_name": "Contesco Cécile",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "4403",
+          "entity": "Artist:4403",
+          "display_name": "Crébassa Edouard",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "4405",
+          "entity": "Artist:4405",
+          "display_name": "Deborne Robert",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "4406",
+          "entity": "Artist:4406",
+          "display_name": "Debraux René-Charles-Louis",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "4407",
+          "entity": "Artist:4407",
+          "display_name": "Deconchy Ferdinand",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        }
+      ],
+      "top_related_entities": {
+        "CREATED:Item": [
+          {
+            "entity": "Item:101509",
+            "display_name": "Chaîne de montagnes. Sierra Nevada.",
+            "count": 1
+          },
+          {
+            "entity": "Item:101511",
+            "display_name": "Chaîne de montagnes. - Orage. Sierra Nevada.",
+            "count": 1
+          },
+          {
+            "entity": "Item:101515",
+            "display_name": "Chaîne de montagnes. Sierra Nevada.",
+            "count": 1
+          },
+          {
+            "entity": "Item:101520",
+            "display_name": "Chaîne de montagnes (soir). Sierra Nevada.",
+            "count": 1
+          },
+          {
+            "entity": "Item:101523",
+            "display_name": "Entrée de jardins. Grenade.",
+            "count": 1
+          },
+          {
+            "entity": "Item:101526",
+            "display_name": "Village ensoleillé.",
+            "count": 1
+          },
+          {
+            "entity": "Item:101528",
+            "display_name": "Chartreuse (après-midi).",
+            "count": 1
+          },
+          {
+            "entity": "Item:101529",
+            "display_name": "Chartreuse (soir).",
+            "count": 1
+          },
+          {
+            "entity": "Item:101571",
+            "display_name": "Place en plein soleil.",
+            "count": 1
+          },
+          {
+            "entity": "Item:101579",
+            "display_name": "Vallée, jour.",
+            "count": 1
+          }
+        ],
+        "EXHIBITED_AT:Exhibition": [
+          {
+            "entity": "Exhibition:30",
+            "display_name": "Salon d'Automne. 3e Exposition",
+            "count": 245
+          },
+          {
+            "entity": "Exhibition:68",
+            "display_name": "Salon d'Automne. 4e Exposition",
+            "count": 211
+          },
+          {
+            "entity": "Exhibition:179",
+            "display_name": "Salon d'Automne. 6e Exposition",
+            "count": 100
+          },
+          {
+            "entity": "Exhibition:1095",
+            "display_name": "Vente Aux Enchères Publiques Des Tableaux, Études, Aquarelles, Pastels, Dessins, Eaux-Fortes, Gravures, Sculpture, Objets D'Art",
+            "count": 22
+          },
+          {
+            "entity": "Exhibition:18",
+            "display_name": "21e Exposition de la Société des Artistes Indépendants",
+            "count": 14
+          },
+          {
+            "entity": "Exhibition:46",
+            "display_name": "La Libre Esthétique. La treizième Exposition",
+            "count": 7
+          },
+          {
+            "entity": "Exhibition:88",
+            "display_name": "Société des Peintres du Paris Moderne. Quatrième Exposition",
+            "count": 7
+          },
+          {
+            "entity": "Exhibition:1244",
+            "display_name": "Sommaire des Peintures et Sculptures de l'École Contemporaine exposées dans les Galeries du Musée National du Luxembourg",
+            "count": 6
+          },
+          {
+            "entity": "Exhibition:136",
+            "display_name": "Portraits d'Hommes",
+            "count": 6
+          },
+          {
+            "entity": "Exhibition:76",
+            "display_name": "Exposition de Peintures",
+            "count": 6
+          }
+        ]
+      }
+    },
+    {
+      "cluster": 19,
+      "artist_count": 66,
+      "mean_membership_probability": 0.97213701698408,
+      "mean_outlier_score": 0.027862983015920086,
+      "birth_year": {
+        "count": 66,
+        "minimum": 1815,
+        "median": 1871.0,
+        "maximum": 1887
+      },
+      "death_year": {
+        "count": 66,
+        "minimum": 1896,
+        "median": 1945.0,
+        "maximum": 1971
+      },
+      "representative_artists": [
+        {
+          "id": "10994",
+          "entity": "Artist:10994",
+          "display_name": "Lehmann Anna",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "2886",
+          "entity": "Artist:2886",
+          "display_name": "Carrera Agustín",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "4215",
+          "entity": "Artist:4215",
+          "display_name": "Goedvriend Theo",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "4229",
+          "entity": "Artist:4229",
+          "display_name": "Koning Arnold Hendrik",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "4232",
+          "entity": "Artist:4232",
+          "display_name": "Koning Edzard",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "9021",
+          "entity": "Artist:9021",
+          "display_name": "Derchain Philippe",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "9151",
+          "entity": "Artist:9151",
+          "display_name": "Boeswillwald Emile",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "9183",
+          "entity": "Artist:9183",
+          "display_name": "Dreyfus Raoul Henri",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "9205",
+          "entity": "Artist:9205",
+          "display_name": "Jonas Lucien Hector",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "9219",
+          "entity": "Artist:9219",
+          "display_name": "Montagné Agricol Louis",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        }
+      ],
+      "top_related_entities": {
+        "CREATED:Item": [
+          {
+            "entity": "Item:100399",
+            "display_name": "Les grands arbres",
+            "count": 1
+          },
+          {
+            "entity": "Item:101366",
+            "display_name": "Balcon au théâtre",
+            "count": 1
+          },
+          {
+            "entity": "Item:101445",
+            "display_name": "Canal en automne",
+            "count": 1
+          },
+          {
+            "entity": "Item:101446",
+            "display_name": "Enclos ensoleillé",
+            "count": 1
+          },
+          {
+            "entity": "Item:102416",
+            "display_name": "Les glaçons",
+            "count": 1
+          },
+          {
+            "entity": "Item:102417",
+            "display_name": "Août",
+            "count": 1
+          },
+          {
+            "entity": "Item:102418",
+            "display_name": "Rayons de lune",
+            "count": 1
+          },
+          {
+            "entity": "Item:104425",
+            "display_name": "Vieux pont",
+            "count": 1
+          },
+          {
+            "entity": "Item:104524",
+            "display_name": "Bouleaux au bord de l'eau",
+            "count": 1
+          },
+          {
+            "entity": "Item:104525",
+            "display_name": "Petite drève de bouleaux",
+            "count": 1
+          }
+        ],
+        "EXHIBITED_AT:Exhibition": [
+          {
+            "entity": "Exhibition:580",
+            "display_name": "Exposition Universelle et Internationale de Gand en 1913: Groupe II. Beaux-Arts: Œuvres modernes.",
+            "count": 65
+          },
+          {
+            "entity": "Exhibition:447",
+            "display_name": "Stedelijke Internationale Tentoonstelling Van Kunstwerken Van Levende Meesters",
+            "count": 56
+          },
+          {
+            "entity": "Exhibition:1259",
+            "display_name": "Stedelijke Tentoonstelling van Kunstwerken van Levende Meesters",
+            "count": 32
+          },
+          {
+            "entity": "Exhibition:238",
+            "display_name": "Tentoonstelling van Kunstwerken",
+            "count": 32
+          },
+          {
+            "entity": "Exhibition:1301",
+            "display_name": "Gemeentelijke Tentoonstelling van Kunstwerken van Levende Meesters",
+            "count": 31
+          },
+          {
+            "entity": "Exhibition:102",
+            "display_name": "Tentoonstelling van Kunstwerken Vervaardigd door Leden der Maatschappij",
+            "count": 29
+          },
+          {
+            "entity": "Exhibition:288",
+            "display_name": "20ste Jaarlijksche Tentoonstelling van Kunstwerken der Vereeniging St. Lucas",
+            "count": 27
+          },
+          {
+            "entity": "Exhibition:165",
+            "display_name": "18e Jaarlijksche Tentoonstelling van Kunstwerken van Leden der Vereeniging",
+            "count": 26
+          },
+          {
+            "entity": "Exhibition:1397",
+            "display_name": "Tentoonstelling van Teekeningen en Beeldhouwwerken",
+            "count": 25
+          },
+          {
+            "entity": "Exhibition:361",
+            "display_name": "Vereeniging Sint-Lucas. Een en Twintigste [21.] Jaarlijksche Tentoonstelling",
+            "count": 25
+          }
+        ]
+      }
+    },
+    {
+      "cluster": 20,
+      "artist_count": 787,
+      "mean_membership_probability": 0.6769447574101122,
+      "mean_outlier_score": 0.32305524258988794,
+      "birth_year": {
+        "count": 752,
+        "minimum": 1819,
+        "median": 1862.0,
+        "maximum": 1886
+      },
+      "death_year": {
+        "count": 734,
+        "minimum": 1856,
+        "median": 1929.0,
+        "maximum": 1970
+      },
+      "representative_artists": [
+        {
+          "id": "2706",
+          "entity": "Artist:2706",
+          "display_name": "Adam Julius, the younger",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "2721",
+          "entity": "Artist:2721",
+          "display_name": "Echtler Adolf",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "2743",
+          "entity": "Artist:2743",
+          "display_name": "Kowalski Alfred",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "2745",
+          "entity": "Artist:2745",
+          "display_name": "Kühles August",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "2754",
+          "entity": "Artist:2754",
+          "display_name": "Kauffmann Hugo Wilhelm",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "2756",
+          "entity": "Artist:2756",
+          "display_name": "Löwith Wilhelm",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "5831",
+          "entity": "Artist:5831",
+          "display_name": "Arredondo y Calmache Ricardo",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "5900",
+          "entity": "Artist:5900",
+          "display_name": "Costatini Battista",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "5910",
+          "entity": "Artist:5910",
+          "display_name": "Dameron Emile Charles",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "5914",
+          "entity": "Artist:5914",
+          "display_name": "Delachaux Théodore",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        }
+      ],
+      "top_related_entities": {
+        "CREATED:Item": [
+          {
+            "entity": "Item:10",
+            "display_name": "Blühende Hallig",
+            "count": 1
+          },
+          {
+            "entity": "Item:100",
+            "display_name": "Am Hafenplatz",
+            "count": 1
+          },
+          {
+            "entity": "Item:100135",
+            "display_name": "In der Kirche",
+            "count": 1
+          },
+          {
+            "entity": "Item:100161",
+            "display_name": "Eichen am Hang",
+            "count": 1
+          },
+          {
+            "entity": "Item:100174",
+            "display_name": "Frohe Botschaft",
+            "count": 1
+          },
+          {
+            "entity": "Item:100175",
+            "display_name": "Das Kind auf Stroh",
+            "count": 1
+          },
+          {
+            "entity": "Item:100200",
+            "display_name": "Damenportrait",
+            "count": 1
+          },
+          {
+            "entity": "Item:100224",
+            "display_name": "Stilleben",
+            "count": 1
+          },
+          {
+            "entity": "Item:100252",
+            "display_name": "Interieur \"Spiegelung\"",
+            "count": 1
+          },
+          {
+            "entity": "Item:100254",
+            "display_name": "Isarthal",
+            "count": 1
+          }
+        ],
+        "EXHIBITED_AT:Exhibition": [
+          {
+            "entity": "Exhibition:992",
+            "display_name": "IX. Internationale Kunstausstellung",
+            "count": 768
+          },
+          {
+            "entity": "Exhibition:795",
+            "display_name": "Munich Fine Art Exhibition",
+            "count": 83
+          },
+          {
+            "entity": "Exhibition:580",
+            "display_name": "Exposition Universelle et Internationale de Gand en 1913: Groupe II. Beaux-Arts: Œuvres modernes.",
+            "count": 76
+          },
+          {
+            "entity": "Exhibition:447",
+            "display_name": "Stedelijke Internationale Tentoonstelling Van Kunstwerken Van Levende Meesters",
+            "count": 68
+          },
+          {
+            "entity": "Exhibition:43",
+            "display_name": "Internationale Kunstausstellung Bremen",
+            "count": 64
+          },
+          {
+            "entity": "Exhibition:148",
+            "display_name": "Deutsche Kunstausstellung Bremen",
+            "count": 57
+          },
+          {
+            "entity": "Exhibition:116",
+            "display_name": "Internationale Kunstausstellung Mannheim",
+            "count": 54
+          },
+          {
+            "entity": "Exhibition:117",
+            "display_name": "Deutsch-Nationale Kunst-Ausstellung",
+            "count": 53
+          },
+          {
+            "entity": "Exhibition:1244",
+            "display_name": "Sommaire des Peintures et Sculptures de l'École Contemporaine exposées dans les Galeries du Musée National du Luxembourg",
+            "count": 50
+          },
+          {
+            "entity": "Exhibition:570",
+            "display_name": "LIA. Leipziger Jahresausstellung 1913",
+            "count": 50
+          }
+        ]
+      }
+    },
+    {
+      "cluster": 21,
+      "artist_count": 235,
+      "mean_membership_probability": 0.9878066258050706,
+      "mean_outlier_score": 0.03338360451776832,
+      "birth_year": {
+        "count": 207,
+        "minimum": 1803,
+        "median": 1870.0,
+        "maximum": 1890
+      },
+      "death_year": {
+        "count": 205,
+        "minimum": 1894,
+        "median": 1940.0,
+        "maximum": 1982
+      },
+      "representative_artists": [
+        {
+          "id": "1002",
+          "entity": "Artist:1002",
+          "display_name": "Torchi Angelo",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "10095",
+          "entity": "Artist:10095",
+          "display_name": "Mascarini Giuseppe",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "1011",
+          "entity": "Artist:1011",
+          "display_name": "Sanctis Giuseppe de",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "10110",
+          "entity": "Artist:10110",
+          "display_name": "Tavernier Andrea",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "1013",
+          "entity": "Artist:1013",
+          "display_name": "Caprile Vincenzo",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "10132",
+          "entity": "Artist:10132",
+          "display_name": "Castagneto Vittorio Agostino",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "10137",
+          "entity": "Artist:10137",
+          "display_name": "Tosi Arturo",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "1022",
+          "entity": "Artist:1022",
+          "display_name": "Migliaro Vincenzo",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "10240",
+          "entity": "Artist:10240",
+          "display_name": "Galante Francesco",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "1026",
+          "entity": "Artist:1026",
+          "display_name": "Noci Arturo",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        }
+      ],
+      "top_related_entities": {
+        "CREATED:Item": [
+          {
+            "entity": "Item:101749",
+            "display_name": "Nel fosso",
+            "count": 1
+          },
+          {
+            "entity": "Item:101750",
+            "display_name": "Sulla riva ostiense",
+            "count": 1
+          },
+          {
+            "entity": "Item:101751",
+            "display_name": "Motivo classico",
+            "count": 1
+          },
+          {
+            "entity": "Item:101752",
+            "display_name": "Sulle rive di Ostia",
+            "count": 1
+          },
+          {
+            "entity": "Item:101753",
+            "display_name": "Primavera",
+            "count": 1
+          },
+          {
+            "entity": "Item:101762",
+            "display_name": "Samnium",
+            "count": 1
+          },
+          {
+            "entity": "Item:101763",
+            "display_name": "Predoni",
+            "count": 1
+          },
+          {
+            "entity": "Item:101764",
+            "display_name": "Il deserto di Roma",
+            "count": 1
+          },
+          {
+            "entity": "Item:101765",
+            "display_name": "Scoglio dei Nasoni",
+            "count": 1
+          },
+          {
+            "entity": "Item:101766",
+            "display_name": "Il figlio",
+            "count": 1
+          }
+        ],
+        "EXHIBITED_AT:Exhibition": [
+          {
+            "entity": "Exhibition:1463",
+            "display_name": "Mostra Nazionale di Belle Arti",
+            "count": 133
+          },
+          {
+            "entity": "Exhibition:672",
+            "display_name": "XI. Esposizione d'Arte della Città di Venezia",
+            "count": 121
+          },
+          {
+            "entity": "Exhibition:139",
+            "display_name": "LXXVIII. Esposizione internazionale di Belle Arti della Società Amatori e Cultori di Belle Arti in Roma",
+            "count": 116
+          },
+          {
+            "entity": "Exhibition:287",
+            "display_name": "IX. Esposizione d'Arte della Città di Venezia",
+            "count": 115
+          },
+          {
+            "entity": "Exhibition:453",
+            "display_name": "X. Esposizione d'Arte della Città di Venezia",
+            "count": 114
+          },
+          {
+            "entity": "Exhibition:109",
+            "display_name": "VII. Esposizione Internazionale d’Arte della Città di Venezia",
+            "count": 93
+          },
+          {
+            "entity": "Exhibition:223",
+            "display_name": "VIII. Esposizione d'Arte della Città di Venezia",
+            "count": 91
+          },
+          {
+            "entity": "Exhibition:22",
+            "display_name": "VI. Esposizione d'Arte della Città di Venezia",
+            "count": 85
+          },
+          {
+            "entity": "Exhibition:992",
+            "display_name": "IX. Internationale Kunstausstellung",
+            "count": 53
+          },
+          {
+            "entity": "Exhibition:542",
+            "display_name": "Prima Esposizione Internazionale d'Arte della \"Secessione\"",
+            "count": 48
+          }
+        ]
+      }
+    },
+    {
+      "cluster": 22,
+      "artist_count": 435,
+      "mean_membership_probability": 0.816207322389677,
+      "mean_outlier_score": 0.18379267761032309,
+      "birth_year": {
+        "count": 318,
+        "minimum": 1793,
+        "median": 1864.5,
+        "maximum": 1890
+      },
+      "death_year": {
+        "count": 311,
+        "minimum": 1877,
+        "median": 1933.0,
+        "maximum": 1981
+      },
+      "representative_artists": [
+        {
+          "id": "12537",
+          "entity": "Artist:12537",
+          "display_name": "Detti Cesare Agostino",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "12551",
+          "entity": "Artist:12551",
+          "display_name": "Volpi Mario Leopoldo",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "12553",
+          "entity": "Artist:12553",
+          "display_name": "Ferrandi Giuseppe",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "12557",
+          "entity": "Artist:12557",
+          "display_name": "Guazzoni Edoardo",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "12582",
+          "entity": "Artist:12582",
+          "display_name": "Raffaele Ambrogio",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "12596",
+          "entity": "Artist:12596",
+          "display_name": "Caser Ettore",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "12605",
+          "entity": "Artist:12605",
+          "display_name": "Ratini Luigi",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "12613",
+          "entity": "Artist:12613",
+          "display_name": "Groppo Weingrill Gisella",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "12615",
+          "entity": "Artist:12615",
+          "display_name": "Bestetti Emilio",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "12621",
+          "entity": "Artist:12621",
+          "display_name": "Tansini Alfredo",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        }
+      ],
+      "top_related_entities": {
+        "CREATED:Item": [
+          {
+            "entity": "Item:123090",
+            "display_name": "Tramonto a Villa Glori",
+            "count": 1
+          },
+          {
+            "entity": "Item:123091",
+            "display_name": "Musica in famiglia",
+            "count": 1
+          },
+          {
+            "entity": "Item:123093",
+            "display_name": "In giardino",
+            "count": 1
+          },
+          {
+            "entity": "Item:123095",
+            "display_name": "Annamaria e Fuchs",
+            "count": 1
+          },
+          {
+            "entity": "Item:123102",
+            "display_name": "Prime nevi",
+            "count": 1
+          },
+          {
+            "entity": "Item:123105",
+            "display_name": "Pioggia immanente",
+            "count": 1
+          },
+          {
+            "entity": "Item:123108",
+            "display_name": "Spiritisti",
+            "count": 1
+          },
+          {
+            "entity": "Item:124296",
+            "display_name": "Tosatura",
+            "count": 1
+          },
+          {
+            "entity": "Item:124321",
+            "display_name": "Mattina di agosto nella valle del \"Santo\"",
+            "count": 1
+          },
+          {
+            "entity": "Item:124339",
+            "display_name": "Splendori del mare",
+            "count": 1
+          }
+        ],
+        "EXHIBITED_AT:Exhibition": [
+          {
+            "entity": "Exhibition:1463",
+            "display_name": "Mostra Nazionale di Belle Arti",
+            "count": 435
+          },
+          {
+            "entity": "Exhibition:139",
+            "display_name": "LXXVIII. Esposizione internazionale di Belle Arti della Società Amatori e Cultori di Belle Arti in Roma",
+            "count": 42
+          },
+          {
+            "entity": "Exhibition:22",
+            "display_name": "VI. Esposizione d'Arte della Città di Venezia",
+            "count": 24
+          },
+          {
+            "entity": "Exhibition:196",
+            "display_name": "Esposizione Annuale d'Arte della Famiglia Artistica",
+            "count": 19
+          },
+          {
+            "entity": "Exhibition:542",
+            "display_name": "Prima Esposizione Internazionale d'Arte della \"Secessione\"",
+            "count": 8
+          },
+          {
+            "entity": "Exhibition:641",
+            "display_name": "Seconda Esposizione Internazionale d'Arte \"della Secessione\".",
+            "count": 6
+          },
+          {
+            "entity": "Exhibition:717",
+            "display_name": "Terza esposizione Internazionale d'Arte della \"Secessione\"",
+            "count": 4
+          },
+          {
+            "entity": "Exhibition:125",
+            "display_name": "Salon des Peintres Divisionnistes Italiens organisé par la Galerie d'Art A. Grubicy, de Milan",
+            "count": 2
+          },
+          {
+            "entity": "Exhibition:1000",
+            "display_name": "VII. Jahrgang. Winter 1904/1905. IV. Ausstellung.",
+            "count": 1
+          },
+          {
+            "entity": "Exhibition:674",
+            "display_name": "XVI. Jahrgang. 1913/1914. Neunte Ausstellung. [Kollektion Ferdinand Hodler]",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "cluster": 23,
+      "artist_count": 169,
+      "mean_membership_probability": 0.9784570675787517,
+      "mean_outlier_score": 0.061768732787079304,
+      "birth_year": {
+        "count": 144,
+        "minimum": 1835,
+        "median": 1872.0,
+        "maximum": 1891
+      },
+      "death_year": {
+        "count": 140,
+        "minimum": 1911,
+        "median": 1946.0,
+        "maximum": 1982
+      },
+      "representative_artists": [
+        {
+          "id": "10091",
+          "entity": "Artist:10091",
+          "display_name": "Tadema-Groeneveld Thamine",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "10097",
+          "entity": "Artist:10097",
+          "display_name": "Valk Maurits Willem van der",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "10101",
+          "entity": "Artist:10101",
+          "display_name": "Veldheer Jacob Gerard",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "10105",
+          "entity": "Artist:10105",
+          "display_name": "Voorden August Willem van",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "10111",
+          "entity": "Artist:10111",
+          "display_name": "Walcheren Petrus Marinus van",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "10124",
+          "entity": "Artist:10124",
+          "display_name": "Zandleven Jan Adam",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "10133",
+          "entity": "Artist:10133",
+          "display_name": "Regteren Altena Maria Engelina van",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "10138",
+          "entity": "Artist:10138",
+          "display_name": "Baukema Sieger",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "10154",
+          "entity": "Artist:10154",
+          "display_name": "Butter Meindert",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "10248",
+          "entity": "Artist:10248",
+          "display_name": "Hingman Johan Alexander",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        }
+      ],
+      "top_related_entities": {
+        "CREATED:Item": [
+          {
+            "entity": "Item:109893",
+            "display_name": "Ceylan (hauts plateaux)",
+            "count": 1
+          },
+          {
+            "entity": "Item:109894",
+            "display_name": "Voiture rajpoute",
+            "count": 1
+          },
+          {
+            "entity": "Item:109895",
+            "display_name": "Himalaya (matin)",
+            "count": 1
+          },
+          {
+            "entity": "Item:109896",
+            "display_name": "Himalaya (soir)",
+            "count": 1
+          },
+          {
+            "entity": "Item:109897",
+            "display_name": "Himalaya (effet de lune)",
+            "count": 1
+          },
+          {
+            "entity": "Item:109898",
+            "display_name": "Paradeynia (Ceylan)",
+            "count": 1
+          },
+          {
+            "entity": "Item:109899",
+            "display_name": "Crémations à Bénarès",
+            "count": 1
+          },
+          {
+            "entity": "Item:109900",
+            "display_name": "Oudeypour",
+            "count": 1
+          },
+          {
+            "entity": "Item:109901",
+            "display_name": "Oudeypour sur le lac",
+            "count": 1
+          },
+          {
+            "entity": "Item:109902",
+            "display_name": "Palais écroulés (Bénarès)",
+            "count": 1
+          }
+        ],
+        "EXHIBITED_AT:Exhibition": [
+          {
+            "entity": "Exhibition:447",
+            "display_name": "Stedelijke Internationale Tentoonstelling Van Kunstwerken Van Levende Meesters",
+            "count": 168
+          },
+          {
+            "entity": "Exhibition:1259",
+            "display_name": "Stedelijke Tentoonstelling van Kunstwerken van Levende Meesters",
+            "count": 42
+          },
+          {
+            "entity": "Exhibition:361",
+            "display_name": "Vereeniging Sint-Lucas. Een en Twintigste [21.] Jaarlijksche Tentoonstelling",
+            "count": 35
+          },
+          {
+            "entity": "Exhibition:220",
+            "display_name": "Negentiende Jaarlijksche Tentoonstelling van Kunstwerken van Leden der Vereeniging",
+            "count": 34
+          },
+          {
+            "entity": "Exhibition:288",
+            "display_name": "20ste Jaarlijksche Tentoonstelling van Kunstwerken der Vereeniging St. Lucas",
+            "count": 34
+          },
+          {
+            "entity": "Exhibition:678",
+            "display_name": "Vereeniging \"Sint Lucas\". Drie en Twintigste [23.] Jaarliksche Tentoonstelling",
+            "count": 34
+          },
+          {
+            "entity": "Exhibition:165",
+            "display_name": "18e Jaarlijksche Tentoonstelling van Kunstwerken van Leden der Vereeniging",
+            "count": 30
+          },
+          {
+            "entity": "Exhibition:238",
+            "display_name": "Tentoonstelling van Kunstwerken",
+            "count": 27
+          },
+          {
+            "entity": "Exhibition:102",
+            "display_name": "Tentoonstelling van Kunstwerken Vervaardigd door Leden der Maatschappij",
+            "count": 25
+          },
+          {
+            "entity": "Exhibition:497",
+            "display_name": "Vereeniging \"Sint Lucas\". Tentoonstelling van Aquarellen, Teekeningen, Grafische Kunsten en Klein Beeldhouwwerk",
+            "count": 23
+          }
+        ]
+      }
+    },
+    {
+      "cluster": 24,
+      "artist_count": 178,
+      "mean_membership_probability": 0.8893727405015166,
+      "mean_outlier_score": 0.11062725949848341,
+      "birth_year": {
+        "count": 171,
+        "minimum": 1804,
+        "median": 1870.0,
+        "maximum": 1891
+      },
+      "death_year": {
+        "count": 170,
+        "minimum": 1877,
+        "median": 1941.0,
+        "maximum": 1983
+      },
+      "representative_artists": [
+        {
+          "id": "10028",
+          "entity": "Artist:10028",
+          "display_name": "Smulders Anna",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "10102",
+          "entity": "Artist:10102",
+          "display_name": "Versteeg Jan Arie",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "10107",
+          "entity": "Artist:10107",
+          "display_name": "Vries Susanna Cornelia Henriëtta de",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "10115",
+          "entity": "Artist:10115",
+          "display_name": "Weiler Dorothea Arnoldine von",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "10119",
+          "entity": "Artist:10119",
+          "display_name": "Wolbers Hermanus Gerhardus",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "10144",
+          "entity": "Artist:10144",
+          "display_name": "Bobeldijk Félicien",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "10147",
+          "entity": "Artist:10147",
+          "display_name": "Bottema Tjerk",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "10165",
+          "entity": "Artist:10165",
+          "display_name": "Driesten A.-J. van",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "10167",
+          "entity": "Artist:10167",
+          "display_name": "Dijkman Alida Sara",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "10229",
+          "entity": "Artist:10229",
+          "display_name": "Grondhout Willem Adrianus",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        }
+      ],
+      "top_related_entities": {
+        "CREATED:Item": [
+          {
+            "entity": "Item:12929",
+            "display_name": "Tájkép malommal",
+            "count": 1
+          },
+          {
+            "entity": "Item:130220",
+            "display_name": "Katjes",
+            "count": 1
+          },
+          {
+            "entity": "Item:130221",
+            "display_name": "Primulas",
+            "count": 1
+          },
+          {
+            "entity": "Item:130230",
+            "display_name": "Heide bij Heelsum",
+            "count": 1
+          },
+          {
+            "entity": "Item:130243",
+            "display_name": "Uit de Vaart",
+            "count": 1
+          },
+          {
+            "entity": "Item:130247",
+            "display_name": "Druiven",
+            "count": 1
+          },
+          {
+            "entity": "Item:130248",
+            "display_name": "Gele Violen",
+            "count": 1
+          },
+          {
+            "entity": "Item:130249",
+            "display_name": "Blauwe Violen",
+            "count": 1
+          },
+          {
+            "entity": "Item:130250",
+            "display_name": "Portret Mevr. Sp.",
+            "count": 1
+          },
+          {
+            "entity": "Item:130257",
+            "display_name": "Oude Huizen",
+            "count": 1
+          }
+        ],
+        "EXHIBITED_AT:Exhibition": [
+          {
+            "entity": "Exhibition:1259",
+            "display_name": "Stedelijke Tentoonstelling van Kunstwerken van Levende Meesters",
+            "count": 112
+          },
+          {
+            "entity": "Exhibition:288",
+            "display_name": "20ste Jaarlijksche Tentoonstelling van Kunstwerken der Vereeniging St. Lucas",
+            "count": 93
+          },
+          {
+            "entity": "Exhibition:220",
+            "display_name": "Negentiende Jaarlijksche Tentoonstelling van Kunstwerken van Leden der Vereeniging",
+            "count": 74
+          },
+          {
+            "entity": "Exhibition:361",
+            "display_name": "Vereeniging Sint-Lucas. Een en Twintigste [21.] Jaarlijksche Tentoonstelling",
+            "count": 72
+          },
+          {
+            "entity": "Exhibition:165",
+            "display_name": "18e Jaarlijksche Tentoonstelling van Kunstwerken van Leden der Vereeniging",
+            "count": 70
+          },
+          {
+            "entity": "Exhibition:103",
+            "display_name": "Zeventiende Jaarlijksche Tentoonstelling van Kunstwerken vaan Leden der Vereeniging",
+            "count": 67
+          },
+          {
+            "entity": "Exhibition:102",
+            "display_name": "Tentoonstelling van Kunstwerken Vervaardigd door Leden der Maatschappij",
+            "count": 55
+          },
+          {
+            "entity": "Exhibition:678",
+            "display_name": "Vereeniging \"Sint Lucas\". Drie en Twintigste [23.] Jaarliksche Tentoonstelling",
+            "count": 55
+          },
+          {
+            "entity": "Exhibition:238",
+            "display_name": "Tentoonstelling van Kunstwerken",
+            "count": 52
+          },
+          {
+            "entity": "Exhibition:1247",
+            "display_name": "Gemeentelijke Tentoonstelling van Kunstwerken van Levende Meesters.",
+            "count": 51
+          }
+        ]
+      }
+    },
+    {
+      "cluster": 25,
+      "artist_count": 178,
+      "mean_membership_probability": 0.9468390584331503,
+      "mean_outlier_score": 0.0531609415668498,
+      "birth_year": {
+        "count": 149,
+        "minimum": 1527,
+        "median": 1872.0,
+        "maximum": 1894
+      },
+      "death_year": {
+        "count": 142,
+        "minimum": 1590,
+        "median": 1937.5,
+        "maximum": 1977
+      },
+      "representative_artists": [
+        {
+          "id": "2178",
+          "entity": "Artist:2178",
+          "display_name": "Brevillier Henriette von",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "2180",
+          "entity": "Artist:2180",
+          "display_name": "Haanen Elisabeth Alida",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "2185",
+          "entity": "Artist:2185",
+          "display_name": "Kaltenbaeck Julie",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "2187",
+          "entity": "Artist:2187",
+          "display_name": "Sirani Elisabetta",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "2190",
+          "entity": "Artist:2190",
+          "display_name": "Oosterwyck Maria van",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "2191",
+          "entity": "Artist:2191",
+          "display_name": "O'Connell Friederike Emilie August",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "2192",
+          "entity": "Artist:2192",
+          "display_name": "Lisiewska Anna Dorothea",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "2193",
+          "entity": "Artist:2193",
+          "display_name": "Auegg-Dilg Eleonore",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "2194",
+          "entity": "Artist:2194",
+          "display_name": "Charring Fanny",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "2195",
+          "entity": "Artist:2195",
+          "display_name": "Carriera Rosalba",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        }
+      ],
+      "top_related_entities": {
+        "CREATED:Item": [
+          {
+            "entity": "Item:110427",
+            "display_name": "Winter im Walde",
+            "count": 1
+          },
+          {
+            "entity": "Item:110428",
+            "display_name": "Masken",
+            "count": 1
+          },
+          {
+            "entity": "Item:112571",
+            "display_name": "Bildnis des Herrn C. v. R.",
+            "count": 1
+          },
+          {
+            "entity": "Item:112596",
+            "display_name": "Winter",
+            "count": 1
+          },
+          {
+            "entity": "Item:112600",
+            "display_name": "Heiterer Winternachmittag",
+            "count": 1
+          },
+          {
+            "entity": "Item:112618",
+            "display_name": "Schnee in Sonne",
+            "count": 1
+          },
+          {
+            "entity": "Item:112619",
+            "display_name": "Gartenlaube",
+            "count": 1
+          },
+          {
+            "entity": "Item:112621",
+            "display_name": "Grauer Tag",
+            "count": 1
+          },
+          {
+            "entity": "Item:112622",
+            "display_name": "Tauwetter",
+            "count": 1
+          },
+          {
+            "entity": "Item:112623",
+            "display_name": "Schneelandschaft",
+            "count": 1
+          }
+        ],
+        "EXHIBITED_AT:Exhibition": [
+          {
+            "entity": "Exhibition:321",
+            "display_name": "XXXVII. Ausstellung der Vereinigung Bildender Künstler Österreichs Secession",
+            "count": 78
+          },
+          {
+            "entity": "Exhibition:512",
+            "display_name": "73. výroční výstava Krasoumné jednoty pro Čechy",
+            "count": 34
+          },
+          {
+            "entity": "Exhibition:1061",
+            "display_name": "XXXVI. Ausstellung der Vereinigung bildender Künstler Österreichs Secession",
+            "count": 22
+          },
+          {
+            "entity": "Exhibition:1270",
+            "display_name": "XXXIII. Ausstellung der Vereinigung bildender Künstler Österreichs Wien Secession",
+            "count": 21
+          },
+          {
+            "entity": "Exhibition:416",
+            "display_name": "Umělecká výstava v Obecním domě »u Prašné věže«",
+            "count": 21
+          },
+          {
+            "entity": "Exhibition:1223",
+            "display_name": "XLI. Ausstellung der Vereinigung bildender Künstler Österreichs Secession",
+            "count": 17
+          },
+          {
+            "entity": "Exhibition:1342",
+            "display_name": "Kunstausstellung. Wirtschaftsverband bildend. Künstler Österreichs [2.]",
+            "count": 17
+          },
+          {
+            "entity": "Exhibition:1265",
+            "display_name": "XXXVIII. Ausstellung der Vereinigung bildender Künstler Österreichs Secession. Wien",
+            "count": 16
+          },
+          {
+            "entity": "Exhibition:1234",
+            "display_name": "XLIV. Ausstellung der Vereinigung Bildender Künstler Österreichs Secession",
+            "count": 14
+          },
+          {
+            "entity": "Exhibition:1331",
+            "display_name": "XLVI. Ausstellung der Vereinigung bildender Künstler Österreichs Secession",
+            "count": 14
+          }
+        ]
+      }
+    },
+    {
+      "cluster": 26,
+      "artist_count": 105,
+      "mean_membership_probability": 0.9722850680963367,
+      "mean_outlier_score": 0.02771493190366339,
+      "birth_year": {
+        "count": 97,
+        "minimum": 1455,
+        "median": 1862.0,
+        "maximum": 1889
+      },
+      "death_year": {
+        "count": 93,
+        "minimum": 1528,
+        "median": 1928.0,
+        "maximum": 1970
+      },
+      "representative_artists": [
+        {
+          "id": "11295",
+          "entity": "Artist:11295",
+          "display_name": "Burnier Richard",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "11616",
+          "entity": "Artist:11616",
+          "display_name": "Amberger Christoph",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "11620",
+          "entity": "Artist:11620",
+          "display_name": "Battenberg Mathilde Luise",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "11623",
+          "entity": "Artist:11623",
+          "display_name": "Binder Joseph",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "11653",
+          "entity": "Artist:11653",
+          "display_name": "Bokelmann Christian Ludwig",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "11654",
+          "entity": "Artist:11654",
+          "display_name": "Boubong Antonie",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "11655",
+          "entity": "Artist:11655",
+          "display_name": "Burgkmair Hans, the elder",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "11661",
+          "entity": "Artist:11661",
+          "display_name": "Dürer Albrecht",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "11663",
+          "entity": "Artist:11663",
+          "display_name": "Eckener Alexander",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "11664",
+          "entity": "Artist:11664",
+          "display_name": "Master of the Ehninger Altar ",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        }
+      ],
+      "top_related_entities": {
+        "CREATED:Item": [
+          {
+            "entity": "Item:1331",
+            "display_name": "Christus",
+            "count": 1
+          },
+          {
+            "entity": "Item:16438",
+            "display_name": "Grauer Tag in den Sylter Dünen",
+            "count": 1
+          },
+          {
+            "entity": "Item:16439",
+            "display_name": "Listland",
+            "count": 1
+          },
+          {
+            "entity": "Item:16465",
+            "display_name": "Regenschauer in der Einöde",
+            "count": 1
+          },
+          {
+            "entity": "Item:16466",
+            "display_name": "Schneestimmung",
+            "count": 1
+          },
+          {
+            "entity": "Item:16498",
+            "display_name": "Waldbach",
+            "count": 1
+          },
+          {
+            "entity": "Item:165017",
+            "display_name": "Stilleben",
+            "count": 1
+          },
+          {
+            "entity": "Item:165020",
+            "display_name": "Esthnischer Bauer",
+            "count": 1
+          },
+          {
+            "entity": "Item:165042",
+            "display_name": "Landschaft",
+            "count": 1
+          },
+          {
+            "entity": "Item:165043",
+            "display_name": "Büßende Frau",
+            "count": 1
+          }
+        ],
+        "EXHIBITED_AT:Exhibition": [
+          {
+            "entity": "Exhibition:58",
+            "display_name": "Deutsche Kunstausstellung in der \"Flora\"",
+            "count": 83
+          },
+          {
+            "entity": "Exhibition:228",
+            "display_name": "Grosse Kunstausstellung [Düsseldorf]",
+            "count": 26
+          },
+          {
+            "entity": "Exhibition:116",
+            "display_name": "Internationale Kunstausstellung Mannheim",
+            "count": 12
+          },
+          {
+            "entity": "Exhibition:1483",
+            "display_name": "Ausstellung des Verbandes der Kunstfreunde in den Ländern am Rhein",
+            "count": 11
+          },
+          {
+            "entity": "Exhibition:148",
+            "display_name": "Deutsche Kunstausstellung Bremen",
+            "count": 10
+          },
+          {
+            "entity": "Exhibition:117",
+            "display_name": "Deutsch-Nationale Kunst-Ausstellung",
+            "count": 6
+          },
+          {
+            "entity": "Exhibition:570",
+            "display_name": "LIA. Leipziger Jahresausstellung 1913",
+            "count": 6
+          },
+          {
+            "entity": "Exhibition:573",
+            "display_name": "Ausstellung des Deutschen Künstlerbundes 1913",
+            "count": 5
+          },
+          {
+            "entity": "Exhibition:672",
+            "display_name": "XI. Esposizione d'Arte della Città di Venezia",
+            "count": 5
+          },
+          {
+            "entity": "Exhibition:65",
+            "display_name": "Dritte Ausstellung des Deutschen Künstlerbundes",
+            "count": 4
+          }
+        ]
+      }
+    },
+    {
+      "cluster": 27,
+      "artist_count": 278,
+      "mean_membership_probability": 0.9192362162888176,
+      "mean_outlier_score": 0.0807637837111824,
+      "birth_year": {
+        "count": 259,
+        "minimum": 1837,
+        "median": 1879.0,
+        "maximum": 1891
+      },
+      "death_year": {
+        "count": 248,
+        "minimum": 1887,
+        "median": 1951.0,
+        "maximum": 1983
+      },
+      "representative_artists": [
+        {
+          "id": "1199",
+          "entity": "Artist:1199",
+          "display_name": "Bock Ludwig",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "1200",
+          "entity": "Artist:1200",
+          "display_name": "Burger-Mühlfeld Fritz",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "1208",
+          "entity": "Artist:1208",
+          "display_name": "Eysoldt Horst",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "1210",
+          "entity": "Artist:1210",
+          "display_name": "Focke Eugenie",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "1217",
+          "entity": "Artist:1217",
+          "display_name": "Hüther Julius",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "1245",
+          "entity": "Artist:1245",
+          "display_name": "Niestlé Henry",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "1249",
+          "entity": "Artist:1249",
+          "display_name": "Pampel Hermann",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "1251",
+          "entity": "Artist:1251",
+          "display_name": "Plater-Syberg Kasimir",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "1268",
+          "entity": "Artist:1268",
+          "display_name": "Schulz Heinrich",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        },
+        {
+          "id": "1307",
+          "entity": "Artist:1307",
+          "display_name": "Schuelein Julius Wolfgang",
+          "membership_probability": 1.0,
+          "outlier_score": 0.0
+        }
+      ],
+      "top_related_entities": {
+        "CREATED:Item": [
+          {
+            "entity": "Item:100198",
+            "display_name": "Marine",
+            "count": 1
+          },
+          {
+            "entity": "Item:100199",
+            "display_name": "Marine",
+            "count": 1
+          },
+          {
+            "entity": "Item:100422",
+            "display_name": "Denkmäler an die Frau Ep. IV.",
+            "count": 1
+          },
+          {
+            "entity": "Item:100431",
+            "display_name": "Die Apostel",
+            "count": 1
+          },
+          {
+            "entity": "Item:100482",
+            "display_name": "Katja",
+            "count": 1
+          },
+          {
+            "entity": "Item:100493",
+            "display_name": "Madonna",
+            "count": 1
+          },
+          {
+            "entity": "Item:100642",
+            "display_name": "In der Bauernstube in Aibling",
+            "count": 1
+          },
+          {
+            "entity": "Item:100643",
+            "display_name": "Totenkopf",
+            "count": 1
+          },
+          {
+            "entity": "Item:100686",
+            "display_name": "Leibls Haus",
+            "count": 1
+          },
+          {
+            "entity": "Item:101624",
+            "display_name": "Interieur",
+            "count": 1
+          }
+        ],
+        "EXHIBITED_AT:Exhibition": [
+          {
+            "entity": "Exhibition:1303",
+            "display_name": "Frühjahr-Ausstellung der Münchener Secession",
+            "count": 96
+          },
+          {
+            "entity": "Exhibition:877",
+            "display_name": "Frühjahr-Ausstellung der Münchener Secession",
+            "count": 96
+          },
+          {
+            "entity": "Exhibition:547",
+            "display_name": "Frühjahr-Ausstellung der Münchener Secession",
+            "count": 75
+          },
+          {
+            "entity": "Exhibition:573",
+            "display_name": "Ausstellung des Deutschen Künstlerbundes 1913",
+            "count": 62
+          },
+          {
+            "entity": "Exhibition:424",
+            "display_name": "Deutscher Künstlerbund. Grosse Ausstellung",
+            "count": 57
+          },
+          {
+            "entity": "Exhibition:570",
+            "display_name": "LIA. Leipziger Jahresausstellung 1913",
+            "count": 50
+          },
+          {
+            "entity": "Exhibition:689",
+            "display_name": "Kunstausstellung der Münchener Secession",
+            "count": 48
+          },
+          {
+            "entity": "Exhibition:346",
+            "display_name": "Frühjahr-Ausstellung der Münchener Secession",
+            "count": 44
+          },
+          {
+            "entity": "Exhibition:349",
+            "display_name": "XXII. Ausstellung der Berliner Secession",
+            "count": 42
+          },
+          {
+            "entity": "Exhibition:438",
+            "display_name": "XXIV. Ausstellung der Berliner Secession",
+            "count": 42
+          }
+        ]
+      }
+    }
+  ],
+  "note": "Descriptive metadata summaries; they neither define nor validate the clusters."
+}

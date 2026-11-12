@@ -1,0 +1,11 @@
+{
+  "checked_at_utc": "2026-11-09T15:57:55.4505604Z",
+  "backup_files_checked": 43,
+  "backup_mismatches": [],
+  "active_data_files_checked": 28,
+  "active_data_mismatches": [],
+  "attribute_complex_backup_exists": true,
+  "active_model": "TransE",
+  "active_cluster_count": 17,
+  "no_commit_or_push_performed": true
+}

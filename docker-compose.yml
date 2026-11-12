@@ -41,32 +41,8 @@ services:
       NEO4J_URI: bolt://artvis-db:7687
       ARTVIS_CATALOGUE_ENTRIES_CSV: /app/data/catalogue_entries.csv
       MICRO_ENTRY_DATA_DIR: /app/data/micro_entries
-      ML_RANDOM_SEED: "42"
-      TORCH_NUM_THREADS: "8"
-      ATTRIBUTE_DIM: "128"
-      COMPLEX_DIM: "64"
-      ATTRIBUTE_HIDDEN_DIM: "128"
-      TRAIN_EPOCHS: "40"
-      FINAL_TRAIN_EPOCHS: "6"
-      TRAIN_BATCH_SIZE: "2048"
-      NEGATIVES_PER_POSITIVE: "1"
-      LEARNING_RATE: "0.001"
-      WEIGHT_DECAY: "0.00001"
-      RELATION_EPOCH_CAP: "250000"
-      EARLY_STOPPING_PATIENCE: "5"
-      HDBSCAN_MIN_CLUSTER_SIZES: "50"
-      HDBSCAN_MIN_SAMPLES_VALUES: "10"
-      HDBSCAN_CLUSTER_SELECTION_METHOD: eom
-      HDBSCAN_MAX_NOISE_FRACTION: "0.80"
-      HDBSCAN_PCA_VARIANCE: "0.95"
-      HDBSCAN_PCA_MAX_COMPONENTS: "50"
-      UMAP_INPUT_MODE: pca
-      UMAP_N_NEIGHBORS: "30"
-      UMAP_MIN_DIST: "0.10"
-      UMAP_METRIC: euclidean
     volumes:
       - ./backend/app:/app/app
-      - ./backend/app/ml/data:/app/app/ml/data
       - ./backend/data/micro_entries:/app/data/micro_entries
       - ./artvis-graph-db/csv/catalogue_entries.csv:/app/data/catalogue_entries.csv:ro
     ports:

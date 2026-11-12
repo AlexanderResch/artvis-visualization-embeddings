@@ -1,7 +1,3 @@
 __pycache__/
 *.py[cod]
 .venv/
-
-app/ml/data*
-app/ml/data/*
-!app/ml/data/.gitkeep

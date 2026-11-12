@@ -25,11 +25,7 @@ from app.db import (
     verify_connectivity,
 )
 
-from app.ml.config import (
-    ARTIST_CLUSTERS_PATH,
-    ARTIST_EMBEDDINGS_PATH,
-    ARTIST_MAP_2D_PATH,
-)
+from app.model_artifacts import CURRENT_MODEL, artifact_path, available_models, resolve_model
 
 from app.routers.artists import (
     router as artists_router
@@ -69,6 +65,28 @@ app = FastAPI(
     title="ArtVis Backend",
     lifespan=lifespan,
 )
+
+
+@app.middleware("http")
+async def embedding_model_context(request: Request, call_next):
+    if request.method == "OPTIONS" or request.url.path in {"/health", "/models", "/docs", "/openapi.json", "/redoc"}:
+        return await call_next(request)
+    try:
+        selected = resolve_model(request.query_params.get("model") or request.headers.get("X-Embedding-Model"))
+    except HTTPException as error:
+        return JSONResponse(status_code=error.status_code, content={"detail": error.detail})
+    token = CURRENT_MODEL.set(selected)
+    try:
+        response = await call_next(request)
+        response.headers["X-Embedding-Model"] = selected.key
+        return response
+    finally:
+        CURRENT_MODEL.reset(token)
+
+
+@app.get("/models")
+def get_models():
+    return available_models()
 
 
 @app.exception_handler(ServiceUnavailable)
@@ -115,6 +133,7 @@ app.add_middleware(
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
+    expose_headers=["X-Embedding-Model"],
 )
 
 
@@ -160,9 +179,9 @@ def ready():
     missing_artifacts = [
         path.name
         for path in (
-            ARTIST_MAP_2D_PATH,
-            ARTIST_CLUSTERS_PATH,
-            ARTIST_EMBEDDINGS_PATH,
+            artifact_path("artist_map_2d.parquet"),
+            artifact_path("artist_clusters.parquet"),
+            artifact_path("artist_embeddings.npy"),
         )
         if not path.exists()
     ]

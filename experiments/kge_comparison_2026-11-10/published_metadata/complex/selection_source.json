@@ -1,0 +1,39 @@
+{
+  "experiment": "/app/app/ml/data_comparisons/groups_2026-11-10",
+  "run_dir": "/app/app/ml/data_comparisons/groups_2026-11-10/complex/tuning/native/seed_41",
+  "model": "ComplEx",
+  "seed": 41,
+  "embedding_sha256": "a4097a2dd72df0a1b00fb6ad12e26996f5860565945a9617b4bcd2fc3f80684c",
+  "representation": "l2_pca10",
+  "selection": {
+    "model": "ComplEx",
+    "config": {
+      "name": "native",
+      "learning_rate": 0.001,
+      "regularizer_weight": null
+    },
+    "epochs": 4,
+    "representation": "l2_pca10",
+    "run_dir": "/app/app/ml/data_comparisons/groups_2026-11-10/complex/tuning/native/seed_41",
+    "validation": {
+      "reference_artist_count": 598,
+      "reference_group_count": 109,
+      "overlapping_reference_artists": 187,
+      "reference_missing_embeddings": 12,
+      "reference_assigned_fraction": 0.49331103678929766,
+      "pair_count": 178503,
+      "positive_pair_count": 8577,
+      "pair_tp": 1660,
+      "pair_fp": 21321,
+      "pair_fn": 6917,
+      "pair_tn": 148605,
+      "pair_precision": 0.07223358426526261,
+      "pair_recall": 0.19354086510434884,
+      "pair_f1": 0.10520311806831865,
+      "single_label_artist_count": 411,
+      "ari_single_label_noise_singletons": 0.03296163238207662,
+      "ami_single_label_noise_singletons": 0.09044172578213165
+    },
+    "selection_rule": "Per model: highest validation pair-F1; ties: artist-subset Jaccard, lower noise, fewer epochs. Only validation artists are scored before configurations are frozen."
+  }
+}

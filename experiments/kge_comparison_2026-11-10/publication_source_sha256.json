@@ -1,0 +1,76 @@
+{
+  "files": [
+    {
+      "path": "__init__.py",
+      "sha256": "f396b32fa1049737621ea0f5324138b34280cd819a49c7b0989b660085f51a91"
+    },
+    {
+      "path": "assess_clustering.py",
+      "sha256": "db0267bf0d070c2cbb5be64264169b73e98ac71cb747033b55a645bdc186aa3d"
+    },
+    {
+      "path": "cluster_artists.py",
+      "sha256": "96158ca109d89c41202a0eff6a9cd35302516de20af8be0f5c643dced32344b0"
+    },
+    {
+      "path": "compare_coexhibitions.py",
+      "sha256": "01762c94f7caf610cc939d00bae7b9a7e7b1e918b3177e24e8c98be93d8096a5"
+    },
+    {
+      "path": "compare_models.py",
+      "sha256": "286983c9a036d8bef7bfc347e8d6758c08a3cd2ab19218383c41af981309a340"
+    },
+    {
+      "path": "compare_pca.py",
+      "sha256": "74218af0f73679ad6d12a116c7746b3d8ebfbe92ad138a57de8d80aaefdd01da"
+    },
+    {
+      "path": "config.py",
+      "sha256": "044cd86b1f19a64196061378619580e2bfd15bca512da296155da9c8a54a8017"
+    },
+    {
+      "path": "export_snapshot.py",
+      "sha256": "5636800a6db19bbbdb8050e551ab42fc324ff82195b49bd51743d41c6403665e"
+    },
+    {
+      "path": "finalize_models.py",
+      "sha256": "608dc2ddc8a3e71f7673e3de0dd83a4907fc19e42ba1c91c9a7a35938d7027cc"
+    },
+    {
+      "path": "group_evaluation.py",
+      "sha256": "03f745793c31f1c365d2ac546eec3afd3a097d9684ebd6382b8221de7a85556f"
+    },
+    {
+      "path": "materialize_map.py",
+      "sha256": "ba723f18197119060f3307a2d2d149f692202e7effd46cabbaa855b3c6574960"
+    },
+    {
+      "path": "prepare_training_data.py",
+      "sha256": "c05e97eb8010af4cabd5afbe5e3074f58bab6261549ed3918b19515fe4bf2d0f"
+    },
+    {
+      "path": "profile_clusters.py",
+      "sha256": "189fb645c9462b5cdd3f80c86c2d6dbc2fbd4b523718b2415a7b0d465c24b213"
+    },
+    {
+      "path": "project_umap.py",
+      "sha256": "44fca27ba12f1a6e511b95bca0c57290a77b00e55749df2ddfc9bcc7939505d4"
+    },
+    {
+      "path": "refine_models.py",
+      "sha256": "09ee6c54c36f1b27456d7c84557ec4a74a0dadd7e5bcd6e8faa011594f84ef83"
+    },
+    {
+      "path": "run_pipeline.py",
+      "sha256": "66ed48557640ce333887d12494bcfbc1c5c3fea11f022bbb85f37b2eb1f5ceeb"
+    },
+    {
+      "path": "train_kge.py",
+      "sha256": "063ff3fc3ee89ddb9d651fafa6210a6ab1b0e84cd29ad77077947d2814646ed4"
+    },
+    {
+      "path": "utils.py",
+      "sha256": "358af989208e83c449ef4eb943be7bd4daa99bdcf55fac5e9d1382330d0201cd"
+    }
+  ]
+}

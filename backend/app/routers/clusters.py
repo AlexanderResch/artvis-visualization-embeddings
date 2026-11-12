@@ -1,3 +1,6 @@
+from pathlib import Path
+from app.model_artifacts import artifact_path, current_artifacts
+from app.ml.utils import read_table
 from collections import Counter
 from functools import lru_cache
 
@@ -6,13 +9,6 @@ import pandas as pd
 from fastapi import APIRouter, HTTPException, Query
 
 from app.db import get_driver
-from app.ml.config import (
-    ARTIST_CLUSTERS_PATH,
-    ARTIST_EMBEDDINGS_PATH,
-    CLUSTER_PROFILES_PATH,
-    HDBSCAN_CANDIDATES_PATH,
-    HDBSCAN_SUMMARY_PATH,
-)
 from app.ml.utils import json_safe, read_json
 
 router = APIRouter(
@@ -535,13 +531,16 @@ def _cluster_similarity(
 @lru_cache(maxsize=64)
 def _build_cluster_inspection(
         cluster_id: int,
+        model_directory: str,
         cluster_file_mtime: float,
         embedding_file_mtime: float,
 ) -> dict:
+    ARTIST_CLUSTERS_PATH = Path(model_directory) / "artist_clusters.parquet"
+    ARTIST_EMBEDDINGS_PATH = Path(model_directory) / "artist_embeddings.npy"
     del cluster_file_mtime
     del embedding_file_mtime
 
-    metadata = pd.read_csv(
+    metadata = read_table(
         ARTIST_CLUSTERS_PATH,
         dtype={
             "id": str,
@@ -890,6 +889,8 @@ def _build_cluster_inspection(
 
 @router.get("")
 def get_clusters():
+    HDBSCAN_SUMMARY_PATH = artifact_path("hdbscan_summary.json")
+    CLUSTER_PROFILES_PATH = artifact_path("cluster_profiles.json")
     if (
             not HDBSCAN_SUMMARY_PATH.exists()
             or not CLUSTER_PROFILES_PATH.exists()
@@ -907,21 +908,6 @@ def get_clusters():
             CLUSTER_PROFILES_PATH
         ),
     }
-
-    if HDBSCAN_CANDIDATES_PATH.exists():
-        frame = pd.read_csv(
-            HDBSCAN_CANDIDATES_PATH
-        )
-
-        response["candidates"] = (
-            frame
-            .astype(object)
-            .where(
-                pd.notna(frame),
-                None,
-            )
-            .to_dict("records")
-        )
 
     return response
 
@@ -1190,6 +1176,8 @@ def get_cluster_inspection(
         ),
         location_id: list[str] | None = Query(default=None),
 ):
+    ARTIST_CLUSTERS_PATH = artifact_path("artist_clusters.parquet")
+    ARTIST_EMBEDDINGS_PATH = artifact_path("artist_embeddings.npy")
     if not ARTIST_CLUSTERS_PATH.exists():
         raise HTTPException(
             status_code=404,
@@ -1210,6 +1198,7 @@ def get_cluster_inspection(
 
     base = _build_cluster_inspection(
         cluster_id,
+        str(current_artifacts().directory),
         ARTIST_CLUSTERS_PATH
         .stat()
         .st_mtime,
@@ -1249,6 +1238,7 @@ def get_cluster_inspection(
 def get_cluster(
         cluster_id: int,
 ):
+    CLUSTER_PROFILES_PATH = artifact_path("cluster_profiles.json")
     if not CLUSTER_PROFILES_PATH.exists():
         raise HTTPException(
             status_code=404,

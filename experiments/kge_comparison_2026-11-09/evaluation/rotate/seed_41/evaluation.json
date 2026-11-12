@@ -1,0 +1,634 @@
+{
+  "model": "RotatE",
+  "seed": 41,
+  "run_dir": "/app/app/ml/data_comparisons/full_2026-11-09/complex_models/rotate/seed_41",
+  "analysis_version": 1,
+  "analysis_seed": 2026,
+  "embedding_sha256": "d1219331033fb4c166f0f2204f744259d9421385b29762783961f8d5e4909e25",
+  "analysis_sha256": "89d41228cd846fddfada1b84f7534ab438da596e9c243f02bc9a60e263e62866",
+  "training_seconds": 1487.9195515760002,
+  "epochs": 2,
+  "optimizer_updates": 7960,
+  "real_parameter_count": 14434432,
+  "loss": "MarginRankingLoss(\n  (margin_activation): ReLU()\n)",
+  "training_loss": [
+    0.531174278843343,
+    0.22951892256437234
+  ],
+  "native_dimension": 32,
+  "real_dimension": 64,
+  "norm_min": 0.5614436864852905,
+  "norm_mean": 2.4381537437438965,
+  "norm_max": 4.377579689025879,
+  "representations": {
+    "raw": {
+      "model": "RotatE",
+      "seed": 41,
+      "representation": "raw",
+      "dimension": 64,
+      "retained_variance": 1.0,
+      "cluster_count": 13,
+      "assigned_count": 2331,
+      "noise_fraction": 0.8242744063324539,
+      "largest_cluster_fraction": 0.04666415378816434,
+      "largest_assigned_fraction": 0.26555126555126557,
+      "silhouette_native": 0.3965997099876404,
+      "silhouette_l2": 0.402056485414505,
+      "silhouette_assigned_sample_count": 356,
+      "relative_validity_approx": 0.04204307257338528,
+      "mean_cluster_persistence": 0.11284399633213832,
+      "subsample_jaccard": [
+        0.8556117000293553,
+        0.8097422825070366,
+        0.8892315171778328
+      ],
+      "subsample_jaccard_mean": 0.8515284999047416,
+      "per_cluster_jaccard_mean": {
+        "0": 0.9381604171459245,
+        "1": 0.5606487409304312,
+        "2": 0.9935086472399904,
+        "3": 0.0,
+        "4": 0.889067427474307,
+        "5": 0.0,
+        "6": 0.8772970382459434,
+        "7": 0.9688266890625332,
+        "8": 0.8991948839460878,
+        "9": 0.9159762915067017,
+        "10": 0.928493999896102,
+        "11": 0.871496768689609,
+        "12": 0.5482327461624045
+      },
+      "nearest10_shared_exhibition": 0.7512401055408972,
+      "within_cluster_shared_exhibition": 0.97915,
+      "random_assigned_shared_exhibition": 0.3095,
+      "cluster_sizes": {
+        "0": 337,
+        "1": 61,
+        "2": 267,
+        "3": 57,
+        "4": 110,
+        "5": 59,
+        "6": 174,
+        "7": 145,
+        "8": 228,
+        "9": 123,
+        "10": 96,
+        "11": 619,
+        "12": 55
+      },
+      "profiles": [
+        {
+          "cluster": 11,
+          "artist_count": 619,
+          "top_exhibitions": [
+            {
+              "title": "IX. Internationale Kunstausstellung",
+              "artist_count": 619
+            },
+            {
+              "title": "Munich Fine Art Exhibition",
+              "artist_count": 74
+            },
+            {
+              "title": "VII. Esposizione Internazionale d’Arte della Città di Venezia",
+              "artist_count": 51
+            },
+            {
+              "title": "Deutsch-Nationale Kunst-Ausstellung",
+              "artist_count": 42
+            }
+          ]
+        },
+        {
+          "cluster": 0,
+          "artist_count": 337,
+          "top_exhibitions": [
+            {
+              "title": "The London Salon of the Allied Artists' Association. 1st year",
+              "artist_count": 315
+            },
+            {
+              "title": "The London Salon of the Allied Artists' Association: 2nd year",
+              "artist_count": 172
+            },
+            {
+              "title": "The London Salon of the Allied Artists' Association. Fourth Year",
+              "artist_count": 116
+            },
+            {
+              "title": "Forty-Fourth Exhibition of Modern Pictures by the New English Art Club",
+              "artist_count": 35
+            }
+          ]
+        },
+        {
+          "cluster": 2,
+          "artist_count": 267,
+          "top_exhibitions": [
+            {
+              "title": "Exposition Universelle et Internationale de Gand en 1913: Groupe II. Beaux-Arts: Œuvres modernes.",
+              "artist_count": 267
+            },
+            {
+              "title": "Exposition Générale des Beaux-Arts / Salon Triennale",
+              "artist_count": 89
+            },
+            {
+              "title": "Exposition inaugurale de la Salle des Fêtes de la Ville, sous les auspices de l'Administration Communale.",
+              "artist_count": 25
+            },
+            {
+              "title": "Les Indépendants Cercle d'Art / VIe Salon annuel",
+              "artist_count": 9
+            }
+          ]
+        },
+        {
+          "cluster": 8,
+          "artist_count": 228,
+          "top_exhibitions": [
+            {
+              "title": "Mostra Nazionale di Belle Arti",
+              "artist_count": 204
+            },
+            {
+              "title": "IX. Esposizione d'Arte della Città di Venezia",
+              "artist_count": 90
+            },
+            {
+              "title": "X. Esposizione d'Arte della Città di Venezia",
+              "artist_count": 89
+            },
+            {
+              "title": "VI. Esposizione d'Arte della Città di Venezia",
+              "artist_count": 88
+            }
+          ]
+        },
+        {
+          "cluster": 6,
+          "artist_count": 174,
+          "top_exhibitions": [
+            {
+              "title": "Stedelijke Internationale Tentoonstelling Van Kunstwerken Van Levende Meesters",
+              "artist_count": 174
+            },
+            {
+              "title": "Stedelijke Tentoonstelling van Kunstwerken van Levende Meesters",
+              "artist_count": 44
+            },
+            {
+              "title": "Vereeniging Sint-Lucas. Een en Twintigste [21.] Jaarlijksche Tentoonstelling",
+              "artist_count": 37
+            },
+            {
+              "title": "Vereeniging \"Sint Lucas\". Drie en Twintigste [23.] Jaarliksche Tentoonstelling",
+              "artist_count": 37
+            }
+          ]
+        },
+        {
+          "cluster": 7,
+          "artist_count": 145,
+          "top_exhibitions": [
+            {
+              "title": "Exposition Universelle et Internationale de Gand en 1913: Groupe II. Beaux-Arts: Œuvres modernes.",
+              "artist_count": 135
+            },
+            {
+              "title": "Stedelijke Internationale Tentoonstelling Van Kunstwerken Van Levende Meesters",
+              "artist_count": 92
+            },
+            {
+              "title": "Exposition Générale des Beaux-Arts / Salon Triennale",
+              "artist_count": 46
+            },
+            {
+              "title": "Stedelijke Tentoonstelling van Kunstwerken van Levende Meesters",
+              "artist_count": 39
+            }
+          ]
+        }
+      ],
+      "analysis_seconds": 36.61312925799939
+    },
+    "l2": {
+      "model": "RotatE",
+      "seed": 41,
+      "representation": "l2",
+      "dimension": 64,
+      "retained_variance": 1.0,
+      "cluster_count": 12,
+      "assigned_count": 3357,
+      "noise_fraction": 0.7469280060309084,
+      "largest_cluster_fraction": 0.05887674330946099,
+      "largest_assigned_fraction": 0.23264819779565088,
+      "silhouette_native": 0.4385208785533905,
+      "silhouette_l2": 0.46104761958122253,
+      "silhouette_assigned_sample_count": 498,
+      "relative_validity_approx": 0.013130870225724027,
+      "mean_cluster_persistence": 0.15096575346860833,
+      "subsample_jaccard": [
+        0.8691525791165723,
+        0.8760647150524117,
+        0.8772683902019804
+      ],
+      "subsample_jaccard_mean": 0.8741618947903215,
+      "per_cluster_jaccard_mean": {
+        "0": 0.896343345084546,
+        "1": 0.9299639675708137,
+        "2": 0.9361965358784022,
+        "3": 0.8156510550699855,
+        "4": 0.7090485130204711,
+        "5": 0.9803432198361345,
+        "6": 0.8747509578544062,
+        "7": 0.9579935378827505,
+        "8": 0.8148581329867879,
+        "9": 0.7923640889405282,
+        "10": 0.3266585266585266,
+        "11": 0.14815783863402912
+      },
+      "nearest10_shared_exhibition": 0.7480814172634753,
+      "within_cluster_shared_exhibition": 0.9099,
+      "random_assigned_shared_exhibition": 0.2098,
+      "cluster_sizes": {
+        "0": 781,
+        "1": 115,
+        "2": 202,
+        "3": 149,
+        "4": 210,
+        "5": 637,
+        "6": 60,
+        "7": 693,
+        "8": 80,
+        "9": 272,
+        "10": 107,
+        "11": 51
+      },
+      "profiles": [
+        {
+          "cluster": 0,
+          "artist_count": 781,
+          "top_exhibitions": [
+            {
+              "title": "The London Salon of the Allied Artists' Association. 1st year",
+              "artist_count": 632
+            },
+            {
+              "title": "The London Salon of the Allied Artists' Association: 2nd year",
+              "artist_count": 246
+            },
+            {
+              "title": "The London Salon of the Allied Artists' Association. Fourth Year",
+              "artist_count": 232
+            },
+            {
+              "title": "Forty-Fourth Exhibition of Modern Pictures by the New English Art Club",
+              "artist_count": 68
+            }
+          ]
+        },
+        {
+          "cluster": 7,
+          "artist_count": 693,
+          "top_exhibitions": [
+            {
+              "title": "IX. Internationale Kunstausstellung",
+              "artist_count": 693
+            },
+            {
+              "title": "Munich Fine Art Exhibition",
+              "artist_count": 71
+            },
+            {
+              "title": "Imp. Royal Austrian Exhibition",
+              "artist_count": 43
+            },
+            {
+              "title": "VII. Esposizione Internazionale d’Arte della Città di Venezia",
+              "artist_count": 42
+            }
+          ]
+        },
+        {
+          "cluster": 5,
+          "artist_count": 637,
+          "top_exhibitions": [
+            {
+              "title": "Mostra Nazionale di Belle Arti",
+              "artist_count": 604
+            },
+            {
+              "title": "X. Esposizione d'Arte della Città di Venezia",
+              "artist_count": 91
+            },
+            {
+              "title": "LXXVIII. Esposizione internazionale di Belle Arti della Società Amatori e Cultori di Belle Arti in Roma",
+              "artist_count": 90
+            },
+            {
+              "title": "IX. Esposizione d'Arte della Città di Venezia",
+              "artist_count": 86
+            }
+          ]
+        },
+        {
+          "cluster": 9,
+          "artist_count": 272,
+          "top_exhibitions": [
+            {
+              "title": "Exposition Universelle et Internationale de Gand en 1913: Groupe II. Beaux-Arts: Œuvres modernes.",
+              "artist_count": 271
+            },
+            {
+              "title": "Exposition Générale des Beaux-Arts / Salon Triennale",
+              "artist_count": 90
+            },
+            {
+              "title": "Exposition inaugurale de la Salle des Fêtes de la Ville, sous les auspices de l'Administration Communale.",
+              "artist_count": 26
+            },
+            {
+              "title": "Les Indépendants Cercle d'Art / VIe Salon annuel",
+              "artist_count": 9
+            }
+          ]
+        },
+        {
+          "cluster": 4,
+          "artist_count": 210,
+          "top_exhibitions": [
+            {
+              "title": "Ausstellung des Deutschen Künstlerbundes 1913",
+              "artist_count": 94
+            },
+            {
+              "title": "LIA. Leipziger Jahresausstellung 1913",
+              "artist_count": 87
+            },
+            {
+              "title": "Ausstellung des Deutschen Künstlerbundes Darmstadt",
+              "artist_count": 69
+            },
+            {
+              "title": "Deutscher Künstlerbund. Grosse Ausstellung",
+              "artist_count": 68
+            }
+          ]
+        },
+        {
+          "cluster": 2,
+          "artist_count": 202,
+          "top_exhibitions": [
+            {
+              "title": "IX. Internationale Kunstausstellung",
+              "artist_count": 202
+            },
+            {
+              "title": "Stedelijke Internationale Tentoonstelling Van Kunstwerken Van Levende Meesters",
+              "artist_count": 105
+            },
+            {
+              "title": "Exposition Universelle et Internationale de Gand en 1913: Groupe II. Beaux-Arts: Œuvres modernes.",
+              "artist_count": 100
+            },
+            {
+              "title": "Téli nemzetközi kiállítás",
+              "artist_count": 40
+            }
+          ]
+        }
+      ],
+      "analysis_seconds": 36.249912459999905
+    },
+    "l2_pca10": {
+      "model": "RotatE",
+      "seed": 41,
+      "representation": "l2_pca10",
+      "dimension": 10,
+      "retained_variance": 0.637731671333313,
+      "cluster_count": 31,
+      "assigned_count": 7706,
+      "noise_fraction": 0.4190727478326423,
+      "largest_cluster_fraction": 0.10380701093102149,
+      "largest_assigned_fraction": 0.17869192836750583,
+      "silhouette_native": 0.17761677503585815,
+      "silhouette_l2": 0.22812621295452118,
+      "silhouette_assigned_sample_count": 1160,
+      "relative_validity_approx": 0.1096889489637681,
+      "mean_cluster_persistence": 0.10816986191172166,
+      "subsample_jaccard": [
+        0.9282806817058727,
+        0.8387809325069535,
+        0.8358622180811356
+      ],
+      "subsample_jaccard_mean": 0.8676412774313206,
+      "per_cluster_jaccard_mean": {
+        "0": 0.9808539115684893,
+        "1": 0.4515837104072398,
+        "2": 0.0,
+        "3": 1.0,
+        "4": 0.9660381438979225,
+        "5": 0.9466272898476289,
+        "6": 0.9941748066748067,
+        "7": 0.9010721247563352,
+        "8": 0.9580189604445898,
+        "9": 0.9866661173821099,
+        "10": 0.9590501123175725,
+        "11": 1.0,
+        "12": 0.3873626373626374,
+        "13": 0.9564026100693349,
+        "14": 0.9801650165016502,
+        "15": 0.0,
+        "16": 0.6796832602620658,
+        "17": 0.353308596165739,
+        "18": 0.9115998081189662,
+        "19": 0.9397269099303852,
+        "20": 0.30879693362485494,
+        "21": 0.881788665347762,
+        "22": 0.9972425311192851,
+        "23": 0.9593402163824699,
+        "24": 0.8878549978549978,
+        "25": 0.9921044947506562,
+        "26": 0.9540057716324183,
+        "27": 0.9827778337858283,
+        "28": 0.706248184914921,
+        "29": 0.5631532209578879,
+        "30": 0.895279350374564
+      },
+      "nearest10_shared_exhibition": 0.70958914436487,
+      "within_cluster_shared_exhibition": 0.6818,
+      "random_assigned_shared_exhibition": 0.0592,
+      "cluster_sizes": {
+        "0": 86,
+        "1": 59,
+        "2": 52,
+        "3": 185,
+        "4": 326,
+        "5": 161,
+        "6": 139,
+        "7": 78,
+        "8": 189,
+        "9": 279,
+        "10": 446,
+        "11": 248,
+        "12": 54,
+        "13": 524,
+        "14": 130,
+        "15": 57,
+        "16": 108,
+        "17": 57,
+        "18": 122,
+        "19": 221,
+        "20": 50,
+        "21": 480,
+        "22": 453,
+        "23": 90,
+        "24": 89,
+        "25": 152,
+        "26": 196,
+        "27": 682,
+        "28": 1377,
+        "29": 213,
+        "30": 403
+      },
+      "profiles": [
+        {
+          "cluster": 28,
+          "artist_count": 1377,
+          "top_exhibitions": [
+            {
+              "title": "Deutsche Kunstausstellung in der \"Flora\"",
+              "artist_count": 182
+            },
+            {
+              "title": "Juryfreie Kunstschau. 4. Ausstellung",
+              "artist_count": 178
+            },
+            {
+              "title": "Frühjahr-Ausstellung der Münchener Secession",
+              "artist_count": 170
+            },
+            {
+              "title": "Frühjahr-Ausstellung der Münchener Secession",
+              "artist_count": 156
+            }
+          ]
+        },
+        {
+          "cluster": 27,
+          "artist_count": 682,
+          "top_exhibitions": [
+            {
+              "title": "IX. Internationale Kunstausstellung",
+              "artist_count": 682
+            },
+            {
+              "title": "Munich Fine Art Exhibition",
+              "artist_count": 69
+            },
+            {
+              "title": "Deutsch-Nationale Kunst-Ausstellung",
+              "artist_count": 39
+            },
+            {
+              "title": "Imp. Royal Austrian Exhibition",
+              "artist_count": 38
+            }
+          ]
+        },
+        {
+          "cluster": 13,
+          "artist_count": 524,
+          "top_exhibitions": [
+            {
+              "title": "Salon d'Automne. 3e Exposition",
+              "artist_count": 277
+            },
+            {
+              "title": "Salon d'Automne. 4e Exposition",
+              "artist_count": 252
+            },
+            {
+              "title": "Salon d'Automne. 6e Exposition",
+              "artist_count": 123
+            },
+            {
+              "title": "Vente Aux Enchères Publiques Des Tableaux, Études, Aquarelles, Pastels, Dessins, Eaux-Fortes, Gravures, Sculpture, Objets D'Art",
+              "artist_count": 69
+            }
+          ]
+        },
+        {
+          "cluster": 21,
+          "artist_count": 480,
+          "top_exhibitions": [
+            {
+              "title": "Mostra Nazionale di Belle Arti",
+              "artist_count": 480
+            },
+            {
+              "title": "LXXVIII. Esposizione internazionale di Belle Arti della Società Amatori e Cultori di Belle Arti in Roma",
+              "artist_count": 47
+            },
+            {
+              "title": "VI. Esposizione d'Arte della Città di Venezia",
+              "artist_count": 27
+            },
+            {
+              "title": "Esposizione Annuale d'Arte della Famiglia Artistica",
+              "artist_count": 19
+            }
+          ]
+        },
+        {
+          "cluster": 22,
+          "artist_count": 453,
+          "top_exhibitions": [
+            {
+              "title": "The London Salon of the Allied Artists' Association. 1st year",
+              "artist_count": 453
+            },
+            {
+              "title": "The London Salon of the Allied Artists' Association: 2nd year",
+              "artist_count": 103
+            },
+            {
+              "title": "Forty-Fourth Exhibition of Modern Pictures by the New English Art Club",
+              "artist_count": 21
+            },
+            {
+              "title": "Forty-Second Exhibition of Modern Pictures. New English Art Club",
+              "artist_count": 20
+            }
+          ]
+        },
+        {
+          "cluster": 10,
+          "artist_count": 446,
+          "top_exhibitions": [
+            {
+              "title": "Stedelijke Tentoonstelling van Kunstwerken van Levende Meesters",
+              "artist_count": 174
+            },
+            {
+              "title": "20ste Jaarlijksche Tentoonstelling van Kunstwerken der Vereeniging St. Lucas",
+              "artist_count": 157
+            },
+            {
+              "title": "Vereeniging Sint-Lucas. Een en Twintigste [21.] Jaarlijksche Tentoonstelling",
+              "artist_count": 130
+            },
+            {
+              "title": "Vereeniging \"Sint Lucas\". Drie en Twintigste [23.] Jaarliksche Tentoonstelling",
+              "artist_count": 123
+            }
+          ]
+        }
+      ],
+      "analysis_seconds": 7.183298296997236
+    }
+  },
+  "supervised_evaluation": null,
+  "limitations": "No reference artist labels or held-out predictive evaluation. Exhibition agreement uses training facts. Fixed embeddings during subsampling."
+}

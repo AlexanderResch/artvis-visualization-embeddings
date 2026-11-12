@@ -1,0 +1,39 @@
+{
+  "algorithm": "HDBSCAN",
+  "input_mode": "pca",
+  "embedding_sha256": "a4097a2dd72df0a1b00fb6ad12e26996f5860565945a9617b4bcd2fc3f80684c",
+  "embedding_model": "ComplEx",
+  "l2_normalization": true,
+  "input": "ComplEx entity embeddings; L2 normalized",
+  "original_dimension": 64,
+  "clustering_dimension": 10,
+  "pca_explained_variance": 0.5515528917312622,
+  "selected_parameters": {
+    "min_cluster_size": 50,
+    "min_samples": 5,
+    "metric": "euclidean",
+    "cluster_selection_method": "eom"
+  },
+  "selected_metrics": {
+    "cluster_count": 4,
+    "noise_fraction": 0.5856991845363938,
+    "largest_cluster_fraction": 0.1842343702808819,
+    "relative_validity": 5.9359451659143915e-05,
+    "mean_cluster_persistence": 0.08012511250479294,
+    "mean_membership_probability": 0.8636833448104358,
+    "silhouette_original_space": 0.08127810806035995,
+    "silhouette_assigned_sample_count": 813
+  },
+  "cluster_count": 4,
+  "cluster_sizes": {
+    "0": 66,
+    "1": 2440,
+    "2": 623,
+    "3": 2358
+  },
+  "noise_count": 7757,
+  "noise_fraction": 0.5856991845363938,
+  "clustering_seconds": 2.1121932030000607,
+  "parameter_selection": "Chosen on validation artist memberships; see selection_source.json. Held-out test labels were not used to choose the configuration or displayed seed.",
+  "membership_note": "HDBSCAN assignment strength is not a calibrated semantic probability."
+}

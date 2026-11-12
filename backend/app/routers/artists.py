@@ -1,3 +1,5 @@
+from app.model_artifacts import artifact_path
+from app.ml.utils import read_table
 from threading import Lock
 
 import numpy as np
@@ -13,10 +15,6 @@ from app.db import get_driver
 from app.schemas.artist import ArtistContextResponse
 from app.services.artist_context import fetch_artist_context
 
-from app.ml.config import (
-    ARTIST_CLUSTERS_PATH,
-    ARTIST_EMBEDDINGS_PATH,
-)
 
 from app.ml.utils import (
     json_safe,
@@ -31,13 +29,7 @@ router = APIRouter(
 
 _embedding_cache_lock = Lock()
 
-_embedding_cache: tuple[
-                      float,
-                      float,
-                      pd.DataFrame,
-                      np.ndarray,
-                      dict[str, int],
-                  ] | None = None
+_embedding_cache = {}
 
 
 def parse_boolean(
@@ -64,137 +56,28 @@ def optional_integer(
     return int(value)
 
 
-def load_embedding_index() -> tuple[
-    pd.DataFrame,
-    np.ndarray,
-    dict[str, int],
-]:
-    global _embedding_cache
-
-    if not ARTIST_EMBEDDINGS_PATH.exists():
-        raise HTTPException(
-            status_code=404,
-
-            detail=(
-                "Missing Artist "
-                "embeddings: "
-                f"{ARTIST_EMBEDDINGS_PATH.name}"
-            ),
-        )
-
-    if not ARTIST_CLUSTERS_PATH.exists():
-        raise HTTPException(
-            status_code=404,
-
-            detail=(
-                "Missing Artist "
-                "cluster metadata: "
-                f"{ARTIST_CLUSTERS_PATH.name}"
-            ),
-        )
-
-    embedding_modified_time = (
-        ARTIST_EMBEDDINGS_PATH
-        .stat()
-        .st_mtime
-    )
-
-    metadata_modified_time = (
-        ARTIST_CLUSTERS_PATH
-        .stat()
-        .st_mtime
-    )
-
+def load_embedding_index() -> tuple[pd.DataFrame, np.ndarray, dict[str, int]]:
+    embedding_path = artifact_path("artist_embeddings.npy")
+    metadata_path = artifact_path("artist_clusters.parquet")
+    if not embedding_path.exists() or not metadata_path.exists():
+        raise HTTPException(status_code=404, detail="Artist embedding data are missing.")
+    key = str(embedding_path)
+    times = (embedding_path.stat().st_mtime_ns, metadata_path.stat().st_mtime_ns)
     with _embedding_cache_lock:
-        if (
-                _embedding_cache is None
-
-                or _embedding_cache[0]
-                != embedding_modified_time
-
-                or _embedding_cache[1]
-                != metadata_modified_time
-        ):
-            metadata = (
-                pd.read_csv(
-                    ARTIST_CLUSTERS_PATH,
-
-                    dtype={
-                        "id": str,
-                        "entity": str,
-                    },
-                )
-                .sort_values(
-                    "artist_index"
-                )
-                .reset_index(
-                    drop=True
-                )
-            )
-
-            embeddings = np.load(
-                ARTIST_EMBEDDINGS_PATH
-            ).astype(
-                np.float32
-            )
-
-            if (
-                    len(metadata)
-                    != len(embeddings)
-            ):
-                raise HTTPException(
-                    status_code=500,
-
-                    detail=(
-                        "Artist embeddings "
-                        "and metadata have "
-                        "different lengths"
-                    ),
-                )
-
-            norms = np.linalg.norm(
-                embeddings,
-                axis=1,
-                keepdims=True,
-            )
-
-            normalized_embeddings = (
-                    embeddings
-                    / np.clip(
-                norms,
-                1e-12,
-                None,
-            )
-            )
-
-            id_to_position = {
-                str(artist_id): int(
-                    position
-                )
-
-                for (
-                    position,
-                    artist_id,
-                ) in enumerate(
-                    metadata[
-                        "id"
-                    ].astype(str)
-                )
-            }
-
-            _embedding_cache = (
-                embedding_modified_time,
-                metadata_modified_time,
-                metadata,
-                normalized_embeddings,
-                id_to_position,
-            )
-
-        return (
-            _embedding_cache[2],
-            _embedding_cache[3],
-            _embedding_cache[4],
-        )
+        cached = _embedding_cache.get(key)
+        if cached is None or cached[:2] != times:
+            metadata = read_table(metadata_path, dtype={"id": str, "entity": str})
+            metadata = metadata.sort_values("artist_index").reset_index(drop=True)
+            embeddings = np.load(embedding_path).astype(np.float32)
+            if embeddings.ndim != 2 or len(metadata) != len(embeddings):
+                raise HTTPException(status_code=500, detail="Artist embeddings and metadata are not aligned.")
+            if not np.array_equal(metadata.artist_index, np.arange(len(metadata))):
+                raise HTTPException(status_code=500, detail="Artist embedding indices are not aligned.")
+            normalized = embeddings / np.maximum(np.linalg.norm(embeddings, axis=1, keepdims=True), 1e-12)
+            positions = {str(value): index for index, value in enumerate(metadata.id)}
+            cached = (*times, metadata, normalized, positions)
+            _embedding_cache[key] = cached
+        return cached[2], cached[3], cached[4]
 
 
 def load_shared_context(

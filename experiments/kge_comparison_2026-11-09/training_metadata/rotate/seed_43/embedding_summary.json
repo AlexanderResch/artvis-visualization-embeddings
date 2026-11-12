@@ -1,0 +1,10 @@
+{
+  "model": "RotatE",
+  "artist_count": 13265,
+  "embedding_dimension": 64,
+  "model_embedding_dimension": 32,
+  "representation": "concatenated real and imaginary parts",
+  "l2_norm_minimum": 0.7948164939880371,
+  "l2_norm_maximum": 4.391319751739502,
+  "additional_l2_normalization": false
+}

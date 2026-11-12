@@ -1,404 +1,95 @@
+import os
 from collections import Counter
-from typing import Iterable
 
 import pyarrow as pa
 import pyarrow.parquet as pq
-
 from neo4j import GraphDatabase
 
-from app.ml.config import (
-    EDGES_PATH,
-    EXPORT_BATCH_SIZE,
-    NEO4J_DATABASE,
-    NEO4J_FETCH_SIZE,
-    NEO4J_PASSWORD,
-    NEO4J_URI,
-    NEO4J_USER,
-    NODES_PATH,
-    SNAPSHOT_SUMMARY_PATH,
-)
+from app.ml.config import EDGES_PATH, NODES_PATH, SNAPSHOT_SUMMARY_PATH
+from app.ml.utils import json_dumps, make_entity_identifier, select_node_type, write_json
 
-from app.ml.utils import (
-    json_dumps,
-    make_entity_identifier,
-    select_node_type,
-    write_json,
-)
+NODE_SCHEMA = pa.schema([(name, pa.string()) for name in (
+    "entity", "type", "id", "element_id", "labels_json", "properties_json",
+)])
+EDGE_SCHEMA = pa.schema([(name, pa.string()) for name in (
+    "relationship_element_id", "source_entity", "source_element_id", "source_type",
+    "source_id", "relation", "target_entity", "target_element_id", "target_type",
+    "target_id", "properties_json",
+)])
 
 
-NODE_SCHEMA = pa.schema([
-    ("entity", pa.string()),
-    ("type", pa.string()),
-    ("id", pa.string()),
-    ("element_id", pa.string()),
-    ("labels_json", pa.string()),
-    ("properties_json", pa.string()),
-])
-
-
-EDGE_SCHEMA = pa.schema([
-    (
-        "relationship_element_id",
-        pa.string(),
-    ),
-    ("source_entity", pa.string()),
-    ("source_element_id", pa.string()),
-    ("source_type", pa.string()),
-    ("source_id", pa.string()),
-    ("relation", pa.string()),
-    ("target_entity", pa.string()),
-    ("target_element_id", pa.string()),
-    ("target_type", pa.string()),
-    ("target_id", pa.string()),
-    ("properties_json", pa.string()),
-])
-
-
-def write_batches(
-        path,
-        schema,
-        rows: Iterable[dict],
-        batch_size: int,
-) -> int:
-    path.parent.mkdir(
-        parents=True,
-        exist_ok=True,
-    )
-
-    writer = pq.ParquetWriter(
-        path,
-        schema=schema,
-        compression="zstd",
-    )
-
-    count = 0
-    batch: list[dict] = []
-
-    try:
+def write_batches(path, schema, rows, batch_size=50000):
+    path.parent.mkdir(parents=True, exist_ok=True)
+    count, batch = 0, []
+    with pq.ParquetWriter(path, schema=schema, compression="zstd") as writer:
         for row in rows:
             batch.append(row)
-
-            if len(batch) >= batch_size:
-                table = pa.Table.from_pylist(
-                    batch,
-                    schema=schema,
-                )
-
-                writer.write_table(table)
-
+            if len(batch) == batch_size:
+                writer.write_table(pa.Table.from_pylist(batch, schema=schema))
                 count += len(batch)
                 batch.clear()
-
         if batch:
-            table = pa.Table.from_pylist(
-                batch,
-                schema=schema,
-            )
-
-            writer.write_table(table)
+            writer.write_table(pa.Table.from_pylist(batch, schema=schema))
             count += len(batch)
-
-    finally:
-        writer.close()
-
     return count
 
 
-def node_rows(
-        session,
-        type_counts: Counter[str],
-):
-    query = """
-    MATCH (node)
-
-    RETURN
-        labels(node) AS labels,
-        elementId(node) AS element_id,
-        node.id AS node_id,
-        properties(node) AS properties
-    """
-
-    for record in session.run(query):
-        labels = list(
-            record["labels"] or []
-        )
-
-        node_type = select_node_type(
-            labels
-        )
-
-        node_id = record["node_id"]
-
-        element_id = str(
-            record["element_id"]
-        )
-
-        entity = make_entity_identifier(
-            node_type,
-            node_id,
-            element_id,
-        )
-
-        type_counts[node_type] += 1
-
+def node_rows(session, counts):
+    for row in session.run("""
+        MATCH (n) RETURN labels(n) AS labels, elementId(n) AS element_id,
+        n.id AS id, properties(n) AS properties
+    """):
+        kind = select_node_type(row["labels"])
+        counts[kind] += 1
         yield {
-            "entity": entity,
-            "type": node_type,
-
-            "id": (
-                None
-                if node_id is None
-                else str(node_id)
-            ),
-
-            "element_id": element_id,
-
-            "labels_json": json_dumps(
-                labels
-            ),
-
-            "properties_json": json_dumps(
-                dict(
-                    record["properties"]
-                    or {}
-                )
-            ),
+            "entity": make_entity_identifier(kind, row["id"], row["element_id"]),
+            "type": kind, "id": None if row["id"] is None else str(row["id"]),
+            "element_id": row["element_id"], "labels_json": json_dumps(row["labels"]),
+            "properties_json": json_dumps(row["properties"]),
         }
 
 
-def edge_rows(
-        session,
-        relation_counts: Counter[str],
-):
-    query = """
-    MATCH
-        (source)
-        -[relationship]->
-        (target)
-
-    RETURN
-        elementId(relationship)
-            AS relationship_element_id,
-
-        labels(source)
-            AS source_labels,
-
-        elementId(source)
-            AS source_element_id,
-
-        source.id
-            AS source_id,
-
-        type(relationship)
-            AS relation,
-
-        properties(relationship)
-            AS properties,
-
-        labels(target)
-            AS target_labels,
-
-        elementId(target)
-            AS target_element_id,
-
-        target.id
-            AS target_id
-    """
-
-    for record in session.run(query):
-        source_type = select_node_type(
-            list(
-                record[
-                    "source_labels"
-                ] or []
-            )
-        )
-
-        target_type = select_node_type(
-            list(
-                record[
-                    "target_labels"
-                ] or []
-            )
-        )
-
-        source_id = record["source_id"]
-        target_id = record["target_id"]
-
-        relation = str(
-            record["relation"]
-        )
-
-        relation_counts[relation] += 1
-
-        yield {
-            "relationship_element_id": str(
-                record[
-                    "relationship_element_id"
-                ]
-            ),
-
-            "source_entity": (
-                make_entity_identifier(
-                    source_type,
-                    source_id,
-                    str(
-                        record[
-                            "source_element_id"
-                        ]
-                    ),
-                )
-            ),
-
-            "source_element_id": str(
-                record[
-                    "source_element_id"
-                ]
-            ),
-
-            "source_type": source_type,
-
-            "source_id": (
-                None
-                if source_id is None
-                else str(source_id)
-            ),
-
-            "relation": relation,
-
-            "target_entity": (
-                make_entity_identifier(
-                    target_type,
-                    target_id,
-                    str(
-                        record[
-                            "target_element_id"
-                        ]
-                    ),
-                )
-            ),
-
-            "target_element_id": str(
-                record[
-                    "target_element_id"
-                ]
-            ),
-
-            "target_type": target_type,
-
-            "target_id": (
-                None
-                if target_id is None
-                else str(target_id)
-            ),
-
-            "properties_json": json_dumps(
-                dict(
-                    record["properties"]
-                    or {}
-                )
-            ),
-        }
+def edge_rows(session, counts):
+    for row in session.run("""
+        MATCH (s)-[r]->(t) RETURN elementId(r) AS relationship_element_id,
+        labels(s) AS source_labels, elementId(s) AS source_element_id, s.id AS source_id,
+        type(r) AS relation, labels(t) AS target_labels,
+        elementId(t) AS target_element_id, t.id AS target_id, properties(r) AS properties
+    """):
+        result = {"relationship_element_id": row["relationship_element_id"],
+                  "relation": row["relation"], "properties_json": json_dumps(row["properties"])}
+        counts[row["relation"]] += 1
+        for side in ("source", "target"):
+            kind = select_node_type(row[f"{side}_labels"])
+            node_id, element_id = row[f"{side}_id"], row[f"{side}_element_id"]
+            result.update({f"{side}_type": kind, f"{side}_element_id": element_id,
+                           f"{side}_id": None if node_id is None else str(node_id),
+                           f"{side}_entity": make_entity_identifier(kind, node_id, element_id)})
+        yield result
 
 
-def run() -> None:
-    driver = GraphDatabase.driver(
-        NEO4J_URI,
-        auth=(
-            NEO4J_USER,
-            NEO4J_PASSWORD,
-        ),
-    )
-
-    type_counts: Counter[str] = (
-        Counter()
-    )
-
-    relation_counts: Counter[str] = (
-        Counter()
-    )
-
-    session_arguments = {
-        "fetch_size": NEO4J_FETCH_SIZE
-    }
-
-    if NEO4J_DATABASE:
-        session_arguments[
-            "database"
-        ] = NEO4J_DATABASE
-
-    try:
-        with driver.session(
-                **session_arguments
-        ) as session:
-            node_count = write_batches(
-                NODES_PATH,
-                NODE_SCHEMA,
-                node_rows(
-                    session,
-                    type_counts,
-                ),
-                EXPORT_BATCH_SIZE,
-            )
-
-            edge_count = write_batches(
-                EDGES_PATH,
-                EDGE_SCHEMA,
-                edge_rows(
-                    session,
-                    relation_counts,
-                ),
-                EXPORT_BATCH_SIZE,
-            )
-
-    finally:
-        driver.close()
-
-    summary = {
-        "node_count": node_count,
-        "edge_count": edge_count,
-
-        "node_counts_by_type": dict(
-            type_counts.most_common()
-        ),
-
-        "relationship_counts": dict(
-            relation_counts.most_common()
-        ),
-
-        "nodes_path": NODES_PATH,
-        "edges_path": EDGES_PATH,
-
-        "contains_all_node_properties": True,
-
-        "contains_all_relationship_properties": True,
-
-        "contains_co_exhibited": (
-                "CO_EXHIBITED"
-                in relation_counts
-        ),
-    }
-
-    write_json(
-        SNAPSHOT_SUMMARY_PATH,
-        summary,
-    )
-
-    print(
-        f"Exported {node_count:,} "
-        f"nodes to {NODES_PATH}"
-    )
-
-    print(
-        f"Exported {edge_count:,} "
-        f"relationships to "
-        f"{EDGES_PATH}"
-    )
-
-
-def main() -> None:
-    run()
+def run():
+    if NODES_PATH.exists() or EDGES_PATH.exists():
+        raise FileExistsError("Snapshot files already exist. Export into a fresh --input-dir.")
+    auth = os.getenv("NEO4J_AUTH", "").split("/", 1)
+    user = os.getenv("NEO4J_USER") or (auth[0] if len(auth) == 2 else "neo4j")
+    password = os.getenv("NEO4J_PASSWORD") or (auth[1] if len(auth) == 2 else "")
+    if not password:
+        raise RuntimeError("Set NEO4J_AUTH or NEO4J_USER and NEO4J_PASSWORD for export.")
+    kinds, relations = Counter(), Counter()
+    with GraphDatabase.driver(os.getenv("NEO4J_URI", "bolt://artvis-db:7687"),
+                              auth=(user, password)) as driver:
+        with driver.session(database=os.getenv("NEO4J_DATABASE") or None,
+                            fetch_size=5000) as session:
+            nodes = write_batches(NODES_PATH, NODE_SCHEMA, node_rows(session, kinds))
+            edges = write_batches(EDGES_PATH, EDGE_SCHEMA, edge_rows(session, relations))
+    write_json(SNAPSHOT_SUMMARY_PATH, {
+        "node_count": nodes, "edge_count": edges, "node_counts_by_type": kinds,
+        "relationship_counts": relations,
+        "properties_used_for_training": False,
+    })
+    print(f"Exported {nodes:,} nodes and {edges:,} relationships.", flush=True)
 
 
 if __name__ == "__main__":
-    main()
+    run()

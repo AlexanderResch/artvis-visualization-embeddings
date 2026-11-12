@@ -1,0 +1,39 @@
+{
+  "experiment": "/app/app/ml/data_comparisons/groups_2026-11-10",
+  "run_dir": "/app/app/ml/data_comparisons/groups_2026-11-10/transe/confirmation/seed_45",
+  "model": "TransE",
+  "seed": 45,
+  "embedding_sha256": "df1e44db8751a644fc7c991f8c61101eb377ef94e6fa6acd9dd91afaae1aae3b",
+  "representation": "l2_pca10",
+  "selection": {
+    "model": "TransE",
+    "config": {
+      "name": "native",
+      "learning_rate": 0.001,
+      "regularizer_weight": null
+    },
+    "epochs": 4,
+    "representation": "l2_pca10",
+    "run_dir": "/app/app/ml/data_comparisons/groups_2026-11-10/transe/tuning/native/seed_41",
+    "validation": {
+      "reference_artist_count": 598,
+      "reference_group_count": 109,
+      "overlapping_reference_artists": 187,
+      "reference_missing_embeddings": 12,
+      "reference_assigned_fraction": 0.36454849498327757,
+      "pair_count": 178503,
+      "positive_pair_count": 8577,
+      "pair_tp": 990,
+      "pair_fp": 2422,
+      "pair_fn": 7587,
+      "pair_tn": 167504,
+      "pair_precision": 0.2901524032825322,
+      "pair_recall": 0.11542497376705142,
+      "pair_f1": 0.16515138877304195,
+      "single_label_artist_count": 411,
+      "ari_single_label_noise_singletons": 0.08052071103305451,
+      "ami_single_label_noise_singletons": 0.18410207872268897
+    },
+    "selection_rule": "Per model: highest validation pair-F1; ties: artist-subset Jaccard, lower noise, fewer epochs. Only validation artists are scored before configurations are frozen."
+  }
+}

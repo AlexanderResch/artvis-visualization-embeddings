@@ -1,0 +1,10 @@
+{
+  "model": "DistMult",
+  "artist_count": 13244,
+  "embedding_dimension": 64,
+  "model_embedding_dimension": 64,
+  "representation": "real vectors",
+  "l2_norm_minimum": 0.9999998211860657,
+  "l2_norm_maximum": 1.0000001192092896,
+  "additional_l2_normalization": false
+}

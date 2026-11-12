@@ -1,0 +1,208 @@
+{
+  "model": "ComplEx",
+  "seed": 43,
+  "run_dir": "/app/app/ml/data_comparisons/full_2026-11-09/complex_models/complex/seed_43",
+  "analysis_version": 1,
+  "analysis_seed": 2026,
+  "embedding_sha256": "1f7b9712918497793698551288515be5f9e005fb1c12440913fbbfa2bb64dad0",
+  "analysis_sha256": "89d41228cd846fddfada1b84f7534ab438da596e9c243f02bc9a60e263e62866",
+  "training_seconds": 1558.9706916460018,
+  "epochs": 2,
+  "optimizer_updates": 7960,
+  "real_parameter_count": 14434432,
+  "loss": "SoftplusLoss(\n  (margin_activation): Softplus(beta=1.0, threshold=20.0)\n)",
+  "training_loss": [
+    1.3819696159518544,
+    0.7455768063140275
+  ],
+  "native_dimension": 32,
+  "real_dimension": 64,
+  "norm_min": 3.551335096359253,
+  "norm_mean": 6.965758323669434,
+  "norm_max": 10.187606811523438,
+  "representations": {
+    "raw": {
+      "model": "ComplEx",
+      "seed": 43,
+      "representation": "raw",
+      "dimension": 64,
+      "retained_variance": 1.0,
+      "cluster_count": 0,
+      "assigned_count": 0,
+      "noise_fraction": 1.0,
+      "largest_cluster_fraction": null,
+      "largest_assigned_fraction": null,
+      "silhouette_native": null,
+      "silhouette_l2": null,
+      "silhouette_assigned_sample_count": 0,
+      "relative_validity_approx": null,
+      "mean_cluster_persistence": null,
+      "subsample_jaccard": [],
+      "subsample_jaccard_mean": null,
+      "per_cluster_jaccard_mean": {},
+      "nearest10_shared_exhibition": 0.1006181681115718,
+      "within_cluster_shared_exhibition": null,
+      "random_assigned_shared_exhibition": null,
+      "cluster_sizes": {},
+      "profiles": [],
+      "analysis_seconds": 11.154827237998688
+    },
+    "l2": {
+      "model": "ComplEx",
+      "seed": 43,
+      "representation": "l2",
+      "dimension": 64,
+      "retained_variance": 1.0,
+      "cluster_count": 4,
+      "assigned_count": 531,
+      "noise_fraction": 0.9599698454579721,
+      "largest_cluster_fraction": 0.019374293252921223,
+      "largest_assigned_fraction": 0.4839924670433145,
+      "silhouette_native": -0.011230944655835629,
+      "silhouette_l2": -0.007946627214550972,
+      "silhouette_assigned_sample_count": 80,
+      "relative_validity_approx": 3.2023112422967255e-06,
+      "mean_cluster_persistence": 0.0010549425606406096,
+      "subsample_jaccard": [
+        0.11285590168863165,
+        0.08523996266398962,
+        0.08451870300386344
+      ],
+      "subsample_jaccard_mean": 0.09420485578549491,
+      "per_cluster_jaccard_mean": {
+        "0": 0.04043220305574797,
+        "1": 0.09187063032899329,
+        "2": 0.11423852156336232,
+        "3": 0.07956802570385708
+      },
+      "nearest10_shared_exhibition": 0.04549566528458349,
+      "within_cluster_shared_exhibition": 0.05565,
+      "random_assigned_shared_exhibition": 0.0548,
+      "cluster_sizes": {
+        "0": 63,
+        "1": 118,
+        "2": 257,
+        "3": 93
+      },
+      "profiles": [
+        {
+          "cluster": 2,
+          "artist_count": 257,
+          "top_exhibitions": [
+            {
+              "title": "IX. Internationale Kunstausstellung",
+              "artist_count": 35
+            },
+            {
+              "title": "Mostra Nazionale di Belle Arti",
+              "artist_count": 21
+            },
+            {
+              "title": "Stedelijke Internationale Tentoonstelling Van Kunstwerken Van Levende Meesters",
+              "artist_count": 16
+            },
+            {
+              "title": "The London Salon of the Allied Artists' Association. 1st year",
+              "artist_count": 16
+            }
+          ]
+        },
+        {
+          "cluster": 1,
+          "artist_count": 118,
+          "top_exhibitions": [
+            {
+              "title": "IX. Internationale Kunstausstellung",
+              "artist_count": 13
+            },
+            {
+              "title": "Exposition Universelle et Internationale de Gand en 1913: Groupe II. Beaux-Arts: Œuvres modernes.",
+              "artist_count": 10
+            },
+            {
+              "title": "Stedelijke Internationale Tentoonstelling Van Kunstwerken Van Levende Meesters",
+              "artist_count": 8
+            },
+            {
+              "title": "Salon d'Automne. 4e Exposition",
+              "artist_count": 7
+            }
+          ]
+        },
+        {
+          "cluster": 3,
+          "artist_count": 93,
+          "top_exhibitions": [
+            {
+              "title": "IX. Internationale Kunstausstellung",
+              "artist_count": 10
+            },
+            {
+              "title": "Mostra Nazionale di Belle Arti",
+              "artist_count": 9
+            },
+            {
+              "title": "Sommaire des Peintures et Sculptures de l'École Contemporaine exposées dans les Galeries du Musée National du Luxembourg",
+              "artist_count": 7
+            },
+            {
+              "title": "The London Salon of the Allied Artists' Association. 1st year",
+              "artist_count": 6
+            }
+          ]
+        },
+        {
+          "cluster": 0,
+          "artist_count": 63,
+          "top_exhibitions": [
+            {
+              "title": "IX. Internationale Kunstausstellung",
+              "artist_count": 10
+            },
+            {
+              "title": "Exposition Universelle et Internationale de Gand en 1913: Groupe II. Beaux-Arts: Œuvres modernes.",
+              "artist_count": 6
+            },
+            {
+              "title": "VII. Esposizione Internazionale d’Arte della Città di Venezia",
+              "artist_count": 5
+            },
+            {
+              "title": "Stedelijke Internationale Tentoonstelling Van Kunstwerken Van Levende Meesters",
+              "artist_count": 4
+            }
+          ]
+        }
+      ],
+      "analysis_seconds": 32.347962833002384
+    },
+    "l2_pca10": {
+      "model": "ComplEx",
+      "seed": 43,
+      "representation": "l2_pca10",
+      "dimension": 10,
+      "retained_variance": 0.1813732385635376,
+      "cluster_count": 0,
+      "assigned_count": 0,
+      "noise_fraction": 1.0,
+      "largest_cluster_fraction": null,
+      "largest_assigned_fraction": null,
+      "silhouette_native": null,
+      "silhouette_l2": null,
+      "silhouette_assigned_sample_count": 0,
+      "relative_validity_approx": null,
+      "mean_cluster_persistence": null,
+      "subsample_jaccard": [],
+      "subsample_jaccard_mean": null,
+      "per_cluster_jaccard_mean": {},
+      "nearest10_shared_exhibition": 0.042389747455710516,
+      "within_cluster_shared_exhibition": null,
+      "random_assigned_shared_exhibition": null,
+      "cluster_sizes": {},
+      "profiles": [],
+      "analysis_seconds": 2.6857177480014798
+    }
+  },
+  "supervised_evaluation": null,
+  "limitations": "No reference artist labels or held-out predictive evaluation. Exhibition agreement uses training facts. Fixed embeddings during subsampling."
+}

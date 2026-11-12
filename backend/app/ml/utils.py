@@ -6,243 +6,86 @@ from pathlib import Path
 from typing import Any
 
 import numpy as np
+import pandas as pd
 
-from app.ml.config import (
-    DISPLAY_NAME_PROPERTIES,
-    MODEL_NODE_TYPES,
-)
+from app.ml.config import DISPLAY_NAME_PROPERTIES, MODEL_NODE_TYPES
 
 
 def json_safe(value: Any) -> Any:
-    if value is None or isinstance(
-            value,
-            (str, int, float, bool),
-    ):
-        if (
-                isinstance(value, float)
-                and not math.isfinite(value)
-        ):
-            return None
-
+    if value is None or isinstance(value, (str, bool, int)):
         return value
-
-    if isinstance(value, (date, datetime)):
-        return value.isoformat()
-
+    if isinstance(value, (float, np.floating)):
+        return float(value) if math.isfinite(value) else None
+    if isinstance(value, np.integer):
+        return int(value)
+    if isinstance(value, np.bool_):
+        return bool(value)
     if isinstance(value, dict):
-        return {
-            str(key): json_safe(item)
-            for key, item in value.items()
-        }
-
-    if isinstance(value, (list, tuple, set)):
-        return [
-            json_safe(item)
-            for item in value
-        ]
-
+        return {str(key): json_safe(item) for key, item in value.items()}
+    if isinstance(value, (list, tuple, set, np.ndarray)):
+        return [json_safe(item) for item in value]
+    if isinstance(value, (date, datetime)) or hasattr(value, "isoformat"):
+        return value.isoformat()
     if hasattr(value, "iso_format"):
-        try:
-            return value.iso_format()
-        except Exception:
-            pass
-
-    if hasattr(value, "isoformat"):
-        try:
-            return value.isoformat()
-        except Exception:
-            pass
-
+        return value.iso_format()
     return str(value)
 
 
 def json_dumps(value: Any) -> str:
-    return json.dumps(
-        json_safe(value),
-        ensure_ascii=False,
-        separators=(",", ":"),
+    return json.dumps(json_safe(value), ensure_ascii=False, allow_nan=False)
+
+
+def write_json(path: Path, data: dict) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(
+        json.dumps(json_safe(data), ensure_ascii=False, indent=2, allow_nan=False),
+        encoding="utf-8",
     )
 
 
-def write_json(
-        path: Path,
-        data: dict[str, Any],
-) -> None:
-    path.parent.mkdir(
-        parents=True,
-        exist_ok=True,
-    )
-
-    with path.open(
-            "w",
-            encoding="utf-8",
-    ) as file:
-        json.dump(
-            json_safe(data),
-            file,
-            ensure_ascii=False,
-            indent=2,
-        )
+def read_json(path: Path) -> dict:
+    return json.loads(path.read_text(encoding="utf-8"))
 
 
-def read_json(
-        path: Path,
-) -> dict[str, Any]:
-    with path.open(
-            "r",
-            encoding="utf-8",
-    ) as file:
-        return json.load(file)
+def read_table(path, dtype=None):
+    path = Path(path)
+    if path.suffix == ".parquet" and path.exists():
+        frame = pd.read_parquet(path)
+    else:
+        legacy = path.with_suffix(".csv") if path.suffix == ".parquet" else path
+        frame = pd.read_csv(legacy, dtype=dtype)
+    for column, kind in (dtype or {}).items():
+        if column in frame and kind is str:
+            frame[column] = frame[column].astype("string")
+    return frame
 
 
-def select_node_type(
-        labels: list[str] | None,
-) -> str:
+def select_node_type(labels: list[str] | None) -> str:
     labels = labels or []
-
-    for node_type in MODEL_NODE_TYPES:
-        if node_type in labels:
-            return node_type
-
-    return (
-        sorted(labels)[0]
-        if labels
-        else "Unlabeled"
-    )
+    return next((kind for kind in MODEL_NODE_TYPES if kind in labels),
+                sorted(labels)[0] if labels else "Unlabeled")
 
 
-def make_entity_identifier(
-        node_type: str,
-        node_id: Any,
-        element_id: str,
-) -> str:
-    if node_id is not None:
-        return f"{node_type}:{node_id}"
-
-    return (
-        f"{node_type}:element:{element_id}"
-    )
+def make_entity_identifier(node_type: str, node_id: Any, element_id: str) -> str:
+    suffix = str(node_id) if node_id is not None else f"element:{element_id}"
+    return f"{node_type}:{suffix}"
 
 
-def display_name(
-        node_type: str,
-        properties: dict[str, Any],
-        entity: str,
-) -> str:
-    property_name = (
-        DISPLAY_NAME_PROPERTIES.get(
-            node_type
-        )
-    )
-
-    if property_name:
-        value = properties.get(
-            property_name
-        )
-
-        if value not in (None, ""):
-            return str(value)
-
-    for fallback in (
-            "name",
-            "title",
-            "sortname",
-    ):
-        value = properties.get(fallback)
-
-        if value not in (None, ""):
-            return str(value)
-
-    return entity
+def first_value(properties: dict, keys: tuple[str, ...]) -> Any:
+    return next((properties[key] for key in keys if properties.get(key) not in (None, "")), None)
 
 
-def first_value(
-        properties: dict[str, Any],
-        keys: tuple[str, ...],
-) -> Any:
-    for key in keys:
-        value = properties.get(key)
-
-        if value not in (None, ""):
-            return value
-
-    return None
+def display_name(node_type: str, properties: dict, entity: str) -> str:
+    value = first_value(properties, (
+        DISPLAY_NAME_PROPERTIES.get(node_type, "name"), "name", "title", "sortname",
+    ))
+    return str(value) if value is not None else entity
 
 
-def parse_year(
-        value: Any,
-) -> int | None:
-    if (
-            value is None
-            or isinstance(value, bool)
-    ):
+def parse_year(value: Any) -> int | None:
+    if value is None or isinstance(value, bool):
         return None
-
-    if isinstance(value, (int, np.integer)):
-        year = int(value)
-
-        return (
-            year
-            if -10000 <= year <= 10000
-            else None
-        )
-
-    if (
-            isinstance(
-                value,
-                (float, np.floating),
-            )
-            and math.isfinite(float(value))
-    ):
-        year = int(value)
-
-        return (
-            year
-            if -10000 <= year <= 10000
-            else None
-        )
-
-    match = re.search(
-        r"(?<!\d)(-?\d{3,4})(?!\d)",
-        str(value),
-    )
-
-    return (
-        int(match.group(1))
-        if match
-        else None
-    )
-
-
-def slugify(value: str) -> str:
-    return re.sub(
-        r"[^A-Za-z0-9_.-]+",
-        "_",
-        value,
-    ).strip("_")
-
-
-def edge_key(
-        source_type: str,
-        relation: str,
-        target_type: str,
-) -> str:
-    return (
-        f"{source_type}|"
-        f"{relation}|"
-        f"{target_type}"
-    )
-
-
-def split_edge_key(
-        value: str,
-) -> tuple[str, str, str]:
-    source_type, relation, target_type = (
-        value.split("|", 2)
-    )
-
-    return (
-        source_type,
-        relation,
-        target_type,
-    )
+    if isinstance(value, (int, float, np.number)):
+        return int(value) if np.isfinite(value) and -10000 <= value <= 10000 else None
+    match = re.search(r"(?<!\d)(-?\d{3,4})(?!\d)", str(value))
+    return int(match.group(1)) if match else None

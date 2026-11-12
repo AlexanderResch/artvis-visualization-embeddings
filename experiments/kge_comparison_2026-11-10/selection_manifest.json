@@ -1,0 +1,17 @@
+{
+  "frozen_before_test_at_utc": "2026-11-10T16:11:01.478411+00:00",
+  "selection_sha256": {
+    "TransE": "bbf90a74f3b7d2b72662c79caa2e5a156bfaae396a6d84e2e07e614a0eceb674",
+    "DistMult": "dcdc503928bef29b7fa409a618d9ec2384faf1615e8d52b416bac7188b77676f",
+    "ComplEx": "ae0d17745e5a0531c748e3b1a0d7999147d6a1d28355b19a9abc33d8afafcdfc",
+    "RotatE": "a52e4d0b4f36a0238aa39e9f47e348ec8c780f63f683d72dcfce5a4a447534b9"
+  },
+  "representative_seeds": {
+    "TransE": 45,
+    "DistMult": 44,
+    "ComplEx": 41,
+    "RotatE": 43
+  },
+  "recommended_model_from_validation": "RotatE",
+  "rule": "Highest mean validation pair-F1; representative seeds use cross-seed Jaccard only; default application model remains TransE."
+}

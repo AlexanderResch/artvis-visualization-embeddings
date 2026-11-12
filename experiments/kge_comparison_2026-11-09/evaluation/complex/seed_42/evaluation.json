@@ -1,0 +1,184 @@
+{
+  "model": "ComplEx",
+  "seed": 42,
+  "run_dir": "/app/app/ml/data_comparisons/full_2026-11-09/complex_models/complex/seed_42",
+  "analysis_version": 1,
+  "analysis_seed": 2026,
+  "embedding_sha256": "2345c34952380012f10bf85400eef3552cb98aa4ed6ab1c9f4ed2c1c54a6f149",
+  "analysis_sha256": "89d41228cd846fddfada1b84f7534ab438da596e9c243f02bc9a60e263e62866",
+  "training_seconds": 1618.1899674470005,
+  "epochs": 2,
+  "optimizer_updates": 7960,
+  "real_parameter_count": 14434432,
+  "loss": "SoftplusLoss(\n  (margin_activation): Softplus(beta=1.0, threshold=20.0)\n)",
+  "training_loss": [
+    1.316352268664082,
+    0.745931366041078
+  ],
+  "native_dimension": 32,
+  "real_dimension": 64,
+  "norm_min": 3.880770444869995,
+  "norm_mean": 7.012017726898193,
+  "norm_max": 10.235235214233398,
+  "representations": {
+    "raw": {
+      "model": "ComplEx",
+      "seed": 42,
+      "representation": "raw",
+      "dimension": 64,
+      "retained_variance": 1.0,
+      "cluster_count": 0,
+      "assigned_count": 0,
+      "noise_fraction": 1.0,
+      "largest_cluster_fraction": null,
+      "largest_assigned_fraction": null,
+      "silhouette_native": null,
+      "silhouette_l2": null,
+      "silhouette_assigned_sample_count": 0,
+      "relative_validity_approx": null,
+      "mean_cluster_persistence": null,
+      "subsample_jaccard": [],
+      "subsample_jaccard_mean": null,
+      "per_cluster_jaccard_mean": {},
+      "nearest10_shared_exhibition": 0.0930418394270637,
+      "within_cluster_shared_exhibition": null,
+      "random_assigned_shared_exhibition": null,
+      "cluster_sizes": {},
+      "profiles": [],
+      "analysis_seconds": 20.794960343999264
+    },
+    "l2": {
+      "model": "ComplEx",
+      "seed": 42,
+      "representation": "l2",
+      "dimension": 64,
+      "retained_variance": 1.0,
+      "cluster_count": 3,
+      "assigned_count": 424,
+      "noise_fraction": 0.9680361854504335,
+      "largest_cluster_fraction": 0.01869581605729363,
+      "largest_assigned_fraction": 0.5849056603773585,
+      "silhouette_native": -0.006017290987074375,
+      "silhouette_l2": -0.0058153606951236725,
+      "silhouette_assigned_sample_count": 62,
+      "relative_validity_approx": 0.003371782880063594,
+      "mean_cluster_persistence": 0.0005053364508709758,
+      "subsample_jaccard": [
+        0.09727691184809402,
+        0.15056414230316714,
+        0.10833473457795056
+      ],
+      "subsample_jaccard_mean": 0.11872526290973724,
+      "per_cluster_jaccard_mean": {
+        "0": 0.045526091729963476,
+        "1": 0.1542828826866364,
+        "2": 0.08778459554523406
+      },
+      "nearest10_shared_exhibition": 0.04380701093102148,
+      "within_cluster_shared_exhibition": 0.0439,
+      "random_assigned_shared_exhibition": 0.0478,
+      "cluster_sizes": {
+        "0": 85,
+        "1": 248,
+        "2": 91
+      },
+      "profiles": [
+        {
+          "cluster": 1,
+          "artist_count": 248,
+          "top_exhibitions": [
+            {
+              "title": "IX. Internationale Kunstausstellung",
+              "artist_count": 28
+            },
+            {
+              "title": "Mostra Nazionale di Belle Arti",
+              "artist_count": 15
+            },
+            {
+              "title": "Stedelijke Internationale Tentoonstelling Van Kunstwerken Van Levende Meesters",
+              "artist_count": 14
+            },
+            {
+              "title": "Exposition Universelle et Internationale de Gand en 1913: Groupe II. Beaux-Arts: Œuvres modernes.",
+              "artist_count": 12
+            }
+          ]
+        },
+        {
+          "cluster": 2,
+          "artist_count": 91,
+          "top_exhibitions": [
+            {
+              "title": "IX. Internationale Kunstausstellung",
+              "artist_count": 10
+            },
+            {
+              "title": "The London Salon of the Allied Artists' Association. 1st year",
+              "artist_count": 9
+            },
+            {
+              "title": "Exposition Universelle et Internationale de Gand en 1913: Groupe II. Beaux-Arts: Œuvres modernes.",
+              "artist_count": 8
+            },
+            {
+              "title": "Mostra Nazionale di Belle Arti",
+              "artist_count": 7
+            }
+          ]
+        },
+        {
+          "cluster": 0,
+          "artist_count": 85,
+          "top_exhibitions": [
+            {
+              "title": "IX. Internationale Kunstausstellung",
+              "artist_count": 10
+            },
+            {
+              "title": "Mostra Nazionale di Belle Arti",
+              "artist_count": 7
+            },
+            {
+              "title": "Salon d'Automne. 3e Exposition",
+              "artist_count": 5
+            },
+            {
+              "title": "The London Salon of the Allied Artists' Association. 1st year",
+              "artist_count": 4
+            }
+          ]
+        }
+      ],
+      "analysis_seconds": 67.48091325999849
+    },
+    "l2_pca10": {
+      "model": "ComplEx",
+      "seed": 42,
+      "representation": "l2_pca10",
+      "dimension": 10,
+      "retained_variance": 0.17987018823623657,
+      "cluster_count": 0,
+      "assigned_count": 0,
+      "noise_fraction": 1.0,
+      "largest_cluster_fraction": null,
+      "largest_assigned_fraction": null,
+      "silhouette_native": null,
+      "silhouette_l2": null,
+      "silhouette_assigned_sample_count": 0,
+      "relative_validity_approx": null,
+      "mean_cluster_persistence": null,
+      "subsample_jaccard": [],
+      "subsample_jaccard_mean": null,
+      "per_cluster_jaccard_mean": {},
+      "nearest10_shared_exhibition": 0.042472672446287225,
+      "within_cluster_shared_exhibition": null,
+      "random_assigned_shared_exhibition": null,
+      "cluster_sizes": {},
+      "profiles": [],
+      "analysis_seconds": 4.303202712999337
+    }
+  },
+  "supervised_evaluation": null,
+  "limitations": "No reference artist labels or held-out predictive evaluation. Exhibition agreement uses training facts. Fixed embeddings during subsampling."
+}

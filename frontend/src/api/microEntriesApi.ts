@@ -1,4 +1,4 @@
-import { API_URL } from "./http";
+import { API_URL, embeddingModelHeaders } from "./http";
 import type {
     MicroEntry,
     MicroEntryContext,
@@ -16,7 +16,10 @@ async function requestJson<T>(
     let response: Response;
 
     try {
-        response = await fetch(`${API_URL}${path}`, init);
+        response = await fetch(`${API_URL}${path}`, {
+            ...init,
+            headers: { ...embeddingModelHeaders(), ...init?.headers },
+        });
     } catch (error) {
         throw new Error(
             "The study data could not be saved because the ArtVis backend is unavailable.",

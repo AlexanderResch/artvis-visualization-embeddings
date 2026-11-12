@@ -1,0 +1,44 @@
+{
+  "status": "passed",
+  "started_at_utc": "2026-11-10T16:23:04.165Z",
+  "completed_at_utc": "2026-11-10T16:31:52.900Z",
+  "url": "http://localhost:5173/embedding-explorer/?model=rotate",
+  "models": [
+    {
+      "model": "transe",
+      "clusters": 28,
+      "noise_percent": 53.6
+    },
+    {
+      "model": "distmult",
+      "clusters": 3,
+      "noise_percent": 77.3
+    },
+    {
+      "model": "complex",
+      "clusters": 4,
+      "noise_percent": 58.6
+    },
+    {
+      "model": "rotate",
+      "clusters": 48,
+      "noise_percent": 34.5
+    }
+  ],
+  "artist_count_per_model": 13244,
+  "checks": [
+    "All four model options enabled with real datasets",
+    "2D and 3D maps loaded for every model",
+    "Cluster selection and artist selection cleared on model change",
+    "3D dimension retained during model changes",
+    "Model and 3D dimension retained after reload",
+    "Legacy artist deep link retained its explicit model despite a different previous selection",
+    "Reset retained the current model"
+  ],
+  "console_messages_during_qa": [],
+  "automation_note": "Two browser-control transport timeouts occurred after applying actions; fresh UI snapshots confirmed their results.",
+  "screenshots": [
+    "screenshots/dropdown.jpg",
+    "screenshots/complex-3d.jpg"
+  ]
+}

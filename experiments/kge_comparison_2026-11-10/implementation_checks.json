@@ -1,0 +1,40 @@
+{
+  "pipeline_regression_tests": {
+    "passed": 8,
+    "seconds": 131.918
+  },
+  "normalized_pca_integration": {
+    "passed": 1,
+    "seconds": 15.7
+  },
+  "api_model_isolation": "Passed concurrent map, neighbor, comparison, cluster inspection, dashboard, evaluation and invalid-selection checks for all four models.",
+  "table_migration": "Four duplicate active CSV tables removed after Parquet parity and backup SHA-256 checks.",
+  "frontend": "ESLint and TypeScript/Vite production build passed after all frontend changes, including model persistence. Existing chunk-size warning retained.",
+  "api_real_models": {
+    "status": "passed",
+    "request_checks": 83,
+    "parallel_model_cycles": 8
+  },
+  "browser": {
+    "status": "passed",
+    "models": 4,
+    "dimensions": [
+      2,
+      3
+    ],
+    "reload_and_direct_links": "passed",
+    "selection_reset": "passed",
+    "console_errors": 0
+  },
+  "independent_reference_counts": {
+    "status": "passed",
+    "model_seed_runs": 20,
+    "validation_and_test_comparisons": 40
+  },
+  "comment_cleanup": {
+    "active_ml_files": 14,
+    "algorithm_ast_equivalence": true,
+    "frozen_sources_and_backups": "unchanged"
+  },
+  "no_commit_or_push_performed": true
+}

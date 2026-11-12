@@ -1,0 +1,77 @@
+{
+  "scope": "Active ML source only; frozen experiment source and backups are unchanged.",
+  "changes": "Removed redundant module identity docstrings and four unused imports; retained algorithm explanations and invariants.",
+  "algorithm_ast_equivalence": true,
+  "files": [
+    {
+      "path": "__init__.py",
+      "before_sha256": "f396b32fa1049737621ea0f5324138b34280cd819a49c7b0989b660085f51a91",
+      "after_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "assess_clustering.py",
+      "before_sha256": "db0267bf0d070c2cbb5be64264169b73e98ac71cb747033b55a645bdc186aa3d",
+      "after_sha256": "9cf1ebaf81fe4544a35284946725d7a2f7e51e9e7a7fe505139ed47cf38f888a"
+    },
+    {
+      "path": "cluster_artists.py",
+      "before_sha256": "96158ca109d89c41202a0eff6a9cd35302516de20af8be0f5c643dced32344b0",
+      "after_sha256": "335054f0aba6f9f73e7f633ef0c24b8c9d64681543a594d1c84c03fcaeb9f808"
+    },
+    {
+      "path": "compare_coexhibitions.py",
+      "before_sha256": "01762c94f7caf610cc939d00bae7b9a7e7b1e918b3177e24e8c98be93d8096a5",
+      "after_sha256": "9e07439d49d969c6f87b105523296dff808772fb716c971ea7c3e41fecee5ddf"
+    },
+    {
+      "path": "compare_models.py",
+      "before_sha256": "286983c9a036d8bef7bfc347e8d6758c08a3cd2ab19218383c41af981309a340",
+      "after_sha256": "b0c198c82ac0d7ba6705132006760fd4dae50033e612421bd151256557177806"
+    },
+    {
+      "path": "compare_pca.py",
+      "before_sha256": "74218af0f73679ad6d12a116c7746b3d8ebfbe92ad138a57de8d80aaefdd01da",
+      "after_sha256": "d55b099e7f9dae3e653ff40eee002d0fc3d886e8aa852d6a7c5ef9936aaed5f9"
+    },
+    {
+      "path": "config.py",
+      "before_sha256": "044cd86b1f19a64196061378619580e2bfd15bca512da296155da9c8a54a8017",
+      "after_sha256": "8767c9aef53de87de72961012b99bbcfe97ca5e305075d72a873bca5daabe4bc"
+    },
+    {
+      "path": "export_snapshot.py",
+      "before_sha256": "5636800a6db19bbbdb8050e551ab42fc324ff82195b49bd51743d41c6403665e",
+      "after_sha256": "5072f5ab7df823ddc78914ed421f2a91d10685967a541f1c8e49ce04dfd430f0"
+    },
+    {
+      "path": "materialize_map.py",
+      "before_sha256": "ba723f18197119060f3307a2d2d149f692202e7effd46cabbaa855b3c6574960",
+      "after_sha256": "0587c4961471189292c0be2d284e1a895860a7ab8fe671c1fb000bd0f20245f4"
+    },
+    {
+      "path": "prepare_training_data.py",
+      "before_sha256": "c05e97eb8010af4cabd5afbe5e3074f58bab6261549ed3918b19515fe4bf2d0f",
+      "after_sha256": "9995e2a24e947fd4c57e372454a43e888ff060e5abf893e5407e5d8164d571ab"
+    },
+    {
+      "path": "profile_clusters.py",
+      "before_sha256": "189fb645c9462b5cdd3f80c86c2d6dbc2fbd4b523718b2415a7b0d465c24b213",
+      "after_sha256": "ab23d86bb2c214c1c4e78263da54389dceb8f9989cab9b914f822ddbb8777a70"
+    },
+    {
+      "path": "project_umap.py",
+      "before_sha256": "44fca27ba12f1a6e511b95bca0c57290a77b00e55749df2ddfc9bcc7939505d4",
+      "after_sha256": "fa7f132aad2ed0b2f8097b5f0e8a8acf818d1787e7b6b466b8c070cf1626112e"
+    },
+    {
+      "path": "refine_models.py",
+      "before_sha256": "09ee6c54c36f1b27456d7c84557ec4a74a0dadd7e5bcd6e8faa011594f84ef83",
+      "after_sha256": "5f0cc6674b01f410f474833e8b05337fe6494a426e35166dfedc8ae42410cd01"
+    },
+    {
+      "path": "run_pipeline.py",
+      "before_sha256": "66ed48557640ce333887d12494bcfbc1c5c3fea11f022bbb85f37b2eb1f5ceeb",
+      "after_sha256": "0a44892062f89269ae865c6021264758f0fa8bd815c8f21d0c72c601e8dcf0ee"
+    }
+  ]
+}

@@ -1,3 +1,4 @@
+from app.model_artifacts import artifact_path
 from threading import Lock
 
 import pandas as pd
@@ -10,9 +11,6 @@ from fastapi import (
 
 from app.db import get_driver
 
-from app.ml.config import (
-    ARTIST_MAP_2D_PATH,
-)
 
 
 router = APIRouter(
@@ -24,7 +22,7 @@ router = APIRouter(
 _options_cache_lock = Lock()
 
 _options_cache: tuple[
-                    float,
+                    tuple[str, float],
                     dict,
                 ] | None = None
 
@@ -269,6 +267,7 @@ def load_graph_options() -> tuple[
 
 
 def load_dashboard_options() -> dict:
+    ARTIST_MAP_2D_PATH = artifact_path("artist_map_2d.parquet")
     global _options_cache
 
     if not ARTIST_MAP_2D_PATH.exists():
@@ -290,11 +289,11 @@ def load_dashboard_options() -> dict:
         .st_mtime
     )
 
+    cache_key = (str(ARTIST_MAP_2D_PATH), modified_time)
     with _options_cache_lock:
         if (
                 _options_cache is not None
-                and _options_cache[0]
-                == modified_time
+                and _options_cache[0] == cache_key
         ):
             return _options_cache[1]
 
@@ -459,7 +458,7 @@ def load_dashboard_options() -> dict:
         }
 
         _options_cache = (
-            modified_time,
+            cache_key,
             result,
         )
 

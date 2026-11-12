@@ -1,0 +1,32 @@
+[
+  {
+    "route": "/ready",
+    "status": 200,
+    "response_bytes": 68
+  },
+  {
+    "route": "/evaluation",
+    "status": 200,
+    "response_bytes": 8845
+  },
+  {
+    "route": "/clusters",
+    "status": 200,
+    "response_bytes": 62799
+  },
+  {
+    "route": "/embeddings/2d?limit=3",
+    "status": 200,
+    "response_bytes": 1029
+  },
+  {
+    "route": "/embeddings/3d?limit=3",
+    "status": 200,
+    "response_bytes": 1089
+  },
+  {
+    "route": "/artists/1/similar?limit=3",
+    "status": 200,
+    "response_bytes": 1139
+  }
+]

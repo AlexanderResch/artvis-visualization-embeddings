@@ -1,0 +1,39 @@
+{
+  "experiment": "/app/app/ml/data_comparisons/groups_2026-11-10",
+  "run_dir": "/app/app/ml/data_comparisons/groups_2026-11-10/distmult/confirmation/seed_44",
+  "model": "DistMult",
+  "seed": 44,
+  "embedding_sha256": "dc2e47bf8f8679af75f19985d0e7b405ff7c59a1d3e144031b5784aef77d7e07",
+  "representation": "l2_pca10",
+  "selection": {
+    "model": "DistMult",
+    "config": {
+      "name": "adjusted",
+      "learning_rate": 0.01,
+      "regularizer_weight": 0.001
+    },
+    "epochs": 2,
+    "representation": "l2_pca10",
+    "run_dir": "/app/app/ml/data_comparisons/groups_2026-11-10/distmult/tuning/adjusted/seed_41/epoch_2",
+    "validation": {
+      "reference_artist_count": 598,
+      "reference_group_count": 109,
+      "overlapping_reference_artists": 187,
+      "reference_missing_embeddings": 12,
+      "reference_assigned_fraction": 0.2157190635451505,
+      "pair_count": 178503,
+      "positive_pair_count": 8577,
+      "pair_tp": 501,
+      "pair_fp": 7377,
+      "pair_fn": 8076,
+      "pair_tn": 162549,
+      "pair_precision": 0.06359482102056359,
+      "pair_recall": 0.0584120321790836,
+      "pair_f1": 0.06089334548769371,
+      "single_label_artist_count": 411,
+      "ari_single_label_noise_singletons": 0.007164078001299616,
+      "ami_single_label_noise_singletons": 0.02115338813486818
+    },
+    "selection_rule": "Per model: highest validation pair-F1; ties: artist-subset Jaccard, lower noise, fewer epochs. Only validation artists are scored before configurations are frozen."
+  }
+}

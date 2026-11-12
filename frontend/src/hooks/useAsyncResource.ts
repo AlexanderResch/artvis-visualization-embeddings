@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 
 type Request<T> = (signal: AbortSignal) => Promise<T>;
 
-/** Keep responses tied to their request, so stale data is never shown as current. */
+/** Discard responses from superseded requests. */
 export function useAsyncResource<T>(request: Request<T> | null, delay = 0) {
     const [revision, setRevision] = useState(0);
     const [result, setResult] = useState<{

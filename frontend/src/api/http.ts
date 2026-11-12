@@ -2,6 +2,12 @@ export const API_URL =
     import.meta.env.VITE_API_URL
     ?? "http://localhost:8000";
 
+export function embeddingModelHeaders(): Record<string, string> {
+    const model = new URLSearchParams(window.location.search).get("model")
+        ?? "rotate";
+    return { "X-Embedding-Model": model };
+}
+
 
 type ErrorResponseBody = {
     detail?: unknown;
@@ -52,6 +58,7 @@ export async function getJson<T>(
             `${API_URL}${path}`,
             {
                 signal,
+                headers: path === "/models" ? undefined : embeddingModelHeaders(),
             },
         );
     } catch (error) {

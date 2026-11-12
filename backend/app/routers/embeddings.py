@@ -11,10 +11,7 @@ from fastapi import (
 )
 
 from app.db import get_driver
-from app.ml.config import (
-    ARTIST_MAP_2D_PATH,
-    ARTIST_MAP_3D_PATH,
-)
+from app.model_artifacts import artifact_path
 
 
 router = APIRouter(
@@ -49,14 +46,7 @@ def load_frame(path: Path) -> pd.DataFrame:
 
 @lru_cache(maxsize=1)
 def load_exhibited_item_counts() -> dict[str, int]:
-    """
-    Count recorded exhibited items for every Artist.
-
-    Count the recorded EXHIBITED_AT relationships used by the application
-    as its exhibited-artwork measure. This preserves repeated recorded
-    entries between the same Artist and Exhibition, while
-    count(DISTINCT exhibition) would only count exhibition events.
-    """
+    """Count recorded EXHIBITED_AT edges, including repeated entries."""
     query = """
     MATCH (artist:Artist)
     WHERE artist.id IS NOT NULL
@@ -222,7 +212,7 @@ def create_response(
     return to_records(filtered)
 
 
-def _embedding_endpoint(path: Path):
+def _embedding_endpoint(filename: str):
     def endpoint(
             cluster: list[int] | None = Query(default=None),
             cluster_status: str = Query(
@@ -252,7 +242,7 @@ def _embedding_endpoint(path: Path):
             ),
     ):
         return create_response(
-            path,
+            artifact_path(filename),
             cluster,
             cluster_status,
             minimum_membership,
@@ -267,10 +257,10 @@ def _embedding_endpoint(path: Path):
     return endpoint
 
 
-get_embeddings_2d = _embedding_endpoint(ARTIST_MAP_2D_PATH)
+get_embeddings_2d = _embedding_endpoint("artist_map_2d.parquet")
 get_embeddings_2d.__name__ = "get_embeddings_2d"
 router.get("/2d")(get_embeddings_2d)
 
-get_embeddings_3d = _embedding_endpoint(ARTIST_MAP_3D_PATH)
+get_embeddings_3d = _embedding_endpoint("artist_map_3d.parquet")
 get_embeddings_3d.__name__ = "get_embeddings_3d"
 router.get("/3d")(get_embeddings_3d)

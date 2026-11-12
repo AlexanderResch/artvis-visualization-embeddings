@@ -1,0 +1,8 @@
+{
+  "written_before_test_evaluation": true,
+  "default_application_model": "TransE",
+  "representative_seed_rule": "Highest mean bidirectional matched cluster Jaccard against the other four seeds; smallest seed breaks ties.",
+  "recommendation_rule": "Highest mean validation pair-F1 among the four selected configurations, frozen before test evaluation.",
+  "heldout_test_policy": "Only evaluated after all four workers complete five starts. No changes to training/selection after seeing these results.",
+  "finalizer_sha256": "608dc2ddc8a3e71f7673e3de0dd83a4907fc19e42ba1c91c9a7a35938d7027cc"
+}

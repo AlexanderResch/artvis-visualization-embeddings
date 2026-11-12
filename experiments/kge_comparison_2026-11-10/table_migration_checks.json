@@ -1,0 +1,26 @@
+[
+  {
+    "table": "artist_metadata",
+    "rows": 13265,
+    "backup_verified": true,
+    "parquet_equivalent": true
+  },
+  {
+    "table": "artist_clusters",
+    "rows": 13265,
+    "backup_verified": true,
+    "parquet_equivalent": true
+  },
+  {
+    "table": "artist_map_2d",
+    "rows": 13265,
+    "backup_verified": true,
+    "parquet_equivalent": true
+  },
+  {
+    "table": "artist_map_3d",
+    "rows": 13265,
+    "backup_verified": true,
+    "parquet_equivalent": true
+  }
+]

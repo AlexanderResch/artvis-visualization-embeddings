@@ -1,172 +1,38 @@
 import argparse
+import os
+from importlib import import_module
 
-from collections.abc import (
-    Callable
-)
-
-from app.ml.cluster_artists import (
-    run as run_clustering
-)
-
-from app.ml.compare_postprocessing import (
-    run as run_postprocessing_comparison
-)
-
-from app.ml.evaluate_attribute_complex import (
-    run as run_evaluation
-)
-
-from app.ml.export_snapshot import (
-    run as run_export
-)
-
-from app.ml.extract_artist_embeddings import (
-    run as run_extraction
-)
-
-from app.ml.materialize_map import (
-    run as run_materialization
-)
-
-from app.ml.prepare_training_data import (
-    run as run_preparation
-)
-
-from app.ml.profile_clusters import (
-    run as run_profiles
-)
-
-from app.ml.project_umap import (
-    run as run_projection
-)
-
-from app.ml.train_attribute_complex import (
-    run as run_training
-)
-
-
-def train_evaluation() -> None:
-    run_training(
-        "evaluation"
-    )
-
-
-def train_final() -> None:
-    run_training(
-        "final"
-    )
-
-
-STEPS: dict[
-    str,
-    Callable[[], None]
-] = {
-    "export": (
-        run_export
-    ),
-
-    "prepare": (
-        run_preparation
-    ),
-
-    "train_evaluation": (
-        train_evaluation
-    ),
-
-    "evaluate": (
-        run_evaluation
-    ),
-
-    "train_final": (
-        train_final
-    ),
-
-    "extract": (
-        run_extraction
-    ),
-
-    "compare_postprocessing": (
-        run_postprocessing_comparison
-    ),
-
-    "cluster": (
-        run_clustering
-    ),
-
-    "project": (
-        run_projection
-    ),
-
-    "materialize": (
-        run_materialization
-    ),
-
-    "profile": (
-        run_profiles
-    ),
+STEPS = {
+    "export": "export_snapshot", "prepare": "prepare_training_data", "train": "train_kge",
+    "compare_pca": "compare_pca", "cluster": "cluster_artists", "project": "project_umap",
+    "materialize": "materialize_map", "profile": "profile_clusters",
 }
 
 
-DEFAULT_STEPS = [
-    "export",
-    "prepare",
-    "train_evaluation",
-    "evaluate",
-    "train_final",
-    "extract",
-    "cluster",
-    "project",
-    "materialize",
-    "profile",
-]
-
-
-def main() -> None:
-    parser = (
-        argparse.ArgumentParser(
-            description=(
-                "Run the ArtVis "
-                "Artist embedding "
-                "pipeline"
-            )
-        )
-    )
-
-    parser.add_argument(
-        "--steps",
-
-        nargs="+",
-
-        choices=list(
-            STEPS
-        ),
-
-        default=(
-            DEFAULT_STEPS
-        ),
-
-        help=(
-            "Pipeline steps in "
-            "execution order"
-        ),
-    )
-
-    arguments = (
-        parser.parse_args()
-    )
-
-    for step_name in (
-            arguments.steps
-    ):
-        print(
-            f"\n===== "
-            f"{step_name} "
-            f"====="
-        )
-
-        STEPS[
-            step_name
-        ]()
+def main():
+    parser = argparse.ArgumentParser(description="PyKEEN KGE → HDBSCAN / UMAP")
+    parser.add_argument("--model", choices=("TransE", "DistMult", "ComplEx", "RotatE"))
+    parser.add_argument("--data-dir", help="Output directory; use a fresh directory for training.")
+    parser.add_argument("--input-dir", help="Shared graph input directory; export/prepare write here, training reads here.")
+    parser.add_argument("--seed", type=int)
+    parser.add_argument("--embedding-dim", type=int, help="Exported real dimension; must be even for complex models.")
+    parser.add_argument("--epochs", type=int)
+    parser.add_argument("--steps", nargs="+", choices=list(STEPS),
+                        default=["train", "cluster", "project", "materialize", "profile"])
+    arguments = parser.parse_args()
+    for argument, variable in (("model", "KGE_MODEL"), ("data_dir", "ML_DATA_DIR"),
+                               ("input_dir", "ML_INPUT_DIR"), ("seed", "ML_RANDOM_SEED"),
+                               ("embedding_dim", "KGE_EMBEDDING_DIM"), ("epochs", "TRAIN_EPOCHS")):
+        value = getattr(arguments, argument)
+        if value is not None:
+            os.environ[variable] = str(value)
+    # Configure paths before importing any step; each CLI invocation is one run.
+    if "train" in arguments.steps:
+        from app.ml.train_kge import check_output_directory
+        check_output_directory()
+    for name in arguments.steps:
+        print(f"\nRunning {name}", flush=True)
+        import_module(f"app.ml.{STEPS[name]}").run()
 
 
 if __name__ == "__main__":

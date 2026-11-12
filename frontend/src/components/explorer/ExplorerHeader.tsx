@@ -4,6 +4,7 @@ import {
     Button,
     MenuItem,
     TextField,
+    Tooltip,
     Typography,
 } from "@mui/material";
 
@@ -24,6 +25,7 @@ import {
 } from "./ExplorerHelpDialog";
 
 import artvisMark from "../../assets/artvis-mark.svg";
+import { useEmbeddingModel } from "../../context/EmbeddingModelContext";
 
 
 export type ExplorerMode =
@@ -70,6 +72,7 @@ export function ExplorerHeader({
     ) => void;
     onResetAll: () => void;
 }) {
+    const embedding = useEmbeddingModel();
     const [
         helpOpen,
         setHelpOpen,
@@ -123,7 +126,7 @@ export function ExplorerHeader({
                     py: 0.25,
                 }}
             >
-                <Box sx={{ minWidth: 0 }}>
+                <Box sx={{ minWidth: 0, flexShrink: 0 }}>
                     <Box
                         sx={{
                             display: "flex",
@@ -163,6 +166,7 @@ export function ExplorerHeader({
                                     fontWeight: 700,
                                     letterSpacing: "0.11em",
                                     lineHeight: 1.15,
+                                    whiteSpace: "nowrap",
                                 }}
                             >
                                 EMBEDDING EXPLORER
@@ -202,25 +206,35 @@ export function ExplorerHeader({
                             </Typography>
                         )}
                     </Breadcrumbs>
-
-                    <Typography
-                        variant="body2"
-                        color="text.secondary"
-                        sx={{ mt: 0.25 }}
-                    >
-                        {description}
-                    </Typography>
                 </Box>
 
                 <Box
                     sx={{
                         display: "flex",
                         alignItems: "center",
-                        flexWrap: "wrap",
                         gap: 1,
-                        flexShrink: 0,
+                        minWidth: 0,
+                        flexShrink: 1,
                     }}
                 >
+                    <Box sx={{
+                        display: "flex", alignItems: "center", flexWrap: "wrap", gap: 1, minWidth: 0,
+                        justifyContent: { xs: "flex-start", md: "flex-end" },
+                    }}>
+                    <TextField
+                        select
+                        size="small"
+                        label="Embedding model"
+                        value={embedding.model}
+                        onChange={(event) => embedding.selectModel(event.target.value)}
+                        sx={{ minWidth: 160 }}
+                    >
+                        {embedding.models.map((model) => (
+                            <MenuItem key={model.id} value={model.id} disabled={!model.available}>
+                                {model.rank ? `${model.rank}. ` : ""}{model.name}
+                            </MenuItem>
+                        ))}
+                    </TextField>
                     {mode !== "compare" && mode !== "cluster-compare" && (
                         <TextField
                             select
@@ -356,17 +370,6 @@ export function ExplorerHeader({
                     <Button
                         size="small"
                         variant="outlined"
-                        onClick={() =>
-                            setHelpOpen(true)
-                        }
-                        aria-label="Open Explorer help"
-                    >
-                        HELP ?
-                    </Button>
-
-                    <Button
-                        size="small"
-                        variant="outlined"
                         onClick={onResetAll}
                     >
                         Reset all
@@ -381,6 +384,22 @@ export function ExplorerHeader({
                             Return to Overview
                         </Button>
                     )}
+                    </Box>
+
+                    <Tooltip title={description} placement="bottom" arrow describeChild>
+                        <Button
+                            size="small"
+                            variant="outlined"
+                            color="primary"
+                            onClick={() => setHelpOpen(true)}
+                            aria-label="Open Explorer help"
+                            sx={{ minWidth: 34, width: 34, height: 32, p: 0, flexShrink: 0, alignSelf: "flex-start", mt: 0.5 }}
+                        >
+                            <Box component="span" aria-hidden="true" sx={{ fontSize: 18, fontWeight: 600, lineHeight: 1 }}>
+                                ?
+                            </Box>
+                        </Button>
+                    </Tooltip>
                 </Box>
             </Box>
 

@@ -249,11 +249,7 @@ function createDistinctClusterPalette(
 }
 
 
-/**
- * A deterministic palette with 64 unique colors. The bit-reversed hue order
- * keeps neighboring cluster IDs far apart in hue, which is more useful than
- * assigning colors sequentially around the color wheel.
- */
+/** Deterministic palette with separated hues for neighboring cluster IDs. */
 export const CLUSTER_COLORS =
     createDistinctClusterPalette(64);
 

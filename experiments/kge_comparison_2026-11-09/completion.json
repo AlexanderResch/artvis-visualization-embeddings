@@ -1,0 +1,92 @@
+{
+  "status": "complete",
+  "completed_at_utc": "2026-11-09T15:55:19.252428+00:00",
+  "training_runs": 12,
+  "representation_results": 36,
+  "training_seed_pairs": 36,
+  "source_files_checked": 17,
+  "analysis_sha256": "89d41228cd846fddfada1b84f7534ab438da596e9c243f02bc9a60e263e62866",
+  "validation": "passed",
+  "checks": [
+    "Declared seeds, training budgets, dimensions, sampler, and input hashes",
+    "Finite embedding arrays and immutable evaluation fingerprints",
+    "Native raw clustering agrees with common re-evaluation",
+    "All representation counts, noise fractions, and training-seed pairs",
+    "Frozen source and checkpoint SHA-256 fingerprints"
+  ],
+  "artifacts": [
+    {
+      "model": "ComplEx",
+      "seed": 41,
+      "checkpoint_sha256": "f332dff190875a4961eff034733113471da4a9b5673f7209f9c7345173425953",
+      "embedding_sha256": "535f53b5bc140dee4859dd6021db6929bbe4872a26dbba8c70d032f4f49ef9c5"
+    },
+    {
+      "model": "ComplEx",
+      "seed": 42,
+      "checkpoint_sha256": "35ac2bec48066296f526075d9f77b86e0238a1b74d46744d85ae53232d543295",
+      "embedding_sha256": "2345c34952380012f10bf85400eef3552cb98aa4ed6ab1c9f4ed2c1c54a6f149"
+    },
+    {
+      "model": "ComplEx",
+      "seed": 43,
+      "checkpoint_sha256": "cf8a1ac0637e295d2c2743ab55feb507684b941542a5c9616e2e39554b8d4add",
+      "embedding_sha256": "1f7b9712918497793698551288515be5f9e005fb1c12440913fbbfa2bb64dad0"
+    },
+    {
+      "model": "RotatE",
+      "seed": 41,
+      "checkpoint_sha256": "7add66a857d4bbc9922ad3138450009f1884e23deeb10841c405eab484e56fde",
+      "embedding_sha256": "d1219331033fb4c166f0f2204f744259d9421385b29762783961f8d5e4909e25"
+    },
+    {
+      "model": "RotatE",
+      "seed": 42,
+      "checkpoint_sha256": "38742af79983f560e3b16b453a95e6903f0ca08d4fb290298023d1f2e6797441",
+      "embedding_sha256": "be78b10eff2015af0a66fd04da4c049628ba0ff066d91d098c3c6d6f763ea49e"
+    },
+    {
+      "model": "RotatE",
+      "seed": 43,
+      "checkpoint_sha256": "cb8bc874521a64321b4a54fb35b7a8dc883286f5eba53dda45c02c072ce0ac87",
+      "embedding_sha256": "e15c62deab1a654cde4f10dc9b6b1eea92ee3d337fd78f742cba56bfd51a7c76"
+    },
+    {
+      "model": "DistMult",
+      "seed": 41,
+      "checkpoint_sha256": "1e2ef3bdd3a9c6dd53552b38a6118ce84f4238ee16c9f96df1e3db85dfa88284",
+      "embedding_sha256": "954576c2779e0c9baea399330033e3e82c671e163529bf0d0829888bfbfa90f3"
+    },
+    {
+      "model": "DistMult",
+      "seed": 42,
+      "checkpoint_sha256": "ac7ad162d7b6b682df7f23b969cfad1c4bde88d55ec6e50b3baafa060f9040ef",
+      "embedding_sha256": "425230dc07ff0ec2993182e5f0e1c7c0f8325ba048e490ead93dc342ad214119"
+    },
+    {
+      "model": "DistMult",
+      "seed": 43,
+      "checkpoint_sha256": "1edb2749f19ae6f16bccf259e49262b62253ce62cfba04e93c18b6cd930a1a85",
+      "embedding_sha256": "714c009eef6434940b196e7cf50858e5c2452a2d14ff9f9d4b8d953d94aa0697"
+    },
+    {
+      "model": "TransE",
+      "seed": 41,
+      "checkpoint_sha256": "78b2fdfd417447ea16537ab394157777873fb5af2c459e54426c6e44efd26f63",
+      "embedding_sha256": "9a249cead36c4128dfa1810b06b2e35b13c24f8fe1a3b19f08306b643b94659a"
+    },
+    {
+      "model": "TransE",
+      "seed": 42,
+      "checkpoint_sha256": "53f2abdb65ffdb9bae93a0977c67a14605d5b2c6b4dc2b402905ddab8b5bd49e",
+      "embedding_sha256": "8cb792885567db7c82d267ba29dafa531cff527288e96cc424bb269b8b743eb8"
+    },
+    {
+      "model": "TransE",
+      "seed": 43,
+      "checkpoint_sha256": "9f7882f6e36f35f1e840bf38586fbafc8531def5c956ed717ad5159e12ec083f",
+      "embedding_sha256": "1a7117d7ff793b05c1de1cc0f39cc7196fa347a1b132b83dcdcd9af29322f2a0"
+    }
+  ],
+  "scope": "Completed fixed-budget comparison; no supervised or held-out prediction evaluation."
+}

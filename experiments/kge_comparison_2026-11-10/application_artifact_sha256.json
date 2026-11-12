@@ -1,0 +1,162 @@
+[
+  {
+    "path": "transe/artist_embeddings.npy",
+    "sha256": "df1e44db8751a644fc7c991f8c61101eb377ef94e6fa6acd9dd91afaae1aae3b",
+    "bytes": 3390592
+  },
+  {
+    "path": "transe/artist_metadata.parquet",
+    "sha256": "df3933db871cee67d637cd35205b09e28e084d9f40355631e05283873eddcbdb",
+    "bytes": 1485715
+  },
+  {
+    "path": "transe/artist_clusters.parquet",
+    "sha256": "c6bde2697f39495457511d36f9afdbe7cd4f4d83f69325586d4c55cf43b0a78f",
+    "bytes": 1627802
+  },
+  {
+    "path": "transe/artist_map_2d.parquet",
+    "sha256": "e6bfdbd87cd326c42bf63c52933044aede344b075ae16c2d1c6ea59266e6d641",
+    "bytes": 597443
+  },
+  {
+    "path": "transe/artist_map_3d.parquet",
+    "sha256": "9a5b1df1d5ab1b30d0dcf30a56c68384395c7eb2e3c16885544630d9cba084f1",
+    "bytes": 668374
+  },
+  {
+    "path": "transe/cluster_profiles.json",
+    "sha256": "5f011da6a63246007272c28dd689e0c2eda77cafb6e1e36bee0cac19d08b3a5a",
+    "bytes": 153270
+  },
+  {
+    "path": "transe/selection_source.json",
+    "sha256": "cf811c78b89ddfb4c2fca152208a171460228cd75e371d0b164f86f89306939f",
+    "bytes": 1495
+  },
+  {
+    "path": "transe/transe.pt",
+    "sha256": "9e2eb7c6c264fe89dd11b3e8d5735fa0b25905dd2789dbf5501813cb44754c64",
+    "bytes": 57705181
+  },
+  {
+    "path": "distmult/artist_embeddings.npy",
+    "sha256": "dc2e47bf8f8679af75f19985d0e7b405ff7c59a1d3e144031b5784aef77d7e07",
+    "bytes": 3390592
+  },
+  {
+    "path": "distmult/artist_metadata.parquet",
+    "sha256": "df3933db871cee67d637cd35205b09e28e084d9f40355631e05283873eddcbdb",
+    "bytes": 1485715
+  },
+  {
+    "path": "distmult/artist_clusters.parquet",
+    "sha256": "4927739578fce2bef4e134166a6c4525418a63c2f6e2bd0e626b9b707feaaaa4",
+    "bytes": 1619824
+  },
+  {
+    "path": "distmult/artist_map_2d.parquet",
+    "sha256": "31747feb6cd7f1bc6c4ae2dd6e39f8115365a9422499ef80ecafdb29df01d836",
+    "bytes": 589488
+  },
+  {
+    "path": "distmult/artist_map_3d.parquet",
+    "sha256": "6effea7376c6ed3c6cb484019ab87aee27a3e6b660ca7e98f72d2bd4af46eb82",
+    "bytes": 657921
+  },
+  {
+    "path": "distmult/cluster_profiles.json",
+    "sha256": "4f6a5fc2009c5acf8900f8ba2d28f4b04715e147a368d503543fe0a60f40948e",
+    "bytes": 16974
+  },
+  {
+    "path": "distmult/selection_source.json",
+    "sha256": "0e326ddba14054552f7809993f241cdcb7e781c291da33e708110655b7b350f8",
+    "bytes": 1515
+  },
+  {
+    "path": "distmult/distmult.pt",
+    "sha256": "c477a0e3c7cd47274c6a667b3361f55b896534238d5e4edd88eb642fa633a4f9",
+    "bytes": 57705959
+  },
+  {
+    "path": "complex/artist_embeddings.npy",
+    "sha256": "a4097a2dd72df0a1b00fb6ad12e26996f5860565945a9617b4bcd2fc3f80684c",
+    "bytes": 3390592
+  },
+  {
+    "path": "complex/artist_metadata.parquet",
+    "sha256": "df3933db871cee67d637cd35205b09e28e084d9f40355631e05283873eddcbdb",
+    "bytes": 1485715
+  },
+  {
+    "path": "complex/artist_clusters.parquet",
+    "sha256": "c0defe34c63a9718367df335302702d4452bf5aa3c44549e94b75d1ae56d9740",
+    "bytes": 1643091
+  },
+  {
+    "path": "complex/artist_map_2d.parquet",
+    "sha256": "e15cfa6eb61a02693fe064709af56aaa7a862f242cbbc476c22a1fda29aabe0e",
+    "bytes": 610663
+  },
+  {
+    "path": "complex/artist_map_3d.parquet",
+    "sha256": "2bf887f45d4a298b5f7ff03014191554b68538d8ff7b05569dcb890625e482af",
+    "bytes": 680856
+  },
+  {
+    "path": "complex/cluster_profiles.json",
+    "sha256": "5d4efabbee480d54870e9348013fb70650094585ae4b6fc60b142e78b950cf3b",
+    "bytes": 23342
+  },
+  {
+    "path": "complex/selection_source.json",
+    "sha256": "087a86c88dbd9fa9a4c82f1ef180ec67157735cde566e1699eac0d64073f0fc0",
+    "bytes": 1503
+  },
+  {
+    "path": "complex/complex.pt",
+    "sha256": "2bc89c0808c53064a254d0334cccfd0f036b1dfc1a0d80c47ba16a7f6ed021d2",
+    "bytes": 57706389
+  },
+  {
+    "path": "rotate/artist_embeddings.npy",
+    "sha256": "280836c2bb33303a76f1be7cbb9b33ad04eed0d0f4f2078d9b37b656dd642a2a",
+    "bytes": 3390592
+  },
+  {
+    "path": "rotate/artist_metadata.parquet",
+    "sha256": "df3933db871cee67d637cd35205b09e28e084d9f40355631e05283873eddcbdb",
+    "bytes": 1485715
+  },
+  {
+    "path": "rotate/artist_clusters.parquet",
+    "sha256": "d7654a88ce953172ac95cae19d30ef12b7c3dc4efe6e2dcfa420d51f7d7d76cf",
+    "bytes": 1630141
+  },
+  {
+    "path": "rotate/artist_map_2d.parquet",
+    "sha256": "3971be62b5c4734e1c7f663770ed3d216710672284d022990315898bfe72ced1",
+    "bytes": 601195
+  },
+  {
+    "path": "rotate/artist_map_3d.parquet",
+    "sha256": "a7fa313384ec2382ad7c22538fe169a8416ffeab016fb77864c7954459fe3d35",
+    "bytes": 671675
+  },
+  {
+    "path": "rotate/cluster_profiles.json",
+    "sha256": "410b62e4fa7db1278fd6f42dab2553e5880187d86667b1da30fd49dc9c860c48",
+    "bytes": 259537
+  },
+  {
+    "path": "rotate/selection_source.json",
+    "sha256": "82344eb26e48be2dd809830f8624e45d1f88ee6e34adab2061df250ddf4ce967",
+    "bytes": 1494
+  },
+  {
+    "path": "rotate/rotate.pt",
+    "sha256": "4e55c90e13eff53c5164f32e652e7c29b7cddfde589930e5a3f08c05ae21178f",
+    "bytes": 57705181
+  }
+]

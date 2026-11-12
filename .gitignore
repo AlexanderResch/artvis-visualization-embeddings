@@ -4,13 +4,12 @@
 __pycache__/
 *.pyc
 
-backend/app/ml/data/
 artvis-graph-db/neo4j_dump/
 
 node_modules/
 dist/
 
-backend/app/ml/data_backup_*/
+backend/app/ml_backup_*/
+releases/
 
-# Generated user-study entries and screenshots
 backend/data/micro_entries/

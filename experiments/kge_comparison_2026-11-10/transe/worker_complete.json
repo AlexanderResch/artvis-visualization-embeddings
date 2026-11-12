@@ -1,0 +1,12 @@
+{
+  "model": "TransE",
+  "seeds": [
+    41,
+    42,
+    43,
+    44,
+    45
+  ],
+  "test_labels_used": false,
+  "status": "complete"
+}

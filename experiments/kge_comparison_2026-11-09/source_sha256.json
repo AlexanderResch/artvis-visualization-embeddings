@@ -1,0 +1,70 @@
+[
+  {
+    "path": "__init__.py",
+    "sha256": "f396b32fa1049737621ea0f5324138b34280cd819a49c7b0989b660085f51a91"
+  },
+  {
+    "path": "assess_clustering.py",
+    "sha256": "e9ef6d3a7e6765db54b587e72e0a6788d2a697b15585b4223a009749d0ca9423"
+  },
+  {
+    "path": "cluster_artists.py",
+    "sha256": "376611ce98f6c2d315a0a7cd29eee40bb56b66e912e1978d414ab35d8e0a464f"
+  },
+  {
+    "path": "compare_coexhibitions.py",
+    "sha256": "11b125bc22871c64895e4e68c5b79f429498f7e0c49564ae89185035bbf339da"
+  },
+  {
+    "path": "compare_models.py",
+    "sha256": "e4eaabd5376d45ca5a36bace4ab11b4b0c0ce33a82c8fcc2764d13769f9d71be"
+  },
+  {
+    "path": "compare_pca.py",
+    "sha256": "74218af0f73679ad6d12a116c7746b3d8ebfbe92ad138a57de8d80aaefdd01da"
+  },
+  {
+    "path": "config.py",
+    "sha256": "365789c4b5272cf68276702562deb9ace136644b01d71443e4005700a4aab530"
+  },
+  {
+    "path": "export_snapshot.py",
+    "sha256": "5636800a6db19bbbdb8050e551ab42fc324ff82195b49bd51743d41c6403665e"
+  },
+  {
+    "path": "materialize_map.py",
+    "sha256": "3157360693832d2f15bcf100f013b71125a77ff4ad87fa05c387e892af0293fb"
+  },
+  {
+    "path": "prepare_training_data.py",
+    "sha256": "c05e97eb8010af4cabd5afbe5e3074f58bab6261549ed3918b19515fe4bf2d0f"
+  },
+  {
+    "path": "profile_clusters.py",
+    "sha256": "76f0481b505d4357f82910f3e12581694680cef6c947ee119dfe6f222e1778db"
+  },
+  {
+    "path": "project_umap.py",
+    "sha256": "ae039aec86089b48b9e7afb6dc2ccfb956237048dc5098c8c0bd85ce0f108bbb"
+  },
+  {
+    "path": "README.md",
+    "sha256": "9694ef65ecad8283aeabca20a9fa4afb460b7153830978ac7105c2be98ae918b"
+  },
+  {
+    "path": "run_pipeline.py",
+    "sha256": "66ed48557640ce333887d12494bcfbc1c5c3fea11f022bbb85f37b2eb1f5ceeb"
+  },
+  {
+    "path": "test_ml_pipeline.py",
+    "sha256": "72feb5432c6535a8b6fd3110f4dba1a19a33104d467e65e388dbcfb4d7b4f760"
+  },
+  {
+    "path": "train_kge.py",
+    "sha256": "282471548f88c8abd8c08bffe8146be3cf72996677add6614a7d1891eb972dfd"
+  },
+  {
+    "path": "utils.py",
+    "sha256": "f530df4a6271b75c6a51abf09f32966afe9a1e93da761cbcc4f80168ddd03c28"
+  }
+]

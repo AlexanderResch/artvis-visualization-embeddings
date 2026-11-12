@@ -1,0 +1,10 @@
+{
+  "artist_count": 13265,
+  "exhibition_count": 1045,
+  "artist_exhibition_links": 43234,
+  "artists_with_exhibition_links": 13243,
+  "random_other_artist_shared_exhibition": 0.0440557859027516,
+  "random_pair_count": 132650,
+  "random_seed": 2026,
+  "scope": "Descriptive training-graph context, not held-out evaluation."
+}

@@ -1,0 +1,14 @@
+{
+  "status": "complete",
+  "completed_at_utc": "2026-11-10T16:13:28.736111+00:00",
+  "confirmation_runs": 20,
+  "tuning_candidates": 48,
+  "published_models": [
+    "transe",
+    "distmult",
+    "complex",
+    "rotate"
+  ],
+  "validation_recommendation": "RotatE",
+  "reference_test_evaluated_after_selection": true
+}

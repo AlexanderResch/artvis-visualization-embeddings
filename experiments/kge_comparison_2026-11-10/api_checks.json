@@ -1,0 +1,60 @@
+{
+  "status": "passed",
+  "checked_at_utc": "2026-11-10T16:20:25.801948+00:00",
+  "model_cycles": 8,
+  "request_checks": 83,
+  "checks": [
+    "Concurrent real-model maps and coordinates",
+    "Dashboard counts and cached cluster profiles",
+    "Evaluation model and held-out scores",
+    "Nearest neighbors recomputed from each native embedding matrix",
+    "Artist comparisons and complete inspected-cluster membership",
+    "Ready status, model whitelist, query precedence and CORS preflight"
+  ],
+  "models": [
+    {
+      "model": "transe",
+      "artist_count": 13244,
+      "cluster_count": 28,
+      "noise_count": 7095,
+      "neighbor_ids": [
+        "10788",
+        "223",
+        "279"
+      ]
+    },
+    {
+      "model": "distmult",
+      "artist_count": 13244,
+      "cluster_count": 3,
+      "noise_count": 10242,
+      "neighbor_ids": [
+        "417",
+        "10788",
+        "12076"
+      ]
+    },
+    {
+      "model": "complex",
+      "artist_count": 13244,
+      "cluster_count": 4,
+      "noise_count": 7757,
+      "neighbor_ids": [
+        "11827",
+        "12396",
+        "9574"
+      ]
+    },
+    {
+      "model": "rotate",
+      "artist_count": 13244,
+      "cluster_count": 48,
+      "noise_count": 4574,
+      "neighbor_ids": [
+        "145",
+        "10882",
+        "10788"
+      ]
+    }
+  ]
+}

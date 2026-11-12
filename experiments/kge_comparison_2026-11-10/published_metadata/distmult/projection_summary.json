@@ -1,0 +1,13 @@
+{
+  "embedding_model": "DistMult",
+  "l2_normalization": true,
+  "artist_count": 13244,
+  "embedding_dimension": 64,
+  "input_mode": "pca",
+  "projection_input_dimension": 10,
+  "metric": "euclidean",
+  "n_neighbors": 30,
+  "min_dist": 0.1,
+  "random_seed": 44,
+  "note": "Independent 2D/3D projections for display. HDBSCAN does not use these coordinates."
+}
