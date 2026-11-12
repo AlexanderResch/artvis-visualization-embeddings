@@ -249,7 +249,6 @@ function createDistinctClusterPalette(
 }
 
 
-/** Deterministic palette with separated hues for neighboring cluster IDs. */
 export const CLUSTER_COLORS =
     createDistinctClusterPalette(64);
 

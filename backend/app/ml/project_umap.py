@@ -17,13 +17,11 @@ def run():
     embeddings = load_embeddings()
     summary = read_json(HDBSCAN_SUMMARY_PATH)
     current_hash = file_hash(ARTIST_EMBEDDINGS_PATH)
-    if summary.get("embedding_sha256", current_hash) != current_hash:
+    if summary["embedding_sha256"] != current_hash:
         raise ValueError("Clustering and embeddings differ. Run clustering before projection.")
     use_pca = summary["input_mode"] == "pca"
-    data = normalize(embeddings).astype(np.float32) if summary.get("l2_normalization") else embeddings
+    data = normalize(embeddings).astype(np.float32) if summary["l2_normalization"] else embeddings
     if use_pca:
-        if summary.get("embedding_sha256") != current_hash:
-            raise ValueError("Run clustering on the current embeddings before projecting the shared PCA representation.")
         pca = joblib.load(HDBSCAN_PCA_PATH)
         data = pca.transform(data).astype(np.float32)
     neighbors = min(UMAP_N_NEIGHBORS, len(embeddings) - 1)
@@ -37,8 +35,8 @@ def run():
         np.save(path, coordinates.astype(np.float32))
         print(f"Saved {dimensions}D UMAP for {len(embeddings):,} artists.", flush=True)
     write_json(PROJECTION_SUMMARY_PATH, {
-        "embedding_model": summary.get("embedding_model"),
-        "l2_normalization": bool(summary.get("l2_normalization")),
+        "embedding_model": summary["embedding_model"],
+        "l2_normalization": summary["l2_normalization"],
         "artist_count": len(embeddings), "embedding_dimension": embeddings.shape[1],
         "input_mode": "pca" if use_pca else "raw", "projection_input_dimension": data.shape[1],
         "metric": "euclidean", "n_neighbors": neighbors,

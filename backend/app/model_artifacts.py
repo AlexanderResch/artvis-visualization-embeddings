@@ -7,6 +7,11 @@ from fastapi import HTTPException
 from app.ml.config import DATA_ROOT, MODEL_ROOT, SUPPORTED_MODELS
 from app.ml.utils import read_json
 
+REQUIRED_ARTIFACTS = (
+    "artist_embeddings.npy", "artist_clusters.parquet", "artist_map_2d.parquet",
+    "artist_map_3d.parquet", "cluster_profiles.json", "hdbscan_summary.json",
+)
+
 
 @dataclass(frozen=True)
 class ModelArtifacts:
@@ -14,6 +19,9 @@ class ModelArtifacts:
     name: str
     directory: Path
     input_directory: Path
+
+    def missing_files(self):
+        return [name for name in REQUIRED_ARTIFACTS if not (self.directory / name).is_file()]
 
 
 CURRENT_MODEL: ContextVar[ModelArtifacts | None] = ContextVar("embedding_model", default=None)
@@ -57,10 +65,7 @@ def available_models():
     for key, name in SUPPORTED_MODELS.items():
         try:
             artifacts = resolve_model(key)
-            ready = all((artifacts.directory / filename).exists() for filename in (
-                "artist_embeddings.npy", "artist_clusters.parquet", "artist_map_2d.parquet",
-                "artist_map_3d.parquet", "cluster_profiles.json", "hdbscan_summary.json",
-            ))
+            ready = not artifacts.missing_files()
         except HTTPException:
             ready = False
         entry = manifest["models"].get(key, {})

@@ -4,7 +4,7 @@ from importlib import import_module
 
 STEPS = {
     "export": "export_snapshot", "prepare": "prepare_training_data", "train": "train_kge",
-    "compare_pca": "compare_pca", "cluster": "cluster_artists", "project": "project_umap",
+    "cluster": "cluster_artists", "project": "project_umap",
     "materialize": "materialize_map", "profile": "profile_clusters",
 }
 

@@ -1,16 +1,8 @@
-import {
-    useEffect,
-    useMemo,
-    useState,
-} from "react";
+import { useMemo } from "react";
 
-import {
-    fetchArtistContext,
-} from "../api/artistsApi";
-
-import type {
-    ArtistContextResponse,
-} from "../types/artistContext";
+import { fetchArtistContext } from "../api/artistsApi";
+import type { ArtistContextResponse } from "../types/artistContext";
+import { useAsyncResource } from "./useAsyncResource";
 
 
 type ArtistContextState = {
@@ -20,101 +12,15 @@ type ArtistContextState = {
 };
 
 
-type ArtistContextResult = {
-    key: string | null;
-    context: ArtistContextResponse | null;
-    error: string | null;
-};
-
-
 export function useArtistContext(
     artistId: string | null,
     enabled: boolean,
 ): ArtistContextState {
-    const requestKey =
-        enabled && artistId
-            ? artistId
-            : null;
+    const request = useMemo(() => {
+        if (!artistId || !enabled) return null;
+        return (signal: AbortSignal) => fetchArtistContext(artistId, signal);
+    }, [artistId, enabled]);
 
-    const [result, setResult] =
-        useState<ArtistContextResult>({
-            key: null,
-            context: null,
-            error: null,
-        });
-
-    useEffect(
-        () => {
-            if (!requestKey) {
-                return;
-            }
-
-            const controller =
-                new AbortController();
-
-            fetchArtistContext(
-                requestKey,
-                controller.signal,
-            )
-                .then(
-                    (response) => {
-                        if (!controller.signal.aborted) {
-                            setResult({
-                                key: requestKey,
-                                context: response,
-                                error: null,
-                            });
-                        }
-                    },
-                )
-                .catch(
-                    (reason: unknown) => {
-                        if (!controller.signal.aborted) {
-                            setResult({
-                                key: requestKey,
-                                context: null,
-                                error:
-                                    reason instanceof Error
-                                        ? reason.message
-                                        : "Failed to load Artist context",
-                            });
-                        }
-                    },
-                );
-
-            return () =>
-                controller.abort();
-        },
-        [requestKey],
-    );
-
-    return useMemo(
-        () => {
-            if (!requestKey) {
-                return {
-                    context: null,
-                    loading: false,
-                    error: null,
-                };
-            }
-
-            if (result.key !== requestKey) {
-                return {
-                    context: null,
-                    loading: true,
-                    error: null,
-                };
-            }
-
-            return {
-                context: result.context,
-                loading: false,
-                error: result.error,
-            };
-        },
-        [
-            requestKey,
-            result,
-        ],
-    );
+    const { data, loading, error } = useAsyncResource(request);
+    return { context: data, loading, error };
 }

@@ -1,5 +1,3 @@
-"""Regression checks for graph filtering, artifact alignment, and the complete pipeline."""
-
 import json
 import os
 from pathlib import Path
@@ -163,7 +161,7 @@ class PipelineTests(unittest.TestCase):
                 **os.environ, "ML_DATA_DIR": str(source), "ML_INPUT_DIR": str(source),
                 "KGE_MODEL": "TransE", "KGE_EMBEDDING_DIM": "8", "TRAIN_BATCH_SIZE": "32",
                 "HDBSCAN_MIN_CLUSTER_SIZE": "5", "HDBSCAN_MIN_SAMPLES": "2",
-                "HDBSCAN_USE_PCA": "false", "INCLUDE_COEXHIBITIONS": "true",
+                "HDBSCAN_USE_PCA": "false", "HDBSCAN_NORMALIZE": "false", "INCLUDE_COEXHIBITIONS": "true",
                 "NEGATIVE_SAMPLER": "pseudo_typed", "TORCH_NUM_THREADS": "1", "ML_DEVICE": "cpu",
                 "UMAP_N_NEIGHBORS": "5",
                 "CHECKPOINT_EPOCHS": "1",
@@ -184,12 +182,10 @@ class PipelineTests(unittest.TestCase):
             input_files = [source / name for name in ("triples.npy", "entity_metadata.parquet", "relation_mapping.json")]
             hashes = {path.name: hashlib.sha256(path.read_bytes()).hexdigest() for path in input_files}
             output = Path(temporary) / "comparison"
-            execute(["app.ml.compare_models", "--input-dir", str(source), "--output-dir", str(output),
-                     "--seeds", "43", "--epochs", "2", "--embedding-dim", "8"])
-            report = json.loads((output / "comparison.json").read_text())
-            self.assertEqual(report["status"], "complete")
-            self.assertEqual(len(pd.read_parquet(output / "comparison.parquet")), 4)
-            self.assertEqual(report["prepared_data_sha256"], hashes)
+            for name in ("TransE", "DistMult", "ComplEx", "RotatE"):
+                execute(["app.ml.run_pipeline", "--model", name, "--input-dir", str(source),
+                         "--data-dir", str(output / name.lower() / "seed_43"), "--seed", "43",
+                         "--epochs", "2", "--embedding-dim", "8", "--steps", "train", "cluster"])
             self.assertEqual({path.name: hashlib.sha256(path.read_bytes()).hexdigest() for path in input_files}, hashes)
             self.assertFalse((source / "artist_embeddings.npy").exists())
             metadata = pd.read_parquet(source / "entity_metadata.parquet")
@@ -255,6 +251,19 @@ class PipelineTests(unittest.TestCase):
                      "--data-dir", str(invalid), "--input-dir", str(source), "--steps", "train"], success=False)
             self.assertFalse(invalid.exists())
 
+    def test_comparison_representations_preserve_input_vectors(self):
+        from app.ml.refine_models import transform
+
+        vectors = np.random.default_rng(7).normal(size=(30, 16)).astype(np.float32)
+        original = vectors.copy()
+        self.assertTrue(np.array_equal(transform(vectors, "raw"), original))
+        self.assertTrue(np.allclose(np.linalg.norm(transform(vectors, "l2"), axis=1), 1))
+        reduced = transform(vectors, "l2_pca10")
+        self.assertEqual(reduced.shape, (30, 10))
+        self.assertTrue(np.isfinite(reduced).all())
+        self.assertTrue(np.allclose(reduced.mean(axis=0), 0, atol=1e-6))
+        self.assertTrue(np.array_equal(vectors, original))
+
     def test_complete_pipeline_uses_isolated_output_directory(self):
         nodes, edges = snapshot()
         with tempfile.TemporaryDirectory() as temporary:
@@ -267,13 +276,13 @@ class PipelineTests(unittest.TestCase):
                            "KGE_MODEL": "TransE", "KGE_EMBEDDING_DIM": "8", "TRAIN_BATCH_SIZE": "32",
                            "ML_INPUT_DIR": str(input_directory),
                            "HDBSCAN_MIN_CLUSTER_SIZE": "5", "HDBSCAN_MIN_SAMPLES": "2",
-                           "HDBSCAN_USE_PCA": "false", "UMAP_N_NEIGHBORS": "5",
+                           "HDBSCAN_USE_PCA": "false", "HDBSCAN_NORMALIZE": "false", "UMAP_N_NEIGHBORS": "5",
                            "INCLUDE_COEXHIBITIONS": "false",
                            "NEGATIVE_SAMPLER": "pseudo_typed",
                            "TORCH_NUM_THREADS": "1", "ML_DEVICE": "cpu"}
             result = subprocess.run(
                 [sys.executable, "-m", "app.ml.run_pipeline", "--steps", "prepare", "train",
-                 "compare_pca", "cluster", "project", "materialize", "profile"],
+                 "cluster", "project", "materialize", "profile"],
                 env=environment, capture_output=True, text=True, timeout=180,
             )
             self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
@@ -290,9 +299,6 @@ class PipelineTests(unittest.TestCase):
                 self.assertEqual(len(frame), 30)
                 self.assertTrue(np.isfinite(frame[["x", "y"]]).all().all())
                 self.assertTrue(np.array_equal(frame.artist_index, np.arange(30)))
-            comparison = json.loads((directory / "pca_comparison.json").read_text())
-            self.assertEqual(set(comparison["variants"]), {"raw", "pca"})
-            self.assertEqual(len(comparison["variants"]["raw"]["subsample_ari_including_noise"]), 3)
             self.assertEqual(json.loads((directory / "projection_summary.json").read_text())["input_mode"], "raw")
             environment.update(HDBSCAN_USE_PCA="true", HDBSCAN_PCA_COMPONENTS="4")
             result = subprocess.run(

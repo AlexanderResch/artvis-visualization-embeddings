@@ -48,12 +48,7 @@ def read_json(path: Path) -> dict:
 
 
 def read_table(path, dtype=None):
-    path = Path(path)
-    if path.suffix == ".parquet" and path.exists():
-        frame = pd.read_parquet(path)
-    else:
-        legacy = path.with_suffix(".csv") if path.suffix == ".parquet" else path
-        frame = pd.read_csv(legacy, dtype=dtype)
+    frame = pd.read_parquet(path)
     for column, kind in (dtype or {}).items():
         if column in frame and kind is str:
             frame[column] = frame[column].astype("string")

@@ -179,7 +179,6 @@ def get_evaluation():
         "embeddings": artifact_path("embedding_summary.json"),
         "clustering": artifact_path("hdbscan_summary.json"),
         "projection": artifact_path("projection_summary.json"),
-        "pca_comparison": artifact_path("pca_comparison.json"),
         "group_evaluation": artifact_path("group_evaluation.json"),
     }
     response = {name: read_json(path) for name, path in paths.items() if path.exists()}

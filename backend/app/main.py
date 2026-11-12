@@ -25,7 +25,7 @@ from app.db import (
     verify_connectivity,
 )
 
-from app.model_artifacts import CURRENT_MODEL, artifact_path, available_models, resolve_model
+from app.model_artifacts import CURRENT_MODEL, current_artifacts, available_models, resolve_model
 
 from app.routers.artists import (
     router as artists_router
@@ -176,15 +176,7 @@ def health():
 
 @app.get("/ready")
 def ready():
-    missing_artifacts = [
-        path.name
-        for path in (
-            artifact_path("artist_map_2d.parquet"),
-            artifact_path("artist_clusters.parquet"),
-            artifact_path("artist_embeddings.npy"),
-        )
-        if not path.exists()
-    ]
+    missing_artifacts = current_artifacts().missing_files()
 
     if missing_artifacts:
         raise HTTPException(

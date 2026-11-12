@@ -210,8 +210,6 @@ def finalize(root):
     selection_path = root / "selection_manifest.json"
     if selection_path.exists():
         existing = read_json(selection_path)
-        if existing.get("rule") == "Highest mean validation pair-F1; representative seeds use cross-seed Jaccard only; default application model remains TransE.":
-            selection_record["rule"] = existing["rule"]
         if any(existing[key] != value for key, value in selection_record.items()):
             raise ValueError("The configuration freeze changed after test evaluation.")
     else:

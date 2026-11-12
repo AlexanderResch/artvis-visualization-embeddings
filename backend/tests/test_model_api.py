@@ -113,6 +113,14 @@ def main():
             with urlopen(f"http://127.0.0.1:{port}/embeddings/2d?limit=1", timeout=60) as response:
                 assert response.headers["X-Embedding-Model"] == "rotate"
                 assert json.loads(response.read())[0]["cluster"] == 103
+            (root / "rotate/artist_map_3d.parquet").unlink()
+            catalog = request("/models", "rotate")
+            assert not next(row for row in catalog["models"] if row["id"] == "rotate")["available"]
+            try:
+                request("/ready", "rotate")
+                raise AssertionError("Incomplete model data were marked ready.")
+            except HTTPError as error:
+                assert error.code == 503
             print("Model-specific maps, neighbors, comparisons, cluster inspections, caches, and invalid selection checks passed.")
         except Exception:
             print((root / "api.log").read_text()[-6000:])

@@ -146,7 +146,7 @@ artvis-frontend
 Open the application:
 
 ```text
-http://localhost:5173
+http://localhost:5173/embedding-explorer/
 ```
 
 Backend:
