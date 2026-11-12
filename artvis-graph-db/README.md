@@ -67,6 +67,8 @@ This structure supports both local and Dockerized Neo4j setups, with data, scrip
 ### Prerequisites
 - [Docker](https://docs.docker.com/get-docker/) installed and running
 - (Optional) [Docker Compose](https://docs.docker.com/compose/)
+- Download the database dump from the GitHub Release and extract it if supplied
+  as a ZIP. Copy `neo4j.dump` into `neo4j_dump/` before building.
 
 ### Environment Files
 - `dev.env`: For local development (no SSL, default memory settings)
@@ -93,7 +95,9 @@ docker compose --env-file prod.env up -d
 
 ## 4. Importing the Neo4j Dump File (Docker)
 
-The Dockerfile and `import.sh` script will automatically import the dump file from `neo4j_dump/` during the build process. No manual action is needed unless you want to re-import data.
+Before building, place the downloaded dump at `neo4j_dump/neo4j.dump`. The
+Dockerfile and `import.sh` then import it automatically during the build. The
+build requires this file to be present.
 
 ---
 

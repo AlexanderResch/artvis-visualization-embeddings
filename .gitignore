@@ -4,7 +4,8 @@
 __pycache__/
 *.pyc
 
-artvis-graph-db/neo4j_dump/
+artvis-graph-db/neo4j_dump/*
+!artvis-graph-db/neo4j_dump/.gitkeep
 
 node_modules/
 dist/

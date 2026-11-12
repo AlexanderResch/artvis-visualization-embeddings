@@ -89,7 +89,8 @@ The frontend is available on port `5173`.
 
 ## 3. Required Data Files
 
-The precomputed ML data are distributed separately from the source code.
+The local setup requires the ML data and Neo4j database dump from the same GitHub
+Release. Both are distributed separately from the source code.
 
 ### 3.1 Add the model data
 
@@ -97,7 +98,6 @@ The precomputed ML data are distributed separately from the source code.
 2. In File Explorer, right-click the ZIP and select **Extract All**.
 3. If the backend is running, stop it in Docker Desktop. Copy the entire extracted
    **data** folder into **backend/app/ml** in your project.
-4. Start the application, or restart the backend if it was already running.
 
 The resulting folder must be `backend/app/ml/data/`, containing `input/` and
 `models/`. The model catalog is at `backend/app/ml/data/models/manifest.json`.
@@ -106,6 +106,18 @@ The data include embeddings, clusters, and 2D/3D maps for RotatE, TransE, DistMu
 and ComplEx. RotatE is the default. All four datasets use L2 normalization followed
 by PCA, reducing the 64 embedding features to ten dimensions. HDBSCAN produces
 clusters from this representation, and UMAP uses it to generate the 2D/3D maps.
+
+### 3.2 Add the Neo4j database dump
+
+1. Download the database dump from the same GitHub Release. If it is supplied as
+   a ZIP, extract it in File Explorer first.
+2. Open **artvis-graph-db** in your project and create a **neo4j_dump** folder if
+   it is missing.
+3. Copy **neo4j.dump** into that folder. The complete path must be
+   `artvis-graph-db/neo4j_dump/neo4j.dump`.
+
+Add both datasets before starting the application as described in Section 4.
+Docker imports the provided dump automatically during the database image build.
 
 ---
 
