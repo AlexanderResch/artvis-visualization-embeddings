@@ -37,6 +37,8 @@ import { EmbeddingModelProvider } from "./context/EmbeddingModelProvider";
 import { useEmbeddingModel } from "./context/EmbeddingModelContext";
 
 const PARTICIPANT_SESSION_KEY = "artvis-study-participant-id";
+// Accept the deployment base path with or without a trailing slash.
+const ROUTER_BASENAME = import.meta.env.BASE_URL.replace(/\/+$/, "") || "/";
 
 
 function ExplorerRedirect({ selection = {} }: { selection?: Record<string, string> }) {
@@ -103,7 +105,7 @@ function App() {
                     <ParticipantGate onStart={startParticipantSession} />
                 )
                 : (
-                    <BrowserRouter basename={import.meta.env.BASE_URL}>
+                    <BrowserRouter basename={ROUTER_BASENAME}>
                         <EmbeddingModelProvider><ExplorerProvider>
                             <Routes>
                                 <Route
