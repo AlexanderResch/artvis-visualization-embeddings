@@ -1095,7 +1095,6 @@ def _explanatory_path(
             RETURN path
             ORDER BY coalesce(
                 exhibition.startdate,
-                exhibition.startDate,
                 exhibition.year,
                 exhibition.title,
                 exhibition.name
@@ -1138,7 +1137,6 @@ def _explanatory_path(
             RETURN path
             ORDER BY coalesce(
                 location.name,
-                location.label,
                 toString(location.id)
             )
             LIMIT 1
